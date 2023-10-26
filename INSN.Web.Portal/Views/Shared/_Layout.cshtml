@@ -15,12 +15,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
  *@
     <!-- Vendor CSS Files -->
+    <link href="~/css/owl.css" rel="stylesheet" />
     <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="~/vendor/aos/aos.css" rel="stylesheet">
     <link href="~/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="~/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
   <!-- Template Main CSS File -->
     <link href="~/css/main.css" rel="stylesheet">
 
@@ -88,7 +88,8 @@
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
         </div>
-    </header><!-- End Header -->
+    </header>
+    <!-- End Header -->
     <!-- End Header -->
 
    @*  <header>
@@ -116,7 +117,7 @@
 
 
 
-    <div class="container">
+    <div class="footer">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -203,9 +204,10 @@
     <script src="~/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
+    <script src="~/js/jquery.js"></script>
     <script src="~/js/main.js"></script>
-
-
+    <script src="~/js/owl-carousel.js"></script>
+    <script src="~/js/custom.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
