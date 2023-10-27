@@ -28,7 +28,7 @@
       loop:true,
       nav: true,
 	  dots:true,
-	  navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
+	/*  navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],*/
       margin:30,
       responsive:{
         992:{
