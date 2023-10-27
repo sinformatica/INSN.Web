@@ -60,7 +60,7 @@ h6 {
 # Sections & Section Header
 --------------------------------------------------------------*/
 section {
-    padding: 60px 0;
+    padding: 0px 0;
     overflow: hidden;
 }
 
@@ -2685,6 +2685,7 @@ Banner Style
     background-size: cover;
     padding: 220px 20% 320px 20%;
     margin-top: 0px;
+   margin-bottom: 40px;
 }
 
 .main-banner .item-1 {
