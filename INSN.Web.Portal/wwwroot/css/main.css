@@ -954,32 +954,21 @@ section {
         }
 
             .services .service-item .icon i {
-                color: var(--color-default);
+                color: #0096ad;
                 font-size: 56px;
                 transition: ease-in-out 0.3s;
                 z-index: 2;
                 position: relative;
             }
 
-            .services .service-item .icon:before {
-                position: absolute;
-                content: "";
-                height: 100%;
-                width: 100%;
-                background: #eeeeee;
-                border-radius: 50px;
-                z-index: 1;
-                top: 10px;
-                right: -20px;
-                transition: 0.3s;
-            }
+            
 
         .services .service-item h3 {
             color: var(--color-default);
             font-weight: 700;
             margin: 0 0 20px 0;
             padding-bottom: 8px;
-            font-size: 22px;
+            font-size: 18px;
             position: relative;
             display: inline-block;
             border-bottom: 4px solid #eeeeee;
