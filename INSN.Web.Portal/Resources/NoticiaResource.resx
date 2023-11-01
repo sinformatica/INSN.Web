@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EtiquetaContenidoNoticia_1_CodigoFecha" xml:space="preserve">
-    <value>Noticia Nº066/2023</value>
+    <value>Noticia Nº 066/2023</value>
   </data>
   <data name="EtiquetaContenidoNoticia_1_p1" xml:space="preserve">
     <value>El Dr. Raffo Escalante Kanashiro, Jefe de la Oficina de Gestión de la Calidad del Instituto Nacional de Salud del Niño, participó en la mesa de trabajo “Importancia de la propuesta de Ley RCP (Reanimación Cardiopulmonar) para todos” organizada por la Congresista Milagros Jáuregui de Aguayo.
@@ -128,10 +128,30 @@
     <value>Esta propuesta es una iniciativa en la cual se quiere lograr que la respuesta inicial en reanimación cardiopulmonar (RCP), uso del desfibrilador externo automático (DEA) y Maniobra de Heimlich, sea un compromiso para todos basado en el entrenamiento y conocimiento a nivel de organizaciones, comunidad, colegios, universidades, establecimientos públicos y privados. &lt;br&gt;
 También participaron en la reunión el Dr. Tomy Villanueva del Hospital de Emergencias Pediátricas Grau y el Sr. Esteban Astete, representante de la Compañía de Bomberos N° 96 de la Molina “Andrés Avelino Cáceres”.</value>
   </data>
+  <data name="EtiquetaContenidoNoticia_2_CodigoFecha" xml:space="preserve">
+    <value>Noticia Nº062/2023</value>
+  </data>
+  <data name="EtiquetaContenidoNoticia_2_p1" xml:space="preserve">
+    <value>El Instituto Nacional de Salud del Niño realizó con éxito la primera interconsulta médica utilizando Telemedicina Avanzada. Esta innovadora tecnología permitió establecer una conexión remota del servicio de Dermatología del INSN con el Hospital Alemán de Buenos Aires, Argentina, a través de la Unidad de Telesalud, de la Dirección Ejecutiva de Apoyo a la Investigación y Docencia Especializada.
+&lt;br&gt;
+La teleinterconsulta realizada fue un éxito, facilitando la comunicación y transferencia de información necesaria para el análisis, la Dra. Rosalía Ballona, jefa del servicio de Dermatología del INSN, quien proyectó las imágenes necesarias mediante el uso de un dermatoscopio digital para una minuciosa evaluación de un lunar ungueal en un paciente de 3 años, cuya lesión presentaba alteraciones preocupantes.</value>
+  </data>
+  <data name="EtiquetaContenidoNoticia_2_p2" xml:space="preserve">
+    <value>Por su parte, la Dra. Virginia Mariana González, dermatóloga especialista en cáncer de piel del Hospital Alemán (Argentina), participó activamente en la consulta remota, brindando su experiencia y conocimiento en la evaluación del caso. Tras analizar las imágenes proyectadas, la Dra. González concluyó que se trata de un lunar congénito con zonas claras en su parte central y una apariencia de "serrucho" en la parte distal, siendo dermatoscópicamente normal.
+&lt;br&gt;
+"El objetivo del nuevo procedimiento, es establecer conexiones con instituciones y hospitales de renombre en diversas áreas médicas, brindando a niños y adolescentes acceso a la mejor atención médica sin importar las barreras geográficas", enfatizó la Dra. Ballona.
+&lt;br&gt;
+Este logro representa un avance significativo en el campo de la medicina, ya que permite realizar consultas a distancia con expertos de renombre en instituciones y hospitales de todo el mundo. El INSN se enorgullece de ser el primer instituto en implementar este tipo de consultas médicas, abriendo las puertas a una nueva forma de comunicación avanzada en beneficio de los pacientes pediátricos en el Perú.
+&lt;br&gt;
+La inauguración oficial de esta tecnología pionera está programada para el 14 de julio, y se espera que sea el inicio de un nuevo capítulo en la atención médica pediátrica, brindando acceso a especialistas internacionales desde cualquier parte del mundo.</value>
+  </data>
   <data name="EtiquetaFechaNoticia_1" xml:space="preserve">
     <value>Jue, 20/07/2023 - 12:00</value>
   </data>
   <data name="EtiquetaTítuloNoticia_1" xml:space="preserve">
     <value>INSN presente en mesa de trabajo sobre propuesta de Ley RCP para todos</value>
+  </data>
+  <data name="EtiquetaTítuloNoticia_2" xml:space="preserve">
+    <value>Con éxito se realizó primera teleinterconsulta médica por Telemedicina de Avanzada entre el Instituto Nacional de Salud del Niño y el Hospital Alemán - Argentina</value>
   </data>
 </root>

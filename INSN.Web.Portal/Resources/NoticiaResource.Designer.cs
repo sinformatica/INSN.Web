@@ -61,7 +61,7 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Noticia Nº066/2023.
+        ///   Busca una cadena traducida similar a Noticia Nº 066/2023.
         /// </summary>
         public static string EtiquetaContenidoNoticia_1_CodigoFecha {
             get {
@@ -90,6 +90,37 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Noticia Nº062/2023.
+        /// </summary>
+        public static string EtiquetaContenidoNoticia_2_CodigoFecha {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoNoticia_2_CodigoFecha", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El Instituto Nacional de Salud del Niño realizó con éxito la primera interconsulta médica utilizando Telemedicina Avanzada. Esta innovadora tecnología permitió establecer una conexión remota del servicio de Dermatología del INSN con el Hospital Alemán de Buenos Aires, Argentina, a través de la Unidad de Telesalud, de la Dirección Ejecutiva de Apoyo a la Investigación y Docencia Especializada.
+        ///&lt;br&gt;
+        ///La teleinterconsulta realizada fue un éxito, facilitando la comunicación y transferencia de información neces [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        public static string EtiquetaContenidoNoticia_2_p1 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoNoticia_2_p1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Por su parte, la Dra. Virginia Mariana González, dermatóloga especialista en cáncer de piel del Hospital Alemán (Argentina), participó activamente en la consulta remota, brindando su experiencia y conocimiento en la evaluación del caso. Tras analizar las imágenes proyectadas, la Dra. González concluyó que se trata de un lunar congénito con zonas claras en su parte central y una apariencia de &quot;serrucho&quot; en la parte distal, siendo dermatoscópicamente normal.
+        ///&lt;br&gt;
+        ///&quot;El objetivo del nuevo procedimiento, es est [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        public static string EtiquetaContenidoNoticia_2_p2 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoNoticia_2_p2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Jue, 20/07/2023 - 12:00.
         /// </summary>
         public static string EtiquetaFechaNoticia_1 {
@@ -104,6 +135,15 @@ namespace INSN.Web.Portal.Resources {
         public static string EtiquetaTítuloNoticia_1 {
             get {
                 return ResourceManager.GetString("EtiquetaTítuloNoticia_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Con éxito se realizó primera teleinterconsulta médica por Telemedicina de Avanzada entre el Instituto Nacional de Salud del Niño y el Hospital Alemán - Argentina.
+        /// </summary>
+        public static string EtiquetaTítuloNoticia_2 {
+            get {
+                return ResourceManager.GetString("EtiquetaTítuloNoticia_2", resourceCulture);
             }
         }
     }
