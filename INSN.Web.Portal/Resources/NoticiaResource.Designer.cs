@@ -61,16 +61,116 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Noticia Nº 066/2023.
+        ///   Busca una cadena traducida similar a Noticia Nº 041.
         /// </summary>
-        public static string EtiquetaContenidoNoticia_1_CodigoFecha {
+        public static string EtiquetaContenidoCodigoFechaNoticia_1 {
             get {
-                return ResourceManager.GetString("EtiquetaContenidoNoticia_1_CodigoFecha", resourceCulture);
+                return ResourceManager.GetString("EtiquetaContenidoCodigoFechaNoticia_1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El Dr. Raffo Escalante Kanashiro, Jefe de la Oficina de Gestión de la Calidad del Instituto Nacional de Salud del Niño, participó en la mesa de trabajo “Importancia de la propuesta de Ley RCP (Reanimación Cardiopulmonar) para todos” organizada por la Congresista Milagros Jáuregui de Aguayo.
+        ///   Busca una cadena traducida similar a Noticia Nº42.
+        /// </summary>
+        public static string EtiquetaContenidoCodigoFechaNoticia_2 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoCodigoFechaNoticia_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Noticia Nº53-2023.
+        /// </summary>
+        public static string EtiquetaContenidoCodigoFechaNoticia_3 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoCodigoFechaNoticia_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Noticia Nº 44.
+        /// </summary>
+        public static string EtiquetaContenidoCodigoFechaNoticia_4 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoCodigoFechaNoticia_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Noticia Nº62/2023.
+        /// </summary>
+        public static string EtiquetaContenidoCodigoFechaNoticia_5 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoCodigoFechaNoticia_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Noticia Nº 066/2023.
+        /// </summary>
+        public static string EtiquetaContenidoCodigoFechaNoticia_6 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoCodigoFechaNoticia_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Lun, 13/03/2023 - 12:00.
+        /// </summary>
+        public static string EtiquetaContenidoFechaNoticia_1 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoFechaNoticia_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Lun, 20/03/2023 - 12:00.
+        /// </summary>
+        public static string EtiquetaContenidoFechaNoticia_2 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoFechaNoticia_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Lun, 20/03/2023 - 12:00.
+        /// </summary>
+        public static string EtiquetaContenidoFechaNoticia_3 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoFechaNoticia_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Vie, 05/05/2023 - 12:00.
+        /// </summary>
+        public static string EtiquetaContenidoFechaNoticia_4 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoFechaNoticia_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Mar, 11/07/2023 - 12:00.
+        /// </summary>
+        public static string EtiquetaContenidoFechaNoticia_5 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoFechaNoticia_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Jue, 20/07/2023 - 12:00.
+        /// </summary>
+        public static string EtiquetaContenidoFechaNoticia_6 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoFechaNoticia_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El director general, Dr. Jaime Tasayco, firmó esta tarde la resolución de aprobación del expediente técnico de la Inversión de Optimización, de Ampliación Marginal, Rehabilitación y Reposición (IOARR) “Construcción de Resonancia Magnética; adquisición de resonador magnético; además de otros activos en el (la) EESS Instituto Nacional de Salud del Niño - Breña”, lo que marca un hito en la historia de nuestra institución ya que en estos 93 años de fundación nunca se ha contado con un resonador magnético.
+        ///
         ///.
         /// </summary>
         public static string EtiquetaContenidoNoticia_1_p1 {
@@ -80,8 +180,7 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Esta propuesta es una iniciativa en la cual se quiere lograr que la respuesta inicial en reanimación cardiopulmonar (RCP), uso del desfibrilador externo automático (DEA) y Maniobra de Heimlich, sea un compromiso para todos basado en el entrenamiento y conocimiento a nivel de organizaciones, comunidad, colegios, universidades, establecimientos públicos y privados. &lt;br&gt;
-        ///También participaron en la reunión el Dr. Tomy Villanueva del Hospital de Emergencias Pediátricas Grau y el Sr. Esteban Astete, representant [resto de la cadena truncado]&quot;;.
+        ///   Busca una cadena traducida similar a El expediente refrendado por el Dr. Tasayco será presentado ante el Ministerio de Salud (Minsa) para solicitar la adjudicación, explicó la Dra. Fabiola Evangelista Ricci, directora de Apoyo al Diagnóstico y Tratamiento INSN.  “Hemos pensado en dos resonadores, el plano que se ha realizado es muy moderno, tiene toda la tecnología de punta para poder albergar un resonador de 3 teslas; de tal manera que cuando cumpla su ciclo de uso, diez años aproximadamente, no tengamos ningún tipo de brecha, asegurando la c [resto de la cadena truncado]&quot;;.
         /// </summary>
         public static string EtiquetaContenidoNoticia_1_p2 {
             get {
@@ -90,18 +189,7 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Noticia Nº062/2023.
-        /// </summary>
-        public static string EtiquetaContenidoNoticia_2_CodigoFecha {
-            get {
-                return ResourceManager.GetString("EtiquetaContenidoNoticia_2_CodigoFecha", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a El Instituto Nacional de Salud del Niño realizó con éxito la primera interconsulta médica utilizando Telemedicina Avanzada. Esta innovadora tecnología permitió establecer una conexión remota del servicio de Dermatología del INSN con el Hospital Alemán de Buenos Aires, Argentina, a través de la Unidad de Telesalud, de la Dirección Ejecutiva de Apoyo a la Investigación y Docencia Especializada.
-        ///&lt;br&gt;
-        ///La teleinterconsulta realizada fue un éxito, facilitando la comunicación y transferencia de información neces [resto de la cadena truncado]&quot;;.
+        ///   Busca una cadena traducida similar a Esta mañana se llevó a cabo el izamiento del Pabellón Nacional e Institucional en el patio principal del Instituto Nacional de Salud del Niño. Este acto fue encabezado por el director general, Dr. Jaime Tasayco quien estuvo acompañado de los directores de línea, personal asistencial y administrativo..
         /// </summary>
         public static string EtiquetaContenidoNoticia_2_p1 {
             get {
@@ -110,9 +198,11 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Por su parte, la Dra. Virginia Mariana González, dermatóloga especialista en cáncer de piel del Hospital Alemán (Argentina), participó activamente en la consulta remota, brindando su experiencia y conocimiento en la evaluación del caso. Tras analizar las imágenes proyectadas, la Dra. González concluyó que se trata de un lunar congénito con zonas claras en su parte central y una apariencia de &quot;serrucho&quot; en la parte distal, siendo dermatoscópicamente normal.
+        ///   Busca una cadena traducida similar a En esta ocasión, el acto solemne recayó en el servicio de Neonatología, con motivo de sus 41 años de creación, celebrados el 17 de marzo, y en el servicio de Microbiología, por su 59° aniversario a conmemorarse el 21 del presente mes.
         ///&lt;br&gt;
-        ///&quot;El objetivo del nuevo procedimiento, es est [resto de la cadena truncado]&quot;;.
+        ///Posteriormente, el Dr. Tasayco entregó un Diploma de Reconocimiento a los referidos servicios e incluyó a la Unidad Funcional de Gestión del Riesgo de Desastres en agradecimiento por el apoyo ante el Plan de Contingencia por las lluvias.
+        ///&lt;br&gt;
+        ///Al momento de su alocució [resto de la cadena truncado]&quot;;.
         /// </summary>
         public static string EtiquetaContenidoNoticia_2_p2 {
             get {
@@ -121,16 +211,89 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Jue, 20/07/2023 - 12:00.
+        ///   Busca una cadena traducida similar a Especialistas del Servicio de Cardiología del Instituto Nacional de Salud del Niño (INSN) colocaron por primera vez en la institución y en el país, válvulas pulmonares autoexpandibles tipo PULSTA mediante inserción percutánea a tres pacientes pediátricos.
+        ///
+        ///.
         /// </summary>
-        public static string EtiquetaFechaNoticia_1 {
+        public static string EtiquetaContenidoNoticia_3_p1 {
             get {
-                return ResourceManager.GetString("EtiquetaFechaNoticia_1", resourceCulture);
+                return ResourceManager.GetString("EtiquetaContenidoNoticia_3_p1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a INSN presente en mesa de trabajo sobre propuesta de Ley RCP para todos.
+        ///   Busca una cadena traducida similar a Estos dispositivos endovasculares se colocan a través de un catéter, evitando así que los niños sean sometidos a cirugías cardiacas a “cielo abierto”. Otros beneficios de este tipo de procedimiento son que disminuye el riesgo de complicaciones, acorta la estancia hospitalaria y mejora la calidad de vida de los niños.
+        ///&lt;br&gt;
+        ///Los implantes de válvulas fueron realizados por el equipo de profesionales del Laboratorio de Hemodinámica del INSN, encabezado por el Dr. Carlos Mariño, con el apoyo del médico argentin [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        public static string EtiquetaContenidoNoticia_3_p2 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoNoticia_3_p2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a En el Día Mundial de la Higiene de Manos, a nivel sanitario, que se celebra el 5 de mayo, el Instituto Nacional de Salud del Niño (INSN), a través de diferentes actividades, reforzó a todo el personal sobre el correcto lavado durante la asistencia sanitaria para evitar infecciones intrahospitalarias en la atención al paciente. Estas acciones estuvieron a cargo de la Unidad de Vigilancia Epidemiológica..
+        /// </summary>
+        public static string EtiquetaContenidoNoticia_4_p1 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoNoticia_4_p1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La referida unidad realiza la difusión sobre la importancia de la Higiene de Manos como parte esencial de la cultura de autocuidado, prevención y reducción del riesgo de infecciones asociadas a la atención de salud y para ello entrega afiches en todos los servicios de cómo lavarse las manos y así también evalúa la técnica para medir la adherencia a dicho procedimiento. En su recorrido también pasó por la Dirección General y fue recibida por el Equipo de Gestión encabezado por el Dr. Jaime Tasayco Muñoz.
+        ///&lt;b [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        public static string EtiquetaContenidoNoticia_4_p2 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoNoticia_4_p2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El Instituto Nacional de Salud del Niño realizó con éxito la primera interconsulta médica utilizando Telemedicina Avanzada. Esta innovadora tecnología permitió establecer una conexión remota del servicio de Dermatología del INSN con el Hospital Alemán de Buenos Aires, Argentina, a través de la Unidad de Telesalud, de la Dirección Ejecutiva de Apoyo a la Investigación y Docencia Especializada.
+        ///&lt;br&gt;
+        ///
+        ///La teleinterconsulta realizada fue un éxito, facilitando la comunicación y transferencia de información nec [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        public static string EtiquetaContenidoNoticia_5_p1 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoNoticia_5_p1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Por su parte, la Dra. Virginia Mariana González, dermatóloga especialista en cáncer de piel del Hospital Alemán (Argentina), participó activamente en la consulta remota, brindando su experiencia y conocimiento en la evaluación del caso. Tras analizar las imágenes proyectadas, la Dra. González concluyó que se trata de un lunar congénito con zonas claras en su parte central y una apariencia de &quot;serrucho&quot; en la parte distal, siendo dermatoscópicamente normal.
+        ///&lt;br&gt;
+        ///&quot;El objetivo del nuevo procedimiento, es est [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        public static string EtiquetaContenidoNoticia_5_p2 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoNoticia_5_p2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        public static string EtiquetaContenidoNoticia_6_p1 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoNoticia_6_p1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El Dr. Raffo Escalante Kanashiro, Jefe de la Oficina de Gestión de la Calidad del Instituto Nacional de Salud del Niño, participó en la mesa de trabajo “Importancia de la propuesta de Ley RCP (Reanimación Cardiopulmonar) para todos” organizada por la Congresista Milagros Jáuregui de Aguayo. &lt;br&gt; Esta propuesta es una iniciativa en la cual se quiere lograr que la respuesta inicial en reanimación cardiopulmonar (RCP), uso del desfibrilador externo automático (DEA) y Maniobra de Heimlich, sea un compromiso par [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        public static string EtiquetaContenidoNoticia_6_p2 {
+            get {
+                return ResourceManager.GetString("EtiquetaContenidoNoticia_6_p2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a INSN tendrá moderno resonador magnético para aplicaciones en patologías complejas.
         /// </summary>
         public static string EtiquetaTítuloNoticia_1 {
             get {
@@ -139,11 +302,47 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Con éxito se realizó primera teleinterconsulta médica por Telemedicina de Avanzada entre el Instituto Nacional de Salud del Niño y el Hospital Alemán - Argentina.
+        ///   Busca una cadena traducida similar a Servicio de Neonatología y Microbiología izaron nuestro pabellón Nacional e Institucional.
         /// </summary>
         public static string EtiquetaTítuloNoticia_2 {
             get {
                 return ResourceManager.GetString("EtiquetaTítuloNoticia_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a INSN: Por primera vez en el Perú, colocan válvulas pulmonares auto expandibles por técnica percutánea a pacientes pediátricos.
+        /// </summary>
+        public static string EtiquetaTítuloNoticia_3 {
+            get {
+                return ResourceManager.GetString("EtiquetaTítuloNoticia_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a INSN conmemora el día Mundial de la Higiene de Manos.
+        /// </summary>
+        public static string EtiquetaTítuloNoticia_4 {
+            get {
+                return ResourceManager.GetString("EtiquetaTítuloNoticia_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Con éxito se realizó primera teleinterconsulta médica por Telemedicina de Avanzada entre el Instituto Nacional de Salud del Niño y el Hospital Alemán - Argentina.
+        /// </summary>
+        public static string EtiquetaTítuloNoticia_5 {
+            get {
+                return ResourceManager.GetString("EtiquetaTítuloNoticia_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a INSN presente en mesa de trabajo sobre propuesta de Ley RCP para todos.
+        /// </summary>
+        public static string EtiquetaTítuloNoticia_6 {
+            get {
+                return ResourceManager.GetString("EtiquetaTítuloNoticia_6", resourceCulture);
             }
         }
     }

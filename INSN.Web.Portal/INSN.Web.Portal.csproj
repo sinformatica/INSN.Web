@@ -85,10 +85,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Imagenes\Noticias\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Resources\NoticiaResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
