@@ -13,7 +13,7 @@
 /* Fonts */
 :root {
     --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-primary: "Montserrat", sans-serif;
+    --font-primary: "Poppins", sans-serif;
     --font-secondary: "Poppins", sans-serif;
 }
 
@@ -33,7 +33,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-    font-family: var(--font-default);
+    font-family: "Poppins", sans-serif;
     color: var(--color-default);
 }
 
@@ -53,7 +53,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-primary);
+    font-family: "Poppins", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -113,7 +113,7 @@ section {
         font-size: 56px;
         font-weight: 500;
         color: #fff;
-        font-family: var(--font-secondary);
+        font-family: "Poppins", sans-serif;
     }
 
     .breadcrumbs .page-header p {
@@ -317,7 +317,7 @@ section {
         font-weight: 600;
         letter-spacing: 0.8px;
         color: #0096ad;
-        font-family: var(--font-primary);
+        font-family: "Poppins", sans-serif;
     }
 
         .header .logo h1 span {
@@ -364,7 +364,7 @@ section {
             align-items: center;
             justify-content: space-between;
             padding: 0 3px;
-            font-family: var(--font-secondary);
+            font-family: "Poppins", sans-serif;
             font-size: 16px;
             font-weight: 600;
             color: #696c80;
@@ -515,7 +515,7 @@ section {
             align-items: center;
             justify-content: space-between;
             padding: 10px 20px;
-            font-family: var(--font-primary);
+            font-family: "Poppins", sans-serif;
             font-size: 15px;
             font-weight: 600;
             color: #0096ad;
@@ -614,7 +614,7 @@ section {
     font-weight: 700;
     font-size: 28px;
     margin-bottom: 20px;
-    font-family: var(--font-secondary);
+    font-family: "Poppins", sans-serif;
 }
 
 .about .call-us {
@@ -809,7 +809,7 @@ section {
 
         .stats-counter .stats-item p {
             margin: 0;
-            font-family: var(--font-primary);
+            font-family: "Poppins", sans-serif;
             font-size: 14px;
         }
 
@@ -904,7 +904,7 @@ section {
     }
 
 .call-to-action .cta-btn {
-    font-family: var(--font-primary);
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 1px;
@@ -1064,7 +1064,7 @@ section {
     }
 
     .testimonials .testimonial-item p {
-        font-style: italic;
+        font-family: "Poppins", sans-serif;
         margin: 15px auto 15px auto;
     }
 
@@ -1351,7 +1351,7 @@ section {
     }
 
     .portfolio-details .portfolio-description .testimonial-item p {
-        font-style: italic;
+        font-family: "Poppins", sans-serif;
         margin: 0 0 15px 0 0 0;
         padding: 0;
     }
@@ -1385,7 +1385,7 @@ section {
     }
 
     .team .member span {
-        font-style: italic;
+        font-family: "Poppins", sans-serif;
         display: block;
         font-size: 14px;
         color: #6c757d;
@@ -1394,7 +1394,7 @@ section {
     .team .member p {
         padding-top: 10px;
         font-size: 14px;
-        font-style: italic;
+        font-family: "Poppins", sans-serif;
         color: #6c757d;
     }
 
@@ -1494,7 +1494,7 @@ section {
     font-size: 48px;
     color: var(--color-secondary);
     font-weight: 700;
-    font-family: var(--font-secondary);
+    font-family: "Poppins", sans-serif;
     margin-bottom: 0;
     text-align: center;
 }
@@ -1550,7 +1550,7 @@ section {
     transition: none;
     font-size: 16px;
     font-weight: 600;
-    font-family: var(--font-primary);
+    font-family: "Poppins", sans-serif;
     transition: 0.3s;
 }
 
@@ -1888,7 +1888,7 @@ section {
 }
 
 .hero .btn-get-started {
-    font-family: var(--font-primary);
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 15px;
     letter-spacing: 1px;
@@ -2139,7 +2139,7 @@ section {
                 color: var(--color-default);
                 line-height: 1.6;
                 margin-bottom: 0;
-                font-style: italic;
+                font-family: "Poppins", sans-serif;
                 font-weight: 500;
                 font-size: 22px;
             }
@@ -2273,7 +2273,7 @@ section {
         }
 
     .blog .post-author p {
-        font-style: italic;
+        font-family: "Poppins", sans-serif;
         color: rgba(108, 117, 125, 0.8);
         margin-bottom: 0;
     }
@@ -2394,7 +2394,7 @@ section {
     .blog .sidebar .recent-posts time {
         display: block;
         margin-left: 95px;
-        font-style: italic;
+        font-family: "Poppins", sans-serif;
         font-size: 14px;
         color: rgba(34, 34, 34, 0.4);
     }
@@ -2572,12 +2572,12 @@ section {
             font-weight: 700;
             letter-spacing: 1px;
             color: #fff;
-            font-family: var(--font-primary);
+            font-family: "Poppins", sans-serif;
         }
 
     .footer .footer-info p {
         font-size: 14px;
-        font-family: var(--font-primary);
+        font-family: "Poppins", sans-serif;
     }
 
     .footer .social-links a {
@@ -2743,13 +2743,13 @@ Banner Style
     transform: translateY(-50px);
 }
 
-    
+
 
 
 
 
 .fa {
-    font-family: var(--fa-style-family, "Font Awesome 6 Free");
+    font-family: "Poppins", sans-serif;
     font-weight: var(--fa-style, 900);
 }
 
@@ -9799,7 +9799,7 @@ readers do not read off random characters that represent icons */
 }
 
 @font-face {
-    font-family: 'Font Awesome 6 Brands';
+    font-family: "Poppins", sans-serif;
     font-style: normal;
     font-weight: 400;
     font-display: block;
@@ -9808,7 +9808,7 @@ readers do not read off random characters that represent icons */
 
 .fab,
 .fa-brands {
-    font-family: 'Font Awesome 6 Brands';
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
 }
 
@@ -11684,95 +11684,33 @@ readers do not read off random characters that represent icons */
     content: "\f63f";
 }
 
-:root, :host {
-    --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+
+@font-face {
+    font-family: 'poppins-bold';
+    src: url('../fonts/poppins-bold.ttf') format('truetype'), url('../fonts/poppins-light.ttf') format('truetype'), url('../fonts/poppins-medium.ttf') format('truetype'), url('../fonts/poppins-regular.ttf') format('truetype'), url('../fonts/poppins-semibold.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Font Awesome 6 Free';
-    font-style: normal;
-    font-weight: 400;
-    font-display: block;
-    src: url("../webfonts/fa-regular-400.woff2") format("woff2"), url("../webfonts/fa-regular-400.ttf") format("truetype");
+    font-family: 'poppins-bold';
+    src: url('../fonts/poppins-bold.ttf') format('truetype'), url('../fonts/poppins-light.ttf') format('truetype'), url('../fonts/poppins-medium.ttf') format('truetype'), url('../fonts/poppins-regular.ttf') format('truetype'), url('../fonts/poppins-semibold.ttf') format('truetype');
 }
 
-.far,
-.fa-regular {
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 400;
-}
 
-:root, :host {
-    --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+@font-face {
+    font-family: 'poppins-bold';
+    src: url('../fonts/poppins-bold.ttf') format('truetype'), url('../fonts/poppins-light.ttf') format('truetype'), url('../fonts/poppins-medium.ttf') format('truetype'), url('../fonts/poppins-regular.ttf') format('truetype'), url('../fonts/poppins-semibold.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Font Awesome 6 Free';
-    font-style: normal;
-    font-weight: 900;
-    font-display: block;
-    src: url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.ttf") format("truetype");
+    font-family: 'poppins-regular';
+    src: url('../fonts/poppins-regular.ttf') format('truetype');
 }
-
-.fas,
-.fa-solid {
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-}
-
 @font-face {
-    font-family: "Font Awesome 5 Brands";
-    font-display: block;
-    font-weight: 400;
-    src: url("../webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.ttf") format("truetype");
+    font-family: 'poppins-semibold';
+    src: url('../fonts/poppins-semibold.ttf') format('truetype');
 }
-
-@font-face {
-    font-family: "Font Awesome 5 Free";
-    font-display: block;
-    font-weight: 900;
-    src: url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "Font Awesome 5 Free";
-    font-display: block;
-    font-weight: 400;
-    src: url("../webfonts/fa-regular-400.woff2") format("woff2"), url("../webfonts/fa-regular-400.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "FontAwesome";
-    font-display: block;
-    src: url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "FontAwesome";
-    font-display: block;
-    src: url("../webfonts/fa-brands-400.woff2") format("woff2"), url("../webfonts/fa-brands-400.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "FontAwesome";
-    font-display: block;
-    src: url("../webfonts/fa-regular-400.woff2") format("woff2"), url("../webfonts/fa-regular-400.ttf") format("truetype");
-    unicode-range: U+F003,U+F006,U+F014,U+F016-F017,U+F01A-F01B,U+F01D,U+F022,U+F03E,U+F044,U+F046,U+F05C-F05D,U+F06E,U+F070,U+F087-F088,U+F08A,U+F094,U+F096-F097,U+F09D,U+F0A0,U+F0A2,U+F0A4-F0A7,U+F0C5,U+F0C7,U+F0E5-F0E6,U+F0EB,U+F0F6-F0F8,U+F10C,U+F114-F115,U+F118-F11A,U+F11C-F11D,U+F133,U+F147,U+F14E,U+F150-F152,U+F185-F186,U+F18E,U+F190-F192,U+F196,U+F1C1-F1C9,U+F1D9,U+F1DB,U+F1E3,U+F1EA,U+F1F7,U+F1F9,U+F20A,U+F247-F248,U+F24A,U+F24D,U+F255-F25B,U+F25D,U+F271-F274,U+F278,U+F27B,U+F28C,U+F28E,U+F29C,U+F2B5,U+F2B7,U+F2BA,U+F2BC,U+F2BE,U+F2C0-F2C1,U+F2C3,U+F2D0,U+F2D2,U+F2D4,U+F2DC;
-}
-
-@font-face {
-    font-family: "FontAwesome";
-    font-display: block;
-    src: url("../webfonts/fa-v4compatibility.woff2") format("woff2"), url("../webfonts/fa-v4compatibility.ttf") format("truetype");
-    unicode-range: U+F041,U+F047,U+F065-F066,U+F07D-F07E,U+F080,U+F08B,U+F08E,U+F090,U+F09A,U+F0AC,U+F0AE,U+F0B2,U+F0D0,U+F0D6,U+F0E4,U+F0EC,U+F10A-F10B,U+F123,U+F13E,U+F148-F149,U+F14C,U+F156,U+F15E,U+F160-F161,U+F163,U+F175-F178,U+F195,U+F1F8,U+F219,U+F250,U+F252,U+F27A;
-}
-
-
 
 /*JYATACO*/
-
-
-
 kbd {
     padding: 0.1875rem 0.375rem;
     font-size: 0.875em;
@@ -28334,6 +28272,24 @@ small,
     --bs-btn-hover-color: #141414;
     --bs-btn-hover-bg: #d8dadd;
     --bs-btn-hover-border-color: #d8dadd;
+    --bs-btn-focus-shadow-rgb: 207, 209, 212;
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: #f3f5f7;
+    --bs-btn-active-border-color: #f2f3f6;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #000;
+    --bs-btn-disabled-bg: #f0f2f5;
+    --bs-btn-disabled-border-color: #f0f2f5;
+}
+
+
+.btn-alt-insn {
+    --bs-btn-color: #696c80;
+    --bs-btn-bg: #f0f2f5;
+    --bs-btn-border-color: #f0f2f5;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #0096ad;
+    --bs-btn-hover-border-color: #0096ad;
     --bs-btn-focus-shadow-rgb: 207, 209, 212;
     --bs-btn-active-color: #000;
     --bs-btn-active-bg: #f3f5f7;
@@ -45999,7 +45955,7 @@ readers do not read off random characters that represent icons */
     .dropzone .dz-message {
         margin: 4rem 0;
         font-size: 1rem;
-        font-style: italic;
+        font-family: "Poppins", sans-serif;
         font-weight: 700;
         color: #3e444a;
     }

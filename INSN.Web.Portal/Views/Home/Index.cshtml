@@ -50,12 +50,15 @@
                                     <div style="text-align: center; width: 100%;">
                                         <img src="~/imagenes/noticias/noticia_1.jpeg" class="testimonial-img flex-shrink-0" alt="">
                                     </div>
+                                   
                                 </div>
-                                <p>
+                                <br>
                                     <h4>20 Julio, 2023</h4>
+                                <p>
                                     @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_1)
-                                    <br>
                                 </p>
+                                    <br>
+                              
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -157,15 +160,13 @@
 </main><!-- End #main -->
 
 
-
-
-
-<!-- CREACION DE MODALS -->
+<!-- INICIO CREACION DE MODALS -->
+<!-- INICIO MODAL - NOTICIA 1 -->
 <div class="modal fade" id="modal-fromleft" tabindex="-1" role="dialog" aria-labelledby="modal-fromleft" aria-hidden="true">
     <div class="modal-dialog modal-dialog-fromleft" role="document">
         <div class="modal-content">
             <div class="block block-rounded shadow-none mb-0">
-                <div class="container" data-aos="fade-up">
+                <div class="container" data-aos="fade-up" style="PADDING: 30PX;">
 
                     <div class="section-header">
                         <h2>Noticias</h2>
@@ -174,20 +175,26 @@
                     <div class="row gy-4">
                         @* Titulo y Contenido Noticia 1 *@
                         @*  Columna 1 *@
-                        <h3 style="text-align: center;">
+                        <h5 style="text-align: center;">
                             @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_1)
-                        </h3>
+                        </h5>
                         <div class="col-lg-6">
 
                             <img src="~/imagenes/noticias/noticia_1.jpeg" class="img-fluid rounded-4 mb-4" alt="">
-                            <p style="text-align: justify;">@Html.Raw(NoticiaResource.EtiquetaContenidoNoticia_1_CodigoFecha)</p>
+                            <p>     <strong>
+                                    @Html.Raw(NoticiaResource.EtiquetaContenidoNoticia_1_CodigoFecha)
+                                </strong>
+                            </p>
                             <p style="text-align: justify;">@Html.Raw(NoticiaResource.EtiquetaContenidoNoticia_1_p1)</p>
                         </div>
                         @*  Columna 2 *@
                         <div class="col-lg-6">
-
-
                             <p style="text-align: justify;">@Html.Raw(NoticiaResource.EtiquetaContenidoNoticia_1_p2)</p>
+                            <p style="text-align: right;">@Html.Raw(NoticiaResource.EtiquetaFechaNoticia_1)</p>
+
+
+                            
+
 
                         </div>
                     </div>
@@ -202,7 +209,7 @@
 
 
                 <div class="block-content block-content-full block-content-sm text-end border-top">
-                    <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                    <button type="button" class="btn btn-alt-insn" data-bs-dismiss="modal">
                         Cerrar
                     </button>
                 </div>
@@ -210,4 +217,5 @@
         </div>
     </div>
 </div>
-<!-- END From Left Modal -->
+<!-- FIN MODAL - NOTICIA 1 -->
+<!-- FIN CREACION DE MODALS -->

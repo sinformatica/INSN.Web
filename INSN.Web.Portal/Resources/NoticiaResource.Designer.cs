@@ -90,6 +90,15 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Jue, 20/07/2023 - 12:00.
+        /// </summary>
+        public static string EtiquetaFechaNoticia_1 {
+            get {
+                return ResourceManager.GetString("EtiquetaFechaNoticia_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a INSN presente en mesa de trabajo sobre propuesta de Ley RCP para todos.
         /// </summary>
         public static string EtiquetaTítuloNoticia_1 {
