@@ -61,7 +61,7 @@ h6 {
 --------------------------------------------------------------*/
 section {
     padding: 0px 0;
-    overflow: hidden;
+    overflow: hidden;   
 }
 
 .sections-bg {
@@ -1708,22 +1708,26 @@ section {
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
+.contact {
+    padding-bottom: 20px;
+}
 .contact .info-container {
     background-color: var(--color-primary);
     height: 100%;
     padding: 20px;
     border-radius: 10px 0 0 10px;
     box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
+ 
 }
 
-.contact .info-item {
-    width: 100%;
-    background-color: #009282;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    color: #fff;
-}
+    .contact .info-item {
+        width: 100%;
+        background-color: #00a1bb;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        color: #fff;
+    }
 
     .contact .info-item:last-child {
         margin-bottom: 0;
@@ -48452,3 +48456,103 @@ pre.pre-sh {
 .dark-mode table.dataTable.table-striped > tbody > tr.odd > * {
     box-shadow: inset 0 0 0 9999px #22262b;
 }
+
+
+.bi-check-circle-fill {
+    color: #0096ad;
+}
+
+
+
+
+/* 
+---------------------------------------------
+Best Deal Style
+--------------------------------------------- 
+*/
+
+.best-deal {
+    background-color: #fff;
+    padding: 20px 0px;
+    padding-right: 25px;
+}
+
+    .best-deal .tab-content img {
+        padding: 0px 45px;
+    }
+
+    .best-deal .tabs-content .nav-link {
+        font-size: 16px;
+        font-weight: 500;
+        background-color: #fff !important;     
+        border-radius: 5px;
+        height: 50px;
+        line-height: 50px;
+        display: inline-block;
+        padding: 0px 25px;
+        color: #053847;
+    }
+
+    .best-deal .tabs-content .nav-tabs .nav-link.active {
+        background-color: #0096ad !important;
+        color: #fff;
+    }
+
+    .best-deal .tabs-content ul.nav-tabs {
+        border-bottom: none !important;
+  
+        align-items: end;
+    }
+
+        .best-deal .tabs-content ul.nav-tabs li {
+            padding-right: 0px;
+            border-right: none;
+            margin-left: 20px;
+        }
+
+    .best-deal .info-table {
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+        padding: 35px 30px;
+    }
+
+        .best-deal .info-table ul li {
+            display: block;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+            font-size: 15px;
+            color: #aaa;
+            font-weight: 400;
+        }
+
+            .best-deal .info-table ul li:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+
+            .best-deal .info-table ul li span {
+                font-size: 20px;
+                color: #1e1e1e;
+                font-weight: 700;
+                float: right;
+                display: inline-block;
+            }
+
+    .best-deal .tabs-content {
+        padding: 0px;
+        background-color: transparent;
+    }
+
+        .best-deal .tabs-content h4 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+    .best-deal .icon-button {
+        margin-top: 30px;
+    }
+

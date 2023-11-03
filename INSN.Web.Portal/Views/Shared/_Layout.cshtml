@@ -37,6 +37,13 @@
                 <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
             </div>
             <div class="social-links d-none d-md-flex align-items-center">
+                <a href="http://solicitudcitas.insn.gob.pe/TeleGestion/cliente/" target="_blank">
+                    <img src="~/imagenes/iconos/icono_persona.svg" width="60" height="60">
+                    <br />
+                    <br /><img src="~/imagenes/iconos/portal-transparencia-estandar.jpeg" />
+                    <h3>Solicitud de Citas</h3>
+                </a>
+
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
@@ -55,12 +62,14 @@
             </a>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="#hero">Inicio</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#portfolio">Normas</a></li>
+                    <li><a href="#team">Staff Médico</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contacto">Contáctenos</a></li>
+               
                     <li class="dropdown">
                         <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
@@ -80,7 +89,7 @@
                             <li><a href="#">Drop Down 4</a></li>
                         </ul>
                     </li>
-                    <li><a href="#contact">Contact</a></li>
+                
                 </ul>
             </nav><!-- .navbar -->
 
