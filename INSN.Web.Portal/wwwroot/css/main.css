@@ -19934,6 +19934,7 @@ textarea.form-control-lg {
 
 .align-items-center {
     align-items: center !important;
+    padding-top:2px;
 }
 
 .align-items-baseline {
