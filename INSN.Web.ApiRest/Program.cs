@@ -75,13 +75,15 @@ builder.Services.AddAutoMapper(config =>
 });
 
 
-//builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<ITipoDocumentoService, TipoDocumentoService>();
+builder.Services.AddTransient<IDocumentoLegalService, DocumentoLegalService>();
+
+//builder.Services.AddTransient<IUserService, UserService>();
 //builder.Services.AddTransient<IAlumnoService, AlumnoService>();
 //builder.Services.AddTransient<ITallerService, TallerService>();
 //builder.Services.AddTransient<IInstructorService, InstructorService>();
 
-//builder.Services.AddTransient<IAlumnoRepository, AlumnoRepository>();
+builder.Services.AddTransient<IDocumentoLegalRepository, DocumentoLegalRepository>();
 builder.Services.AddTransient<ITipoDocumentoRepository, TipoDocumentoRepository>();
 //builder.Services.AddTransient<ITallerRepository, TallerRepository>();
 //builder.Services.AddTransient<IInstructorRepository, InstructorRepository>();
@@ -134,6 +136,7 @@ app.MapGet("api/TipoDocumento", async (ITipoDocumentoService service) =>
 {
     return Results.Ok(await service.ListAsync());
 });
+
 
 app.MapControllers();
 

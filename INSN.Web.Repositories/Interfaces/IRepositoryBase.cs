@@ -8,7 +8,7 @@ namespace INSN.Web.Repositories.Interfaces
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     public interface IRepositoryBase<TEntity> where TEntity : EntityBase
-    {
+    {  
         /// <summary>
         /// Listar objetos basados en el EntityBase
         /// </summary>

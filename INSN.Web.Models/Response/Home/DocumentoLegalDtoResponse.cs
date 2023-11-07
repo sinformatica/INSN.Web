@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using INSN.Web.Entities.Base;
-
-namespace INSN.Web.Entities.DocumentoLegal
+﻿namespace INSN.Web.Models.Response.Home
 {
-    /// <summary>
-    /// Entidad Logica : Documento Legal
-    /// </summary>
-    public class DocumentoLegal : EntityBase
-    {  
+    public class DocumentoLegalDtoResponse
+    {
+        /// <summary>
+        /// Idedntificador de Tipo Documento
+        /// </summary>
+        public int Id { get; set; }
+
         /// <summary>
         /// Nombre
         /// </summary>
@@ -20,17 +15,17 @@ namespace INSN.Web.Entities.DocumentoLegal
         /// <summary>
         /// Descripcion del Documento
         /// </summary>
-        public string? Descripcion { get; set; } = default!;
+        public string Descripcion { get; set; } = default!;
 
         /// <summary>
         /// PDF
         /// </summary>
-        public string? PDF { get; set; } = default!;
+        public string PDF { get; set; } = default!;
 
         /// <summary>
         /// Fecha que fue publicado el documento
         /// </summary>
-        public DateTime? FechaPublicacion { get; set; } = default!;
+        public DateTime FechaPublicacion { get; set; } = default!;
 
         /// <summary>
         /// Descripcion del Tipo de Norma

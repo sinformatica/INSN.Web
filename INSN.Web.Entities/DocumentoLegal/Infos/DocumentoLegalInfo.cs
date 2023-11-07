@@ -10,7 +10,7 @@ namespace INSN.Web.Entities.DocumentoLegal
     /// <summary>
     /// Entidad Logica : Documento Legal
     /// </summary>
-    public class DocumentoLegal : EntityBase
+    public class DocumentoLegalInfo : EntityBase
     {  
         /// <summary>
         /// Nombre

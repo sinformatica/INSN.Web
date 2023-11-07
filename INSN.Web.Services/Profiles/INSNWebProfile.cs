@@ -15,9 +15,9 @@ namespace INSN.Web.Services.Profiles
         public INSNWebProfile()
         {
             // El AutoMapper solo mapea de izquierda a derecha
-
-            // Categorias
+    
             CreateMap<TipoDocumento, TipoDocumentoDtoResponse>();
+            CreateMap<DocumentoLegal, DocumentoLegalDtoResponse>();
         }
     }
 }
