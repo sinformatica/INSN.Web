@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\INSN.Web.Models\INSN.Web.Models.csproj" />
-  </ItemGroup>
-
 </Project>

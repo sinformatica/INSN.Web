@@ -10,13 +10,8 @@ namespace INSN.Web.Entities.DocumentoLegal
     /// <summary>
     /// Entidad Logica : Documento Legal
     /// </summary>
-    public class DocumentoLegalEL : EntityBaseEL
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        public int IdDocumento { get; set; }
-
+    public class DocumentoLegal : EntityBase
+    {  
         /// <summary>
         /// Nombre
         /// </summary>
@@ -40,7 +35,7 @@ namespace INSN.Web.Entities.DocumentoLegal
         /// <summary>
         /// Descripcion del Tipo de Norma
         /// </summary>
-        public TipoDocumentoEL TipoDocumento { get; set; } = default!;
+        public TipoDocumento TipoDocumento { get; set; } = default!;
 
         /// <summary>
         /// ID de Tipo Documento

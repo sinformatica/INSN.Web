@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\INSN.Web.DataAccess\INSN.Web.DataAccess.csproj" />
+    <ProjectReference Include="..\INSN.Web.Models\INSN.Web.Models.csproj" />
+    <ProjectReference Include="..\INSN.Web.Repositories\INSN.Web.Repositories.csproj" />
+  </ItemGroup>
+
 </Project>

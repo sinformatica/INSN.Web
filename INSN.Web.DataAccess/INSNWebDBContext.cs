@@ -18,6 +18,10 @@ namespace INSN.Web.DataAccess
         
         }
 
+        /// <summary>
+        /// OnModelCreating
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
