@@ -1,4 +1,4 @@
-﻿namespace INSN.Web.Models.Request;
+﻿namespace INSN.Web.Models.Request.Home;
 
 public class TipoDocumentoDtoRequest
 {

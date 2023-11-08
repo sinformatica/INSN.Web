@@ -1,6 +1,6 @@
 ﻿namespace INSN.Web.Models.Response.Home
 {
-    public class DocumentoLegalDtoResponse
+    public class DocumentoLegalDtoResponse : BaseResponse
     {
         /// <summary>
         /// Idedntificador de Tipo Documento

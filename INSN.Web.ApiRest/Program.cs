@@ -128,14 +128,14 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // Validacion de usuarios y passwords
-app.UseAuthentication();
-// Validacion de permisos
-app.UseAuthorization();
+//app.UseAuthentication();
+//// Validacion de permisos
+//app.UseAuthorization();
 
-app.MapGet("api/TipoDocumento", async (ITipoDocumentoService service) =>
-{
-    return Results.Ok(await service.ListAsync());
-});
+//app.MapGet("api/TipoDocumento", async (ITipoDocumentoService service) =>
+//{
+//    return Results.Ok(await service.ListAsync());
+//});
 
 
 app.MapControllers();

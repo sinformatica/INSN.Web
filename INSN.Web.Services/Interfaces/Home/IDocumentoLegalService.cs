@@ -8,10 +8,17 @@ namespace INSN.Web.Services.Interfaces.Home
     /// </summary>
     public interface IDocumentoLegalService
     {
+
         /// <summary>
-        /// Interface de Listar Documento Legal
+        /// 
         /// </summary>
+        /// <param name="Documento"></param>
+        /// <param name="IdTipoDocumento"></param>
+        /// <param name="Estado"></param>
+        /// <param name="Page"></param>
+        /// <param name="Rows"></param>
         /// <returns></returns>
-        Task<BaseResponseGeneric<ICollection<DocumentoLegalDtoResponse>>> ListAsync(string? Documento);
+        Task<PaginationResponse<DocumentoLegalDtoResponse>> ListAsync(string? Documento, int? IdTipoDocumento,
+            string? Estado, int Page, int Rows);
     }
 }

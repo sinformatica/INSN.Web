@@ -39,7 +39,8 @@ namespace INSN.Web.Services.Implementaciones.Home
         /// Servicio - Listar Documento Legal
         /// </summary>
         /// <returns></returns>
-        public async Task<BaseResponseGeneric<ICollection<DocumentoLegalDtoResponse>>> ListAsync(string? Documento)
+        public async Task<BaseResponseGeneric<ICollection<DocumentoLegalDtoResponse>>> ListAsync(string? Documento, int? IdTipoDocumento,
+            string? Estado, int Page, int Rows)
         {
             var response = new BaseResponseGeneric<ICollection<DocumentoLegalDtoResponse>>();
 

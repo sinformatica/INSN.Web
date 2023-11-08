@@ -85,11 +85,29 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Contracts" Version="5.0.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\INSN.Web.Common\INSN.Web.Common.csproj" />
+    <ProjectReference Include="..\INSN.Web.Models\INSN.Web.Models.csproj" />
+    <ProjectReference Include="..\INSN.Web.ViewModels\INSN.Web.ViewModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Resources\NoticiaResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>NoticiaResource.resx</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\DocumentoLegal\DocumentoLegal.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

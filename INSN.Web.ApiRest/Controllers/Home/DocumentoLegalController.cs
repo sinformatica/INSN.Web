@@ -1,4 +1,6 @@
-﻿using INSN.Web.Services.Interfaces.Home;
+﻿using INSN.Web.Models.Request;
+using INSN.Web.Models.Request.Home;
+using INSN.Web.Services.Interfaces.Home;
 using Microsoft.AspNetCore.Mvc;
 
 namespace INSN.Web.ApiRest.Controllers.Home
@@ -23,9 +25,10 @@ namespace INSN.Web.ApiRest.Controllers.Home
         /// <param name="Documento"></param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> Get(string? Documento)
+        [HttpGet]
+        public async Task<IActionResult> Get([FromQuery] BusquedaDocumentoLegalRequest request)
         {
-            var response = await _service.ListAsync(Documento);
+            var response = await _service.ListAsync(request.Filter, request.IdTipoDocumento, request.Estado, request.Page, request.Rows);
 
             return Ok(response);
         }
