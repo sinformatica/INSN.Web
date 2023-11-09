@@ -10,6 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Linq.Expressions;
+using INSN.Web.Entities.DocumentoLegal;
 
 namespace INSN.Web.Services.Implementaciones.Home
 {
@@ -36,28 +39,53 @@ namespace INSN.Web.Services.Implementaciones.Home
         }
 
         /// <summary>
-        /// Servicio - Listar Documento Legal
+        /// 
         /// </summary>
+        /// <param name="Documento"></param>
+        /// <param name="TipoDocumentoId"></param>
+        /// <param name="Estado"></param>
+        /// <param name="Page"></param>
+        /// <param name="Rows"></param>
         /// <returns></returns>
-        public async Task<BaseResponseGeneric<ICollection<DocumentoLegalDtoResponse>>> ListAsync(string? Documento, int? IdTipoDocumento,
+        public async Task<PaginationResponse<DocumentoLegalDtoResponse>> ListAsync(string? Documento, int? TipoDocumentoId,
             string? Estado, int Page, int Rows)
         {
-            var response = new BaseResponseGeneric<ICollection<DocumentoLegalDtoResponse>>();
+
+            var response = new PaginationResponse<DocumentoLegalDtoResponse>();
 
             try
             {
-                var data = await _repository.ListAsync(Documento);
+                Expression<Func<DocumentoLegal, bool>> predicate =
+                    x => x.Documento.Contains(Documento ?? string.Empty)
+                    && (TipoDocumentoId == null || x.TipoDocumentoId == TipoDocumentoId)
+                    && (Estado == null || x.Estado ==Estado);
 
-                response.Data = data.Select(_mapper.Map<DocumentoLegalDtoResponse>).ToList();
+                var tupla = await _repository
+                    .ListAsync<DocumentoLegalDtoResponse, string>(
+                        predicate: predicate,
+                        selector: x => _mapper.Map<DocumentoLegalDtoResponse>(x),
+                        orderBy: p => p.Documento,
+                        relationships: "DocumentoLegal,TipoDocumento", // Eager Loading - EF Core
+                        Page,
+                        Rows);
+
+                response.Data = tupla.Collection;
+                response.TotalPages = tupla.Total / Rows;
+                if (tupla.Total % Rows > 0)
+                {
+                    response.TotalPages++;
+                }
+
                 response.Success = true;
             }
             catch (Exception ex)
             {
-                response.ErrorMessage = "Error al cargar Documento Legal";
-                _logger.LogError(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
+                response.ErrorMessage = "Error al Listar los DocumentoLegales";
+                _logger.LogError(ex, "{ErroMessage} {Message}", response.ErrorMessage, ex.Message);
             }
 
             return response;
+
         }
     }
 }

@@ -38,7 +38,7 @@ public class DocumentoLegalController : Controller
         var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
         {
             Filter = model.Documento,
-            IdTipoDocumento = model.TipoDocumentoSeleccionada,
+            TipoDocumentoId = model.TipoDocumentoSeleccionada,
             Estado = model.EstadoSeleccionado,
             Page = pager.CurrentPage,
             Rows = pager.RowsPerPage

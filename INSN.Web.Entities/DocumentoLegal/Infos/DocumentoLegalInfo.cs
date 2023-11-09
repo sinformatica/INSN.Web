@@ -40,6 +40,6 @@ namespace INSN.Web.Entities.DocumentoLegal
         /// <summary>
         /// ID de Tipo Documento
         /// </summary>
-        public int IdTipoDocumento { get; set; }
+        public int TipoDocumentoId { get; set; }
     }
 }

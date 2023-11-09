@@ -154,14 +154,20 @@ namespace INSN.Web.Repositories.Implementaciones
             int page, int rows)
         {
             var query = Context.Set<TEntity>()
-                .Where(predicate)
-                .AsQueryable();
+    .Where(predicate)
+    .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(relationships))
             {
                 foreach (var tabla in relationships.Split(',', StringSplitOptions.RemoveEmptyEntries))
                 {
-                    query = query.Include(tabla);
+                    // Verificar si la propiedad de navegación existe en el modelo
+                    var navigationProperty = typeof(TEntity).GetProperty(tabla);
+
+                    if (navigationProperty != null && navigationProperty.PropertyType.IsClass && !navigationProperty.PropertyType.IsArray)
+                    {
+                        query = query.Include(tabla);
+                    }
                 }
             }
 

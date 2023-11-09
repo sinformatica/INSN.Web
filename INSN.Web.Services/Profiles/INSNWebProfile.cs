@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using INSN.Web.Entities.DocumentoLegal;
+using INSN.Web.Models.Request.Home;
 using INSN.Web.Models.Response.Home;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace INSN.Web.Services.Profiles
 {
@@ -18,6 +20,8 @@ namespace INSN.Web.Services.Profiles
     
             CreateMap<TipoDocumento, TipoDocumentoDtoResponse>();
             CreateMap<DocumentoLegal, DocumentoLegalDtoResponse>();
+
+            CreateMap<DocumentoLegalDtoRequest, DocumentoLegal>();
         }
     }
 }

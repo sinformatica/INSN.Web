@@ -26,15 +26,15 @@ namespace INSN.Web.Entities.DocumentoLegal
         /// Fecha que fue publicado el documento
         /// </summary>
         public DateTime? FechaPublicacion { get; set; } = default!;
-
+                
         /// <summary>
         /// Descripcion del Tipo de Norma
         /// </summary>
-        public string TipoDocumento { get; set; } = default!;
+        public TipoDocumento TipoDocumento { get; set; } = default!;
 
         /// <summary>
         /// ID de Tipo Documento
         /// </summary>
-        public int IdTipoDocumento { get; set; }
+        public int TipoDocumentoId { get; set; }
     }
 }

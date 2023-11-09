@@ -13,12 +13,12 @@ namespace INSN.Web.Services.Interfaces.Home
         /// 
         /// </summary>
         /// <param name="Documento"></param>
-        /// <param name="IdTipoDocumento"></param>
+        /// <param name="TipoDocumentoId"></param>
         /// <param name="Estado"></param>
         /// <param name="Page"></param>
         /// <param name="Rows"></param>
         /// <returns></returns>
-        Task<PaginationResponse<DocumentoLegalDtoResponse>> ListAsync(string? Documento, int? IdTipoDocumento,
+        Task<PaginationResponse<DocumentoLegalDtoResponse>> ListAsync(string? Documento, int? TipoDocumentoId,
             string? Estado, int Page, int Rows);
     }
 }
