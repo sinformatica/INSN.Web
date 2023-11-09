@@ -48566,3 +48566,70 @@ Best Deal Style
     width: 80%; /* Puedes ajustar el valor según tus preferencias */
     margin: 0 auto; /* Esto centrará el contenedor horizontalmente */
 }
+
+/*JYATACO*/
+
+/* Estilos para el menú desplegable */
+.dcjq-accordion {
+    padding: 30px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+}
+
+    .dcjq-accordion ul.menu {
+        list-style-type: none; /* Quita el marcador de lista */
+        margin: 0;
+        padding: 0;
+    }
+
+    .dcjq-accordion li {
+        margin-bottom: 0px;
+    }
+
+    .dcjq-accordion a {
+        text-decoration: none;
+        color: #696c80;
+        display: block;
+        padding: 8px;
+        background-color: #fff;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+        .dcjq-accordion a:hover {
+            background-color: #0096ad;
+            color: #fff;
+        }
+
+/* Estilos para las subcategorías */
+.sub-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sub-menu-heading {
+    padding: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.0625em;
+    color: #0096ad;
+}
+
+    .sub-menu li {
+        margin-bottom: 0px;
+    }
+
+.sub-menu a {
+    padding: 8px 20px;
+    background-color: #f6f7f9;
+    border-radius: 4px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+        .sub-menu a:hover {
+            background-color: #0096ad;
+        }

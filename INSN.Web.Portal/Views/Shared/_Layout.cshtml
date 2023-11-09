@@ -185,3 +185,55 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
+
+<script>
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     var accordions = document.querySelectorAll(".dcjq-accordion");
+
+    //     accordions.forEach(function (accordion) {
+    //         var items = accordion.querySelectorAll(".dcjq-parent-li");
+
+    //         items.forEach(function (item) {
+    //             item.addEventListener("click", function () {
+    //                 // Cerrar otros elementos desplegados
+    //                 items.forEach(function (otherItem) {
+    //                     if (otherItem !== item) {
+    //                         otherItem.querySelector(".sub-menu").style.display = "none";
+    //                     }
+    //                 });
+
+    //                 // Alternar la visibilidad de la subcategoría
+    //                 var subMenu = item.querySelector(".sub-menu");
+    //                 subMenu.style.display = subMenu.style.display === "none" ? "block" : "none";
+    //             });
+    //         });
+    //     });
+    // });
+    document.addEventListener("DOMContentLoaded", function () {
+        var accordions = document.querySelectorAll(".dcjq-accordion");
+
+        accordions.forEach(function (accordion) {
+            var items = accordion.querySelectorAll(".dcjq-parent-li");
+
+            items.forEach(function (item) {
+                item.addEventListener("click", function (event) {
+                    event.preventDefault(); // Evita la acción predeterminada del enlace
+
+                    // Cerrar otros elementos desplegados
+                    items.forEach(function (otherItem) {
+                        if (otherItem !== item) {
+                            otherItem.querySelector(".sub-menu").style.display = "none";
+                        }
+                    });
+
+                    // Alternar la visibilidad de la subcategoría
+                    var subMenu = item.querySelector(".sub-menu");
+                    subMenu.style.display = subMenu.style.display === "none" ? "block" : "none";
+                });
+            });
+        });
+    });
+
+</script>

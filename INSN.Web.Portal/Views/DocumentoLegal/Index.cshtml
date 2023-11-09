@@ -13,19 +13,59 @@
             <div class="section-header">
                 <h2>Directorio Institucional</h2>               
             </div>
+            <div class="col-lg-3 col-md-2">
+            <div id="dc_jqaccordion_widget-10" class="et_pb_widget">             
+                <div class="dcjq-accordion" id="dc_jqaccordion_widget-10-item">
+                    
+                    <ul id="menu-menu-transparencia" class="menu">
+                            <li class="sub-menu-heading">DATOS GENERALES</li>               
+                            <li id="menu-item-A1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A2">
+                                <a href="#">1.1 Designación de funcionarios responsables de la Ley 27806</a>
+                            </li>
+                            <li id="menu-item-A2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-A2 dcjq-parent-li">
+                                <a href="#" class="dcjq-parent">1.2 Directorio<span class="dcjq-icon"></span></a>
+                                <ul class="sub-menu" style="display: none;">
+                                    <li id="menu-item-A3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A3">
+                                        <a href="#">Dirección de la entidad</a>
+                                    </li>
+                                    <li id="menu-item-A4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4">
+                                        <a href="#">Directorio de los Servidores Civiles y correos electrónicos</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-5" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-A5 dcjq-parent-li">
+                                <a href="#" class="dcjq-parent">1.3 Marco Legal<span class="dcjq-icon"></span></a>
+                                <ul class="sub-menu" style="display: none;">
+                                    <li id="menu-item-A6" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A6">
+                                        <a href="#">Norma de creación de la entidad</a>
+                                    </li>
+                                    <li id="menu-item-A7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A7">
+                                        <a href="#">Normativa de Transparencia y acceso a la información Pública </a>
+                                    </li>
+                                </ul>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-9 col-md-2">
+                <partial name="_DocumentoLegal" model="ViewBag.Pager" />
+                @Html.HiddenFor(m => m.Page, new { id = "currentPage"})
+            
+            </div>
+            <br />
+            <br />
 
-            <div id="page-container" class="side-scroll page-header-modern main-content-boxed">
 
-                <!-- Sidebar -->               
-                <nav id="sidebar">
-                    <!-- Sidebar Content -->
-                    <div class="sidebar-content">                      
-                        <!-- Sidebar Scrolling -->
-                        <div class="js-sidebar-scroll">                          
-                            <!-- Side Navigation -->
+
+         @*    <div id="page-container" class="side-scroll page-header-modern main-content-boxed">
+                <!-- sidebarINSN -->
+                    <nav id="sidebarINSN" class="blog">
+                    <div class="SidebarINSN-content">
+                        <div class="js-sidebarINSN-scroll">
                             <div class="content-side content-side-full">
-                                <ul class="nav-main">                                    
-                         
+                                <ul class="nav-main">
+
                                     <li class="nav-main-heading">User Interface</li>
                                     <li class="nav-main-item">
                                         <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
@@ -33,13 +73,13 @@
                                             <span class="nav-main-link-name">Blocks</span>
                                         </a>
                                         <ul class="nav-main-submenu">
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_blocks_styles.html">
+                                                <li class="nav-main-item">
+                                                    <a class="nav-main-link" href="be_blocks_styles.html">
                                                     <span class="nav-main-link-name">Styles</span>
                                                 </a>
                                             </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_blocks_options.html">
+                                                <li class="nav-main-item">
+                                                    <a class="nav-main-link" href="be_blocks_styles.html">
                                                     <span class="nav-main-link-name">Options</span>
                                                 </a>
                                             </li>
@@ -60,11 +100,12 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                                            <i class="nav-main-link-icon fa fa-pencil-ruler"></i>
-                                            <span class="nav-main-link-name">Widgets</span>
-                                        </a>
+                                   
+                                        <li class="nav-main-item">
+                                            <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                                <i class="nav-main-link-icon fa fa-grip-vertical"></i>
+                                                <span class="nav-main-link-name">Blocks</span>
+                                            </a>
                                         <ul class="nav-main-submenu">
                                             <li class="nav-main-item">
                                                 <a class="nav-main-link" href="be_widgets_tiles.html">
@@ -98,11 +139,12 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                                            <i class="nav-main-link-icon fa fa-layer-group"></i>
-                                            <span class="nav-main-link-name">Elements</span>
-                                        </a>
+                                      
+                                        <li class="nav-main-item">
+                                            <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                                <i class="nav-main-link-icon fa fa-grip-vertical"></i>
+                                                <span class="nav-main-link-name">Blocks</span>
+                                            </a>
                                         <ul class="nav-main-submenu">
                                             <li class="nav-main-item">
                                                 <a class="nav-main-link" href="be_ui_grid.html">
@@ -113,92 +155,7 @@
                                                 <a class="nav-main-link" href="be_ui_icons.html">
                                                     <span class="nav-main-link-name">Icons</span>
                                                 </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_typography.html">
-                                                    <span class="nav-main-link-name">Typography</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_buttons.html">
-                                                    <span class="nav-main-link-name">Buttons</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_buttons_groups.html">
-                                                    <span class="nav-main-link-name">Button Groups</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_dropdowns.html">
-                                                    <span class="nav-main-link-name">Dropdowns</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_navigation.html">
-                                                    <span class="nav-main-link-name">Navigation</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_tabs.html">
-                                                    <span class="nav-main-link-name">Tabs</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_alerts.html">
-                                                    <span class="nav-main-link-name">Alerts</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_progress.html">
-                                                    <span class="nav-main-link-name">Progress</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_tooltips.html">
-                                                    <span class="nav-main-link-name">Tooltips</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_popovers.html">
-                                                    <span class="nav-main-link-name">Popovers</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_modals.html">
-                                                    <span class="nav-main-link-name">Modals</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_images.html">
-                                                    <span class="nav-main-link-name">Images</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_animations.html">
-                                                    <span class="nav-main-link-name">Animations</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_ribbons.html">
-                                                    <span class="nav-main-link-name">Ribbons</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_timeline.html">
-                                                    <span class="nav-main-link-name">Timeline</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_accordion.html">
-                                                    <span class="nav-main-link-name">Accordion</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link" href="be_ui_color_themes.html">
-                                                    <span class="nav-main-link-name">Color Themes</span>
-                                                </a>
-                                            </li>
+                                            </li>                                         
                                         </ul>
                                     </li>
                                  
@@ -207,18 +164,46 @@
                             </div>
                             <!-- END Side Navigation -->
                         </div>
-                        <!-- END Sidebar Scrolling -->
+                        <!-- END sidebarINSN Scrolling -->
                     </div>
-                    <!-- Sidebar Content -->
+                    <!-- sidebarINSN Content -->
                 </nav>
-                <!-- END Sidebar -->
-           
+                <!-- END sidebarINSN -->         
            
               
               
             </div>
+
+            </div>  *@
             <!-- END Page Container -->
-        </div>
+       </div> 
     </section>
     
 </main>
+<script>
+    function setCurrentPage(data) {
+        let hiddenValue = document.getElementById('currentPage');
+        hiddenValue.value = data;
+        console.log(data);
+    }
+
+    function setPreviousPage(data) {
+        let totalPages = @ViewBag.Pager.TotalPages;
+        if (data <= totalPages) {
+            data--;
+            if (data === 0) {
+                data = 1;
+            }
+
+            setCurrentPage(data);
+        }
+    }
+
+    function setNextPage(data) {
+        let totalPages = @ViewBag.Pager.TotalPages;
+        if (data < totalPages) {
+            data++;
+            setCurrentPage(data);
+        }
+    }
+</script>

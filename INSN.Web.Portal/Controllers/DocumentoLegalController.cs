@@ -1,5 +1,6 @@
 ﻿using INSN.Web.Models;
 using INSN.Web.Models.Request;
+using INSN.Web.Models.Response.Home;
 using INSN.Web.Portal.Services.Interfaces;
 using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,7 @@ public class DocumentoLegalController : Controller
 
     public IActionResult Index()
     {
+    
         return View();
     }
 
