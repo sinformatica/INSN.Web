@@ -9,6 +9,9 @@
 <main id="main">
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Directorio Institucional</h2>               
+            </div>
             <form>
                 <div class="row">
                     <div class="col">
@@ -35,9 +38,7 @@
                     <div class="col-auto">
                         <button class="btn btn-outline-primary" type="reset"><i class="bi bi-eraser-fill me-1"></i>Limpiar</button>
                     </div>
-                    <div class="col-auto">
-                        <a class="btn btn-primary" asp-controller="Taller" asp-action="Crear" type="submit"><i class="bi bi-plus-circle me-1"></i>Nuevo</a>
-                    </div>
+                  
                 </div>
                 <div class="row">
                     <div>
@@ -63,33 +64,25 @@
                     }
                     else
                     {
-                        <table class="table table-hover">
+                        <table class="table table-striped table-vcenter">
                             <thead>
                                 <tr class="table-primary">
-                                    <th>#</th>
+                           
                                     <th>Documento</th>
-                                    <th>Descripcion</th>
-                                    <th>FechaPublicacion</th>
-                                    <th>TipoDocumento</th>
-                                    <th>Estado</th>
-                                    <th>Acción</th>
+                                    <th>PDF</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model.DocumentoLegales)
                                 {
                                     <tr>
-                                        <td>@item.Id</td>
-                                        <td>@item.Documento</td>
-                                        <td>@item.Descripcion</td>
-                                        <td>@item.FechaPublicacion</td>
-                                         <td>@item.TipoDocumento</td> 
-                                        <td>@item.Estado</td>
+                                      
                                         <td>
-                                            <i class="bi bi-check2-circle"></i>
-                                            <i class="bi bi-pencil-fill"></i>
-                                            <i class="bi bi-trash3-fill"></i>
-                                        </td>
+                                            @item.Documento
+                                            <br>
+                                            @item.Descripcion
+                                        </td>     
+                                         <td>@item.TipoDocumento</td>                                      
                                     </tr>
                                 }
                             </tbody>
@@ -99,15 +92,7 @@
                 <div class="container">
                     <partial name="_DataPager" model="ViewBag.Pager" />
                     @Html.HiddenFor(m => m.Page, new { id = "currentPage"})
-                </div>
-                <div class="row justify-content-end">
-                    <div class="col-auto">
-                        <button class="btn btn-outline-danger"><i class="bi bi-filetype-pdf me-1"></i>Exportar</button>
-                    </div>
-                    <div class="col-auto">
-                        <button class="btn btn-outline-success"><i class="bi bi-file-excel me-1"></i>Exportar</button>
-                    </div>
-                </div>
+                </div>        
             
             </form>
         </div>

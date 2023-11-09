@@ -21,6 +21,11 @@ public class DocumentoLegalController : Controller
         _logger = logger;
     }
 
+    public IActionResult Index()
+    {
+        return View();
+    }
+
     // GET
     public async Task<IActionResult> DocumentoLegal(DocumentoLegalViewModel model)
     {

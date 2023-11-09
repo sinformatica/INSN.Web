@@ -48561,3 +48561,8 @@ Best Deal Style
 .hidden-item {
     visibility: hidden;
 }
+
+.page-container {
+    width: 80%; /* Puedes ajustar el valor según tus preferencias */
+    margin: 0 auto; /* Esto centrará el contenedor horizontalmente */
+}
