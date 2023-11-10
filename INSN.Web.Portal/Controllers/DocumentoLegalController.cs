@@ -24,9 +24,9 @@ public class DocumentoLegalController : Controller
 
     public IActionResult Index()
     {
-    
-        return View();
-    }
+
+        return View();      
+    } 
 
     // GET
     public async Task<IActionResult> DocumentoLegal(DocumentoLegalViewModel model)

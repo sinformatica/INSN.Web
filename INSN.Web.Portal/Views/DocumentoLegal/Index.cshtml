@@ -48,9 +48,7 @@
                 </div>
             </div>
             </div>
-            <div class="col-lg-9 col-md-2">
-                <partial name="_DocumentoLegal" model="ViewBag.Pager" />
-                @Html.HiddenFor(m => m.Page, new { id = "currentPage"})
+            <div id="contenido_2" class="col-lg-9 col-md-2">
             
             </div>
             <br />
@@ -180,30 +178,3 @@
     </section>
     
 </main>
-<script>
-    function setCurrentPage(data) {
-        let hiddenValue = document.getElementById('currentPage');
-        hiddenValue.value = data;
-        console.log(data);
-    }
-
-    function setPreviousPage(data) {
-        let totalPages = @ViewBag.Pager.TotalPages;
-        if (data <= totalPages) {
-            data--;
-            if (data === 0) {
-                data = 1;
-            }
-
-            setCurrentPage(data);
-        }
-    }
-
-    function setNextPage(data) {
-        let totalPages = @ViewBag.Pager.TotalPages;
-        if (data < totalPages) {
-            data++;
-            setCurrentPage(data);
-        }
-    }
-</script>
