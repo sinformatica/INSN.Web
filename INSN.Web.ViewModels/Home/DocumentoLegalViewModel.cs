@@ -7,6 +7,8 @@ public class DocumentoLegalViewModel : BaseModel
 {
     public string? Documento { get; set; }
 
+    public string? Descripcion { get; set; }
+
     public ICollection<TipoDocumentoDtoResponse> TipoDocumentos { get; set; } = default!;
 
     [Display(Name = "Tipo")]
@@ -24,4 +26,6 @@ public class DocumentoLegalViewModel : BaseModel
     public int Rows { get; set; }
     public int Page { get; set; }
     public ICollection<DocumentoLegalDtoResponse>? DocumentoLegales { get; set; }
+
+    public string PDF { get; set; }
 }

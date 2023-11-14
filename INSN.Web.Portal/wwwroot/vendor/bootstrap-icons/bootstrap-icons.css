@@ -2076,3 +2076,40 @@ url("./fonts/bootstrap-icons.woff?2820a3852bdb9a5832199cc61cec4e65") format("wof
 .bi-suitcase2-fill::before { content: "\f901"; }
 .bi-suitcase2::before { content: "\f902"; }
 .bi-vignette::before { content: "\f903"; }
+
+.twitter i {
+    font-size: 24px; /* Tamaño del ícono */
+    width: 24px; /* Anchura */
+    height: 24px; /* Altura */
+}
+
+.facebook i {
+    font-size: 24px; /* Tamaño del ícono */
+    width: 24px; /* Anchura */
+    height: 24px; /* Altura */
+}
+
+.instagram i {
+    font-size: 24px; /* Tamaño del ícono */
+    width: 24px; /* Anchura */
+    height: 24px; /* Altura */
+}
+
+.linkedin i {
+    font-size: 24px; /* Tamaño del ícono */
+    width: 24px; /* Anchura */
+    height: 24px; /* Altura */
+}
+
+.youtube i {
+    font-size: 24px; /* Tamaño del ícono */
+    width: 24px; /* Anchura */
+    height: 24px; /* Altura */
+}
+
+.envelope i {
+    font-size: 24px; /* Tamaño del ícono */
+    width: 24px; /* Anchura */
+    height: 24px; /* Altura */
+}
+

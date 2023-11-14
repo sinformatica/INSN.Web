@@ -104,7 +104,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\DocumentoLegal\DocumentoLegal.cshtml">
+    <Content Update="Views\DirectorioInstitucional\DocumentoLegal2.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
@@ -115,6 +115,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>NoticiaResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Documentos\NormasDocumentosLegales\" />
   </ItemGroup>
 
 </Project>

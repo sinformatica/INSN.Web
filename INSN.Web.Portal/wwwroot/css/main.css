@@ -241,7 +241,7 @@ section {
 --------------------------------------------------------------*/
 .topbar {
     background: #fff;
-    height: 40px;
+    height: 60px;
     font-size: 14px;
     transition: all 0.5s;
     color: #696c80 !important;
@@ -293,7 +293,7 @@ section {
 .header {
     transition: all 0.5s;
     z-index: 997;
-    height: 90px;
+    height: 110px;
     background-color: #fff;
 }
 
@@ -302,7 +302,7 @@ section {
         top: 0;
         right: 0;
         left: 0;
-        height: 70px;
+        height: 90px;
         box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
     }
 
@@ -2559,24 +2559,24 @@ section {
 # Footer
 --------------------------------------------------------------*/
 .footer {
-    font-size: 14px;
+    font-size: 10px;
     background-color: var(--color-primary);
-    padding: 50px 0;
+    padding: 10px 0;
     color: white;
 }
 
     .footer .footer-info .logo {
         line-height: 0;
-        margin-bottom: 25px;
+        margin-bottom: 10px;
     }
 
         .footer .footer-info .logo img {
-            max-height: 40px;
+            max-height: 30px;
             margin-right: 6px;
         }
 
         .footer .footer-info .logo span {
-            font-size: 30px;
+            font-size: 20px;
             font-weight: 700;
             letter-spacing: 1px;
             color: #fff;
@@ -13726,7 +13726,7 @@ progress {
     --bs-table-border-color: #e4e7ed;
     --bs-table-accent-bg: transparent;
     --bs-table-striped-color: #3e444a;
-    --bs-table-striped-bg: #f5f6f8;
+    --bs-table-striped-bg: #ebfffe;
     --bs-table-active-color: #3e444a;
     --bs-table-active-bg: #f0f2f5;
     --bs-table-hover-color: #3e444a;
