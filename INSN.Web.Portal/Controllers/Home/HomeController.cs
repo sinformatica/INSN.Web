@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace INSN.Web.Portal.Controllers
+namespace INSN.Web.Portal.Controllers.Home
 {
     public class HomeController : Controller
     {
@@ -17,7 +17,7 @@ namespace INSN.Web.Portal.Controllers
         {
             return View();
         }
-       
+
         public IActionResult Nosotros()
         {
             return View();
@@ -27,11 +27,16 @@ namespace INSN.Web.Portal.Controllers
             return View();
         }
 
+        public IActionResult Especialidades()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
         }
-            
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

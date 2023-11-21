@@ -2,12 +2,13 @@
 using INSN.Web.Models.Request.Home;
 using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.Home;
-using INSN.Web.Portal.Services.Interfaces;
-namespace INSN.Web.Portal.Services.Implementaciones;
+using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
+
+namespace INSN.Web.Portal.Services.Implementaciones.Home.DirectorioInstitucional;
 
 public class DocumentoLegalProxy : CrudRestHelperBase<DocumentoLegalDtoRequest, DocumentoLegalDtoResponse>, IDocumentoLegalProxy
 {
-    public DocumentoLegalProxy(HttpClient httpClient) 
+    public DocumentoLegalProxy(HttpClient httpClient)
         : base("api/DocumentoLegal", httpClient)
     {
     }

@@ -1,10 +1,10 @@
 ﻿using INSN.Web.Models;
 using INSN.Web.Models.Request;
-using INSN.Web.Portal.Services.Interfaces;
+using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
 using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
 
-namespace INSN.Web.Portal.Controllers;
+namespace INSN.Web.Portal.Controllers.Home;
 
 public class DirectorioInstitucionalController : Controller
 {
@@ -66,7 +66,7 @@ public class DirectorioInstitucionalController : Controller
             pager.RowCount = response.Data!.Count;
         }
 
-        return View(model);
+        return View("~/Views/Home/DirectorioInstitucional/DocumentoLegal.cshtml", model);
     }
 
 

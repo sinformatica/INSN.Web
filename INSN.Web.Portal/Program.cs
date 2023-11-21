@@ -1,5 +1,5 @@
-using INSN.Web.Portal.Services.Implementaciones;
-using INSN.Web.Portal.Services.Interfaces;
+using INSN.Web.Portal.Services.Implementaciones.Home.DirectorioInstitucional;
+using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
 
 var builder = WebApplication.CreateBuilder(args);
 
