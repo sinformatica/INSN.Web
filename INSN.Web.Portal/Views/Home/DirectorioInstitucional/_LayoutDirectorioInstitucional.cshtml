@@ -84,28 +84,6 @@
         </div>
     </header>
     <!-- End Header -->
-    <!-- End Header -->
-    @*  <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container-fluid">
-    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">INSN.Web.Portal</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-    <ul class="navbar-nav flex-grow-1">
-    <li class="nav-item">
-    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </li>
-    </ul>
-    </div>
-    </div>
-    </nav>
-    </header> *@
 
     <div>
         <div class="container" data-aos="fade-up">
@@ -153,10 +131,10 @@
                                     <a href="#" class="dcjq-parent">1.4 Normas Emitidas<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
                                         <li id="menu-item-A4A1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A2">
-                                            <a href="@Url.Action("DocumentoLegal", "DirectorioInstitucional", new { TipoDocumentoSeleccionada = "1" })">Resoluciones Directoral DG<span class="dcjq-icon"></span></a>
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="1" asp-route-TituloPagina="Resoluciones Directoral DG">Resoluciones Directoral DG</a>
                                         </li>
                                         <li id="menu-item-A4A2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A2">
-                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="2">Resoluciones Administrativa OP</a>
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="2" asp-route-TituloPagina="Resoluciones Administrativa OP">Resoluciones Administrativa OP</a>
 
                                         </li>
                                      
@@ -565,38 +543,6 @@
 
 
 <script>
-    // document.addEventListener("DOMContentLoaded", function () {
-    //     var accordions = document.querySelectorAll(".dcjq-accordion");
-
-    //     accordions.forEach(function (accordion) {
-    //         var items = accordion.querySelectorAll(".dcjq-parent-li");
-
-    //         items.forEach(function (item) {
-    //             item.addEventListener("click", function (event) {
-    //                 var link = item.querySelector("a[href]");
-    //                 if (link && link.getAttribute("href") !== "#") {
-    //                     return; // Permitir la acción predeterminada si hay un enlace válido
-    //                 }
-
-    //                 event.preventDefault(); // Evita la acción predeterminada del enlace
-
-    //                 // Cerrar otros elementos desplegados
-    //                 items.forEach(function (otherItem) {
-    //                     if (otherItem !== item) {
-    //                         otherItem.querySelector(".sub-menu").style.display = "none";
-    //                     }
-    //                 });
-
-    //                 // Alternar la visibilidad de la subcategoría
-    //                 var subMenu = item.querySelector(".sub-menu");
-    //                 if (subMenu) {
-    //                     subMenu.style.display = subMenu.style.display === "none" ? "block" : "none";
-    //                 }
-    //             });
-    //         });
-    //     });
-    // });
-
     document.addEventListener("DOMContentLoaded", function () {
         var accordions = document.querySelectorAll(".dcjq-accordion");
 

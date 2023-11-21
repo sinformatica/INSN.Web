@@ -28,7 +28,7 @@ namespace INSN.Web.ApiRest.Controllers.Home
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] BusquedaDocumentoLegalRequest request)
         {
-            var response = await _service.ListAsync(request.Filter, request.TipoDocumentoId, request.Estado, request.Page, request.Rows);
+            var response = await _service.ListAsync(request.Documento, request.Descripcion, request.TipoDocumentoId, request.Estado, request.Page, request.Rows);
 
             return Ok(response);
         }

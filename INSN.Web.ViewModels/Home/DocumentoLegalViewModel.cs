@@ -27,5 +27,7 @@ public class DocumentoLegalViewModel : BaseModel
     public int Page { get; set; }
     public ICollection<DocumentoLegalDtoResponse>? DocumentoLegales { get; set; }
 
-    public string PDF { get; set; }
+    public string? PDF { get; set; }
+
+    public string? TituloPagina { get; set; }
 }

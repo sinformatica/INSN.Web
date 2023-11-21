@@ -50,7 +50,8 @@ public class DirectorioInstitucionalController : Controller
 
         var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
         {
-            Filter = model.Documento,
+            Documento = model.Documento,
+            Descripcion=model.Descripcion,
             TipoDocumentoId = model.TipoDocumentoSeleccionada,
             Estado = model.EstadoSeleccionado,
             Page = pager.CurrentPage,

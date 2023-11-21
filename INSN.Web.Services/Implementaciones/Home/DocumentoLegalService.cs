@@ -47,7 +47,7 @@ namespace INSN.Web.Services.Implementaciones.Home
         /// <param name="Page"></param>
         /// <param name="Rows"></param>
         /// <returns></returns>
-        public async Task<PaginationResponse<DocumentoLegalDtoResponse>> ListAsync(string? Documento, int? TipoDocumentoId,
+        public async Task<PaginationResponse<DocumentoLegalDtoResponse>> ListAsync(string? Documento, string? Descripcion,int? TipoDocumentoId,
             string? Estado, int Page, int Rows)
         {
 
@@ -56,9 +56,10 @@ namespace INSN.Web.Services.Implementaciones.Home
             try
             {
                 Expression<Func<DocumentoLegal, bool>> predicate =
-                    x => x.Documento.Contains(Documento ?? string.Empty)
-                    && (TipoDocumentoId == null || x.TipoDocumentoId == TipoDocumentoId)
-                    && (Estado == null || x.Estado ==Estado);
+    x => x.Documento.Contains(Documento ?? string.Empty)
+    && (string.IsNullOrEmpty(Descripcion) || x.Descripcion.Contains(Descripcion))
+    && (TipoDocumentoId == null || x.TipoDocumentoId == TipoDocumentoId)
+    && (Estado == null || x.Estado == Estado);
 
                 var tupla = await _repository
                     .ListAsync<DocumentoLegalDtoResponse, string>(

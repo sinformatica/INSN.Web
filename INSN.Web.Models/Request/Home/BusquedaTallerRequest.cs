@@ -4,7 +4,8 @@ namespace INSN.Web.Models.Request;
 
 public class BusquedaDocumentoLegalRequest : RequestBase
 {
-    public string? Filter { get; set; }
+    public string? Documento { get; set; }
+    public string? Descripcion { get; set; }
     public int? TipoDocumentoId { get; set; }
     public string? Estado { get; set; }
 }

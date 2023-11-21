@@ -10,30 +10,28 @@
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
             <div class="section-header">
-                <h4>Normas y Documentos Legales</h4>
+                <div>
+                    @Html.HiddenFor(m => m.TituloPagina, new { @id = "tituloPaginaInput" })
+                </div>
+                <h4 id="tituloPaginaMostrado"></h4>
             </div>
             <form>
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-5">
                         <div class="form-floating mb-4">
                             @Html.TextBoxFor(m => m.Documento, new { @class = "form-control", @id = "example-text-input-floating", @placeholder = "Resolución" })
                             <label class="form-label" for="example-text-input-floating">Resolución</label>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-7">
                         <div class="form-floating mb-4">
                             @Html.TextBoxFor(m => m.Descripcion, new { @class = "form-control", @id = "example-text-input-floating", @placeholder = "Descripción" })
                             <label class="form-label" for="example-text-input-floating">Descripción</label>
                         </div>
+                    </div>     
+                    <div>
+                        @Html.HiddenFor(m => m.TipoDocumentoSeleccionada, new { @id = "tipoDocumentoSeleccionado" })
                     </div>
-
-                  @*   <div class="col-5">
-                        <div class="form-floating mb-4">
-                            @Html.DropDownListFor(m => m.TipoDocumentoSeleccionada,
-                            new SelectList(Model.TipoDocumentos, "Id", "Descripcion"), "Todos", new { @class = "form-select", @id = "example-select-floating" })
-                            <label class="form-label" for="example-select-floating">Documento</label>
-                        </div>
-                    </div>          *@          
                 </div>
 
                 <div class="row mt-3 justify-content-end">
@@ -130,6 +128,21 @@
         }
     </script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var tituloPaginaInput = document.getElementById("tituloPaginaInput");
+            var tituloPaginaMostrado = document.getElementById("tituloPaginaMostrado");
 
+            if (tituloPaginaInput && tituloPaginaMostrado) {
+                // Mostrar el valor inicialmente al cargar la página
+                tituloPaginaMostrado.innerText = tituloPaginaInput.value;
+
+                // Actualizar el valor cuando cambie el valor del campo oculto
+                tituloPaginaInput.addEventListener("input", function () {
+                    tituloPaginaMostrado.innerText = tituloPaginaInput.value;
+                });
+            }
+        });
+    </script>
 
 }
