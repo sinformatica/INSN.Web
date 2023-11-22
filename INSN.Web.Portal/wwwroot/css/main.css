@@ -4595,6 +4595,7 @@ readers do not read off random characters that represent icons */
 
 .fa-chevron-circle-left::before {
     content: "\f137";
+    color: #0096ad;
 }
 
 .fa-circle-chevron-right::before {
@@ -48485,15 +48486,11 @@ pre.pre-sh {
     color: #0096ad;
 }
 
-
-
-
 /* 
 ---------------------------------------------
 Best Deal Style
 --------------------------------------------- 
 */
-
 .best-deal {
     background-color: #fff;
     padding: 20px 0px;
