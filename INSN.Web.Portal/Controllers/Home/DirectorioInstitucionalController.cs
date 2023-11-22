@@ -3,6 +3,7 @@ using INSN.Web.Models.Request;
 using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
 using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
@@ -27,6 +28,11 @@ public class DirectorioInstitucionalController : Controller
         _TipoDocumentoProxy = TipoDocumentoProxy;
         _logger = logger;
         _enviroment = env;
+    }
+
+    public IActionResult Index()
+    {
+        return View("~/Views/Home/DirectorioInstitucional/Index.cshtml");
     }
 
     // GET
