@@ -16,7 +16,7 @@ public class DocumentoLegalProxy : CrudRestHelperBase<DocumentoLegalDtoRequest, 
     public async Task<PaginationResponse<DocumentoLegalDtoResponse>> ListAsync(BusquedaDocumentoLegalRequest request)
     {
         var response = await HttpClient.GetFromJsonAsync<PaginationResponse<DocumentoLegalDtoResponse>>(
-            $"{BaseUrl}?Documento={request.Documento}&Descripcion={request.Descripcion}&TipoDocumentoId={request.TipoDocumentoId}&estado={request.Estado}&page={request.Page}&rows={request.Rows}");
+            $"{BaseUrl}?Documento={request.Documento}&Descripcion={request.Descripcion}&TipoDocumentoId={request.TipoDocumentoId}&estado={request.Estado}&estadoRegistro={request.EstadoRegistro}&page={request.Page}&rows={request.Rows}");
 
         if (response is { Success: true })
         {

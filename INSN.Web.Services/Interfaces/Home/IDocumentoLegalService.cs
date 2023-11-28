@@ -19,6 +19,6 @@ namespace INSN.Web.Services.Interfaces.Home
         /// <param name="Rows"></param>
         /// <returns></returns>
         Task<PaginationResponse<DocumentoLegalDtoResponse>> ListAsync(string? Documento, string? Descripcion, int? TipoDocumentoId,
-            string? Estado, int Page, int Rows);
+            string? Estado, int EstadoRegistro, int Page, int Rows);
     }
 }

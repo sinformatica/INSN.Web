@@ -58,8 +58,8 @@ public class DirectorioInstitucionalController : Controller
         {
             Documento = model.Documento,
             Descripcion=model.Descripcion,
-            TipoDocumentoId = model.TipoDocumentoSeleccionada,
-            Estado = model.EstadoSeleccionado,
+            TipoDocumentoId = model.TipoDocumentoSeleccionada,         
+            EstadoRegistro = 1,
             Page = pager.CurrentPage,
             Rows = pager.RowsPerPage
         });

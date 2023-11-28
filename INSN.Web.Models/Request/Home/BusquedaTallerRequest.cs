@@ -8,4 +8,5 @@ public class BusquedaDocumentoLegalRequest : RequestBase
     public string? Descripcion { get; set; }
     public int? TipoDocumentoId { get; set; }
     public string? Estado { get; set; }
+    public int EstadoRegistro { get; set; }
 }

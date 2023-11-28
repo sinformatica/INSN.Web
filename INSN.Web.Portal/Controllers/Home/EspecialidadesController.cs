@@ -101,8 +101,7 @@ namespace INSN.Web.Portal.Controllers.Home
         }
         #endregion
 
-
-        #region [Medicina]
+        #region [Cirugía]
         public IActionResult CirugiaCabeza()
         {
             return View("~/Views/Home/Especialidades/Cirugia/CirugiaCabeza.cshtml");
@@ -111,6 +110,77 @@ namespace INSN.Web.Portal.Controllers.Home
         public IActionResult CirugiaPediatrica()
         {
             return View("~/Views/Home/Especialidades/Cirugia/CirugiaPediatrica.cshtml");
+        }
+
+        public IActionResult CirugiaPlastica()
+        {
+            return View("~/Views/Home/Especialidades/Cirugia/CirugiaPlastica.cshtml");
+        }
+        
+        public IActionResult CirugiaToraxCardiovascular()
+        {
+            return View("~/Views/Home/Especialidades/Cirugia/CirugiaToraxCardiovascular.cshtml");
+        }
+        
+        public IActionResult Ginecologia()
+        {
+            return View("~/Views/Home/Especialidades/Cirugia/Ginecologia.cshtml");
+        }
+
+        public IActionResult Neurocirugia()
+        {
+            return View("~/Views/Home/Especialidades/Cirugia/Neurocirugia.cshtml");
+        }
+        
+        public IActionResult Oftalmologia()
+        {
+            return View("~/Views/Home/Especialidades/Cirugia/Oftalmologia.cshtml");
+        }
+
+        public IActionResult Otorrinolaringologia()
+        {
+            return View("~/Views/Home/Especialidades/Cirugia/Otorrinolaringologia.cshtml");
+        }
+
+        public IActionResult Quemados()
+        {
+            return View("~/Views/Home/Especialidades/Cirugia/Quemados.cshtml");
+        }
+        
+        public IActionResult Traumatologia()
+        {
+            return View("~/Views/Home/Especialidades/Cirugia/Traumatologia.cshtml");
+        }
+
+        public IActionResult Urologia()
+        {
+            return View("~/Views/Home/Especialidades/Cirugia/Urologia.cshtml");
+        }
+        #endregion
+        
+        #region  [Salud Mental]
+        public IActionResult Psicologia()
+        {
+            return View("~/Views/Home/Especialidades/SaludMental/Psicologia.cshtml");
+        }
+
+        public IActionResult Psiquiatria()
+        {
+            return View("~/Views/Home/Especialidades/SaludMental/Psiquiatria.cshtml");
+        }
+        #endregion
+
+        #region [Centro Vacunación]
+        public IActionResult Inmunizacion()
+        {
+            return View("~/Views/Home/Especialidades/CentroVacunacion/Inmunizacion.cshtml");
+        }
+        #endregion
+
+        #region [Emergencia]
+        public IActionResult ServicioEmergencia()
+        {
+            return View("~/Views/Home/Especialidades/Emergencia/ServicioEmergencia.cshtml");
         }
         #endregion
 
