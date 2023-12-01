@@ -8,7 +8,7 @@ namespace INSN.Web.Entities.DocumentoLegal
     public class DocumentoLegal : EntityBase
     {  
         /// <summary>
-        /// Nombre
+        /// Nombres
         /// </summary>
         public string Documento { get; set; } = default!;
 
