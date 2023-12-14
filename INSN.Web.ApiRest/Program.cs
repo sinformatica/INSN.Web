@@ -40,6 +40,10 @@ builder.Services.AddDbContext<INSNWebDBContext>(options =>
         p.Ignore(CoreEventId.SensitiveDataLoggingEnabledWarning));
 });
 
+builder.Services.AddDbContext<SegAppDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SegAppDatabase"));
+});
 
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
 //{
