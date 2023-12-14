@@ -45,28 +45,24 @@ builder.Services.AddDbContext<SegAppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SegAppDatabase"));
 });
 
-//builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//{
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("ApplicationDb"));
-//});
 
-//builder.Services.AddIdentity<GalaxyIdentityUser, IdentityRole>(policies =>
-//{
-//    Politicas de contraseña
-//    policies.Password.RequireDigit = true;
-//    policies.Password.RequireLowercase = true;
-//    policies.Password.RequireUppercase = false;
-//    policies.Password.RequireNonAlphanumeric = false;
-//    policies.Password.RequiredLength = 6;
+builder.Services.AddIdentity<INSNIdentityUser, IdentityRole>(policies =>
+{
+    // politicas de contraseña
+    policies.Password.RequireDigit = true;
+    policies.Password.RequireLowercase = true;
+    policies.Password.RequireUppercase = false;
+    policies.Password.RequireNonAlphanumeric = false;
+    policies.Password.RequiredLength = 6;
 
-//    Los usuarios deben ser unicos
-//    policies.User.RequireUniqueEmail = true;
+    // todos los usuarios deben ser unicos
+    policies.User.RequireUniqueEmail = true;
 
-//    Politica de bloqueo de cuentas
-//    policies.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
-//    policies.Lockout.MaxFailedAccessAttempts = 5;
-//}).AddEntityFrameworkStores<ApplicationDbContext>()
-//.AddDefaultTokenProviders();
+    // politica de bloqueo de cuenta
+    policies.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+    policies.Lockout.MaxFailedAccessAttempts = 5;
+}).AddEntityFrameworkStores<SegAppDbContext>()
+.AddDefaultTokenProviders();
 
 
 // Inyectamos las dependencias
@@ -144,9 +140,9 @@ app.UseHttpsRedirection();
 
 app.MapControllers();
 
-//using (var scope = app.Services.CreateScope())
-//{
-//    await UserDataSeeder.Seed(scope.ServiceProvider);
-//}
+using (var scope = app.Services.CreateScope())
+{
+    await UserDataSeeder.Seed(scope.ServiceProvider);
+}
 
 app.Run();

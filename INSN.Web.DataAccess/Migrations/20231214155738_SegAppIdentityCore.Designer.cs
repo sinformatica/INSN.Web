@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace INSN.Web.DataAccess.Migrations
 {
     [DbContext(typeof(SegAppDbContext))]
-    [Migration("20231214152110_SegAppIdentityCore")]
+    [Migration("20231214155738_SegAppIdentityCore")]
     partial class SegAppIdentityCore
     {
         /// <inheritdoc />
