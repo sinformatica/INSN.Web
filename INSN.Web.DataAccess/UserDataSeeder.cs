@@ -43,9 +43,11 @@ namespace INSN.Web.DataAccess
                 Nombres = "Administrador",
                 ApellidoPaterno = "Sistemas",
                 ApellidoMaterno = "INSN",
+                servicio = "9999",
                 UserName = "AdminSistemas",
                 Email = "adminsistemas@gmail.com",
                 PhoneNumber = "+1 999 999 999",
+                TipoDocumentoIdentidadId = 1,
                 EmailConfirmed = true
             };
 
