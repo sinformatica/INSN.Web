@@ -57,6 +57,8 @@
                         registros
                     </div>
                 </div>
+
+
                 <div class="row mt-4">
                     @if (Model.DocumentoLegales is null)
                     {
@@ -89,6 +91,8 @@
                         </table>
                     }
                 </div>
+
+
                 <div class="container">
                     <partial name="_DataPager" model="ViewBag.Pager" />
                     @Html.HiddenFor(m => m.Page, new { id = "currentPage"})

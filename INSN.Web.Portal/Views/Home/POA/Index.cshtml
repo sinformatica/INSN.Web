@@ -1,9 +1,13 @@
-﻿@{
+﻿@using INSN.Web.ViewModels.Home
+
+@model DocumentoLegalViewModel
+
+@{
     ViewData["Title"] = "INSN Breña";
 }
 
 <main id="main">
-   
+
     <!-- ======= INICIO DE SESSION CON PESTAÑA ( POA )======= -->
     <!-- ======= INICIO OBJETIVOS - ORGANIGRAMA - HISTORIA ======= -->
     <div class="section best-deal">
@@ -12,157 +16,233 @@
                 <div class="section-header">
                     <h2>Programa de Optimización de Antimicrobianos</h2>
                     <p align="justify">
-                        El dramático aumento del uso de antimicrobianos y dentro de estos los antibióticos en los hospitales, 
-                        es uno de los factores asociados al incremento de la resistencia bacteriana y actualmente se considera 
-                        una pandemia con gran impacto en la salud pública, estimándose que para el año 2050 las infecciones por 
-                        bacterias resistentes serán una de las principales causas de muerte a nivel mundial. Al mismo tiempo, 
+                        El dramático aumento del uso de antimicrobianos y dentro de estos los antibióticos en los hospitales,
+                        es uno de los factores asociados al incremento de la resistencia bacteriana y actualmente se considera
+                        una pandemia con gran impacto en la salud pública, estimándose que para el año 2050 las infecciones por
+                        bacterias resistentes serán una de las principales causas de muerte a nivel mundial. Al mismo tiempo,
                         en las últimas décadas la investigación y desarrollo de nuevos antibióticos por la industria farmacéutica
-                        es menor, por lo que la disponibilidad de antibióticos eficaces para tratar estas infecciones es cada día 
-                        más escasa, sobre todo en países de recursos limitados y hospitales del sector público; dejando a los clínicos 
-                        con muy pocas o con ninguna opción terapéutica.Se ha reportado que entre el 30 al 50% del uso de antibióticos a 
-                        nivel hospitalario es innecesario e inapropiado. El uso inadecuado de antibióticos conlleva a la selección de 
+                        es menor, por lo que la disponibilidad de antibióticos eficaces para tratar estas infecciones es cada día
+                        más escasa, sobre todo en países de recursos limitados y hospitales del sector público; dejando a los clínicos
+                        con muy pocas o con ninguna opción terapéutica.Se ha reportado que entre el 30 al 50% del uso de antibióticos a
+                        nivel hospitalario es innecesario e inapropiado. El uso inadecuado de antibióticos conlleva a la selección de
                         bacterias multiresistentes (MDR), las cuales se asocian a mayores días de hospitalización, mortalidad y costos.
                         El Instituto Nacional de Salud del Niño dando cumplimiento a la NTS N°184-MINSA/DIGEMID-2022 ha implementado la
-                        Unidad Funcional de Optimización de Antimicrobianos encargada del Programa de Optimización de Antimicrobianos 
+                        Unidad Funcional de Optimización de Antimicrobianos encargada del Programa de Optimización de Antimicrobianos
                         (PROA) en la institución cuyos objetivos son:
                     </p>
                     <br />
                     <br />
                 </div>
-
-
                 <div class="row g-sm">
                     <div class="col-6 col-md-4 col-xl-4">
                         <a class="block block-link-shadow text-center" href="javascript:void(0)">
                             <div class="block-content">
                                 @* <p class="mt-1">
-                                    <i class="si si-badge fa-4x"></i>
+                                <i class="si si-badge fa-4x"></i>
                                 </p> *@
                                 <p class="fw-medium">Mejorar los resultados clínicos de los pacientes con infecciones</p>
                             </div>
                         </a>
                     </div>
-
-                  
-
                     <div class="col-6 col-md-4 col-xl-4">
                         <a class="block block-link-shadow text-center" href="javascript:void(0)">
                             <div class="block-content">
-                              @*   <p class="mt-1">
-                                    <i class="si si-envelope fa-4x text-success"></i>
+                                @*   <p class="mt-1">
+                                <i class="si si-envelope fa-4x text-success"></i>
                                 </p> *@
                                 <p class="fw-medium">Minimizar los efectos adversos asociados a la utilización de antimicrobianos; incluyendo la resistencia a antimicrobianos</p>
                             </div>
                         </a>
                     </div>
-
-              
-
                     <div class="col-6 col-md-4 col-xl-4">
                         <a class="block block-link-shadow text-center" href="javascript:void(0)">
                             <div class="block-content">
-                             @*    <p class="mt-1">
-                                    <i class="si si-bag fa-4x text-danger"></i>
+                                @*    <p class="mt-1">
+                                <i class="si si-bag fa-4x text-danger"></i>
                                 </p> *@
                                 <p class="fw-medium">Garantizar la utilización de tratamientos costo - eficaces</p>
                             </div>
                         </a>
                     </div>
-                    
-
-                   </div>
-
-
-
+                </div>
+            </div>
         </div>
-    </div>
     </div>
     <!-- ======= FIN OBJETIVOS - ORGANIGRAMA - HISTORIA ======= -->
     <!-- ======= FIN DE SESSION CON PESTAÑA ======= -->
-
-
-
-        <!-- ======= INICIO CURSOS  ======= -->
-        <section id="Cursos" class="testimonials">
-            <div class="container" data-aos="fade-up">
-                <br />
-                <div class="section-header">
-                    <h2>Cursos</h2>
-                </div>
-
-                 <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
-                    <div class="swiper-wrapper"> 
-
-                        <!-- Inicio CURSO 3 -->
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <div class="d-flex align-items-center">
-                                        <div style="text-align: center; width: 100%;">
-                                            <img src="~/imagenes/imgPOA/Curso3.jpg" class="testimonial-img flex-shrink-0" alt="">
-                                        </div>
-                                    </div>
-                                <h4> lalaa</h4>
-                                <p>
-                                    ffffffffffff
-                                </p>
-                                <br>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Curso3" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a> 
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Fin CURSO 3 -->
-
-                        <!-- Inicio CURSO 2 -->
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <div class="d-flex align-items-center">
-                                        <div style="text-align: center; width: 100%;">
-                                            <img src="~/imagenes/imgPOA/Curso2.jpg" class="testimonial-img flex-shrink-0" alt="">
-                                        </div>
-                                    </div>
-                                    <br>
-                                <h4> lalaa</h4>
-                                <p>
-                                    ffffffffffff
-                                </p>
-                                <br>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Curso2" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Fin CURSO 2 -->
-                        <!-- Inicio CURSO 1 -->
-                        <div class="swiper-slide">
-                            <div class="testimonial-wrap">
-                                <div class="testimonial-item">
-                                    <div class="d-flex align-items-center">
-                                        <div style="text-align: center; width: 100%;">
-                                            <img src="~/imagenes/imgPOA/Curso1.jpeg" class="testimonial-img flex-shrink-0" alt="">
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <h4> lalaa</h4>
-                                    <p>
-                                        ffffffffffff
-                                    </p>
-                                    <br>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Curso1" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Fin CURSO 1 -->
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-
+    <!-- ======= INICIO CURSOS  ======= -->
+    <section id="Cursos" class="testimonials">
+        <div class="container" data-aos="fade-up">
+            <br />
+            <div class="section-header">
+                <h2>Cursos</h2>
             </div>
-        </section>
-        <!-- ======= FIN CURSOS  ======= -->
+            <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+                    <!-- Inicio CURSO 3 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-wrap">
+                            <div class="testimonial-item">
+                                <div class="d-flex align-items-center">
+                                    <div style="text-align: center; width: 100%;">
+                                        <img src="~/imagenes/imgPOA/Curso3.jpg" class="testimonial-img flex-shrink-0" alt="">
+                                    </div>
+                                </div>
+                                <h4> lalaa</h4>
+                                <p>
+                                    ffffffffffff
+                                </p>
+                                <br>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Curso3" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fin CURSO 3 -->
+                    <!-- Inicio CURSO 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-wrap">
+                            <div class="testimonial-item">
+                                <div class="d-flex align-items-center">
+                                    <div style="text-align: center; width: 100%;">
+                                        <img src="~/imagenes/imgPOA/Curso2.jpg" class="testimonial-img flex-shrink-0" alt="">
+                                    </div>
+                                </div>
+                                <br>
+                                <h4> lalaa</h4>
+                                <p>
+                                    ffffffffffff
+                                </p>
+                                <br>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Curso2" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fin CURSO 2 -->
+                    <!-- Inicio CURSO 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-wrap">
+                            <div class="testimonial-item">
+                                <div class="d-flex align-items-center">
+                                    <div style="text-align: center; width: 100%;">
+                                        <img src="~/imagenes/imgPOA/Curso1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                    </div>
+                                </div>
+                                <br>
+                                <h4> lalaa</h4>
+                                <p>
+                                    ffffffffffff
+                                </p>
+                                <br>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Curso1" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fin CURSO 1 -->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    <!-- ======= FIN CURSOS  ======= -->
+    <!-- ================================================= -->
+    <!-- ======= INICIO DE DATATABLE  ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-floating mb-4">
+                        @Html.TextBoxFor(m => m.Documento, new { @class = "form-control", @id = "example-text-input-floating", @placeholder = "Resolución" })
+                        <label class="form-label" for="example-text-input-floating">Tipo de información PROA</label>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="row mt-3 justify-content">
+                        <div class="col-auto">
+                            <button id="btnBuscar" class="btn btn-outline-primary" type="submit"><i class="bi bi-search me-1"></i>Buscar</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    @Html.HiddenFor(m => m.TipoDocumentoSeleccionada, new { @id = "tipoDocumentoSeleccionado" })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div>
+                    Mostrar
+                    <select id="pageSize" class="form-select-sm" asp-for="Rows">
+                        <option>20</option>
+                        <option>35</option>
+                        <option>50</option>
+                        <option>100</option>
+                    </select>
+                    registros
+                </div>
+            </div>
+            <div class="row mt-4">
+                @if (Model.DocumentoLegales is null)
+                {
+                    <p>Sin resultados</p>
+                }
+                else if (!Model.DocumentoLegales.Any())
+                {
+                    <p>Sin datos para mostrar</p>
+                }
+                else
+                {
+                    <table class="table table-striped table-vcenter">
+                        <thead>
+                            <tr>
+                                <th class="col-10">Descripción del Documento</th>
+                                <th class="col-2 d-none d-sm-table-cell">Documento PDF</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.DocumentoLegales)
+                            {
+                                <tr>
+                                    <td class="col-10">
+                                        <h5 class="fw-bold">@item.Documento</h5>
+                                        <br>
+                                        @item.Descripcion
+                                    </td>
+                                    <td class="col-2 d-none d-sm-table-cell">
+                                        <a target="_blank" href="@Url.Action("Download1", "DirectorioInstitucional", new { fileName = item.PDF })">
+                                            <img src="~/imagenes/iconos/pdf.svg" alt="Icono PDF" width="32" height="32">
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
 
 
-        <!-- INICIO CREACION DE MODALS -->
+            <div class="container">
+                <partial name="_DataPager" model="ViewBag.Pager" />
+                @Html.HiddenFor(m => m.Page, new { id = "currentPage" })
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- INICIO MODAL - Curso 3 -->
     <div class="modal fade" id="modal-fromleft_Curso3" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-fromleft" role="document">
@@ -206,7 +286,6 @@
     </div>
 
     <!-- FIN MODAL - Curso 3 -->
-
     <!-- INICIO MODAL - Curso 2 -->
     <div class="modal fade" id="modal-fromleft_Curso2" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-fromleft" role="document">
@@ -250,174 +329,166 @@
     </div>
 
     <!-- FIN MODAL - Curso 2 -->
-
-        <!-- INICIO MODAL - Curso 1 -->
-        <div class="modal fade" id="modal-fromleft_Curso1" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-fromleft" role="document">
-                <div class="modal-content">
-                    <div class="block block-rounded shadow-none mb-0">
-                        <div class="container" data-aos="fade-up" style="PADDING: 30PX;">
-                            <div class="section-header">
-                                <h2>Cursos</h2>
-                            </div>
-                            <div class="row gy-4">
-                                @* Titulo y Contenido Curso 1 *@
-                                @*  Columna 1 *@
-                                <h5 style="text-align: center;text-transform: uppercase;">
-                                    raroo
-                                </h5>
-                                <div class="col-lg-6">
-                                     <!-- Inicio de Portafolio Curso 1 -->
-                                    <div class="row gy-4 portfolio-container">
-                                        @* INICIO Foto que se Mostrara *@
-                                        <div class="portfolio-item filter-app">
-                                            <div class="portfolio-wrap">
-                                                <a href="~/imagenes/imgPOA/Curso1.jpeg" class="glightbox">
-                                                    <img src="~/imagenes/imgPOA/Curso1.jpeg"
-                                                         class="img-fluid" alt="">
-                                                </a>
-
-                                            </div>
-                                        </div>
-                            </div>
+    <!-- INICIO MODAL - Curso 1 -->
+    <div class="modal fade" id="modal-fromleft_Curso1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-fromleft" role="document">
+            <div class="modal-content">
+                <div class="block block-rounded shadow-none mb-0">
+                    <div class="container" data-aos="fade-up" style="PADDING: 30PX;">
+                        <div class="section-header">
+                            <h2>Cursos</h2>
                         </div>
-                        <div class="block-content block-content-full block-content-sm text-end border-top">
-                            <button type="button" class="btn btn-alt-insn" data-bs-dismiss="modal">
-                                Cerrar
-                            </button>
+                        <div class="row gy-4">
+                            @* Titulo y Contenido Curso 1 *@
+                            @*  Columna 1 *@
+                            <h5 style="text-align: center;text-transform: uppercase;">
+                                raroo
+                            </h5>
+                            <div class="col-lg-6">
+                                <!-- Inicio de Portafolio Curso 1 -->
+                                <div class="row gy-4 portfolio-container">
+                                    @* INICIO Foto que se Mostrara *@
+                                    <div class="portfolio-item filter-app">
+                                        <div class="portfolio-wrap">
+                                            <a href="~/imagenes/imgPOA/Curso1.jpeg" class="glightbox">
+                                                <img src="~/imagenes/imgPOA/Curso1.jpeg"
+                                                     class="img-fluid" alt="">
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-content block-content-full block-content-sm text-end border-top">
+                                <button type="button" class="btn btn-alt-insn" data-bs-dismiss="modal">
+                                    Cerrar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
     </div>
 
 
-        <!-- FIN MODAL - Curso 1 -->
+    <!-- FIN MODAL - Curso 1 -->
+    @*   DOCUMENTOS *@
 
 
+    @*  <div class="block-content">
 
-
-
-
-
-       @*   DOCUMENTOS *@
-
- 
-       @*  <div class="block-content">
-
-            <table class="table table-striped table-vcenter">
-                <thead>
-                    <tr>
-                        <th>Descripción del documento</th>
-                        <th class="d-none d-md-table-cell" style="width: 15%;">Documento</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="text-center">
-                            <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar16.jpg" alt="">
-                        </td>
-                        <td class="fw-semibold">Adam McCoy</td>
-                        <td class="d-none d-sm-table-cell">client1@example.com</td>
-                        <td class="d-none d-md-table-cell">
-                            <span class="badge bg-primary">Personal</span>
-                        </td>
-                        <td class="text-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Edit" data-bs-original-title="Edit">
-                                    <i class="fa fa-pencil-alt"></i>
-                                </button>
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Delete" data-bs-original-title="Delete">
-                                    <i class="fa fa-times"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">
-                            <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar12.jpg" alt="">
-                        </td>
-                        <td class="fw-semibold">Brian Stevens</td>
-                        <td class="d-none d-sm-table-cell">client2@example.com</td>
-                        <td class="d-none d-md-table-cell">
-                            <span class="badge bg-warning">Trial</span>
-                        </td>
-                        <td class="text-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Edit" data-bs-original-title="Edit">
-                                    <i class="fa fa-pencil-alt"></i>
-                                </button>
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Delete" data-bs-original-title="Delete">
-                                    <i class="fa fa-times"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">
-                            <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar15.jpg" alt="">
-                        </td>
-                        <td class="fw-semibold">Jeffrey Shaw</td>
-                        <td class="d-none d-sm-table-cell">client3@example.com</td>
-                        <td class="d-none d-md-table-cell">
-                            <span class="badge bg-primary">Personal</span>
-                        </td>
-                        <td class="text-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Edit" data-bs-original-title="Edit">
-                                    <i class="fa fa-pencil-alt"></i>
-                                </button>
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Delete" data-bs-original-title="Delete">
-                                    <i class="fa fa-times"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">
-                            <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar16.jpg" alt="">
-                        </td>
-                        <td class="fw-semibold">Albert Ray</td>
-                        <td class="d-none d-sm-table-cell">client4@example.com</td>
-                        <td class="d-none d-md-table-cell">
-                            <span class="badge bg-primary">Personal</span>
-                        </td>
-                        <td class="text-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Edit" data-bs-original-title="Edit">
-                                    <i class="fa fa-pencil-alt"></i>
-                                </button>
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Delete" data-bs-original-title="Delete">
-                                    <i class="fa fa-times"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">
-                            <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar9.jpg" alt="">
-                        </td>
-                        <td class="fw-semibold">Scott Young</td>
-                        <td class="d-none d-sm-table-cell">client5@example.com</td>
-                        <td class="d-none d-md-table-cell">
-                            <span class="badge bg-success">VIP</span>
-                        </td>
-                        <td class="text-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Edit" data-bs-original-title="Edit">
-                                    <i class="fa fa-pencil-alt"></i>
-                                </button>
-                                <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Delete" data-bs-original-title="Delete">
-                                    <i class="fa fa-times"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div> *@
+    <table class="table table-striped table-vcenter">
+    <thead>
+    <tr>
+    <th>Descripción del documento</th>
+    <th class="d-none d-md-table-cell" style="width: 15%;">Documento</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td class="text-center">
+    <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar16.jpg" alt="">
+    </td>
+    <td class="fw-semibold">Adam McCoy</td>
+    <td class="d-none d-sm-table-cell">client1@example.com</td>
+    <td class="d-none d-md-table-cell">
+    <span class="badge bg-primary">Personal</span>
+    </td>
+    <td class="text-center">
+    <div class="btn-group">
+    <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Edit" data-bs-original-title="Edit">
+    <i class="fa fa-pencil-alt"></i>
+    </button>
+    <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Delete" data-bs-original-title="Delete">
+    <i class="fa fa-times"></i>
+    </button>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td class="text-center">
+    <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar12.jpg" alt="">
+    </td>
+    <td class="fw-semibold">Brian Stevens</td>
+    <td class="d-none d-sm-table-cell">client2@example.com</td>
+    <td class="d-none d-md-table-cell">
+    <span class="badge bg-warning">Trial</span>
+    </td>
+    <td class="text-center">
+    <div class="btn-group">
+    <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Edit" data-bs-original-title="Edit">
+    <i class="fa fa-pencil-alt"></i>
+    </button>
+    <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Delete" data-bs-original-title="Delete">
+    <i class="fa fa-times"></i>
+    </button>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td class="text-center">
+    <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar15.jpg" alt="">
+    </td>
+    <td class="fw-semibold">Jeffrey Shaw</td>
+    <td class="d-none d-sm-table-cell">client3@example.com</td>
+    <td class="d-none d-md-table-cell">
+    <span class="badge bg-primary">Personal</span>
+    </td>
+    <td class="text-center">
+    <div class="btn-group">
+    <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Edit" data-bs-original-title="Edit">
+    <i class="fa fa-pencil-alt"></i>
+    </button>
+    <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Delete" data-bs-original-title="Delete">
+    <i class="fa fa-times"></i>
+    </button>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td class="text-center">
+    <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar16.jpg" alt="">
+    </td>
+    <td class="fw-semibold">Albert Ray</td>
+    <td class="d-none d-sm-table-cell">client4@example.com</td>
+    <td class="d-none d-md-table-cell">
+    <span class="badge bg-primary">Personal</span>
+    </td>
+    <td class="text-center">
+    <div class="btn-group">
+    <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Edit" data-bs-original-title="Edit">
+    <i class="fa fa-pencil-alt"></i>
+    </button>
+    <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Delete" data-bs-original-title="Delete">
+    <i class="fa fa-times"></i>
+    </button>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td class="text-center">
+    <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar9.jpg" alt="">
+    </td>
+    <td class="fw-semibold">Scott Young</td>
+    <td class="d-none d-sm-table-cell">client5@example.com</td>
+    <td class="d-none d-md-table-cell">
+    <span class="badge bg-success">VIP</span>
+    </td>
+    <td class="text-center">
+    <div class="btn-group">
+    <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Edit" data-bs-original-title="Edit">
+    <i class="fa fa-pencil-alt"></i>
+    </button>
+    <button type="button" class="btn btn-sm btn-secondary js-bs-tooltip-enabled" data-bs-toggle="tooltip" aria-label="Delete" data-bs-original-title="Delete">
+    <i class="fa fa-times"></i>
+    </button>
+    </div>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div> *@
 
 
 

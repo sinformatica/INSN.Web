@@ -1,39 +1,39 @@
-﻿using INSN.Web.Models;
-using INSN.Web.Models.Request;
-//using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
-using INSN.Web.ViewModels.Home;
-using Microsoft.AspNetCore.Mvc;
-using System.Reflection;
+﻿//using INSN.Web.Models;
+//using INSN.Web.Models.Request;
+////using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
+//using INSN.Web.ViewModels.Home;
+//using Microsoft.AspNetCore.Mvc;
+//using System.Reflection;
 
-namespace INSN.Web.Portal.Controllers.Home;
+//namespace INSN.Web.Portal.Controllers.Home;
 
-public class ReglamentoInterno : Controller
-{
-    private readonly IWebHostEnvironment _enviroment;
-  //  private readonly IDocumentoLegalProxy _proxy;
-  //  private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<ReglamentoInterno> _logger;
+//public class ReglamentoInterno : Controller
+//{
+//    private readonly IWebHostEnvironment _enviroment;
+//  //  private readonly IDocumentoLegalProxy _proxy;
+//  //  private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
+//    private readonly ILogger<ReglamentoInterno> _logger;
 
     
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="proxy"></param>
-    /// <param name="TipoDocumentoProxy"></param>
-    /// <param name="logger"></param>
-    public ReglamentoInterno(//IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy,
-        ILogger<ReglamentoInterno> logger, IWebHostEnvironment env)
-    {
-       // _proxy = proxy;
-     //   _TipoDocumentoProxy = TipoDocumentoProxy;
-        _logger = logger;
-        _enviroment = env;
-    }
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    /// <param name="proxy"></param>
+//    /// <param name="TipoDocumentoProxy"></param>
+//    /// <param name="logger"></param>
+//    public ReglamentoInterno(//IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy,
+//        ILogger<ReglamentoInterno> logger, IWebHostEnvironment env)
+//    {
+//       // _proxy = proxy;
+//     //   _TipoDocumentoProxy = TipoDocumentoProxy;
+//        _logger = logger;
+//        _enviroment = env;
+//    }
 
-    public IActionResult Index()
-    {
-        return View("~/Views/Home/ReglamentoInterno/Index.cshtml");
-    }
+//    public IActionResult Index()
+//    {
+//        return View("~/Views/Home/ReglamentoInterno/Index.cshtml");
+//    }
 
     //// GET
     ///// <summary>
@@ -99,4 +99,4 @@ public class ReglamentoInterno : Controller
     //        return StatusCode(StatusCodes.Status500InternalServerError);
     //    }
     //}
-}
+//}
