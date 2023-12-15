@@ -22,11 +22,11 @@ namespace INSN.Web.ApiRest.Controllers
             return response.Success ? Ok(response) : Unauthorized(response);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Register(RegisterDtoRequest request)
-        //{
-        //    var response = await _service.RegisterAsync(request);
-        //    return response.Success ? Ok(response) : BadRequest(response);
-        //}
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterDtoRequest request)
+        {
+            var response = await _service.RegisterAsync(request);
+            return response.Success ? Ok(response) : BadRequest(response);
+        }
     }
 }

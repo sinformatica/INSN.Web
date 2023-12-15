@@ -11,6 +11,6 @@ namespace INSN.Web.Services.Interfaces
     public interface IUserService
     {
         Task<LoginDtoResponse> LoginAsync(LoginDtoRequest request);
-        //Task<BaseResponse> RegisterAsync(RegisterDtoRequest request);
+        Task<BaseResponse> RegisterAsync(RegisterDtoRequest request);
     }
 }

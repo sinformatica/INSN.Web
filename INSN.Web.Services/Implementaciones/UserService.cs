@@ -103,57 +103,62 @@ namespace INSN.Web.Services.Implementaciones
             return response;
         }
 
-        //public async Task<BaseResponse> RegisterAsync(RegisterDtoRequest request)
-        //{
-        //    var response = new BaseResponse();
+        public async Task<BaseResponse> RegisterAsync(RegisterDtoRequest request)
+        {
+            var response = new BaseResponse();
 
-        //    try
-        //    {
-        //        var user = new GalaxyIdentityUser
-        //        {
-        //            NombreCompleto = request.NombreCompleto,
-        //            UserName = request.Usuario,
-        //            Email = request.Email,
-        //            PhoneNumber = request.Telefono,
-        //            EmailConfirmed = true
-        //        };
+            try
+            {
+                var user = new INSNIdentityUser
+                {
+                    Nombres = request.Nombres,
+                    ApellidoPaterno = request.ApellidoPaterno,
+                    ApellidoMaterno = request.ApellidoMaterno,
+                    servicio = request.Servicio,
+                    TipoDocumentoIdentidadId = request.TipoDocumentoIdentidadId,
+                    UserName = request.Usuario,
+                    Email = request.Email,
+                    PhoneNumber = request.Telefono,
+                    Telefono2 = request.Telefono2,
+                    EmailConfirmed = true
+                };
 
-        //        var result = await _userManager.CreateAsync(user, request.Password);
+                var result = await _userManager.CreateAsync(user, request.Password);
 
-        //        if (result.Succeeded)
-        //        {
-        //            // Esto me asegura que el usuario se creó correctamente
-        //            user = await _userManager.FindByEmailAsync(user.Email);
-        //            if (user is not null)
-        //            {
-        //                await _userManager.AddToRoleAsync(user, Constantes.RolAlumno);
+                if (result.Succeeded)
+                {
+                    // Esto me asegura que el usuario se creó correctamente
+                    user = await _userManager.FindByEmailAsync(user.Email);
+                    if (user is not null)
+                    {
+                        await _userManager.AddToRoleAsync(user, request.Rol);
 
-        //                // Aqui se pueden agregar otras acciones, tales como registrar en la tabla alumnos
-        //                // enviar un email
-        //            }
-        //        }
-        //        else
-        //        {
-        //            var sb = new StringBuilder();
+                        // Aqui se pueden agregar otras acciones, tales como registrar en la tabla alumnos
+                        // enviar un email
+                    }
+                }
+                else
+                {
+                    var sb = new StringBuilder();
 
-        //            foreach (var error in result.Errors)
-        //            {
-        //                sb.Append($"{error.Description}, ");
-        //            }
+                    foreach (var error in result.Errors)
+                    {
+                        sb.Append($"{error.Description}, ");
+                    }
 
-        //            response.ErrorMessage = sb.ToString();
-        //            sb.Clear(); // Liberar la memoria
-        //        }
+                    response.ErrorMessage = sb.ToString();
+                    sb.Clear(); // Liberar la memoria
+                }
 
-        //        response.Success = result.Succeeded;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        response.ErrorMessage = "Error al registrar";
-        //        _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
-        //    }
+                response.Success = result.Succeeded;
+            }
+            catch (Exception ex)
+            {
+                response.ErrorMessage = "Error al registrar";
+                _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
+            }
 
-        //    return response;
-        //}
+            return response;
+        }
     }
 }
