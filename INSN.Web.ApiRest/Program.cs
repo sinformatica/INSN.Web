@@ -13,15 +13,17 @@ using Serilog;
 using System.Text;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
+using INSN.Web.Services.Implementaciones;
+using INSN.Web.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//var logger = new LoggerConfiguration()
-//    .WriteTo.Console()
-//    .CreateLogger();
+var logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger();
 
-//builder.Logging.ClearProviders();
-//builder.Logging.AddSerilog(logger);
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
 
 // Vamos a leer el archivo de configuracion con una clase mapeada
 builder.Services.Configure<AppConfiguration>(builder.Configuration);
@@ -66,7 +68,7 @@ builder.Services.AddIdentity<INSNIdentityUser, IdentityRole>(policies =>
 
 
 // Inyectamos las dependencias
-
+builder.Services.AddTransient<IUserService, UserService>();
 // AutoMapper
 
 builder.Services.AddAutoMapper(config =>
@@ -95,26 +97,26 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddAuthentication(x =>
-//{
-//    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-//    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-//}).AddJwtBearer(x =>
-//{
-//    var key = Encoding.UTF8.GetBytes(builder.Configuration.GetValue<string>("Jwt:SecretKey") ??
-//        throw new InvalidOperationException("No se configuro el JWT"));
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(x =>
+{
+    var key = Encoding.UTF8.GetBytes(builder.Configuration.GetValue<string>("Jwt:SecretKey") ??
+        throw new InvalidOperationException("No se configuró el JWT"));
 
-//    x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-//    {
-//        ValidateIssuer = true,
-//        ValidateAudience = true,
-//        ValidateLifetime = true,
-//        ValidateIssuerSigningKey = true,
-//        ValidIssuer = builder.Configuration["Jwt:Emisor"],
-//        ValidAudience = builder.Configuration["Jwt:Audiencia"],
-//        IssuerSigningKey = new SymmetricSecurityKey(key)
-//    };
-//});
+    x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Emisor"],
+        ValidAudience = builder.Configuration["Jwt:Audiencia"],
+        IssuerSigningKey = new SymmetricSecurityKey(key)
+    };
+});
 
 var app = builder.Build();
 
@@ -128,9 +130,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // Validacion de usuarios y passwords
-//app.UseAuthentication();
-//// Validacion de permisos
-//app.UseAuthorization();
+app.UseAuthentication();
+// Validacion de permisos
+app.UseAuthorization();
 
 //app.MapGet("api/TipoDocumento", async (ITipoDocumentoService service) =>
 //{

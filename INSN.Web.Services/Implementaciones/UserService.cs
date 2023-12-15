@@ -64,10 +64,11 @@ namespace INSN.Web.Services.Implementaciones
 
                 var roles = await _userManager.GetRolesAsync(identity);
                 var fechaVencimiento = DateTime.Now.AddHours(6);
+                string nombreCompleto = $"{identity.ApellidoPaterno} {identity.ApellidoMaterno} {identity.Nombres}";
 
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.name, identity.Nombres),
+                    new Claim(ClaimTypes.Name, nombreCompleto),
                     new Claim(ClaimTypes.Role, roles.First()),
                     new Claim(ClaimTypes.Expiration, fechaVencimiento.ToString("yyyy-MM-dd HH:mm:ss"))
                 };
@@ -85,7 +86,7 @@ namespace INSN.Web.Services.Implementaciones
 
                 var token = new JwtSecurityToken(header, payload);
                 response.Token = new JwtSecurityTokenHandler().WriteToken(token);
-                response.NombresCompletos = identity.NombreCompleto;
+                response.NombresCompletos = nombreCompleto;
                 response.Success = true;
             }
             catch (SecurityException ex)
