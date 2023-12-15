@@ -1047,7 +1047,7 @@
     </div>
 </div>
 <!-- FIN MODAL - NOTICIA 2 -->
-<!-- INICIO MODAL - NOTICIA 1 -->
+<!-- INICIO MODAL - NOTICIA 1 -->@* @* @* 
 <div class="modal fade" id="modal-fromleft_Noticia_1" tabindex="-1" role="dialog" aria-labelledby="modal-fromleft_Noticia_1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-fromleft" role="document">
         <div class="modal-content">
@@ -1059,14 +1059,14 @@
                     <div class="row gy-4">
                         @* Titulo y Contenido Noticia 1 *@
                         @*  Columna 1 *@
-                        <h5 style="text-align: center;text-transform: uppercase;">
+                        @* <h5 style="text-align: center;text-transform: uppercase;">
                             @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_1)
                         </h5>
                         <div class="col-lg-6">
                             <!-- Inicio de Portafolio Noticia 1 -->
                             <div class="row gy-4 portfolio-container">
                                 @*  Foto que se Mostrara *@
-                                <div class="portfolio-item filter-app">
+                                @* <div class="portfolio-item filter-app">
                                     <div class="portfolio-wrap">
                                         <a href="~/imagenes/noticias/portafolio_noticia_1/noticia_1_f1.jpeg" data-gallery="portfolio-noticia_1" class="glightbox">
                                             <img src="~/imagenes/noticias/portafolio_noticia_1/noticia_1_f1.jpeg"
@@ -1074,9 +1074,9 @@
                                         </a>
 
                                     </div>
-                                </div>
+                                </div> *@ 
                                 @* Fotos Ocultas *@
-                                <div hidden>
+                                @* <div hidden>
                                     <div class="portfolio-wrap">
                                         <a href="~/imagenes/noticias/portafolio_noticia_1/noticia_1_f2.jpeg" data-gallery="portfolio-noticia_1" class="glightbox">
                                             <img src="~/imagenes/noticias/portafolio_noticia_1/noticia_1_f2.jpeg"
@@ -1096,9 +1096,9 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> *@
                             <!-- Fin de Portafolio Noticia 1 -->
-                            <p>
+                            @* <p>
                                 <strong>
                                     @Html.Raw(NoticiaResource.EtiquetaContenidoCodigoFechaNoticia_1)
                                 </strong>
@@ -1106,7 +1106,7 @@
                             <p style="text-align: justify;">@Html.Raw(NoticiaResource.EtiquetaContenidoNoticia_1_p1)</p>
                         </div>
                         @*  Columna 2 *@
-                        <div class="col-lg-6">
+                        @* <div class="col-lg-6">
                             <p style="text-align: justify;">@Html.Raw(NoticiaResource.EtiquetaContenidoNoticia_1_p2)</p>
                             <p style="text-align: right;">@Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_1)</p>
                         </div>
@@ -1120,6 +1120,63 @@
             </div>
         </div>
     </div>
-</div>
+</div> *@ 
 <!-- FIN MODAL - NOTICIA 1 -->
+
+
+@* MIS MODALES *@
+@* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- *@
+@* <div class="modal fade" id="modal-fromleft_Noticia_1" tabindex="-1" aria-labelledby="modal-fromleft_Noticia_1" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-popout" role="document">
+        <div class="modal-content" height=300px>
+            <div class="block block-rounded shadow-none mb-0">
+                <div class="block-header block-header-default">
+                    <h3 class="block-title">NSN presente en mesa de trabajo sobre propuesta de Ley RCP para todos</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content fs-sm">
+                    <p>Noticia Nº: 066/2023 El Dr. Raffo Escalante Kanashiro, Jefe de la Oficina de Gestión de la Calidad del Instituto Nacional de Salud del Niño, participó en la mesa de trabajo “Importancia de la propuesta de Ley RCP (Reanimación Cardiopulmonar) para todos” organizada por la Congresista Milagros Jáuregui de Aguayo.</p>
+                    <p>Esta propuesta es una iniciativa en la cual se quiere lograr que la respuesta inicial en reanimación cardiopulmonar (RCP), uso del desfibrilador externo automático (DEA) y Maniobra de Heimlich, sea un compromiso para todos basado en el entrenamiento y conocimiento a nivel de organizaciones, comunidad, colegios,</p>
+                    <p>universidades, establecimientos públicos y privados. También participaron en la reunión el Dr. Tomy Villanueva del Hospital de Emergencias Pediátricas Grau y el Sr. Esteban Astete, representante de la Compañía de Bomberos N° 96 de la Molina “Andrés Avelino Cáceres”.</p>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-6 col-xl-4">
+                            <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center">
+                                <a2>Comunicado Escritos</a2><br />
+                                <img src="~/imagenes/Noticias/Portafolio_Noticia_1/Noticias_1_f1.jpeg" class="img-fluid" style="max-height: 400px;" alt="">
+                            </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="block-content block-content-full block-content-sm text-end border-top">
+                    <button type="button" class="btn btn-alt-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-alt-primary" data-bs-dismiss="modal">
+                        Done
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div> *@
+@* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- *@
+
+
+
+
+
 <!-- FIN CREACION DE MODALS -->
