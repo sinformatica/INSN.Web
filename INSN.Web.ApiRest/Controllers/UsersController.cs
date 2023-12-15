@@ -1,7 +1,11 @@
-﻿using INSN.Web.Models;
+﻿using INSN.Web.ApiRest.Controllers;
+using INSN.Web.Common;
+using INSN.Web.Models;
 using INSN.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Xml.Linq;
 
 namespace INSN.Web.ApiRest.Controllers
 {
@@ -16,6 +20,7 @@ namespace INSN.Web.ApiRest.Controllers
         }
 
         [HttpPost]
+        //[AuthorizeMultipleRoles(Constantes.RolJefe, Constantes.RolUsuario)]
         public async Task<IActionResult> Login(LoginDtoRequest request)
         {
             var response = await _service.LoginAsync(request);
