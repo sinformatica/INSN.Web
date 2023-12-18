@@ -28,10 +28,18 @@ namespace INSN.Web.ApiRest.Controllers.Login
         }
 
         [HttpPost]
-        [AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
+        //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
         public async Task<IActionResult> Register(RegisterDtoRequest request)
         {
             var response = await _service.RegisterAsync(request);
+            return response.Success ? Ok(response) : BadRequest(response);
+        }
+
+        [HttpPost]
+        //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
+        public async Task<IActionResult> RegisterRol(string nombreRol)
+        {
+            var response = await _service.RegistrarRolAsync(nombreRol);
             return response.Success ? Ok(response) : BadRequest(response);
         }
     }

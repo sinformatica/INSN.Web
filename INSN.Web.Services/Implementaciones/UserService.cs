@@ -21,16 +21,19 @@ namespace INSN.Web.Services.Implementaciones
     public class UserService : IUserService
     {
         private readonly UserManager<INSNIdentityUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly AppConfiguration _configuration;
         private readonly ILogger<UserService> _logger;
 
         public UserService(UserManager<INSNIdentityUser> userManager,
+                            RoleManager<IdentityRole> roleManager,
                             IOptions<AppConfiguration> options,
                             ILogger<UserService> logger)
         {
             _logger = logger;
             _userManager = userManager;
             _configuration = options.Value;
+            _roleManager = roleManager;
         }
 
         public async Task<LoginDtoResponse> LoginAsync(LoginDtoRequest request)
@@ -155,6 +158,45 @@ namespace INSN.Web.Services.Implementaciones
             catch (Exception ex)
             {
                 response.ErrorMessage = "Error al registrar";
+                _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
+            }
+
+            return response;
+        }
+
+        public async Task<BaseResponse> RegistrarRolAsync(string nombreRol)
+        {
+            var response = new BaseResponse();
+
+            try
+            {
+                if (!await _roleManager.RoleExistsAsync(nombreRol))
+                {
+                    var nuevoRol = new IdentityRole(nombreRol);
+                    var resultado = await _roleManager.CreateAsync(nuevoRol);
+
+                    if (resultado.Succeeded)
+                    {
+                        // Rol creado exitosamente
+                        response.Success = true;
+                    }
+                    else
+                    {
+                        response.ErrorMessage = "Error al crear el rol";
+                        foreach (var error in resultado.Errors)
+                        {
+                            response.ErrorMessage += $"{error.Description}, ";
+                        }
+                    }
+                }
+                else
+                {
+                    response.ErrorMessage = "El rol ya existe";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.ErrorMessage = "Error al crear el rol";
                 _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
             }
 

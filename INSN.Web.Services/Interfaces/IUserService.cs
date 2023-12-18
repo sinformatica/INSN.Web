@@ -12,5 +12,6 @@ namespace INSN.Web.Services.Interfaces
     {
         Task<LoginDtoResponse> LoginAsync(LoginDtoRequest request);
         Task<BaseResponse> RegisterAsync(RegisterDtoRequest request);
+        Task<BaseResponse> RegistrarRolAsync(string nombreRol);
     }
 }

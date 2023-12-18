@@ -21,21 +21,21 @@ namespace INSN.Web.DataAccess
 
             // Crear roles
             var AdminSistemasRole = new IdentityRole(Constantes.RolAdminSistemas);
-            var JefeRole = new IdentityRole(Constantes.RolJefe);
-            var SupervisorRole = new IdentityRole(Constantes.RolSupervisor);
-            var UsuarioRole = new IdentityRole(Constantes.RolUsuario);
+            //var JefeRole = new IdentityRole(Constantes.RolJefe);
+            //var SupervisorRole = new IdentityRole(Constantes.RolSupervisor);
+            //var UsuarioRole = new IdentityRole(Constantes.RolUsuario);
 
             if (!await roleManager.RoleExistsAsync(Constantes.RolAdminSistemas))
                 await roleManager.CreateAsync(AdminSistemasRole);
 
-            if (!await roleManager.RoleExistsAsync(Constantes.RolJefe))
-                await roleManager.CreateAsync(JefeRole);
+            //if (!await roleManager.RoleExistsAsync(Constantes.RolJefe))
+            //    await roleManager.CreateAsync(JefeRole);
 
-            if (!await roleManager.RoleExistsAsync(Constantes.RolSupervisor))
-                await roleManager.CreateAsync(SupervisorRole);
+            //if (!await roleManager.RoleExistsAsync(Constantes.RolSupervisor))
+            //    await roleManager.CreateAsync(SupervisorRole);
 
-            if (!await roleManager.RoleExistsAsync(Constantes.RolUsuario))
-                await roleManager.CreateAsync(UsuarioRole);
+            //if (!await roleManager.RoleExistsAsync(Constantes.RolUsuario))
+            //    await roleManager.CreateAsync(UsuarioRole);
 
             // Creamos el usuario Admin
             var adminUser = new INSNIdentityUser
