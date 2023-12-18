@@ -29710,6 +29710,10 @@ small,
         margin-bottom: 4.875rem;
     }
 
+    .block-content.block-fondo {
+        background: #fff;
+    }
+
     .block-content.block-content-sm {
         padding-top: 0.8125rem;
     }
