@@ -11,11 +11,11 @@ namespace INSN.Web.Services.Interfaces
 {
     public interface IUserService
     {
-        Task<LoginDtoResponse> LoginAsync(LoginDtoRequest request);
-        Task<ListaSistemasDtoResponse> ListarSistemasPorUsuarioAsync(string usuario);
-        Task<LoginDtoResponse> LoginSistemaAsync(LoginSistemaDtoRequest request);
-        Task<BaseResponse> RegistrarUsuarioAsync(UsuarioDtoRequest request);
-        Task<BaseResponse> RegistrarRolAsync(string nombreRol);
-        Task<BaseResponse> AsignarRolesUsuarioAsync(UsuarioRolDtoRequest request);
+        Task<LoginDtoResponse> Login(LoginDtoRequest request);
+        Task<ListaSistemasDtoResponse> SistemasPorUsuarioListar(string usuario);
+        Task<LoginDtoResponse> LoginSistema(LoginSistemaDtoRequest request);
+        Task<BaseResponse> UsuarioInsertar(UsuarioDtoRequest request);
+        Task<BaseResponse> RolInsertar(string nombreRol);
+        Task<BaseResponse> RolesUsuarioAsignar(UsuarioRolDtoRequest request);
     }
 }

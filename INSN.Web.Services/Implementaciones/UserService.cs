@@ -42,7 +42,7 @@ namespace INSN.Web.Services.Implementaciones
             _segAppDbContext = segAppDbContext;
         }
 
-        public async Task<LoginDtoResponse> LoginAsync(LoginDtoRequest request)
+        public async Task<LoginDtoResponse> Login(LoginDtoRequest request)
         {
             var response = new LoginDtoResponse();
 
@@ -108,7 +108,7 @@ namespace INSN.Web.Services.Implementaciones
             return response;
         }
 
-        public async Task<ListaSistemasDtoResponse> ListarSistemasPorUsuarioAsync(string usuario)
+        public async Task<ListaSistemasDtoResponse> SistemasPorUsuarioListar(string usuario)
         {
             var response = new ListaSistemasDtoResponse();
             var ListaSistemas = new List<SistemaDtoResponse>();
@@ -167,7 +167,7 @@ namespace INSN.Web.Services.Implementaciones
             return response;
         }
 
-        public async Task<LoginDtoResponse> LoginSistemaAsync(LoginSistemaDtoRequest request)
+        public async Task<LoginDtoResponse> LoginSistema(LoginSistemaDtoRequest request)
         {
             var response = new LoginDtoResponse();
 
@@ -215,7 +215,7 @@ namespace INSN.Web.Services.Implementaciones
             return response;
         }
 
-        public async Task<BaseResponse> RegistrarUsuarioAsync(UsuarioDtoRequest request)
+        public async Task<BaseResponse> UsuarioInsertar(UsuarioDtoRequest request)
         {
             var response = new BaseResponse();
 
@@ -269,7 +269,7 @@ namespace INSN.Web.Services.Implementaciones
             return response;
         }
 
-        public async Task<BaseResponse> RegistrarRolAsync(string nombreRol)
+        public async Task<BaseResponse> RolInsertar(string nombreRol)
         {
             var response = new BaseResponse();
 
@@ -308,7 +308,7 @@ namespace INSN.Web.Services.Implementaciones
             return response;
         }
 
-        public async Task<BaseResponse> AsignarRolesUsuarioAsync(UsuarioRolDtoRequest request)
+        public async Task<BaseResponse> RolesUsuarioAsignar(UsuarioRolDtoRequest request)
         {
             var response = new BaseResponse();
 

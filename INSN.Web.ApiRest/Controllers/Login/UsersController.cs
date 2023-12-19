@@ -25,7 +25,7 @@ namespace INSN.Web.ApiRest.Controllers.Login
         //[AuthorizeMultipleRoles(Constantes.RolJefe, Constantes.RolUsuario)]
         public async Task<IActionResult> Login(LoginDtoRequest request)
         {
-            var response = await _service.LoginAsync(request);
+            var response = await _service.Login(request);
             return response.Success ? Ok(response) : Unauthorized(response);
         }
 
@@ -33,7 +33,7 @@ namespace INSN.Web.ApiRest.Controllers.Login
         //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
         public async Task<IActionResult> ListarSistemasPorUsuario(string usuario)
         {
-            var response = await _service.ListarSistemasPorUsuarioAsync(usuario);
+            var response = await _service.SistemasPorUsuarioListar(usuario);
             return response.Success ? Ok(response) : BadRequest(response);
         }
 
@@ -41,7 +41,7 @@ namespace INSN.Web.ApiRest.Controllers.Login
         //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
         public async Task<IActionResult> LoginSistema(LoginSistemaDtoRequest request)
         {
-            var response = await _service.LoginSistemaAsync(request);
+            var response = await _service.LoginSistema(request);
             return response.Success ? Ok(response) : BadRequest(response);
         }
 
@@ -49,7 +49,7 @@ namespace INSN.Web.ApiRest.Controllers.Login
         //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
         public async Task<IActionResult> RegistrarUsuario(UsuarioDtoRequest request)
         {
-            var response = await _service.RegistrarUsuarioAsync(request);
+            var response = await _service.UsuarioInsertar(request);
             return response.Success ? Ok(response) : BadRequest(response);
         }
 
@@ -57,7 +57,7 @@ namespace INSN.Web.ApiRest.Controllers.Login
         //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
         public async Task<IActionResult> RegistrarRol(string nombreRol)
         {
-            var response = await _service.RegistrarRolAsync(nombreRol);
+            var response = await _service.RolInsertar(nombreRol);
             return response.Success ? Ok(response) : BadRequest(response);
         }
 
@@ -65,7 +65,7 @@ namespace INSN.Web.ApiRest.Controllers.Login
         //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
         public async Task<IActionResult> AsignarRolesUsuario(UsuarioRolDtoRequest request)
         {
-            var response = await _service.AsignarRolesUsuarioAsync(request);
+            var response = await _service.RolesUsuarioAsignar(request);
             return response.Success ? Ok(response) : BadRequest(response);
         }
     }
