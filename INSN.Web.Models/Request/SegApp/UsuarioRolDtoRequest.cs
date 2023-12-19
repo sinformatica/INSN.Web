@@ -13,7 +13,14 @@ namespace INSN.Web.Models.Request.SegApp
         public string UsuarioId { get; set; } = default!;
 
         [Required]
-        public List<string> roles { get; set; } = default!;
+        public List<RolSistemaDtoRequest> ListaRoles { get; set; } = default!;
+
+    }
+
+    public class RolSistemaDtoRequest
+    {
+        public string rol { get; set; } = default!;
+        public int CodigoSistemaId { get; set; } = default!;
 
     }
 }

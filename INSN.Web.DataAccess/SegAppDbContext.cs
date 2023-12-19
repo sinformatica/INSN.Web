@@ -17,6 +17,9 @@ namespace INSN.Web.DataAccess
 
         }
 
+        public DbSet<INSNIdentityUsuarioRol> INSNIdentityUsuarioRol { get; set; }
+        public DbSet<INSNIdentitySistema> INSNIdentitySistema { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -33,10 +36,17 @@ namespace INSN.Web.DataAccess
                 e.ToTable("Rol");
             });
 
-            // AspNetUserRoles
-            builder.Entity<IdentityUserRole<string>>(e =>
+            //AspNetUserRoles
+            builder.Entity<INSNIdentityUsuarioRol>(e =>
             {
                 e.ToTable("UsuarioRol");
+                e.HasKey(ur => new { ur.UserId, ur.RoleId, ur.CodigoSistemaId });
+            });
+
+            builder.Entity<INSNIdentitySistema>(e =>
+            {
+                e.ToTable("Sistema");
+                e.HasKey(ur => new { ur.CodigoSistemaId });
             });
         }
     }

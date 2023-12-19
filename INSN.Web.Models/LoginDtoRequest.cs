@@ -15,4 +15,13 @@ namespace INSN.Web.Models
         [Required]
         public string Password { get; set; } = default!;
     }
+
+    public class LoginSistemaDtoRequest
+    {
+        [Required]
+        public string Usuario { get; set; } = default!;
+
+        [Required]
+        public int CodigoSistemaId { get; set; } = default!;
+    }
 }

@@ -31,6 +31,22 @@ namespace INSN.Web.ApiRest.Controllers.Login
 
         [HttpPost]
         //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
+        public async Task<IActionResult> ListarSistemasPorUsuario(string usuario)
+        {
+            var response = await _service.ListarSistemasPorUsuarioAsync(usuario);
+            return response.Success ? Ok(response) : BadRequest(response);
+        }
+
+        [HttpPost]
+        //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
+        public async Task<IActionResult> LoginSistema(LoginSistemaDtoRequest request)
+        {
+            var response = await _service.LoginSistemaAsync(request);
+            return response.Success ? Ok(response) : BadRequest(response);
+        }
+
+        [HttpPost]
+        //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
         public async Task<IActionResult> RegistrarUsuario(UsuarioDtoRequest request)
         {
             var response = await _service.RegistrarUsuarioAsync(request);
