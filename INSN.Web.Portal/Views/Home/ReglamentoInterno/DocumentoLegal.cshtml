@@ -3,30 +3,11 @@
 @model DocumentoLegalViewModel
 
 @{
-    ViewData["Title"] = "INSN Breña";
+    Layout = "~/Views/Home/DirectorioInstitucional/_LayoutDirectorioInstitucional.cshtml";
 }
 
 <main id="main">
-   
-    <!-- ======= INICIO DE SESSION CON PESTAÑA ( Reglamento Interno )======= -->
-    <!-- ======= INICIO OBJETIVOS - ORGANIGRAMA - HISTORIA ======= -->
-    <div class="section best-deal">
-        <div class="container">
-            <div class="col-lg-12">
-                <div class="section-header">
-                    <h3>Reglamento Interno</h3>
-                    <p align="justify">
-                      seriedad
-                    </p>
-                    <br />
-                    <br />
-                </div>
-        </div>
-    </div>
-    </div>
-    <!-- ======= FIN OBJETIVOS - ORGANIGRAMA - HISTORIA ======= -->
-    <!-- ======= FIN DE SESSION CON PESTAÑA ======= -->
-  @*   <section id="about" class="about">
+    <section id="about" class="about">
         <div class="container" data-aos="fade-up">
             <div class="section-header">
                 <div>
@@ -47,7 +28,7 @@
                             @Html.TextBoxFor(m => m.Descripcion, new { @class = "form-control", @id = "example-text-input-floating", @placeholder = "Descripción" })
                             <label class="form-label" for="example-text-input-floating">Descripción</label>
                         </div>
-                    </div>
+                    </div>     
                     <div>
                         @Html.HiddenFor(m => m.TipoDocumentoSeleccionada, new { @id = "tipoDocumentoSeleccionado" })
                     </div>
@@ -63,7 +44,7 @@
 
 
                 </div>
-
+             
                 <div class="row">
                     <div>
                         Mostrar
@@ -114,62 +95,59 @@
 
                 <div class="container">
                     <partial name="_DataPager" model="ViewBag.Pager" />
-                    @Html.HiddenFor(m => m.Page, new { id = "currentPage" })
+                    @Html.HiddenFor(m => m.Page, new { id = "currentPage"})
                 </div>
             </form>
         </div>
     </section>
-
-    @section Scripts
-    {
-        <script>
-            function setCurrentPage(data) {
-                let hiddenValue = document.getElementById('currentPage');
-                hiddenValue.value = data;
-                console.log(data);
-            }
-
-            function setPreviousPage(data) {
-                let totalPages = @ViewBag.Pager.TotalPages;
-                if (data <= totalPages) {
-                    data--;
-                    if (data === 0) {
-                        data = 1;
-                    }
-
-                    setCurrentPage(data);
-                }
-            }
-
-            function setNextPage(data) {
-                let totalPages = @ViewBag.Pager.TotalPages;
-                if (data < totalPages) {
-                    data++;
-                    setCurrentPage(data);
-                }
-            }
-        </script>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                var tituloPaginaInput = document.getElementById("tituloPaginaInput");
-                var tituloPaginaMostrado = document.getElementById("tituloPaginaMostrado");
-
-                if (tituloPaginaInput && tituloPaginaMostrado) {
-                    // Mostrar el valor inicialmente al cargar la página
-                    tituloPaginaMostrado.innerText = tituloPaginaInput.value;
-
-                    // Actualizar el valor cuando cambie el valor del campo oculto
-                    tituloPaginaInput.addEventListener("input", function () {
-                        tituloPaginaMostrado.innerText = tituloPaginaInput.value;
-                    });
-                }
-            });
-        </script>
-
-    }
- *@
-
-    <br />
 </main>
 
+
+@section Scripts
+    {
+    <script>
+        function setCurrentPage(data) {
+            let hiddenValue = document.getElementById('currentPage');
+            hiddenValue.value = data;
+            console.log(data);
+        }
+
+        function setPreviousPage(data) {
+            let totalPages = @ViewBag.Pager.TotalPages;
+            if (data <= totalPages) {
+                data--;
+                if (data === 0) {
+                    data = 1;
+                }
+
+                setCurrentPage(data);
+            }
+        }
+
+        function setNextPage(data) {
+            let totalPages = @ViewBag.Pager.TotalPages;
+            if (data < totalPages) {
+                data++;
+                setCurrentPage(data);
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var tituloPaginaInput = document.getElementById("tituloPaginaInput");
+            var tituloPaginaMostrado = document.getElementById("tituloPaginaMostrado");
+
+            if (tituloPaginaInput && tituloPaginaMostrado) {
+                // Mostrar el valor inicialmente al cargar la página
+                tituloPaginaMostrado.innerText = tituloPaginaInput.value;
+
+                // Actualizar el valor cuando cambie el valor del campo oculto
+                tituloPaginaInput.addEventListener("input", function () {
+                    tituloPaginaMostrado.innerText = tituloPaginaInput.value;
+                });
+            }
+        });
+    </script>
+
+}

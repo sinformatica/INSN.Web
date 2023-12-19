@@ -30,8 +30,6 @@ public class POAController : Controller
         _logger = logger;
         _enviroment = env;
     }
-
-
     // GET
     /// <summary>
     /// Modelo del Documento Legal

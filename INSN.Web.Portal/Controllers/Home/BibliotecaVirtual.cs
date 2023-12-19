@@ -2,22 +2,19 @@
 using INSN.Web.Models.Request;
 using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
 
-
-
-//using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
-
+//using INSN.Web.Portal.Services.Interfaces.Home.POA;
 using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
-public class ReglamentoInterno : Controller
+public class BibliotecaVirtual : Controller
 {
     private readonly IWebHostEnvironment _enviroment;
     private readonly IDocumentoLegalProxy _proxy;
     private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<ReglamentoInterno> _logger;
+    private readonly ILogger<BibliotecaVirtual> _logger;
 
 
     /// <summary>
@@ -26,22 +23,20 @@ public class ReglamentoInterno : Controller
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
     /// <param name="logger"></param>
-    public ReglamentoInterno(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy, ILogger<ReglamentoInterno> logger, IWebHostEnvironment env)
+    public BibliotecaVirtual(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy, ILogger<BibliotecaVirtual> logger, IWebHostEnvironment env)
     {
         _proxy = proxy;
         _TipoDocumentoProxy = TipoDocumentoProxy;
         _logger = logger;
         _enviroment = env;
     }
-
-    //// GET
-    ///// <summary>
-    ///// Modelo del Documento Legal
-    ///// </summary>
-    ///// <param name="model"></param>
-    ///// <returns></returns>
-
-    public async Task<IActionResult> DocumentoLegalRI(DocumentoLegalViewModel model)
+    // GET
+    /// <summary>
+    /// Modelo del Documento Legal
+    /// </summary>
+    /// <param name="model"></param>
+    /// <returns></returns>
+    public async Task<IActionResult> DocumentoLegalBibliotecaVirtual(DocumentoLegalViewModel model)
     {
         PaginationData pager = ViewBag.Pager != null
             ? ViewBag.Pager
@@ -58,7 +53,7 @@ public class ReglamentoInterno : Controller
         {
             Documento = model.Documento,
             Descripcion = model.Descripcion,
-            TipoDocumentoId = model.TipoDocumentoSeleccionada,
+            TipoDocumentoId = 1 /*model.TipoDocumentoSeleccionada*/,
             Estado = model.EstadoSeleccionado,
             Page = pager.CurrentPage,
             Rows = pager.RowsPerPage
@@ -73,7 +68,7 @@ public class ReglamentoInterno : Controller
             pager.RowCount = response.Data!.Count;
         }
 
-        return View("~/Views/Home/ReglamentoInterno/Index.cshtml", model);
+        return View("~/Views/Home/BibliotecaVirtual/Index.cshtml", model);
     }
 
 
@@ -100,3 +95,4 @@ public class ReglamentoInterno : Controller
     //    }
     //}
 }
+

@@ -1,0 +1,580 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - INSN WEB</title>
+
+    <!-- Favicons -->
+    <link href="~/img/favicon.png" rel="icon">
+    <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+
+    <!-- Vendor CSS Files -->
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="~/css/main.css" rel="stylesheet">
+    <link href="~/css/owl.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <section id="topbar" class="topbar d-flex align-items-center">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+            <div class="contact-info d-flex align-items-center">
+                <button onclick="window.open('https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13180&id_tema=1&ver=D#.ZEavMnZBwdU/', '_blank');" type="button" class="btn btn-outline-primary btn-sm me-1 mb-1">
+                    <img src="~/imagenes/iconos/portal-transparencia-estandar.jpeg" width="42" height="35" />
+                    Portal de Transparencia
+                </button>
+            </div>
+            <div class="social-links d-none d-md-flex align-items-center">
+                <a href="https://mail.insn.gob.pe/" class="envelope" target="_blank"><i class="bi bi-envelope-fill"></i></a>
+                <a href="https://www.youtube.com/INSNvideos" class="youtube" target="_blank"><i class="bi bi-youtube"></i></a>
+                <a href="https://twitter.com/insn_oficial" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
+                <a href="https://www.facebook.com/INSNoficial/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/hospital_del_nino_insn/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/insn/about/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+    </section><!-- End Top Bar -->
+
+    <header id="header" class="header d-flex align-items-center">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+            <a asp-area="" asp-controller="Home" asp-action="Index">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <img src="~/imagenes/varios/insn_logo.png" width="200" height="80" />
+            </a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a></li>
+                    <li><a asp-area="" asp-controller="Especialidades" asp-action="Index">Especialidades</a></li>
+                    <li><a asp-controller="DirectorioInstitucional" asp-action="Index">Directorio Institucional</a></li>
+                    </a>
+                    <li><a href="#team">Staff Médico</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contacto">Contáctenos</a></li>
+
+                    <li class="dropdown">
+                        <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                        <ul>
+                            <li><a href="#">Drop Down 1</a></li>
+                            <li class="dropdown">
+                                <a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                                <ul>
+                                    <li><a href="#">Deep Drop Down 1</a></li>
+                                    <li><a href="#">Deep Drop Down 2</a></li>
+                                    <li><a href="#">Deep Drop Down 3</a></li>
+                                    <li><a href="#">Deep Drop Down 4</a></li>
+                                    <li><a href="#">Deep Drop Down 5</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Drop Down 2</a></li>
+                            <li><a href="#">Drop Down 3</a></li>
+                            <li><a href="#">Drop Down 4</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav><!-- .navbar -->
+            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <div>
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Directorio Institucional</h2>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-4 col-md-4">
+                    <div id="dc_jqaccordion_widget-10" class="et_pb_widget">
+                        <div class="dcjq-accordion" id="dc_jqaccordion_widget-10-item">
+
+                            <ul id="menu-menu-transparencia" class="menu">
+                                <!-- INICIO DATOS GENERALES -->
+                                <li class="sub-menu-heading">1. DATOS GENERALES</li>
+                                <li id="menu-item-A1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A1">
+                                    <a href="#">1.1 Designación de funcionarios responsables de la Ley 27806</a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-A2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-A2 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">1.2 Directorio<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-A2A1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A2A1">
+                                            <a href="#">Dirección de la entidad</a>
+                                        </li>
+                                        <li id="menu-item-A2A2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A2A2">
+                                            <a href="#">Directorio de los Servidores Civiles y correos electrónicos</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li id="menu-item-A3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-A3 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">1.3 Marco Legal<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-A3A1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A3A1">
+                                            <a href="#">Norma de creación de la entidad</a>
+                                        </li>
+                                        <li id="menu-item-A3A2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A3A2">
+                                            <a href="#">Normativa de Transparencia y acceso a la información Pública</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li id="menu-item-A4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-A4 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">1.4 Normas Emitidas<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-A4A1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A2">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="1" asp-route-TituloPagina="Resoluciones Directoral DG">Resoluciones Directoral DG</a>
+                                        </li>
+                                        <li id="menu-item-A4A2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A2">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="2" asp-route-TituloPagina="Resoluciones Administrativa OP">Resoluciones Administrativa OP</a>
+
+                                        </li>
+                                     
+                                        <li id="menu-item-A4A3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A3">
+                                            <a href="#">Resoluciones Administrativa OEA</a>
+                                        </li>
+                                        <li id="menu-item-A4A4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A4">
+                                            <a href="#">Guías Clínicas</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li id="menu-item-A5" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-A5 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">1.5 Información Adicional<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-A5A1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A5A1">
+                                            <a href="#">Donaciones</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- FIN DATOS GENERALES -->
+                            <!-- ----------------------------------- -->
+                            <!-- INICIO PLANEAMIENTO Y ORGANIZACION -->
+                            <ul id="menu-menu-presupuesto" class="menu">
+                                <li class="sub-menu-heading">2. PLANEAMIENTO Y ORGANIZACION</li>
+                                <li id="menu-item-B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-B1 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">2.1 Instrumentos de Gestión<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a href="#">Reglamento de Organización y Funciones (ROF)</a>
+                                        </li>
+                                        <li id="menu-item-B1B2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B2">
+                                            <a href="#">Organigrama</a>
+                                        </li>
+                                        <li id="menu-item-B1B3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B3">
+                                            <a href="#">Manual de Organización y Funciones (MOF)</a>
+                                        </li>
+                                        <li id="menu-item-B1B4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B4">
+                                            <a href="#">Clasificador de Cargos</a>
+                                        </li>
+                                        <li id="menu-item-B1B5" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B5">
+                                            <a href="#">Manual de Perfiles de Puestos (MPP)</a>
+                                        </li>
+                                        <li id="menu-item-B1B6" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B6">
+                                            <a href="#">Cuadro de Asignación de Personal (CAP) o CAP Provisional</a>
+                                        </li>
+                                        <li id="menu-item-B1B7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B7">
+                                            <a href="#">Presupuesto Analítico de Personal (PAP)</a>
+                                        </li>
+                                        <li id="menu-item-B1B8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B8">
+                                            <a href="#">Cuadro de Puestos de la Entidad (CPE)</a>
+                                        </li>
+                                        <li id="menu-item-B1B9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B9">
+                                            <a href="#">Reglamento Interno de Trabajo (RIT)</a>
+                                        </li>
+                                        <li id="menu-item-B1B10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B10">
+                                            <a href="#">Reglamento Interno de Servidores Civiles (RISC)</a>
+                                        </li>
+                                        <li id="menu-item-B1B11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B12">
+                                            <a href="#">Manual de Procedimientos (MAPRO)</a>
+                                        </li>
+                                        <li id="menu-item-B1B12" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B12">
+                                            <a href="#">Texto Único de Procedimientos Administrativos (TUPA)</a>
+                                        </li>
+                                        <li id="menu-item-B1B13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B13">
+                                            <a href="#">Manual de Operaciones (MOPE)</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li id="menu-item-B2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-B2 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">2.2 Planes y Políticas<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B2C1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B2C1">
+                                            <a href="#">Políticas Nacionales</a>
+                                        </li>
+                                       <li id="menu-item-B2C2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B2C2">
+                                            <a href="#">Plan Estratégico Sectorial Multianual (PESEM)</a>
+                                        </li>
+                                        <li id="menu-item-B2C3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B2C3">
+                                            <a href="#">Plan Estratégico Institucional (PEI)</a>
+                                        </li>
+                                        <li id="menu-item-B2C4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B2C4">
+                                            <a href="#">Plan Operativo Institucional (POI)</a>
+                                        </li>
+                                             <li id="menu-item-B2C5" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B2C5"> 
+                                            <a href="#">Plan de Desarrollo Regional/Local Concertado</a>
+                                        </li>
+                                        <li id="menu-item-B2C6" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B2C6">
+                                            <a href="#">Plan de Gobierno Digital (PGD)</a>
+                                        </li>
+                                        <li id="menu-item-B2C7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B2C7">
+                                            <a href="#">Reporte de Cumplimiento, Reporte de Seguimiento e Informe de Evaluación</a>
+                                        </li> 
+                                    </ul>
+                                </li>
+                                 <li id="menu-item-B3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-B3 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">2.3 Recomendaciones de Auditoría<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        </ul>
+                                </li>
+                                <li id="menu-item-B4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-B4 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">2.4 Información Adicional<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li> 
+                            </ul>
+                            <!-- FIN PLANEAMIENTO Y ORGANIZACION -->
+                            <!-- ----------------------------------- -->
+                            <!-- INICIO PRESUPUESTO -->
+                            <ul id="menu-menu-presupuesto" class="menu">
+                                <li class="sub-menu-heading">3. PRESUPUESTO</li>
+                                <li id="menu-item-C1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-C1 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">3.1 Presupuesto<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-C1C1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-C1C1">
+                                            <a href="#">Información presupuestal</a>
+                                        </li>
+                                        <li id="menu-item-C1C2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-C1C2">
+                                            <a href="#">Saldos de balance</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li id="menu-item-C2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-C2 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">3.2 Información Adicional<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- FIN PRESUPUESTO -->
+                            <!-- ----------------------------------- -->
+                            <!-- INICIO PROYECTOS DE INVERSION E INFOBRAS -->
+                            <ul id="menu-menu-transparencia" class="menu">
+                                <li class="sub-menu-heading">4. PROYECTOS DE INVERSIÓN E INFOBRAS</li>
+                                <li id="menu-item-D1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-D1 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">4.1 Proyectos de Inversión<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-D2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-D2 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">4.2 INFOBRAS<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-D3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-D3 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">4.3 Información Adicional<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- FIN PROYECTOS DE INVERSION E INFOBRAS -->
+                            <!-- ----------------------------------- -->
+                            <!-- INICIO PARTICIPACION CIUDADANA -->
+                            <ul id="menu-menu-transparencia" class="menu">
+                                <li class="sub-menu-heading">5. PARTICIPACIÓN CIUDADANA</li>
+                                <li id="menu-item-E1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-E1 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">5.1 Presupuesto Participativo<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-E2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-E2 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">5.2 Audiencias<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-E3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-E3 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">5.3 Consejo de Coordinación Regional/Local<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-E4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-E4 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">5.4 Información Adicional<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- FIN PARTICIPACION CIUDADANA -->
+                            <!-- ----------------------------------- -->
+                            <!-- INICIO PERSONAL -->
+                            <ul id="menu-menu-transparencia" class="menu">
+                                <li class="sub-menu-heading">6. PERSONAL</li>
+                                <li id="menu-item-F1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-F1 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">6.1 Información de Personal<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-F2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-F2 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">6.2 Declaraciones Juradas<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-F3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-F3 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">6.3 Reporte de denuncias contra Funcionarios o Servidores Públicos<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-F4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-F4 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">6.4 Información Adicional<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- FIN PERSONAL -->
+                            <!-- ----------------------------------- -->
+                            <!-- INICIO CONTRATACION DE BIENES Y SERVICIOS -->
+                            <ul id="menu-menu-transparencia" class="menu">
+                                <li class="sub-menu-heading">7. CONTRATACIÓN DE BIENES Y SERVICIOS</li>
+                                <li id="menu-item-G1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G1 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">7.1 Procesos de Selección de Bienes y Servicios<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-G2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G2 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">7.2 Contrataciones Directas<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-G3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G3 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">7.3 Penalidades Aplicadas<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-G4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G4 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">7.4 Órdenes de Bienes y Servicios<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-G5" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G5 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">7.5 Publicidad<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-G6" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G6 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">7.6 Pasajes y Viáticos<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-G7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G7 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">7.7 Telefonía Fija, Móvil e Internet<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-G8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G8 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">7.8 Uso de Vehículos<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-G9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G9 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">7.9 PAC (Plan Anual de Contrataciones)<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-G10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G10 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">7.10 Laudos Arbitrales<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-G11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G11 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">7.11 Actas de Conciliación<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-G12" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G12 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">7.12 Comité de Selección<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-G13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G13 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">7.13 Relación de Proveedores<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-G14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G14 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">7.14 Información Adicional<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- FIN CONTRATACION DE BIENES Y SERVICIOS -->
+                            <!-- ----------------------------------- -->
+                            <!-- INICIO ACTIVIDADES OFICIALES -->
+                            <ul id="menu-menu-transparencia" class="menu">
+                                <li class="sub-menu-heading">8. ACTIVIDADES OFICIALES</li>
+                                <li id="menu-item-H1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-H1 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">8.1 Agenda Oficial<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-H2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-H2 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">8.2 Comunicados / Informes Oficiales / Notas de Prensa<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>                            
+                                <li id="menu-item-H3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-H3 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">8.3 Información Adicional<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- FIN ACTIVIDADES OFICIALES -->
+                            <!-- ----------------------------------- -->
+                            <!-- INICIO ACCESO A LA INFORMACION -->
+                            <ul id="menu-menu-transparencia" class="menu">
+                                <li class="sub-menu-heading">9. ACCESO A LA INFORMACIÓN</li>
+                                <li id="menu-item-I1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-I1 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">9.1 Acceso a la Información Pública<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>                            
+                                <li id="menu-item-I2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-I2 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">9.2 Información Adicional<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- FIN ACCESO A LA INFORMACION -->
+                            <!-- ----------------------------------- -->
+                            <!-- INICIO REGISTRO DE VISITAS -->
+                            <ul id="menu-menu-transparencia" class="menu">
+                                <li class="sub-menu-heading">10. REGISTRO DE VISITAS</li>
+                                <li id="menu-item-J1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-J1 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">10.1 Registro de Visitas<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                                <li id="menu-item-J2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-J2 dcjq-parent-li">
+                                    <a href="#" class="dcjq-parent">10.2 Información Adicional<span class="dcjq-icon"></span></a>
+                                    <ul class="sub-menu" style="display: none;">
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- FIN REGISTRO DE VISITAS -->
+                            <!-- ----------------------------------- -->
+                        </div>
+                    </div>
+                </div>
+           
+                <div class="col-lg-8 col-md-8">
+                    @RenderBody()
+                </div>
+            </div>
+
+
+            <br />
+            <br />
+        </div>
+
+
+
+
+    </div>
+    <section id="hero">
+    </section>
+
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+
+        <div class="container">
+            <div class="row gy-0">
+                <div class="col-lg-5 col-md-12 footer-info">
+                    <br />
+                    <br />
+                    <a class="logo d-flex align-items-center">
+                        <span>INSN</span>
+                    </a>
+                    <p>
+                        Instituo Nacional de Salud del Niño
+                    </p>
+
+                </div>
+                <div class="col-lg-5 col-md-12 footer-info">
+                    <div class="social-links d-flex mt-4">
+                        <a href="https://mail.insn.gob.pe/" class="envelope" target="_blank"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="https://www.youtube.com/INSNvideos" class="youtube" target="_blank"><i class="bi bi-youtube"></i></a>
+                        <a href="https://twitter.com/insn_oficial" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
+                        <a href="https://www.facebook.com/INSNoficial/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/hospital_del_nino_insn/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/insn/about/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-4">
+            <div class="copyright">
+                ® Derechos Reservados INSN - 2021
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/vendor/aos/aos.js"></script>
+    <script src="~/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="~/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/owl-carousel.js"></script>
+    <script src="~/js/custom.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var accordions = document.querySelectorAll(".dcjq-accordion");
+
+        accordions.forEach(function (accordion) {
+            var items = accordion.querySelectorAll(".dcjq-parent-li");
+
+            items.forEach(function (item) {
+                var link = item.querySelector("a[href]");
+                if (link) {
+                    link.addEventListener("click", function (event) {
+                        if (!item.querySelector(".sub-menu")) {
+                            return; // Permitir la acción predeterminada si no hay submenú
+                        }
+
+                        event.preventDefault(); // Evitar la acción predeterminada solo si hay submenú
+
+
+                                        // Cerrar otros elementos desplegados
+                                        items.forEach(function (otherItem) {
+                                            if (otherItem !== item) {
+                                                otherItem.querySelector(".sub-menu").style.display = "none";
+                                            }
+                                        });
+                        var subMenu = item.querySelector(".sub-menu");
+                        if (subMenu) {
+                            subMenu.style.display = subMenu.style.display === "none" ? "block" : "none";
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
