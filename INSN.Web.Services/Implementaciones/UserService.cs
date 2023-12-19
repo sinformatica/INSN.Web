@@ -15,6 +15,8 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using INSN.Web.DataAccess;
+using Microsoft.EntityFrameworkCore;
+using INSN.Web.Models.Request.SegApp;
 
 namespace INSN.Web.Services.Implementaciones
 {
@@ -24,16 +26,19 @@ namespace INSN.Web.Services.Implementaciones
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly AppConfiguration _configuration;
         private readonly ILogger<UserService> _logger;
+        private readonly SegAppDbContext _segAppDbContext;
 
         public UserService(UserManager<INSNIdentityUser> userManager,
                             RoleManager<IdentityRole> roleManager,
                             IOptions<AppConfiguration> options,
-                            ILogger<UserService> logger)
+                            ILogger<UserService> logger,
+                            SegAppDbContext segAppDbContext)
         {
             _logger = logger;
             _userManager = userManager;
             _configuration = options.Value;
             _roleManager = roleManager;
+            _segAppDbContext = segAppDbContext;
         }
 
         public async Task<LoginDtoResponse> LoginAsync(LoginDtoRequest request)
@@ -106,7 +111,7 @@ namespace INSN.Web.Services.Implementaciones
             return response;
         }
 
-        public async Task<BaseResponse> RegisterAsync(RegisterDtoRequest request)
+        public async Task<BaseResponse> RegistrarUsuarioAsync(UsuarioDtoRequest request)
         {
             var response = new BaseResponse();
 
@@ -130,14 +135,10 @@ namespace INSN.Web.Services.Implementaciones
 
                 if (result.Succeeded)
                 {
-                    // Esto me asegura que el usuario se creó correctamente
                     user = await _userManager.FindByEmailAsync(user.Email);
                     if (user is not null)
                     {
-                        await _userManager.AddToRoleAsync(user, request.Rol);
-
-                        // Aqui se pueden agregar otras acciones, tales como registrar en la tabla alumnos
-                        // enviar un email
+                        response.Data = user.Id; // Establecer el ID del usuario en la respuesta
                     }
                 }
                 else
@@ -163,6 +164,64 @@ namespace INSN.Web.Services.Implementaciones
 
             return response;
         }
+
+
+        //public async Task<BaseResponse> RegistrarUsuarioAsync(UsuarioDtoRequest request)
+        //{
+        //    var response = new BaseResponse();
+
+        //    try
+        //    {
+        //        var user = new INSNIdentityUser
+        //        {
+        //            Nombres = request.Nombres,
+        //            ApellidoPaterno = request.ApellidoPaterno,
+        //            ApellidoMaterno = request.ApellidoMaterno,
+        //            servicio = request.Servicio,
+        //            TipoDocumentoIdentidadId = request.TipoDocumentoIdentidadId,
+        //            UserName = request.Usuario,
+        //            Email = request.Email,
+        //            PhoneNumber = request.Telefono,
+        //            Telefono2 = request.Telefono2,
+        //            EmailConfirmed = true
+        //        };
+
+        //        var result = await _userManager.CreateAsync(user, request.Password);
+
+        //        if (result.Succeeded)
+        //        {
+        //            // Esto me asegura que el usuario se creó correctamente
+        //            user = await _userManager.FindByEmailAsync(user.Email);
+        //            if (user is not null)
+        //            {
+
+        //                // Aqui se pueden agregar otras acciones, tales como registrar en la tabla alumnos
+        //                // enviar un email
+        //            }
+        //        }
+        //        else
+        //        {
+        //            var sb = new StringBuilder();
+
+        //            foreach (var error in result.Errors)
+        //            {
+        //                sb.Append($"{error.Description}, ");
+        //            }
+
+        //            response.ErrorMessage = sb.ToString();
+        //            sb.Clear(); // Liberar la memoria
+        //        }
+
+        //        response.Success = result.Succeeded;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        response.ErrorMessage = "Error al registrar";
+        //        _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
+        //    }
+
+        //    return response;
+        //}
 
         public async Task<BaseResponse> RegistrarRolAsync(string nombreRol)
         {
@@ -197,6 +256,69 @@ namespace INSN.Web.Services.Implementaciones
             catch (Exception ex)
             {
                 response.ErrorMessage = "Error al crear el rol";
+                _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
+            }
+
+            return response;
+        }
+
+        public async Task<BaseResponse> AsignarRolesUsuarioAsync(UsuarioRolDtoRequest request)
+        {
+            var response = new BaseResponse();
+
+            try
+            {
+                using (var transaction = _segAppDbContext.Database.BeginTransaction())
+                {
+                    var user = await _userManager.FindByIdAsync(request.UsuarioId);
+
+                    if (user is null)
+                    {
+                        response.ErrorMessage = "Usuario no encontrado";
+                        return response;
+                    }
+
+                    var existingRoles = await _userManager.GetRolesAsync(user);
+
+                    foreach (var roleName in request.roles)
+                    {
+                        if (!existingRoles.Contains(roleName))
+                        {
+                            var role = await _roleManager.FindByNameAsync(roleName);
+
+                            if (role != null)
+                            {
+                                var result = await _userManager.AddToRoleAsync(user, role.Name);
+
+                                if (!result.Succeeded)
+                                {
+                                    response.ErrorMessage = $"Error al asignar el rol {role.Name} al usuario";
+                                    // Manejar el error si falla al asignar el rol
+                                    transaction.Rollback(); // Deshacer la transacción
+                                    return response;
+                                }
+                            }
+                            else
+                            {
+                                response.ErrorMessage = $"Rol {roleName} no encontrado";
+                                // Manejar el caso cuando el rol no existe en el sistema
+                                transaction.Rollback(); // Deshacer la transacción
+                                return response;
+                            }
+                        }
+                        //else
+                        //{
+                        //    // El usuario ya tiene el rol, puedes manejar este caso si es necesario
+                        //}
+                    }
+
+                    await transaction.CommitAsync(); // Confirmar la transacción
+                    response.Success = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.ErrorMessage = "Error al asignar roles al usuario";
                 _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
             }
 

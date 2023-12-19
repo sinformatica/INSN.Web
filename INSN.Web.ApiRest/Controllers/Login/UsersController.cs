@@ -1,5 +1,7 @@
-﻿using INSN.Web.Common;
+﻿using Azure.Core;
+using INSN.Web.Common;
 using INSN.Web.Models;
+using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -29,17 +31,25 @@ namespace INSN.Web.ApiRest.Controllers.Login
 
         [HttpPost]
         //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
-        public async Task<IActionResult> Register(RegisterDtoRequest request)
+        public async Task<IActionResult> RegistrarUsuario(UsuarioDtoRequest request)
         {
-            var response = await _service.RegisterAsync(request);
+            var response = await _service.RegistrarUsuarioAsync(request);
             return response.Success ? Ok(response) : BadRequest(response);
         }
 
         [HttpPost]
         //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
-        public async Task<IActionResult> RegisterRol(string nombreRol)
+        public async Task<IActionResult> RegistrarRol(string nombreRol)
         {
             var response = await _service.RegistrarRolAsync(nombreRol);
+            return response.Success ? Ok(response) : BadRequest(response);
+        }
+
+        [HttpPost]
+        //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
+        public async Task<IActionResult> AsignarRolesUsuario(UsuarioRolDtoRequest request)
+        {
+            var response = await _service.AsignarRolesUsuarioAsync(request);
             return response.Success ? Ok(response) : BadRequest(response);
         }
     }

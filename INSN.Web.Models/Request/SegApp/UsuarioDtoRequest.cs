@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INSN.Web.Models
+namespace INSN.Web.Models.Request.SegApp
 {
-    public class RegisterDtoRequest
+    public class UsuarioDtoRequest
     {
         [Required]
         public string Usuario { get; set; } = default!;
@@ -19,15 +19,12 @@ namespace INSN.Web.Models
         public string ApellidoPaterno { get; set; } = default!;
 
         public string? ApellidoMaterno { get; set; }
-        
+
         [Required]
         public string Servicio { get; set; } = default!;
 
         [Required]
         public int TipoDocumentoIdentidadId { get; set; } = default!;
-      
-        [Required]
-        public string Rol { get; set; } = default!;
 
         [EmailAddress]
         public string Email { get; set; } = default!;

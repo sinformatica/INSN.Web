@@ -6,6 +6,8 @@ public class BaseResponse
     public string? ErrorMessage { get; set; }
 
     public string? Estado { get; set; }
+
+    public string? Data { get; set; }
 }
 
 public class BaseResponseGeneric<T> : BaseResponse
