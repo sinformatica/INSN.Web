@@ -75,7 +75,7 @@ namespace INSN.Web.Services.Implementaciones
 
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.NameIdentifier, request.Usuario),
+                    new Claim(ClaimTypes.Name, request.Usuario),
                     new Claim(ClaimTypes.Expiration, fechaVencimiento.ToString("yyyy-MM-dd HH:mm:ss"))
                 };
 

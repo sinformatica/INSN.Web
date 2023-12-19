@@ -1,5 +1,8 @@
+using INSN.Web.Portal.Services.Implementaciones;
 using INSN.Web.Portal.Services.Implementaciones.Home.DirectorioInstitucional;
+using INSN.Web.Portal.Services.Interfaces;
 using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,10 +23,28 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IDocumentoLegalProxy, DocumentoLegalProxy>();
 builder.Services.AddScoped<ITipoDocumentoProxy, TipoDocumentoProxy>();
 
+builder.Services.AddScoped<IUserProxy, UserProxy>();
 
 //FIN Agregar Los Proxy - Api - DynamiClient
 builder.Services.AddDistributedMemoryCache();
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(120); // 2 horas
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+    options.Cookie.Name = "WebINSN";
+});
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.Cookie.HttpOnly = true;
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(120);
+        options.LoginPath = "/User/Login";
+        options.AccessDeniedPath = "/User/AccesoDenegado";
+        options.SlidingExpiration = true;
+    });
 
 #region [Sistema]
 /*INICIO Sistema*/
@@ -38,7 +59,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

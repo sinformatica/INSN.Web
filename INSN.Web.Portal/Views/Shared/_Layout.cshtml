@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -39,6 +41,27 @@
                 <a href="https://www.instagram.com/hospital_del_nino_insn/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
                 <a href="https://www.linkedin.com/company/insn/about/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
             </div>
+
+            <div>
+                <ul>
+                    @if (HttpContextAccessor.HttpContext?.Session.GetString(Constantes.JwtToken) != null
+                    && HttpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken)!.Length > 0)
+                    {
+                        <li>
+                            Hola @User.Identity?.Name
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" asp-controller="User" asp-action="Logout">Salir</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a class="nav-link text-dark" asp-controller="User" asp-action="Login">Iniciar sesión</a>
+                        </li>
+                    }
+                </ul>
+            </div>
         </div>
     </section><!-- End Top Bar -->
 
@@ -58,7 +81,7 @@
                     <li><a href="#team">Staff Médico</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contacto">Contáctenos</a></li>
                
-                    <li class="dropdown">
+                    @* <li class="dropdown">
                         <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
                             <li><a href="#">Drop Down 1</a></li>
@@ -76,7 +99,7 @@
                             <li><a href="#">Drop Down 3</a></li>
                             <li><a href="#">Drop Down 4</a></li>
                         </ul>
-                    </li>                
+                    </li>      *@           
                 </ul>
             </nav><!-- .navbar -->
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>

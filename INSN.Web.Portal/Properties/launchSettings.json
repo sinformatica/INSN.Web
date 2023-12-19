@@ -8,11 +8,11 @@
     }
   },
   "profiles": {
-    "http": {
+    "WEBINSN": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:5106",
+      "applicationUrl": "https://localhost:7000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
