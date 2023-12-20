@@ -147,24 +147,23 @@
     <!-- ======= FIN CURSOS  ======= -->
     <!-- ================================================= -->
     <!-- ======= INICIO DE DATATABLE  ======= -->
+    <form>
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
             <div class="row">
-                <div class="col-4">
-                    <div class="form-floating mb-4">
-                        @Html.TextBoxFor(m => m.Documento, new { @class = "form-control", @id = "example-text-input-floating", @placeholder = "Resolución" })
-                        <label class="form-label" for="example-text-input-floating">Tipo de información PROA</label>
-                    </div>
+                <div class="col-6">                    
+                        <div class="form-floating mb-4">
+                            @Html.DropDownListFor(m => m.TipoDocumentoSeleccionada,
+                            new SelectList(Model.TipoDocumentos, "Id", "Descripcion"), "Todos", new { @class = "form-select", @id = "cmbTipoDocumento"})
+                        <label class="form-label">Tipo Información PROA</label>
+                        </div>
                 </div>
-                <div class="col-8">
+                <div class="col-6">
                     <div class="row mt-3 justify-content">
                         <div class="col-auto">
                             <button id="btnBuscar" class="btn btn-outline-primary" type="submit"><i class="bi bi-search me-1"></i>Buscar</button>
                         </div>
                     </div>
-                </div>
-                <div>
-                    @Html.HiddenFor(m => m.TipoDocumentoSeleccionada, new { @id = "tipoDocumentoSeleccionado" })
                 </div>
             </div>
             <br />
@@ -226,7 +225,7 @@
             </div>
         </div>
     </section>
-
+    </form>
     <!-- INICIO MODAL - Curso 3 -->
     <div class="modal fade" id="modal-fromleft_Curso3" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-fromleft" role="document">

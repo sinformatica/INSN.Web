@@ -47,7 +47,7 @@ namespace INSN.Web.Services.Implementaciones.Home
         /// <param name="Page"></param>
         /// <param name="Rows"></param>
         /// <returns></returns>
-        public async Task<PaginationResponse<DocumentoLegalDtoResponse>> ListAsync(string? Documento, string? Descripcion,int? TipoDocumentoId,
+        public async Task<PaginationResponse<DocumentoLegalDtoResponse>> ListAsync(string? Documento, string? Descripcion,string? Area, int? TipoDocumentoId,
             string? Estado, int EstadoRegistro, int Page, int Rows)
         {
 
@@ -58,6 +58,7 @@ namespace INSN.Web.Services.Implementaciones.Home
                 Expression<Func<DocumentoLegal, bool>> predicate =
     x => x.Documento.Contains(Documento ?? string.Empty)
     && (string.IsNullOrEmpty(Descripcion) || x.Descripcion.Contains(Descripcion))
+    && (string.IsNullOrEmpty(Area) || x.TipoDocumento.Area.Contains(Area))
     && (TipoDocumentoId == null || x.TipoDocumentoId == TipoDocumentoId)
     && (Estado == null || x.Estado == Estado) &&
     (x.EstadoRegistro == EstadoRegistro);

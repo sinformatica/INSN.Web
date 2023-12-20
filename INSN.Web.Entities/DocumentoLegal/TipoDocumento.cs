@@ -7,12 +7,10 @@ namespace INSN.Web.Entities.DocumentoLegal
     /// </summary>
     public class TipoDocumento : EntityBase
     {
-
         /// <summary>
         /// Area del Tipo de Norma
         /// </summary>
         public string Area { get; set; } = default!;
-
 
         /// <summary>
         /// Descripcion del Tipo de Norma

@@ -30,6 +30,7 @@ public class POAController : Controller
         _logger = logger;
         _enviroment = env;
     }
+
     // GET
     /// <summary>
     /// Modelo del Documento Legal
@@ -47,14 +48,16 @@ public class POAController : Controller
 
         pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
 
-        model.TipoDocumentos = await _TipoDocumentoProxy.ListAsync();
+        model.TipoDocumentos = await _TipoDocumentoProxy.TipoDocumentoListar("POA","A",1);
 
         var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
         {
             Documento = model.Documento,
             Descripcion = model.Descripcion,
-            TipoDocumentoId = 1 /*model.TipoDocumentoSeleccionada*/,
+            Area = "POA",
+            TipoDocumentoId = model.TipoDocumentoSeleccionada,
             Estado = model.EstadoSeleccionado,
+            EstadoRegistro = 1,
             Page = pager.CurrentPage,
             Rows = pager.RowsPerPage
         });
@@ -70,6 +73,9 @@ public class POAController : Controller
 
         return View("~/Views/Home/POA/Index.cshtml", model);
     }
+
+
+
 
 
     //public IActionResult Download1(string fileName)
