@@ -1,8 +1,105 @@
 ﻿@model LoginDtoRequest
 
+
 @{
-    ViewBag.Title = "Inicio de Sesion";
+    Layout = null;
 }
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - INSN WEB</title>
+
+    <!-- Favicons -->
+    <link href="~/img/favicon.png" rel="icon">
+    <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  
+    <!-- Vendor CSS Files -->
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="~/css/main.css" rel="stylesheet">
+    <link href="~/css/owl.css" rel="stylesheet" />
+
+</head>
+
+    <div id="page-container" class="main-content-boxed">
+
+      <!-- Main Container -->
+      <main id="main-container">
+        <!-- Page Content -->
+        <div class="bg-image" style="background-image: url('assets/media/photos/photo34@2x.jpg');">
+          <div class="row mx-0 bg-black-50">
+            <div class="hero-static col-md-6 col-xl-8 d-none d-md-flex align-items-md-end">
+              <div class="p-4">
+                <p class="fs-3 fw-semibold text-white">
+                  Get Inspired and Create.
+                </p>
+                <p class="text-white-75 fw-medium">
+                  Copyright &copy; <span data-toggle="year-copy"></span>
+                </p>
+              </div>
+            </div>
+            <div class="hero-static col-md-6 col-xl-4 d-flex align-items-center bg-body-extra-light">
+              <div class="content content-full">
+                <!-- Header -->
+                <div class="px-4 py-2 mb-4">
+                  <a class="link-fx fw-bold" href="index.html">
+                    <i class="fa fa-fire"></i>
+                    <span class="fs-4 text-body-color">code</span><span class="fs-4">base</span>
+                  </a>
+                  <h1 class="h3 fw-bold mt-4 mb-2">Welcome to Your Dashboard</h1>
+                  <h2 class="h5 fw-medium text-muted mb-0">Please sign in</h2>
+                </div>
+                <!-- END Header -->
+
+                <!-- Sign In Form -->
+                <!-- jQuery Validation functionality is initialized with .js-validation-signin class in js/pages/op_auth_signin.min.js which was auto compiled from _js/pages/op_auth_signin.js -->
+                <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                <form class="js-validation-signin px-4" action="be_pages_auth_all.html" method="POST">
+                  <div class="form-floating mb-4">
+                    <input type="text" class="form-control" id="login-username" name="login-username" placeholder="Enter your username">
+                    <label class="form-label" for="login-username">Username</label>
+                  </div>
+                  <div class="form-floating mb-4">
+                    <input type="password" class="form-control" id="login-password" name="login-password" placeholder="Enter your password">
+                    <label class="form-label" for="login-password">Password</label>
+                  </div>
+                  <div class="mb-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="login-remember-me" name="login-remember-me" checked>
+                      <label class="form-check-label" for="login-remember-me">Remember Me</label>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <button type="submit" class="btn btn-lg btn-alt-primary fw-semibold">
+                      Sign In
+                    </button>
+                    <div class="mt-4">
+                      <a class="fs-sm fw-medium link-fx text-muted me-2 mb-1 d-inline-block" href="op_auth_signup2.html">
+                        Create Account
+                      </a>
+                      <a class="fs-sm fw-medium link-fx text-muted me-2 mb-1 d-inline-block" href="op_auth_reminder2.html">
+                        Forgot Password
+                      </a>
+                    </div>
+                  </div>
+                </form>
+                <!-- END Sign In Form -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Page Content -->
+      </main>
+      <!-- END Main Container -->
+    </div>
+    <!-- END Page Container -->
+
 
 <form method="post">
     <div class="row text-center mb-5">
@@ -38,3 +135,20 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+
+
+<body>
+<script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/vendor/aos/aos.js"></script>
+<script src="~/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="~/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="~/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="~/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="~/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="~/js/jquery.js"></script>
+<script src="~/js/main.js"></script>
+<script src="~/js/owl-carousel.js"></script>
+<script src="~/js/custom.js"></script>
+</body>

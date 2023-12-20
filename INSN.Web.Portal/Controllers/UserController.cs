@@ -20,8 +20,8 @@ namespace INSN.Web.Portal.Controllers
 
         public IActionResult Login()
         {
-            //return View("~/Views/User/Login.cshtml");
-            return View();
+            return View("~/Views/User/Login.cshtml");
+
         }
 
         [HttpPost]
