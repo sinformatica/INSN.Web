@@ -11,5 +11,10 @@
         /// Descripcion
         /// </summary>
         public string Descripcion { get; set; } = default!;
+
+        /// <summary>
+        /// Area
+        /// </summary>
+        public string Area { get; set; } = default!;
     }
 }

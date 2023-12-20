@@ -49,12 +49,14 @@ public class SeguridadySaludController : Controller
 
         pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
 
-        model.TipoDocumentos = await _TipoDocumentoProxy.ListAsync();
+        model.TipoDocumentos = await _TipoDocumentoProxy.TipoDocumentoListar("SST", "A", 1);
+
 
         var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
         {
             Documento = model.Documento,
             Descripcion = model.Descripcion,
+            Area = "SST",
             TipoDocumentoId = model.TipoDocumentoSeleccionada,
             Estado = model.EstadoSeleccionado,
             Page = pager.CurrentPage,

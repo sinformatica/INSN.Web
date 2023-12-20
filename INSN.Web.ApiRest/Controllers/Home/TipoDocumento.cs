@@ -18,14 +18,16 @@ namespace INSN.Web.ApiRest.Controllers.Home
         }
 
         /// <summary>
-        /// Api  de Método Listar
+        /// 
         /// </summary>
-        /// <param name="Documento"></param>
+        /// <param name="Area"></param>
+        /// <param name="Estado"></param>
+        /// <param name="EstadoRegistro"></param>
         /// <returns></returns>
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        [HttpGet("TipoDocumentoListar")]
+        public async Task<IActionResult> Get(string Area, string Estado, int EstadoRegistro)
         {
-            var response = await _service.ListAsync();
+            var response = await _service.ListAsync(Area, Estado, EstadoRegistro);
 
             return Ok(response);
         }
