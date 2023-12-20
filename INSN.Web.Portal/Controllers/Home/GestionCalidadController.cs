@@ -7,12 +7,12 @@ using System.Reflection;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
-public class GestionCalidad : Controller
+public class GestionCalidadController : Controller
 {
     private readonly IWebHostEnvironment _enviroment;
   //  private readonly IDocumentoLegalProxy _proxy;
   //  private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<GestionCalidad> _logger;
+    private readonly ILogger<GestionCalidadController> _logger;
 
     
     /// <summary>
@@ -21,8 +21,8 @@ public class GestionCalidad : Controller
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
     /// <param name="logger"></param>
-    public GestionCalidad(//IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy,
-        ILogger<GestionCalidad> logger, IWebHostEnvironment env)
+    public GestionCalidadController(//IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy,
+        ILogger<GestionCalidadController> logger, IWebHostEnvironment env)
     {
        // _proxy = proxy;
      //   _TipoDocumentoProxy = TipoDocumentoProxy;

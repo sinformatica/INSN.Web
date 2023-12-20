@@ -7,12 +7,12 @@ using System.Reflection;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
-public class LactanciaMaterna : Controller
+public class LactanciaMaternaController : Controller
 {
     private readonly IWebHostEnvironment _enviroment;
   //  private readonly IDocumentoLegalProxy _proxy;
   //  private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<LactanciaMaterna> _logger;
+    private readonly ILogger<LactanciaMaternaController> _logger;
 
     
     /// <summary>
@@ -21,8 +21,8 @@ public class LactanciaMaterna : Controller
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
     /// <param name="logger"></param>
-    public LactanciaMaterna(//IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy,
-        ILogger<LactanciaMaterna> logger, IWebHostEnvironment env)
+    public LactanciaMaternaController(//IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy,
+        ILogger<LactanciaMaternaController> logger, IWebHostEnvironment env)
     {
        // _proxy = proxy;
      //   _TipoDocumentoProxy = TipoDocumentoProxy;

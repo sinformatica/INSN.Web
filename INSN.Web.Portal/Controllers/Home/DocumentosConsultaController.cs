@@ -7,12 +7,12 @@ using System.Reflection;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
-public class MesaParte : Controller
+public class DocumentosConsultaController : Controller
 {
     private readonly IWebHostEnvironment _enviroment;
   //  private readonly IDocumentoLegalProxy _proxy;
   //  private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<MesaParte> _logger;
+    private readonly ILogger<DocumentosConsultaController> _logger;
 
     
     /// <summary>
@@ -21,8 +21,8 @@ public class MesaParte : Controller
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
     /// <param name="logger"></param>
-    public MesaParte(//IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy,
-        ILogger<MesaParte> logger, IWebHostEnvironment env)
+    public DocumentosConsultaController(//IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy,
+        ILogger<DocumentosConsultaController> logger, IWebHostEnvironment env)
     {
        // _proxy = proxy;
      //   _TipoDocumentoProxy = TipoDocumentoProxy;
@@ -32,7 +32,7 @@ public class MesaParte : Controller
 
     public IActionResult Index()
     {
-        return View("~/Views/Home/MesaParte/Index.cshtml");
+        return View("~/Views/Home/DocumentosConsulta/Index.cshtml");
     }
 
     //// GET

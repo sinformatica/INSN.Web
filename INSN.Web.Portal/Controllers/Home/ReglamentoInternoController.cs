@@ -12,12 +12,12 @@ using System.Reflection;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
-public class ReglamentoInterno : Controller
+public class ReglamentoInternoController : Controller
 {
     private readonly IWebHostEnvironment _enviroment;
     private readonly IDocumentoLegalProxy _proxy;
     private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<ReglamentoInterno> _logger;
+    private readonly ILogger<ReglamentoInternoController> _logger;
 
 
     /// <summary>
@@ -26,7 +26,7 @@ public class ReglamentoInterno : Controller
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
     /// <param name="logger"></param>
-    public ReglamentoInterno(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy, ILogger<ReglamentoInterno> logger, IWebHostEnvironment env)
+    public ReglamentoInternoController(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy, ILogger<ReglamentoInternoController> logger, IWebHostEnvironment env)
     {
         _proxy = proxy;
         _TipoDocumentoProxy = TipoDocumentoProxy;

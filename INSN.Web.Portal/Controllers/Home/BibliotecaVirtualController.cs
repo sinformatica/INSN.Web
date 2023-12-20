@@ -9,12 +9,12 @@ using System.Reflection;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
-public class BibliotecaVirtual : Controller
+public class BibliotecaVirtualController : Controller
 {
     private readonly IWebHostEnvironment _enviroment;
     private readonly IDocumentoLegalProxy _proxy;
     private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<BibliotecaVirtual> _logger;
+    private readonly ILogger<BibliotecaVirtualController> _logger;
 
 
     /// <summary>
@@ -23,7 +23,7 @@ public class BibliotecaVirtual : Controller
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
     /// <param name="logger"></param>
-    public BibliotecaVirtual(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy, ILogger<BibliotecaVirtual> logger, IWebHostEnvironment env)
+    public BibliotecaVirtualController(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy, ILogger<BibliotecaVirtualController> logger, IWebHostEnvironment env)
     {
         _proxy = proxy;
         _TipoDocumentoProxy = TipoDocumentoProxy;

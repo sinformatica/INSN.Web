@@ -7,12 +7,12 @@ using System.Reflection;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
-public class SubCAFAE : Controller
+public class DonacionesController : Controller
 {
     private readonly IWebHostEnvironment _enviroment;
   //  private readonly IDocumentoLegalProxy _proxy;
   //  private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<SubCAFAE> _logger;
+    private readonly ILogger<DonacionesController> _logger;
 
     
     /// <summary>
@@ -21,8 +21,8 @@ public class SubCAFAE : Controller
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
     /// <param name="logger"></param>
-    public SubCAFAE(//IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy,
-        ILogger<SubCAFAE> logger, IWebHostEnvironment env)
+    public DonacionesController(//IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy,
+        ILogger<DonacionesController> logger, IWebHostEnvironment env)
     {
        // _proxy = proxy;
      //   _TipoDocumentoProxy = TipoDocumentoProxy;
@@ -32,7 +32,7 @@ public class SubCAFAE : Controller
 
     public IActionResult Index()
     {
-        return View("~/Views/Home/SubCAFAE/Index.cshtml");
+        return View("~/Views/Home/Donaciones/Index.cshtml");
     }
 
     //// GET
