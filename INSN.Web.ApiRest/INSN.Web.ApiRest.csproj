@@ -30,4 +30,8 @@
     <ProjectReference Include="..\INSN.Web.Services\INSN.Web.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\Login\" />
+  </ItemGroup>
+
 </Project>

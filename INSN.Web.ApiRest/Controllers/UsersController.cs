@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Xml.Linq;
 
-namespace INSN.Web.ApiRest.Controllers.Login
+namespace INSN.Web.ApiRest.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    
+
     public class UsersController : ControllerBase
     {
         private readonly IUserService _service;
