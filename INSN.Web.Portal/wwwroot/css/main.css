@@ -31177,7 +31177,7 @@ a.block.block-themed .btn-block-option:focus,
 }
 
 .bg-image-insn {
-    background-color: #fbfbfc !important;
+    /*background-color: #fbfbfc !important;*/
     /*background-position: 50% 80%;
   background-size: cover;*/
     background-repeat: no-repeat;

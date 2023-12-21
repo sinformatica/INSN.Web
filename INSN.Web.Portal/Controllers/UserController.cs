@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using INSN.Web.ViewModels.Exceptions;
 
 namespace INSN.Web.Portal.Controllers
 {
@@ -30,6 +31,11 @@ namespace INSN.Web.Portal.Controllers
         {
             try
             {
+                //if (string.IsNullOrWhiteSpace(modelo.Usuario))
+                //{
+                //    throw new ModelException(nameof(modelo.Usuario), "Campo requerido: Usuario");
+                //}
+
                 var response = await _proxy.Login(modelo);
                 if (response.Success)
                 {

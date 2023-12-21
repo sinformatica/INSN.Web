@@ -12,7 +12,7 @@
 
     <!-- Favicons -->
     <link rel="icon" href="~/imagenes/logo.ico" type="image/png">
-  
+
     <!-- Vendor CSS Files -->
     <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -25,128 +25,74 @@
 
 </head>
 
-    <div id="page-container" class="main-content-boxed">
+<div id="page-container" class="main-content-boxed">
 
-      <!-- Main Container -->
-      <main id="main-container">
+    <!-- Main Container -->
+    <main id="main-container">
         <!-- Page Content -->
-        <div class="bg-image" style="background-image: url('../../wwwroot/Imagenes/Varios/INSN.jpg');">
-          <div class="row mx-0 bg-black-50">
-            <div class="hero-static col-md-6 col-xl-8 d-none d-md-flex align-items-md-end">
-              <div class="p-4">
-                <p class="fs-3 fw-semibold text-white">
-                  Get Inspired and Create.
-                </p>
-                <p class="text-white-75 fw-medium">
-                  Copyright &copy; <span data-toggle="year-copy"></span>
-                </p>
-              </div>
-            </div>
-            <div class="hero-static col-md-6 col-xl-4 d-flex align-items-center bg-body-extra-light">
-              <div class="content content-full">
-                <!-- Header -->
-                <div class="px-4 py-2 mb-4">
-                  <a class="link-fx fw-bold" href="index.html">
-                    <i class="fa fa-fire"></i>
-                    <span class="fs-4 text-body-color">code</span><span class="fs-4">base</span>
-                  </a>
-                  <h1 class="h3 fw-bold mt-4 mb-2">Welcome to Your Dashboard</h1>
-                  <h2 class="h5 fw-medium text-muted mb-0">Please sign in</h2>
+        <div class="bg-image" style="background-image: url('/Imagenes/Varios/INSN.jpg');">
+            <div class="row mx-0 bg-black-50">
+                <div class="hero-static col-md-6 col-xl-8 d-none d-md-flex align-items-md-end">
                 </div>
-                <!-- END Header -->
+                <div class="hero-static col-md-6 col-xl-4 d-flex align-items-center bg-body-extra-light">
+                    <div class="content content-full">
+                        <!-- Header -->
+                        <div class="px-4 py-2 mb-4">
+                            <img src="/Imagenes/Varios/INSN_Logo_peque.png" />
+                            <h1 class="h3 fw-bold mt-4 mb-2">Instituto Nacional de Salud de Niño</h1>
+                            <h2 class="h5 fw-medium text-muted mb-0">Ingresar al sistema</h2>
+                        </div>
+                        <!-- END Header -->
+                        <!-- Sign In Form -->
+                        <form method="post">
+                            <div style="margin: 0px; padding: 0px;" asp-validation-summary="All" class="text-danger" role="alert"></div>
 
-                <!-- Sign In Form -->
-                <!-- jQuery Validation functionality is initialized with .js-validation-signin class in js/pages/op_auth_signin.min.js which was auto compiled from _js/pages/op_auth_signin.js -->
-                <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
-                <form class="js-validation-signin px-4" action="be_pages_auth_all.html" method="POST">
-                  <div class="form-floating mb-4">
-                    <input type="text" class="form-control" id="login-username" name="login-username" placeholder="Enter your username">
-                    <label class="form-label" for="login-username">Username</label>
-                  </div>
-                  <div class="form-floating mb-4">
-                    <input type="password" class="form-control" id="login-password" name="login-password" placeholder="Enter your password">
-                    <label class="form-label" for="login-password">Password</label>
-                  </div>
-                  <div class="mb-4">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="login-remember-me" name="login-remember-me" checked>
-                      <label class="form-check-label" for="login-remember-me">Remember Me</label>
+                            <div class="form-floating mb-4">
+                                <input asp-for="Usuario" class="form-control" autocomplete="username"  />
+                                <label class="form-label" for="login-username">Usuario</label>
+                                <span asp-validation-for="Usuario" class="text-danger"></span>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input asp-for="Password" type="password" class="form-control" />
+                                <label class="form-label" for="login-password">Contraseña</label>
+                            </div>
+                            <div class="mb-4">
+                                <button type="submit" class="btn btn-lg btn-alt-primary fw-semibold">Ingresar</button>
+
+                                <div class="mt-4">
+                                    <a class="fs-sm fw-medium link-fx text-muted me-2 mb-1 d-inline-block" href="op_auth_reminder2.html">
+                                        Olvidé contraseña
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END Sign In Form -->
                     </div>
-                  </div>
-                  <div class="mb-4">
-                    <button type="submit" class="btn btn-lg btn-alt-primary fw-semibold">
-                      Sign In
-                    </button>
-                    <div class="mt-4">
-                      <a class="fs-sm fw-medium link-fx text-muted me-2 mb-1 d-inline-block" href="op_auth_signup2.html">
-                        Create Account
-                      </a>
-                      <a class="fs-sm fw-medium link-fx text-muted me-2 mb-1 d-inline-block" href="op_auth_reminder2.html">
-                        Forgot Password
-                      </a>
-                    </div>
-                  </div>
-                </form>
-                <!-- END Sign In Form -->
-              </div>
+                </div>
             </div>
-          </div>
         </div>
         <!-- END Page Content -->
-      </main>
-      <!-- END Main Container -->
-    </div>
-    <!-- END Page Container -->
-
-
-<form method="post">
-    <div class="row text-center mb-5">
-        <div asp-validation-summary="All" class="text-danger" role="alert"></div>
-        <h3>Iniciar sesión</h3>
-    </div>
-    <div class="row">
-        <div class="mb-3">
-            <label asp-for="Usuario" class="form-label">Usuario</label>
-            <input asp-for="Usuario" class="form-control" autocomplete="username" aria-required="true" />
-            <span asp-validation-for="Usuario" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="mb-3">
-            <label asp-for="Password" class="form-label">Password</label>
-            <input asp-for="Password" type="password" class="form-control" aria-required="true" />
-            <span asp-validation-for="Password" class="text-danger"></span>
-        </div>
-        <div class="row justify-content-between">
-            <div class="col">
-                <a href="#" class="link-danger">Olvidé clave</a>
-            </div>
-            <div class="col offset-5">
-                <a asp-controller="User" asp-action="Register" class="link-dark">Registrarme</a>
-            </div>
-        </div>
-    </div>
-    <div class="row justify-content-center mt-4">
-        <button type="submit" class="w-25 btn btn-lg btn-primary">Ingresar</button>
-    </div>
-</form>
+    </main>
+    <!-- END Main Container -->
+</div>
+<!-- END Page Container -->
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
 
 
 <body>
-<script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="~/vendor/aos/aos.js"></script>
-<script src="~/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="~/vendor/purecounter/purecounter_vanilla.js"></script>
-<script src="~/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="~/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="~/vendor/php-email-form/validate.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/vendor/aos/aos.js"></script>
+    <script src="~/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="~/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/vendor/php-email-form/validate.js"></script>
 
-<!-- Template Main JS File -->
-<script src="~/js/jquery.js"></script>
-<script src="~/js/main.js"></script>
-<script src="~/js/owl-carousel.js"></script>
-<script src="~/js/custom.js"></script>
+    <!-- Template Main JS File -->
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/owl-carousel.js"></script>
+    <script src="~/js/custom.js"></script>
 </body>

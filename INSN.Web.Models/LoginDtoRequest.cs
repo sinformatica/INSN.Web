@@ -9,7 +9,8 @@ namespace INSN.Web.Models
 {
     public class LoginDtoRequest
     {
-        [Required]
+        [Required(ErrorMessage = "El campo usuario es obligatorio.")]
+        [Display(Name = "Usuario")]
         public string Usuario { get; set; } = default!;
 
         [Required]
