@@ -49,14 +49,16 @@ public class SistemaControlIntController : Controller
 
         pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
 
-        model.TipoDocumentos = await _TipoDocumentoProxy.ListAsync();
+        model.TipoDocumentos = await _TipoDocumentoProxy.TipoDocumentoListar("SCI", "A", 1);
 
         var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
         {
             Documento = model.Documento,
             Descripcion = model.Descripcion,
+            Area = "SCI",
             TipoDocumentoId = model.TipoDocumentoSeleccionada,
             Estado = model.EstadoSeleccionado,
+            EstadoRegistro = 1,
             Page = pager.CurrentPage,
             Rows = pager.RowsPerPage
         });
