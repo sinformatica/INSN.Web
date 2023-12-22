@@ -10,10 +10,11 @@ namespace INSN.Web.Models
     public class LoginDtoRequest
     {
         [Required(ErrorMessage = "El campo usuario es obligatorio.")]
-        [Display(Name = "Usuario")]
+        [Display(Name = "Usuariox")]
         public string Usuario { get; set; } = default!;
 
-        [Required]
+        [Required(ErrorMessage = "El campo contraseña es obligatorio.")]
+        [Display(Name = "Password")]
         public string Password { get; set; } = default!;
     }
 

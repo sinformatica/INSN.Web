@@ -22,7 +22,6 @@ namespace INSN.Web.Portal.Controllers
         public IActionResult Login()
         {
             return View("~/Views/User/Login.cshtml");
-
         }
 
         [HttpPost]
@@ -31,11 +30,6 @@ namespace INSN.Web.Portal.Controllers
         {
             try
             {
-                //if (string.IsNullOrWhiteSpace(modelo.Usuario))
-                //{
-                //    throw new ModelException(nameof(modelo.Usuario), "Campo requerido: Usuario");
-                //}
-
                 var response = await _proxy.Login(modelo);
                 if (response.Success)
                 {
@@ -54,10 +48,10 @@ namespace INSN.Web.Portal.Controllers
 
                     // Guardamos la sesion
                     HttpContext.Session.SetString(Constantes.JwtToken, response.Token);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Sistemas");
                 }
 
-                ModelState.AddModelError("ErrorMessage", response.ErrorMessage ?? "Error");
+                ModelState.AddModelError("ErrorMessage", response.ErrorMessage ?? "");
                 return View(modelo);
             }
             catch (Exception ex)

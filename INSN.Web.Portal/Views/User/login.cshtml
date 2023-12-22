@@ -1,6 +1,5 @@
 ﻿@model LoginDtoRequest
 
-
 @{
     Layout = null;
 }
@@ -45,25 +44,26 @@
                         <!-- END Header -->
                         <!-- Sign In Form -->
                         <form method="post">
-                            <div style="margin: 0px; padding: 0px;" asp-validation-summary="All" class="text-danger" role="alert"></div>
-
                             <div class="form-floating mb-4">
                                 <input asp-for="Usuario" class="form-control" autocomplete="username"  />
                                 <label class="form-label" for="login-username">Usuario</label>
-                                <span asp-validation-for="Usuario" class="text-danger"></span>
+                                @* <span asp-validation-for="Usuario" class="text-danger"></span> *@
                             </div>
                             <div class="form-floating mb-4">
                                 <input asp-for="Password" type="password" class="form-control" />
                                 <label class="form-label" for="login-password">Contraseña</label>
                             </div>
+
+                             <div style="margin: 0px; padding: 0px;" asp-validation-summary="All" class="text-danger" role="alert"></div>
+
                             <div class="mb-4">
                                 <button type="submit" class="btn btn-lg btn-alt-primary fw-semibold">Ingresar</button>
 
-                                <div class="mt-4">
+                                @* <div class="mt-4">
                                     <a class="fs-sm fw-medium link-fx text-muted me-2 mb-1 d-inline-block" href="op_auth_reminder2.html">
                                         Olvidé contraseña
                                     </a>
-                                </div>
+                                </div> *@
                             </div>
                         </form>
                         <!-- END Sign In Form -->
