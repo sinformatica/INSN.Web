@@ -28,88 +28,86 @@
     <!-- ======= FIN DE SESSION CON PESTAÑA ======= -->
     <!-- ========================================================================================= -->
     <!-- ======= INICIO DE DATATABLE  ======= -->
-    <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
-            <div class="row">
-                <div class="col-4">
-                    <div class="form-floating mb-4">
-                        @Html.TextBoxFor(m => m.Documento, new { @class = "form-control", @id = "example-text-input-floating", @placeholder = "Resolución" })
-                        <label class="form-label" for="example-text-input-floating">Tipo de información SST </label>
+    <form>
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-floating mb-4">
+                            @Html.DropDownListFor(m => m.TipoDocumentoSeleccionada,
+                                     new SelectList(Model.TipoDocumentos, "Id", "Descripcion"), "Todos", new { @class = "form-select", @id = "cmbTipoDocumento" })
+                            <label class="form-label">Tipo Información SST</label>
+                        </div>
                     </div>
-                </div>
-                <div class="col-8">
-                    <div class="row mt-3 justify-content">
-                        <div class="col-auto">
-                            <button id="btnBuscar" class="btn btn-outline-primary" type="submit"><i class="bi bi-search me-1"></i>Buscar</button>
+                    <div class="col-6">
+                        <div class="row mt-3 justify-content">
+                            <div class="col-auto">
+                                <button id="btnBuscar" class="btn btn-outline-primary" type="submit"><i class="bi bi-search me-1"></i>Buscar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div>
-                    @Html.HiddenFor(m => m.TipoDocumentoSeleccionada, new { @id = "tipoDocumentoSeleccionado" })
+                <br />
+                <div class="row">
+                    <div>
+                        Mostrar
+                        <select id="pageSize" class="form-select-sm" asp-for="Rows">
+                            <option>20</option>
+                            <option>35</option>
+                            <option>50</option>
+                            <option>100</option>
+                        </select>
+                        registros
+                    </div>
                 </div>
-            </div>
-            <br />
-            <div class="row">
-                <div>
-                    Mostrar
-                    <select id="pageSize" class="form-select-sm" asp-for="Rows">
-                        <option>20</option>
-                        <option>35</option>
-                        <option>50</option>
-                        <option>100</option>
-                    </select>
-                    registros
-                </div>
-            </div>
-            <div class="row mt-4">
-                @if (Model.DocumentoLegales is null)
-                {
-                    <p>Sin resultados</p>
-                }
-                else if (!Model.DocumentoLegales.Any())
-                {
-                    <p>Sin datos para mostrar</p>
-                }
-                else
-                {
-                    <table class="table table-striped table-vcenter">
-                        <thead>
-                            <tr>
-                                <th class="col-10">Descripción del Documento</th>
-                                <th class="col-2 d-none d-sm-table-cell">Documento PDF</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.DocumentoLegales)
-                            {
+                <div class="row mt-4">
+                    @if (Model.DocumentoLegales is null)
+                    {
+                        <p>Sin resultados</p>
+                    }
+                    else if (!Model.DocumentoLegales.Any())
+                    {
+                        <p>Sin datos para mostrar</p>
+                    }
+                    else
+                    {
+                        <table class="table table-striped table-vcenter">
+                            <thead>
                                 <tr>
-                                    <td class="col-10">
-                                        <h5 class="fw-bold">@item.Documento</h5>
-                                        <br>
-                                        @item.Descripcion
-                                    </td>
-                                    <td class="col-2 d-none d-sm-table-cell">
-                                        <a target="_blank" href="@Url.Action("Download1", "DirectorioInstitucional", new { fileName = item.PDF })">
-                                            <img src="~/imagenes/iconos/pdf.svg" alt="Icono PDF" width="32" height="32">
-                                        </a>
-                                    </td>
+                                    <th class="col-10">Descripción del Documento</th>
+                                    <th class="col-2 d-none d-sm-table-cell">Documento PDF</th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
-                }
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.DocumentoLegales)
+                                {
+                                    <tr>
+                                        <td class="col-10">
+                                            <h5 class="fw-bold">@item.Documento</h5>
+                                            <br>
+                                            @item.Descripcion
+                                        </td>
+                                        <td class="col-2 d-none d-sm-table-cell">
+                                            <a target="_blank" href="@Url.Action("Download1", "DirectorioInstitucional", new { fileName = item.PDF })">
+                                                <img src="~/imagenes/iconos/pdf.svg" alt="Icono PDF" width="32" height="32">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                </div>
+
+
+                <div class="container">
+                    <partial name="_DataPager" model="ViewBag.Pager" />
+                    @Html.HiddenFor(m => m.Page, new { id = "currentPage" })
+                </div>
             </div>
+        </section>
+    </form>
 
-
-            <div class="container">
-                <partial name="_DataPager" model="ViewBag.Pager" />
-                @Html.HiddenFor(m => m.Page, new { id = "currentPage" })
-            </div>
-        </div>
-    </section>
-
-
-    <br />
-    <!-- ======= FINAL DE DATATABLE  ======= -->
+    <!-- ======= FIN DE DATATABLE  ======= --> 
 </main>
 

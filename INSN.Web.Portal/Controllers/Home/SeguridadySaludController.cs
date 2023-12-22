@@ -59,6 +59,7 @@ public class SeguridadySaludController : Controller
             Area = "SST",
             TipoDocumentoId = model.TipoDocumentoSeleccionada,
             Estado = model.EstadoSeleccionado,
+            EstadoRegistro = 1,
             Page = pager.CurrentPage,
             Rows = pager.RowsPerPage
         });
