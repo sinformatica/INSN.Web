@@ -77,26 +77,28 @@ public class DirectorioInstitucionalController : Controller
     }
 
 
-    public IActionResult Download1(string fileName)
-    {
-        try
-        {
-            var filePath = Path.Combine(_enviroment.ContentRootPath, "Documentos/NormasDocumentosLegales", fileName);
-
             if (!System.IO.File.Exists(filePath))
             {
-                return NotFound(); // Manejo de archivo no encontrado
-            }
+    //public IActionResult Download1(string fileName)
+    //{
+    //    try
+    //    {
+    //        var filePath = Path.Combine(_enviroment.ContentRootPath, "Documentos/NormasDocumentosLegales", fileName);
 
-            var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+    //        if (!System.IO.File.Exists(filePath))
+    //        {
+    //            return NotFound(); // Manejo de archivo no encontrado
+    //        }
 
-            return new FileStreamResult(fileStream, "application/pdf");
-        }
-        catch (Exception ex)
-        {
-            // Manejar cualquier otro tipo de error
-            // Por ejemplo: Loggear el error para su revisión posterior
-            return StatusCode(StatusCodes.Status500InternalServerError);
-        }
-    }
+    //        var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+
+    //        return new FileStreamResult(fileStream, "application/pdf");
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        // Manejar cualquier otro tipo de error
+    //        // Por ejemplo: Loggear el error para su revisión posterior
+    //        return StatusCode(StatusCodes.Status500InternalServerError);
+    //    }
+    //}
 }
