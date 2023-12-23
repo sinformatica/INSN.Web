@@ -1,5 +1,7 @@
 ﻿using INSN.Web.Models;
 using INSN.Web.Models.Request;
+using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
+
 //using INSN.Web.Portal.Services.Interfaces.Home.Covid19;
 using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
@@ -10,11 +12,9 @@ namespace INSN.Web.Portal.Controllers.Home;
 public class Covid19Controller : Controller
 {
     private readonly IWebHostEnvironment _enviroment;
-  //  private readonly IDocumentoLegalProxy _proxy;
-  //  private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
+    private readonly IDocumentoLegalProxy _proxy;
+    private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
     private readonly ILogger<Covid19Controller> _logger;
-
-    private const int MaxFileSize = 4 * 1024 * 1024;
 
     /// <summary>
     /// 
@@ -22,60 +22,58 @@ public class Covid19Controller : Controller
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
     /// <param name="logger"></param>
-    public Covid19Controller(//IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy,
-        ILogger<Covid19Controller> logger, IWebHostEnvironment env)
+    public Covid19Controller(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy, ILogger<Covid19Controller> logger, IWebHostEnvironment env)
     {
-       // _proxy = proxy;
-     //   _TipoDocumentoProxy = TipoDocumentoProxy;
+        _proxy = proxy;
+        _TipoDocumentoProxy = TipoDocumentoProxy;
         _logger = logger;
         _enviroment = env;
     }
 
-    public IActionResult Index()
+
+    // GET
+    /// <summary>
+    /// Modelo del Documento Legal
+    /// </summary>
+    /// <param name="model"></param>
+    /// <returns></returns>
+
+    public async Task<IActionResult> DocumentoLegalCovid19(DocumentoLegalViewModel model)
     {
-        return View("~/Views/Home/Covid19/Index.cshtml");
+        PaginationData pager = ViewBag.Pager != null
+            ? ViewBag.Pager
+            : new PaginationData();
+
+        if (pager.CurrentPage == 0)
+            pager.CurrentPage = model.Page <= 0 ? 1 : model.Page;
+
+        pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
+
+        model.TipoDocumentos = await _TipoDocumentoProxy.TipoDocumentoListar("Covid19", "A", 1);
+
+        var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
+        {
+            Documento = model.Documento,
+            Descripcion = model.Descripcion,
+            Area = "Covid19",
+            TipoDocumentoId = model.TipoDocumentoSeleccionada,
+            Estado = model.EstadoSeleccionado,
+            EstadoRegistro = 1,
+            Page = pager.CurrentPage,
+            Rows = pager.RowsPerPage
+        });
+
+        ViewBag.Pager = pager;
+
+        if (response.Success)
+        {
+            model.DocumentoLegales = response.Data;
+            pager.TotalPages = response.TotalPages;
+            pager.RowCount = response.Data!.Count;
+        }
+
+        return View("~/Views/Home/Covid19/Index.cshtml", model);
     }
-
-    //// GET
-    ///// <summary>
-    ///// Modelo del Documento Legal
-    ///// </summary>
-    ///// <param name="model"></param>
-    ///// <returns></returns>
-    //public async Task<IActionResult> DocumentoLegal(DocumentoLegalViewModel model)
-    //{
-    //    PaginationData pager = ViewBag.Pager != null
-    //        ? ViewBag.Pager
-    //        : new PaginationData();
-
-    //    if (pager.CurrentPage == 0)
-    //        pager.CurrentPage = model.Page <= 0 ? 1 : model.Page;
-
-    //    pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
-
-    //    model.TipoDocumentos = await _TipoDocumentoProxy.ListAsync();
-
-    //    var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
-    //    {
-    //        Documento = model.Documento,
-    //        Descripcion=model.Descripcion,
-    //        TipoDocumentoId = model.TipoDocumentoSeleccionada,
-    //        Estado = model.EstadoSeleccionado,
-    //        Page = pager.CurrentPage,
-    //        Rows = pager.RowsPerPage
-    //    });
-
-    //    ViewBag.Pager = pager;
-
-    //    if (response.Success)
-    //    {
-    //        model.DocumentoLegales = response.Data;
-    //        pager.TotalPages = response.TotalPages;
-    //        pager.RowCount = response.Data!.Count;
-    //    }
-
-    //    return View("~/Views/Home/Covid19/DocumentoLegal.cshtml", model);
-    //}
 
 
     //public IActionResult Download1(string fileName)

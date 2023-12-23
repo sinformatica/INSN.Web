@@ -74,10 +74,6 @@ public class POAController : Controller
         return View("~/Views/Home/POA/Index.cshtml", model);
     }
 
-
-
-
-
     //public IActionResult Download1(string fileName)
     //{
     //    try
