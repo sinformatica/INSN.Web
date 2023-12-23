@@ -77,8 +77,6 @@ public class DirectorioInstitucionalController : Controller
     }
 
 
-            if (!System.IO.File.Exists(filePath))
-            {
     //public IActionResult Download1(string fileName)
     //{
     //    try
