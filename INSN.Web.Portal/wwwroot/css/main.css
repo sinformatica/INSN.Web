@@ -540,7 +540,7 @@ section {
             font-family: "Poppins", sans-serif;
             font-size: 15px;
             font-weight: 600;
-            color: #0096ad;
+            color: #fff;
             white-space: nowrap;
             transition: 0.3s;
         }
@@ -591,7 +591,7 @@ section {
         }
 
     .mobile-nav-show {
-        color: rgba(255, 255, 255, 0.6);
+        color: #6c757d;
         font-size: 28px;
         cursor: pointer;
         line-height: 0;
@@ -11741,7 +11741,10 @@ readers do not read off random characters that represent icons */
     src: url('../fonts/poppins-semibold.ttf') format('truetype');
 }
 
-/*JYATACO*/
+
+
+
+/*JYATACO Nuevo estilos*/
 kbd {
     padding: 0.1875rem 0.375rem;
     font-size: 0.875em;
@@ -15915,6 +15918,8 @@ textarea.form-control-lg {
     display: block;
 }
 
+/*JYATACO CONFLICTO*/
+/*
 .navbar {
     --bs-navbar-padding-x: 0;
     --bs-navbar-padding-y: 0.5rem;
@@ -16004,7 +16009,7 @@ textarea.form-control-lg {
     .navbar-text a:focus {
         color: var(--bs-navbar-active-color);
     }
-
+*/
 .navbar-collapse {
     flex-basis: 100%;
     flex-grow: 1;
@@ -19957,7 +19962,7 @@ textarea.form-control-lg {
 
 .align-items-center {
     align-items: center !important;
-    padding-top:2px;
+    padding-top: 2px;
 }
 
 .align-items-baseline {
@@ -29742,7 +29747,7 @@ small,
 
 .block.block-rounded {
     border-radius: 0.875rem 1rem;
-    height:200px;
+    height: 200px;
 }
 
     .block.block-rounded > .block-header,
@@ -48509,7 +48514,7 @@ Best Deal Style
     .best-deal .tabs-content .nav-link {
         font-size: 16px;
         font-weight: 500;
-        background-color: #fff !important;     
+        background-color: #fff !important;
         border-radius: 5px;
         height: 50px;
         line-height: 50px;
@@ -48525,7 +48530,7 @@ Best Deal Style
 
     .best-deal .tabs-content ul.nav-tabs {
         border-bottom: none !important;
-  padding-bottom:10px;
+        padding-bottom: 10px;
         align-items: end;
     }
 
@@ -48599,7 +48604,6 @@ Best Deal Style
     padding: 30px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-
 }
 
     .dcjq-accordion ul.menu {
@@ -48643,9 +48647,9 @@ Best Deal Style
     color: #0096ad;
 }
 
-    .sub-menu li {
-        margin-bottom: 0px;
-    }
+.sub-menu li {
+    margin-bottom: 0px;
+}
 
 .sub-menu a {
     padding: 8px 20px;
@@ -48655,9 +48659,9 @@ Best Deal Style
     transition: background-color 0.3s;
 }
 
-        .sub-menu a:hover {
-            background-color: #0096ad;
-        }
+    .sub-menu a:hover {
+        background-color: #0096ad;
+    }
 
 
 
