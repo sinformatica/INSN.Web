@@ -23,8 +23,8 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IDocumentoLegalProxy, DocumentoLegalProxy>();
 builder.Services.AddScoped<ITipoDocumentoProxy, TipoDocumentoProxy>();
 
-builder.Services.AddScoped<IUserProxy, UserProxy>();
-builder.Services.AddScoped<ISistemasProxy, SistemasProxy>();
+builder.Services.AddScoped<IUsuarioProxy, UsuarioProxy>();
+builder.Services.AddScoped<ISistemaProxy, SistemaProxy>();
 
 //FIN Agregar Los Proxy - Api - DynamiClient
 builder.Services.AddDistributedMemoryCache();

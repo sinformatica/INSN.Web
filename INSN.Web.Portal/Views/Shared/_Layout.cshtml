@@ -48,12 +48,12 @@
                 {
                     <div style="padding-left: 10px;">
                         <span>Hola @User.Identity?.Name</span>
-                        <a class="nav-link text-dark" asp-controller="User" asp-action="Logout">Salir</a>
+                        <a class="nav-link text-dark" asp-controller="Usuario" asp-action="Logout">Salir</a>
                     </div>
                 }
                 else
                 {
-                    <a asp-controller="User" asp-action="Login" class="linkedin" target="_blank"><i class="bi bi-person-fill"></i></a>
+                    <a asp-controller="Usuario" asp-action="Login" class="linkedin" target="_blank"><i class="bi bi-person-fill"></i></a>
                 }
             </div>
         </div>

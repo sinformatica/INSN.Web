@@ -6,31 +6,37 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace INSN.Web.Portal.Services.Implementaciones
 {
-    public class SistemasProxy : RestBase, ISistemasProxy
+    /// <summary>
+    /// Clase Proxy Sistema
+    /// </summary>
+    public class SistemaProxy : RestBase, ISistemaProxy
     {
-        public SistemasProxy(HttpClient httpClient)
-            : base("api/Users", httpClient)
+        /// <summary>
+        /// Proxy
+        /// </summary>
+        /// <param name="httpClient"></param>
+        public SistemaProxy(HttpClient httpClient)
+            : base("api/Usuario", httpClient)
         {
 
         }
 
         /// <summary>
-        /// 
+        /// Proxy: Sistemas Por Usuario Listar
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        /// <exception cref="InvalidOperationException"></exception>
-        public async Task<ICollection<SistemasDtoResponse>> ListarSistemasPorUsuario(LoginUsuarioDtoRequest request)
+        public async Task<ICollection<SistemaDtoResponse>> SistemasPorUsuarioListar(LoginUsuarioDtoRequest request)
         {
             try
             {
                 var queryString = $"?Usuario={request.Usuario}";
-                var response = await HttpClient.GetAsync($"{BaseUrl}/ListarSistemasPorUsuario{queryString}");
+                var response = await HttpClient.GetAsync($"{BaseUrl}/SistemasPorUsuarioListar{queryString}");
 
                 response.EnsureSuccessStatusCode();
 
                 var result = await response.Content
-                    .ReadFromJsonAsync<BaseResponseGeneric<ICollection<SistemasDtoResponse>>>();
+                    .ReadFromJsonAsync<BaseResponseGeneric<ICollection<SistemaDtoResponse>>>();
 
                 if (result!.Success == false)
                 {

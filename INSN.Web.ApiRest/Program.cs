@@ -68,7 +68,7 @@ builder.Services.AddIdentity<INSNIdentityUser, IdentityRole>(policies =>
 
 
 // Inyectamos las dependencias
-builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IUsuarioService, UsuarioService>();
 // AutoMapper
 
 builder.Services.AddAutoMapper(config =>

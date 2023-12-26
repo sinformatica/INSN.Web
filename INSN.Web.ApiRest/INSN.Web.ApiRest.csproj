@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\Login\**" />
+    <Content Remove="Controllers\Login\**" />
+    <EmbeddedResource Remove="Controllers\Login\**" />
+    <None Remove="Controllers\Login\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.13" />
@@ -28,10 +35,6 @@
     <ProjectReference Include="..\INSN.Web.Common\INSN.Web.Common.csproj" />
     <ProjectReference Include="..\INSN.Web.DataAccess\INSN.Web.DataAccess.csproj" />
     <ProjectReference Include="..\INSN.Web.Services\INSN.Web.Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\Login\" />
   </ItemGroup>
 
 </Project>

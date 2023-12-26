@@ -1,36 +1,61 @@
-﻿using INSN.Web.Models;
+﻿using INSN.Web.Common;
+using INSN.Web.Models;
 using INSN.Web.Portal.Services.Interfaces;
 using INSN.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
+using System.Reflection;
 
 namespace INSN.Web.Portal.Controllers
 {
     public class SistemasController : Controller
     {
         private readonly IWebHostEnvironment _enviroment;
-        private readonly ISistemasProxy _proxy;
+        private readonly ISistemaProxy _proxy;
 
         /// <summary>
-        /// 
+        /// Sistemas Controller
         /// </summary>
         /// <param name="proxy"></param>
         /// <param name="env"></param>
-        public SistemasController(ISistemasProxy proxy,IWebHostEnvironment env)
+        /// <returns></returns>
+        public SistemasController(ISistemaProxy proxy,IWebHostEnvironment env)
         {
             _proxy = proxy;           
             _enviroment = env;
         }
 
-        public async Task<IActionResult> Index(SistemasViewModel model)
+        /// <summary>
+        /// Index
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> Index()
         {
-            var response = await _proxy.ListarSistemasPorUsuario(new LoginUsuarioDtoRequest()
+            string token = HttpContext.Session.GetString(Constantes.JwtToken);
+            SistemasViewModel model = new SistemasViewModel();
+
+            if (token != null)
             {
-                Usuario = model.Usuario
-            });
+                // Deserializar el token JWT
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var jwtToken = tokenHandler.ReadJwtToken(token);
 
-            model.ListaSistema = response;
+                // Acceder a los claims (información) dentro del token
+                var claims = jwtToken.Claims;
 
-            return View("~/Views/User/Sistemas.cshtml", model);
+                // Obtener el valor de un claim específico
+                var usuario = claims.FirstOrDefault(c => c.Type == "username")?.Value;
+
+                // Realizar acciones con la información del token deserializado
+                var response = await _proxy.SistemasPorUsuarioListar(new LoginUsuarioDtoRequest()
+                {
+                    Usuario = usuario
+                });
+
+                model.ListaSistema = response;
+            }
+
+            return View("~/Views/Usuario/Sistema.cshtml", model);
         }
     }
 }

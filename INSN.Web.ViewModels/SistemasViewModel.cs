@@ -11,7 +11,7 @@ namespace INSN.Web.ViewModels
 {
     public class SistemasViewModel
     {
-        public ICollection<SistemasDtoResponse>? ListaSistema { get; set; }
+        public ICollection<SistemaDtoResponse>? ListaSistema { get; set; }
 
         public string Usuario { get; set; } = default!;
 

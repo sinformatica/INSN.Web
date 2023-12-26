@@ -22,18 +22,29 @@ using INSN.Web.Models.Response.Sistemas;
 
 namespace INSN.Web.Services.Implementaciones
 {
-    public class UserService : IUserService
+    /// <summary>
+    /// Service Usuario
+    /// </summary>
+    public class UsuarioService : IUsuarioService
     {
         private readonly UserManager<INSNIdentityUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly AppConfiguration _configuration;
-        private readonly ILogger<UserService> _logger;
+        private readonly ILogger<UsuarioService> _logger;
         private readonly SegAppDbContext _segAppDbContext;
 
-        public UserService(UserManager<INSNIdentityUser> userManager,
+        /// <summary>
+        /// Inicializar
+        /// </summary>
+        /// <param name="userManager"></param>
+        /// <param name="roleManager"></param>
+        /// <param name="options"></param>
+        /// <param name="logger"></param>
+        /// <param name="segAppDbContext"></param>
+        public UsuarioService(UserManager<INSNIdentityUser> userManager,
                             RoleManager<IdentityRole> roleManager,
                             IOptions<AppConfiguration> options,
-                            ILogger<UserService> logger,
+                            ILogger<UsuarioService> logger,
                             SegAppDbContext segAppDbContext)
         {
             _logger = logger;
@@ -43,6 +54,11 @@ namespace INSN.Web.Services.Implementaciones
             _segAppDbContext = segAppDbContext;
         }
 
+        /// <summary>
+        /// Service: Login
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public async Task<LoginDtoResponse> Login(LoginDtoRequest request)
         {
             var response = new LoginDtoResponse();
@@ -76,7 +92,7 @@ namespace INSN.Web.Services.Implementaciones
 
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, request.Usuario),
+                    new Claim("username", request.Usuario),
                     new Claim(ClaimTypes.Expiration, fechaVencimiento.ToString("yyyy-MM-dd HH:mm:ss"))
                 };
 
@@ -109,10 +125,15 @@ namespace INSN.Web.Services.Implementaciones
             return response;
         }
 
-         public async Task<BaseResponseGeneric<ICollection<SistemasDtoResponse>>> SistemasPorUsuarioListar(LoginUsuarioDtoRequest request)
+        /// <summary>
+        /// Service: Sistemas Por Usuario Listar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<BaseResponseGeneric<ICollection<SistemaDtoResponse>>> SistemasPorUsuarioListar(LoginUsuarioDtoRequest request)
         {
-            var response = new BaseResponseGeneric<ICollection<SistemasDtoResponse>>();
-            var ListaSistemas = new List<SistemasDtoResponse>();
+            var response = new BaseResponseGeneric<ICollection<SistemaDtoResponse>>();
+            var ListaSistemas = new List<SistemaDtoResponse>();
 
             try
             {
@@ -144,7 +165,7 @@ namespace INSN.Web.Services.Implementaciones
                     if (sistema != null)
                     {
                         // Realizar la conversión de INSNIdentitySistema a SistemasDtoResponse 
-                        var sistemaDto = new SistemasDtoResponse
+                        var sistemaDto = new SistemaDtoResponse
                         {
                             CodigoSistemaId = sistema.CodigoSistemaId,
                             descripcion = sistema.descripcion,
@@ -168,6 +189,11 @@ namespace INSN.Web.Services.Implementaciones
             return response;
         }
 
+        /// <summary>
+        /// Service: Login Sistema
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public async Task<LoginDtoResponse> LoginSistema(LoginSistemaDtoRequest request)
         {
             var response = new LoginDtoResponse();
@@ -216,6 +242,11 @@ namespace INSN.Web.Services.Implementaciones
             return response;
         }
 
+        /// <summary>
+        /// Service: Usuario Insertar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public async Task<BaseResponse> UsuarioInsertar(UsuarioDtoRequest request)
         {
             var response = new BaseResponse();
@@ -270,6 +301,11 @@ namespace INSN.Web.Services.Implementaciones
             return response;
         }
 
+        /// <summary>
+        /// Service: Rol Insertar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public async Task<BaseResponse> RolInsertar(string nombreRol)
         {
             var response = new BaseResponse();
@@ -309,6 +345,11 @@ namespace INSN.Web.Services.Implementaciones
             return response;
         }
 
+        /// <summary>
+        /// Service: Roles Usuario Asignar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public async Task<BaseResponse> RolesUsuarioAsignar(UsuarioRolDtoRequest request)
         {
             var response = new BaseResponse();

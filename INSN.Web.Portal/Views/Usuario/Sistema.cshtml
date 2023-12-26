@@ -1,0 +1,97 @@
+﻿@model SistemasViewModel
+
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>Sistemas</title>
+
+    <!-- Icons -->
+    <link rel="icon" href="~/imagenes/logo.ico" type="image/png">
+    <!-- END Icons -->
+    <!-- Stylesheets -->
+    <!-- Codebase framework -->
+    <link rel="stylesheet" id="css-main" href="~/css/codebase.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="..." crossorigin="anonymous" />
+
+    <style>
+        i {
+            color: #0096ad;
+        }
+    </style>
+    <!-- END Stylesheets -->
+</head>
+
+<body>
+    <div id="page-container" class="sidebar-o sidebar-dark sidebar-mini enable-page-overlay side-scroll page-header-fixed page-header-glass">
+        <!-- Main Container -->
+        <main id="main-container">
+
+            <!-- Hero -->
+            <div class="bg-image bg-image-bottom" style="background-image: url('/Imagenes/Varios/INSN.jpg');">
+                <div class="bg-primary-dark-op">
+                    <div class="content content-top text-center overflow-hidden">
+                        <div class="pt-5 pb-3">
+                            <h1 class="fw-bold text-white mb-2">
+                                Instituto Nacional de Salud del Niño
+                            </h1>
+                            <h2 class="h4 fw-medium text-white-75">
+                                Seleccione sistema a ingresar
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Hero -->
+            <!-- Page Content -->
+            <div class="content">
+                <div class="row justify-content-center text-center">
+                    <!-- Row #1 -->
+                    @if (Model.ListaSistema is null)
+                    {
+                        <p>Sin resultados</p>
+                    }
+                    else if (!Model.ListaSistema.Any())
+                    {
+                        <p>Sin datos para mostrar</p>
+                    }
+                    else
+                    {
+                        @foreach (var item in Model.ListaSistema)
+                        {
+                            <div class="col-6 col-xl-3">
+                                <a class="block block-rounded block-link-pop text-end" href="@item.url">
+                                    <div class="block-content block-content-full d-sm-flex justify-content-between align-items-center border-black-op-b border-3">
+                                        <div class="d-none d-sm-block">
+                                            <i class="fas @item.icono fa-3x"></i>
+                                        </div>
+                                        <div class="text-end">
+                                            <div class="fs-5 fw-semibold">@item.descripcion</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <!-- END Page Content -->
+        </main>
+        <!-- END Main Container -->
+    </div>
+    <!-- END Page Container -->
+    <!--
+        Codebase JS
+
+        Core libraries and functionality
+        webpack is putting everything together at assets/_js/main/app.js
+    -->
+    <script src="~/js/codebase.app.min.js"></script>
+</body>
+</html>

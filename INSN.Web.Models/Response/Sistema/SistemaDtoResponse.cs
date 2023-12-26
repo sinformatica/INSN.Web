@@ -1,6 +1,6 @@
 ﻿namespace INSN.Web.Models.Response.Sistemas
 {
-    public class SistemasDtoResponse : BaseResponse
+    public class SistemaDtoResponse : BaseResponse
     {
 
         public int CodigoSistemaId { get; set; } = default!;

@@ -4,14 +4,26 @@ using INSN.Web.Portal.Services.Interfaces;
 
 namespace INSN.Web.Portal.Services.Implementaciones
 {
-    public class UserProxy : RestBase, IUserProxy
+    /// <summary>
+    /// Clase Proxy Usuario
+    /// </summary>
+    public class UsuarioProxy : RestBase, IUsuarioProxy
     {
-        public UserProxy(HttpClient httpClient)
-            : base("api/Users", httpClient)
+        /// <summary>
+        /// Proxy
+        /// </summary>
+        /// <param name="httpClient"></param>
+        public UsuarioProxy(HttpClient httpClient)
+            : base("api/Usuario", httpClient)
         {
 
         }
 
+        /// <summary>
+        /// Proxy: Login
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public async Task<LoginDtoResponse> Login(LoginDtoRequest request)
         {
             return await SendAsync<LoginDtoRequest, LoginDtoResponse>(request, HttpMethod.Post, "Login");

@@ -10,22 +10,35 @@ using INSN.Web.ViewModels.Exceptions;
 
 namespace INSN.Web.Portal.Controllers
 {
-    public class UserController : Controller
+    public class UsuarioController : Controller
     {
-        private readonly IUserProxy _proxy;
+        private readonly IUsuarioProxy _proxy;
 
-        public UserController(IUserProxy proxy)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="proxy"></param>
+        public UsuarioController(IUsuarioProxy proxy)
         {
             _proxy = proxy;
         }
 
+        /// <summary>
+        /// Login
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Login()
         {
-            return View("~/Views/User/Login.cshtml");
+            return View("~/Views/Usuario/Login.cshtml");
         }
 
+        /// <summary>
+        /// Login
+        /// </summary>
+        /// <param name="modelo"></param>
+        /// <returns></returns>
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginDtoRequest modelo)
         {
             try
@@ -48,7 +61,7 @@ namespace INSN.Web.Portal.Controllers
 
                     // Guardamos la sesion
                     HttpContext.Session.SetString(Constantes.JwtToken, response.Token);
-                    return RedirectToAction("Index", "Sistemas",modelo);
+                    return RedirectToAction("Index", "Sistemas");
                 }
 
                 ModelState.AddModelError("ErrorMessage", response.ErrorMessage ?? "");
@@ -61,6 +74,10 @@ namespace INSN.Web.Portal.Controllers
             }
         }
 
+        /// <summary>
+        /// Logout
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
