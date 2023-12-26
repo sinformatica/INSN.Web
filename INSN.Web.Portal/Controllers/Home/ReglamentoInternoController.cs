@@ -2,10 +2,7 @@
 using INSN.Web.Models.Request;
 using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
 
-
-
 //using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
-
 using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
