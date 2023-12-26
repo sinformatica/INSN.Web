@@ -18,6 +18,7 @@ using INSN.Web.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using INSN.Web.Models.Request.SegApp;
 using Azure;
+using INSN.Web.Models.Response.Sistemas;
 
 namespace INSN.Web.Services.Implementaciones
 {
@@ -108,10 +109,10 @@ namespace INSN.Web.Services.Implementaciones
             return response;
         }
 
-        public async Task<ListaSistemasDtoResponse> SistemasPorUsuarioListar(LoginUsuarioDtoRequest request)
+         public async Task<BaseResponseGeneric<ICollection<SistemasDtoResponse>>> SistemasPorUsuarioListar(LoginUsuarioDtoRequest request)
         {
-            var response = new ListaSistemasDtoResponse();
-            var ListaSistemas = new List<SistemaDtoResponse>();
+            var response = new BaseResponseGeneric<ICollection<SistemasDtoResponse>>();
+            var ListaSistemas = new List<SistemasDtoResponse>();
 
             try
             {
@@ -121,7 +122,7 @@ namespace INSN.Web.Services.Implementaciones
                 if (user == null)
                 {
                     // Si el usuario no se encuentra, retornar lista vacía 
-                    return response;
+                  //  return response;
                 }
 
                 // Consulta para obtener los sistemas asociados al usuario
@@ -143,7 +144,7 @@ namespace INSN.Web.Services.Implementaciones
                     if (sistema != null)
                     {
                         // Realizar la conversión de INSNIdentitySistema a SistemasDtoResponse 
-                        var sistemaDto = new SistemaDtoResponse
+                        var sistemaDto = new SistemasDtoResponse
                         {
                             CodigoSistemaId = sistema.CodigoSistemaId,
                             descripcion = sistema.descripcion,
@@ -155,7 +156,7 @@ namespace INSN.Web.Services.Implementaciones
                     }
                 }
 
-                response.ListaSistemas = ListaSistemas;
+                response.Data = ListaSistemas;
                 response.Success = true;
             }
             catch (Exception ex)
@@ -242,7 +243,7 @@ namespace INSN.Web.Services.Implementaciones
                     user = await _userManager.FindByEmailAsync(user.Email);
                     if (user is not null)
                     {
-                        response.Data = user.Id; // Establecer el ID del usuario en la respuesta
+                     //   response.Data = user.Id; // Establecer el ID del usuario en la respuesta
                     }
                 }
                 else

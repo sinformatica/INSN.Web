@@ -7,21 +7,30 @@ namespace INSN.Web.Portal.Controllers
 {
     public class SistemasController : Controller
     {
+        private readonly IWebHostEnvironment _enviroment;
         private readonly ISistemasProxy _proxy;
 
-        public IActionResult Index()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="proxy"></param>
+        /// <param name="env"></param>
+        public SistemasController(ISistemasProxy proxy,IWebHostEnvironment env)
         {
-            return View("~/Views/User/Sistemas.cshtml");
+            _proxy = proxy;           
+            _enviroment = env;
         }
 
-        //public async Task<IActionResult> Index(LoginViewModel model)
-        //{
-        //    var response = await _proxy.ListarSistemasPorUsuario(new LoginUsuarioDtoRequest()
-        //    {
-        //        Usuario = model.Usuario
-        //    });
+        public async Task<IActionResult> Index(SistemasViewModel model)
+        {
+            var response = await _proxy.ListarSistemasPorUsuario(new LoginUsuarioDtoRequest()
+            {
+                Usuario = model.Usuario
+            });
 
-        //    return View("~/Views/User/Sistemas.cshtml", model);
-        //}
+            model.ListaSistema = response;
+
+            return View("~/Views/User/Sistemas.cshtml", model);
+        }
     }
 }

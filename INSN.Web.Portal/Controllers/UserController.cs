@@ -48,7 +48,7 @@ namespace INSN.Web.Portal.Controllers
 
                     // Guardamos la sesion
                     HttpContext.Session.SetString(Constantes.JwtToken, response.Token);
-                    return RedirectToAction("Index", "Sistemas");
+                    return RedirectToAction("Index", "Sistemas",modelo);
                 }
 
                 ModelState.AddModelError("ErrorMessage", response.ErrorMessage ?? "");

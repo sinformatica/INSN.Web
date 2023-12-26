@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 
 namespace INSN.Web.ViewModels
 {
-    public class LoginViewModel
+    public class SistemasViewModel
     {
-        [Required]
+        public ICollection<SistemasDtoResponse>? ListaSistema { get; set; }
+
         public string Usuario { get; set; } = default!;
 
-        [Required]
-        public string Password { get; set; } = default!;
     }
 }

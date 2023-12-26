@@ -11,18 +11,5 @@ namespace INSN.Web.Models
     {
         public string NombresCompletos { get; set; } = default!;
         public string Token { get; set; } = default!;
-    }
-
-    public class ListaSistemasDtoResponse : BaseResponse
-    {
-        public List<SistemaDtoResponse> ListaSistemas { get; set; } = default!;
-    }
-
-    public class SistemaDtoResponse 
-    {
-        public int CodigoSistemaId { get; set; } = default!;
-        public string descripcion { get; set; } = default!;
-        public string url { get; set; } = default!;
-        public string icono { get; set; } = default!;
-    }
+    } 
 }

@@ -1,4 +1,4 @@
-﻿@model LoginViewModel
+﻿@model SistemasViewModel
 
 @{
     Layout = null;
@@ -55,6 +55,54 @@
         <div class="content">
                 <div class="row justify-content-center text-center">
             <!-- Row #1 -->
+
+                    <div>
+                        <div class="row">
+                            @if (Model.ListaSistema is null)
+                            {
+                                <p>Sin resultados</p>
+                            }
+                            else if (!Model.ListaSistema.Any())
+                            {
+                                <p>Sin datos para mostrar</p>
+                            }
+                            else
+                            {
+                                @foreach (var item in Model.ListaSistema)
+                                        {
+                                            @item.descripcion
+                                          
+                                        }
+                              
+                              
+                            }
+                        </div>                 
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             @*<div class="col-6 col-xl-3">
               <a class="block block-rounded block-link-pop text-end" href="javascript:void(0)">

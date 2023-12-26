@@ -1,5 +1,6 @@
 ﻿using INSN.Web.Models;
 using INSN.Web.Models.Response;
+using INSN.Web.Models.Response.Sistemas;
 using INSN.Web.Portal.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,12 +9,18 @@ namespace INSN.Web.Portal.Services.Implementaciones
     public class SistemasProxy : RestBase, ISistemasProxy
     {
         public SistemasProxy(HttpClient httpClient)
-            : base("api/Sistemas", httpClient)
+            : base("api/Users", httpClient)
         {
 
         }
 
-        public async Task<ICollection<SistemaDtoResponse>> ListarSistemasPorUsuario(LoginUsuarioDtoRequest request)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public async Task<ICollection<SistemasDtoResponse>> ListarSistemasPorUsuario(LoginUsuarioDtoRequest request)
         {
             try
             {
@@ -23,7 +30,7 @@ namespace INSN.Web.Portal.Services.Implementaciones
                 response.EnsureSuccessStatusCode();
 
                 var result = await response.Content
-                    .ReadFromJsonAsync<BaseResponseGeneric<ICollection<SistemaDtoResponse>>>();
+                    .ReadFromJsonAsync<BaseResponseGeneric<ICollection<SistemasDtoResponse>>>();
 
                 if (result!.Success == false)
                 {
