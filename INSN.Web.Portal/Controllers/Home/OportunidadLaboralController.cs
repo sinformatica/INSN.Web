@@ -37,7 +37,7 @@ public class OportunidadLaboralController : Controller
     /// </summary>
     /// <param name="model"></param>
     /// <returns></returns>
-    public async Task<IActionResult> DocumentoLegalOLaboral(DocumentoLegalViewModel model)
+    public async Task<IActionResult> DocumentoLegalOportunidadLaboral(DocumentoLegalViewModel model)
     {
         PaginationData pager = ViewBag.Pager != null
             ? ViewBag.Pager
@@ -54,6 +54,7 @@ public class OportunidadLaboralController : Controller
         {
             Documento = model.Documento,
             Descripcion = model.Descripcion,
+            Area = "OL",
             TipoDocumentoId = model.TipoDocumentoSeleccionada,
             Estado = model.EstadoSeleccionado,
             Page = pager.CurrentPage,
