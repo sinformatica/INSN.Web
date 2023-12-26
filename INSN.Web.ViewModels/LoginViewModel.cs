@@ -1,4 +1,5 @@
-﻿using System;
+﻿using INSN.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace INSN.Web.ViewModels
 {
     public class LoginViewModel
     {
+        public ICollection<SistemaDtoResponse>? Sistemas { get; set; }
+
         [Required]
         public string Usuario { get; set; } = default!;
 

@@ -108,7 +108,7 @@ namespace INSN.Web.Services.Implementaciones
             return response;
         }
 
-        public async Task<ListaSistemasDtoResponse> SistemasPorUsuarioListar(string usuario)
+        public async Task<ListaSistemasDtoResponse> SistemasPorUsuarioListar(LoginUsuarioDtoRequest request)
         {
             var response = new ListaSistemasDtoResponse();
             var ListaSistemas = new List<SistemaDtoResponse>();
@@ -116,7 +116,7 @@ namespace INSN.Web.Services.Implementaciones
             try
             {
                 // Buscar el usuario por nombre
-                var user = await _userManager.FindByNameAsync(usuario);
+                var user = await _userManager.FindByNameAsync(request.Usuario);
 
                 if (user == null)
                 {
@@ -161,7 +161,7 @@ namespace INSN.Web.Services.Implementaciones
             catch (Exception ex)
             {
                 // Manejo de excepciones
-                _logger.LogCritical(ex, "Error al obtener sistemas para el usuario {Usuario}: {Message}", usuario, ex.Message);
+                _logger.LogCritical(ex, "Error al obtener sistemas para el usuario {Usuario}: {Message}", request.Usuario, ex.Message);
             }
 
             return response;

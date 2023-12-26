@@ -29,13 +29,20 @@ namespace INSN.Web.ApiRest.Controllers
             return response.Success ? Ok(response) : Unauthorized(response);
         }
 
-        [HttpPost]
-        //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
-        public async Task<IActionResult> ListarSistemasPorUsuario(string usuario)
+        [HttpGet]
+        public async Task<IActionResult> ListarSistemasPorUsuario([FromQuery] LoginUsuarioDtoRequest request)
         {
-            var response = await _service.SistemasPorUsuarioListar(usuario);
+            var response = await _service.SistemasPorUsuarioListar(request);
             return response.Success ? Ok(response) : BadRequest(response);
         }
+
+        //[HttpPost]
+        //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
+        //public async Task<IActionResult> ListarSistemasPorUsuario(string usuario)
+        //{
+        //    var response = await _service.SistemasPorUsuarioListar(usuario);
+        //    return response.Success ? Ok(response) : BadRequest(response);
+        //}
 
         [HttpPost]
         //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]

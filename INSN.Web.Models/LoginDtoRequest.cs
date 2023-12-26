@@ -18,6 +18,12 @@ namespace INSN.Web.Models
         public string Password { get; set; } = default!;
     }
 
+    public class LoginUsuarioDtoRequest
+    {
+        [Required]
+        public string Usuario { get; set; } = default!;
+    }
+
     public class LoginSistemaDtoRequest
     {
         [Required]
