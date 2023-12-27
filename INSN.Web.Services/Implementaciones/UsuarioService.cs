@@ -211,12 +211,14 @@ namespace INSN.Web.Services.Implementaciones
 
                 var fechaVencimiento = DateTime.Now.AddHours(6);
                 string nombreCompleto = $"{identity.ApellidoPaterno} {identity.ApellidoMaterno} {identity.Nombres}";
+                var roleName = await _roleManager.FindByIdAsync(roles.First());
 
                 var claims = new List<Claim>
                 {
                     new Claim("username", request.Usuario),
                     new Claim("name", identity.Nombres + " " + identity.ApellidoPaterno + " " + identity.ApellidoMaterno),
-                    new Claim("rol", roles.First()),
+                    new Claim("idRol", roles.First()),
+                    new Claim("rol", roleName?.Name),
                     new Claim(ClaimTypes.Expiration, fechaVencimiento.ToString("yyyy-MM-dd HH:mm:ss"))
                 };
 
