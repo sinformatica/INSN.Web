@@ -1,27 +1,30 @@
 ﻿using INSN.Web.Common;
-using INSN.Web.Models;
 using INSN.Web.Portal.Services.Interfaces;
 using INSN.Web.ViewModels;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
+using System.Security.Claims;
+using INSN.Web.Models;
 
 namespace INSN.Web.Portal.Controllers
 {
-    public class SistemasController : Controller
+    public class RedireccionarController : Controller
     {
         private readonly IWebHostEnvironment _enviroment;
-        private readonly ISistemaProxy _proxy;
+        private readonly IRedireccionarProxy _proxy;
 
         /// <summary>
-        /// Sistemas Controller
+        /// Redireccionar Controller
         /// </summary>
         /// <param name="proxy"></param>
         /// <param name="env"></param>
         /// <returns></returns>
-        public SistemasController(ISistemaProxy proxy,IWebHostEnvironment env)
+        public RedireccionarController(IRedireccionarProxy proxy, IWebHostEnvironment env)
         {
-            _proxy = proxy;           
+            _proxy = proxy;
             _enviroment = env;
         }
 
@@ -29,7 +32,8 @@ namespace INSN.Web.Portal.Controllers
         /// Index
         /// </summary>
         /// <returns></returns>
-        public async Task<IActionResult> Index()
+        /// 
+        public async Task<IActionResult> Index(int p)
         {
             string token = HttpContext.Session.GetString(Constantes.JwtToken);
             SistemasViewModel model = new SistemasViewModel();
@@ -45,18 +49,20 @@ namespace INSN.Web.Portal.Controllers
 
                 // Obtener el valor de un claim específico
                 var usuario = claims.FirstOrDefault(c => c.Type == "username")?.Value;
-                model.Nombre = claims.FirstOrDefault(c => c.Type == "name")?.Value;
 
                 // Realizar acciones con la información del token deserializado
-                var response = await _proxy.SistemasPorUsuarioListar(new LoginUsuarioDtoRequest()
-                {
-                    Usuario = usuario
-                });
+                LoginSistemaDtoRequest modelo = new LoginSistemaDtoRequest();
+                modelo.Usuario = usuario;
+                modelo.CodigoSistemaId = p;
 
-                model.ListaSistema = response;
+                var response = await _proxy.LoginSistema(modelo);
+                if (response.Success)
+                {
+                    return Redirect($"https://sistemas.sise.com.pe/apoyo/login?tk={response.Token}");
+                }
             }
 
-            return View("~/Views/Usuario/Sistema.cshtml", model);
+            return RedirectToAction("Index", "Sistemas");
         }
     }
 }

@@ -13,7 +13,6 @@ namespace INSN.Web.ViewModels
     {
         public ICollection<SistemaDtoResponse>? ListaSistema { get; set; }
 
-        public string Usuario { get; set; } = default!;
-
+        public string Nombre { get; set; } = default!;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using INSN.Web.Models.Response;
 using INSN.Web.Models;
 using INSN.Web.Portal.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace INSN.Web.Portal.Services.Implementaciones
 {

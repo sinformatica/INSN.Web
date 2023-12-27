@@ -89,10 +89,12 @@ namespace INSN.Web.Services.Implementaciones
                 }
 
                 var fechaVencimiento = DateTime.Now.AddHours(6);
+                string nombreCompleto = $"{identity.ApellidoPaterno} {identity.ApellidoMaterno} {identity.Nombres}";
 
                 var claims = new List<Claim>
                 {
                     new Claim("username", request.Usuario),
+                    new Claim("name", nombreCompleto),
                     new Claim(ClaimTypes.Expiration, fechaVencimiento.ToString("yyyy-MM-dd HH:mm:ss"))
                 };
 
@@ -212,8 +214,9 @@ namespace INSN.Web.Services.Implementaciones
 
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, nombreCompleto),
-                    new Claim(ClaimTypes.Role, roles.First()),
+                    new Claim("username", request.Usuario),
+                    new Claim("name", identity.Nombres + " " + identity.ApellidoPaterno + " " + identity.ApellidoMaterno),
+                    new Claim("rol", roles.First()),
                     new Claim(ClaimTypes.Expiration, fechaVencimiento.ToString("yyyy-MM-dd HH:mm:ss"))
                 };
 
@@ -237,6 +240,11 @@ namespace INSN.Web.Services.Implementaciones
             {
                 response.ErrorMessage = ex.Message;
                 _logger.LogWarning(ex, "{Message}", ex.Message);
+            }
+            catch (Exception ex)
+            {
+                response.ErrorMessage = "Error al autenticar";
+                _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
             }
 
             return response;

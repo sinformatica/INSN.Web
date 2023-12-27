@@ -25,6 +25,7 @@ builder.Services.AddScoped<ITipoDocumentoProxy, TipoDocumentoProxy>();
 
 builder.Services.AddScoped<IUsuarioProxy, UsuarioProxy>();
 builder.Services.AddScoped<ISistemaProxy, SistemaProxy>();
+builder.Services.AddScoped<IRedireccionarProxy, RedireccionarProxy>();
 
 //FIN Agregar Los Proxy - Api - DynamiClient
 builder.Services.AddDistributedMemoryCache();
