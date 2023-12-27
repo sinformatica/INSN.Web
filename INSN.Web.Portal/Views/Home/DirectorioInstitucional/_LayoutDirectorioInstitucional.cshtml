@@ -9,7 +9,6 @@
     <link href="~/img/favicon.png" rel="icon">
     <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-
     <!-- Vendor CSS Files -->
     <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -131,15 +130,16 @@
                                     <a href="#" class="dcjq-parent">1.4 Normas Emitidas<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
                                         <li id="menu-item-A4A1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A2">
-                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="1" asp-route-TituloPagina="Resoluciones Directoral DG">Resoluciones Directoral DG</a>
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="3" asp-route-TituloPagina="ESTO ES UNA PRUEBA">Resoluciones Directoral DG</a>
                                         </li>
                                         <li id="menu-item-A4A2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A2">
-                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="2" asp-route-TituloPagina="Resoluciones Administrativa OP">Resoluciones Administrativa OP</a>
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="50" asp-route-TituloPagina="Resoluciones Administrativa OP">Resoluciones Administrativa OP</a>
 
                                         </li>
                                      
-                                        <li id="menu-item-A4A3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A3">
-                                            <a href="#">Resoluciones Administrativa OEA</a>
+                                        <li id="menu-item-A4A3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A3">                                     
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="4" asp-route-TituloPagina="Resoluciones Administrativa OEA">Resoluciones Administrativa OEA</a>
+
                                         </li>
                                         <li id="menu-item-A4A4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A4">
                                             <a href="#">Guías Clínicas</a>
@@ -164,7 +164,8 @@
                                     <a href="#" class="dcjq-parent">2.1 Instrumentos de Gestión<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
                                         <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
-                                            <a href="#">Reglamento de Organización y Funciones (ROF)</a>
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="51" asp-route-TituloPagina="Reglamento de Organización y Funciones (ROF)">Reglamento de Organización y Funciones (ROF)</a>
+
                                         </li>
                                         <li id="menu-item-B1B2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B2">
                                             <a href="#">Organigrama</a>
@@ -455,9 +456,10 @@
                             <ul id="menu-menu-transparencia" class="menu">
                                 <li class="sub-menu-heading">10. REGISTRO DE VISITAS</li>
                                 <li id="menu-item-J1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-J1 dcjq-parent-li">
-                                    <a href="#" class="dcjq-parent">10.1 Registro de Visitas<span class="dcjq-icon"></span></a>
-                                    <ul class="sub-menu" style="display: none;">
-                                    </ul>
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/registro-de-visitas" target="_blank" class="dcjq-parent">10.1 Registro de Visitas<span class="dcjq-icon"></span></a>
+                                    @* <ul class="sub-menu" style="display: none;">
+
+                                    </ul> *@
                                 </li>
                                 <li id="menu-item-J2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-J2 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">10.2 Información Adicional<span class="dcjq-icon"></span></a>

@@ -52,12 +52,13 @@ public class DirectorioInstitucionalController : Controller
 
         pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
 
-        model.TipoDocumentos = await _TipoDocumentoProxy.ListAsync();
+        model.TipoDocumentos = await _TipoDocumentoProxy.TipoDocumentoListar("DOCUMENTOLEGAL", "A", 1);
 
         var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
         {
             Documento = model.Documento,
             Descripcion=model.Descripcion,
+            Area = "DOCUMENTOLEGAL",
             TipoDocumentoId = model.TipoDocumentoSeleccionada,         
             EstadoRegistro = 1,
             Page = pager.CurrentPage,

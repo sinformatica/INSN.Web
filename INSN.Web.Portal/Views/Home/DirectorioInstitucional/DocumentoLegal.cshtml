@@ -9,13 +9,14 @@
 <main id="main">
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
+            <form>
             <div class="section-header">
                 <div>
                     @Html.HiddenFor(m => m.TituloPagina, new { @id = "tituloPaginaInput" })
                 </div>
                 <h4 id="tituloPaginaMostrado"></h4>
             </div>
-            <form>
+        
                 <div class="row">
                     <div class="col-5">
                         <div class="form-floating mb-4">
