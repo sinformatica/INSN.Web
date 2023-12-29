@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace INSN.Web.Models.Request.Sistema
 {
-    public class SeccionDtoRequest : RequestBase
+    public class SeccionDtoRequest 
     {
         [Required]
         public int CodigoSistemaId { get; set; } = default!;

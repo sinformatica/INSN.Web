@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,5 +28,11 @@ namespace INSN.Web.Entities
         /// Icono
         /// </summary>
         public string Icono { get; set; } = default!;
+
+        [Required]
+        public int CodigoSeccionId { get; set; } = default!;
+
+        [Required]
+        public string RolId { get; set; } = default!;
     }
 }

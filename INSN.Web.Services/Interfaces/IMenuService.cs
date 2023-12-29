@@ -24,11 +24,11 @@ namespace INSN.Web.Services.Interfaces
         /// <returns></returns>
         Task<BaseResponseGeneric<ICollection<SeccionDtoResponse>>> SeccionListar(SeccionDtoRequest request);
 
-        ///// <summary>
-        ///// Modulo Listar
-        ///// </summary>
-        ///// <param name="request"></param>
-        ///// <returns></returns>
-        //Task<BaseResponseGeneric<ICollection<ModuloDtoResponse>>> ModuloListar(ModuloDtoRequest request);
+        /// <summary>
+        /// Modulo Listar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<BaseResponseGeneric<ICollection<ModuloDtoResponse>>> ModuloListar(ModuloDtoRequest request);
     }
 }

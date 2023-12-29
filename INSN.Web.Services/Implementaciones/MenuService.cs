@@ -30,14 +30,16 @@ namespace INSN.Web.Services.Implementaciones
     {
         private readonly IMenuRepository _menuRepository;
         private readonly IMapper _mapper;
+        private readonly ILogger<MenuService> _logger;
 
         /// <summary>
         /// Inicializar
         /// </summary>
-        public MenuService(IMenuRepository menuRepository, IMapper mapper)
+        public MenuService(IMenuRepository menuRepository, IMapper mapper, ILogger<MenuService> logger)
         {
             _menuRepository = menuRepository;
             _mapper = mapper;
+            _logger = logger;
         }
 
         /// <summary>
@@ -57,24 +59,75 @@ namespace INSN.Web.Services.Implementaciones
                     RolId = request.RolId                  
                 });
 
-                response.Data = lista.Select(x => _mapper.Map<SeccionDtoResponse>(x)).ToList();
+                // Suponiendo que _mapper es una instancia de IMapper
+                IMapper mapper = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<Seccion, SeccionDtoResponse>();
+                }).CreateMapper();
 
-                response.Success = true;
+                response.Data = lista.Select(x => mapper.Map<SeccionDtoResponse>(x)).ToList();
+
+                if (response.Data.Count > 0)
+                {
+                    response.Success = true;
+                }
+                else
+                {
+                    response.Success = false;
+                    response.ErrorMessage = "Service: No existen elementos";
+                }
             }
             catch (Exception ex)
             {
                 response.ErrorMessage = "Service: Error al listar: " + ex.Message;
-               // _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
+                _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
             }
 
             return response;
         }
 
-        ///// <summary>
-        ///// Modulo Listar
-        ///// </summary>
-        ///// <param name="request"></param>
-        ///// <returns></returns>
+        /// <summary>
+        /// Modulo Listar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<BaseResponseGeneric<ICollection<ModuloDtoResponse>>> ModuloListar(ModuloDtoRequest request)
+        {
+            var response = new BaseResponseGeneric<ICollection<ModuloDtoResponse>>();
+
+            try
+            {
+                var lista = await _menuRepository.ModuloListar(new Modulo
+                {
+                    CodigoSeccionId = request.CodigoSeccionId,
+                    RolId = request.RolId
+                });
+
+                // Suponiendo que _mapper es una instancia de IMapper
+                IMapper mapper = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<Modulo, ModuloDtoResponse>();
+                }).CreateMapper();
+
+                response.Data = lista.Select(x => mapper.Map<ModuloDtoResponse>(x)).ToList();
+
+                if (response.Data.Count > 0)
+                {
+                    response.Success = true;
+                }
+                else
+                {
+                    response.Success = false;
+                    response.ErrorMessage = "Service: No existen elementos";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.ErrorMessage = "Service: Error al listar: " + ex.Message;
+                _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
+            }
+
+            return response;
+        }
+
         //public async Task<BaseResponseGeneric<ICollection<ModuloDtoResponse>>> ModuloListar(ModuloDtoRequest request)
         //{
         //    // Llamar al método SeccionListar del repositorio y devolver el resultado

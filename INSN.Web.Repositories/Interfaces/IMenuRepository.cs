@@ -22,11 +22,11 @@ namespace INSN.Web.Repositories.Interfaces
         /// <returns></returns>
         Task<ICollection<Seccion>> SeccionListar(Seccion request);
 
-        ///// <summary>
-        ///// Modulo Listar
-        ///// </summary>
-        ///// <param name="request"></param>
-        ///// <returns></returns>
-        //Task<BaseResponseGeneric<ICollection<ModuloDtoResponse>>> ModuloListar(ModuloDtoRequest request);
+        /// <summary>
+        /// Modulo Listar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<ICollection<Modulo>> ModuloListar(Modulo request);
     }
 }
