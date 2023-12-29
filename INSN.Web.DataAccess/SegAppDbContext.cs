@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using INSN.Web.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -19,6 +20,8 @@ namespace INSN.Web.DataAccess
 
         public DbSet<INSNIdentityUsuarioRol> INSNIdentityUsuarioRol { get; set; }
         public DbSet<INSNIdentitySistema> INSNIdentitySistema { get; set; }
+        public DbSet<Seccion> Seccion { get; set; }
+        public DbSet<Modulo> Modulo { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -47,6 +50,20 @@ namespace INSN.Web.DataAccess
             {
                 e.ToTable("Sistema");
                 e.HasKey(ur => new { ur.CodigoSistemaId });
+            });
+
+            // Tabla Seccion
+            builder.Entity<Seccion>(e =>
+            {
+                e.ToTable("Seccion");
+                e.HasKey(ur => new { ur.CodigoSeccionId });
+            });
+
+            // Tabla Modulo
+            builder.Entity<Modulo>(e =>
+            {
+                e.ToTable("Modulo");
+                e.HasKey(ur => new { ur.CodigoModuloId });
             });
         }
     }

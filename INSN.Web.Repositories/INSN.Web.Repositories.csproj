@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\INSN.Web.DataAccess\INSN.Web.DataAccess.csproj" />
     <ProjectReference Include="..\INSN.Web.Entities\INSN.Web.Entities.csproj" />
+    <ProjectReference Include="..\INSN.Web.Models\INSN.Web.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>

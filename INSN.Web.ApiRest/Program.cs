@@ -15,6 +15,8 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using INSN.Web.Services.Implementaciones;
 using INSN.Web.Services.Interfaces;
+using INSN.Web.Repositories.Implementaciones;
+using INSN.Web.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -76,19 +78,12 @@ builder.Services.AddAutoMapper(config =>
     config.AddProfile<INSNWebProfile>();
 });
 
-
 builder.Services.AddTransient<ITipoDocumentoService, TipoDocumentoService>();
 builder.Services.AddTransient<IDocumentoLegalService, DocumentoLegalService>();
-
-//builder.Services.AddTransient<IUserService, UserService>();
-//builder.Services.AddTransient<IAlumnoService, AlumnoService>();
-//builder.Services.AddTransient<ITallerService, TallerService>();
-//builder.Services.AddTransient<IInstructorService, InstructorService>();
-
 builder.Services.AddTransient<IDocumentoLegalRepository, DocumentoLegalRepository>();
 builder.Services.AddTransient<ITipoDocumentoRepository, TipoDocumentoRepository>();
-//builder.Services.AddTransient<ITallerRepository, TallerRepository>();
-//builder.Services.AddTransient<IInstructorRepository, InstructorRepository>();
+builder.Services.AddTransient<IMenuRepository, MenuRepository>();
+builder.Services.AddTransient<IMenuService, MenuService>();
 
 //builder.Services.AddTransient<IFileUploader, AzureBlobStorageUploader>();
 

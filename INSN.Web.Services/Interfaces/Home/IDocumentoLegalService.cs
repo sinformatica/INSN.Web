@@ -8,7 +8,6 @@ namespace INSN.Web.Services.Interfaces.Home
     /// </summary>
     public interface IDocumentoLegalService
     {
-
         /// <summary>
         /// 
         /// </summary>
