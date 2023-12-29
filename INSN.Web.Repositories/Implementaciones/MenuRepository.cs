@@ -1,4 +1,6 @@
-﻿using INSN.Web.DataAccess;
+﻿using Dapper;
+using INSN.Web.DataAccess;
+using INSN.Web.Entities;
 using INSN.Web.Models.Request.Sistema;
 using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.Sistema;
@@ -37,41 +39,54 @@ namespace INSN.Web.Repositories.Implementaciones
         /// Seccion Listar
         /// <param name="request"></param>
         /// </summary>
-        public async Task<BaseResponseGeneric<ICollection<SeccionDtoResponse>>> SeccionListar(SeccionDtoRequest request)
+        public async Task<ICollection<Seccion>> SeccionListar(SeccionDtoRequest request)
         {
-            var response = new BaseResponseGeneric<ICollection<SeccionDtoResponse>>();
+            var connection = _context.Database.GetDbConnection();
 
-            try
+            var query = await connection.QueryAsync<Seccion>("sp_Seccion_Listar", commandType: System.Data.CommandType.StoredProcedure, param: new
             {
-                var codigoSistemaIdParam = new SqlParameter("@CodigoSistemaId", request.CodigoSistemaId);
-                var rolIdParam = new SqlParameter("@RolId", request.RolId);
+                CodigoSistemaId = request.CodigoSistemaId,
+                RolId = request.RolId
+            });
 
-                var query = $"EXEC sp_Seccion_Listar @CodigoSistemaId, @RolId";
-
-                var secciones = _context.Seccion
-                    .FromSqlInterpolated(FormattableStringFactory.Create(query, codigoSistemaIdParam, rolIdParam))
-                    .AsEnumerable()
-                    .Select(x => new SeccionDtoResponse
-                    {
-                        CodigoSeccionId = x.CodigoSeccionId,
-                        Descripcion = x.Descripcion,
-                        Url = x.Url,
-                        Icono = x.Icono
-                    })
-                    .ToList();
-
-                response.Data = secciones;
-                response.Success = true;
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.ErrorMessage = "Error al listar las secciones";
-                _logger.LogError(ex, response.ErrorMessage + ": {Message}", ex.Message);
-            }
-
-            return response;
+            return query.ToList();
         }
+
+        //public async Task<ICollection<SeccionDtoResponse>> SeccionListar(SeccionDtoRequest request)
+        //{
+        //    var response = new ICollection<SeccionDtoResponse>();
+
+        //    try
+        //    {
+        //        var codigoSistemaIdParam = new SqlParameter("@CodigoSistemaId", request.CodigoSistemaId);
+        //        var rolIdParam = new SqlParameter("@RolId", request.RolId);
+
+        //        var query = $"EXEC sp_Seccion_Listar @CodigoSistemaId, @RolId";
+
+        //        var secciones = _context.Seccion
+        //            .FromSqlInterpolated(FormattableStringFactory.Create(query, codigoSistemaIdParam, rolIdParam))
+        //            .AsEnumerable()
+        //            .Select(x => new SeccionDtoResponse
+        //            {
+        //                CodigoSeccionId = x.CodigoSeccionId,
+        //                Descripcion = x.Descripcion,
+        //                Url = x.Url,
+        //                Icono = x.Icono
+        //            })
+        //            .ToList();
+
+        //        response.Data = secciones;
+        //        response.Success = true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        response.Success = false;
+        //        response.ErrorMessage = "Error al listar las secciones";
+        //        _logger.LogError(ex, response.ErrorMessage + ": {Message}", ex.Message);
+        //    }
+
+        //    return response;
+        //}
 
         /// <summary>
         /// Modulo Listar

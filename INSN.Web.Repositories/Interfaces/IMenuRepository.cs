@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using INSN.Web.Entities;
 
 namespace INSN.Web.Repositories.Interfaces
 {
@@ -19,7 +20,7 @@ namespace INSN.Web.Repositories.Interfaces
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        Task<BaseResponseGeneric<ICollection<SeccionDtoResponse>>> SeccionListar(SeccionDtoRequest request);
+        Task<ICollection<Seccion>> SeccionListar(SeccionDtoRequest request);
 
         /// <summary>
         /// Modulo Listar

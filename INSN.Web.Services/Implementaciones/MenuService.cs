@@ -29,13 +29,15 @@ namespace INSN.Web.Services.Implementaciones
     public class MenuService: IMenuService
     {
         private readonly IMenuRepository _menuRepository;
+        private readonly IMapper _mapper;
 
         /// <summary>
         /// Inicializar
         /// </summary>
-        public MenuService(IMenuRepository menuRepository)
+        public MenuService(IMenuRepository menuRepository, IMapper mapper)
         {
             _menuRepository = menuRepository;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -46,7 +48,21 @@ namespace INSN.Web.Services.Implementaciones
         public async Task<BaseResponseGeneric<ICollection<SeccionDtoResponse>>> SeccionListar(SeccionDtoRequest request)
         {
             // Llamar al método SeccionListar del repositorio y devolver el resultado
-            return await _menuRepository.SeccionListar(request);
+           var response = new BaseResponseGeneric<ICollection<SeccionDtoResponse>>();
+           
+            try
+            {
+                var Lista = await _menuRepository.SeccionListar(request);
+                response.Data = Lista.Select(x => _mapper.Map<SeccionDtoResponse>(x)).ToList();
+
+                response.Success = true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return response;
         }
 
         /// <summary>
@@ -58,6 +74,11 @@ namespace INSN.Web.Services.Implementaciones
         {
             // Llamar al método SeccionListar del repositorio y devolver el resultado
             return await _menuRepository.ModuloListar(request);
+        }
+
+        Task<ICollection<Seccion>> IMenuRepository.SeccionListar(SeccionDtoRequest request)
+        {
+            throw new NotImplementedException();
         }
     }
 }
