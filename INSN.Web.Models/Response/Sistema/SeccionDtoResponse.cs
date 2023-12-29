@@ -27,5 +27,10 @@ namespace INSN.Web.Models.Response.Sistema
         /// Icono
         /// </summary>
         public string Icono { get; set; } = default!;
+
+        /// <summary>
+        /// Modulo lista
+        /// </summary>
+        public ICollection<ModuloDtoResponse>? ModuloLista { get; set; }
     }
 }

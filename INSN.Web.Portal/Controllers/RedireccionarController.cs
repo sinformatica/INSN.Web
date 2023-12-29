@@ -33,10 +33,10 @@ namespace INSN.Web.Portal.Controllers
         /// </summary>
         /// <returns></returns>
         /// 
-        public async Task<IActionResult> Index(int p)
+        public async Task<IActionResult> Index(int p, string url)
         {
             string token = HttpContext.Session.GetString(Constantes.JwtToken);
-            SistemasViewModel model = new SistemasViewModel();
+            //SistemasViewModel model = new SistemasViewModel();
 
             if (token != null)
             {
@@ -56,9 +56,31 @@ namespace INSN.Web.Portal.Controllers
                 modelo.CodigoSistemaId = p;
 
                 var response = await _proxy.LoginSistema(modelo);
+
                 if (response.Success)
                 {
-                    return Redirect($"https://sistemas.sise.com.pe/apoyo/login?tk={response.Token}");
+                    if (p == 1) // SegApp
+                    {
+                        // Leer token
+                        var handler = new JwtSecurityTokenHandler();
+                        var jwt = handler.ReadJwtToken(response.Token);
+
+                        // Leer los Claims
+                        var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+                        identity.AddClaims(jwt.Claims);
+
+                        var principal = new ClaimsPrincipal(identity);
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                        
+                        // Guardar token
+                        HttpContext.Session.SetString(Constantes.JwtToken, response.Token);
+
+                        return RedirectToAction("Index", "Menu");
+                    }
+                    else
+                    {
+                        return Redirect($"{url}?token={response.Token}");
+                    }
                 }
             }
 

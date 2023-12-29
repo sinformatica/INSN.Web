@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@model SeccionViewModel
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -393,28 +396,35 @@
 
                             <li class="nav-main-heading">User Interface</li>
                             <li class="nav-main-item">
-                                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                                    <i class="nav-main-link-icon fa fa-grip-vertical"></i>
-                                    <span class="nav-main-link-name">Mantenimiento</span>
-                                </a>
-                                <ul class="nav-main-submenu">
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" asp-area="" asp-controller="Farmacia" asp-action="Index">
-                                            <span class="nav-main-link-name">Farmacia</span>
+                                @if (Model.SeccionLista is null)
+                                {
+                                    <p>Sin resultados</p>
+                                }
+                                else if (!Model.SeccionLista.Any())
+                                {
+                                    <p>Sin datos para mostrar</p>
+                                }
+                                else
+                                {
+                                    @foreach (var item in Model.SeccionLista)
+                                    {
+                                        <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                            <i class="nav-main-link-icon fa fa-grip-vertical"></i>
+                                            <span class="nav-main-link-name">@item.Descripcion</span>
                                         </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" asp-area="" asp-controller="Producto" asp-action="Index">
-                                            <span class="nav-main-link-name">Producto</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-main-item">
-                                        <a class="nav-main-link" href="be_blocks_forms.html">
-                                            <span class="nav-main-link-name">Forms</span>
-                                        </a>
-                                    </li>
 
-                                </ul>
+                                        <ul class="nav-main-submenu">
+                                            @foreach (var modulo in item.ModuloLista)
+                                            {
+                                                <li class="nav-main-item">
+                                                    <a class="nav-main-link" asp-area="" asp-controller="Farmacia" asp-action="Index">
+                                                        <span class="nav-main-link-name">@modulo.Descripcion</span>
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    }
+                                }
                             </li>
 
                         </ul>
