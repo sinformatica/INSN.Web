@@ -38,31 +38,57 @@ namespace INSN.Web.Portal.Controllers
 
                 // Acceder a los claims (información) dentro del token
                 var claims = jwtToken.Claims;
+                bool b = false;
 
-                // Obtener el valor de un claim específico
-                var CodigoSistemaId = claims.FirstOrDefault(c => c.Type == "CodigoSistemaId")?.Value;
-                var RolId = claims.FirstOrDefault(c => c.Type == "RolId")?.Value;
-
-                // Realizar acciones con la información del token deserializado
-                var response = await _proxy.SeccionListar(new SeccionDtoRequest()
+                if (claims is not null)
                 {
-                    CodigoSistemaId = int.Parse(CodigoSistemaId),
-                    RolId = RolId
-                });
+                    if (claims.Any()) b = true;
+                }
 
-                model.SeccionLista = response;
-
-                foreach (var item in model.SeccionLista)
+                if (b)
                 {
-                    var responseModulo = await _proxy.ModuloListar(new ModuloDtoRequest()
+                    // Obtener el valor de un claim específico
+                    string Usuario = claims.FirstOrDefault(c => c.Type == "username")?.Value ?? string.Empty;
+                    string RolId = claims.FirstOrDefault(c => c.Type == "RolId")?.Value ?? string.Empty;
+                    string CodigoSistemaId = claims.FirstOrDefault(c => c.Type == "CodigoSistemaId")?.Value ?? string.Empty;
+                    string FechaVencimiento = claims.FirstOrDefault(c => c.Type == "FechaVencimiento")?.Value ?? string.Empty;
+
+                    if (DateTime.Now <= DateTime.Parse(FechaVencimiento))
                     {
-                        CodigoSeccionId = int.Parse(item.CodigoSeccionId.ToString()),
-                        RolId = RolId
-                    });
+                        // Realizar acciones con la información del token deserializado
+                        var response = await _proxy.SeccionListar(new SeccionDtoRequest()
+                        {
+                            CodigoSistemaId = int.Parse(CodigoSistemaId),
+                            RolId = RolId
+                        });
 
-                    // Asignar la lista de módulos obtenida
-                    item.ModuloLista = responseModulo; 
-                }        
+                        model.SeccionLista = response;
+
+                        foreach (var item in model.SeccionLista)
+                        {
+                            var responseModulo = await _proxy.ModuloListar(new ModuloDtoRequest()
+                            {
+                                CodigoSeccionId = int.Parse(item.CodigoSeccionId.ToString()),
+                                RolId = RolId
+                            });
+
+                            // Asignar la lista de módulos obtenida
+                            item.ModuloLista = responseModulo;
+                        }
+                    }
+                    else
+                    {
+                        return View("~/Views/Usuario/Login.cshtml");
+                    }  
+                }
+                else
+                {
+                    return View("~/Views/Usuario/Login.cshtml");
+                }      
+            }
+            else
+            {
+                return View("~/Views/Usuario/Login.cshtml");
             }
 
             return View("~/Views/SegApp/Index.cshtml", model);

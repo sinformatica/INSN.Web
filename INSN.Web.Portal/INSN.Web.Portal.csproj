@@ -112,6 +112,7 @@
 
   <ItemGroup>
     <Folder Include="Documentos\NormasDocumentosLegales\" />
+    <Folder Include="wwwroot\js\plugins\" />
   </ItemGroup>
 
 </Project>
