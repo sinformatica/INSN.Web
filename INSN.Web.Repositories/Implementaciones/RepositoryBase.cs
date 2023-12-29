@@ -13,7 +13,7 @@ namespace INSN.Web.Repositories.Implementaciones
     public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : EntityBase
     {
         protected readonly INSNWebDBContext Context;
-
+   
         protected RepositoryBase(INSNWebDBContext context)
         {
             Context = context;

@@ -13,20 +13,20 @@ namespace INSN.Web.Repositories.Interfaces
     /// <summary>
     /// Interface Repository Menu
     /// </summary>
-    public interface IMenuRepository
+    public interface IMenuRepository : IRepositoryBase<Seccion>
     {
         /// <summary>
         /// Seccion Listar
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        Task<ICollection<Seccion>> SeccionListar(SeccionDtoRequest request);
+        Task<ICollection<Seccion>> SeccionListar(Seccion request);
 
-        /// <summary>
-        /// Modulo Listar
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        Task<BaseResponseGeneric<ICollection<ModuloDtoResponse>>> ModuloListar(ModuloDtoRequest request);
+        ///// <summary>
+        ///// Modulo Listar
+        ///// </summary>
+        ///// <param name="request"></param>
+        ///// <returns></returns>
+        //Task<BaseResponseGeneric<ICollection<ModuloDtoResponse>>> ModuloListar(ModuloDtoRequest request);
     }
 }

@@ -41,44 +41,44 @@ namespace INSN.Web.Services.Implementaciones
         }
 
         /// <summary>
-        /// Seccion Listar
+        /// 
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         public async Task<BaseResponseGeneric<ICollection<SeccionDtoResponse>>> SeccionListar(SeccionDtoRequest request)
         {
-            // Llamar al método SeccionListar del repositorio y devolver el resultado
-           var response = new BaseResponseGeneric<ICollection<SeccionDtoResponse>>();
-           
+            var response = new BaseResponseGeneric<ICollection<SeccionDtoResponse>>();
+
             try
             {
-                var Lista = await _menuRepository.SeccionListar(request);
-                response.Data = Lista.Select(x => _mapper.Map<SeccionDtoResponse>(x)).ToList();
+                var lista = await _menuRepository.SeccionListar(new Seccion
+                {
+                    CodigoSistemaId = request.CodigoSistemaId,
+                    RolId = request.RolId                  
+                });
+
+                response.Data = lista.Select(x => _mapper.Map<SeccionDtoResponse>(x)).ToList();
 
                 response.Success = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                response.ErrorMessage = "Service: Error al listar: " + ex.Message;
+               // _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
             }
 
             return response;
         }
 
-        /// <summary>
-        /// Modulo Listar
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        public async Task<BaseResponseGeneric<ICollection<ModuloDtoResponse>>> ModuloListar(ModuloDtoRequest request)
-        {
-            // Llamar al método SeccionListar del repositorio y devolver el resultado
-            return await _menuRepository.ModuloListar(request);
-        }
-
-        Task<ICollection<Seccion>> IMenuRepository.SeccionListar(SeccionDtoRequest request)
-        {
-            throw new NotImplementedException();
-        }
+        ///// <summary>
+        ///// Modulo Listar
+        ///// </summary>
+        ///// <param name="request"></param>
+        ///// <returns></returns>
+        //public async Task<BaseResponseGeneric<ICollection<ModuloDtoResponse>>> ModuloListar(ModuloDtoRequest request)
+        //{
+        //    // Llamar al método SeccionListar del repositorio y devolver el resultado
+        //    return await _menuRepository.ModuloListar(request);
+        //}
     }
 }

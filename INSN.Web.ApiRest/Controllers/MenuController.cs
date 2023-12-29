@@ -36,16 +36,16 @@ namespace INSN.Web.ApiRest.Controllers
             return response.Success ? Ok(response) : BadRequest(response);
         }
 
-        /// <summary>
-        /// ApiRest: Modulo Listar
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        [HttpGet]
-        public async Task<IActionResult> ModuloListar([FromQuery] ModuloDtoRequest request)
-        {
-            var response = await _service.ModuloListar(request);
-            return response.Success ? Ok(response) : BadRequest(response);
-        }
+        ///// <summary>
+        ///// ApiRest: Modulo Listar
+        ///// </summary>
+        ///// <param name="request"></param>
+        ///// <returns></returns>
+        //[HttpGet]
+        //public async Task<IActionResult> ModuloListar([FromQuery] ModuloDtoRequest request)
+        //{
+        //    var response = await _service.ModuloListar(request);
+        //    return response.Success ? Ok(response) : BadRequest(response);
+        //}
     }
 }
