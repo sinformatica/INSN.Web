@@ -48,7 +48,8 @@ namespace INSN.Web.Portal.Controllers
                 if (b)
                 {
                     // Obtener el valor de un claim específico
-                    string Usuario = claims.FirstOrDefault(c => c.Type == "username")?.Value ?? string.Empty;
+                    model.Usuario = claims.FirstOrDefault(c => c.Type == "username")?.Value ?? string.Empty;
+                    model.Nombre = claims.FirstOrDefault(c => c.Type == "name")?.Value ?? string.Empty;
                     string RolId = claims.FirstOrDefault(c => c.Type == "RolId")?.Value ?? string.Empty;
                     string CodigoSistemaId = claims.FirstOrDefault(c => c.Type == "CodigoSistemaId")?.Value ?? string.Empty;
                     string FechaVencimiento = claims.FirstOrDefault(c => c.Type == "FechaVencimiento")?.Value ?? string.Empty;
