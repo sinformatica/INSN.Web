@@ -10,7 +10,7 @@ using INSN.Web.ViewModels.Exceptions;
 
 namespace INSN.Web.Portal.Controllers
 {
-    public class UsuarioController : Controller
+    public class AccesoController : Controller
     {
         private readonly IUsuarioProxy _proxy;
 
@@ -18,7 +18,7 @@ namespace INSN.Web.Portal.Controllers
         /// 
         /// </summary>
         /// <param name="proxy"></param>
-        public UsuarioController(IUsuarioProxy proxy)
+        public AccesoController(IUsuarioProxy proxy)
         {
             _proxy = proxy;
         }
@@ -29,7 +29,7 @@ namespace INSN.Web.Portal.Controllers
         /// <returns></returns>
         public IActionResult Login()
         {
-            return View("~/Views/Usuario/Login.cshtml");
+            return View("~/Views/Acceso/Login.cshtml");
         }
 
         /// <summary>

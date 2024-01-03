@@ -20,6 +20,11 @@ namespace INSN.Web.Entities
         public string Descripcion { get; set; } = default!;
 
         /// <summary>
+        /// Controlador
+        /// </summary>
+        public string Controlador { get; set; } = default!;
+
+        /// <summary>
         /// Url
         /// </summary>
         public string Url { get; set; } = default!;

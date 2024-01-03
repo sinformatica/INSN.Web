@@ -56,7 +56,7 @@ namespace INSN.Web.Portal.Controllers
                 model.ListaSistema = response;
             }
 
-            return View("~/Views/Usuario/Sistema.cshtml", model);
+            return View("~/Views/Acceso/Sistema.cshtml", model);
         }
     }
 }

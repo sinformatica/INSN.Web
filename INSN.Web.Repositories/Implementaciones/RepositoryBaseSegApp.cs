@@ -10,7 +10,7 @@ namespace INSN.Web.Repositories.Implementaciones
     /// Repositorio Base SegApp - Métodos Basicos
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public class RepositoryBaseSegApp<TEntity> : IRepositoryBase<TEntity> where TEntity : EntityBase
+    public class RepositoryBaseSegApp<TEntity> : IRepositoryBaseSegApp<TEntity> where TEntity : AuditoriaBase
     {
         protected readonly SegAppDbContext Context;
 
@@ -20,11 +20,11 @@ namespace INSN.Web.Repositories.Implementaciones
         }
 
         /// <summary>
-        /// Listar
+        /// Repository: Listar
         /// </summary>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        public async Task<ICollection<TEntity>> ListAsync(Expression<Func<TEntity, bool>>? predicate = null)
+        public async Task<ICollection<TEntity>> Listar(Expression<Func<TEntity, bool>>? predicate = null)
         {
             var query = Context.Set<TEntity>()
                 .AsQueryable();
@@ -38,14 +38,14 @@ namespace INSN.Web.Repositories.Implementaciones
         }
 
         /// <summary>
-        /// Listar con predicado
+        /// Repository: Listar con predicado
         /// </summary>
         /// <typeparam name="TInfo"></typeparam>
         /// <param name="predicate"></param>
         /// <param name="selector"></param>
         /// <param name="relationships"></param>
         /// <returns></returns>
-        public async Task<ICollection<TInfo>> ListAsync<TInfo>(
+        public async Task<ICollection<TInfo>> Listar<TInfo>(
             Expression<Func<TEntity, bool>> predicate,
             Expression<Func<TEntity, TInfo>> selector,
             string? relationships = null)
@@ -68,64 +68,12 @@ namespace INSN.Web.Repositories.Implementaciones
         }
 
         /// <summary>
-        /// Buscar por ID
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public async Task<TEntity?> FindByIdAsync(int id)
-        {
-            return await Context.Set<TEntity>().FindAsync(id);
-        }
-
-        /// <summary>
-        /// Agregar - Registrar Nuevo Item - Registro
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        public async Task<int> AddAsync(TEntity entity)
-        {
-            await Context.Set<TEntity>().AddAsync(entity);
-            await Context.SaveChangesAsync();
-
-            return entity.Id;
-        }
-
-        /// <summary>
-        /// Actualizar Registro - Item
-        /// </summary>
-        /// <returns></returns>
-        public async Task UpdateAsync()
-        {
-            await Context.SaveChangesAsync();
-        }
-
-        /// <summary>
-        /// Eliminar Registro - Item
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        /// <exception cref="InvalidOperationException"></exception>
-        public async Task DeleteAsync(int id)
-        {
-            var entity = await FindByIdAsync(id);
-            if (entity != null)
-            {
-                entity.Estado = "I";
-                await UpdateAsync();
-            }
-            else
-            {
-                throw new InvalidOperationException($"No se encontro el registro con el id {id}");
-            }
-        }
-
-        /// <summary>
-        /// Listar
+        /// Repository: Listar
         /// </summary>
         /// <typeparam name="TInfo"></typeparam>
         /// <param name="selector"></param>
         /// <returns></returns>
-        public async Task<ICollection<TInfo>> ListAsync<TInfo>(Expression<Func<TEntity, TInfo>> selector)
+        public async Task<ICollection<TInfo>> Listar<TInfo>(Expression<Func<TEntity, TInfo>> selector)
         {
             return await Context.Set<TEntity>()
                   .AsQueryable()
@@ -134,7 +82,7 @@ namespace INSN.Web.Repositories.Implementaciones
         }
 
         /// <summary>
-        /// Listar
+        /// Repository: Listar
         /// </summary>
         /// <typeparam name="TInfo"></typeparam>
         /// <typeparam name="TKey"></typeparam>
@@ -145,7 +93,7 @@ namespace INSN.Web.Repositories.Implementaciones
         /// <param name="page"></param>
         /// <param name="rows"></param>
         /// <returns></returns>
-        public async Task<(ICollection<TInfo> Collection, int Total)> ListAsync<TInfo, TKey>
+        public async Task<(ICollection<TInfo> Collection, int Total)> Listar<TInfo, TKey>
             (
             Expression<Func<TEntity, bool>> predicate,
             Expression<Func<TEntity, TInfo>> selector,
@@ -182,6 +130,87 @@ namespace INSN.Web.Repositories.Implementaciones
                 .CountAsync();
 
             return (collection, total);
+        }
+
+        /// <summary>
+        /// Repository: Buscar por ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<TEntity?> BuscarId(int id)
+        {
+            return await Context.Set<TEntity>().FindAsync(id);
+        }
+
+        /// <summary>
+        /// Repository: Buscar por ID string
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<TEntity?> BuscarStringId(string id)
+        {
+            return await Context.Set<TEntity>().FindAsync(id);
+        }
+
+        /// <summary>
+        /// Repository: Agregar - Registrar Nuevo Item - Registro
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public async Task<int> Insertar(TEntity entity)
+        {
+            try
+            {
+                await Context.Set<TEntity>().AddAsync(entity);
+                await Context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                var innerException = ex.InnerException;
+                while (innerException != null)
+                {
+                    Console.WriteLine(innerException.Message);
+                    innerException = innerException.InnerException;
+                }
+
+                // También puedes lanzar una nueva excepción o manejar el error de otra manera
+            }
+
+            return 1;
+        }
+
+        /// <summary>
+        /// Repository: Actualizar Registro - Item
+        /// </summary>
+        /// <returns></returns>
+        public async Task Actualizar()
+        {
+            await Context.SaveChangesAsync();
+        }
+
+        /// <summary>
+        /// Repository: Eliminar Registro - Item
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public async Task Eliminar(int id)
+        {
+            var entity = await BuscarId(id);
+            if (entity != null)
+            {
+                entity.Estado = "I";
+                entity.EstadoRegistro = 0;
+                entity.TerminalModificacion = Environment.MachineName;
+                entity.UsuarioModificacion = Environment.UserName; //Modificar por Usuario de sesion logueada
+                entity.FechaModificacion = DateTime.Now;
+
+                await Actualizar();
+            }
+            else
+            {
+                throw new InvalidOperationException($"No se encontro el registro con el id {id}");
+            }
         }
     }
 }

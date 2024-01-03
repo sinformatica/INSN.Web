@@ -25,12 +25,12 @@ namespace INSN.Web.Services.Implementaciones
     /// <summary>
     /// Service Usuario
     /// </summary>
-    public class UsuarioService : IUsuarioService
+    public class AccesoService : IAccesoService
     {
         private readonly UserManager<INSNIdentityUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly AppConfiguration _configuration;
-        private readonly ILogger<UsuarioService> _logger;
+        private readonly ILogger<AccesoService> _logger;
         private readonly SegAppDbContext _segAppDbContext;
 
         /// <summary>
@@ -41,10 +41,10 @@ namespace INSN.Web.Services.Implementaciones
         /// <param name="options"></param>
         /// <param name="logger"></param>
         /// <param name="segAppDbContext"></param>
-        public UsuarioService(UserManager<INSNIdentityUser> userManager,
+        public AccesoService(UserManager<INSNIdentityUser> userManager,
                             RoleManager<IdentityRole> roleManager,
                             IOptions<AppConfiguration> options,
-                            ILogger<UsuarioService> logger,
+                            ILogger<AccesoService> logger,
                             SegAppDbContext segAppDbContext)
         {
             _logger = logger;

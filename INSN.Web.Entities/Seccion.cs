@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace INSN.Web.Entities
 {
-    public class Seccion :EntityBase
+    public class Seccion : AuditoriaBase
     {
         /// <summary>
         /// Codigo Seccion Id

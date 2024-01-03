@@ -16,15 +16,15 @@ namespace INSN.Web.ApiRest.Controllers
     [Route("api/[controller]/[action]")]
     [ApiController]
 
-    public class UsuarioController : ControllerBase
+    public class AccesoController : ControllerBase
     {
-        private readonly IUsuarioService _service;
+        private readonly IAccesoService _service;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="service"></param>
-        public UsuarioController(IUsuarioService service)
+        public AccesoController(IAccesoService service)
         {
             _service = service;
         }

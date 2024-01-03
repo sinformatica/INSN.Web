@@ -13,7 +13,7 @@ namespace INSN.Web.Repositories.Interfaces
     /// <summary>
     /// Interface Repository Menu
     /// </summary>
-    public interface IMenuRepository : IRepositoryBase<Seccion>
+    public interface IMenuRepository : IRepositoryBaseSegApp<Seccion>
     {
         /// <summary>
         /// Seccion Listar

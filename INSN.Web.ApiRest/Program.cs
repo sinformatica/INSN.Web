@@ -17,6 +17,10 @@ using INSN.Web.Services.Implementaciones;
 using INSN.Web.Services.Interfaces;
 using INSN.Web.Repositories.Implementaciones;
 using INSN.Web.Repositories.Interfaces;
+using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
+using INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento;
+using INSN.Web.Services.Interfaces.SegApp.Mantenimiento;
+using INSN.Web.Services.Implementaciones.SegApp.Mantenimiento;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -70,7 +74,7 @@ builder.Services.AddIdentity<INSNIdentityUser, IdentityRole>(policies =>
 
 
 // Inyectamos las dependencias
-builder.Services.AddTransient<IUsuarioService, UsuarioService>();
+builder.Services.AddTransient<IAccesoService, AccesoService>();
 // AutoMapper
 
 builder.Services.AddAutoMapper(config =>
@@ -84,6 +88,9 @@ builder.Services.AddTransient<IDocumentoLegalRepository, DocumentoLegalRepositor
 builder.Services.AddTransient<ITipoDocumentoRepository, TipoDocumentoRepository>();
 builder.Services.AddTransient<IMenuRepository, MenuRepository>();
 builder.Services.AddTransient<IMenuService, MenuService>();
+
+builder.Services.AddTransient<IRolRepository, RolRepository>();
+builder.Services.AddTransient<IRolService, RolService>();
 
 //builder.Services.AddTransient<IFileUploader, AzureBlobStorageUploader>();
 

@@ -13,7 +13,7 @@ namespace INSN.Web.Services.Interfaces
     /// <summary>
     /// Interface Servicio Usuario
     /// </summary>
-    public interface IUsuarioService
+    public interface IAccesoService
     {
         /// <summary>
         /// IService: Login

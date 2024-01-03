@@ -16,7 +16,7 @@ namespace INSN.Web.Portal.Services.Implementaciones
         /// </summary>
         /// <param name="httpClient"></param>
         public SistemaProxy(HttpClient httpClient)
-            : base("api/Usuario", httpClient)
+            : base("api/Acceso", httpClient)
         {
 
         }

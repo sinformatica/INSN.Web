@@ -79,17 +79,17 @@ namespace INSN.Web.Portal.Controllers
                     }
                     else
                     {
-                        return View("~/Views/Usuario/Login.cshtml");
+                        return View("~/Views/Acceso/Login.cshtml");
                     }  
                 }
                 else
                 {
-                    return View("~/Views/Usuario/Login.cshtml");
+                    return View("~/Views/Acceso/Login.cshtml");
                 }      
             }
             else
             {
-                return View("~/Views/Usuario/Login.cshtml");
+                return View("~/Views/Acceso/Login.cshtml");
             }
 
             return View("~/Views/SegApp/Index.cshtml", model);
