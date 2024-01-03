@@ -108,7 +108,7 @@
                                     <a href="#" class="dcjq-parent">1.2 Directorio<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
                                         <li id="menu-item-A2A1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A2A1">
-                                            <a href="#">Dirección de la entidad</a>
+                                            <a target="_blank" href="https://maps.app.goo.gl/4CNsTWxYNBC48hQq9">Dirección de la entidad</a>
                                         </li>
                                         <li id="menu-item-A2A2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A2A2">
                                             <a href="#">Directorio de los Servidores Civiles y correos electrónicos</a>
@@ -573,7 +573,7 @@
                             <ul id="menu-menu-transparencia" class="menu">
                                 <li class="sub-menu-heading">8. ACTIVIDADES OFICIALES</li>
                                 <li id="menu-item-H1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-H1 dcjq-parent-li">
-                                    <a href="#" class="dcjq-parent">8.1 Agenda Oficial<span class="dcjq-icon"></span></a>
+                                    <a href="https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13180&id_tema=40&ver=D" class="dcjq-parent">8.1 Agenda Oficial<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
                                     </ul>
                                 </li>
@@ -702,35 +702,27 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        var accordions = document.querySelectorAll(".dcjq-accordion");
+        var menu = document.getElementById("menu-menu-transparencia");
+        var items = menu.querySelectorAll(".menu-item");
 
-        accordions.forEach(function (accordion) {
-            var items = accordion.querySelectorAll(".dcjq-parent-li");
+        items.forEach(function (item) {
+            var link = item.querySelector("a[href]");
+            var subMenu = item.querySelector(".sub-menu");
 
-            items.forEach(function (item) {
-                var link = item.querySelector("a[href]");
-                if (link) {
-                    link.addEventListener("click", function (event) {
-                        if (!item.querySelector(".sub-menu")) {
-                            return; // Permitir la acción predeterminada si no hay submenú
-                        }
+            if (link && subMenu) {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault(); // Evitar la acción predeterminada del enlace
 
-                        event.preventDefault(); // Evitar la acción predeterminada solo si hay submenú
+                    subMenu.style.display = subMenu.style.display === "none" ? "block" : "none";
 
-
-                                        // Cerrar otros elementos desplegados
-                                        items.forEach(function (otherItem) {
-                                            if (otherItem !== item) {
-                                                otherItem.querySelector(".sub-menu").style.display = "none";
-                                            }
-                                        });
-                        var subMenu = item.querySelector(".sub-menu");
-                        if (subMenu) {
-                            subMenu.style.display = subMenu.style.display === "none" ? "block" : "none";
+                    // Cerrar otros submenús desplegados
+                    items.forEach(function (otherItem) {
+                        if (otherItem !== item && otherItem.querySelector(".sub-menu")) {
+                            otherItem.querySelector(".sub-menu").style.display = "none";
                         }
                     });
-                }
-            });
+                });
+            }
         });
     });
 </script>
