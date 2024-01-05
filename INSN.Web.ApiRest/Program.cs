@@ -17,10 +17,10 @@ using INSN.Web.Services.Implementaciones;
 using INSN.Web.Services.Interfaces;
 using INSN.Web.Repositories.Implementaciones;
 using INSN.Web.Repositories.Interfaces;
-using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
-using INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento;
 using INSN.Web.Services.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.Services.Implementaciones.SegApp.Mantenimiento;
+using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
+using INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,6 +49,11 @@ builder.Services.AddDbContext<INSNWebDBContext>(options =>
 });
 
 builder.Services.AddDbContext<SegAppDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SegAppDatabase"));
+});
+
+builder.Services.AddDbContext<SegAppDbContextEF>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SegAppDatabase"));
 });

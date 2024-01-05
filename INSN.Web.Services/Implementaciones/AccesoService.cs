@@ -156,8 +156,6 @@ namespace INSN.Web.Services.Implementaciones
                     .Distinct()
                     .ToListAsync();
 
-
-
                 // Obtener los detalles de los sistemas asociados y convertirlos a SistemasDtoResponse
                 foreach (var codigoSistemaId in sistemasAsociados)
                 {

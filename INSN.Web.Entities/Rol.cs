@@ -7,9 +7,6 @@ using System.Threading.Tasks;
 
 namespace INSN.Web.Entities
 {
-    /// <summary>
-    /// Entidad Logica : Rol
-    /// </summary>
     public class Rol : AuditoriaBase
     {
         /// <summary>
@@ -19,7 +16,17 @@ namespace INSN.Web.Entities
 
         /// <summary>
         /// Name
+        /// </summary>      
+        public string? Name { get; set; } = default!;
+
+        /// <summary>
+        /// NormalizedName
         /// </summary>
-        public string Name { get; set; }
+        public string? NormalizedName { get; set; } 
+
+        /// <summary>
+        /// ConcurrencyStamp
+        /// </summary>
+        public string? ConcurrencyStamp { get; set; } 
     }
 }

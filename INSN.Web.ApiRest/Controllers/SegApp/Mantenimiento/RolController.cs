@@ -35,12 +35,10 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
         //[ProducesResponseType((int)StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
         //[ProducesResponseType((int)StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
         [HttpGet]
-        public async Task<IActionResult> RolListar()
+        public async Task<IActionResult> RolListar([FromQuery] RolDtoRequest request)
         {
-            //var response = await _service.RolListar(request);
-            //return response.Success ? Ok(response) : BadRequest(response);
-            string a = "";
-            return Ok();
+            var response = await _service.RolListar(request);
+            return response.Success ? Ok(response) : BadRequest(response);
         }
     }
 }

@@ -12,6 +12,5 @@ namespace INSN.Web.DataAccess
         public string descripcion { get; set; }
         public string url { get; set; }
         public string icono { get; set; }
-
     }
 }

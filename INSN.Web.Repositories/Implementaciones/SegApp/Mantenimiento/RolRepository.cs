@@ -14,18 +14,18 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
     /// <summary>
     /// Metodos de Rol
     /// </summary>
-    public class RolRepository : RepositoryBaseSegApp<Rol>, IRolRepository
+    public class RolRepository : RepositoryBaseSegAppEF<Rol>, IRolRepository
     {
         /// <summary>
-        /// SegAppDbContext
+        /// {
         /// </summary>
         /// <param name="context"></param>
-        public RolRepository(SegAppDbContext context) : base(context)
+        public RolRepository(SegAppDbContextEF context) : base(context)
         {
         }
 
         /// <summary>
-        /// Repository: Rol Listar
+        /// Repository: Farmacia Listar
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -33,8 +33,7 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
         {
             Expression<Func<Rol, bool>> predicate =
                             x => x.Name.Contains(request.Name ?? string.Empty)
-                            && (request.Estado == null || x.Estado == request.Estado) &&
-                            (x.EstadoRegistro == request.EstadoRegistro);
+                            && (request.Estado == null || x.Estado == request.Estado);
 
             return await Context.Set<Rol>()
                 .Where(predicate)

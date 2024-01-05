@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INSN.Web.Entities.Base
+namespace INSN.Web.Models.Response
 {
     /// <summary>
-    /// Auditoria Base - Reutilizables
+    /// Clase Entidad Lógica Auditoria
     /// </summary>
-    public class AuditoriaBase
+    public class AuditoriaResponse
     {
         /// <summary>
-        /// Estado: A=Activo , I=Inactivo
+        /// Estado A:Activo I:Inactivo
         /// </summary>
-        public string? Estado { get; set; }
+        public string Estado { get; set; } = default!;
 
         /// <summary>
-        /// Estado Registro: 0=Eliminado, 1=Activo
+        /// Estado 0:Eliminado 1:Activo
         /// </summary>
         public int EstadoRegistro { get; set; }
 
@@ -50,14 +50,5 @@ namespace INSN.Web.Entities.Base
         /// Terminal Modificacion
         /// </summary>
         public string? TerminalModificacion { get; set; }
-
-        /// <summary>
-        /// Al crear un Registro se utilizara los siguientes datos
-        /// </summary>
-        public AuditoriaBase()
-        {
-            Estado = "A";
-            FechaCreacion = DateTime.Now;
-        }
     }
 }

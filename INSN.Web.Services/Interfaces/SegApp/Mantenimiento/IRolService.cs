@@ -1,6 +1,8 @@
-﻿using INSN.Web.Models.Request.SegApp.Mantenimiento;
+﻿using INSN.Web.Models;
+using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
+using INSN.Web.Models.Response.Sistemas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +32,7 @@ namespace INSN.Web.Services.Interfaces.SegApp.Mantenimiento
         /// <param name="Page"></param>
         /// <param name="Rows"></param>
         /// <returns></returns>
-        Task<PaginationResponse<RolDtoResponse>> Listar(string? Name,
-            string? Estado, int EstadoRegistro, int Page, int Rows);
+        //Task<PaginationResponse<RolDtoResponse>> Listar(string? Name,
+        //    string? Estado, int EstadoRegistro, int Page, int Rows);
     }
 }

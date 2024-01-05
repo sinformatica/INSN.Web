@@ -14,7 +14,7 @@ namespace INSN.Web.Models.Request.SegApp.Mantenimiento
         /// <summary>
         /// Id
         /// </summary>
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// Name

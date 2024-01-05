@@ -9,12 +9,12 @@ namespace INSN.Web.Models.Response.SegApp.Mantenimiento
     public class RolDtoResponse : BaseResponse
     {
         /// <summary>
-        /// Codigo Farmacia Id
+        /// Id
         /// </summary>
         public string Id { get; set; }
 
         /// <summary>
-        /// Descripcion de Farmacia
+        /// Name
         /// </summary>
         public string Name { get; set; } = default!;
     }
