@@ -28,11 +28,38 @@ namespace INSN.Web.Services.Interfaces.SegApp.Mantenimiento
         /// </summary>
         /// <param name="Name"></param>
         /// <param name="Estado"></param>
-        /// <param name="EstadoRegistro"></param>
         /// <param name="Page"></param>
         /// <param name="Rows"></param>
         /// <returns></returns>
-        //Task<PaginationResponse<RolDtoResponse>> Listar(string? Name,
-        //    string? Estado, int EstadoRegistro, int Page, int Rows);
+        Task<PaginationResponse<RolDtoResponse>> Listar(string? Name,
+            string? Estado, int Page, int Rows);
+
+        /// <summary>
+        /// IService: Rol Buscar Id
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        Task<BaseResponseGeneric<RolDtoResponse>> RolBuscarId(string Id);
+
+        /// <summary>
+        /// IService: Rol Insertar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<BaseResponse> RolInsertar(RolDtoRequest request);
+
+        /// <summary>
+        /// IService: Rol Actualizar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<BaseResponse> RolActualizar(RolDtoRequest request);
+
+        /// <summary>
+        /// IService: Rol Eliminar
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        Task<BaseResponse> RolEliminar(string Id);
     }
 }

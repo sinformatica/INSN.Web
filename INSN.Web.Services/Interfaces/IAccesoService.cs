@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Models.Response.Sistemas;
+using INSN.Web.Models.Request.SegApp.Mantenimiento;
 
 namespace INSN.Web.Services.Interfaces
 {
@@ -36,25 +37,11 @@ namespace INSN.Web.Services.Interfaces
         /// <returns></returns>
         Task<LoginDtoResponse> LoginSistema(LoginSistemaDtoRequest request);
 
-        /// <summary>
-        /// IService: Usuario Insertar
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        Task<BaseResponse> UsuarioInsertar(UsuarioDtoRequest request);
-
-        /// <summary>
-        /// IService: Rol Insertar
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        Task<BaseResponse> RolInsertar(string nombreRol);
-
-        /// <summary>
-        /// IService: Roles Usuario Asignar
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        Task<BaseResponse> RolesUsuarioAsignar(UsuarioRolDtoRequest request);
+        ///// <summary>
+        ///// IService: Rol Insertar
+        ///// </summary>
+        ///// <param name="request"></param>
+        ///// <returns></returns>
+        //Task<BaseResponse> RolInsertar(string nombreRol);
     }
 }

@@ -5,18 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INSN.Web.Entities
+namespace INSN.Web.Entities.SegApp
 {
-    public class TipoDocumentoIdentidad : AuditoriaBase
+    public class Sistema : AuditoriaBase
     {
         /// <summary>
-        /// Id
+        /// Codigo Sistema Id
         /// </summary>
-        public int Id { get; set; }
+        public int CodigoSistemaId { get; set; }
 
         /// <summary>
         /// Descripcion
         /// </summary>
-        public string? Descripcion { get; set; }
+        public string Descripcion { get; set; }
     }
 }

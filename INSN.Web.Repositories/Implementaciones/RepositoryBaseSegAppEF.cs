@@ -194,6 +194,22 @@ namespace INSN.Web.Repositories.Implementaciones
         }
 
         /// <summary>
+        /// Repository: Actualizar determinados campos
+        /// </summary>
+        /// <returns></returns>
+        public async Task<int> ActualizarCampos(Expression<Func<TEntity, bool>> predicate, Action<TEntity> updateAction)
+        {
+            var entities = await Context.Set<TEntity>().Where(predicate).ToListAsync();
+
+            foreach (var entity in entities)
+            {
+                updateAction(entity);
+            }
+
+            return await Context.SaveChangesAsync();
+        }
+
+        /// <summary>
         /// Repository: Eliminar Registro - Item
         /// </summary>
         /// <param name="id"></param>
@@ -202,6 +218,31 @@ namespace INSN.Web.Repositories.Implementaciones
         public async Task Eliminar(int id)
         {
             var entity = await BuscarId(id);
+            if (entity != null)
+            {
+                entity.Estado = "I";
+                entity.EstadoRegistro = 0;
+                entity.TerminalModificacion = Environment.MachineName;
+                entity.UsuarioModificacion = Environment.UserName; //Modificar por Usuario de sesion logueada
+                entity.FechaModificacion = DateTime.Now;
+
+                await Actualizar();
+            }
+            else
+            {
+                throw new InvalidOperationException($"No se encontro el registro con el id {id}");
+            }
+        }
+
+        /// <summary>
+        /// Repository: Eliminar Registro (string) - Item
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public async Task EliminarString(string id)
+        {
+            var entity = await BuscarStringId(id);
             if (entity != null)
             {
                 entity.Estado = "I";

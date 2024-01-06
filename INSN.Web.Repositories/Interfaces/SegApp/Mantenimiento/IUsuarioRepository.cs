@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 namespace INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Interface de Metodos Rol
+    /// Interface de Metodos Usuario
     /// </summary>
-    public interface IRolRepository : IRepositoryBaseSegAppEF<Rol>
+    public interface IUsuarioRepository : IRepositoryBaseSegAppEF<Usuario>
     {
         /// <summary>
-        /// IRepository: Rol Listar
+        /// IRepository: Usuario Listar
         /// </summary>
-        Task<ICollection<Rol>> RolListar(Rol request);
+        Task<ICollection<UsuarioInfo>> UsuarioListar(Usuario request);
     }
 }

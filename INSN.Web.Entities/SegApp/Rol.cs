@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INSN.Web.Entities
+namespace INSN.Web.Entities.SegApp
 {
     public class Rol : AuditoriaBase
     {
@@ -22,11 +22,11 @@ namespace INSN.Web.Entities
         /// <summary>
         /// NormalizedName
         /// </summary>
-        public string? NormalizedName { get; set; } 
+        public string? NormalizedName { get; set; }
 
         /// <summary>
         /// ConcurrencyStamp
         /// </summary>
-        public string? ConcurrencyStamp { get; set; } 
+        public string? ConcurrencyStamp { get; set; }
     }
 }

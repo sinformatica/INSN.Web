@@ -1,4 +1,4 @@
-﻿using INSN.Web.Entities;
+﻿using INSN.Web.Entities.SegApp;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -33,6 +33,10 @@ namespace INSN.Web.DataAccess
 
             #region [Declarar Identificador de Tabla]
             modelBuilder.Entity<Rol>().HasKey(f => f.Id);
+            modelBuilder.Entity<Usuario>().HasKey(f => f.Id);
+            modelBuilder.Entity<Sistema>().HasKey(f => f.CodigoSistemaId);
+            modelBuilder.Entity<UsuarioRol>()
+                .HasKey(ur => new { ur.UserId, ur.RoleId, ur.CodigoSistemaId });
             #endregion
 
             //Se va agregar la configuracion de las entidades desde este mismo ensamblado

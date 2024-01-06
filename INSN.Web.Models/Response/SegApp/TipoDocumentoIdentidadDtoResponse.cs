@@ -1,13 +1,12 @@
-﻿using INSN.Web.Entities.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INSN.Web.Entities
+namespace INSN.Web.Models.Response.SegApp
 {
-    public class TipoDocumentoIdentidad : AuditoriaBase
+    public class TipoDocumentoIdentidadDtoResponse: BaseResponse
     {
         /// <summary>
         /// Id
@@ -17,6 +16,6 @@ namespace INSN.Web.Entities
         /// <summary>
         /// Descripcion
         /// </summary>
-        public string? Descripcion { get; set; }
+        public string Descripcion { get; set; } = default!;
     }
 }

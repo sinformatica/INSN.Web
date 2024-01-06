@@ -1,35 +1,32 @@
 ﻿using AutoMapper;
-using INSN.Web.Common;
-using INSN.Web.DataAccess;
-using INSN.Web.Entities.Base;
 using INSN.Web.Entities.SegApp;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
-using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
+using INSN.Web.Models.Response;
 using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.Services.Interfaces.SegApp.Mantenimiento;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using INSN.Web.DataAccess;
+using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Service Rol
+    /// Service Usuario
     /// </summary>
-    public class RolService : IRolService
+    public class UsuarioService : IUsuarioService
     {
-        private readonly IRolRepository _repository;
-        private readonly ILogger<RolService> _logger;
+        private readonly IUsuarioRepository _repository;
+        private readonly ILogger<UsuarioService> _logger;
         private readonly IMapper _mapper;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<INSNIdentityUser> _userManager;
 
         /// <summary>
         /// Inicializar
@@ -37,33 +34,36 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         /// <param name="repository"></param>
         /// <param name="logger"></param>
         /// <param name="mapper"></param>
-        public RolService(IRolRepository repository, ILogger<RolService> logger, 
-                        IMapper mapper, RoleManager<IdentityRole> roleManager)
+        public UsuarioService(IUsuarioRepository repository, 
+                        ILogger<UsuarioService> logger,
+                        IMapper mapper,
+                        UserManager<INSNIdentityUser> userManager)
         {
             _mapper = mapper;
             _logger = logger;
             _repository = repository;
-            _roleManager = roleManager;
+            _userManager = userManager;
         }
 
         /// <summary>
-        /// Service: Rol Listar
+        /// Service: Usuario Listar
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<BaseResponseGeneric<ICollection<RolDtoResponse>>> RolListar(RolDtoRequest request)
+        public async Task<BaseResponseGeneric<ICollection<UsuarioDtoResponse>>> UsuarioListar(UsuarioDtoRequest request)
         {
-            var response = new BaseResponseGeneric<ICollection<RolDtoResponse>>();
+            var response = new BaseResponseGeneric<ICollection<UsuarioDtoResponse>>();
 
             try
             {
-                var roles = await _repository.RolListar(new Rol
+                var usuarios = await _repository.UsuarioListar(new Usuario
                 {
-                    Name = request.Name,
+                    UserName = request.UserName,
+                    Nombres = request.Nombres,
                     Estado = request.Estado
                 });
 
-                response.Data = roles.Select(x => _mapper.Map<RolDtoResponse>(x)).ToList();
+                response.Data = usuarios.Select(x => _mapper.Map<UsuarioDtoResponse>(x)).ToList();
                 response.Success = true;
             }
             catch (Exception ex)
@@ -76,64 +76,18 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         }
 
         /// <summary>
-        /// Service: Listar Rol con Paginación
-        /// </summary>
-        /// <param name="Name"></param>
-        /// <param name="Estado"></param>
-        /// <param name="Page"></param>
-        /// <param name="Rows"></param>
-        /// <returns></returns>
-        public async Task<PaginationResponse<RolDtoResponse>> Listar(string? Name, string? Estado, int Page, int Rows)
-        {
-            var response = new PaginationResponse<RolDtoResponse>();
-
-            try
-            {
-                Expression<Func<Rol, bool>> predicate =
-                            x => (Name == null || x.Name.Contains(Name))
-                            && (Estado == null || x.Estado == Estado);
-
-                var tupla = await _repository
-                    .Listar<RolDtoResponse, string>(
-                        predicate: predicate,
-                        selector: x => _mapper.Map<RolDtoResponse>(x),
-                        orderBy: p => "Id",
-                        relationships: "Rol", // Eager Loading - EF Core
-                        Page,
-                        Rows);
-
-                response.Data = tupla.Collection;
-                response.TotalPages = tupla.Total / Rows;
-                if (tupla.Total % Rows > 0)
-                {
-                    response.TotalPages++;
-                }
-
-                response.Success = true;
-            }
-            catch (Exception ex)
-            {
-                response.ErrorMessage = "Service: Error al Listar: " + ex.Message;
-                _logger.LogError(ex, "{ErroMessage} {Message}", response.ErrorMessage, ex.Message);
-            }
-
-            return response;
-        }
-
-        /// <summary>
-        /// Service: Rol Buscar Id
+        /// Service: Usuario Buscar Id
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public async Task<BaseResponseGeneric<RolDtoResponse>> RolBuscarId(string Id)
+        public async Task<BaseResponseGeneric<UsuarioDtoResponse>> UsuarioBuscarId(string Id)
         {
-            var response = new BaseResponseGeneric<RolDtoResponse>();
+            var response = new BaseResponseGeneric<UsuarioDtoResponse>();
 
             try
             {
                 var data = await _repository.BuscarStringId(Id);
-
-                response.Data = _mapper.Map<RolDtoResponse>(data);
+                response.Data = _mapper.Map<UsuarioDtoResponse>(data);
                 response.Success = true;
             }
             catch (Exception ex)
@@ -146,38 +100,59 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         }
 
         /// <summary>
-        /// Service: Rol Insertar
+        /// Service: Usuario Insertar
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<BaseResponse> RolInsertar(RolDtoRequest request)
+        public async Task<BaseResponse> UsuarioInsertar(UsuarioDtoRequest request)
         {
             var response = new BaseResponse();
 
             try
             {
-                // Crear rol
-                var role = new IdentityRole(request.Name);
-
-                if (!await _roleManager.RoleExistsAsync(request.Name))
+                var user = new INSNIdentityUser
                 {
-                    // Crear rol con Identity
-                    await _roleManager.CreateAsync(role);
+                    Nombres = request.Nombres,
+                    ApellidoPaterno = request.ApellidoPaterno,
+                    ApellidoMaterno = request.ApellidoMaterno,
+                    servicio = request.Servicio,
+                    TipoDocumentoIdentidadId = request.TipoDocumentoIdentidadId,
+                    UserName = request.UserName,
+                    Email = request.Email,
+                    PhoneNumber = request.PhoneNumber,
+                    Telefono2 = request.Telefono2,
+                    EmailConfirmed = true
+                };
 
-                    var createdRole = await _roleManager.FindByNameAsync(request.Name);
-                    var data = await _repository.BuscarStringId(createdRole.Id);
+                var result = await _userManager.CreateAsync(user, request.Password);
 
+                if (result.Succeeded)
+                {
                     // actualizar campos UsuarioCreacion y TerminalCreacion
+                    var data = await _userManager.FindByEmailAsync(user.Email);
+
                     await _repository.ActualizarCampos(
                                 predicate: r => r.Id == data.Id,
                                 updateAction: r =>
-                            {
-                                r.UsuarioCreacion = request.UsuarioCreacion;
-                                r.TerminalCreacion = Environment.MachineName; 
-                            });
+                                {
+                                    r.UsuarioCreacion = request.UsuarioCreacion;
+                                    r.TerminalCreacion = Environment.MachineName;
+                                });
                 }
-                    
-                response.Success = true;
+                else
+                {
+                    var sb = new StringBuilder();
+
+                    foreach (var error in result.Errors)
+                    {
+                        sb.Append($"{error.Description}, ");
+                    }
+
+                    response.ErrorMessage = sb.ToString();
+                    sb.Clear(); // Liberar la memoria
+                }
+
+                response.Success = result.Succeeded;
             }
             catch (Exception ex)
             {
@@ -189,11 +164,11 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         }
 
         /// <summary>
-        /// Service: Rol Actualizar
+        /// Service: Usuario Actualizar
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<BaseResponse> RolActualizar(RolDtoRequest request)
+        public async Task<BaseResponse> UsuarioActualizar(UsuarioDtoRequest request)
         {
             var response = new BaseResponse();
 
@@ -219,11 +194,11 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         }
 
         /// <summary>
-        /// Serivce: Rol Eliminar
+        /// Serivce: Usuario Eliminar
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public async Task<BaseResponse> RolEliminar(string Id)
+        public async Task<BaseResponse> UsuarioEliminar(string Id)
         {
             var response = new BaseResponse();
 

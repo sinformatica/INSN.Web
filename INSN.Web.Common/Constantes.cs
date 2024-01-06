@@ -6,6 +6,8 @@
     public static class Constantes
     {
         public const string JwtToken = "JWTToken";
+        public const string CodigoSistemaIdFijo = "1";
+        public const string CodigoSistemaId = "";
 
         /// <summary>
         /// Definición de roles

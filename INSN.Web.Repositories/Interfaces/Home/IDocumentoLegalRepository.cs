@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace INSN.Web.Repositories.Interfaces.Home
 {
     /// <summary>
-    /// Intarface de Metodos Documento Legal
+    /// Interface de Metodos Documento Legal
     /// </summary>
     public interface IDocumentoLegalRepository : IRepositoryBase<DocumentoLegal>
     {

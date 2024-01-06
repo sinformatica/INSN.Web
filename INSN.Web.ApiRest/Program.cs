@@ -21,6 +21,10 @@ using INSN.Web.Services.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.Services.Implementaciones.SegApp.Mantenimiento;
 using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento;
+using INSN.Web.Repositories.Interfaces.SegApp;
+using INSN.Web.Repositories.Implementaciones.SegApp;
+using INSN.Web.Services.Interfaces.SegApp;
+using INSN.Web.Services.Implementaciones.SegApp;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -94,8 +98,21 @@ builder.Services.AddTransient<ITipoDocumentoRepository, TipoDocumentoRepository>
 builder.Services.AddTransient<IMenuRepository, MenuRepository>();
 builder.Services.AddTransient<IMenuService, MenuService>();
 
+// Rol
 builder.Services.AddTransient<IRolRepository, RolRepository>();
 builder.Services.AddTransient<IRolService, RolService>();
+
+// Tipo Documento Identidad
+builder.Services.AddTransient<ITipoDocumentoIdentidadRepository, TipoDocumentoIdentidadRepository>();
+builder.Services.AddTransient<ITipoDocumentoIdentidadService, TipoDocumentoIdentidadService>();
+
+// Usuario
+builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddTransient<IUsuarioService, UsuarioService>();
+
+// Usuario Rol
+builder.Services.AddTransient<IUsuarioRolRepository, UsuarioRolRepository>();
+builder.Services.AddTransient<IUsuarioRolService, UsuarioRolService>();
 
 //builder.Services.AddTransient<IFileUploader, AzureBlobStorageUploader>();
 

@@ -1,5 +1,5 @@
 ﻿using INSN.Web.DataAccess;
-using INSN.Web.Entities;
+using INSN.Web.Entities.SegApp;
 using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,7 +17,7 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
     public class RolRepository : RepositoryBaseSegAppEF<Rol>, IRolRepository
     {
         /// <summary>
-        /// {
+        /// 
         /// </summary>
         /// <param name="context"></param>
         public RolRepository(SegAppDbContextEF context) : base(context)
@@ -25,7 +25,7 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
         }
 
         /// <summary>
-        /// Repository: Farmacia Listar
+        /// Repository: Rol Listar
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>

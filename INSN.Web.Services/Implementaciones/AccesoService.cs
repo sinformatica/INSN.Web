@@ -16,9 +16,9 @@ using System.Text;
 using System.Threading.Tasks;
 using INSN.Web.DataAccess;
 using Microsoft.EntityFrameworkCore;
-using INSN.Web.Models.Request.SegApp;
 using Azure;
 using INSN.Web.Models.Response.Sistemas;
+using INSN.Web.Models.Request.SegApp.Mantenimiento;
 
 namespace INSN.Web.Services.Implementaciones
 {
@@ -253,178 +253,119 @@ namespace INSN.Web.Services.Implementaciones
             return response;
         }
 
-        /// <summary>
-        /// Service: Usuario Insertar
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        public async Task<BaseResponse> UsuarioInsertar(UsuarioDtoRequest request)
-        {
-            var response = new BaseResponse();
+        ///// <summary>
+        ///// Service: Rol Insertar
+        ///// </summary>
+        ///// <param name="request"></param>
+        ///// <returns></returns>
+        //public async Task<BaseResponse> RolInsertar(string nombreRol)
+        //{
+        //    var response = new BaseResponse();
 
-            try
-            {
-                var user = new INSNIdentityUser
-                {
-                    Nombres = request.Nombres,
-                    ApellidoPaterno = request.ApellidoPaterno,
-                    ApellidoMaterno = request.ApellidoMaterno,
-                    servicio = request.Servicio,
-                    TipoDocumentoIdentidadId = request.TipoDocumentoIdentidadId,
-                    UserName = request.Usuario,
-                    Email = request.Email,
-                    PhoneNumber = request.Telefono,
-                    Telefono2 = request.Telefono2,
-                    EmailConfirmed = true
-                };
+        //    try
+        //    {
+        //        if (!await _roleManager.RoleExistsAsync(nombreRol))
+        //        {
+        //            var nuevoRol = new IdentityRole(nombreRol);
+        //            var resultado = await _roleManager.CreateAsync(nuevoRol);
 
-                var result = await _userManager.CreateAsync(user, request.Password);
+        //            if (resultado.Succeeded)
+        //            {
+        //                // Rol creado exitosamente
+        //                response.Success = true;
+        //            }
+        //            else
+        //            {
+        //                response.ErrorMessage = "Error al crear el rol";
+        //                foreach (var error in resultado.Errors)
+        //                {
+        //                    response.ErrorMessage += $"{error.Description}, ";
+        //                }
+        //            }
+        //        }
+        //        else
+        //        {
+        //            response.ErrorMessage = "El rol ya existe";
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        response.ErrorMessage = "Error al crear el rol";
+        //        _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
+        //    }
 
-                if (result.Succeeded)
-                {
-                    user = await _userManager.FindByEmailAsync(user.Email);
-                    if (user is not null)
-                    {
-                     //   response.Data = user.Id; // Establecer el ID del usuario en la respuesta
-                    }
-                }
-                else
-                {
-                    var sb = new StringBuilder();
+        //    return response;
+        //}
 
-                    foreach (var error in result.Errors)
-                    {
-                        sb.Append($"{error.Description}, ");
-                    }
+        ///// <summary>
+        ///// Service: Roles Usuario Asignar
+        ///// </summary>
+        ///// <param name="request"></param>
+        ///// <returns></returns>
+        //public async Task<BaseResponse> RolesUsuarioAsignar(UsuarioRolDtoRequest request)
+        //{
+        //    var response = new BaseResponse();
 
-                    response.ErrorMessage = sb.ToString();
-                    sb.Clear(); // Liberar la memoria
-                }
+        //    try
+        //    {
+        //        var user = await _userManager.FindByIdAsync(request.UsuarioId);
 
-                response.Success = result.Succeeded;
-            }
-            catch (Exception ex)
-            {
-                response.ErrorMessage = "Error al registrar";
-                _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
-            }
+        //        if (user is null)
+        //        {
+        //            response.ErrorMessage = "Usuario no encontrado";
+        //            return response;
+        //        }
 
-            return response;
-        }
+        //        foreach (var roleName in request.ListaRoles)
+        //        {
+        //            var role = await _roleManager.FindByNameAsync(roleName.rol);
 
-        /// <summary>
-        /// Service: Rol Insertar
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        public async Task<BaseResponse> RolInsertar(string nombreRol)
-        {
-            var response = new BaseResponse();
+        //            if (role != null)
+        //            {
+        //                // Verificar si el usuario ya tiene el rol para este sistema
+        //                var existingUserRole = await _segAppDbContext.INSNIdentityUsuarioRol
+        //                    .FirstOrDefaultAsync(ur => ur.UserId == user.Id && ur.CodigoSistemaId == roleName.CodigoSistemaId && ur.RoleId == role.Id);
 
-            try
-            {
-                if (!await _roleManager.RoleExistsAsync(nombreRol))
-                {
-                    var nuevoRol = new IdentityRole(nombreRol);
-                    var resultado = await _roleManager.CreateAsync(nuevoRol);
+        //                if (existingUserRole != null)
+        //                {
+        //                    response.ErrorMessage = $"El usuario ya tiene el rol {roleName.rol} en este sistema";
+        //                    return response;
+        //                }
 
-                    if (resultado.Succeeded)
-                    {
-                        // Rol creado exitosamente
-                        response.Success = true;
-                    }
-                    else
-                    {
-                        response.ErrorMessage = "Error al crear el rol";
-                        foreach (var error in resultado.Errors)
-                        {
-                            response.ErrorMessage += $"{error.Description}, ";
-                        }
-                    }
-                }
-                else
-                {
-                    response.ErrorMessage = "El rol ya existe";
-                }
-            }
-            catch (Exception ex)
-            {
-                response.ErrorMessage = "Error al crear el rol";
-                _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
-            }
+        //                // Eliminar roles anteriores del usuario en este sistema
+        //                var userRolesInSystem = await _segAppDbContext.INSNIdentityUsuarioRol
+        //                    .Where(ur => ur.UserId == user.Id && ur.CodigoSistemaId == roleName.CodigoSistemaId)
+        //                    .ToListAsync();
 
-            return response;
-        }
+        //                _segAppDbContext.INSNIdentityUsuarioRol.RemoveRange(userRolesInSystem);
 
-        /// <summary>
-        /// Service: Roles Usuario Asignar
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        public async Task<BaseResponse> RolesUsuarioAsignar(UsuarioRolDtoRequest request)
-        {
-            var response = new BaseResponse();
+        //                // Asignar el nuevo rol al usuario para este sistema
+        //                var newUserRole = new INSNIdentityUsuarioRol
+        //                {
+        //                    UserId = user.Id,
+        //                    RoleId = role.Id,
+        //                    CodigoSistemaId = roleName.CodigoSistemaId
+        //                };
 
-            try
-            {
-                var user = await _userManager.FindByIdAsync(request.UsuarioId);
+        //                _segAppDbContext.INSNIdentityUsuarioRol.Add(newUserRole);
+        //                await _segAppDbContext.SaveChangesAsync();
+        //            }
+        //            else
+        //            {
+        //                response.ErrorMessage = $"Rol {roleName.rol} no encontrado";
+        //                return response;
+        //            }
+        //        }
 
-                if (user is null)
-                {
-                    response.ErrorMessage = "Usuario no encontrado";
-                    return response;
-                }
+        //        response.Success = true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        response.ErrorMessage = "Error al asignar roles al usuario";
+        //        _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
+        //    }
 
-                foreach (var roleName in request.ListaRoles)
-                {
-                    var role = await _roleManager.FindByNameAsync(roleName.rol);
-
-                    if (role != null)
-                    {
-                        // Verificar si el usuario ya tiene el rol para este sistema
-                        var existingUserRole = await _segAppDbContext.INSNIdentityUsuarioRol
-                            .FirstOrDefaultAsync(ur => ur.UserId == user.Id && ur.CodigoSistemaId == roleName.CodigoSistemaId && ur.RoleId == role.Id);
-
-                        if (existingUserRole != null)
-                        {
-                            response.ErrorMessage = $"El usuario ya tiene el rol {roleName.rol} en este sistema";
-                            return response;
-                        }
-
-                        // Eliminar roles anteriores del usuario en este sistema
-                        var userRolesInSystem = await _segAppDbContext.INSNIdentityUsuarioRol
-                            .Where(ur => ur.UserId == user.Id && ur.CodigoSistemaId == roleName.CodigoSistemaId)
-                            .ToListAsync();
-
-                        _segAppDbContext.INSNIdentityUsuarioRol.RemoveRange(userRolesInSystem);
-
-                        // Asignar el nuevo rol al usuario para este sistema
-                        var newUserRole = new INSNIdentityUsuarioRol
-                        {
-                            UserId = user.Id,
-                            RoleId = role.Id,
-                            CodigoSistemaId = roleName.CodigoSistemaId
-                        };
-
-                        _segAppDbContext.INSNIdentityUsuarioRol.Add(newUserRole);
-                        await _segAppDbContext.SaveChangesAsync();
-                    }
-                    else
-                    {
-                        response.ErrorMessage = $"Rol {roleName.rol} no encontrado";
-                        return response;
-                    }
-                }
-
-                response.Success = true;
-            }
-            catch (Exception ex)
-            {
-                response.ErrorMessage = "Error al asignar roles al usuario";
-                _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
-            }
-
-            return response;
-        }
+        //    return response;
+        //}
     }
 }

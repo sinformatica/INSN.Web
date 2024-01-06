@@ -63,8 +63,18 @@ namespace INSN.Web.Repositories.Interfaces
         Task Actualizar();
 
         /// <summary>
+        /// IRepository: Actualizar ciertos campos
+        /// </summary>
+        Task<int> ActualizarCampos(Expression<Func<TEntity, bool>> predicate, Action<TEntity> updateAction);
+
+        /// <summary>
         /// IRepository: Eliminar un registro de la BD
         /// </summary>
         Task Eliminar(int id);
+
+        /// <summary>
+        /// IRepository: Eliminar un registro de la BD por Id string
+        /// </summary>
+        Task EliminarString(string id);
     }
 }

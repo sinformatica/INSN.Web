@@ -20,5 +20,10 @@ namespace INSN.Web.Models.Request.SegApp.Mantenimiento
         /// Name
         /// </summary>
         public string? Name { get; set; } = default!;
+
+        /// <summary>
+        /// NormalizedName
+        /// </summary>
+        public string? NormalizedName { get; set; } = default!;
     }
 }

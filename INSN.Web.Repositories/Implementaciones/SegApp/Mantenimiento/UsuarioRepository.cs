@@ -1,0 +1,63 @@
+﻿using INSN.Web.DataAccess;
+using INSN.Web.Entities.SegApp;
+using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
+{
+    /// <summary>
+    /// Metodos de Usuario
+    /// </summary>
+    public class UsuarioRepository : RepositoryBaseSegAppEF<Usuario>, IUsuarioRepository
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        public UsuarioRepository(SegAppDbContextEF context) : base(context)
+        {
+        }
+
+        /// <summary>
+        /// Repository: Usuario Listar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<ICollection<UsuarioInfo>> UsuarioListar(Usuario request)
+        {
+            Expression<Func<Usuario, bool>> predicate =
+                                x => ((x.UserName == request.Nombres)
+                                    || (x.Nombres.Contains(request.Nombres ?? string.Empty))
+                                    || (request.Nombres != null &&
+                                    (x.Nombres + " " + x.ApellidoPaterno + " " + x.ApellidoMaterno)
+                                        .Contains(request.Nombres)))
+                                    && (request.Estado == null || x.Estado == request.Estado);
+
+            return await Context.Set<Usuario>()
+                .Where(predicate)
+                .Select(p => new UsuarioInfo
+                {
+                    Id = p.Id,
+                    Nombres = p.Nombres,
+                    ApellidoPaterno = p.ApellidoPaterno,
+                    ApellidoMaterno = p.ApellidoMaterno,
+                    Servicio = p.Servicio,
+                    Telefono2 = p.Telefono2,
+                    TipoDocumentoIdentidadId = p.TipoDocumentoIdentidadId,
+                    DescripcionTipoDocumentoIdentidad = p.TipoDocumentoIdentidad.Descripcion,
+                    UserName = p.UserName,
+                    Email = p.Email,
+                    PhoneNumber = p.PhoneNumber,
+                    Estado = p.Estado
+                })
+                .ToListAsync();
+        }
+    }
+}
