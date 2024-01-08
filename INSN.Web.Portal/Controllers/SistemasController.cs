@@ -12,6 +12,7 @@ namespace INSN.Web.Portal.Controllers
     {
         private readonly IWebHostEnvironment _enviroment;
         private readonly ISistemaProxy _proxy;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         /// <summary>
         /// Sistemas Controller
@@ -19,10 +20,11 @@ namespace INSN.Web.Portal.Controllers
         /// <param name="proxy"></param>
         /// <param name="env"></param>
         /// <returns></returns>
-        public SistemasController(ISistemaProxy proxy,IWebHostEnvironment env)
+        public SistemasController(ISistemaProxy proxy,IWebHostEnvironment env, IHttpContextAccessor httpContextAccessor)
         {
             _proxy = proxy;           
             _enviroment = env;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         /// <summary>
@@ -45,7 +47,8 @@ namespace INSN.Web.Portal.Controllers
 
                 // Obtener el valor de un claim específico
                 var usuario = claims.FirstOrDefault(c => c.Type == "username")?.Value;
-                model.Nombre = claims.FirstOrDefault(c => c.Type == "name")?.Value;
+                string NombreUsuario = claims.FirstOrDefault(c => c.Type == "name")?.Value;
+                _httpContextAccessor.HttpContext.Session.SetString(Constantes.NombreUsuario, NombreUsuario);
 
                 // Realizar acciones con la información del token deserializado
                 var response = await _proxy.SistemasPorUsuarioListar(new LoginUsuarioDtoRequest()

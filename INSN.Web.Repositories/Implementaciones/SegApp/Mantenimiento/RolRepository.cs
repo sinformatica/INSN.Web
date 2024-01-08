@@ -33,7 +33,8 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
         {
             Expression<Func<Rol, bool>> predicate =
                             x => x.Name.Contains(request.Name ?? string.Empty)
-                            && (request.Estado == null || x.Estado == request.Estado);
+                            && (request.Estado == null || x.Estado == request.Estado)
+                            && (x.EstadoRegistro == 1);
 
             return await Context.Set<Rol>()
                 .Where(predicate)

@@ -2,6 +2,7 @@
 using INSN.Web.Models;
 using INSN.Web.Models.Response.Sistema;
 using INSN.Web.Models.Request.Sistema;
+using INSN.Web.ViewModels;
 
 namespace INSN.Web.Portal.Services.Interfaces
 {

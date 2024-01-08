@@ -1,7 +1,9 @@
 using INSN.Web.Portal.Services.Implementaciones;
 using INSN.Web.Portal.Services.Implementaciones.Home.DirectorioInstitucional;
+using INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento;
 using INSN.Web.Portal.Services.Interfaces;
 using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
+using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +28,7 @@ builder.Services.AddScoped<IUsuarioProxy, UsuarioProxy>();
 builder.Services.AddScoped<ISistemaProxy, SistemaProxy>();
 builder.Services.AddScoped<IRedireccionarProxy, RedireccionarProxy>();
 builder.Services.AddScoped<IMenuProxy, MenuProxy>();
+builder.Services.AddScoped<IRolProxy, RolProxy>();
 
 //FIN Agregar Los Proxy - Api - DynamiClient
 builder.Services.AddDistributedMemoryCache();

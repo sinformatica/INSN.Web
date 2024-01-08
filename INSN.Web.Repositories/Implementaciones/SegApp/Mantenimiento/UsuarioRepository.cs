@@ -38,7 +38,8 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
                                     || (request.Nombres != null &&
                                     (x.Nombres + " " + x.ApellidoPaterno + " " + x.ApellidoMaterno)
                                         .Contains(request.Nombres)))
-                                    && (request.Estado == null || x.Estado == request.Estado);
+                                    && (request.Estado == null || x.Estado == request.Estado)
+                                    && (x.EstadoRegistro == 1);
 
             return await Context.Set<Usuario>()
                 .Where(predicate)

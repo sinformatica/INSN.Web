@@ -1,7 +1,13 @@
-﻿@model SistemasViewModel
+﻿@inject IHttpContextAccessor HttpContextAccessor
+
+@model SistemasViewModel
 
 @{
     Layout = null;
+}
+
+@{
+    string NombreUsuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.NombreUsuario);
 }
 
 <!doctype html>
@@ -41,7 +47,7 @@
                         {
                             <div class="row" style="color: #FFF; padding-top: 10px;">
                                 <div class="col-md-8 text-left">
-                                    <h6 style="margin-left: 20px;">Bienvenido(a), @Model.Nombre.ToUpper()</h6>
+                                    <h6 style="margin-left: 20px;">Bienvenido(a), @NombreUsuario.ToUpper()</h6>
                                 </div>
                                 <div class="col-md-2"></div> <!-- Columna vacía para centrar el texto -->
                                 <div class="col-md-2" style="text-align: right;">

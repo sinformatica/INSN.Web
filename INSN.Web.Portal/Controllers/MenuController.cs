@@ -4,6 +4,7 @@ using INSN.Web.Models.Request.Sistema;
 using INSN.Web.Portal.Services.Interfaces;
 using INSN.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 
 namespace INSN.Web.Portal.Controllers
@@ -12,17 +13,20 @@ namespace INSN.Web.Portal.Controllers
     {
         private readonly IWebHostEnvironment _enviroment;
         private readonly IMenuProxy _proxy;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         /// <summary>
         /// Menu Controller
         /// </summary>
         /// <param name="proxy"></param>
         /// <param name="env"></param>
+        /// <param name="httpContextAccessor"></param>
         /// <returns></returns>
-        public MenuController(IMenuProxy proxy, IWebHostEnvironment env)
+        public MenuController(IMenuProxy proxy, IWebHostEnvironment env, IHttpContextAccessor httpContextAccessor)
         {
             _proxy = proxy;
             _enviroment = env;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<IActionResult> Index()
@@ -48,8 +52,8 @@ namespace INSN.Web.Portal.Controllers
                 if (b)
                 {
                     // Obtener el valor de un claim específico
-                    model.Usuario = claims.FirstOrDefault(c => c.Type == "username")?.Value ?? string.Empty;
-                    model.Nombre = claims.FirstOrDefault(c => c.Type == "name")?.Value ?? string.Empty;
+                    string Usuario = claims.FirstOrDefault(c => c.Type == "username")?.Value ?? string.Empty;
+                    string NombreUsuario = claims.FirstOrDefault(c => c.Type == "name")?.Value ?? string.Empty;
                     string RolId = claims.FirstOrDefault(c => c.Type == "RolId")?.Value ?? string.Empty;
                     string CodigoSistemaId = claims.FirstOrDefault(c => c.Type == "CodigoSistemaId")?.Value ?? string.Empty;
                     string FechaVencimiento = claims.FirstOrDefault(c => c.Type == "FechaVencimiento")?.Value ?? string.Empty;
@@ -76,6 +80,12 @@ namespace INSN.Web.Portal.Controllers
                             // Asignar la lista de módulos obtenida
                             item.ModuloLista = responseModulo;
                         }
+
+                        // guardar menú
+                        string json = JsonConvert.SerializeObject(model);
+                        _httpContextAccessor.HttpContext.Session.SetString(Constantes.MenuDinamico, json);
+                        _httpContextAccessor.HttpContext.Session.SetString(Constantes.Usuario, Usuario);
+                        _httpContextAccessor.HttpContext.Session.SetString(Constantes.NombreUsuario, NombreUsuario);
                     }
                     else
                     {
@@ -85,14 +95,14 @@ namespace INSN.Web.Portal.Controllers
                 else
                 {
                     return View("~/Views/Acceso/Login.cshtml");
-                }      
+                }
             }
             else
             {
                 return View("~/Views/Acceso/Login.cshtml");
             }
 
-            return View("~/Views/SegApp/Index.cshtml", model);
+            return View("~/Views/SegApp/Index.cshtml");
         }
     }
 }

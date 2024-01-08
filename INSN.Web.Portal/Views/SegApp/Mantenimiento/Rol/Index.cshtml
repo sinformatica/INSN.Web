@@ -1,0 +1,219 @@
+﻿@using INSN.Web.Portal.Resources;
+@using INSN.Web.Portal.Resources.SegApp.Mantenimiento;
+@using INSN.Web.ViewModels.SegApp.Mantenimiento;
+
+@model RolViewModel
+
+@using INSN.Web.Portal.Controllers;
+@{
+    Layout = "~/Views/SegApp/_LayoutSistemas.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Rol";
+}
+
+<main id="main-container">
+    <h2 class="content-heading">@Html.Raw(RolResource.EtiquetaSeccion)</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="block block-themed block-rounded">
+                    <!-- ======= INICIO : Cabecera y Botones Principales ========================= -->
+                    <div class="block-header">
+                        <h3 class="block-title">@Html.Raw(RolResource.EtiquetaTitulo)</h3>
+                        <div class="block-options">
+                            <button class="btn btn-sm btn-block-option boton-hover" asp-controller="Rol" asp-action="NuevoVista" title="Nuevo">
+                                <i class="fa fa-file-circle-plus fa-2x"></i>
+                            </button>
+                            <button class="btn btn-sm btn-block-option boton-hover" onclick="Limpiar()" title="Limpiar">
+                                <i class="fa fa-repeat fa-2x"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- ======= FIN : Cabecera y Botones Principales ============================ -->
+                    <!-- ========================================================================= -->
+                    <div class="block-content block-content-full">
+                        <!-- ======= INICIO : Controles de Búsqueda ============================== -->
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Nombre" , @id = "txtName",
+                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" }) <!-- Restricción -->
+                                    <label class="form-label">@Html.Raw(RolResource.EtiquetaName)</label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-floating mb-4">
+                                    @Html.DropDownListFor(m => m.EstadoSeleccionado,
+                                    new SelectList(Model.Estados, "Codigo", "Nombre"), "Todos", new { @class = "form-select", @id = "cmbEstadoSeleccionado"})
+                                    <label class="form-label">@Html.Raw(GeneralResource.EtiquetaEstado)</label>
+                                </div>
+                            </div>
+                            <div class="col-2" style="text-align: right;">
+                                <button id="btnConsultar" class="btn btn-primary" asp-controller="Rol" asp-action="RolListar" title="Consultar">
+                                    <i class="fa fa-search"></i> Consultar
+                                </button>
+                            </div>
+                        </div>
+                        <!-- ======= FIN    : Controles de Búsqueda ============================== -->
+                        <!-- ===================================================================== -->
+                        <!-- ======= INICIO : Mostrar DataTable - Datos ========================== -->
+                        <div>
+                            <div class="row">
+                                @if (Model is null)
+                                {
+                                    <p>Sin resultados</p>
+                                }
+                                else if (!Model.Roles.Any())
+                                {
+                                    <p>Sin datos para mostrar</p>
+                                }
+                                else
+                                {
+                                    @*   Clase: Carga de Tabla- Grid Datos - Visual *@
+                                    <div id="GridResultado">
+                                        @*   Clase: Responsive para Columnas / Barra Desplazamiento *@
+                                        <div class="table-responsive" style="width: 100%;">
+                                            <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center"> @Html.Raw(RolResource.EtiquetaGridName)</th>
+                                                        <th class="text-center" style="width: 15%;">@Html.Raw(GeneralResource.EtiquetaEstado)</th>
+                                                        <th class="text-center" style="width: 15%;">@Html.Raw(GeneralResource.EtiquetaAccion)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in Model.Roles)
+                                                    {
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                @item.Name
+                                                            </td>
+                                                            <td class="text-center">
+                                                                @if (item.Estado == "A")
+                                                                {
+                                                                    <span class="badge bg-primary">@Html.Raw(GeneralResource.EtiquetaActivo)</span>
+                                                                }
+                                                                else if (item.Estado == "I")
+                                                                {
+                                                                    <span class="badge bg-danger">@Html.Raw(GeneralResource.EtiquetaInactivo)</span>
+                                                                }
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="btn" asp-action="EditarVista" asp-route-Id="@item.Id"><i class="fa fa fa-pencil"></i></a>
+
+                                                                <a class="btn btnEliminar" data-id="@item.Id"><i class="fa fa fa-trash-can"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <!-- ======= INICIO : Paginación de DataTable ============================ -->
+                            @*      <div class="row">
+                            <div class="col-1">
+                            <select id="pageSize" class="form-select" asp-for="Rows">
+                            <option>10</option>
+                            <option>20</option>
+                            <option>40</option>
+                            <option>60</option>
+                            <option>100</option>
+                            </select>
+                            </div>
+                            <div class="col-5">
+                            </div>
+                            <div class="col-6">
+                            <partial name="_DataPager" model="ViewBag.Pager" />
+                            @Html.HiddenFor(m => m.Page, new { id = "currentPage"})
+                            </div>
+                            </div> *@
+                            <!-- ======= FIN    : Paginación de DataTable ============================ -->
+                        </div>
+                        <!-- ======= FIN    : Mostrar DataTable - Datos ========================== -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+@section Scripts
+    {
+    <script>
+        //#region [Métodos Basicos]
+        //#region [Limpiar]
+        function Limpiar() {
+            document.getElementById('cmbEstadoSeleccionado').selectedIndex = 0; // Reemplaza 'cmbEstadoSeleccionado' con el ID de tu combobox
+            document.getElementById('txtName').value = ''; // Esto limpia el contenido del campo de texto
+        }
+        //#endregion
+
+        //#region [Consulta Rápida - Enter]
+        // Obtener los elementos de las cajas de texto y el botón de consulta
+        document.addEventListener('DOMContentLoaded', function () {
+            const btnConsultar = document.getElementById('btnConsultar');
+            // Llamar a la función con los elementos correspondientes
+            bindEnterKeyToButton(document.getElementById('txtName'), btnConsultar);
+        });
+        //#endregion
+        //#endregion
+
+        //#region [Método Eliminar]
+        document.addEventListener('DOMContentLoaded', function () {
+            let btnEliminarList = document.querySelectorAll('.btnEliminar');
+
+            btnEliminarList.forEach(function (btnEliminar) {
+                btnEliminar.addEventListener('click', function () {
+                    let registroId = this.getAttribute('data-id');
+                    confirmarEliminacion(registroId);
+                });
+            });
+
+            function confirmarEliminacion(registroId) {
+                //Creacion de Modal
+                const swalDistribucion = Swal.mixin({
+                    customClass: {
+                        confirmButton: 'btn btn-lg btn-primary min-width-100 mx-4',
+                        cancelButton: 'btn btn-lg btn-danger min-width-100 mx-4'
+                    },
+                    buttonsStyling: false
+                })
+                //Confirmacion de Eliminación
+                swalDistribucion.fire({
+                    title: '¿Está seguro que desea eliminar este registro?',
+                    icon: 'warning',
+                    confirmButtonText: 'SI',
+                    showCancelButton: true,
+                    cancelButtonText: 'NO',
+                }).then((resultado) => {
+                    if (resultado.isConfirmed) {
+                        //Invocar función de Eliminar
+                        eliminarRegistro(registroId);
+                    }
+                });
+            }
+
+            function eliminarRegistro(registroId) {
+                const form = document.createElement('form');
+                form.method = 'post';
+                form.action = 'Rol/RolEliminar'; //Invocar Metodo de Controller
+
+                const hiddenField = document.createElement('input');
+                hiddenField.type = 'hidden';
+                hiddenField.name = 'id'; //Identificador
+                hiddenField.value = registroId;
+                form.appendChild(hiddenField);
+                document.body.appendChild(form);
+                form.submit();
+            }
+        });
+                //#endregion
+    </script>
+}
+
+
+

@@ -1,5 +1,14 @@
-﻿@model SeccionViewModel
+﻿@using INSN.Web.ViewModels.SegApp;
+@using Newtonsoft.Json;
+@inject IHttpContextAccessor HttpContextAccessor
 
+@{
+    string Usuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.Usuario);
+    string NombreUsuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.NombreUsuario); 
+    string json = HttpContextAccessor.HttpContext.Session.GetString(Constantes.MenuDinamico);
+
+    SeccionViewModel menu = JsonConvert.DeserializeObject<SeccionViewModel>(json);
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +48,7 @@
                         <div class="smini-hidden text-center mx-auto">
                             <ul class="list-inline mt-3 mb-0">
                                 <li class="list-inline-item">
-                                    <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" href="be_pages_generic_profile.html">@Model.Usuario</a>
+                                    <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" href="be_pages_generic_profile.html">@Usuario</a>
                                 </li>
                                 <li class="list-inline-item">
                                     <a class="link-fx text-dual" asp-controller="Acceso" asp-action="Logout">
@@ -56,17 +65,17 @@
                         <ul class="nav-main">
                             <li class="nav-main-heading">Menú</li>
 
-                            @if (Model.SeccionLista is null)
+                            @if (menu.SeccionLista is null)
                             {
                                 <p>Sin resultados</p>
                             }
-                            else if (!Model.SeccionLista.Any())
+                            else if (!menu.SeccionLista.Any())
                             {
                                 <p>Sin datos para mostrar</p>
                             }
                             else
                             {
-                                @foreach (var item in Model.SeccionLista)
+                                @foreach (var item in menu.SeccionLista)
                                 {
                                     <li class="nav-main-item">
                                         <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
@@ -117,13 +126,13 @@
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-user d-sm-none"></i>
-                            <span class="d-none d-sm-inline-block fw-semibold">@Model.Usuario.ToUpper()</span>
+                            <span class="d-none d-sm-inline-block fw-semibold">@Usuario.ToUpper()</span>
                             <i class="fa fa-angle-down opacity-50 ms-1"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown">
                             <div class="px-2 py-3 bg-body-light rounded-top">
                                 <h5 class="h6 text-center mb-0">
-                                    @Model.Nombre
+                                    @NombreUsuario
                                 </h5>
                             </div>
                             <div class="p-2">
