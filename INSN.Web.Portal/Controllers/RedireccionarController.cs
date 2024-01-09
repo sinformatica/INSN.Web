@@ -33,7 +33,7 @@ namespace INSN.Web.Portal.Controllers
         /// </summary>
         /// <returns></returns>
         /// 
-        public async Task<IActionResult> Index(int p, string url)
+        public async Task<IActionResult> Index(int p, string url, int ut)
         {
             string token = HttpContext.Session.GetString(Constantes.JwtToken);
             //SistemasViewModel model = new SistemasViewModel();
@@ -79,14 +79,10 @@ namespace INSN.Web.Portal.Controllers
                     }
                     else
                     {
-                        if (p == 13)
-                        {
-                            return Redirect($"{url}");
-                        }
-                        else
-                        {
+                        if (ut == 1) // usar token = 1, o sea 'si'
                             return Redirect($"{url}?token={response.Token}");
-                        }
+                        else
+                            return Redirect($"{url}");
                     }
                 }
             }

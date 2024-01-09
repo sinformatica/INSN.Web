@@ -151,7 +151,7 @@ namespace INSN.Web.Services.Implementaciones
 
                 // Consulta para obtener los sistemas asociados al usuario
                 var sistemasAsociados = await _segAppDbContext.INSNIdentityUsuarioRol
-                    .Where(ur => ur.UserId == user.Id)
+                    .Where(ur => ur.UserId == user.Id && ur.Sistema.Estado == "A" && ur.Sistema.EstadoRegistro == 1)
                     .Select(ur => ur.CodigoSistemaId)
                     .Distinct()
                     .ToListAsync();
@@ -171,7 +171,9 @@ namespace INSN.Web.Services.Implementaciones
                             CodigoSistemaId = sistema.CodigoSistemaId,
                             descripcion = sistema.descripcion,
                             url = sistema.url,
-                            icono = sistema.icono
+                            icono = sistema.icono,
+                            target = sistema.Target,
+                            UsarToken = sistema.UsarToken
                         };
 
                         ListaSistemas.Add(sistemaDto);

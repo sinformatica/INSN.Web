@@ -18,5 +18,12 @@ namespace INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento
         /// <param name="request"></param>
         /// <returns></returns>
         Task UsuarioInsertar(UsuarioDtoRequest request);
+
+        /// <summary>
+        /// IProxy: Usuario Buscar Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<UsuarioDtoResponse> UsuarioBuscarId(string id);
     }
 }

@@ -65,7 +65,7 @@
                         <div class="pt-1 pb-3">
                             <h3 class="fw-bold text-white mb-2">
                                 INSTITUTO NACIONAL DE SALUD DEL NIÑO
-                            </h3>                            
+                            </h3>
                         </div>
                     </div>
                 </div>
@@ -93,7 +93,8 @@
                         @foreach (var item in Model.ListaSistema)
                         {
                             <div class="col-md-6 col-xl-2">
-                                <a class="block block-rounded block-bordered block-link-pop text-center p-0" href="Redireccionar?p=@item.CodigoSistemaId&url=@item.url">
+                                <a class="block block-rounded block-bordered block-link-pop text-center p-0" target="@item.target"
+                                   href="Redireccionar?p=@item.CodigoSistemaId&url=@item.url&ut=@item.UsarToken">
                                     <div class="block-content block-content-full text-center p-2">
                                         <p class="p-1 m-0">
                                             <i class="fa @item.icono fa-2x opacity-25 m-0"></i>
@@ -103,72 +104,6 @@
                                 </a>
                             </div>
                         }
-
-                        @*  <div class="col-md-6 col-xl-2">
-                    <a class="block block-rounded block-bordered block-link-pop text-center p-0" href="#">
-                    <div class="block-content block-content-full text-center p-2">
-                    <p class="p-1 m-0">
-                    <i class="fa fa-clipboard fa-2x opacity-25 m-0"></i>
-                    </p>
-                    <p class="font-w600 m-0">TRÁMITE DOC.</p>
-                    </div>
-                    </a>
-                    </div>
-
-                    <div class="col-md-6 col-xl-2">
-                    <a class="block block-rounded block-bordered block-link-pop text-center p-0" href="#">
-                    <div class="block-content block-content-full text-center p-2">
-                    <p class="p-1 m-0">
-                    <i class="fa fa-tasks fa-2x opacity-25 m-0"></i>
-                    </p>
-                    <p class="font-w600 m-0">TELEHIS</p>
-                    </div>
-                    </a>
-                    </div>
-
-                    <div class="col-md-6 col-xl-2">
-                    <a class="block block-rounded block-bordered block-link-pop text-center p-0" href="#">
-                    <div class="block-content block-content-full text-center p-2">
-                    <p class="p-1 m-0">
-                    <i class="fa fa-id-card fa-2x opacity-25 m-0"></i>
-                    </p>
-                    <p class="font-w600 m-0">ADMISIÓN/CITAS</p>
-                    </div>
-                    </a>
-                    </div>
-
-                    <div class="col-md-6 col-xl-2">
-                    <a class="block block-rounded block-bordered block-link-pop text-center p-0" href="#">
-                    <div class="block-content block-content-full text-center p-2">
-                    <p class="p-1 m-0">
-                    <i class="fa fa-file-medical fa-2x opacity-25 m-0"></i>
-                    </p>
-                    <p class="font-w600 m-0">REGISTROS MÉDICOS</p>
-                    </div>
-                    </a>
-                    </div>
-
-                    <div class="col-md-6 col-xl-2">
-                    <a class="block block-rounded block-bordered block-link-pop text-center p-0" href="#">
-                    <div class="block-content block-content-full text-center p-2">
-                    <p class="p-1 m-0">
-                    <i class="fa fa-chart-bar fa-2x opacity-25 m-0"></i>
-                    </p>
-                    <p class="font-w600 m-0">ESTADÍSTICA</p>
-                    </div>
-                    </a>
-                    </div>
-
-                    <div class="col-md-6 col-xl-2">
-                    <a class="block block-rounded block-bordered block-link-pop text-center p-0" href="#">
-                    <div class="block-content block-content-full text-center p-2">
-                    <p class="p-1 m-0">
-                    <i class="fa fa-shield-alt fa-2x opacity-25 m-0"></i>
-                    </p>
-                    <p class="font-w600 m-0">UNIDAD DE SEGUROS</p>
-                    </div>
-                    </a>
-                    </div> *@
                     }
                 </div>
             </div>

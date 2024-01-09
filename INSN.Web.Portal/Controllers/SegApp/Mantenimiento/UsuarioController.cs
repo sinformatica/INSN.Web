@@ -75,6 +75,10 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
             return RedirectToAction("Index", "Usuario");
         }
 
+        /// <summary>
+        /// Tipo Documento Identidad Listar 
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<TipoDocumentoIdentidadDtoResponse>> TipoDocumentoIdentidadListar()
         {
             var result = await _proxyTipoDoc.TipoDocumentoIdentidadListar(new TipoDocumentoIdentidadDtoRequest()
@@ -180,6 +184,89 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 return View("~/Views/SegApp/Mantenimiento/Usuario/Nuevo.cshtml", request);
             }
         }
+        #endregion
+
+        #region [Editar]
+        /// <summary>
+        /// Ventana Editar
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> EditarVista(string Id)
+        {
+            var response = await _proxy.UsuarioBuscarId(Id);
+            if (response is null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            var model = new UsuarioViewModel
+            {
+                Id = response.Id,
+                Nombre = response.Nombres
+            };
+
+            var resultTiposDoc = TipoDocumentoIdentidadListar();
+            model.TiposDocIdentidad = resultTiposDoc.Result;
+
+            return View("~/Views/Mantenimiento/Producto/Editar.cshtml", model);
+        }
+
+        /// <summary>
+        /// Producto Actualizar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        //public async Task<IActionResult> ProductoActualizar(ProductoViewModel request)
+        //{
+        //    var response = await _proxy.ProductoBuscarId(request.CodigoProductoId);
+
+        //    if (response is null)
+        //    {
+        //        ModelState.AddModelError("ID", "No se encontro el registro");
+        //        return View();
+        //    }
+
+        //    try
+        //    {
+        //        if (string.IsNullOrWhiteSpace(request.Descripcion))
+        //        {
+        //            throw new ModelException(nameof(request.Descripcion), "Campo requerido: Descripción");
+        //        }
+
+        //        var dtoRequest = new ProductoDtoRequest
+        //        {
+        //            CodigoProductoId = request.CodigoProductoId,
+        //            Descripcion = request.Descripcion,
+        //            Estado = request.EstadoSeleccionado,
+        //            #region [Base Update]
+        //            EstadoRegistro = 1,
+        //            FechaCreacion = response.FechaCreacion,
+        //            UsuarioCreacion = response.UsuarioCreacion,
+        //            TerminalCreacion = response.TerminalCreacion,
+        //            TerminalModificacion = Environment.MachineName,
+        //            UsuarioModificacion = Environment.UserName, //Modificar por Usuario de sesion logueada
+        //            FechaModificacion = DateTime.Now
+        //            #endregion
+        //        };
+
+        //        await _proxy.ProductoActualizar(dtoRequest);
+
+        //        return RedirectToAction(nameof(Index));
+
+        //    }
+        //    catch (ModelException ex)
+        //    {
+        //        ModelState.AddModelError(ex.PropertyName, ex.Message);
+        //        _logger.LogError(ex, "Validación de registro {Message}", ex.Message);
+        //        return View("~/Views/Mantenimiento/Producto/Editar.cshtml", request);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _logger.LogError(ex, "Modificación de Producto {Message}", ex.Message);
+        //        return View("~/Views/Mantenimiento/Producto/Editar.cshtml", request);
+        //    }
+        //}
         #endregion
     }
 }

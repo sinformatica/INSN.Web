@@ -88,5 +88,21 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
             }
         }
 
+        /// <summary>
+        /// Proxy: Usuario Buscar Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public async Task<UsuarioDtoResponse> UsuarioBuscarId(string id)
+        {
+            var response = await HttpClient.GetFromJsonAsync<BaseResponseGeneric<UsuarioDtoResponse>>($"{BaseUrl}/UsuarioBuscarId/{id}");
+            if (response!.Success)
+            {
+                return response.Data!;
+            }
+
+            throw new InvalidOperationException(response.ErrorMessage);
+        }
     }
 }
