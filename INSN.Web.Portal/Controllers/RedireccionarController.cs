@@ -79,7 +79,14 @@ namespace INSN.Web.Portal.Controllers
                     }
                     else
                     {
-                        return Redirect($"{url}?token={response.Token}");
+                        if (p == 13)
+                        {
+                            return Redirect($"{url}");
+                        }
+                        else
+                        {
+                            return Redirect($"{url}?token={response.Token}");
+                        }
                     }
                 }
             }
