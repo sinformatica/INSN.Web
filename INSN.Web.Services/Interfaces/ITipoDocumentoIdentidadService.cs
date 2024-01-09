@@ -6,10 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using INSN.Web.Models.Response.SegApp;
 using INSN.Web.Models.Request.SegApp;
+using INSN.Web.Models;
 
-namespace INSN.Web.Services.Interfaces.SegApp
+namespace INSN.Web.Services.Interfaces
 {
     public interface ITipoDocumentoIdentidadService
     {

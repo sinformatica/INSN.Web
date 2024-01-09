@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INSN.Web.Repositories.Interfaces.SegApp
+namespace INSN.Web.Repositories.Interfaces
 {
     /// <summary>
     /// Interface de Metodos TipoDocumentoIdentidad

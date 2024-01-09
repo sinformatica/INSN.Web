@@ -7,7 +7,7 @@ namespace INSN.Web.Portal.Services.Interfaces
     /// <summary>
     /// Interface Proxy Usuario
     /// </summary>
-    public interface IUsuarioProxy
+    public interface IAccesoProxy
     {
         /// <summary>
         /// IProxy: Login

@@ -24,11 +24,13 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 //INICIO Agregar Los Proxy - Api - DynamiClient
 builder.Services.AddScoped<IDocumentoLegalProxy, DocumentoLegalProxy>();
 builder.Services.AddScoped<ITipoDocumentoProxy, TipoDocumentoProxy>();
-builder.Services.AddScoped<IUsuarioProxy, UsuarioProxy>();
+builder.Services.AddScoped<IAccesoProxy, AccesoProxy>();
 builder.Services.AddScoped<ISistemaProxy, SistemaProxy>();
 builder.Services.AddScoped<IRedireccionarProxy, RedireccionarProxy>();
 builder.Services.AddScoped<IMenuProxy, MenuProxy>();
 builder.Services.AddScoped<IRolProxy, RolProxy>();
+builder.Services.AddScoped<IUsuarioProxy, UsuarioProxy>();
+builder.Services.AddScoped<ITipoDocumentoIdentidadProxy, TipoDocumentoIdentidadProxy>();
 
 //FIN Agregar Los Proxy - Api - DynamiClient
 builder.Services.AddDistributedMemoryCache();

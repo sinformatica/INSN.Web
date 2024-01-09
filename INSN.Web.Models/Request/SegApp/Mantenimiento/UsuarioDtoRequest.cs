@@ -45,6 +45,11 @@ namespace INSN.Web.Models.Request.SegApp.Mantenimiento
         public int TipoDocumentoIdentidadId { get; set; } = default!;
 
         /// <summary>
+        /// DocumentoIdentidad
+        /// </summary>
+        public string? DocumentoIdentidad { get; set; }
+
+        /// <summary>
         /// UserName
         /// </summary>
         public string? UserName { get; set; } = default!;

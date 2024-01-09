@@ -1,15 +1,15 @@
-﻿using INSN.Web.Models.Request.SegApp;
+﻿using INSN.Web.Models;
+using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Models.Response;
-using INSN.Web.Models.Response.SegApp;
-using INSN.Web.Services.Interfaces.SegApp;
+using INSN.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace INSN.Web.ApiRest.Controllers.SegApp
+namespace INSN.Web.ApiRest.Controllers
 {
     /// <summary>
     /// Creador de API
     /// </summary>
-    [Route("api/SegApp/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class TipoDocumentoIdentidadController : ControllerBase
     {
@@ -30,8 +30,8 @@ namespace INSN.Web.ApiRest.Controllers.SegApp
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet("TipoDocumentoIdentidadListar")]
-        [ProducesResponseType((int)StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<TipoDocumentoIdentidadDtoResponse>>))]
-        [ProducesResponseType((int)StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<TipoDocumentoIdentidadDtoResponse>>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<TipoDocumentoIdentidadDtoResponse>>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<TipoDocumentoIdentidadDtoResponse>>))]
         public async Task<IActionResult> TipoDocumentoIdentidadListar()
         {
             var response = await _service.TipoDocumentoIdentidadListar();

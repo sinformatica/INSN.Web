@@ -45,21 +45,21 @@
                     {
                         if (Model.ListaSistema.Any())
                         {
-                            <div class="row" style="color: #FFF; padding-top: 10px;">
-                                <div class="col-md-8 text-left">
-                                    <h6 style="margin-left: 20px;">Bienvenido(a), @NombreUsuario.ToUpper()</h6>
-                                </div>
-                                <div class="col-md-2"></div> <!-- Columna vacía para centrar el texto -->
-                                <div class="col-md-2" style="text-align: right;">
+                            <div  style="color: #FFF; padding-top: 10px; margin-right: 0px;">
+                                <div style="float: right;">
                                     <a class="nav-link text-light" asp-controller="Acceso" asp-action="Logout" style="margin-right: 20px;">Cerrar sesión</a>
                                 </div>
+                                <div style="float: left;">
+                                    <h6 style="margin-left: 20px;">Bienvenido(a), @NombreUsuario.ToUpper()</h6>
+                                </div>
+                                <div style="clear: both;"></div>
                             </div>
                         }
                     }
 
-                    <div class="content content-top text-center overflow-hidden">
+                    <div class="content-top text-center overflow-hidden">
                         <div>
-                            <img src="/Imagenes/logo.png" style="height: 80px;">
+                            <img src="/Imagenes/logo.png" style="height: 100px;">
                         </div>
                         <div class="pt-1 pb-3">
                             <h3 class="fw-bold text-white mb-2">

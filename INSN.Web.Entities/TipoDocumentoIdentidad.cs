@@ -18,5 +18,10 @@ namespace INSN.Web.Entities
         /// Descripcion
         /// </summary>
         public string? Descripcion { get; set; }
+
+        /// <summary>
+        /// Abreviatura
+        /// </summary>
+        public string? Abreviatura { get; set; }
     }
 }

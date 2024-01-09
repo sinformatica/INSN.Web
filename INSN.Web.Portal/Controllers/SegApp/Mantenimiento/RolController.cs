@@ -18,7 +18,6 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
         /// <param name="proxy"></param>
         /// <param name="logger"></param>
         /// <param name="env"></param>
-        /// <param name="menuService"></param>
         public RolController(IRolProxy proxy, 
                         ILogger<RolController> logger, 
                         IWebHostEnvironment env)

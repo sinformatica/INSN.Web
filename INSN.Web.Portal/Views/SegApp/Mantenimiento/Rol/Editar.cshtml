@@ -37,7 +37,7 @@
                     <div class="block-content block-content-full">
                         <!-- ======= INICIO : Controles para Guardar ============================== -->
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-md-8 col-sm-6">
                                 <div class="form-floating mb-4">
                                     @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Nombre", @id = "txtName",
                                     @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" }) <!-- Restricción -->
@@ -45,7 +45,7 @@
                                     <label class="form-label" asp-for="Name">@Html.Raw(RolResource.EtiquetaName)</label>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
                                     @Html.DropDownListFor(m => m.EstadoSeleccionado,
                                     new SelectList(Model.Estados, "Codigo", "Nombre"), new { @class = "form-select", @id = "cmbEstadoSeleccionado"})

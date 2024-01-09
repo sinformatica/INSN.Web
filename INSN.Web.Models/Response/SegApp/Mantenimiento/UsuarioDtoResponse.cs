@@ -39,14 +39,19 @@ namespace INSN.Web.Models.Response.SegApp.Mantenimiento
         public string? Telefono2 { get; set; }
 
         /// <summary>
-        /// Descripcion Tipo Documento Identidad
+        /// Abreviatura Tipo Documento Identidad
         /// </summary>
-        public string DescripcionTipoDocumentoIdentidad { get; set; } = default!;
+        public string AbreviaturaTipoDocumentoIdentidad { get; set; } = default!;
 
         /// <summary>
         /// TipoDocumentoIdentidadId
         /// </summary>
         public int TipoDocumentoIdentidadId { get; set; } = default!;
+
+        /// <summary>
+        /// Documento Identidad
+        /// </summary>
+        public string DocumentoIdentidad { get; set; } = default!;
 
         /// <summary>
         /// UserName

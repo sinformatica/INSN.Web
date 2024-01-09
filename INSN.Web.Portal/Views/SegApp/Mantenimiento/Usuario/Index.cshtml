@@ -2,7 +2,7 @@
 @using INSN.Web.Portal.Resources.SegApp.Mantenimiento;
 @using INSN.Web.ViewModels.SegApp.Mantenimiento;
 
-@model RolViewModel
+@model UsuarioViewModel
 
 @using INSN.Web.Portal.Controllers;
 @{
@@ -10,20 +10,20 @@
 }
 
 @{
-    ViewData["Title"] = "Rol";
+    ViewData["Title"] = "Usuario";
 }
 
 <main id="main-container">
-    <h2 class="content-heading">@Html.Raw(RolResource.EtiquetaSeccion)</h2>
+    <h2 class="content-heading">@Html.Raw(UsuarioResource.EtiquetaSeccion)</h2>
     <div class="row">
         <div class="col-md-12">
             <form>
                 <div class="block block-themed block-rounded">
                     <!-- ======= INICIO : Cabecera y Botones Principales ========================= -->
                     <div class="block-header">
-                        <h3 class="block-title">@Html.Raw(RolResource.EtiquetaTitulo)</h3>
+                        <h3 class="block-title">@Html.Raw(UsuarioResource.EtiquetaTitulo)</h3>
                         <div class="block-options">
-                            <button class="btn btn-sm btn-block-option boton-hover" asp-controller="Rol" asp-action="NuevoVista" title="Nuevo">
+                            <button class="btn btn-sm btn-block-option boton-hover" asp-controller="Usuario" asp-action="NuevoVista" title="Nuevo">
                                 <i class="fa fa-file-circle-plus fa-2x"></i>
                             </button>
                             <button class="btn btn-sm btn-block-option boton-hover" onclick="Limpiar()" title="Limpiar">
@@ -38,9 +38,9 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Nombre" , @id = "txtName",
+                                    @Html.TextBoxFor(m => m.TextoBuscar, new { @class = "form-control", @placeholder = "Nombre o usuario" , @id = "txtTextoBuscar",
                                     @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" }) <!-- Restricción -->
-                                    <label class="form-label">@Html.Raw(RolResource.EtiquetaName)</label>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaBusqueda)</label>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="col-md-2 col-sm-6 text-center">
-                                <button id="btnConsultar" class="btn btn-primary" asp-controller="Rol" asp-action="RolListar" title="Consultar">
+                                <button id="btnConsultar" class="btn btn-primary" asp-controller="Usuario" asp-action="Index" title="Consultar">
                                     <i class="fa fa-search"></i> Consultar
                                 </button>
                             </div>
@@ -65,7 +65,7 @@
                                 {
                                     <p>Sin resultados</p>
                                 }
-                                else if (!Model.Roles.Any())
+                                else if (!Model.Usuarios.Any())
                                 {
                                     <p>Sin datos para mostrar</p>
                                 }
@@ -78,17 +78,52 @@
                                             <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
                                                 <thead>
                                                     <tr>
-                                                        <th class="text-center"> @Html.Raw(RolResource.EtiquetaGridName)</th>
+                                                        <th class="text-center"> @Html.Raw(UsuarioResource.EtiquetaGridNombre)</th>
+                                                        <th class="text-center"> @Html.Raw(UsuarioResource.EtiquetaGridUsuario)</th>
+                                                        <th class="text-center"> @Html.Raw(UsuarioResource.EtiquetaGridCorreo)</th>
+                                                        <th class="text-center"> @Html.Raw(UsuarioResource.EtiquetaGridTipoDocIdentidad)</th>
+                                                        <th class="text-center"> @Html.Raw(UsuarioResource.EtiquetaGridDocIdentidad)</th>
+                                                        <th class="text-center"> @Html.Raw(UsuarioResource.EtiquetaGridTelefono)</th>
+                                                        <th class="text-center"> @Html.Raw(UsuarioResource.EtiquetaGridServicio)</th>
                                                         <th class="text-center" style="width: 15%;">@Html.Raw(GeneralResource.EtiquetaEstado)</th>
                                                         <th class="text-center" style="width: 15%;">@Html.Raw(GeneralResource.EtiquetaAccion)</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach (var item in Model.Roles)
+                                                    @foreach (var item in Model.Usuarios)
                                                     {
                                                         <tr>
                                                             <td class="text-center">
-                                                                @item.Name
+                                                                @{
+                                                                    string NombreCompleto = item.Nombres + " " + item.ApellidoPaterno + " " + item.ApellidoMaterno;
+                                                                }
+                                                                @NombreCompleto
+                                                            </td>
+                                                            <td class="text-center">
+                                                                @item.UserName
+                                                            </td>
+                                                            <td class="text-center">
+                                                                @item.Email
+                                                            </td>
+                                                            <td class="text-center">
+                                                                @item.AbreviaturaTipoDocumentoIdentidad
+                                                            </td>
+                                                            <td class="text-center">
+                                                                @item.DocumentoIdentidad
+                                                            </td>
+                                                            <td class="text-center">
+                                                                @{
+                                                                    string Telefonos = item.PhoneNumber;
+
+                                                                    if (!string.IsNullOrEmpty(item.Telefono2))
+                                                                    {
+                                                                        Telefonos += " / " + item.Telefono2;
+                                                                    }
+                                                                }
+                                                                @Telefonos
+                                                            </td>
+                                                            <td class="text-center">
+                                                                @item.Servicio
                                                             </td>
                                                             <td class="text-center">
                                                                 @if (item.Estado == "A")
@@ -113,25 +148,6 @@
                                     </div>
                                 }
                             </div>
-                            <!-- ======= INICIO : Paginación de DataTable ============================ -->
-                            @*      <div class="row">
-                            <div class="col-1">
-                            <select id="pageSize" class="form-select" asp-for="Rows">
-                            <option>10</option>
-                            <option>20</option>
-                            <option>40</option>
-                            <option>60</option>
-                            <option>100</option>
-                            </select>
-                            </div>
-                            <div class="col-5">
-                            </div>
-                            <div class="col-6">
-                            <partial name="_DataPager" model="ViewBag.Pager" />
-                            @Html.HiddenFor(m => m.Page, new { id = "currentPage"})
-                            </div>
-                            </div> *@
-                            <!-- ======= FIN    : Paginación de DataTable ============================ -->
                         </div>
                         <!-- ======= FIN    : Mostrar DataTable - Datos ========================== -->
                     </div>
@@ -148,7 +164,7 @@
         //#region [Limpiar]
         function Limpiar() {
             document.getElementById('cmbEstadoSeleccionado').selectedIndex = 0; // Reemplaza 'cmbEstadoSeleccionado' con el ID de tu combobox
-            document.getElementById('txtName').value = ''; // Esto limpia el contenido del campo de texto
+            document.getElementById('txtTextoBuscar').value = ''; // Esto limpia el contenido del campo de texto
         }
         //#endregion
 
@@ -157,7 +173,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             const btnConsultar = document.getElementById('btnConsultar');
             // Llamar a la función con los elementos correspondientes
-            bindEnterKeyToButton(document.getElementById('txtName'), btnConsultar);
+            bindEnterKeyToButton(document.getElementById('txtTextoBuscar'), btnConsultar);
         });
         //#endregion
         //#endregion
@@ -200,7 +216,7 @@
             function eliminarRegistro(registroId) {
                 const form = document.createElement('form');
                 form.method = 'post';
-                form.action = 'Rol/RolEliminar'; //Invocar Metodo de Controller
+                form.action = 'Usuario/UsuarioEliminar'; //Invocar Metodo de Controller
 
                 const hiddenField = document.createElement('input');
                 hiddenField.type = 'hidden';
@@ -211,6 +227,6 @@
                 form.submit();
             }
         });
-                //#endregion
+                        //#endregion
     </script>
 }

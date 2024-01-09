@@ -111,6 +111,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>RolResource.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\SegApp\Mantenimiento\UsuarioResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>UsuarioResource.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -125,6 +130,10 @@
     <EmbeddedResource Update="Resources\SegApp\Mantenimiento\RolResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RolResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\SegApp\Mantenimiento\UsuarioResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UsuarioResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

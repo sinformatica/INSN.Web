@@ -1,6 +1,6 @@
 ﻿using INSN.Web.DataAccess;
 using INSN.Web.Entities;
-using INSN.Web.Repositories.Interfaces.SegApp;
+using INSN.Web.Repositories.Interfaces;
 using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,7 +10,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INSN.Web.Repositories.Implementaciones.SegApp
+namespace INSN.Web.Repositories.Implementaciones
 {
     /// <summary>
     /// Metodos de Tipo Documento Identidad
@@ -32,7 +32,7 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp
         /// <returns></returns>
         public async Task<ICollection<TipoDocumentoIdentidad>> TipoDocumentoIdentidadListar()
         {
-            Expression<Func<TipoDocumentoIdentidad, bool>> predicate = x => x.Estado == "A";
+            Expression<Func<TipoDocumentoIdentidad, bool>> predicate = x => (x.Estado == "A" && x.EstadoRegistro == 1);
 
             return await Context.Set<TipoDocumentoIdentidad>()
                 .Where(predicate)
@@ -40,6 +40,7 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp
                 {
                     Id = p.Id,
                     Descripcion = p.Descripcion,
+                    Abreviatura = p.Abreviatura,
                     Estado = p.Estado
                 })
                 .ToListAsync();

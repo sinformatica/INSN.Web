@@ -41,14 +41,19 @@ namespace INSN.Web.Entities.SegApp
         public string? Telefono2 { get; set; }
 
         /// <summary>
-        /// Descripcion Tipo Documento Identidad
+        /// Abreviatura Tipo Documento Identidad
         /// </summary>
-        public string DescripcionTipoDocumentoIdentidad { get; set; }
+        public string AbreviaturaTipoDocumentoIdentidad { get; set; }
 
         /// <summary>
         /// TipoDocumentoIdentidadId
         /// </summary>
         public int TipoDocumentoIdentidadId { get; set; }
+
+        /// <summary>
+        /// Documento Identidad
+        /// </summary>
+        public string DocumentoIdentidad { get; set; }
 
         /// <summary>
         /// UserName

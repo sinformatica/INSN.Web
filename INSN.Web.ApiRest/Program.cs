@@ -21,10 +21,6 @@ using INSN.Web.Services.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.Services.Implementaciones.SegApp.Mantenimiento;
 using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento;
-using INSN.Web.Repositories.Interfaces.SegApp;
-using INSN.Web.Repositories.Implementaciones.SegApp;
-using INSN.Web.Services.Interfaces.SegApp;
-using INSN.Web.Services.Implementaciones.SegApp;
 
 var builder = WebApplication.CreateBuilder(args);
 

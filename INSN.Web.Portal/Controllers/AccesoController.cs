@@ -12,13 +12,13 @@ namespace INSN.Web.Portal.Controllers
 {
     public class AccesoController : Controller
     {
-        private readonly IUsuarioProxy _proxy;
+        private readonly IAccesoProxy _proxy;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="proxy"></param>
-        public AccesoController(IUsuarioProxy proxy)
+        public AccesoController(IAccesoProxy proxy)
         {
             _proxy = proxy;
         }

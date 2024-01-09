@@ -3,10 +3,8 @@ using INSN.Web.Entities;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Models.Response;
-using INSN.Web.Repositories.Interfaces.SegApp;
 using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.Services.Implementaciones.SegApp.Mantenimiento;
-using INSN.Web.Services.Interfaces.SegApp;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using System;
@@ -14,10 +12,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using INSN.Web.Models.Response.SegApp;
 using INSN.Web.Models.Request.SegApp;
+using INSN.Web.Models;
+using INSN.Web.Repositories.Interfaces;
+using INSN.Web.Services.Interfaces;
 
-namespace INSN.Web.Services.Implementaciones.SegApp
+namespace INSN.Web.Services.Implementaciones
 {
     /// <summary>
     /// Service Tipo Documento Identidad
@@ -34,7 +34,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp
         /// <param name="repository"></param>
         /// <param name="logger"></param>
         /// <param name="mapper"></param>
-        public TipoDocumentoIdentidadService(ITipoDocumentoIdentidadRepository repository, 
+        public TipoDocumentoIdentidadService(ITipoDocumentoIdentidadRepository repository,
                                         ILogger<RolService> logger,
                                         IMapper mapper)
         {

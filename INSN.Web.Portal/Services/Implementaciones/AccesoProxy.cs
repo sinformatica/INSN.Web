@@ -8,13 +8,13 @@ namespace INSN.Web.Portal.Services.Implementaciones
     /// <summary>
     /// Clase Proxy Usuario
     /// </summary>
-    public class UsuarioProxy : RestBase, IUsuarioProxy
+    public class AccesoProxy : RestBase, IAccesoProxy
     {
         /// <summary>
         /// Proxy
         /// </summary>
         /// <param name="httpClient"></param>
-        public UsuarioProxy(HttpClient httpClient)
+        public AccesoProxy(HttpClient httpClient)
             : base("api/Acceso", httpClient)
         {
 

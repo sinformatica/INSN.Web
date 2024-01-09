@@ -117,6 +117,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                     ApellidoMaterno = request.ApellidoMaterno,
                     servicio = request.Servicio,
                     TipoDocumentoIdentidadId = request.TipoDocumentoIdentidadId,
+                    DocumentoIdentidad = request.DocumentoIdentidad,
                     UserName = request.UserName,
                     Email = request.Email,
                     PhoneNumber = request.PhoneNumber,
@@ -143,10 +144,25 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                 {
                     var sb = new StringBuilder();
 
+                    var errorMessages = new HashSet<string>(); // Conjunto para almacenar mensajes de error únicos
+
                     foreach (var error in result.Errors)
                     {
-                        sb.Append($"{error.Description}, ");
+                        // Buscar el mensaje de error personalizado en español desde los recursos
+                        var errorMessage = Resources.ResourceGeneral.ResourceManager.GetString(error.Code);
+                        
+                        // Si no se encuentra un mensaje personalizado, usa la descripción predeterminada del error
+                        errorMessage = errorMessage ?? error.Description;
+
+                        if (!errorMessages.Contains(errorMessage))
+                        {
+                            sb.Append($"{errorMessage}. ");
+                            errorMessages.Add(errorMessage); // Agregar mensaje al conjunto
+                        }
                     }
+
+                    // Mensajes únicos de errores concatenados en sb
+
 
                     response.ErrorMessage = sb.ToString();
                     sb.Clear(); // Liberar la memoria

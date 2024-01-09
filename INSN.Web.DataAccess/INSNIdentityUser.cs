@@ -17,5 +17,6 @@ namespace INSN.Web.DataAccess
         public string? Telefono2 { get; set; }
         public TipoDocumentoIdentidad TipoDocumentoIdentidad { get; set; } = default!;
         public int TipoDocumentoIdentidadId { get; set; }
+        public string? DocumentoIdentidad { get; set; }
     }
 }

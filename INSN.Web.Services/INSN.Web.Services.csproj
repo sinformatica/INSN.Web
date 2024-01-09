@@ -18,4 +18,19 @@
     <ProjectReference Include="..\INSN.Web.Repositories\INSN.Web.Repositories.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Resources\ResourceGeneral.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ResourceGeneral.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\ResourceGeneral.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceGeneral.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

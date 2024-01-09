@@ -52,6 +52,11 @@ namespace INSN.Web.Entities.SegApp
         public int TipoDocumentoIdentidadId { get; set; }
 
         /// <summary>
+        /// Documento Identidad
+        /// </summary>
+        public string DocumentoIdentidad { get; set; }
+
+        /// <summary>
         /// UserName
         /// </summary>
         public string UserName { get; set; }
