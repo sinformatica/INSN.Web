@@ -25,5 +25,26 @@ namespace INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento
         /// <param name="id"></param>
         /// <returns></returns>
         Task<UsuarioDtoResponse> UsuarioBuscarId(string id);
+
+        /// <summary>
+        /// IProxy: Usuario Actualizar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task UsuarioActualizar(UsuarioDtoRequest request);
+
+        /// <summary>
+        /// IProxy: Usuario Eliminar
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task UsuarioEliminar(string id);
+
+        /// <summary>
+        /// IProxy: Usuario Actualizar Clave
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task UsuarioActualizarClave(UsuarioDtoRequest request);
     }
 }

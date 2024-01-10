@@ -67,9 +67,14 @@ namespace INSN.Web.Services.Implementaciones
             {
                 var identity = await _userManager.FindByNameAsync(request.Usuario);
 
-                if (identity is null)
+                if (identity is null || identity.EstadoRegistro == 0)
                 {
                     throw new SecurityException("Usuario no existe");
+                }
+
+                if (identity.Estado != "A")
+                {
+                    throw new SecurityException("Usuario no está activo");
                 }
 
                 if (await _userManager.IsLockedOutAsync(identity))

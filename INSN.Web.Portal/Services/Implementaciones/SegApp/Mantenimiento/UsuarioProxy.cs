@@ -104,5 +104,106 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
 
             throw new InvalidOperationException(response.ErrorMessage);
         }
+
+        /// <summary>
+        /// Proxy: Usuario Actualizar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public async Task UsuarioActualizar(UsuarioDtoRequest request)
+        {
+            var response = await HttpClient.PutAsJsonAsync($"{BaseUrl}/UsuarioActualizar/", request);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorMessage = await response.Content.ReadAsStringAsync();
+
+                if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    // Deserializar el JSON a la clase ErrorResponse
+                    BaseResponse errorResponse = JsonConvert.DeserializeObject<BaseResponse>(errorMessage);
+
+                    // Acceder a la propiedad errorMessage
+                    string errorText = errorResponse.ErrorMessage;
+
+                    throw new InvalidOperationException(errorText);
+                }
+                else
+                {
+                    throw new InvalidOperationException(response.ReasonPhrase);
+                }
+            }
+            else
+            {
+                var resultado = await response.Content.ReadFromJsonAsync<BaseResponse>();
+
+                if (resultado != null && resultado.Success == false)
+                {
+                    throw new InvalidOperationException(resultado.ErrorMessage);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Proxy: Usuario Eliminar
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public async Task UsuarioEliminar(string id)
+        {
+            var response = await HttpClient.DeleteAsync($"{BaseUrl}/UsuarioEliminar/{id}");
+            if (response.IsSuccessStatusCode)
+            {
+                var resultado = await response.Content.ReadFromJsonAsync<BaseResponse>();
+                if (resultado!.Success == false)
+                    throw new InvalidOperationException(resultado.ErrorMessage);
+            }
+            else
+            {
+                throw new InvalidOperationException(response.ReasonPhrase);
+            }
+        }
+
+        /// <summary>
+        /// Proxy: Usuario Actualizar Clave
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public async Task UsuarioActualizarClave(UsuarioDtoRequest request)
+        {
+            var response = await HttpClient.PutAsJsonAsync($"{BaseUrl}/UsuarioActualizarClave/", request);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorMessage = await response.Content.ReadAsStringAsync();
+
+                if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    // Deserializar el JSON a la clase ErrorResponse
+                    BaseResponse errorResponse = JsonConvert.DeserializeObject<BaseResponse>(errorMessage);
+
+                    // Acceder a la propiedad errorMessage
+                    string errorText = errorResponse.ErrorMessage;
+
+                    throw new InvalidOperationException(errorText);
+                }
+                else
+                {
+                    throw new InvalidOperationException(response.ReasonPhrase);
+                }
+            }
+            else
+            {
+                var resultado = await response.Content.ReadFromJsonAsync<BaseResponse>();
+
+                if (resultado != null && resultado.Success == false)
+                {
+                    throw new InvalidOperationException(resultado.ErrorMessage);
+                }
+            }
+        }
     }
 }

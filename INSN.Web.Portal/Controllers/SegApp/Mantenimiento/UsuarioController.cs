@@ -144,7 +144,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                     Telefono2 = request.Telefono2,
                     Password = request.Clave,
                     ConfirmarPassword = request.ConfirmaClave,
-                    Estado = "A",
+                    Estado = request.EstadoSeleccionado,
                     #region [Base Insert]
                     EstadoRegistro = 1,
                     FechaCreacion = DateTime.Now,
@@ -203,70 +203,212 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
             var model = new UsuarioViewModel
             {
                 Id = response.Id,
-                Nombre = response.Nombres
+                Nombre = response.Nombres,
+                ApellidoPaterno = response.ApellidoPaterno,
+                ApellidoMaterno = response.ApellidoMaterno,
+                Servicio = response.Servicio,
+                TipoDocumentoIdentidadId = response.TipoDocumentoIdentidadId,
+                DocumentoIdentidad = response.DocumentoIdentidad,
+                Correo = response.Email,
+                Telefono1 = response.PhoneNumber,
+                Telefono2 = response.Telefono2,
+                Usuario = response.UserName,
+                EstadoSeleccionado = response.Estado
             };
 
             var resultTiposDoc = TipoDocumentoIdentidadListar();
             model.TiposDocIdentidad = resultTiposDoc.Result;
 
-            return View("~/Views/Mantenimiento/Producto/Editar.cshtml", model);
+            return View("~/Views/SegApp/Mantenimiento/Usuario/Editar.cshtml", model);
         }
 
         /// <summary>
-        /// Producto Actualizar
+        /// Usuario Actualizar
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        //public async Task<IActionResult> ProductoActualizar(ProductoViewModel request)
-        //{
-        //    var response = await _proxy.ProductoBuscarId(request.CodigoProductoId);
+        public async Task<IActionResult> UsuarioActualizar(UsuarioViewModel request)
+        {
+            try
+            {
+                var response = await _proxy.UsuarioBuscarId(request.Id);
 
-        //    if (response is null)
-        //    {
-        //        ModelState.AddModelError("ID", "No se encontro el registro");
-        //        return View();
-        //    }
+                if (response is null)
+                {
+                    ModelState.AddModelError("ID", "No se encontro el registro");
+                    return View();
+                }
 
-        //    try
-        //    {
-        //        if (string.IsNullOrWhiteSpace(request.Descripcion))
-        //        {
-        //            throw new ModelException(nameof(request.Descripcion), "Campo requerido: Descripción");
-        //        }
+                var resultTiposDoc = TipoDocumentoIdentidadListar();
+                request.TiposDocIdentidad = resultTiposDoc.Result;
 
-        //        var dtoRequest = new ProductoDtoRequest
-        //        {
-        //            CodigoProductoId = request.CodigoProductoId,
-        //            Descripcion = request.Descripcion,
-        //            Estado = request.EstadoSeleccionado,
-        //            #region [Base Update]
-        //            EstadoRegistro = 1,
-        //            FechaCreacion = response.FechaCreacion,
-        //            UsuarioCreacion = response.UsuarioCreacion,
-        //            TerminalCreacion = response.TerminalCreacion,
-        //            TerminalModificacion = Environment.MachineName,
-        //            UsuarioModificacion = Environment.UserName, //Modificar por Usuario de sesion logueada
-        //            FechaModificacion = DateTime.Now
-        //            #endregion
-        //        };
+                if (string.IsNullOrWhiteSpace(request.Nombre)) throw new ModelException(nameof(request.Nombre), "Campo requerido: Nombre");
+                if (string.IsNullOrWhiteSpace(request.ApellidoPaterno)) throw new ModelException(nameof(request.ApellidoPaterno), "Campo requerido: Apellido paterno");
+                if (string.IsNullOrWhiteSpace(request.ApellidoMaterno)) throw new ModelException(nameof(request.ApellidoMaterno), "Campo requerido: Apellido materno");
+                if (string.IsNullOrWhiteSpace(request.Servicio)) throw new ModelException(nameof(request.Servicio), "Campo requerido: Servicio");
+                if (string.IsNullOrWhiteSpace(request.DocumentoIdentidad)) throw new ModelException(nameof(request.DocumentoIdentidad), "Campo requerido: Documento identidad");
+                if (string.IsNullOrWhiteSpace(request.Correo)) throw new ModelException(nameof(request.Correo), "Campo requerido: Correo");
+                if (string.IsNullOrWhiteSpace(request.Telefono1)) throw new ModelException(nameof(request.Telefono1), "Campo requerido: Teléfono 1");
+                if (string.IsNullOrWhiteSpace(request.Usuario)) throw new ModelException(nameof(request.Usuario), "Campo requerido: Usuario");
+                
+                var dtoRequest = new UsuarioDtoRequest
+                {
+                    Id = request.Id,
+                    Nombres = request.Nombre,
+                    ApellidoPaterno = request.ApellidoPaterno,
+                    ApellidoMaterno = request.ApellidoMaterno,
+                    Servicio = request.Servicio,
+                    TipoDocumentoIdentidadId = request.TipoDocumentoIdentidadId,
+                    DocumentoIdentidad = request.DocumentoIdentidad,
+                    UserName = request.Usuario,
+                    NormalizedUserName = request.Usuario.ToUpper(),
+                    Email = request.Correo,
+                    NormalizedEmail = request.Correo.ToUpper(),
+                    PhoneNumber = request.Telefono1,
+                    Telefono2 = request.Telefono2,
+                    Estado = request.EstadoSeleccionado,
+                    #region [Base Update]
+                    EstadoRegistro = 1,
+                    FechaCreacion = response.FechaCreacion,
+                    UsuarioCreacion = response.UsuarioCreacion,
+                    TerminalCreacion = response.TerminalCreacion,
+                    TerminalModificacion = Environment.MachineName,
+                    UsuarioModificacion = Environment.UserName, //Modificar por Usuario de sesion logueada
+                    FechaModificacion = DateTime.Now
+                    #endregion
+                };
 
-        //        await _proxy.ProductoActualizar(dtoRequest);
+                await _proxy.UsuarioActualizar(dtoRequest);
 
-        //        return RedirectToAction(nameof(Index));
+                #region[Controles de Codigo/Controller]
+                TempData["CodigoMensaje"] = 1;
+                TempData["Mensaje"] = "Registro actualizado correctamente";
+                TempData["Metodo"] = "Regresar";
+                TempData["Controlador"] = "Usuario";
+                #endregion
 
-        //    }
-        //    catch (ModelException ex)
-        //    {
-        //        ModelState.AddModelError(ex.PropertyName, ex.Message);
-        //        _logger.LogError(ex, "Validación de registro {Message}", ex.Message);
-        //        return View("~/Views/Mantenimiento/Producto/Editar.cshtml", request);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError(ex, "Modificación de Producto {Message}", ex.Message);
-        //        return View("~/Views/Mantenimiento/Producto/Editar.cshtml", request);
-        //    }
-        //}
+                return View("~/Views/SegApp/Mantenimiento/Usuario/Editar.cshtml", request);
+            }
+            catch (ModelException ex)
+            {
+                ModelState.AddModelError(ex.PropertyName, ex.Message);
+                _logger.LogError(ex, "Validación de registro {Message}", ex.Message);
+                return View("~/Views/SegApp/Mantenimiento/Usuario/Editar.cshtml", request);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Modificación de Usuario {Message}", ex.Message);
+                TempData["CodigoMensaje"] = -1;
+                TempData["Mensaje"] = ex.Message;
+
+                var resultTiposDoc = TipoDocumentoIdentidadListar();
+                request.TiposDocIdentidad = resultTiposDoc.Result;
+                return View("~/Views/SegApp/Mantenimiento/Usuario/Editar.cshtml", request);
+            }
+        }
+        #endregion
+
+        #region [Eliminar]
+        /// <summary>
+        /// UsuarioEliminar
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<RedirectToActionResult> UsuarioEliminar(string id)
+        {
+            await _proxy.UsuarioEliminar(id);
+            return RedirectToAction(nameof(Index));
+        }
+        #endregion
+
+        #region [Editar clave]
+        /// <summary>
+        /// Vista Ventana Nuevo
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> EditarClaveVista(UsuarioViewModel model)
+        {
+            var resultTiposDoc = TipoDocumentoIdentidadListar();
+            model.TiposDocIdentidad = resultTiposDoc.Result;
+
+            return View("~/Views/SegApp/Mantenimiento/Usuario/EditarClave.cshtml", model);
+        }
+
+        /// <summary>
+        /// Usuario Actualizar Clave
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> UsuarioActualizarClave(UsuarioViewModel request)
+        {
+            try
+            {
+                var response = await _proxy.UsuarioBuscarId(request.Id);
+
+                if (response is null)
+                {
+                    ModelState.AddModelError("ID", "No se encontro el registro");
+                    return View();
+                }
+
+                if (string.IsNullOrWhiteSpace(request.Clave)) throw new ModelException(nameof(request.Clave), "Campo requerido: Contraseña");
+
+                if (string.IsNullOrWhiteSpace(request.ConfirmaClave))
+                {
+                    throw new ModelException(nameof(request.ConfirmaClave), "Campo requerido: Confirmar contraseña");
+                }
+                else
+                {
+                    if (request.Clave != request.ConfirmaClave) throw new ModelException(nameof(request.ConfirmaClave), "Contraseñas no coinciden");
+                }
+
+                var resultTiposDoc = TipoDocumentoIdentidadListar();
+                request.TiposDocIdentidad = resultTiposDoc.Result;
+
+                var dtoRequest = new UsuarioDtoRequest
+                {
+                    Id = request.Id,
+                    Password = request.Clave,
+                    ConfirmarPassword = request.Clave,
+                    #region [Base Update]
+                    EstadoRegistro = 1,
+                    FechaCreacion = response.FechaCreacion,
+                    UsuarioCreacion = response.UsuarioCreacion,
+                    TerminalCreacion = response.TerminalCreacion,
+                    TerminalModificacion = Environment.MachineName,
+                    UsuarioModificacion = Environment.UserName, //Modificar por Usuario de sesion logueada
+                    FechaModificacion = DateTime.Now
+                    #endregion
+                };
+
+                await _proxy.UsuarioActualizarClave(dtoRequest);
+
+                #region[Controles de Codigo/Controller]
+                TempData["CodigoMensaje"] = 1;
+                TempData["Mensaje"] = "Contraseña actualizada correctamente";
+                TempData["Metodo"] = "Regresar";
+                TempData["Controlador"] = "Usuario";
+                #endregion
+
+                return View("~/Views/SegApp/Mantenimiento/Usuario/EditarClave.cshtml", request);
+            }
+            catch (ModelException ex)
+            {
+                ModelState.AddModelError(ex.PropertyName, ex.Message);
+                _logger.LogError(ex, "Validación de registro {Message}", ex.Message);
+                return View("~/Views/SegApp/Mantenimiento/Usuario/EditarClave.cshtml", request);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Modificación de Usuario {Message}", ex.Message);
+                TempData["CodigoMensaje"] = -1;
+                TempData["Mensaje"] = ex.Message;
+
+                var resultTiposDoc = TipoDocumentoIdentidadListar();
+                request.TiposDocIdentidad = resultTiposDoc.Result;
+                return View("~/Views/SegApp/Mantenimiento/Usuario/EditarClave.cshtml", request);
+            }
+        }
         #endregion
     }
 }

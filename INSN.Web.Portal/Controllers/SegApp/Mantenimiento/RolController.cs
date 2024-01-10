@@ -202,7 +202,6 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
                 #endregion
 
                 return View("~/Views/SegApp/Mantenimiento/Rol/Editar.cshtml", request);
-
             }
             catch (ModelException ex)
             {

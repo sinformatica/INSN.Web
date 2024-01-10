@@ -91,5 +91,17 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
             var response = await _service.UsuarioEliminar(Id);
             return response.Success ? Ok(response) : BadRequest(response);
         }
+
+        /// <summary>
+        /// ApiRest: Usuario Actualizar Clave
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPut("UsuarioActualizarClave")]
+        public async Task<IActionResult> UsuarioActualizarClave(UsuarioDtoRequest request)
+        {
+            var response = await _service.UsuarioActualizarClave(request);
+            return response.Success ? Ok(response) : NotFound(response);
+        }
     }
 }

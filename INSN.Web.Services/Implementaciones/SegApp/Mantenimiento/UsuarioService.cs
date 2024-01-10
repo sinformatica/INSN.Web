@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using INSN.Web.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.Data.SqlClient;
 
 namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 {
@@ -119,7 +120,9 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                     TipoDocumentoIdentidadId = request.TipoDocumentoIdentidadId,
                     DocumentoIdentidad = request.DocumentoIdentidad,
                     UserName = request.UserName,
+                    NormalizedUserName = request.UserName.ToUpper(),
                     Email = request.Email,
+                    NormalizedEmail = request.Email.ToUpper(),
                     PhoneNumber = request.PhoneNumber,
                     Telefono2 = request.Telefono2,
                     EmailConfirmed = true
@@ -162,8 +165,6 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                     }
 
                     // Mensajes únicos de errores concatenados en sb
-
-
                     response.ErrorMessage = sb.ToString();
                     sb.Clear(); // Liberar la memoria
                 }
@@ -194,16 +195,41 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 
                 if (registro is not null)
                 {
+                    // Verificamos si otro usuario ya tiene el mismo email
+                    var existingUserWithEmail = await _userManager.FindByEmailAsync(request.Email);
+
+                    if (existingUserWithEmail != null && existingUserWithEmail.Id != registro.Id)
+                    {
+                        // Si encontramos otro usuario con el mismo email pero con diferente ID, indicamos que el email ya está en uso
+                        response.ErrorMessage = Resources.ResourceGeneral.DuplicateEmail;
+                        _logger.LogError(response.ErrorMessage);
+                        response.Success = false;
+                        return response;
+                    }
+
                     _mapper.Map(request, registro);
                     await _repository.Actualizar();
                 }
 
                 response.Success = registro != null;
             }
+            catch (DbUpdateException ex) // Capturamos la excepción de actualización de la base de datos
+            {
+                if (ex.InnerException is SqlException sqlEx && sqlEx.Number == 2601) // Verificamos el número de error específico de SQL Server
+                {
+                    response.ErrorMessage = Resources.ResourceGeneral.DuplicateUserName; // Utilizamos un recurso para el mensaje específico
+                    _logger.LogError(ex, response.ErrorMessage);
+                }
+                else
+                {
+                    response.ErrorMessage = "Service: Error al actualizar: " + ex.Message; // Otras excepciones de DbUpdateException
+                    _logger.LogError(ex, response.ErrorMessage);
+                }
+            }
             catch (Exception ex)
             {
-                response.ErrorMessage = "Service: Error al actualizar: " + ex.Message;
-                _logger.LogError(ex, "{ErroMessage} {Message}", response.ErrorMessage, ex.Message);
+                response.ErrorMessage = "Service: Error al actualizar: " + ex.Message; // Otras excepciones genéricas
+                _logger.LogError(ex, response.ErrorMessage);
             }
 
             return response;
@@ -227,6 +253,66 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
             {
                 response.ErrorMessage = "Service: Error al eliminar: " + ex.Message;
                 _logger.LogError(ex, "{ErroMessage} {Message}", response.ErrorMessage, ex.Message);
+            }
+
+            return response;
+        }
+
+        /// <summary>
+        /// Serivce: Usuario Actualizar Clave
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public async Task<BaseResponse> UsuarioActualizarClave(UsuarioDtoRequest request)
+        {
+            var response = new BaseResponse();
+
+            try
+            {
+                var user = await _userManager.Users.SingleOrDefaultAsync(u => u.Id == request.Id);
+
+                if (user != null)
+                {
+                    var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+                    var result = await _userManager.ResetPasswordAsync(user, token, request.Password);
+
+                    if (result.Succeeded)
+                    {
+                        response.Success = true;
+                    }
+                    else
+                    {
+                        response.Success = false;
+                        var sb = new StringBuilder();
+
+                        var errorMessages = new HashSet<string>();
+
+                        foreach (var error in result.Errors)
+                        {
+                            var errorMessage = Resources.ResourceGeneral.ResourceManager.GetString(error.Code);
+                            errorMessage = errorMessage ?? error.Description;
+
+                            if (!errorMessages.Contains(errorMessage))
+                            {
+                                sb.Append($"{errorMessage}. ");
+                                errorMessages.Add(errorMessage);
+                            }
+                        }
+
+                        response.ErrorMessage = sb.ToString();
+                    }
+                }
+                else
+                {
+                    response.Success = false;
+                    response.ErrorMessage = Resources.ResourceGeneral.UserNotFound;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.ErrorMessage = "Error al actualizar contraseña " + ex.Message;
+                _logger.LogError(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
             }
 
             return response;

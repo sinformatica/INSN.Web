@@ -268,6 +268,15 @@ namespace INSN.Web.Portal.Resources.SegApp.Mantenimiento {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a CAMBIAR CONTRASEÑA.
+        /// </summary>
+        public static string EtiquetaTituloEditarClave {
+            get {
+                return ResourceManager.GetString("EtiquetaTituloEditarClave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a NUEVO USUARIO.
         /// </summary>
         public static string EtiquetaTituloNuevo {

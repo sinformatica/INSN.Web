@@ -79,7 +79,7 @@ namespace INSN.Web.Services.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Las contraseñas deben tener al menos un dígito (&apos;0&apos;-&apos;9&apos;).
+        ///   Busca una cadena traducida similar a La contraseña debe tener al menos un dígito (&apos;0&apos;-&apos;9&apos;).
         /// </summary>
         public static string PasswordRequiresDigit {
             get {
@@ -88,11 +88,20 @@ namespace INSN.Web.Services.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Las contraseñas deben tener al menos 6 caracteres.
+        ///   Busca una cadena traducida similar a La contraseña debe tener al menos 6 caracteres.
         /// </summary>
         public static string PasswordTooShort {
             get {
                 return ResourceManager.GetString("PasswordTooShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuario no encontrado.
+        /// </summary>
+        public static string UserNotFound {
+            get {
+                return ResourceManager.GetString("UserNotFound", resourceCulture);
             }
         }
     }

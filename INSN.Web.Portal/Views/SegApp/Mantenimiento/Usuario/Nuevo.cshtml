@@ -126,7 +126,7 @@
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaUsuario)</label>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-md-3 col-sm-6">
                                 <div class="form-floating mb-4">
                                     @Html.TextBoxFor(m => m.Clave, new { @class = "form-control", @placeholder = "Contraseña", @id = "txtClave", @type = "password" })
                                     <span asp-validation-for="Clave" class="text-danger"></span>
@@ -134,11 +134,18 @@
 
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-md-3 col-sm-6">
                                 <div class="form-floating mb-4">
                                     @Html.TextBoxFor(m => m.ConfirmaClave, new { @class = "form-control", @placeholder = "Confirmar Clave", @id = "txtConfirmaClave", @type = "password" })
                                     <span asp-validation-for="ConfirmaClave" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaConfirmaClave)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.DropDownListFor(m => m.EstadoSeleccionado,
+                                    new SelectList(Model.Estados, "Codigo", "Nombre"), new { @class = "form-select", @id = "cmbEstadoSeleccionado"})
+                                    <label class="form-label">@Html.Raw(GeneralResource.EtiquetaEstado)</label>
                                 </div>
                             </div>
                         </div>

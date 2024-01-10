@@ -48,5 +48,12 @@ namespace INSN.Web.Services.Interfaces.SegApp.Mantenimiento
         /// <param name="Id"></param>
         /// <returns></returns>
         Task<BaseResponse> UsuarioEliminar(string Id);
+
+        /// <summary>
+        /// IService: Usuario Actualizar clave
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        Task<BaseResponse> UsuarioActualizarClave(UsuarioDtoRequest request);
     }
 }

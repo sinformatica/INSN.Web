@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace INSN.Web.Models.Response.SegApp.Mantenimiento
 {
@@ -67,5 +69,10 @@ namespace INSN.Web.Models.Response.SegApp.Mantenimiento
         /// PhoneNumber
         /// </summary>
         public string PhoneNumber { get; set; } = default!;
+
+        /// <summary>
+        /// Clave
+        /// </summary>
+        public string Clave { get; set; } = default!;
     }
 }

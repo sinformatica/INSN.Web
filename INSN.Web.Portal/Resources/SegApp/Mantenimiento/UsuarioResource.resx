@@ -186,6 +186,9 @@
   <data name="EtiquetaTituloEditar" xml:space="preserve">
     <value>EDITAR USUARIO</value>
   </data>
+  <data name="EtiquetaTituloEditarClave" xml:space="preserve">
+    <value>CAMBIAR CONTRASEÑA</value>
+  </data>
   <data name="EtiquetaTituloNuevo" xml:space="preserve">
     <value>NUEVO USUARIO</value>
   </data>
