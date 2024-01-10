@@ -4,20 +4,327 @@
 
 <main id="main">
    
-    <!-- ======= INICIO DE SESSION CON PESTAÑA (    BIBLIOTECA VIRTUAL )======= -->
-    <!-- ======= INICIO OBJETIVOS - ORGANIGRAMA - HISTORIA ======= -->
-    <div class="section best-deal">
+  @*   <div class="section best-deal">
         <div class="container">
             <div class="col-lg-12">
                 <div class="section-header">
                     <h3>BIBLIOTECA VIRTUAL</h3>
-                    @* <p align="justify">
-                      FF
-                    </p> *@
+                    <p align="justify">
+                          </p>
                     <br />
                 </div>
-        </div>
+        </div> *@
 
+            <!-- ======= INICIO Introducción a la biblioteca virtual ======= -->
+            <section id="about" class="about">
+                <div class="container" data-aos="fade-up">
+                    <div class="section-header">
+                        <h2>BIBLIOTECA VIRTUAL</h2>
+                        <p align="justify">
+                            En el Instituto Nacional del Niño, reconocemos la importancia de fortalecer constantemente las habilidades y 
+                            conocimientos del valioso personal de salud dedicado al cuidado de nuestros niños. Nos complace presentar 
+                            nuestra Biblioteca Virtual, una herramienta educativa diseñada específicamente para apoyar el desarrollo 
+                            profesional del personal de salud. Accesible a todos los profesionales de la salud asociados con nuestra 
+                            institución, esta biblioteca virtual ofrece una amplia gama de recursos especializados, desde materiales 
+                            de referencia médica hasta actualizaciones sobre las últimas investigaciones pediátricas. Estamos comprometidos
+                            a proporcionar a nuestro equipo de salud las herramientas necesarias para brindar una atención de calidad y 
+                            promover un entorno de aprendizaje continuo. ¡Explora nuestra Biblioteca Virtual y descubre cómo juntos podemos
+                            avanzar en la excelencia en la atención médica infantil!
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <br />
+
+    <!-- ======= INICIO DE SESSION CON PESTAÑA ======= -->
+    <!-- ======= INICIO BASE DE DATOS - COLECCIONES - REVISTAS ======= -->
+    <div class="section best-deal">
+        <div class="container">
+            <div class="col-lg-12">
+                <div class="tabs-content">
+                    <!-- ======= INICIO TABS ======= -->
+                    <div class="nav-wrapper ">
+                        <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-bottom: 2px solid #0096ad !important;">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="BaseDatos-tab" data-bs-toggle="tab" data-bs-target="#BaseDatos" type="button" role="tab" aria-controls="BaseDatos" aria-selected="true">Base de Datos</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="Colecciones-tab" data-bs-toggle="tab" data-bs-target="#Colecciones" type="button" role="tab" aria-controls="Colecciones" aria-selected="false">Colecciones</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="Revistas-tab" data-bs-toggle="tab" data-bs-target="#Revistas" type="button" role="tab" aria-controls="Revistas" aria-selected="false">Revistas</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- ======= FIN TABS ======= -->
+                    <!-- ============== -->
+                    <div class="tab-content" id="myTabContent">
+                        <!-- ============== -->
+                        <!-- ======= INICIO BASE DE DATOS ======= -->
+                        <div class="tab-pane fade show active" id="BaseDatos" role="tabpanel" aria-labelledby="BaseDatos-tab">
+                            <div class="row">
+                                <div class="row gy-4">
+                                    <section id="BaseDatos" class="about">
+                                        <div class="container" data-aos="fade-up">
+                                            <div class="row">
+                                                <div class="col-6 col-md-4 col-xl-4">
+                                                    <a class="block block-link-shadow text-center" href="javascript:void(0)">
+                                                        <div class="block-content">
+                                                            <p class="fw-medium"> PUDMED </p>
+                                                            <p align="justify"> Motor de búsqueda de libre acceso que permite consultar principal y mayoritariamente los contenidos de la base de datos MEDLINE.</p>
+                                                            @* <div class="position-relative mt-4"> *@
+                                                            <img src="~/imagenes/BibliotecaVirtual/BDI.jpg" class="img-fluid">
+                                                           @*  </div> *@
+                                                            <br /><br />
+                                                            <div class="text-center">
+                                                                <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://pubmed.ncbi.nlm.nih.gov/', '_blank')">
+                                                                <i class="fa fa-pencil-alt"></i>
+                                                            </button>    
+                                                        </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+
+                                                <div class="col-6 col-md-4 col-xl-4">
+                                                    <a class="block block-link-shadow text-center" href="javascript:void(0)">
+                                                        <div class="block-content">
+                                                            <p class="fw-medium"> TRIP </p>
+                                                            <p align="justify"> Una herramienta inteligente y rápida para encontrar evidencia de investigación clínica de alta calidad</p>
+                                                            <img src="~/imagenes/BibliotecaVirtual/BDII.png" class="img-fluid">
+                                                            <br /><br /> <br />
+                                                            <div class="text-center">
+                                                                <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://www.tripdatabase.com/Home', '_blank')">
+                                                                    <i class="fa fa-pencil-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-6 col-md-4 col-xl-4">
+                                                    <a class="block block-link-shadow text-center" href="javascript:void(0)">
+                                                        <div class="block-content">
+                                                            <p class="fw-medium"> COCHRANE LIBRARY </p>
+                                                            <p align="justify"> Fuente prefiltrada que ofrece acceso a tipos de publicaciones sintetizadas o referencias cuidadosamente seleccionadas y evaluadas críticamente.</p>
+                                                            <img src="~/imagenes/BibliotecaVirtual/BDIV.png" class="img-fluid">
+                                                            <br /><br />
+                                                            <div class="text-center">
+                                                                <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://www.cochranelibrary.com/', '_blank')">
+                                                                    <i class="fa fa-pencil-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-6 col-md-4 col-xl-4">
+                                                    <a class="block block-link-shadow text-center" href="javascript:void(0)">
+                                                        <div class="block-content">
+                                                            <p class="fw-medium"> DYNAMED </p>
+                                                            <p align="justify">Fuente de referencia clínica basada en evidencias y diseñada para contestar la mayor parte de las interrogantes que surgen durante el ejercicio de la práctica clínica.</p>
+                                                            <img src="~/imagenes/BibliotecaVirtual/BDV.png" class="img-fluid">
+                                                            <br /><br />
+                                                            <div class="text-center">
+                                                                <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://www.dynamed.com/?', '_blank')">
+                                                                    <i class="fa fa-pencil-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+
+                                                <div class="col-6 col-md-4 col-xl-4">
+                                                    <a class="block block-link-shadow text-center" href="javascript:void(0)">
+                                                        <div class="block-content">
+                                                            <p class="fw-medium"> UPTODATE </p>
+                                                            <p align="justify">  Sistema de software que es un recurso médico en el punto de atención /  recurso clínico basado en la evidencia.</p>
+                                                            <img src="~/imagenes/BibliotecaVirtual/BDIII.png" class="img-fluid">
+                                                            <br /><br />
+                                                            <div class="text-center">
+                                                                <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://www.uptodate.com/contents/search', '_blank')">
+                                                                    <i class="fa fa-pencil-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============== -->
+                        <!-- ======= INICIO COLECCIONES ======= -->
+                        <div class="tab-pane fade" id="Colecciones" role="tabpanel" aria-labelledby="Colecciones-tab">
+                            <div class="row">
+                                <div class="row gy-4">
+                                    <section id="Colecciones" class="about">
+                                        <div class="container" data-aos="fade-up">
+                                            <div class="row">
+                                                <div class="col-6 col-md-4 col-xl-4">
+                                                    <a class="block block-link-shadow text-center" href="javascript:void(0)">
+                                                        <div class="block-content">
+                                                            <p class="fw-medium"> RESEARCH4LIFE </p>
+                                                            <p align="justify"> Plataforma y sitio web dedicado a hacer público el conocimiento revisado por pares para estudiantes e investigadores en países de bajos ingresos.</p>
+                                                            <img src="~/imagenes/BibliotecaVirtual/CI.png" class="img-fluid">
+                                                            <br /><br />
+                                                            <div class="text-center">
+                                                                <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://portal.research4life.org/', '_blank')">
+                                                                    <i class="fa fa-pencil-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+
+                                                <div class="col-6 col-md-4 col-xl-4">
+                                                    <a class="block block-link-shadow text-center" href="javascript:void(0)">
+                                                        <div class="block-content">
+                                                            <p class="fw-medium"> OVIDSP </p>
+                                                            <p align="justify"> Brinda acceso a bases de datos bibliográficas en línea, revistas académicas y otros productos, principalmente en el área de las ciencias de la salud.</p>
+                                                            <img src="~/imagenes/BibliotecaVirtual/CII.png" class="img-fluid">
+                                                            <br /><br />
+                                                            <div class="text-center">
+                                                                <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://ovidsp.dc2.ovid.com/ovid-new-a/ovidweb.cgi', '_blank')">
+                                                                    <i class="fa fa-pencil-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-6 col-md-4 col-xl-4">
+                                                    <a class="block block-link-shadow text-center" href="javascript:void(0)">
+                                                        <div class="block-content">
+                                                            <p class="fw-medium"> SCIELO </p>
+                                                            <p align="justify"> Repositorio multidisciplinario para depositar, preservar y difundir datos de investigación de artículos enviados, aprobados para publicación</p>
+                                                            <img src="~/imagenes/BibliotecaVirtual/CIII.png" class="img-fluid">
+                                                            <br /><br />
+                                                            <div class="text-center">
+                                                                <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://scielo.org/es/', '_blank')">
+                                                                    <i class="fa fa-pencil-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-6 col-md-4 col-xl-4">
+                                                    <a class="block block-link-shadow text-center" href="javascript:void(0)">
+                                                        <div class="block-content">
+                                                            <p class="fw-medium"> EBSCO </p>
+                                                            <p align="justify"> Plataforma intuitiva de investigación en línea utilizada por miles de instituciones y millones de usuarios en todo el mundo.</p>
+                                                            <img src="~/imagenes/BibliotecaVirtual/CIV.png" class="img-fluid">
+                                                            <br /><br />
+                                                            <div class="text-center">
+                                                                <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://search.ebscohost.com/', '_blank')">
+                                                                    <i class="fa fa-pencil-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+
+                                                <div class="col-6 col-md-4 col-xl-4">
+                                                    <a class="block block-link-shadow text-center" href="javascript:void(0)">
+                                                        <div class="block-content">
+                                                            <p class="fw-medium"> BVSALUD </p>
+                                                            <p align="justify"> Para gestión de la información y conocimiento en salud en la Región del América Latina y el Caribe (AL&C).</p>
+                                                            <img src="~/imagenes/BibliotecaVirtual/CV.png" class="img-fluid">
+                                                            <br /><br />
+                                                            <div class="text-center">
+                                                                <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://bvsalud.org/es/', '_blank')">
+                                                                    <i class="fa fa-pencil-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ======= FIN COLECCIONES ======= -->
+                        <!-- ============== -->
+                        <!-- ======= INICIO REVISTAS ======= -->
+                        <div class="tab-pane fade" id="Revistas" role="tabpanel" aria-labelledby="Revistas-tab">
+                            <div class="row">
+                                <div class="row gy-4">
+                                    <section id="Revistas" class="about">
+                                        <div class="container" data-aos="fade-up">
+                                            <div class="row">
+                                                <div class="col-6 col-md-4 col-xl-4">
+                                                    <a class="block block-link-shadow text-center" href="javascript:void(0)">
+                                                        <div class="block-content">
+                                                            <p class="fw-medium"> NEJM </p>
+                                                            <p align="justify"> Revista médica con sistema revisión por pares publicada por la Sociedad Médica de Massachusetts. </p>
+                                                            <img src="~/imagenes/BibliotecaVirtual/RI.png" class="img-fluid">
+                                                            <br /><br />
+                                                            <div class="text-center">
+                                                                <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://www.nejm.org/', '_blank')">
+                                                                    <i class="fa fa-pencil-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+
+                                                <div class="col-6 col-md-4 col-xl-4">
+                                                    <a class="block block-link-shadow text-center" href="javascript:void(0)">
+                                                        <div class="block-content">
+                                                            <p class="fw-medium"> AAP PUBLICATIONS </p>
+                                                            <p align="justify"> Revista médica mensual revisada por pares publicada por la Academia Estadounidense de Pediatría.</p>
+                                                            <img src="~/imagenes/BibliotecaVirtual/RII.png" class="img-fluid">
+                                                            <br /><br />
+                                                            <div class="text-center">
+                                                                <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://publications.aap.org/', '_blank')">
+                                                                    <i class="fa fa-pencil-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-6 col-md-4 col-xl-4">
+                                                    <a class="block block-link-shadow text-center" href="javascript:void(0)">
+                                                        <div class="block-content">
+                                                            <p class="fw-medium"> SCIENCE DIRECT </p>
+                                                            <p align="justify">  Una de las mayores fuentes de información para la investigación científica, técnica y médica.</p>
+                                                            <img src="~/imagenes/BibliotecaVirtual/RIII.png" class="img-fluid">
+                                                            <br /><br />
+                                                            <div class="text-center">
+                                                                <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://www.sciencedirect.com/?login=Acceder', '_blank')">
+                                                                    <i class="fa fa-pencil-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ======= FIN REVISTAS ======= -->
+                        <!-- ============== -->
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@* 
             <div class="content">
                 <div class="row">
                     <div class="col-md-4 text-center">
@@ -88,9 +395,13 @@
                     </div>
                 </div>
 
-            </div> 
+            </div>  *@
     <br />
-    </div>
-    </div>
+
+
+    @* </div>
+    </div> *@
+
+
 </main>
 
