@@ -205,6 +205,15 @@ namespace INSN.Web.Portal.Resources.SegApp.Mantenimiento {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Rol.
+        /// </summary>
+        public static string EtiquetaRol {
+            get {
+                return ResourceManager.GetString("EtiquetaRol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a MANTENIMIENTO.
         /// </summary>
         public static string EtiquetaSeccion {
@@ -219,6 +228,15 @@ namespace INSN.Web.Portal.Resources.SegApp.Mantenimiento {
         public static string EtiquetaServicio {
             get {
                 return ResourceManager.GetString("EtiquetaServicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sistema.
+        /// </summary>
+        public static string EtiquetaSistema {
+            get {
+                return ResourceManager.GetString("EtiquetaSistema", resourceCulture);
             }
         }
         
@@ -273,6 +291,15 @@ namespace INSN.Web.Portal.Resources.SegApp.Mantenimiento {
         public static string EtiquetaTituloEditarClave {
             get {
                 return ResourceManager.GetString("EtiquetaTituloEditarClave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a EDITAR ROLES.
+        /// </summary>
+        public static string EtiquetaTituloEditarRoles {
+            get {
+                return ResourceManager.GetString("EtiquetaTituloEditarRoles", resourceCulture);
             }
         }
         

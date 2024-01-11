@@ -9,6 +9,7 @@ using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.Home;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
+using INSN.Web.Models.Response.Sistemas;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
@@ -48,6 +49,9 @@ namespace INSN.Web.Services.Profiles
             CreateMap<UsuarioRol, UsuarioRolDtoResponse>();
             CreateMap<UsuarioRolDtoRequest, UsuarioRol>();
             CreateMap<UsuarioRolInfo, UsuarioRolDtoResponse>();
+
+            // Mapear Sistema
+            CreateMap<Sistema, SistemaDtoResponse>();
         }
     }
 }

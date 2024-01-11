@@ -79,10 +79,17 @@ namespace INSN.Web.Portal.Controllers
                     }
                     else
                     {
-                        if (ut == 1) // usar token = 1, o sea 'si'
-                            return Redirect($"{url}?token={response.Token}");
+                        if (url == "#" || url == null)
+                        {
+                            return View("~/Views/SinPagina.cshtml");
+                        }
                         else
-                            return Redirect($"{url}");
+                        {
+                            if (ut == 1) // usar token = 1, o sea 'si'
+                                return Redirect($"{url}?token={response.Token}");
+                            else
+                                return Redirect($"{url}");
+                        }
                     }
                 }
             }

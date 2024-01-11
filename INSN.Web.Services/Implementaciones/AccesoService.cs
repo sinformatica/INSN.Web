@@ -156,7 +156,7 @@ namespace INSN.Web.Services.Implementaciones
 
                 // Consulta para obtener los sistemas asociados al usuario
                 var sistemasAsociados = await _segAppDbContext.INSNIdentityUsuarioRol
-                    .Where(ur => ur.UserId == user.Id && ur.Sistema.Estado == "A" && ur.Sistema.EstadoRegistro == 1)
+                    .Where(ur => ur.UserId == user.Id && ur.Estado == "A" && ur.EstadoRegistro == 1)
                     .Select(ur => ur.CodigoSistemaId)
                     .Distinct()
                     .ToListAsync();
@@ -211,7 +211,8 @@ namespace INSN.Web.Services.Implementaciones
                 var identity = await _userManager.FindByNameAsync(request.Usuario);
 
                 var roles = await _segAppDbContext.INSNIdentityUsuarioRol
-                        .Where(ur => ur.UserId == identity.Id && ur.CodigoSistemaId == request.CodigoSistemaId)
+                        .Where(ur => ur.UserId == identity.Id && ur.CodigoSistemaId == request.CodigoSistemaId 
+                                && ur.Estado == "A" && ur.EstadoRegistro == 1)
                         .Select(ur => ur.RoleId)
                         .ToListAsync();
 

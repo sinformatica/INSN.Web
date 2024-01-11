@@ -1,4 +1,6 @@
-﻿using INSN.Web.DataAccess;
+﻿using Dapper;
+using INSN.Web.DataAccess;
+using INSN.Web.Entities;
 using INSN.Web.Entities.SegApp;
 using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
 using Microsoft.EntityFrameworkCore;
@@ -45,6 +47,22 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
                     Estado = p.Estado
                 })
                 .ToListAsync();
+        }
+
+        /// <summary>
+        /// Rol Por Sistema Listar
+        /// <param name="request"></param>
+        /// </summary>
+        public async Task<ICollection<Rol>> RolPorSistemaListar(int CodigoSistemaId)
+        {
+            var connection = Context.Database.GetDbConnection();
+
+            var query = await connection.QueryAsync<Rol>("sp_ModuloRol_ListarPorSistema", commandType: System.Data.CommandType.StoredProcedure, param: new
+            {
+                CodigoSistemaId = CodigoSistemaId
+            });
+
+            return query.ToList();
         }
     }
 }

@@ -90,5 +90,19 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
             var response = await _service.RolEliminar(Id);
             return response.Success ? Ok(response) : BadRequest(response);
         }
+
+        /// <summary>
+        /// ApiRest: Rol Por Sistema Listar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpGet("RolPorSistemaListar/{CodigoSistemaId}")]
+        [ProducesResponseType((int)StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
+        [ProducesResponseType((int)StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
+        public async Task<IActionResult> RolPorSistemaListar(int CodigoSistemaId)
+        {
+            var response = await _service.RolPorSistemaListar(CodigoSistemaId);
+            return response.Success ? Ok(response) : BadRequest(response);
+        }
     }
 }

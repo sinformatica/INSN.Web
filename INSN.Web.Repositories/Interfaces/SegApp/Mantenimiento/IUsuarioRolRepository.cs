@@ -13,6 +13,6 @@ namespace INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento
         /// <summary>
         /// IRepository: Usuario Rol Listar
         /// </summary>
-        Task<ICollection<UsuarioRolInfo>> UsuarioRolListar(UsuarioRol request);
+        Task<ICollection<UsuarioRolInfo>> UsuarioRolListar(string UserId);
     }
 }

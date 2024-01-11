@@ -240,5 +240,30 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 
             return response;
         }
+
+        /// <summary>
+        /// Service: Rol Por Sistema Listar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<BaseResponseGeneric<ICollection<RolDtoResponse>>> RolPorSistemaListar(int CodigoSistemaId)
+        {
+            var response = new BaseResponseGeneric<ICollection<RolDtoResponse>>();
+
+            try
+            {
+                var roles = await _repository.RolPorSistemaListar(CodigoSistemaId);
+
+                response.Data = roles.Select(x => _mapper.Map<RolDtoResponse>(x)).ToList();
+                response.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.ErrorMessage = "Service: Error al listar: " + ex.Message;
+                _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
+            }
+
+            return response;
+        }
     }
 }

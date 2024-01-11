@@ -1,4 +1,5 @@
-﻿using INSN.Web.DataAccess;
+﻿using Dapper;
+using INSN.Web.DataAccess;
 using INSN.Web.Entities.Info.Mantenimiento;
 using INSN.Web.Entities.SegApp;
 using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
@@ -30,16 +31,16 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<ICollection<UsuarioRolInfo>> UsuarioRolListar(UsuarioRol request)
+        public async Task<ICollection<UsuarioRolInfo>> UsuarioRolListar(string UserId)
         {
-            Expression<Func<UsuarioRol, bool>> predicate =
-                                x => x.UserId == request.UserId
-                                    && (request.Estado == null || x.Estado == request.Estado);
+            Expression<Func<UsuarioRol, bool>> predicate = x => x.UserId == UserId
+                                        && (x.Estado == "A" || x.Estado == null);
 
             return await Context.Set<UsuarioRol>()
                 .Where(predicate)
                 .Select(p => new UsuarioRolInfo
                 {
+                    CodigoUsuarioRolId = p.CodigoUsuarioRolId,
                     RoleId = p.RoleId,
                     NombreRol = p.Rol.Name,
                     CodigoSistemaId = p.CodigoSistemaId,

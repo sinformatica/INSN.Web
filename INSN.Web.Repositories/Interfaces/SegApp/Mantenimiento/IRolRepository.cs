@@ -16,5 +16,10 @@ namespace INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento
         /// IRepository: Rol Listar
         /// </summary>
         Task<ICollection<Rol>> RolListar(Rol request);
+
+        /// <summary>
+        /// IRepository: Rol Por Sistema Listar
+        /// </summary>
+        Task<ICollection<Rol>> RolPorSistemaListar(int CodigoSistemaId);
     }
 }

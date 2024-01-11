@@ -11,6 +11,11 @@ namespace INSN.Web.Entities.SegApp
     public class UsuarioRol : AuditoriaBase
     {
         /// <summary>
+        /// Codigo Usuario Rol Id
+        /// </summary>
+        public int? CodigoUsuarioRolId { get; set; }
+
+        /// <summary>
         /// Usuario - UserId
         /// </summary>
         [ForeignKey("UserId")]

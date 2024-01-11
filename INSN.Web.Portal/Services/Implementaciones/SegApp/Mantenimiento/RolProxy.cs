@@ -144,5 +144,35 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
                 throw new InvalidOperationException(response.ReasonPhrase);
             }
         }
+
+        /// <summary>
+        /// Proxy: Rol Por Sistema Listar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public async Task<ICollection<RolDtoResponse>> RolPorSistemaListar(int CodigoSistemaId)
+        {
+            try
+            {
+                var response = await HttpClient.GetAsync($"{BaseUrl}/RolPorSistemaListar/{CodigoSistemaId}");
+
+                response.EnsureSuccessStatusCode();
+
+                var result = await response.Content
+                    .ReadFromJsonAsync<BaseResponseGeneric<ICollection<RolDtoResponse>>>();
+
+                if (result!.Success == false)
+                {
+                    throw new InvalidOperationException(result.ErrorMessage);
+                }
+
+                return result.Data!;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
     }
 }

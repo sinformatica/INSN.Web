@@ -9,6 +9,8 @@ namespace INSN.Web.Models.Request.SegApp.Mantenimiento
 {
     public class UsuarioRolDtoRequest : BaseRequest
     {
+        public int? CodigoUsuarioRolId { get; set; } = default!;
+
         public string UserId { get; set; } = default!;
 
         public string? RolId { get; set; } = default!;

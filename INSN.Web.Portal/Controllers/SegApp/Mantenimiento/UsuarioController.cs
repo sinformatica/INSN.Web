@@ -2,7 +2,9 @@
 using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
+using INSN.Web.Models.Response.Sistemas;
 using INSN.Web.Portal.Services.Interfaces;
+using INSN.Web.Portal.Services.Interfaces.SegApp;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.ViewModels;
 using INSN.Web.ViewModels.Exceptions;
@@ -18,6 +20,9 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         private readonly ILogger<UsuarioController> _logger;
         private readonly IUsuarioProxy _proxy;
         private readonly ITipoDocumentoIdentidadProxy _proxyTipoDoc;
+        private readonly ISistemaProxy _proxySistema;
+        private readonly IRolProxy _proxyRol;
+        private readonly IUsuarioRolProxy _proxyUsuarioRol;
 
         /// <summary>
         /// 
@@ -27,12 +32,19 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         /// <param name="env"></param>
         public UsuarioController(IUsuarioProxy proxy,
                                 ILogger<UsuarioController> logger,
-                                IWebHostEnvironment env, ITipoDocumentoIdentidadProxy proxyTipoDoc)
+                                IWebHostEnvironment env, 
+                                ITipoDocumentoIdentidadProxy proxyTipoDoc,
+                                ISistemaProxy proxySistema,
+                                IRolProxy proxyRol,
+                                IUsuarioRolProxy proxyUsuarioRol)
         {
             _proxy = proxy;
             _logger = logger;
             _enviroment = env;
             _proxyTipoDoc = proxyTipoDoc;
+            _proxySistema = proxySistema;
+            _proxyRol = proxyRol;
+            _proxyUsuarioRol = proxyUsuarioRol;
         }
 
         /// <summary>
@@ -323,7 +335,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
 
         #region [Editar clave]
         /// <summary>
-        /// Vista Ventana Nuevo
+        /// Vista Ventana Editar Clave
         /// </summary>
         /// <returns></returns>
         public async Task<IActionResult> EditarClaveVista(UsuarioViewModel model)
@@ -410,5 +422,142 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
             }
         }
         #endregion
+
+        #region [Editar roles]
+        /// <summary>
+        /// Vista Ventana Editar Roles
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> EditarRolesVista(UsuarioViewModel model)
+        {
+            model.Sistemas = await SistemaListar();
+            model.Roles = await RolPorSistemaListar(1);
+            model.UsuarioRoles = await UsuarioRolListar(model.Id);
+
+            return View("~/Views/SegApp/Mantenimiento/Usuario/EditarRoles.cshtml", model);
+        }
+
+        /// <summary>
+        /// Sistema Listar 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<SistemaDtoResponse>> SistemaListar()
+        {
+            var result = await _proxySistema.SistemaListar();
+            return (List<SistemaDtoResponse>)result;
+        }
+
+        /// <summary>
+        /// Rol Por Sistema Listar
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<RolDtoResponse>> RolPorSistemaListar(int CodigoSistemaId)
+        {
+            var result = await _proxyRol.RolPorSistemaListar(CodigoSistemaId);
+
+            if (result != null)
+            {
+                return (List<RolDtoResponse>)result;
+            }
+            else
+            {
+                // Manejar el caso en el que no se pueden obtener datos válidos
+                // Puede ser lanzando una excepción o devolviendo una lista vacía según sea necesario
+                return new List<RolDtoResponse>();
+            }
+        }
+
+        /// <summary>
+        /// Sistema Listar 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<UsuarioRolDtoResponse>> UsuarioRolListar(string UserId)
+        {
+            var result = await _proxyUsuarioRol.UsuarioRolListar(UserId);
+            return (List<UsuarioRolDtoResponse>)result;
+        }
+
+        /// <summary>
+        /// Usuario Rol Asignar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> UsuarioRolAsignar(UsuarioViewModel request)
+        {
+            try
+            {
+                await _proxyUsuarioRol.UsuarioRolAsignar(new UsuarioRolDtoRequest
+                {
+                    UserId = request.Id,
+                    RolId = request.RolSeleccionado,
+                    CodigoSistemaId = request.SistemaSeleccionado,
+                    Estado = "A",
+                    #region [Base Insert]
+                    EstadoRegistro = 1,
+                    FechaCreacion = DateTime.Now,
+                    UsuarioCreacion = Environment.UserName, //Modificar por Usuario de sesion logueada
+                    TerminalCreacion = Environment.MachineName
+                    #endregion
+                });
+
+                //#region[Controles de Codigo/Controller]
+                //TempData["CodigoMensaje"] = 1;
+                //TempData["Mensaje"] = "Rol agregado correctamente";
+                //TempData["Metodo"] = "EditarRoles";
+                //TempData["Controlador"] = "Usuario";
+                //#endregion
+
+                request.Sistemas = await SistemaListar();
+                request.Roles = await RolPorSistemaListar(1);
+                request.UsuarioRoles = await UsuarioRolListar(request.Id);
+
+                return View("~/Views/SegApp/Mantenimiento/Usuario/EditarRoles.cshtml", request);
+            }
+            catch (ModelException ex)
+            {
+                ModelState.AddModelError(ex.PropertyName, ex.Message);
+                _logger.LogError(ex, "Validacion de registro {Message}", ex.Message);
+
+                request.Sistemas = await SistemaListar();
+                request.Roles = await RolPorSistemaListar(1);
+                request.UsuarioRoles = await UsuarioRolListar(request.Id);
+
+                return View("~/Views/SegApp/Mantenimiento/Usuario/EditarRoles.cshtml", request);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Registro de Usuario {Message}", ex.Message);
+                TempData["CodigoMensaje"] = -1;
+                TempData["Mensaje"] = ex.Message;
+
+                request.Sistemas = await SistemaListar();
+                request.Roles = await RolPorSistemaListar(1);
+                request.UsuarioRoles = await UsuarioRolListar(request.Id);
+
+                return View("~/Views/SegApp/Mantenimiento/Usuario/EditarRoles.cshtml", request);
+            }
+        }
+        #endregion
+
+        /// <summary>
+        /// UsuarioRolEliminar
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> UsuarioRolEliminar(int CodigoUsurioRolId, string UserId)
+        {
+            await _proxyUsuarioRol.UsuarioRolEliminar(CodigoUsurioRolId);
+
+            var model = new UsuarioViewModel
+            {
+                Sistemas = await SistemaListar(),
+                Roles = await RolPorSistemaListar(1),
+                UsuarioRoles = await UsuarioRolListar(UserId),
+                Id = UserId
+            };
+            
+            return View("~/Views/SegApp/Mantenimiento/Usuario/EditarRoles.cshtml", model);
+        }
     }
 }

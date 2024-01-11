@@ -17,5 +17,8 @@ namespace INSN.Web.DataAccess
         public INSNIdentitySistema Sistema { get; set; }
 
         public int CodigoSistemaId { get; set; }
+
+        public string? Estado { get; set; }
+        public int? EstadoRegistro { get; set; }
     }
 }

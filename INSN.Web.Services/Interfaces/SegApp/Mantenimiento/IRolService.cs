@@ -61,5 +61,12 @@ namespace INSN.Web.Services.Interfaces.SegApp.Mantenimiento
         /// <param name="Id"></param>
         /// <returns></returns>
         Task<BaseResponse> RolEliminar(string Id);
+
+        /// <summary>
+        /// Rol Por Sistema Listar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<BaseResponseGeneric<ICollection<RolDtoResponse>>> RolPorSistemaListar(int CodigoSistemaId);
     }
 }

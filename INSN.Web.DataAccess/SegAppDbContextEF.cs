@@ -35,8 +35,7 @@ namespace INSN.Web.DataAccess
             modelBuilder.Entity<Rol>().HasKey(f => f.Id);
             modelBuilder.Entity<Usuario>().HasKey(f => f.Id);
             modelBuilder.Entity<Sistema>().HasKey(f => f.CodigoSistemaId);
-            modelBuilder.Entity<UsuarioRol>()
-                .HasKey(ur => new { ur.UserId, ur.RoleId, ur.CodigoSistemaId });
+            modelBuilder.Entity<UsuarioRol>().HasKey(f => f.CodigoUsuarioRolId);
             #endregion
 
             //Se va agregar la configuracion de las entidades desde este mismo ensamblado

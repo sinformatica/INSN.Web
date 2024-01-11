@@ -1,37 +1,36 @@
 ﻿using INSN.Web.Models;
+using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.Sistemas;
-using INSN.Web.Portal.Services.Interfaces;
+using INSN.Web.Portal.Services.Interfaces.SegApp;
 using Microsoft.AspNetCore.Mvc;
 
-namespace INSN.Web.Portal.Services.Implementaciones
+namespace INSN.Web.Portal.Services.Implementaciones.SegApp
 {
     /// <summary>
     /// Clase Proxy Sistema
     /// </summary>
-    public class SistemaProxy : RestBase, ISistemaProxy
+    public class SistemaProxy : CrudRestHelperBase<SistemaDtoRequest, SistemaDtoResponse>, ISistemaProxy
     {
         /// <summary>
         /// Proxy
         /// </summary>
         /// <param name="httpClient"></param>
         public SistemaProxy(HttpClient httpClient)
-            : base("api/Acceso", httpClient)
+        : base("api/SegApp/Sistema", httpClient)
         {
-
         }
 
         /// <summary>
-        /// Proxy: Sistemas Por Usuario Listar
+        /// Proxy: Sistema Listar
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<ICollection<SistemaDtoResponse>> SistemasPorUsuarioListar(LoginUsuarioDtoRequest request)
+        public async Task<ICollection<SistemaDtoResponse>> SistemaListar()
         {
             try
             {
-                var queryString = $"?Usuario={request.Usuario}";
-                var response = await HttpClient.GetAsync($"{BaseUrl}/SistemasPorUsuarioListar{queryString}");
+                var response = await HttpClient.GetAsync($"{BaseUrl}/SistemaListar");
 
                 response.EnsureSuccessStatusCode();
 

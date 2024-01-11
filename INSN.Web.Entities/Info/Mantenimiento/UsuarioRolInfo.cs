@@ -10,6 +10,11 @@ namespace INSN.Web.Entities.Info.Mantenimiento
     public class UsuarioRolInfo : AuditoriaBase
     {
         /// <summary>
+        /// Codigo Usuario Rol Id
+        /// </summary>
+        public int? CodigoUsuarioRolId { get; set; }
+
+        /// <summary>
         /// Nombre Rol
         /// </summary>
         public string NombreRol { get; set; }

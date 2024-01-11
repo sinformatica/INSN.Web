@@ -165,11 +165,17 @@
   <data name="EtiquetaNombre" xml:space="preserve">
     <value>Nombre</value>
   </data>
+  <data name="EtiquetaRol" xml:space="preserve">
+    <value>Rol</value>
+  </data>
   <data name="EtiquetaSeccion" xml:space="preserve">
     <value>MANTENIMIENTO</value>
   </data>
   <data name="EtiquetaServicio" xml:space="preserve">
     <value>Servicio</value>
+  </data>
+  <data name="EtiquetaSistema" xml:space="preserve">
+    <value>Sistema</value>
   </data>
   <data name="EtiquetaTelefono1" xml:space="preserve">
     <value>Teléfono 1</value>
@@ -188,6 +194,9 @@
   </data>
   <data name="EtiquetaTituloEditarClave" xml:space="preserve">
     <value>CAMBIAR CONTRASEÑA</value>
+  </data>
+  <data name="EtiquetaTituloEditarRoles" xml:space="preserve">
+    <value>EDITAR ROLES</value>
   </data>
   <data name="EtiquetaTituloNuevo" xml:space="preserve">
     <value>NUEVO USUARIO</value>

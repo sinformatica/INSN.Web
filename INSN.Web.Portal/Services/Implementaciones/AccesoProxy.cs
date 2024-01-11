@@ -2,6 +2,7 @@
 using INSN.Web.Models;
 using INSN.Web.Portal.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using INSN.Web.Models.Response.Sistemas;
 
 namespace INSN.Web.Portal.Services.Implementaciones
 {
@@ -30,9 +31,34 @@ namespace INSN.Web.Portal.Services.Implementaciones
             return await SendAsync<LoginDtoRequest, LoginDtoResponse>(request, HttpMethod.Post, "Login");
         }
 
-        //public async Task<BaseResponse> RegisterAsync(RegisterDtoRequest request)
-        //{
-        //    return await SendAsync<RegisterDtoRequest, BaseResponse>(request, HttpMethod.Post, "Register");
-        //}
+        /// <summary>
+        /// Proxy: Sistemas Por Usuario Listar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<ICollection<SistemaDtoResponse>> SistemasPorUsuarioListar(LoginUsuarioDtoRequest request)
+        {
+            try
+            {
+                var queryString = $"?Usuario={request.Usuario}";
+                var response = await HttpClient.GetAsync($"{BaseUrl}/SistemasPorUsuarioListar{queryString}");
+
+                response.EnsureSuccessStatusCode();
+
+                var result = await response.Content
+                    .ReadFromJsonAsync<BaseResponseGeneric<ICollection<SistemaDtoResponse>>>();
+
+                if (result!.Success == false)
+                {
+                    throw new InvalidOperationException(result.ErrorMessage);
+                }
+
+                return result.Data!;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
     }
 }

@@ -21,6 +21,10 @@ using INSN.Web.Services.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.Services.Implementaciones.SegApp.Mantenimiento;
 using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento;
+using INSN.Web.Repositories.Implementaciones.SegApp;
+using INSN.Web.Services.Implementaciones.SegApp;
+using INSN.Web.Services.Interfaces.SegApp;
+using INSN.Web.Repositories.Interfaces.SegApp;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -109,6 +113,10 @@ builder.Services.AddTransient<IUsuarioService, UsuarioService>();
 // Usuario Rol
 builder.Services.AddTransient<IUsuarioRolRepository, UsuarioRolRepository>();
 builder.Services.AddTransient<IUsuarioRolService, UsuarioRolService>();
+
+// Sistema
+builder.Services.AddTransient<ISistemaRepository, SistemaRepository>();
+builder.Services.AddTransient<ISistemaService, SistemaService>();
 
 //builder.Services.AddTransient<IFileUploader, AzureBlobStorageUploader>();
 

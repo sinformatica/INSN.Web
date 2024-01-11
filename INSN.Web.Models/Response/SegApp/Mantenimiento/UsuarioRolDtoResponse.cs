@@ -11,6 +11,11 @@ namespace INSN.Web.Models.Response.SegApp.Mantenimiento
         /// <summary>
         /// Nombre Rol
         /// </summary>
+        public int? CodigoUsuarioRolId { get; set; } = default!;
+
+        /// <summary>
+        /// Nombre Rol
+        /// </summary>
         public string NombreRol { get; set; } = default!;
 
         /// <summary>

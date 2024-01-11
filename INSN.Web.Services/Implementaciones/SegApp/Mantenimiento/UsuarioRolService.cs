@@ -55,17 +55,13 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<BaseResponseGeneric<ICollection<UsuarioRolDtoResponse>>> UsuarioRolListar(UsuarioRolDtoRequest request)
+        public async Task<BaseResponseGeneric<ICollection<UsuarioRolDtoResponse>>> UsuarioRolListar(string UserId)
         {
             var response = new BaseResponseGeneric<ICollection<UsuarioRolDtoResponse>>();
 
             try
             {
-                var usuarios = await _repository.UsuarioRolListar(new UsuarioRol
-                {
-                    UserId = request.UserId,
-                    Estado = request.Estado
-                });
+                var usuarios = await _repository.UsuarioRolListar(UserId);
 
                 response.Data = usuarios.Select(x => _mapper.Map<UsuarioRolDtoResponse>(x)).ToList();
                 response.Success = true;
@@ -104,7 +100,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                 {
                     // Verificar si el usuario ya tiene el rol para este sistema
                     var existingUserRole = await _segAppDbContext.INSNIdentityUsuarioRol
-                        .FirstOrDefaultAsync(ur => ur.UserId == user.Id && ur.CodigoSistemaId == request.CodigoSistemaId && ur.RoleId == role.Id);
+                        .FirstOrDefaultAsync(ur => ur.UserId == user.Id && ur.CodigoSistemaId == request.CodigoSistemaId && ur.RoleId == role.Id && ur.Estado=="A" && ur.EstadoRegistro==1);
 
                     if (existingUserRole != null)
                     {
@@ -113,11 +109,12 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                     }
 
                     // Eliminar roles anteriores del usuario en este sistema
-                    var userRolesInSystem = await _segAppDbContext.INSNIdentityUsuarioRol
-                        .Where(ur => ur.UserId == user.Id && ur.CodigoSistemaId == request.CodigoSistemaId)
-                        .ToListAsync();
+                    //var userRolesInSystem = await _segAppDbContext.INSNIdentityUsuarioRol
+                    //    .Where(ur => ur.UserId == user.Id && ur.CodigoSistemaId == request.CodigoSistemaId)
+                    //    .ToListAsync();
 
-                    _segAppDbContext.INSNIdentityUsuarioRol.RemoveRange(userRolesInSystem);
+                    //_segAppDbContext.INSNIdentityUsuarioRol.RemoveRange(userRolesInSystem);
+                    //await _segAppDbContext.SaveChangesAsync();
 
                     // Asignar el nuevo rol al usuario para este sistema
                     var newUserRole = new INSNIdentityUsuarioRol
@@ -130,16 +127,16 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                     _segAppDbContext.INSNIdentityUsuarioRol.Add(newUserRole);
                     await _segAppDbContext.SaveChangesAsync();
 
-                    // actualizar campos UsuarioCreacion y TerminalCreacion
-                    await _repository.ActualizarCampos(
-                                predicate: r => (r.UserId == request.UserId 
-                                                && r.RoleId == request.RolId 
-                                                && r.CodigoSistemaId == request.CodigoSistemaId),
-                                updateAction: r =>
-                                {
-                                    r.UsuarioCreacion = request.UsuarioCreacion;
-                                    r.TerminalCreacion = Environment.MachineName;
-                                });
+                   //actualizar campos UsuarioCreacion y TerminalCreacion
+                   //await _repository.ActualizarCampos(
+                   //            predicate: r => (r.UserId == request.UserId
+                   //                            && r.RoleId == request.RolId
+                   //                            && r.CodigoSistemaId == request.CodigoSistemaId),
+                   //            updateAction: r =>
+                   //            {
+                   //                r.UsuarioCreacion = request.UsuarioCreacion;
+                   //                r.TerminalCreacion = Environment.MachineName;
+                   //            });
                 }
                 else
                 {
@@ -153,6 +150,29 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
             {
                 response.ErrorMessage = "Error al asignar roles al usuario";
                 _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
+            }
+
+            return response;
+        }
+
+        /// <summary>
+        /// Serivce: Usuario Rol Eliminar
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public async Task<BaseResponse> UsuarioRolEliminar(int Id)
+        {
+            var response = new BaseResponse();
+
+            try
+            {
+                await _repository.Eliminar(Id);
+                response.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.ErrorMessage = "Service: Error al eliminar: " + ex.Message;
+                _logger.LogError(ex, "{ErroMessage} {Message}", response.ErrorMessage, ex.Message);
             }
 
             return response;

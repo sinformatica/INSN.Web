@@ -50,5 +50,12 @@ namespace INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento
         /// <param name="id"></param>
         /// <returns></returns>
         Task RolEliminar(string id);
+
+        /// <summary>
+        /// IProxy: Rol Por Sistema Listar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<ICollection<RolDtoResponse>> RolPorSistemaListar(int CodigoSistemaId);
     }
 }

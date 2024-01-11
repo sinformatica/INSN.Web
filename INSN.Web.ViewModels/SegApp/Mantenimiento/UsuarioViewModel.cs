@@ -1,5 +1,6 @@
 ﻿using INSN.Web.Models;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
+using INSN.Web.Models.Response.Sistemas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace INSN.Web.ViewModels.SegApp.Mantenimiento
 {
@@ -24,6 +26,21 @@ namespace INSN.Web.ViewModels.SegApp.Mantenimiento
         /// Lista de Tipos de doc identidad
         /// </summary>       
         public ICollection<TipoDocumentoIdentidadDtoResponse>? TiposDocIdentidad { get; set; }
+
+        /// <summary>
+        /// Lista de Sistemas
+        /// </summary>       
+        public ICollection<SistemaDtoResponse>? Sistemas { get; set; }
+
+        /// <summary>
+        /// Lista de Roles
+        /// </summary>       
+        public ICollection<RolDtoResponse>? Roles { get; set; }
+
+        /// <summary>
+        /// Lista de Roles
+        /// </summary>       
+        public ICollection<UsuarioRolDtoResponse>? UsuarioRoles { get; set; }
 
         /// <summary>
         /// Id
@@ -108,6 +125,15 @@ namespace INSN.Web.ViewModels.SegApp.Mantenimiento
         /// </summary>
         [Display(Name = "ConfirmaClave")]
         public string? ConfirmaClave { get; set; } = default!;
+
+        [Display(Name = "SistemaSeleccionado")]
+        public int SistemaSeleccionado { get; set; } = default!;
+
+        [Display(Name = "RolSeleccionado")]
+        public string? RolSeleccionado { get; set; } = default!;
+
+        [Display(Name = "CodigoUsuarioRolId")]
+        public int? CodigoUsuarioRolId { get; set; } = default!;
 
         public ICollection<BaseModel> Estados { get; } = new List<BaseModel>()
         {
