@@ -501,17 +501,19 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                     #endregion
                 });
 
-                //#region[Controles de Codigo/Controller]
-                //TempData["CodigoMensaje"] = 1;
-                //TempData["Mensaje"] = "Rol agregado correctamente";
-                //TempData["Metodo"] = "EditarRoles";
-                //TempData["Controlador"] = "Usuario";
-                //#endregion
+                #region[Controles de Codigo/Controller]
+                TempData["CodigoMensaje"] = 1;
+                TempData["Mensaje"] = "Rol agregado correctamente";
+                TempData["Metodo"] = "EditarRolesVista";
+                TempData["Controlador"] = "Usuario";
+                TempData["CodigoId"] = request.Id;
+                #endregion
 
                 request.Sistemas = await SistemaListar();
                 request.Roles = await RolPorSistemaListar(1);
                 request.UsuarioRoles = await UsuarioRolListar(request.Id);
 
+         
                 return View("~/Views/SegApp/Mantenimiento/Usuario/EditarRoles.cshtml", request);
             }
             catch (ModelException ex)
