@@ -2,7 +2,7 @@
 using INSN.Web.Models;
 using INSN.Web.Models.Request.Sistema;
 using INSN.Web.Portal.Services.Interfaces;
-using INSN.Web.ViewModels;
+using INSN.Web.ViewModels.SegApp;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;

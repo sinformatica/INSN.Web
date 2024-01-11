@@ -7,14 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INSN.Web.ViewModels
+namespace INSN.Web.ViewModels.SegApp
 {
-    public class LoginViewModel
+    public class SistemasViewModel
     {
-        [Required]
-        public string Usuario { get; set; } = default!;
-
-        [Required]
-        public string Password { get; set; } = default!;
+        public ICollection<SistemaDtoResponse>? ListaSistema { get; set; }
     }
 }

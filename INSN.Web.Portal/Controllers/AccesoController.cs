@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using INSN.Web.ViewModels.Exceptions;
-using INSN.Web.ViewModels;
 using INSN.Web.Models.Request;
+using INSN.Web.ViewModels.SegApp;
 
 namespace INSN.Web.Portal.Controllers
 {
