@@ -12,10 +12,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using INSN.Web.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.Data.SqlClient;
+using INSN.Web.DataAccess.Acceso;
 
 namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INSN.Web.DataAccess
+namespace INSN.Web.DataAccess.Acceso
 {
     public class INSNIdentitySistema : AuditoriaBase
     {

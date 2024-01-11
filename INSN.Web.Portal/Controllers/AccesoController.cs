@@ -1,5 +1,4 @@
 ﻿using INSN.Web.Common;
-using INSN.Web.Models;
 using INSN.Web.Portal.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
@@ -8,6 +7,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using INSN.Web.ViewModels.Exceptions;
 using INSN.Web.ViewModels;
+using INSN.Web.Models.Request;
 
 namespace INSN.Web.Portal.Controllers
 {

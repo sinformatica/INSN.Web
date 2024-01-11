@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using INSN.Web.Entities;
+using INSN.Web.Entities.SegApp;
 
 namespace INSN.Web.Repositories.Interfaces
 {

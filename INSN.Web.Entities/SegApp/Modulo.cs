@@ -1,24 +1,28 @@
-﻿using INSN.Web.Entities.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INSN.Web.Entities
+namespace INSN.Web.Entities.SegApp
 {
-    public class Seccion : AuditoriaBase
+    public class Modulo
     {
         /// <summary>
-        /// Codigo Seccion Id
+        /// Codigo Modulo Id
         /// </summary>
-        public int CodigoSeccionId { get; set; } = default!;
+        public int CodigoModuloId { get; set; } = default!;
 
         /// <summary>
         /// Descripcion
         /// </summary>
         public string Descripcion { get; set; } = default!;
+
+        /// <summary>
+        /// Controlador
+        /// </summary>
+        public string Controlador { get; set; } = default!;
 
         /// <summary>
         /// Url
@@ -31,7 +35,7 @@ namespace INSN.Web.Entities
         public string Icono { get; set; } = default!;
 
         [Required]
-        public int CodigoSistemaId { get; set; } = default!;
+        public int CodigoSeccionId { get; set; } = default!;
 
         [Required]
         public string RolId { get; set; } = default!;

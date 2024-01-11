@@ -1,5 +1,4 @@
 ﻿using INSN.Web.Models.Response;
-using INSN.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +7,7 @@ using System.Threading.Tasks;
 using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Models.Response.Sistemas;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
+using INSN.Web.Models.Request;
 
 namespace INSN.Web.Services.Interfaces
 {

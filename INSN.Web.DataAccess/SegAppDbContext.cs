@@ -1,4 +1,5 @@
-﻿using INSN.Web.Entities;
+﻿using INSN.Web.DataAccess.Acceso;
+using INSN.Web.Entities.SegApp;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

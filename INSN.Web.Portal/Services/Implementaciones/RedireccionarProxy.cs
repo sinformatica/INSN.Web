@@ -1,4 +1,5 @@
-﻿using INSN.Web.Models;
+﻿using INSN.Web.Models.Request;
+using INSN.Web.Models.Response;
 using INSN.Web.Portal.Services.Interfaces;
 
 namespace INSN.Web.Portal.Services.Implementaciones

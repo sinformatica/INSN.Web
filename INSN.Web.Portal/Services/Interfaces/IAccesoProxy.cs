@@ -1,7 +1,7 @@
 ﻿using INSN.Web.Models.Response;
-using INSN.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using INSN.Web.Models.Response.Sistemas;
+using INSN.Web.Models.Request;
 
 namespace INSN.Web.Portal.Services.Interfaces
 {

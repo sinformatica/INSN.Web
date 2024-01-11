@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
 using System.Security.Claims;
-using INSN.Web.Models;
+using INSN.Web.Models.Request;
 
 namespace INSN.Web.Portal.Controllers
 {

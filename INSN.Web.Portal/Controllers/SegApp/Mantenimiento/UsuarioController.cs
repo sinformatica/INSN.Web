@@ -431,7 +431,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         public async Task<IActionResult> EditarRolesVista(UsuarioViewModel model)
         {
             model.Sistemas = await SistemaListar();
-            model.Roles = await RolPorSistemaListar(model.SistemaSeleccionado);
+            model.Roles = await RolPorSistemaListar(9);
             model.UsuarioRoles = await UsuarioRolListar(model.Id);
 
             return View("~/Views/SegApp/Mantenimiento/Usuario/EditarRoles.cshtml", model);

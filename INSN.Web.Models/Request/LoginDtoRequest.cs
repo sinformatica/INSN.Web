@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INSN.Web.Models
+namespace INSN.Web.Models.Request
 {
     public class LoginDtoRequest
     {

@@ -25,6 +25,7 @@ using INSN.Web.Repositories.Implementaciones.SegApp;
 using INSN.Web.Services.Implementaciones.SegApp;
 using INSN.Web.Services.Interfaces.SegApp;
 using INSN.Web.Repositories.Interfaces.SegApp;
+using INSN.Web.DataAccess.Acceso;
 
 var builder = WebApplication.CreateBuilder(args);
 

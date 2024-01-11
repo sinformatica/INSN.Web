@@ -1,6 +1,6 @@
 ﻿using Azure.Core;
 using INSN.Web.Common;
-using INSN.Web.Models;
+using INSN.Web.Models.Request;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;

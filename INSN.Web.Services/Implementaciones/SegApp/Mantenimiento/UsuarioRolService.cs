@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using INSN.Web.DataAccess.Acceso;
 
 namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 {

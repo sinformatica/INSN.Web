@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using INSN.Web.DataAccess;
-using INSN.Web.Entities;
+using INSN.Web.Entities.SegApp;
 using INSN.Web.Models.Request.Sistema;
 using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.Sistema;

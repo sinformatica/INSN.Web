@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INSN.Web.DataAccess
+namespace INSN.Web.DataAccess.Acceso
 {
-    public class INSNIdentityUsuarioRol 
+    public class INSNIdentityUsuarioRol
     {
         public string UserId { get; set; }
         public string RoleId { get; set; }

@@ -13,13 +13,13 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using INSN.Web.Models.Response.Sistema;
-using INSN.Web.Entities;
 using INSN.Web.Models.Request.Sistema;
 using INSN.Web.Services.Interfaces;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using INSN.Web.DataAccess;
 using System.Runtime.CompilerServices;
+using INSN.Web.Entities.SegApp;
 
 namespace INSN.Web.Services.Implementaciones
 {
