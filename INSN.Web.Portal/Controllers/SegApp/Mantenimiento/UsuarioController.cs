@@ -431,7 +431,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         public async Task<IActionResult> EditarRolesVista(UsuarioViewModel model)
         {
             model.Sistemas = await SistemaListar();
-            model.Roles = await RolPorSistemaListar(1);
+            model.Roles = await RolPorSistemaListar(model.SistemaSeleccionado);
             model.UsuarioRoles = await UsuarioRolListar(model.Id);
 
             return View("~/Views/SegApp/Mantenimiento/Usuario/EditarRoles.cshtml", model);
@@ -510,7 +510,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 #endregion
 
                 request.Sistemas = await SistemaListar();
-                request.Roles = await RolPorSistemaListar(1);
+                request.Roles = await RolPorSistemaListar(request.SistemaSeleccionado);
                 request.UsuarioRoles = await UsuarioRolListar(request.Id);
 
          
@@ -522,7 +522,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 _logger.LogError(ex, "Validacion de registro {Message}", ex.Message);
 
                 request.Sistemas = await SistemaListar();
-                request.Roles = await RolPorSistemaListar(1);
+                request.Roles = await RolPorSistemaListar(request.SistemaSeleccionado);
                 request.UsuarioRoles = await UsuarioRolListar(request.Id);
 
                 return View("~/Views/SegApp/Mantenimiento/Usuario/EditarRoles.cshtml", request);
@@ -534,7 +534,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 TempData["Mensaje"] = ex.Message;
 
                 request.Sistemas = await SistemaListar();
-                request.Roles = await RolPorSistemaListar(1);
+                request.Roles = await RolPorSistemaListar(request.SistemaSeleccionado);
                 request.UsuarioRoles = await UsuarioRolListar(request.Id);
 
                 return View("~/Views/SegApp/Mantenimiento/Usuario/EditarRoles.cshtml", request);
@@ -554,7 +554,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
             var model = new UsuarioViewModel
             {
                 Sistemas = await SistemaListar(),
-                Roles = await RolPorSistemaListar(1),
+                Roles = await RolPorSistemaListar(9),
                 UsuarioRoles = await UsuarioRolListar(UserId),
                 Id = UserId
             };
