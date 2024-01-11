@@ -4,6 +4,7 @@ using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.Home;
 using INSN.Web.Repositories.Interfaces.Home;
 using INSN.Web.Services.Interfaces.Home;
+using INSN.Web.Entities.DocumentoLegal;
 
 namespace INSN.Web.Services.Implementaciones.Home
 {
@@ -33,17 +34,21 @@ namespace INSN.Web.Services.Implementaciones.Home
         /// Servicio - Listar Tipo Documento
         /// </summary>
         /// <returns></returns>
-        public async Task<BaseResponseGeneric<ICollection<TipoDocumentoDtoResponse>>> ListAsync()
+        public async Task<BaseResponseGeneric<ICollection<TipoDocumentoDtoResponse>>> ListAsync(string Area, string Estado, int EstadoRegistro)
         {
             var response = new BaseResponseGeneric<ICollection<TipoDocumentoDtoResponse>>();
 
             try
             {
-                response.Data = await _repository.ListAsync(x => new TipoDocumentoDtoResponse
-                {
-                    Id = x.Id,
-                    Descripcion = x.Descripcion
-                });
+                response.Data = await _repository.ListAsync(x =>
+           x.Area == Area && x.Estado == Estado && x.EstadoRegistro == EstadoRegistro,
+
+           x => new TipoDocumentoDtoResponse
+           {
+               Id = x.Id,
+               Descripcion = x.Descripcion,
+               Area = x.Area
+           });
 
                 response.Success = true;
             }

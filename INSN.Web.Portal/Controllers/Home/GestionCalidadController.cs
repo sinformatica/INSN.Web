@@ -1,29 +1,28 @@
 ﻿using INSN.Web.Models;
 using INSN.Web.Models.Request;
-//using INSN.Web.Portal.Services.Interfaces.Home.UFGRD;
+//using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
 using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
-public class UFGRDController : Controller
+public class GestionCalidadController : Controller
 {
     private readonly IWebHostEnvironment _enviroment;
   //  private readonly IDocumentoLegalProxy _proxy;
   //  private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<UFGRDController> _logger;
+    private readonly ILogger<GestionCalidadController> _logger;
 
-    private const int MaxFileSize = 4 * 1024 * 1024;
-
+    
     /// <summary>
     /// 
     /// </summary>
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
     /// <param name="logger"></param>
-    public UFGRDController(//IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy,
-        ILogger<UFGRDController> logger, IWebHostEnvironment env)
+    public GestionCalidadController(//IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy,
+        ILogger<GestionCalidadController> logger, IWebHostEnvironment env)
     {
        // _proxy = proxy;
      //   _TipoDocumentoProxy = TipoDocumentoProxy;
@@ -33,7 +32,7 @@ public class UFGRDController : Controller
 
     public IActionResult Index()
     {
-        return View("~/Views/Home/UFGRD/Index.cshtml");
+        return View("~/Views/Home/GestionCalidad/Index.cshtml");
     }
 
     //// GET
@@ -74,7 +73,7 @@ public class UFGRDController : Controller
     //        pager.RowCount = response.Data!.Count;
     //    }
 
-    //    return View("~/Views/Home/UFGRD/DocumentoLegal.cshtml", model);
+    //    return View("~/Views/Home/OportunidadLaboral/DocumentoLegal.cshtml", model);
     //}
 
 

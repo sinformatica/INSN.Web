@@ -9,7 +9,6 @@
     <link href="~/img/favicon.png" rel="icon">
     <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-
     <!-- Vendor CSS Files -->
     <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -96,23 +95,30 @@
                 <div class="col-lg-4 col-md-4">
                     <div id="dc_jqaccordion_widget-10" class="et_pb_widget">
                         <div class="dcjq-accordion" id="dc_jqaccordion_widget-10-item">
-
-                            <ul id="menu-menu-transparencia" class="menu">
-                                <!-- INICIO DATOS GENERALES -->
+                            <!-- INICIO DATOS GENERALES -->
+                            <ul id="menu-menu-transparencia" class="menu">                            
                                 <li class="sub-menu-heading">1. DATOS GENERALES</li>
                                 <li id="menu-item-A1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A1">
-                                    <a href="#">1.1 Designación de funcionarios responsables de la Ley 27806</a>
+@* <<<<<<< HEAD *@
+                                    @* <a href="#">1.1 Designación de funcionarios responsables de la Ley 27806</a> *@                                    
+                               @*  <a href="https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13180&id_tema=40&ver=D" class="dcjq-parent">1.1 Designación de funcionarios responsables de la Ley 27806<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
-                                    </ul>
+                                    </ul> *@
+@* ======= *@
+                                    <a href="https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13180&id_tema=40&ver=D" class="dcjq-parent">1.1 Designación de funcionarios responsables de la Ley 27806<span class="dcjq-icon"></span></a>
+                                  @*   <ul class="sub-menu" style="display: none;">
+                                    </ul> *@
                                 </li>
+
                                 <li id="menu-item-A2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-A2 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">1.2 Directorio<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
                                         <li id="menu-item-A2A1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A2A1">
-                                            <a href="#">Dirección de la entidad</a>
+                                            <a href="https://maps.app.goo.gl/hCorKZCypDeub17x7">Dirección de la entidad<span class="dcjq-icon"></span></a>
                                         </li>
                                         <li id="menu-item-A2A2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A2A2">
-                                            <a href="#">Directorio de los Servidores Civiles y correos electrónicos</a>
+                                            <a href="https://www.gob.pe/institucion/insn/funcionarios">Directorio de los Servidores Civiles y correos electrónicos<span class="dcjq-icon"></span></a>
+                                            @*  <a href="#">Directorio de los Servidores Civiles y correos electrónicos</a> *@
                                         </li>
                                     </ul>
                                 </li>
@@ -120,10 +126,14 @@
                                     <a href="#" class="dcjq-parent">1.3 Marco Legal<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
                                         <li id="menu-item-A3A1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A3A1">
-                                            <a href="#">Norma de creación de la entidad</a>
+                                           @*  <a href="#">Norma de creación de la entidad</a> *@
+                                            <a href="https://www.gob.pe/institucion/insn/normas-legales/4283137-0120-1983-sa-dvm">Norma de creación de la entidad<span class="dcjq-icon"></span></a>
+
                                         </li>
                                         <li id="menu-item-A3A2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A3A2">
-                                            <a href="#">Normativa de Transparencia y acceso a la información Pública</a>
+                                           @*  <a href="#">Normativa de Transparencia y acceso a la información Pública</a> *@
+                                            <a href="https://www.minsa.gob.pe/portada/transparencia/solicitud/">Normativa de Transparencia y acceso a la información Pública<span class="dcjq-icon"></span></a>
+
                                         </li>
                                     </ul>
                                 </li>
@@ -131,18 +141,21 @@
                                     <a href="#" class="dcjq-parent">1.4 Normas Emitidas<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
                                         <li id="menu-item-A4A1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A2">
-                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="1" asp-route-TituloPagina="Resoluciones Directoral DG">Resoluciones Directoral DG</a>
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="3" asp-route-TituloPagina="Resoluciones Directoral DG">Resoluciones Directoral DG</a>
                                         </li>
                                         <li id="menu-item-A4A2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A2">
-                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="2" asp-route-TituloPagina="Resoluciones Administrativa OP">Resoluciones Administrativa OP</a>
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="50" asp-route-TituloPagina="Resoluciones Administrativa OP">Resoluciones Administrativa OP</a>
 
                                         </li>
                                      
-                                        <li id="menu-item-A4A3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A3">
-                                            <a href="#">Resoluciones Administrativa OEA</a>
+                                        <li id="menu-item-A4A3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A3">                                     
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="4" asp-route-TituloPagina="Resoluciones Administrativa OEA">Resoluciones Administrativa OEA</a>
+
                                         </li>
                                         <li id="menu-item-A4A4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-A4A4">
-                                            <a href="#">Guías Clínicas</a>
+                                           @*  <a href="#">Guías Clínicas</a> *@
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="52" asp-route-TituloPagina="Guías Clínicas">Guías Clínicas</a>
+
                                         </li>
                                     </ul>
                                 </li>
@@ -158,49 +171,69 @@
                             <!-- FIN DATOS GENERALES -->
                             <!-- ----------------------------------- -->
                             <!-- INICIO PLANEAMIENTO Y ORGANIZACION -->
-                            <ul id="menu-menu-presupuesto" class="menu">
+                            <ul id="menu-menu-planeamiento" class="menu">
                                 <li class="sub-menu-heading">2. PLANEAMIENTO Y ORGANIZACION</li>
                                 <li id="menu-item-B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-B1 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">2.1 Instrumentos de Gestión<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
                                         <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
-                                            <a href="#">Reglamento de Organización y Funciones (ROF)</a>
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="53" asp-route-TituloPagina="Reglamento de Organización y Funciones (ROF)">Reglamento de Organización y Funciones (ROF)</a>
+
                                         </li>
                                         <li id="menu-item-B1B2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B2">
-                                            <a href="#">Organigrama</a>
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="54" asp-route-TituloPagina="Organigrama">Organigrama</a>
+
                                         </li>
                                         <li id="menu-item-B1B3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B3">
-                                            <a href="#">Manual de Organización y Funciones (MOF)</a>
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="55" asp-route-TituloPagina="Manual de Organización y Funciones (MOF)">Manual de Organización y Funciones (MOF)</a>
+
                                         </li>
                                         <li id="menu-item-B1B4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B4">
-                                            <a href="#">Clasificador de Cargos</a>
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="108" asp-route-TituloPagina="Clasificador de Cargos">Clasificador de Cargos</a>
+
                                         </li>
                                         <li id="menu-item-B1B5" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B5">
-                                            <a href="#">Manual de Perfiles de Puestos (MPP)</a>
+
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="110" asp-route-TituloPagina="Manual de Perfiles de Puestos (MPP)">Manual de Perfiles de Puestos (MPP)</a>
+
                                         </li>
                                         <li id="menu-item-B1B6" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B6">
-                                            <a href="#">Cuadro de Asignación de Personal (CAP) o CAP Provisional</a>
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="56" asp-route-TituloPagina="Cuadro de Asignación de Personal (CAP) o CAP Provisional">Cuadro de Asignación de Personal (CAP) o CAP Provisional</a>
+
                                         </li>
                                         <li id="menu-item-B1B7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B7">
-                                            <a href="#">Presupuesto Analítico de Personal (PAP)</a>
+                                       
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="111" asp-route-TituloPagina="Presupuesto Analítico de Personal (PAP)">Presupuesto Analítico de Personal (PAP)</a>
+
                                         </li>
                                         <li id="menu-item-B1B8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B8">
-                                            <a href="#">Cuadro de Puestos de la Entidad (CPE)</a>
+                                            @* <a href="#">Cuadro de Puestos de la Entidad (CPE)</a>
+ *@
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="112" asp-route-TituloPagina="Cuadro de Puestos de la Entidad (CPE)">Cuadro de Puestos de la Entidad (CPE)</a>
+
                                         </li>
                                         <li id="menu-item-B1B9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B9">
-                                            <a href="#">Reglamento Interno de Trabajo (RIT)</a>
+               
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="57" asp-route-TituloPagina="Reglamento Interno de Trabajo (RIT)">Reglamento Interno de Trabajo (RIT)</a>
+
                                         </li>
                                         <li id="menu-item-B1B10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B10">
-                                            <a href="#">Reglamento Interno de Servidores Civiles (RISC)</a>
+                        
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="113" asp-route-TituloPagina="Reglamento Interno de Servidores Civiles (RISC)">Reglamento Interno de Servidores Civiles (RISC)</a>
+
                                         </li>
                                         <li id="menu-item-B1B11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B12">
-                                            <a href="#">Manual de Procedimientos (MAPRO)</a>
+                              
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="58" asp-route-TituloPagina="Manual de Procedimientos (MAPRO)">Manual de Procedimientos (MAPRO) </a>
+
                                         </li>
                                         <li id="menu-item-B1B12" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B12">
-                                            <a href="#">Texto Único de Procedimientos Administrativos (TUPA)</a>
+                                            
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="59" asp-route-TituloPagina="Texto Único de Procedimientos Administrativos (TUPA)">Texto Único de Procedimientos Administrativos (TUPA)</a>
                                         </li>
                                         <li id="menu-item-B1B13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B13">
-                                            <a href="#">Manual de Operaciones (MOPE)</a>
+                                      
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="60" asp-route-TituloPagina="Manual de Operaciones (MOPE)">Manual de Operaciones (MOPE) </a>
                                         </li>
                                     </ul>
                                 </li>
@@ -208,37 +241,52 @@
                                     <a href="#" class="dcjq-parent">2.2 Planes y Políticas<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
                                         <li id="menu-item-B2C1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B2C1">
-                                            <a href="#">Políticas Nacionales</a>
+                                           
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="61" asp-route-TituloPagina="Políticas Nacionales">Políticas Nacionales </a>
                                         </li>
                                        <li id="menu-item-B2C2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B2C2">
-                                            <a href="#">Plan Estratégico Sectorial Multianual (PESEM)</a>
+                                        
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="62" asp-route-TituloPagina="Plan Estratégico Sectorial Multianual (PESEM)">Plan Estratégico Sectorial Multianual (PESEM) </a>
+
                                         </li>
                                         <li id="menu-item-B2C3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B2C3">
-                                            <a href="#">Plan Estratégico Institucional (PEI)</a>
+                                          
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="64" asp-route-TituloPagina="Plan Estratégico Institucional (PEI)">Plan Estratégico Institucional (PEI) </a>
+
+
                                         </li>
                                         <li id="menu-item-B2C4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B2C4">
-                                            <a href="#">Plan Operativo Institucional (POI)</a>
+                                           
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="67" asp-route-TituloPagina="Plan Operativo Institucional (POI)">Plan Operativo Institucional (POI) </a>
+
                                         </li>
                                              <li id="menu-item-B2C5" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B2C5"> 
-                                            <a href="#">Plan de Desarrollo Regional/Local Concertado</a>
+                                           
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="68" asp-route-TituloPagina="Plan de Desarrollo Regional/Local Concertado">Plan de Desarrollo Regional/Local Concertado </a>
+
+
                                         </li>
                                         <li id="menu-item-B2C6" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B2C6">
-                                            <a href="#">Plan de Gobierno Digital (PGD)</a>
+                                           
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="69" asp-route-TituloPagina="Plan de Gobierno Digital (PGD)">Plan de Gobierno Digital (PGD) </a>
+
                                         </li>
                                         <li id="menu-item-B2C7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B2C7">
-                                            <a href="#">Reporte de Cumplimiento, Reporte de Seguimiento e Informe de Evaluación</a>
+                                           
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="70" asp-route-TituloPagina="Reporte de Cumplimiento, Reporte de Seguimiento e Informe de Evaluación">Reporte de Cumplimiento, Reporte de Seguimiento e Informe de Evaluación </a>
+
                                         </li> 
                                     </ul>
                                 </li>
                                  <li id="menu-item-B3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-B3 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">2.3 Recomendaciones de Auditoría<span class="dcjq-icon"></span></a>
-                                    <ul class="sub-menu" style="display: none;">
-                                        </ul>
+                                  @*   <ul class="sub-menu" style="display: none;">
+                                        </ul> *@
                                 </li>
                                 <li id="menu-item-B4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-B4 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">2.4 Información Adicional<span class="dcjq-icon"></span></a>
-                                    <ul class="sub-menu" style="display: none;">
-                                    </ul>
+                                    @* <ul class="sub-menu" style="display: none;">
+                                    </ul> *@
                                 </li> 
                             </ul>
                             <!-- FIN PLANEAMIENTO Y ORGANIZACION -->
@@ -250,219 +298,351 @@
                                     <a href="#" class="dcjq-parent">3.1 Presupuesto<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
                                         <li id="menu-item-C1C1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-C1C1">
-                                            <a href="#">Información presupuestal</a>
+                                           
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="73" asp-route-TituloPagina="Información presupuestal">Información presupuestal </a>
                                         </li>
                                         <li id="menu-item-C1C2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-C1C2">
-                                            <a href="#">Saldos de balance</a>
+                                            
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="74" asp-route-TituloPagina="Saldos de balance">Saldos de balance </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-C2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-C2 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">3.2 Información Adicional<span class="dcjq-icon"></span></a>
-                                    <ul class="sub-menu" style="display: none;">
-                                    </ul>
+                                   @*  <ul class="sub-menu" style="display: none;">
+                                    </ul> *@
                                 </li>
                             </ul>
                             <!-- FIN PRESUPUESTO -->
                             <!-- ----------------------------------- -->
                             <!-- INICIO PROYECTOS DE INVERSION E INFOBRAS -->
-                            <ul id="menu-menu-transparencia" class="menu">
+                            <ul id="menu-menu-proyectos" class="menu">
                                 <li class="sub-menu-heading">4. PROYECTOS DE INVERSIÓN E INFOBRAS</li>
                                 <li id="menu-item-D1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-D1 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">4.1 Proyectos de Inversión<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="77" asp-route-TituloPagina="Información de los montos por concepto de adicionales de obra">Información de los montos por concepto de adicionales de obra</a>
+                                        </li>
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="115" asp-route-TituloPagina="Liquidación final de obra "> Liquidación final de obra</a>
+                                        </li>
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="117" asp-route-TituloPagina="Informes de Supervisión">Informes de Supervisión </a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-D2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-D2 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">4.2 INFOBRAS<span class="dcjq-icon"></span></a>
-                                    <ul class="sub-menu" style="display: none;">
-                                    </ul>
+                                    @* <ul class="sub-menu" style="display: none;">
+                                    </ul> *@
                                 </li>
                                 <li id="menu-item-D3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-D3 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">4.3 Información Adicional<span class="dcjq-icon"></span></a>
-                                    <ul class="sub-menu" style="display: none;">
-                                    </ul>
+                                  @*   <ul class="sub-menu" style="display: none;">
+                                    </ul> *@
                                 </li>
                             </ul>
                             <!-- FIN PROYECTOS DE INVERSION E INFOBRAS -->
                             <!-- ----------------------------------- -->
                             <!-- INICIO PARTICIPACION CIUDADANA -->
-                            <ul id="menu-menu-transparencia" class="menu">
+                            <ul id="menu-menu-participacion" class="menu">
                                 <li class="sub-menu-heading">5. PARTICIPACIÓN CIUDADANA</li>
                                 <li id="menu-item-E1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-E1 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">5.1 Presupuesto Participativo<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-D3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-D3 dcjq-parent-li">
+                                            <a href="#" class="dcjq-parent"> Información Adicional<span class="dcjq-icon"></span></a>
+                                            <ul class="sub-menu" style="display: none;">
+
+                                                <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                                    <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="118" asp-route-TituloPagina="Convocatorias">Convocatorias</a>
+                                                </li>
+                                                <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                                    <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="120" asp-route-TituloPagina="Agenta del proceso">Agenta del proceso</a>
+                                                </li>
+                                                <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                                    <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="123" asp-route-TituloPagina="Agentes participantes"> Agentes participantes</a>
+                                                </li>
+                                                <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                                    <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="128" asp-route-TituloPagina="Equipo técnico"> Equipo técnico</a>
+                                                </li>
+                                                <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                                    <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="129" asp-route-TituloPagina="Comité de vigilancia"> Comité de vigilancia</a>
+                                                </li>
+                                                <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                                    <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="130" asp-route-TituloPagina="Proyectos priorizados"> Proyectos priorizados </a>
+                                                </li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-E2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-E2 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">5.2 Audiencias<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="132" asp-route-TituloPagina="Convocatorias">Convocatorias</a>
+                                        </li>
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="133" asp-route-TituloPagina="Agenta del proceso">Agenta del proceso</a>
+                                        </li>
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="134" asp-route-TituloPagina="Registro participantes"> Registro participantes</a>
+                                        </li>
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="135" asp-route-TituloPagina="Actas">Actas</a>
+                                        </li>
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="136" asp-route-TituloPagina="Informe presentados">Informe presentados</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-E3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-E3 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">5.3 Consejo de Coordinación Regional/Local<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="137" asp-route-TituloPagina="Composición">Composición</a>
+                                        </li>
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="138" asp-route-TituloPagina="Convocatorias">Convocatorias</a>
+                                        </li>
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="140" asp-route-TituloPagina="Agenta del proceso">Agenta del proceso</a>
+                                        </li>
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="141" asp-route-TituloPagina="Actas de elección de los representantes de la sociedad civil en el CCR/CCL">Actas de elección de los representantes de la sociedad civil en el CCR/CCL</a>
+                                        </li>
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="142" asp-route-TituloPagina="Actas de Consejo Ordinaria y Extraordinaria ">Actas de Consejo Ordinaria y Extraordinaria </a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-E4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-E4 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">5.4 Información Adicional<span class="dcjq-icon"></span></a>
-                                    <ul class="sub-menu" style="display: none;">
-                                    </ul>
+                                   @*  <ul class="sub-menu" style="display: none;">
+                                    </ul> *@
                                 </li>
                             </ul>
                             <!-- FIN PARTICIPACION CIUDADANA -->
                             <!-- ----------------------------------- -->
                             <!-- INICIO PERSONAL -->
-                            <ul id="menu-menu-transparencia" class="menu">
+                            <ul id="menu-menu-personal" class="menu">
                                 <li class="sub-menu-heading">6. PERSONAL</li>
                                 <li id="menu-item-F1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-F1 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">6.1 Información de Personal<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="78" asp-route-TituloPagina="Información personal">Información personal</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-F2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-F2 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">6.2 Declaraciones Juradas<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="79" asp-route-TituloPagina="Declaraciones juradas">Declaraciones juradas</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-F3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-F3 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">6.3 Reporte de denuncias contra Funcionarios o Servidores Públicos<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="80" asp-route-TituloPagina="Reporte de denuncias contra funcionarios o servidores públicos">Reporte de denuncias contra funcionarios o servidores públicos</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-F4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-F4 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">6.4 Información Adicional<span class="dcjq-icon"></span></a>
-                                    <ul class="sub-menu" style="display: none;">
-                                    </ul>
+                                  @*   <ul class="sub-menu" style="display: none;">
+                                    </ul> *@
                                 </li>
                             </ul>
                             <!-- FIN PERSONAL -->
                             <!-- ----------------------------------- -->
                             <!-- INICIO CONTRATACION DE BIENES Y SERVICIOS -->
-                            <ul id="menu-menu-transparencia" class="menu">
+                            <ul id="menu-menu-contratacion" class="menu">
                                 <li class="sub-menu-heading">7. CONTRATACIÓN DE BIENES Y SERVICIOS</li>
                                 <li id="menu-item-G1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G1 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">7.1 Procesos de Selección de Bienes y Servicios<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="82" asp-route-TituloPagina="Proceso de selección de bienes y servicios">   Proceso de selección de bienes y servicios</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-G2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G2 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">7.2 Contrataciones Directas<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="83" asp-route-TituloPagina="Contrataciones directas">Contrataciones directas</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-G3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G3 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">7.3 Penalidades Aplicadas<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="84" asp-route-TituloPagina="Penalidades Aplicadas">Penalidades Aplicadas</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-G4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G4 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">7.4 Órdenes de Bienes y Servicios<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="85" asp-route-TituloPagina="Órdenes de Bienes y Servicios">Órdenes de Bienes y Servicios</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-G5" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G5 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">7.5 Publicidad<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="86" asp-route-TituloPagina="Publicidad">Publicidad</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-G6" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G6 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">7.6 Pasajes y Viáticos<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="87" asp-route-TituloPagina=" Pasajes y Viáticos"> Pasajes y Viáticos</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-G7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G7 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">7.7 Telefonía Fija, Móvil e Internet<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="88" asp-route-TituloPagina="Telefonía Fija, Móvil e Internet">Telefonía Fija, Móvil e Internet</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-G8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G8 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">7.8 Uso de Vehículos<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="91" asp-route-TituloPagina="Uso de Vehículos">Uso de Vehículos</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-G9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G9 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">7.9 PAC (Plan Anual de Contrataciones)<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="92" asp-route-TituloPagina="PAC (PLAN ANUAL DE CONTRATACIONES )/MODIFICATORIAS/ EVALUACIÓN DEL PAC">PAC (PLAN ANUAL DE CONTRATACIONES )/MODIFICATORIAS/ EVALUACIÓN DEL PAC</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-G10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G10 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">7.10 Laudos Arbitrales<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="93" asp-route-TituloPagina="Laudos Arbitrales">Laudos Arbitrales</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-G11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G11 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">7.11 Actas de Conciliación<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="94" asp-route-TituloPagina="Actas de Conciliación">Actas de Conciliación</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-G12" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G12 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">7.12 Comité de Selección<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="95" asp-route-TituloPagina="Comité de Selección">Comité de Selección</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-G13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G13 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">7.13 Relación de Proveedores<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="96" asp-route-TituloPagina="Relación de Proveedores">Relación de Proveedores</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li id="menu-item-G14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-G14 dcjq-parent-li">
                                     <a href="#" class="dcjq-parent">7.14 Información Adicional<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
+                                        <li id="menu-item-B1B1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-B1B1">
+                                            <a asp-controller="DirectorioInstitucional" asp-action="DocumentoLegal" asp-route-TipoDocumentoSeleccionada="97" asp-route-TituloPagina="Información Adicional">Información Adicional</a>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>
                             <!-- FIN CONTRATACION DE BIENES Y SERVICIOS -->
                             <!-- ----------------------------------- -->
                             <!-- INICIO ACTIVIDADES OFICIALES -->
-                            <ul id="menu-menu-transparencia" class="menu">
+                            <ul id="menu-menu-actividades" class="menu">
                                 <li class="sub-menu-heading">8. ACTIVIDADES OFICIALES</li>
                                 <li id="menu-item-H1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-H1 dcjq-parent-li">
-                                    <a href="#" class="dcjq-parent">8.1 Agenda Oficial<span class="dcjq-icon"></span></a>
+@* <<<<<<< HEAD *@
+                                  @*  <a href="https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13180&id_tema=40&ver=D" class="dcjq-parent">8.1 Agenda Oficial<span class="dcjq-icon"></span></a>
                                     <ul class="sub-menu" style="display: none;">
-                                    </ul>
+                                    </ul> *@
+@* ======= *@
+                                    <a href="https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13180&id_tema=40&ver=D" class="dcjq-parent">8.1 Agenda Oficial<span class="dcjq-icon"></span></a>
+                                   @*  <ul class="sub-menu" style="display: none;">
+                                    </ul> *@
+
                                 </li>
                                 <li id="menu-item-H2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-H2 dcjq-parent-li">
-                                    <a href="#" class="dcjq-parent">8.2 Comunicados / Informes Oficiales / Notas de Prensa<span class="dcjq-icon"></span></a>
-                                    <ul class="sub-menu" style="display: none;">
-                                    </ul>
+                                    <a href="https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13180&id_tema=40&ver=D" class="dcjq-parent">8.2 Comunicados / Informes Oficiales / Notas de Prensa<span class="dcjq-icon"></span></a>
+
+                                  @*   <a href="#" class="dcjq-parent">8.2 Comunicados / Informes Oficiales / Notas de Prensa<span class="dcjq-icon"></span></a> *@
+                                  @*   <ul class="sub-menu" style="display: none;">
+                                    </ul> *@
                                 </li>                            
                                 <li id="menu-item-H3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-H3 dcjq-parent-li">
-                                    <a href="#" class="dcjq-parent">8.3 Información Adicional<span class="dcjq-icon"></span></a>
-                                    <ul class="sub-menu" style="display: none;">
-                                    </ul>
+                                    <a href="https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13180&id_tema=40&ver=D" class="dcjq-parent">8.3 Información Adicional<span class="dcjq-icon"></span></a>
+
+                                   @*  <a href="#" class="dcjq-parent">8.3 Información Adicional<span class="dcjq-icon"></span></a> *@
+                                   @*  <ul class="sub-menu" style="display: none;">
+                                    </ul> *@
                                 </li>
                             </ul>
                             <!-- FIN ACTIVIDADES OFICIALES -->
                             <!-- ----------------------------------- -->
                             <!-- INICIO ACCESO A LA INFORMACION -->
-                            <ul id="menu-menu-transparencia" class="menu">
+                            <ul id="menu-menu-acceso" class="menu">
                                 <li class="sub-menu-heading">9. ACCESO A LA INFORMACIÓN</li>
                                 <li id="menu-item-I1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-I1 dcjq-parent-li">
-                                    <a href="#" class="dcjq-parent">9.1 Acceso a la Información Pública<span class="dcjq-icon"></span></a>
-                                    <ul class="sub-menu" style="display: none;">
-                                    </ul>
+                                   @*  <a href="#" class="dcjq-parent">9.1 Acceso a la Información Pública<span class="dcjq-icon"></span></a> *@
+                                    <a href="https://www.transparencia.gob.pe/reportes_directos/pep_transparencia_acceso_informacion.aspx?id_entidad=13180&id_tema=49&cod_rueep=0&ver=D">9.1 Acceso a la Información Pública<span class="dcjq-icon"></span></a>
+                                   @*  <ul class="sub-menu" style="display: none;">
+                                    </ul> *@
                                 </li>                            
                                 <li id="menu-item-I2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-I2 dcjq-parent-li">
-                                    <a href="#" class="dcjq-parent">9.2 Información Adicional<span class="dcjq-icon"></span></a>
-                                    <ul class="sub-menu" style="display: none;">
-                                    </ul>
+                                  @*   <a href="#" class="dcjq-parent">9.2 Información Adicional<span class="dcjq-icon"></span></a> *@
+                                    <a href="https://www.transparencia.gob.pe/reportes_directos/pep_transparencia_acceso_informacion.aspx?id_entidad=13180&id_tema=49&cod_rueep=0&ver=D">9.2 Información Adicional<span class="dcjq-icon"></span></a>
+
+                                    @*  <ul class="sub-menu" style="display: none;">
+                                    </ul> *@
                                 </li>
                             </ul>
                             <!-- FIN ACCESO A LA INFORMACION -->
                             <!-- ----------------------------------- -->
                             <!-- INICIO REGISTRO DE VISITAS -->
-                            <ul id="menu-menu-transparencia" class="menu">
+                            <ul id="menu-menu-visitas" class="menu">
                                 <li class="sub-menu-heading">10. REGISTRO DE VISITAS</li>
                                 <li id="menu-item-J1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-J1 dcjq-parent-li">
-                                    <a href="#" class="dcjq-parent">10.1 Registro de Visitas<span class="dcjq-icon"></span></a>
-                                    <ul class="sub-menu" style="display: none;">
-                                    </ul>
+                                    @* <a href="" target="_blank" class="dcjq-parent">10.1 Registro de Visitas<span class="dcjq-icon"></span></a> *@
+                                    <a href="https://visitas.servicios.gob.pe/consultas/index.php?ruc_enti=20131368403">10.1 Registro de Visitas<span class="dcjq-icon"></span></a>
+                                    @*  <ul class="sub-menu" style="display: none;">
+                                    </ul> *@
                                 </li>
                                 <li id="menu-item-J2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-J2 dcjq-parent-li">
-                                    <a href="#" class="dcjq-parent">10.2 Información Adicional<span class="dcjq-icon"></span></a>
-                                    <ul class="sub-menu" style="display: none;">
-                                    </ul>
+                                    @* <a href="#" class="dcjq-parent">10.2 Información Adicional<span class="dcjq-icon"></span></a> *@
+                                    <a href="https://visitas.servicios.gob.pe/consultas/index.php?ruc_enti=20131368403">10.2 Información Adicional<span class="dcjq-icon"></span></a>
+                                   @*  <ul class="sub-menu" style="display: none;">
+                                    </ul> *@
                                 </li>
                             </ul>
                             <!-- FIN REGISTRO DE VISITAS -->
@@ -475,6 +655,8 @@
                     @RenderBody()
                 </div>
             </div>
+
+
             <br />
             <br />
         </div>
@@ -544,35 +726,66 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        var accordions = document.querySelectorAll(".dcjq-accordion");
+        var menus = document.querySelectorAll(".menu");
 
-        accordions.forEach(function (accordion) {
-            var items = accordion.querySelectorAll(".dcjq-parent-li");
+        menus.forEach(function (menu) {
+            var items = menu.querySelectorAll(".menu-item");
 
             items.forEach(function (item) {
                 var link = item.querySelector("a[href]");
-                if (link) {
+                var subMenu = item.querySelector(".sub-menu");
+
+                if (link && subMenu) {
+                    // Movemos el evento click a otro elemento dentro del ítem del menú
+                    var linkToClick = item.querySelector('.dcjq-parent');
+                    linkToClick.addEventListener("click", function (event) {
+                        event.preventDefault(); // Evitar la acción predeterminada del enlace
+
+                        subMenu.style.display = subMenu.style.display === "none" ? "block" : "none";
+
+                        // Cerrar otros submenús desplegados en este menú
+                        items.forEach(function (otherItem) {
+                            if (otherItem !== item && otherItem.querySelector(".sub-menu")) {
+                                otherItem.querySelector(".sub-menu").style.display = "none";
+                            }
+                        });
+                    });
+
+                    // Manejamos el clic en el enlace directo para que abra la URL
                     link.addEventListener("click", function (event) {
-                        if (!item.querySelector(".sub-menu")) {
-                            return; // Permitir la acción predeterminada si no hay submenú
-                        }
-
-                        event.preventDefault(); // Evitar la acción predeterminada solo si hay submenú
-
-
-                                        // Cerrar otros elementos desplegados
-                                        items.forEach(function (otherItem) {
-                                            if (otherItem !== item) {
-                                                otherItem.querySelector(".sub-menu").style.display = "none";
-                                            }
-                                        });
-                        var subMenu = item.querySelector(".sub-menu");
-                        if (subMenu) {
-                            subMenu.style.display = subMenu.style.display === "none" ? "block" : "none";
-                        }
+                        event.stopPropagation(); // Detener la propagación para no cerrar el submenú al hacer clic en el enlace
                     });
                 }
             });
         });
     });
+
+
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     var menus = document.querySelectorAll(".menu"); // Seleccionar todos los elementos con la clase "menu"
+
+    //     menus.forEach(function (menu) {
+    //         var items = menu.querySelectorAll(".menu-item");
+
+    //         items.forEach(function (item) {
+    //             var link = item.querySelector("a[href]");
+    //             var subMenu = item.querySelector(".sub-menu");
+
+    //             if (link && subMenu) {
+    //                 link.addEventListener("click", function (event) {
+    //                     event.preventDefault(); // Evitar la acción predeterminada del enlace
+
+    //                     subMenu.style.display = subMenu.style.display === "none" ? "block" : "none";
+
+    //                     // Cerrar otros submenús desplegados en este menú
+    //                     items.forEach(function (otherItem) {
+    //                         if (otherItem !== item && otherItem.querySelector(".sub-menu")) {
+    //                             otherItem.querySelector(".sub-menu").style.display = "none";
+    //                         }
+    //                     });
+    //                 });
+    //             }
+    //         });
+    //     });
+    // });
 </script>

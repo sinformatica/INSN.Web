@@ -12,6 +12,6 @@ namespace INSN.Web.Services.Interfaces.Home
         /// Interface de Listar Tipo Documento
         /// </summary>
         /// <returns></returns>
-        Task<BaseResponseGeneric<ICollection<TipoDocumentoDtoResponse>>> ListAsync();
+        Task<BaseResponseGeneric<ICollection<TipoDocumentoDtoResponse>>> ListAsync(string Area, string Estado, int EstadoRegistro);
     }
 }

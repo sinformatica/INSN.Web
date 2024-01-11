@@ -1,18 +1,18 @@
 ﻿using INSN.Web.Models;
 using INSN.Web.Models.Request;
-//using INSN.Web.Portal.Services.Interfaces.Home.POA;
+//using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
 using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
-public class POAController : Controller
+public class TelesaludController : Controller
 {
     private readonly IWebHostEnvironment _enviroment;
   //  private readonly IDocumentoLegalProxy _proxy;
   //  private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<POAController> _logger;
+    private readonly ILogger<TelesaludController> _logger;
 
     
     /// <summary>
@@ -21,8 +21,8 @@ public class POAController : Controller
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
     /// <param name="logger"></param>
-    public POAController(//IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy,
-        ILogger<POAController> logger, IWebHostEnvironment env)
+    public TelesaludController(//IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy,
+        ILogger<TelesaludController> logger, IWebHostEnvironment env)
     {
        // _proxy = proxy;
      //   _TipoDocumentoProxy = TipoDocumentoProxy;
@@ -32,7 +32,7 @@ public class POAController : Controller
 
     public IActionResult Index()
     {
-        return View("~/Views/Home/POA/Index.cshtml");
+        return View("~/Views/Home/Telesalud/Index.cshtml");
     }
 
     //// GET
@@ -73,7 +73,7 @@ public class POAController : Controller
     //        pager.RowCount = response.Data!.Count;
     //    }
 
-    //    return View("~/Views/Home/POA/DocumentoLegal.cshtml", model);
+    //    return View("~/Views/Home/OportunidadLaboral/DocumentoLegal.cshtml", model);
     //}
 
 

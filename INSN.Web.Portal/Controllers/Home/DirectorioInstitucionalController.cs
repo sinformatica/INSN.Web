@@ -52,12 +52,13 @@ public class DirectorioInstitucionalController : Controller
 
         pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
 
-        model.TipoDocumentos = await _TipoDocumentoProxy.ListAsync();
+        model.TipoDocumentos = await _TipoDocumentoProxy.TipoDocumentoListar("DOCUMENTOLEGAL", "A", 1);
 
         var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
         {
             Documento = model.Documento,
             Descripcion=model.Descripcion,
+            Area = "DOCUMENTOLEGAL",
             TipoDocumentoId = model.TipoDocumentoSeleccionada,         
             EstadoRegistro = 1,
             Page = pager.CurrentPage,
@@ -77,26 +78,26 @@ public class DirectorioInstitucionalController : Controller
     }
 
 
-    public IActionResult Download1(string fileName)
-    {
-        try
-        {
-            var filePath = Path.Combine(_enviroment.ContentRootPath, "Documentos/NormasDocumentosLegales", fileName);
+    //public IActionResult Download1(string fileName)
+    //{
+    //    try
+    //    {
+    //        var filePath = Path.Combine(_enviroment.ContentRootPath, "Documentos/NormasDocumentosLegales", fileName);
 
-            if (!System.IO.File.Exists(filePath))
-            {
-                return NotFound(); // Manejo de archivo no encontrado
-            }
+    //        if (!System.IO.File.Exists(filePath))
+    //        {
+    //            return NotFound(); // Manejo de archivo no encontrado
+    //        }
 
-            var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+    //        var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
 
-            return new FileStreamResult(fileStream, "application/pdf");
-        }
-        catch (Exception ex)
-        {
-            // Manejar cualquier otro tipo de error
-            // Por ejemplo: Loggear el error para su revisión posterior
-            return StatusCode(StatusCodes.Status500InternalServerError);
-        }
-    }
+    //        return new FileStreamResult(fileStream, "application/pdf");
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        // Manejar cualquier otro tipo de error
+    //        // Por ejemplo: Loggear el error para su revisión posterior
+    //        return StatusCode(StatusCodes.Status500InternalServerError);
+    //    }
+    //}
 }

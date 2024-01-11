@@ -9,13 +9,14 @@
 <main id="main">
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
+            <form>
             <div class="section-header">
                 <div>
                     @Html.HiddenFor(m => m.TituloPagina, new { @id = "tituloPaginaInput" })
                 </div>
                 <h4 id="tituloPaginaMostrado"></h4>
             </div>
-            <form>
+        
                 <div class="row">
                     <div class="col-5">
                         <div class="form-floating mb-4">
@@ -57,6 +58,8 @@
                         registros
                     </div>
                 </div>
+
+
                 <div class="row mt-4">
                     @if (Model.DocumentoLegales is null)
                     {
@@ -89,6 +92,8 @@
                         </table>
                     }
                 </div>
+
+
                 <div class="container">
                     <partial name="_DataPager" model="ViewBag.Pager" />
                     @Html.HiddenFor(m => m.Page, new { id = "currentPage"})

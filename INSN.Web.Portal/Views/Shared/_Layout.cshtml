@@ -71,12 +71,13 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a></li>
                     <li><a asp-area="" asp-controller="Especialidades" asp-action="Index">Especialidades</a></li>
                     <li><a asp-controller="DirectorioInstitucional" asp-action="Index">Directorio Institucional</a></li>
-                    </a>
-                    <li><a href="#team">Staff Médico</a></li>
+                   @*  </a>
+                    <li><a href="#team">Staff Médico</a></li> *@
                     <li><a asp-area="" asp-controller="Home" asp-action="Contacto">Contáctenos</a></li>
                
-                    @* <li class="dropdown">
-                        <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <li class="dropdown">
+                        <a href="#"><span>Ver más</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+
                         <ul>
                             <li><a href="#">Drop Down 1</a></li>
                             <li class="dropdown">
@@ -159,6 +160,14 @@
                         <a href="https://www.linkedin.com/company/insn/about/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
+                <div class="col-lg-2 col-md-12 footer-info">
+                    <br />
+                    <br />
+                    <a asp-area="" asp-controller="LibroReclamaciones" asp-action="DocumentoLegalLibroReclamaciones">
+                    <h3 class="block-title">Libro de Reclamaciones</h3>
+                    </a>
+                </div>
+
             </div>
         </div>
 
