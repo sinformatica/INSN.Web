@@ -1,0 +1,215 @@
+﻿@using INSN.Web.ViewModels.Home
+
+@model DocumentoLegalViewModel
+
+@{
+    ViewData["Title"] = "INSN Breña";
+}
+
+<main id="main">
+
+    <!-- ======= INICIO DE SESSION CON PESTAÑA ( LIBRO DE RECLAMACIONES )======= -->
+    <div class="section best-deal">
+        <div class="container">
+            <div class="col-lg-12">
+                <div class="section-header">
+                    <h2>LIBRO DE RECLAMACIONES</h2>
+                    <div class="col-lg-12">
+                        <div class="content ps-0 ps-lg-5">
+                            <div class="position-relative mt-4">
+                                <img src="~/imagenes/LibroReclamaciones/Libro.PNG" class="img-fluid rounded-4" alt="" style="padding-bottom: 20px;">
+                            </div>
+                        </div>
+                    </div>
+                    <p align="justify">
+                        Bienvenidos al Libro de Reclamaciones del Instituto Nacional de Salud del Niño (INSN)
+
+                        En nuestro compromiso constante por garantizar la excelencia en la atención y cuidado de la salud infantil,
+                        el Instituto Nacional de Salud del Niño pone a disposición el Libro de Reclamaciones como un espacio transparente
+                        y accesible para nuestros usuarios. Su propósito es brindarles la oportunidad de expresar sus sugerencias, 
+                        comentarios o preocupaciones, contribuyendo así a fortalecer nuestra calidad asistencial. Valoramos cada retroalimentación
+                        como una oportunidad para mejorar y evolucionar en nuestra misión de proporcionar servicios médicos especializados a la 
+                        comunidad pediátrica. Su participación es fundamental para seguir creciendo juntos en el cuidado de la salud de los niños y 
+                        adolescentes. Agradecemos su confianza en el Instituto Nacional de Salud del Niño.
+                    </p>
+                    <br />
+                    <br />
+                    <div class="block-content">
+                        <div class="row push">
+                            <div class="col-lg-4">
+                                <p class="text-muted">
+                                    Using the form grid you can create any input layout you could possibly imagine
+                                </p>
+                            </div>
+                            <div class="col-lg-8">
+                                <!-- Form Grid -->
+                                <form action="be_forms_layouts.html" method="POST" onsubmit="return false;">
+                                    <div class="row mb-4">
+                                        <div class="col-4">
+                                            <input type="text" class="form-control" placeholder="col-4">
+                                        </div>
+                                        <div class="col-4">
+                                            <input type="text" class="form-control" placeholder="col-4">
+                                        </div>
+                                        <div class="col-4">
+                                            <input type="text" class="form-control" placeholder="col-4">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-4">
+                                            <input type="text" class="form-control" placeholder="col-4">
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" placeholder="col-8">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-5">
+                                            <input type="text" class="form-control" placeholder="col-5">
+                                        </div>
+                                        <div class="col-4">
+                                            <input type="text" class="form-control" placeholder="col-4">
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="text" class="form-control" placeholder="col-3">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-3">
+                                            <input type="text" class="form-control form-control-alt" placeholder="col-3">
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="text" class="form-control form-control-alt" placeholder="col-3">
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="text" class="form-control form-control-alt" placeholder="col-3">
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="text" class="form-control form-control-alt" placeholder="col-3">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-8">
+                                            <input type="text" class="form-control form-control-alt" placeholder="col-8">
+                                        </div>
+                                        <div class="col-4">
+                                            <input type="text" class="form-control form-control-alt" placeholder="col-4">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-3">
+                                            <input type="text" class="form-control form-control-alt" placeholder="col-3">
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="text" class="form-control form-control-alt" placeholder="col-6">
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="text" class="form-control form-control-alt" placeholder="col-3">
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- END Form Grid -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <p class="text-muted">
+                                    You could also include labels
+                                </p>
+                            </div>
+                            <div class="col-lg-8">
+                                <!-- Form Grid with Labels -->
+                                <form action="be_forms_layouts.html" method="POST" onsubmit="return false;">
+                                    <div class="row mb-4">
+                                        <div class="col-4">
+                                            <label class="form-label">.col-4</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-4">
+                                            <label class="form-label">.col-4</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-4">
+                                            <label class="form-label">.col-4</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-4">
+                                            <label class="form-label">.col-4</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-8">
+                                            <label class="form-label">.col-8</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-5">
+                                            <label class="form-label">.col-5</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-4">
+                                            <label class="form-label">.col-4</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-3">
+                                            <label class="form-label">.col-3</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-3">
+                                            <label class="form-label">.col-3</label>
+                                            <input type="text" class="form-control form-control-alt">
+                                        </div>
+                                        <div class="col-3">
+                                            <label class="form-label">.col-3</label>
+                                            <input type="text" class="form-control form-control-alt">
+                                        </div>
+                                        <div class="col-3">
+                                            <label class="form-label">.col-3</label>
+                                            <input type="text" class="form-control form-control-alt">
+                                        </div>
+                                        <div class="col-3">
+                                            <label class="form-label">.col-3</label>
+                                            <input type="text" class="form-control form-control-alt">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-8">
+                                            <label class="form-label">.col-8</label>
+                                            <input type="text" class="form-control form-control-alt">
+                                        </div>
+                                        <div class="col-4">
+                                            <label class="form-label">.col-4</label>
+                                            <input type="text" class="form-control form-control-alt">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-3">
+                                            <label class="form-label">.col-3</label>
+                                            <input type="text" class="form-control form-control-alt">
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="form-label">.col-6</label>
+                                            <input type="text" class="form-control form-control-alt">
+                                        </div>
+                                        <div class="col-3">
+                                            <label class="form-label">.col-3</label>
+                                            <input type="text" class="form-control form-control-alt">
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- END Form Grid with Labels -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+</main>
+
