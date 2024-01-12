@@ -14,9 +14,7 @@ namespace INSN.Web.DataAccess.Configurations
         /// </summary>
         /// <param name="builder"></param>
         public void Configure(EntityTypeBuilder<TipoDocumento> builder)
-        {
-            builder.Property(p => p.Descripcion)
-                 .HasMaxLength(50);
+        {           
         }
     }
 }

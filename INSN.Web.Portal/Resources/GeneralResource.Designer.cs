@@ -70,11 +70,56 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Acción.
+        /// </summary>
+        public static string EtiquetaAccion1 {
+            get {
+                return ResourceManager.GetString("EtiquetaAccion1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Activo.
         /// </summary>
         public static string EtiquetaActivo {
             get {
                 return ResourceManager.GetString("EtiquetaActivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Activo.
+        /// </summary>
+        public static string EtiquetaActivo1 {
+            get {
+                return ResourceManager.GetString("EtiquetaActivo1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Consultar.
+        /// </summary>
+        public static string EtiquetaConsultar {
+            get {
+                return ResourceManager.GetString("EtiquetaConsultar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Editar.
+        /// </summary>
+        public static string EtiquetaEditar {
+            get {
+                return ResourceManager.GetString("EtiquetaEditar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Eliminar.
+        /// </summary>
+        public static string EtiquetaEliminar {
+            get {
+                return ResourceManager.GetString("EtiquetaEliminar", resourceCulture);
             }
         }
         
@@ -88,11 +133,74 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Estado.
+        /// </summary>
+        public static string EtiquetaEstado1 {
+            get {
+                return ResourceManager.GetString("EtiquetaEstado1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Grabar.
+        /// </summary>
+        public static string EtiquetaGrabar {
+            get {
+                return ResourceManager.GetString("EtiquetaGrabar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Inactivo.
         /// </summary>
         public static string EtiquetaInactivo {
             get {
                 return ResourceManager.GetString("EtiquetaInactivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inactivo.
+        /// </summary>
+        public static string EtiquetaInactivo1 {
+            get {
+                return ResourceManager.GetString("EtiquetaInactivo1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Limpiar.
+        /// </summary>
+        public static string EtiquetaLimpiar {
+            get {
+                return ResourceManager.GetString("EtiquetaLimpiar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nuevo.
+        /// </summary>
+        public static string EtiquetaNuevo {
+            get {
+                return ResourceManager.GetString("EtiquetaNuevo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Regresar.
+        /// </summary>
+        public static string EtiquetaRegresar {
+            get {
+                return ResourceManager.GetString("EtiquetaRegresar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seleccionar.
+        /// </summary>
+        public static string EtiquetaSeleccionar {
+            get {
+                return ResourceManager.GetString("EtiquetaSeleccionar", resourceCulture);
             }
         }
     }
