@@ -28,6 +28,7 @@ namespace INSN.Web.Services.Profiles
             // El AutoMapper solo mapea de izquierda a derecha
     
             CreateMap<TipoDocumento, TipoDocumentoDtoResponse>();
+            CreateMap<TipoDocumentoDtoRequest, TipoDocumento>();
 
             CreateMap<DocumentoLegal, DocumentoLegalDtoResponse>();
             CreateMap<DocumentoLegalDtoRequest, DocumentoLegal>();

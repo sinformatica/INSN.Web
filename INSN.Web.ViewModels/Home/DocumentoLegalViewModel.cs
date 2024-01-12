@@ -9,6 +9,8 @@ public class DocumentoLegalViewModel : BaseModel
 
     public string? Descripcion { get; set; }
 
+    public int? CodigoTipoDocumentoId { get; set; }    
+
     public string? Area { get; set; }
 
     public ICollection<TipoDocumentoDtoResponse> TipoDocumentos { get; set; } = default!;

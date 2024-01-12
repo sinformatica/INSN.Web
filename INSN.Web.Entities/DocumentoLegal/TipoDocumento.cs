@@ -5,21 +5,21 @@ namespace INSN.Web.Entities.DocumentoLegal
     /// <summary>
     /// Entidad Logica de Tipo Documento
     /// </summary>
-    public class TipoDocumento : EntityBase
+    public class TipoDocumento : AuditoriaBase
     {
+        /// <summary>
+        /// Codigo Tipo Documento Id
+        /// </summary>
+        public int CodigoTipoDocumentoId { get; set; }
+
         /// <summary>
         /// Area del Tipo de Norma
         /// </summary>
-        public string Area { get; set; } = default!;
+        public string? Area { get; set; } = default!;
 
         /// <summary>
         /// Descripcion del Tipo de Norma
         /// </summary>
-        public string Descripcion { get; set; } = default!;
-
-        public override string ToString()
-        {
-            return Descripcion;
-        }
+        public string? Descripcion { get; set; } = default!;  
     }
 }

@@ -23,40 +23,50 @@ namespace INSN.Web.Repositories.Implementaciones.Home
     /// </summary>
     public class DocumentoLegalRepository : RepositoryBase<DocumentoLegal>, IDocumentoLegalRepository
     {
+        /// <summary>
+        /// INSNWebDBContext
+        /// </summary>
+        /// <param name="context"></param>
         public DocumentoLegalRepository(INSNWebDBContext context) : base(context)
         {
         }
 
-        //public async Task<ICollection<DocumentoLegal>> ListAsync(string? Documento)
-        //{
-        //    #region Dapper
-
-        //    var query = await Context.Database.GetDbConnection().QueryAsync<DocumentoLegal>("SP_Documento_Legal_SEL",
-        //        commandType: CommandType.StoredProcedure,
-        //        param: new
-        //        {
-        //            Documento = Documento
-
-        //        });
-
-        //    return query.ToList();
-        //    #endregion
-        //}
-
-        public async Task<ICollection<DocumentoLegal>> ListarDocumentoLegalesAsync(string Documento, int TipoDocumentoId, string Estado, int Page, int Rows)
+        /// <summary>
+        /// Repository: Documento Legal Listar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<ICollection<DocumentoLegal>> DocumentoLegalListar(DocumentoLegal request)
         {
-            var connection = Context.Database.GetDbConnection();
-
-            var query = await connection.QueryAsync<DocumentoLegal>("SP_Documento_Legal_SEL", commandType: System.Data.CommandType.StoredProcedure, param: new
+            try
             {
-                Documento = Documento,
-                TipoDocumentoId = TipoDocumentoId,
-                Estado = Estado,
-                Page = (Page - 1) * Rows,
-                Rows = Rows
-            });
+                Expression<Func<DocumentoLegal, bool>> predicate =
+                    x => x.Descripcion.Contains(request.Descripcion ?? string.Empty)
+                     && (request.Area == null || x.Area == request.Area)
+                         && (request.Estado == null || x.Estado == request.Estado)
+                         && (request.CodigoTipoDocumentoId == null || x.CodigoTipoDocumentoId == request.CodigoTipoDocumentoId)
+                         && (x.EstadoRegistro == request.EstadoRegistro);
+     
+                return await Context.Set<DocumentoLegal>()
+                    .Where(predicate)
+                    .Select(p => new DocumentoLegal
+                    {
+                        CodigoDocumentoLegalId = p.CodigoDocumentoLegalId,
+                        Documento = p.Documento,
+                        Descripcion = p.Descripcion,
+                        CodigoTipoDocumentoId = p.CodigoTipoDocumentoId,
+                        FechaPublicacion = p.FechaPublicacion,
+                        PDF = p.PDF,
+                        Estado = p.Estado,
+                        EstadoRegistro = p.EstadoRegistro
+                    })
+                    .ToListAsync();
+            }
+            catch (Exception ex)
+            {
 
-            return query.ToList();
+                throw new Exception();
+            }
         }
     }
 }

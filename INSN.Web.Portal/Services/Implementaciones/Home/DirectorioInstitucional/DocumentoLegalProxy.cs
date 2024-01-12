@@ -6,6 +6,9 @@ using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
 
 namespace INSN.Web.Portal.Services.Implementaciones.Home.DirectorioInstitucional;
 
+/// <summary>
+/// Clase Proxy Documento Legal
+/// </summary>
 public class DocumentoLegalProxy : CrudRestHelperBase<DocumentoLegalDtoRequest, DocumentoLegalDtoResponse>, IDocumentoLegalProxy
 {
     public DocumentoLegalProxy(HttpClient httpClient)
@@ -13,16 +16,34 @@ public class DocumentoLegalProxy : CrudRestHelperBase<DocumentoLegalDtoRequest, 
     {
     }
 
-    public async Task<PaginationResponse<DocumentoLegalDtoResponse>> ListAsync(BusquedaDocumentoLegalRequest request)
-    {
-        var response = await HttpClient.GetFromJsonAsync<PaginationResponse<DocumentoLegalDtoResponse>>(
-            $"{BaseUrl}?Documento={request.Documento}&Descripcion={request.Descripcion}&Area={request.Area}&TipoDocumentoId={request.TipoDocumentoId}&estado={request.Estado}&estadoRegistro={request.EstadoRegistro}&page={request.Page}&rows={request.Rows}");
-
-        if (response is { Success: true })
+    /// <summary>
+    /// Proxy: Documento Legal Listar
+    /// </summary>
+    /// <param name="request"></param>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException"></exception>
+    public async Task<ICollection<DocumentoLegalDtoResponse>> DocumentoLegalListar(DocumentoLegalDtoRequest request)
+    {           
+        try
         {
-            return response;
-        }
+            var queryString = $"?Documento={request.Documento}&Descripcion={request.Descripcion}&Area={request.Area}&CodigoTipoDocumentoId={request.CodigoTipoDocumentoId}&Estado={request.Estado}&EstadoRegistro={request.EstadoRegistro}";
+            var response = await HttpClient.GetAsync($"{BaseUrl}/DocumentoLegalListar{queryString}");
 
-        return await Task.FromResult(new PaginationResponse<DocumentoLegalDtoResponse>());
+            response.EnsureSuccessStatusCode();
+
+            var result = await response.Content
+                .ReadFromJsonAsync<BaseResponseGeneric<ICollection<DocumentoLegalDtoResponse>>>();
+
+            if (result!.Success == false)
+            {
+                throw new InvalidOperationException(result.ErrorMessage);
+            }
+
+            return result.Data!;
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException(ex.Message);
+        }
     }
 }

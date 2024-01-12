@@ -1,4 +1,5 @@
-﻿using INSN.Web.Entities.SegApp;
+﻿using INSN.Web.Entities.DocumentoLegal;
+using INSN.Web.Entities.SegApp;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,8 @@ namespace INSN.Web.DataAccess
             base.OnModelCreating(modelBuilder);
 
             #region [Declarar Identificador de Tabla]
+            modelBuilder.Entity<TipoDocumento>().HasKey(f => f.CodigoTipoDocumentoId);
+            modelBuilder.Entity<DocumentoLegal>().HasKey(f => f.CodigoDocumentoLegalId);
             modelBuilder.Entity<Rol>().HasKey(f => f.Id);
             modelBuilder.Entity<Usuario>().HasKey(f => f.Id);
             modelBuilder.Entity<Sistema>().HasKey(f => f.CodigoSistemaId);

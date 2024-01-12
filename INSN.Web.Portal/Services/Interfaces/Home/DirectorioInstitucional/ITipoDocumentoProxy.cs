@@ -7,9 +7,9 @@ namespace INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
 public interface ITipoDocumentoProxy : ICrudRestHelper<TipoDocumentoDtoRequest, TipoDocumentoDtoResponse>
 {
     /// <summary>
-    /// IProxy: Farmacia Listar
+    /// IProxy: Tipo Documento Listar
     /// </summary>
     /// <param name="request"></param>
     /// <returns></returns>
-    Task<ICollection<TipoDocumentoDtoResponse>> TipoDocumentoListar(string Area, string Estado, int EstadoRegistro);
+    Task<ICollection<TipoDocumentoDtoResponse>> TipoDocumentoListar(TipoDocumentoDtoRequest request);
 }

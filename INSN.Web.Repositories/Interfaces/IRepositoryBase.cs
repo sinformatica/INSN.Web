@@ -7,7 +7,7 @@ namespace INSN.Web.Repositories.Interfaces
     /// Interface de Repositorio Base
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public interface IRepositoryBase<TEntity> where TEntity : EntityBase
+    public interface IRepositoryBase<TEntity> where TEntity : AuditoriaBase
     {  
         /// <summary>
         /// Listar objetos basados en el EntityBase
@@ -35,10 +35,10 @@ namespace INSN.Web.Repositories.Interfaces
         Task<ICollection<TInfo>> ListAsync<TInfo>(
             Expression<Func<TEntity, TInfo>> selector);
 
-        /// <summary>
-        /// Crear un registro
-        /// </summary>
-        Task<int> AddAsync(TEntity entity);
+        ///// <summary>
+        ///// Crear un registro
+        ///// </summary>
+        //Task<int> AddAsync(TEntity entity);
 
         /// <summary>
         /// Buscar un registro por ID

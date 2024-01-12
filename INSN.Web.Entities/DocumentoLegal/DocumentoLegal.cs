@@ -1,12 +1,18 @@
 ﻿using INSN.Web.Entities.Base;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace INSN.Web.Entities.DocumentoLegal
 {
     /// <summary>
     /// Entidad Logica : Documento Legal
     /// </summary>
-    public class DocumentoLegal : EntityBase
-    {  
+    public class DocumentoLegal : AuditoriaBase
+    {
+        /// <summary>
+        /// Codigo Documento Legal Id
+        /// </summary>
+        public int? CodigoDocumentoLegalId { get; set; }
+
         /// <summary>
         /// Nombres
         /// </summary>
@@ -26,15 +32,21 @@ namespace INSN.Web.Entities.DocumentoLegal
         /// Fecha que fue publicado el documento
         /// </summary>
         public DateTime? FechaPublicacion { get; set; } = default!;
-                
+
         /// <summary>
         /// Descripcion del Tipo de Norma
         /// </summary>
+        [ForeignKey("TipoDocumentoId")]
         public TipoDocumento TipoDocumento { get; set; } = default!;
 
         /// <summary>
         /// ID de Tipo Documento
         /// </summary>
-        public int TipoDocumentoId { get; set; }
+        public int? CodigoTipoDocumentoId { get; set; }
+
+        /// <summary>
+        /// Area del Documento
+        /// </summary>
+        public string? Area { get; set; } = default!;        
     }
 }

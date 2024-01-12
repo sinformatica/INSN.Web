@@ -93,9 +93,9 @@ builder.Services.AddAutoMapper(config =>
 });
 
 builder.Services.AddTransient<ITipoDocumentoService, TipoDocumentoService>();
+builder.Services.AddTransient<ITipoDocumentoRepository, TipoDocumentoRepository>();
 builder.Services.AddTransient<IDocumentoLegalService, DocumentoLegalService>();
 builder.Services.AddTransient<IDocumentoLegalRepository, DocumentoLegalRepository>();
-builder.Services.AddTransient<ITipoDocumentoRepository, TipoDocumentoRepository>();
 builder.Services.AddTransient<IMenuRepository, MenuRepository>();
 builder.Services.AddTransient<IMenuService, MenuService>();
 

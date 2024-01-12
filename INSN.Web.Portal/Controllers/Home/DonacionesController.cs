@@ -53,26 +53,26 @@ public class DonacionesController : Controller
 
         pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
 
-        model.TipoDocumentos = await _TipoDocumentoProxy.ListAsync();
+        //model.TipoDocumentos = await _TipoDocumentoProxy.ListAsync();
 
-        var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
-        {
-            Documento = model.Documento,
-            Descripcion = model.Descripcion,
-            TipoDocumentoId = 1 /*model.TipoDocumentoSeleccionada*/,
-            Estado = model.EstadoSeleccionado,
-            Page = pager.CurrentPage,
-            Rows = pager.RowsPerPage
-        });
+        //var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
+        //{
+        //    Documento = model.Documento,
+        //    Descripcion = model.Descripcion,
+        //    TipoDocumentoId = 1 /*model.TipoDocumentoSeleccionada*/,
+        //    Estado = model.EstadoSeleccionado,
+        //    Page = pager.CurrentPage,
+        //    Rows = pager.RowsPerPage
+        //});
         
-        ViewBag.Pager = pager;
+        //ViewBag.Pager = pager;
 
-        if (response.Success)
-        {
-            model.DocumentoLegales = response.Data;
-            pager.TotalPages = response.TotalPages;
-            pager.RowCount = response.Data!.Count;
-        }
+        //if (response.Success)
+        //{
+        //    model.DocumentoLegales = response.Data;
+        //    pager.TotalPages = response.TotalPages;
+        //    pager.RowCount = response.Data!.Count;
+        //}
 
         return View("~/Views/Home/Covid19/Index.cshtml", model);
     }

@@ -3,8 +3,13 @@
     /// <summary>
     /// Clase EL Documento Legal
     /// </summary>
-    public class DocumentoLegalDtoRequest
-    {
+    public class DocumentoLegalDtoRequest : AuditoriaRequest
+    {        
+        /// <summary>
+        /// Nombre
+        /// </summary>
+        public int? CodigoDocumentoLegalId { get; set; }
+
         /// <summary>
         /// Nombre
         /// </summary>
@@ -13,7 +18,12 @@
         /// <summary>
         /// Descripcion del Documento
         /// </summary>
-        public string? Descripcion { get; set; } = default!;       
+        public string? Descripcion { get; set; } = default!;
+
+        /// <summary>
+        /// Area del Documento
+        /// </summary>
+        public string? Area { get; set; } = default!;      
 
         /// <summary>
         /// Fecha que fue publicado el documento
@@ -23,6 +33,6 @@
         /// <summary>
         /// ID de Tipo Documento
         /// </summary>
-        public int? TipoDocumentoId { get; set; }
+        public int? CodigoTipoDocumentoId { get; set; }
     }
 }

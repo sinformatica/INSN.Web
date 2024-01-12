@@ -49,28 +49,28 @@ public class SistemaControlIntController : Controller
 
         pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
 
-        model.TipoDocumentos = await _TipoDocumentoProxy.TipoDocumentoListar("SCI", "A", 1);
+        //model.TipoDocumentos = await _TipoDocumentoProxy.TipoDocumentoListar("SCI", "A", 1);
 
-        var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
-        {
-            Documento = model.Documento,
-            Descripcion = model.Descripcion,
-            Area = "SCI",
-            TipoDocumentoId = model.TipoDocumentoSeleccionada,
-            Estado = model.EstadoSeleccionado,
-            EstadoRegistro = 1,
-            Page = pager.CurrentPage,
-            Rows = pager.RowsPerPage
-        });
+        //var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
+        //{
+        //    Documento = model.Documento,
+        //    Descripcion = model.Descripcion,
+        //    Area = "SCI",
+        //    TipoDocumentoId = model.TipoDocumentoSeleccionada,
+        //    Estado = model.EstadoSeleccionado,
+        //    EstadoRegistro = 1,
+        //    Page = pager.CurrentPage,
+        //    Rows = pager.RowsPerPage
+        //});
 
-        ViewBag.Pager = pager;
+        //ViewBag.Pager = pager;
 
-        if (response.Success)
-        {
-            model.DocumentoLegales = response.Data;
-            pager.TotalPages = response.TotalPages;
-            pager.RowCount = response.Data!.Count;
-        }
+        //if (response.Success)
+        //{
+        //    model.DocumentoLegales = response.Data;
+        //    pager.TotalPages = response.TotalPages;
+        //    pager.RowCount = response.Data!.Count;
+        //}
 
         return View("~/Views/Home/SistemaControlInt/Index.cshtml", model);
     }

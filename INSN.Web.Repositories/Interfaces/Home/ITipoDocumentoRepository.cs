@@ -8,10 +8,8 @@ namespace INSN.Web.Repositories.Interfaces.Home
     public interface ITipoDocumentoRepository : IRepositoryBase<TipoDocumento>
     {
         /// <summary>
-        /// Repository: TipoDocumento Listar
+        /// IRepository: TipoDocumento Listar
         /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        Task<ICollection<TipoDocumento>> ListAsync(string Area, string Estado, int EstadoRegistro);
+        Task<ICollection<TipoDocumento>> TipoDocumentoListar(TipoDocumento request);
     }   
 }

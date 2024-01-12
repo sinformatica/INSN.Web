@@ -12,19 +12,17 @@ public class TipoDocumentoProxy : CrudRestHelperBase<TipoDocumentoDtoRequest, Ti
     {
     }
 
-   /// <summary>
-   /// 
-   /// </summary>
-   /// <param name="Area"></param>
-   /// <param name="Estado"></param>
-   /// <param name="EstadoRegistro"></param>
-   /// <returns></returns>
-   /// <exception cref="InvalidOperationException"></exception>
-    public async Task<ICollection<TipoDocumentoDtoResponse>> TipoDocumentoListar(string Area, string Estado, int EstadoRegistro)
+    /// <summary>
+    /// Proxy: Tipo Documento Listar
+    /// </summary>
+    /// <param name="request"></param>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException"></exception>
+    public async Task<ICollection<TipoDocumentoDtoResponse>> TipoDocumentoListar(TipoDocumentoDtoRequest request)
     {
         try
         {
-            var queryString = $"?Area={Area}&Estado={Estado}&EstadoRegistro={EstadoRegistro}";
+            var queryString = $"?Descripcion={request.Descripcion}&CodigoTipoDocumentoId={request.CodigoTipoDocumentoId}&Estado={request.Estado}&EstadoRegistro={request.EstadoRegistro}";
             var response = await HttpClient.GetAsync($"{BaseUrl}/TipoDocumentoListar{queryString}");
 
             response.EnsureSuccessStatusCode();
