@@ -8,7 +8,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.Home.DirectorioInstitucional
 public class TipoDocumentoProxy : CrudRestHelperBase<TipoDocumentoDtoRequest, TipoDocumentoDtoResponse>, ITipoDocumentoProxy
 {
     public TipoDocumentoProxy(HttpClient httpClient)
-        : base("api/TipoDocumento", httpClient)
+        : base("api/Home/TipoDocumento", httpClient)
     {
     }
 
@@ -22,7 +22,7 @@ public class TipoDocumentoProxy : CrudRestHelperBase<TipoDocumentoDtoRequest, Ti
     {
         try
         {
-            var queryString = $"?Descripcion={request.Descripcion}&CodigoTipoDocumentoId={request.CodigoTipoDocumentoId}&Estado={request.Estado}&EstadoRegistro={request.EstadoRegistro}";
+            var queryString = $"?Descripcion={request.Descripcion}&CodigoTipoDocumentoId={request.CodigoTipoDocumentoId}&Area={request.Area}&Estado={request.Estado}&EstadoRegistro={request.EstadoRegistro}";
             var response = await HttpClient.GetAsync($"{BaseUrl}/TipoDocumentoListar{queryString}");
 
             response.EnsureSuccessStatusCode();

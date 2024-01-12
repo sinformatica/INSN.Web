@@ -42,6 +42,7 @@ public class POAController : Controller
     {
         var resultTipoDocumento = await _TipoDocumentoProxy.TipoDocumentoListar(new TipoDocumentoDtoRequest()
         {
+            Area = "POA",
             Estado = "A",
             EstadoRegistro = 1
         });
@@ -67,9 +68,9 @@ public class POAController : Controller
         {
             Documento = model.Documento,
             Descripcion = model.Descripcion,
-            CodigoTipoDocumentoId = model.CodigoTipoDocumentoId,
+            CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
             Area = "POA",
-            Estado = model.EstadoSeleccionado,
+            Estado = "A",
             EstadoRegistro = 1
         });
 

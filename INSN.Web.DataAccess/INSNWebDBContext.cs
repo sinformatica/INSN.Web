@@ -16,8 +16,7 @@ namespace INSN.Web.DataAccess
         /// <param name="options"></param>
         public INSNWebDBContext(DbContextOptions< INSNWebDBContext> options ) 
             : base( options ) 
-        { 
-        
+        {         
         }
 
         /// <summary>
