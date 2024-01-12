@@ -1,4 +1,4 @@
-﻿using INSN.Web.Entities;
+﻿using INSN.Web.Entities.SegApp;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

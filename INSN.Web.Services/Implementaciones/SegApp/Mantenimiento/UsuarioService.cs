@@ -111,6 +111,15 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 
             try
             {
+                // Verificar si el usuario ya existe
+                //var ExisteUsuario = await _userManager.FindByNameAsync(request.UserName);
+
+                //if (ExisteUsuario != null)
+                //{
+                //    // El usuario ya existe, realiza las operaciones necesarias (por ejemplo, concatenar la letra al usuario)
+                //    ExisteUsuario.UserName += request.ApellidoMaterno?.FirstOrDefault().ToString().ToUpper();
+                //}
+                
                 var user = new INSNIdentityUser
                 {
                     Nombres = request.Nombres,

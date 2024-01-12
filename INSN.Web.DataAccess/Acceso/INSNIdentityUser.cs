@@ -1,4 +1,4 @@
-﻿using INSN.Web.Entities;
+﻿using INSN.Web.Entities.SegApp;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
