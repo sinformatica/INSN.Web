@@ -27,8 +27,6 @@ public class DocumentoLegalViewModel : BaseModel
         new() { Codigo = "B", Nombre = "INACTIVO" },
     };
 
-    public int Rows { get; set; }
-    public int Page { get; set; }
     public ICollection<DocumentoLegalDtoResponse>? DocumentoLegales { get; set; }
 
     public string? PDF { get; set; }

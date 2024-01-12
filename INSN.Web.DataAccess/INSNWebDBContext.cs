@@ -27,9 +27,9 @@ namespace INSN.Web.DataAccess
         {
             base.OnModelCreating(modelBuilder);
 
-            #region [Declarar Identificador de Tabla]
-            modelBuilder.Entity<TipoDocumento>().HasKey(f => f.CodigoTipoDocumentoId);
+            #region [Declarar Identificador de Tabla]      
             modelBuilder.Entity<DocumentoLegal>().HasKey(f => f.CodigoDocumentoLegalId);
+            modelBuilder.Entity<TipoDocumento>().HasKey(f => f.CodigoTipoDocumentoId);
             modelBuilder.Entity<Rol>().HasKey(f => f.Id);
             modelBuilder.Entity<Usuario>().HasKey(f => f.Id);
             modelBuilder.Entity<Sistema>().HasKey(f => f.CodigoSistemaId);

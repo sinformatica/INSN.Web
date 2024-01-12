@@ -38,7 +38,9 @@ namespace INSN.Web.Repositories.Implementaciones.Home
                     CodigoTipoDocumentoId = p.CodigoTipoDocumentoId,
                     Area = p.Area,
                     Descripcion = p.Descripcion,
-                    Estado = p.Estado
+                    Estado = p.Estado,
+                    EstadoRegistro = p.EstadoRegistro
+
                 })
                 .ToListAsync();
         }

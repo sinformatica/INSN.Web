@@ -1,6 +1,6 @@
 ﻿namespace INSN.Web.Models.Response.Home
 {
-    public class TipoDocumentoDtoResponse : AuditoriaResponse
+    public class TipoDocumentoDtoResponse : BaseResponse
     {
         /// <summary>
         /// Identificador de Tipo Documento
