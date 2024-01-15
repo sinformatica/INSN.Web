@@ -271,15 +271,6 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 if (string.IsNullOrWhiteSpace(request.Correo)) throw new ModelException(nameof(request.Correo), "Campo requerido: Correo");
                 if (string.IsNullOrWhiteSpace(request.Telefono1)) throw new ModelException(nameof(request.Telefono1), "Campo requerido: Teléfono 1");
 
-                // Validar usuario
-                string usuario = await _proxy.UsuarioValidar(new UsuarioDtoRequest
-                {
-                    Nombres = request.Nombre,
-                    ApellidoPaterno = request.ApellidoPaterno,
-                    ApellidoMaterno = request.ApellidoMaterno
-                });
-                request.Usuario = usuario;
-
                 var dtoRequest = new UsuarioDtoRequest
                 {
                     Id = request.Id,
