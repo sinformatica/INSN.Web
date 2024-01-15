@@ -49,6 +49,20 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         }
 
         /// <summary>
+        /// Proxy: Usuario Validar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public async Task<string> UsuarioValidar(UsuarioDtoRequest request)
+        {
+            var response = await HttpClient.PostAsJsonAsync($"{BaseUrl}/UsuarioValidar", request);
+            var resultado = await response.Content.ReadFromJsonAsync<BaseResponseGeneric<string>>();
+
+            return resultado.Data;
+        }
+
+        /// <summary>
         /// Proxy: Usuario Insertar
         /// </summary>
         /// <param name="request"></param>

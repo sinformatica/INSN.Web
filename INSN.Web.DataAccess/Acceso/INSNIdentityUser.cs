@@ -18,7 +18,7 @@ namespace INSN.Web.DataAccess.Acceso
         public TipoDocumentoIdentidad TipoDocumentoIdentidad { get; set; } = default!;
         public int TipoDocumentoIdentidadId { get; set; }
         public string? DocumentoIdentidad { get; set; }
-        public string? Estado { get; set; }
-        public int? EstadoRegistro { get; set; }
+        public string? Estado { get; set; } = default!;
+        public int? EstadoRegistro { get; set; } = default!;
     }
 }

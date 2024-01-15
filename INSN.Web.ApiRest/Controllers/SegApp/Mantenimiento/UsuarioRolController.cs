@@ -45,13 +45,13 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpPost("UsuarioRolAsignar")]
+        [HttpPost("UsuarioRolInsertar")]
         //[AuthorizeByRolesAndCodigoSistemaId(Constantes.CodigoSistemaId, Constantes.RolAdminSistemas)]
         //[AuthorizeByCodigoSistemaId(Constantes.CodigoSistemaId)]
         //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
-        public async Task<IActionResult> UsuarioRolAsignar(UsuarioRolDtoRequest request)
+        public async Task<IActionResult> UsuarioRolInsertar(UsuarioRolDtoRequest request)
         {
-            var response = await _service.UsuarioRolAsignar(request);
+            var response = await _service.UsuarioRolInsertar(request);
             return response.Success ? Ok(response) : BadRequest(response);
         }
 

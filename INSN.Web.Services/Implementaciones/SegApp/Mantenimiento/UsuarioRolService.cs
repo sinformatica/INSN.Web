@@ -81,7 +81,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<BaseResponse> UsuarioRolAsignar(UsuarioRolDtoRequest request)
+        public async Task<BaseResponse> UsuarioRolInsertar(UsuarioRolDtoRequest request)
         {
             var response = new BaseResponse();
 

@@ -135,14 +135,17 @@
                                                                     <span class="badge bg-danger">@Html.Raw(GeneralResource.EtiquetaInactivo)</span>
                                                                 }
                                                             </td>
-                                                            <td class="text-center">
-                                                                <a class="btn" asp-action="EditarRolesVista" asp-route-Id="@item.Id"><i class="fa fa fa-user-circle"></i></a>
-
-                                                                <a class="btn" asp-action="EditarClaveVista" asp-route-Id="@item.Id"><i class="fa fa fa-key"></i></a>
-
-                                                                <a class="btn" asp-action="EditarVista" asp-route-Id="@item.Id"><i class="fa fa fa-pencil"></i></a>
-
-                                                                <a class="btn btnEliminar" data-id="@item.Id"><i class="fa fa fa-trash-can"></i></a>
+                                                            <td class="text-center d-flex flex-column">
+                                                                <!-- Primera Fila -->
+                                                                <div class="d-sm-flex">
+                                                                    <a class="btn" asp-action="EditarRolesVista" asp-route-Id="@item.Id"><i class="fa fa fa-user-circle"></i></a>
+                                                                    <a class="btn" asp-action="EditarClaveVista" asp-route-Id="@item.Id"><i class="fa fa fa-key"></i></a>
+                                                                </div>
+                                                                <!-- Segunda Fila -->
+                                                                <div class="d-sm-flex">
+                                                                    <a class="btn" asp-action="EditarVista" asp-route-Id="@item.Id"><i class="fa fa fa-pencil"></i></a>
+                                                                    <a class="btn btnEliminar" data-id="@item.Id"><i class="fa fa fa-trash-can"></i></a>
+                                                                </div>
                                                             </td>
                                                         </tr>
                                                     }

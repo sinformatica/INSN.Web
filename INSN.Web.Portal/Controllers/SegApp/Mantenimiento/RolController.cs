@@ -147,8 +147,9 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
 
             var model = new RolViewModel
             {
+                Id = response.Id,
                 Name = response.Name,
-                Id = response. Id
+                EstadoSeleccionado = response.Estado
             };
 
             return View("~/Views/SegApp/Mantenimiento/Rol/Editar.cshtml", model);

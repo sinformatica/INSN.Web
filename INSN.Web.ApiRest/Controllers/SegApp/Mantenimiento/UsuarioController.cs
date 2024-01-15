@@ -55,6 +55,18 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
         }
 
         /// <summary>
+        /// ApiRest: Usuario Validar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost("UsuarioValidar")]
+        public async Task<IActionResult> UsuarioValidar(UsuarioDtoRequest request)
+        {
+            var response = await _service.UsuarioValidar(request);
+            return response.Success ? Ok(response) : BadRequest(response);
+        }
+
+        /// <summary>
         /// ApiRest: Usuario Insertar
         /// </summary>
         /// <param name="request"></param>

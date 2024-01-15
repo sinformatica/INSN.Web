@@ -18,12 +18,12 @@ namespace INSN.Web.Entities.SegApp
         /// <summary>
         /// Nombres
         /// </summary>
-        public string Nombres { get; set; }
+        public string? Nombres { get; set; }
 
         /// <summary>
         /// Apellido Paterno
         /// </summary>
-        public string ApellidoPaterno { get; set; }
+        public string? ApellidoPaterno { get; set; }
 
         /// <summary>
         /// Apellido Materno
@@ -33,7 +33,7 @@ namespace INSN.Web.Entities.SegApp
         /// <summary>
         /// servicio
         /// </summary>
-        public string Servicio { get; set; }
+        public string? Servicio { get; set; }
 
         /// <summary>
         /// Telefono2
@@ -49,41 +49,41 @@ namespace INSN.Web.Entities.SegApp
         /// <summary>
         /// TipoDocumentoIdentidadId
         /// </summary>
-        public int TipoDocumentoIdentidadId { get; set; }
+        public int TipoDocumentoIdentidadId { get; set; } = default!;
 
         /// <summary>
         /// Documento Identidad
         /// </summary>
-        public string DocumentoIdentidad { get; set; }
+        public string? DocumentoIdentidad { get; set; }
 
         /// <summary>
         /// UserName
         /// </summary>
-        public string UserName { get; set; }
+        public string? UserName { get; set; }
 
         /// <summary>
         /// NormalizedUserName
         /// </summary>
-        public string NormalizedUserName { get; set; }
+        public string? NormalizedUserName { get; set; }
 
         /// <summary>
         /// Email
         /// </summary>
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         /// <summary>
         /// NormalizedEmail
         /// </summary>
-        public string NormalizedEmail { get; set; }
+        public string? NormalizedEmail { get; set; }
 
         /// <summary>
         /// PasswordHash
         /// </summary>
-        public string PasswordHash { get; set; }
+        public string? PasswordHash { get; set; }
 
         /// <summary>
         /// PhoneNumber
         /// </summary>
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
     }
 }
