@@ -99,13 +99,23 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 
                 if (role != null)
                 {
-                    // Verificar si el usuario ya tiene el rol para este sistema
+                    // Verificar si el usuario ya algun rol asignado al sistema seleccionado
                     var existingUserRole = await _segAppDbContext.INSNIdentityUsuarioRol
-                        .FirstOrDefaultAsync(ur => ur.UserId == user.Id && ur.CodigoSistemaId == request.CodigoSistemaId && ur.RoleId == role.Id && ur.Estado=="A" && ur.EstadoRegistro==1);
+                        .FirstOrDefaultAsync(ur => ur.UserId == user.Id && ur.CodigoSistemaId == request.CodigoSistemaId && ur.Estado == "A" && ur.EstadoRegistro == 1);
 
                     if (existingUserRole != null)
                     {
-                        response.ErrorMessage = $"El usuario ya cuenta con el rol seleccionado en el sistema indicado.";
+                        response.ErrorMessage = Resources.ResourceGeneral.UsuarioRolDuplicado;
+                        return response;
+                    }
+
+                   //Verificar si el usuario ya tiene el rol para este sistema
+                   existingUserRole = await _segAppDbContext.INSNIdentityUsuarioRol
+                       .FirstOrDefaultAsync(ur => ur.UserId == user.Id && ur.CodigoSistemaId == request.CodigoSistemaId && ur.RoleId == role.Id && ur.Estado == "A" && ur.EstadoRegistro == 1);
+
+                    if (existingUserRole != null)
+                    {
+                        response.ErrorMessage = Resources.ResourceGeneral.UsuarioRolSitemaDuplicado;
                         return response;
                     }
 

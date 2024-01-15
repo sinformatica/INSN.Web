@@ -61,7 +61,7 @@ namespace INSN.Web.Services.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El correo ya está en uso.
+        ///   Busca una cadena traducida similar a El correo ya está en uso o eliminado.
         /// </summary>
         public static string DuplicateEmail {
             get {
@@ -70,7 +70,7 @@ namespace INSN.Web.Services.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El usuario ya está en uso.
+        ///   Busca una cadena traducida similar a El usuario ya está en uso o eliminado.
         /// </summary>
         public static string DuplicateUserName {
             get {
@@ -102,6 +102,24 @@ namespace INSN.Web.Services.Resources {
         public static string UserNotFound {
             get {
                 return ResourceManager.GetString("UserNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El usuario ya cuenta con un rol definido en el sistema indicado.
+        /// </summary>
+        public static string UsuarioRolDuplicado {
+            get {
+                return ResourceManager.GetString("UsuarioRolDuplicado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El usuario ya cuenta con el rol seleccionado en el sistema indicado.
+        /// </summary>
+        public static string UsuarioRolSitemaDuplicado {
+            get {
+                return ResourceManager.GetString("UsuarioRolSitemaDuplicado", resourceCulture);
             }
         }
     }

@@ -176,7 +176,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
 
                 #region[Controles de Codigo/Controller]
                 TempData["CodigoMensaje"] = 1;
-                TempData["Mensaje"] = "Registro creado correctamente";
+                TempData["Mensaje"] = "Usuario " + request.Usuario + " creado correctamente";
                 TempData["Metodo"] = "Regresar";
                 TempData["Controlador"] = "Usuario";
                 #endregion
