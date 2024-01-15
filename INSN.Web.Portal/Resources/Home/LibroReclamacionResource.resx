@@ -138,4 +138,7 @@
   <data name="EtiquetaTelefono" xml:space="preserve">
     <value>Telefono</value>
   </data>
+  <data name="EtiquetaTipoPersona" xml:space="preserve">
+    <value>TipoPersona</value>
+  </data>
 </root>

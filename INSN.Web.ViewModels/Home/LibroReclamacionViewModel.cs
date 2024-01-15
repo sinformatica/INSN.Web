@@ -18,4 +18,6 @@ public class LibroReclamacionViewModel : BaseModel
     public string? Email { get; set; }
 
     public string? Reclamo { get; set; }
+
+    public string? Persona { get; set; }
 }

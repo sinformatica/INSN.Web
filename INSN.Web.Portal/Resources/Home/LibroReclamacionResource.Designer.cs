@@ -122,5 +122,14 @@ namespace INSN.Web.Portal.Resources.Home {
                 return ResourceManager.GetString("EtiquetaTelefono", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a TipoPersona.
+        /// </summary>
+        public static string EtiquetaTipoPersona {
+            get {
+                return ResourceManager.GetString("EtiquetaTipoPersona", resourceCulture);
+            }
+        }
     }
 }
