@@ -38,12 +38,12 @@
                     <h5 class="fw-bold">Datos del Usuario </h5>
                     <div class="row"> 
                         <div class="col-md-4 col-sm-6">
-                            <div class="form-floating mb-4">
+                            @* <div class="form-floating mb-4">
                                 @Html.DropDownListFor(m => m.EstadoSeleccionado,
                                          new SelectList(Model.Estados, "Codigo", "Nombre"), "Todos", new { @class = "form-select", @id = "cmbEstadoSeleccionado" })
                                 <label class="form-label">@Html.Raw(LibroReclamacionResource.TipoPersona)</label>
-                            </div>
-                            @* <div class="form-floating mb-4">
+                            </div> *@
+                            <div class="form-floating mb-4">
                                 @Html.TextBoxFor(m => m.Nombres, new
                                     {
                                         @class = "form-control",
@@ -53,7 +53,7 @@
                                         @onkeypress = "return permite(event, 'caracteres')"
                                     }) <!-- Restricción -->
                                 <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaNombres)</label>
-                            </div> *@
+                            </div>
                         </div>
                     </div>
 
