@@ -45,7 +45,8 @@ namespace INSN.Web.DataAccess
             builder.Entity<INSNIdentityUsuarioRol>(e =>
             {
                 e.ToTable("UsuarioRol");
-                e.HasKey(ur => new { ur.UserId, ur.RoleId, ur.CodigoSistemaId });
+                e.HasKey(ur => new { ur.CodigoUsuarioRolId });
+                //e.HasKey(ur => new { ur.UserId, ur.RoleId, ur.CodigoSistemaId });
             });
 
             builder.Entity<INSNIdentitySistema>(e =>

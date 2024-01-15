@@ -196,8 +196,6 @@
         };
                         //#endregion
                         //#endregion
-
-        // Autocompletar el campo usuario
         document.addEventListener('DOMContentLoaded', function () {
             // Obtener referencias a los campos de nombre, apellido paterno y usuario
             var nombreInput = document.getElementById('txtNombre');
@@ -211,8 +209,12 @@
             // Función para actualizar el campo de usuario
             function actualizarUsuario() {
                 // Obtener el valor del nombre y apellido paterno
-                var nombreValor = nombreInput.value.trim();
-                var apellidoPaternoValor = apellidoPaternoInput.value.trim();
+                var nombreValor = quitarAcentos(nombreInput.value.trim());
+                var apellidoPaternoValor = quitarAcentos(apellidoPaternoInput.value.trim());
+
+                // Reemplazar "Ñ" por "N" en el nombre y apellido paterno
+                nombreValor = nombreValor.replace(/Ñ/g, 'N');
+                apellidoPaternoValor = apellidoPaternoValor.replace(/Ñ/g, 'N');
 
                 // Eliminar espacios en blanco del apellido paterno
                 apellidoPaternoValor = apellidoPaternoValor.replace(/\s+/g, '');
@@ -222,6 +224,11 @@
 
                 // Asignar el nuevo valor al campo de usuario
                 usuarioInput.value = nuevoUsuarioValor.toUpperCase();
+            }
+
+            // Función para quitar acentos de una cadena
+            function quitarAcentos(cadena) {
+                return cadena.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
             }
         });
     </script>

@@ -76,35 +76,51 @@
             <div class="content">
                 <div class="row justify-content-center text-center">
                     <br />
-                    <h5 class="fw-bold text-black mb-2">
-                        Seleccione el sistema a ingresar
-                    </h5>
-                    <br /><br />
-                    <!-- Row #1 -->
-                    @if (Model.ListaSistema is null)
+
+                    @if (HttpContextAccessor.HttpContext?.Session.GetString(Constantes.JwtToken) != null
+                    && HttpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken)!.Length > 0)
                     {
-                        <p>Sin resultados</p>
-                    }
-                    else if (!Model.ListaSistema.Any())
-                    {
-                        <p>Sin datos para mostrar</p>
+                        <h5 class="fw-bold text-black mb-2">
+                            Seleccione el sistema a ingresar
+                        </h5>
+                        <br />
+
+                        <br />
+                        <!-- Row #1 -->
+                        @if (Model.ListaSistema is null)
+                        {
+                            <p>Sin resultados</p>
+                        }
+                        else if (!Model.ListaSistema.Any())
+                        {
+                            <p>Sin datos para mostrar</p>
+                        }
+                        else
+                        {
+                            @foreach (var item in Model.ListaSistema)
+                            {
+                                <div class="col-md-6 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-pop text-center p-0" target="@item.target"
+                                       href="Redireccionar?p=@item.CodigoSistemaId&url=@item.url&ut=@item.UsarToken">
+                                        <div class="block-content block-content-full text-center p-2">
+                                            <p class="p-1 m-0">
+                                                <i class="fa @item.icono fa-2x opacity-25 m-0"></i>
+                                            </p>
+                                            <p class="font-w600 m-0">@item.descripcion</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                        }
                     }
                     else
                     {
-                        @foreach (var item in Model.ListaSistema)
-                        {
-                            <div class="col-md-6 col-xl-2">
-                                <a class="block block-rounded block-bordered block-link-pop text-center p-0" target="@item.target"
-                                   href="Redireccionar?p=@item.CodigoSistemaId&url=@item.url&ut=@item.UsarToken">
-                                    <div class="block-content block-content-full text-center p-2">
-                                        <p class="p-1 m-0">
-                                            <i class="fa @item.icono fa-2x opacity-25 m-0"></i>
-                                        </p>
-                                        <p class="font-w600 m-0">@item.descripcion</p>
-                                    </div>
-                                </a>
-                            </div>
-                        }
+                        <h5 class="fw-bold text-black mb-2">
+                            Usuario no logueado...
+                            <a asp-controller="Acceso" asp-action="Login" class="linkedin" target="_self">
+                                Clic aquí para ir al login
+                            </a>
+                        </h5>
                     }
                 </div>
             </div>

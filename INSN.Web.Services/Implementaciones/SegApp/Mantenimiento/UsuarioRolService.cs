@@ -110,44 +110,29 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                     }
 
                    //Verificar si el usuario ya tiene el rol para este sistema
-                   existingUserRole = await _segAppDbContext.INSNIdentityUsuarioRol
-                       .FirstOrDefaultAsync(ur => ur.UserId == user.Id && ur.CodigoSistemaId == request.CodigoSistemaId && ur.RoleId == role.Id && ur.Estado == "A" && ur.EstadoRegistro == 1);
+                   //existingUserRole = await _segAppDbContext.INSNIdentityUsuarioRol
+                   //    .FirstOrDefaultAsync(ur => ur.UserId == user.Id && ur.CodigoSistemaId == request.CodigoSistemaId && ur.RoleId == role.Id && ur.Estado == "A" && ur.EstadoRegistro == 1);
 
-                    if (existingUserRole != null)
-                    {
-                        response.ErrorMessage = Resources.ResourceGeneral.UsuarioRolSitemaDuplicado;
-                        return response;
-                    }
-
-                    // Eliminar roles anteriores del usuario en este sistema
-                    //var userRolesInSystem = await _segAppDbContext.INSNIdentityUsuarioRol
-                    //    .Where(ur => ur.UserId == user.Id && ur.CodigoSistemaId == request.CodigoSistemaId)
-                    //    .ToListAsync();
-
-                    //_segAppDbContext.INSNIdentityUsuarioRol.RemoveRange(userRolesInSystem);
-                    //await _segAppDbContext.SaveChangesAsync();
+                   // if (existingUserRole != null)
+                   // {
+                   //     response.ErrorMessage = Resources.ResourceGeneral.UsuarioRolSitemaDuplicado;
+                   //     return response;
+                   // }
 
                     // Asignar el nuevo rol al usuario para este sistema
                     var newUserRole = new INSNIdentityUsuarioRol
                     {
                         UserId = user.Id,
                         RoleId = role.Id,
-                        CodigoSistemaId = request.CodigoSistemaId
+                        CodigoSistemaId = request.CodigoSistemaId,
+                        Estado = "A",
+                        EstadoRegistro = 1,
+                        UsuarioCreacion = request.UsuarioCreacion,
+                        TerminalCreacion = Environment.MachineName
                     };
 
                     _segAppDbContext.INSNIdentityUsuarioRol.Add(newUserRole);
                     await _segAppDbContext.SaveChangesAsync();
-
-                   //actualizar campos UsuarioCreacion y TerminalCreacion
-                   //await _repository.ActualizarCampos(
-                   //            predicate: r => (r.UserId == request.UserId
-                   //                            && r.RoleId == request.RolId
-                   //                            && r.CodigoSistemaId == request.CodigoSistemaId),
-                   //            updateAction: r =>
-                   //            {
-                   //                r.UsuarioCreacion = request.UsuarioCreacion;
-                   //                r.TerminalCreacion = Environment.MachineName;
-                   //            });
                 }
                 else
                 {
