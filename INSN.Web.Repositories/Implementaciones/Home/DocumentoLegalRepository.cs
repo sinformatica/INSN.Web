@@ -31,7 +31,8 @@ namespace INSN.Web.Repositories.Implementaciones.Home
             {
                 Expression<Func<DocumentoLegal, bool>> predicate =
                     x => x.Descripcion.Contains(request.Descripcion ?? string.Empty)
-                     && (request.Area == null || x.TipoDocumento.Area == request.Area)
+                         && (request.Area == null || x.TipoDocumento.Area == request.Area)
+                         && (request.Documento == null || x.Documento == request.Documento)
                          && (request.Estado == null || x.Estado == request.Estado)
                          && (request.CodigoTipoDocumentoId == null || x.CodigoTipoDocumentoId == request.CodigoTipoDocumentoId)
                          && (x.EstadoRegistro == request.EstadoRegistro);

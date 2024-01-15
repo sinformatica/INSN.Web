@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,6 +10,7 @@
     <!-- Favicons -->
     <link href="~/img/favicon.png" rel="icon">
     <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
+
 
     <!-- Vendor CSS Files -->
     <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -37,6 +40,19 @@
                 <a href="https://www.facebook.com/INSNoficial/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
                 <a href="https://www.instagram.com/hospital_del_nino_insn/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
                 <a href="https://www.linkedin.com/company/insn/about/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+
+                @if (HttpContextAccessor.HttpContext?.Session.GetString(Constantes.JwtToken) != null
+                && HttpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken)!.Length > 0)
+                {
+                    <div style="padding-left: 10px;">
+                        <span>Hola @User.Identity?.Name</span>
+                        <a class="nav-link text-dark" asp-controller="Acceso" asp-action="Logout">Salir</a>
+                    </div>
+                }
+                else
+                {
+                    <a asp-controller="Acceso" asp-action="Login" class="linkedin" target="_blank"><i class="bi bi-person-fill"></i></a>
+                }
             </div>
         </div>
     </section><!-- End Top Bar -->
@@ -53,12 +69,11 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a></li>
                     <li><a asp-area="" asp-controller="Especialidades" asp-action="Index">Especialidades</a></li>
                     <li><a asp-controller="DirectorioInstitucional" asp-action="Index">Directorio Institucional</a></li>
-                    </a>
-                    <li><a href="#team">Staff Médico</a></li>
+                    @*  </a>
+                    <li><a href="#team">Staff Médico</a></li> *@
                     <li><a asp-area="" asp-controller="Home" asp-action="Contacto">Contáctenos</a></li>
-
                     <li class="dropdown">
-                        <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                        <a href="#"><span>Ver más</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
                             <li><a href="#">Drop Down 1</a></li>
                             <li class="dropdown">
@@ -670,6 +685,7 @@
 
 
     <!-- ======= Footer ======= -->
+   <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
 
         <div class="container">
@@ -683,7 +699,6 @@
                     <p>
                         Instituo Nacional de Salud del Niño
                     </p>
-
                 </div>
                 <div class="col-lg-5 col-md-12 footer-info">
                     <div class="social-links d-flex mt-4">
@@ -695,9 +710,15 @@
                         <a href="https://www.linkedin.com/company/insn/about/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
+                <div class="col-lg-2 col-md-12 footer-info">
+                    <br />
+                    <br />
+                    <a style="color: #ffffff;" asp-area="" asp-controller="LibroReclamacion" asp-action="Index">
+                        <h6>Libro de Reclamaciones</h6>
+                    </a>
+                </div>
             </div>
         </div>
-
         <div class="container mt-4">
             <div class="copyright">
                 ® Derechos Reservados INSN - 2021
@@ -721,8 +742,6 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-
-
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -759,33 +778,4 @@
             });
         });
     });
-
-
-    // document.addEventListener("DOMContentLoaded", function () {
-    //     var menus = document.querySelectorAll(".menu"); // Seleccionar todos los elementos con la clase "menu"
-
-    //     menus.forEach(function (menu) {
-    //         var items = menu.querySelectorAll(".menu-item");
-
-    //         items.forEach(function (item) {
-    //             var link = item.querySelector("a[href]");
-    //             var subMenu = item.querySelector(".sub-menu");
-
-    //             if (link && subMenu) {
-    //                 link.addEventListener("click", function (event) {
-    //                     event.preventDefault(); // Evitar la acción predeterminada del enlace
-
-    //                     subMenu.style.display = subMenu.style.display === "none" ? "block" : "none";
-
-    //                     // Cerrar otros submenús desplegados en este menú
-    //                     items.forEach(function (otherItem) {
-    //                         if (otherItem !== item && otherItem.querySelector(".sub-menu")) {
-    //                             otherItem.querySelector(".sub-menu").style.display = "none";
-    //                         }
-    //                     });
-    //                 });
-    //             }
-    //         });
-    //     });
-    // });
 </script>

@@ -16,7 +16,7 @@ namespace INSN.Web.Entities.DocumentoLegal
         /// <summary>
         /// Nombres
         /// </summary>
-        public string Documento { get; set; } = default!;
+        public string? Documento { get; set; } = default!;
 
         /// <summary>
         /// Descripcion del Documento

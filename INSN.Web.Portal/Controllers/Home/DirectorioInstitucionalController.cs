@@ -1,5 +1,7 @@
 ﻿using INSN.Web.Models;
 using INSN.Web.Models.Request;
+using INSN.Web.Models.Request.Home;
+using INSN.Web.Models.Response.Home;
 using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
 using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
@@ -30,53 +32,37 @@ public class DirectorioInstitucionalController : Controller
         _enviroment = env;
     }
 
+    /// <summary>
+    /// Index
+    /// </summary>
+    /// <returns></returns>
     public IActionResult Index()
     {
         return View("~/Views/Home/DirectorioInstitucional/Index.cshtml");
     }
 
-    // GET
     /// <summary>
-    /// Modelo del Documento Legal
+    /// Documento Legal Listar
     /// </summary>
     /// <param name="model"></param>
     /// <returns></returns>
     public async Task<IActionResult> DocumentoLegal(DocumentoLegalViewModel model)
     {
-        PaginationData pager = ViewBag.Pager != null
-            ? ViewBag.Pager
-            : new PaginationData();
+        var resultDocumentoLegales = await _proxy.DocumentoLegalListar(new DocumentoLegalDtoRequest()
+        {
+            Documento = model.Documento,
+            Descripcion = model.Descripcion,
+            CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
+            Area = "DOCUMENTOLEGAL",
+            Estado = "A",
+            EstadoRegistro = 1
+        });
 
-        if (pager.CurrentPage == 0)
-            pager.CurrentPage = model.Page <= 0 ? 1 : model.Page;
-
-        pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
-
-        //model.TipoDocumentos = await _TipoDocumentoProxy.TipoDocumentoListar("DOCUMENTOLEGAL", "A", 1);
-
-        //var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
-        //{
-        //    Documento = model.Documento,
-        //    Descripcion=model.Descripcion,
-        //    Area = "DOCUMENTOLEGAL",
-        //    TipoDocumentoId = model.TipoDocumentoSeleccionada,         
-        //    EstadoRegistro = 1,
-        //    Page = pager.CurrentPage,
-        //    Rows = pager.RowsPerPage
-        //});
-
-        //ViewBag.Pager = pager;
-
-        //if (response.Success)
-        //{
-        //    model.DocumentoLegales = response.Data;
-        //    pager.TotalPages = response.TotalPages;
-        //    pager.RowCount = response.Data!.Count;
-        //}
+        model.DocumentoLegales = resultDocumentoLegales;
+        model.TituloPagina = model.TituloPagina;
 
         return View("~/Views/Home/DirectorioInstitucional/DocumentoLegal.cshtml", model);
     }
-
 
     //public IActionResult Download1(string fileName)
     //{
