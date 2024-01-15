@@ -5,7 +5,7 @@
         /// <summary>
         /// Identificador de Tipo Documento
         /// </summary>
-        public int CoditoTipoDocumentoId { get; set; }
+        public int CodigoTipoDocumentoId { get; set; }
 
         /// <summary>
         /// Descripcion
