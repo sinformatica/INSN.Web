@@ -10,12 +10,12 @@ using System.Reflection;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
-public class LibroReclamacionesController : Controller
+public class LibroReclamacionController : Controller
 {
     private readonly IWebHostEnvironment _enviroment;
     private readonly IDocumentoLegalProxy _proxy;
     private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<LibroReclamacionesController> _logger;
+    private readonly ILogger<LibroReclamacionController> _logger;
 
 
     /// <summary>
@@ -24,7 +24,7 @@ public class LibroReclamacionesController : Controller
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
     /// <param name="logger"></param>
-    public LibroReclamacionesController(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy, ILogger<LibroReclamacionesController> logger, IWebHostEnvironment env)
+    public LibroReclamacionController(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy, ILogger<LibroReclamacionController> logger, IWebHostEnvironment env)
     {
         _proxy = proxy;
         _TipoDocumentoProxy = TipoDocumentoProxy;
@@ -50,7 +50,7 @@ public class LibroReclamacionesController : Controller
     /// </summary>
     /// <param name="model"></param>
     /// <returns></returns>
-    public async Task<IActionResult> DocumentoLegalLibroReclamaciones(DocumentoLegalViewModel model)
+    public async Task<IActionResult> DocumentoLegalLibroReclamacion(DocumentoLegalViewModel model)
     {
        
 
