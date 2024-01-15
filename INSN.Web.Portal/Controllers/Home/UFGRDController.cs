@@ -1,5 +1,7 @@
 ﻿using INSN.Web.Models;
 using INSN.Web.Models.Request;
+using INSN.Web.Models.Request.Home;
+using INSN.Web.Models.Response.Home;
 using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
 
 //using INSN.Web.Portal.Services.Interfaces.Home.UFGRD;
@@ -32,50 +34,48 @@ public class UFGRDController : Controller
         _enviroment = env;
     }
 
-    // GET
     /// <summary>
-    /// Modelo del Documento Legal
+    /// Cargar Página Index
     /// </summary>
     /// <param name="model"></param>
-    ///// <returns></returns>
-
-    public async Task<IActionResult> DocumentoLegalUFGRD(DocumentoLegalViewModel model)
+    /// <returns></returns>
+    public async Task<IActionResult> Index(DocumentoLegalViewModel model)
     {
-        PaginationData pager = ViewBag.Pager != null
-            ? ViewBag.Pager
-            : new PaginationData();
+        var resultTipoDocumento = await _TipoDocumentoProxy.TipoDocumentoListar(new TipoDocumentoDtoRequest()
+        {
+            Area = "UFGRD",
+            Estado = "A",
+            EstadoRegistro = 1
+        });
 
-        if (pager.CurrentPage == 0)
-            pager.CurrentPage = model.Page <= 0 ? 1 : model.Page;
+        var resultDocumentoLegal = DocumentoLegalListar(model);
+        resultDocumentoLegal.Wait();
 
-        pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
-
-        //model.TipoDocumentos = await _TipoDocumentoProxy.TipoDocumentoListar("UFGRD", "A", 1);
-
-        //var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
-        //{
-        //    Documento = model.Documento,
-        //    Descripcion = model.Descripcion,
-        //    Area = "UFGRD",
-        //    TipoDocumentoId = model.TipoDocumentoSeleccionada,
-        //    Estado = model.EstadoSeleccionado,
-        //    EstadoRegistro = 1,
-        //    Page = pager.CurrentPage,
-        //    Rows = pager.RowsPerPage
-        //});
-
-        //ViewBag.Pager = pager;
-
-        //if (response.Success)
-        //{
-        //    model.DocumentoLegales = response.Data;
-        //    pager.TotalPages = response.TotalPages;
-        //    pager.RowCount = response.Data!.Count;
-        //}
+        model.TipoDocumentos = resultTipoDocumento;
+        model.DocumentoLegales = resultDocumentoLegal.Result;
 
         return View("~/Views/Home/UFGRD/Index.cshtml", model);
     }
 
+    /// <summary>
+    /// Documento Legal Listar
+    /// </summary>
+    /// <param name="model"></param>
+    /// <returns></returns>
+    public async Task<List<DocumentoLegalDtoResponse>> DocumentoLegalListar(DocumentoLegalViewModel model)
+    {
+        var resultDocumentoLegales = await _proxy.DocumentoLegalListar(new DocumentoLegalDtoRequest()
+        {
+            Documento = model.Documento,
+            Descripcion = model.Descripcion,
+            CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
+            Area = "UFGRD",
+            Estado = "A",
+            EstadoRegistro = 1
+        });
+
+        return (List<DocumentoLegalDtoResponse>)resultDocumentoLegales;
+    }
 
     //public IActionResult Download1(string fileName)
     //{

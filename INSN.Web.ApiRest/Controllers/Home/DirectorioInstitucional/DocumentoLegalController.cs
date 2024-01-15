@@ -9,7 +9,7 @@ namespace INSN.Web.ApiRest.Controllers.Home.DocumentoLegal
     /// <summary>
     /// Creador de API
     /// </summary>
-    [Route("api/Home/DocumentoLegal/[controller]")]
+    [Route("api/Home/DirectorioInstitucional/[controller]")]
     [ApiController]
     public class DocumentoLegalController : ControllerBase
     {

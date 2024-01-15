@@ -36,7 +36,7 @@ namespace INSN.Web.Entities.DocumentoLegal
         /// <summary>
         /// Descripcion del Tipo de Norma
         /// </summary>
-        [ForeignKey("TipoDocumentoId")]
+        [ForeignKey("CodigoTipoDocumentoId")]
         public TipoDocumento TipoDocumento { get; set; } = default!;
 
         /// <summary>

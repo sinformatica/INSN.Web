@@ -1,13 +1,8 @@
-﻿using INSN.Web.Models;
-using INSN.Web.Models.Request;
-using INSN.Web.Models.Request.Home;
+﻿using INSN.Web.Models.Request.Home;
 using INSN.Web.Models.Response.Home;
 using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
-
-//using INSN.Web.Portal.Services.Interfaces.Home.POA;
 using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
@@ -32,7 +27,6 @@ public class POAController : Controller
         _enviroment = env;
     }
 
-
     /// <summary>
     /// Cargar Página Index
     /// </summary>
@@ -56,9 +50,8 @@ public class POAController : Controller
         return View("~/Views/Home/POA/Index.cshtml", model);
     }
 
-
     /// <summary>
-    /// Farmacia Listar
+    /// Documento Legal Listar
     /// </summary>
     /// <param name="model"></param>
     /// <returns></returns>
@@ -69,7 +62,7 @@ public class POAController : Controller
             Documento = model.Documento,
             Descripcion = model.Descripcion,
             CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
-            Area = "POA",
+            Area= "POA",
             Estado = "A",
             EstadoRegistro = 1
         });
@@ -77,4 +70,3 @@ public class POAController : Controller
         return (List<DocumentoLegalDtoResponse>)resultDocumentoLegales;
     }
 }
-

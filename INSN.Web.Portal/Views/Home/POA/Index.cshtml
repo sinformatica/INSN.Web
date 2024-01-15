@@ -9,7 +9,6 @@
 }
 
 <main id="main">
-
     <!-- ======= INICIO DE SESSION CON PESTAÑA ( POA )======= -->
     <div class="section best-deal">
         <div class="container">
@@ -38,9 +37,6 @@
                     <div class="col-6 col-md-4 col-xl-4">
                         <a class="block block-link-shadow text-center" href="javascript:void(0)">
                             <div class="block-content">
-                                @* <p class="mt-1">
-                                <i class="si si-badge fa-4x"></i>
-                                </p> *@
                                 <p class="fw-medium">Mejorar los resultados clínicos de los pacientes con infecciones</p>
                             </div>
                         </a>
@@ -48,9 +44,6 @@
                     <div class="col-6 col-md-4 col-xl-4">
                         <a class="block block-link-shadow text-center" href="javascript:void(0)">
                             <div class="block-content">
-                                @*   <p class="mt-1">
-                                <i class="si si-envelope fa-4x text-success"></i>
-                                </p> *@
                                 <p class="fw-medium">Minimizar los efectos adversos asociados a la utilización de antimicrobianos; incluyendo la resistencia a antimicrobianos</p>
                             </div>
                         </a>
@@ -58,9 +51,6 @@
                     <div class="col-6 col-md-4 col-xl-4">
                         <a class="block block-link-shadow text-center" href="javascript:void(0)">
                             <div class="block-content">
-                                @*    <p class="mt-1">
-                                <i class="si si-bag fa-4x text-danger"></i>
-                                </p> *@
                                 <p class="fw-medium">Garantizar la utilización de tratamientos costo - eficaces</p>
                             </div>
                         </a>
@@ -131,7 +121,7 @@
                                 <br>
                                 <h4> BASES PARA LA OPTIMIZACIÓN DE USO ANTIMICROBIANOS 2023 - II </h4>
                                 <p>
-                                   Dirigido a profesionales de salud de INSN..
+                                    Dirigido a profesionales de salud de INSN..
                                 </p>
                                 <br>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Curso1" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
@@ -144,31 +134,28 @@
             </div>
         </div>
     </section>
-    <br />    <br />     
+    <br />    <br />
     <!-- ======= FIN CURSOS  ======= -->
     <!-- ================================================= -->
     <!-- ======= INICIO DE DATATABLE  ======= -->
     <form>
-    <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
-            <div class="row">
-                <div class="col-4">                    
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-3">
                         <div class="form-floating mb-4">
                             @Html.DropDownListFor(m => m.TipoDocumentoSeleccionada,
                             new SelectList(Model.TipoDocumentos, "CodigoTipoDocumentoId", "Descripcion"), "Todos", new { @class = "form-select", @id = "cmbTipoDocumento"})
-                        <label class="form-label">Tipo Información PROA</label>
+                            <label class="form-label">Tipo Información PROA</label>
                         </div>
-                </div>
+                    </div>
                     <div class="col-md-2 col-sm-6 text-md-right text-sm-left">
                         <button id="btnConsultar" class="btn btn-primary" asp-controller="POA" asp-action="Index" title="@Html.Raw(GeneralResource.EtiquetaConsultar)">
                             <i class="fa fa-search"></i> @Html.Raw(GeneralResource.EtiquetaConsultar)
                         </button>
                     </div>
-                </div>
-         
-                <!-- ======= INICIO : Mostrar DataTable - Datos ========================== -->
-                <div>
-                    <div class="row">
+                    <!-- ======= INICIO : Mostrar DataTable - Datos ========================== -->
+                    <div class="col-7">
                         @if (Model.DocumentoLegales is null)
                         {
                             <p>Sin resultados</p>
@@ -183,7 +170,7 @@
                             <div id="GridResultado">
                                 @*   Clase: Responsive para Columnas / Barra Desplazamiento *@
                                 <div class="table-responsive" style="width: 100%;">
-                                    <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+                                    <table class="js-table-checkable table table-hover table-vcenter">
                                         <thead>
                                             <tr>
                                                 <th class="text-center"> @Html.Raw(DocumentoLegalResource.EtiquetaGridDescripción)</th>
@@ -195,9 +182,10 @@
                                             {
                                                 <tr>
                                                     <td class="col-10">
-                                                        <h5 class="fw-bold">@item.Documento</h5>
-                                                        <br>
-                                                        @item.Descripcion
+                                                        <p class="fw-semibold mb-1">@item.Descripcion</p>
+                                                        <p class="fs-sm text-muted mb-0">
+                                                            @item.FechaPublicacion.ToString("yyyy-MM-dd")
+                                                        </p>
                                                     </td>
                                                     <td class="col-2 d-none d-sm-table-cell">
                                                         <a target="_blank" href="@Url.Action("Download1", "POA", new { fileName = item.PDF })">
@@ -211,16 +199,12 @@
                                 </div>
                             </div>
                         }
-                    </div>                   
+                    </div>
+                    <!-- ======= FIN    : Mostrar DataTable - Datos ========================== -->
                 </div>
-                <!-- ======= FIN    : Mostrar DataTable - Datos ========================== -->
-        </div>
-    </section>
-@* <<<<<<< Updated upstream *@
+            </div>
+        </section>
     </form>
-@* 
-=======
->>>>>>> Stashed changes *@
     <!-- ======= FIN DE DATATABLE  ======= -->
     <!-- INICIO MODAL - Curso 3 -->
     <div class="modal fade" id="modal-fromleft_Curso3" tabindex="-1" role="dialog" aria-hidden="true">
@@ -364,7 +348,7 @@
                             @*  Columna 1 *@
                             <h5 style="text-align: center;text-transform: uppercase;">
                                 BASES PARA LA OPTIMIZACIÓN DE USO ANTIMICROBIANOS 2023 - II
-                            </h5> 
+                            </h5>
                             <div class="col-lg-6">
                                 <!-- Inicio de Portafolio Curso 1 -->
                                 <div class="row gy-4 portfolio-container">
@@ -383,12 +367,12 @@
 
                             <div class="col-lg-6">
                                 <div class="text-center">
-                                <button type="button" class="btn btn-outline-primary mb-2" disabled="">OBJETIVOS DEL CURSO </button>
+                                    <button type="button" class="btn btn-outline-primary mb-2" disabled="">OBJETIVOS DEL CURSO </button>
                                 </div>
                                 <br />
                                 <span><i class="fa fa-1x fa-check text-info"></i> Capacitar a los usuarios de la salud en el uso de antimicrobianos.</span> <br />
                                 <br />
-                                <div class ="text-center">
+                                <div class="text-center">
                                     <button type="button" class="btn btn-outline-primary mb-2" disabled="">RECOMENDACIONES </button>
                                 </div>
                                 <br />

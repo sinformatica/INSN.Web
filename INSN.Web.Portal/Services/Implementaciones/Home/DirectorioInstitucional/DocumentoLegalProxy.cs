@@ -12,7 +12,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.Home.DirectorioInstitucional
 public class DocumentoLegalProxy : CrudRestHelperBase<DocumentoLegalDtoRequest, DocumentoLegalDtoResponse>, IDocumentoLegalProxy
 {
     public DocumentoLegalProxy(HttpClient httpClient)
-        : base("api/Home/DocumentoLegal", httpClient)
+        : base("api/Home/DirectorioInstitucional/DocumentoLegal", httpClient)
     {
     }
 

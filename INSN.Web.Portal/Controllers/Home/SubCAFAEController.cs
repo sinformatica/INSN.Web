@@ -1,5 +1,7 @@
 ﻿using INSN.Web.Models;
 using INSN.Web.Models.Request;
+using INSN.Web.Models.Request.Home;
+using INSN.Web.Models.Response.Home;
 using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
 
 //using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
@@ -15,8 +17,7 @@ public class SubCAFAEController : Controller
     private readonly IDocumentoLegalProxy _proxy;
     private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
     private readonly ILogger<SubCAFAEController> _logger;
-
-    
+        
     /// <summary>
     /// 
     /// </summary>
@@ -31,72 +32,46 @@ public class SubCAFAEController : Controller
         _enviroment = env;
     }
 
-
-    // GET
     /// <summary>
-    /// Modelo del Documento Legal
+    /// Cargar Página Index
     /// </summary>
     /// <param name="model"></param>
     /// <returns></returns>
-
-    public async Task<IActionResult> DocumentoLegalSubCAFAE(DocumentoLegalViewModel model)
+    public async Task<IActionResult> Index(DocumentoLegalViewModel model)
     {
-        PaginationData pager = ViewBag.Pager != null
-            ? ViewBag.Pager
-            : new PaginationData();
+        var resultTipoDocumento = await _TipoDocumentoProxy.TipoDocumentoListar(new TipoDocumentoDtoRequest()
+        {
+            Area = "SUBCAFAE",
+            Estado = "A",
+            EstadoRegistro = 1
+        });
 
-        if (pager.CurrentPage == 0)
-            pager.CurrentPage = model.Page <= 0 ? 1 : model.Page;
+        var resultDocumentoLegal = DocumentoLegalListar(model);
+        resultDocumentoLegal.Wait();
 
-        pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
-
-        //model.TipoDocumentos = await _TipoDocumentoProxy.TipoDocumentoListar("SUBCAFAE", "A", 1);
-
-        //var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
-        //{
-        //    Documento = model.Documento,
-        //    Descripcion = model.Descripcion,
-        //    Area = "SUBCAFAE",
-        //    TipoDocumentoId = model.TipoDocumentoSeleccionada,
-        //    Estado = model.EstadoSeleccionado,
-        //    EstadoRegistro = 1,
-        //    Page = pager.CurrentPage,
-        //    Rows = pager.RowsPerPage
-        //});
-
-        //ViewBag.Pager = pager;
-
-        //if (response.Success)
-        //{
-        //    model.DocumentoLegales = response.Data;
-        //    pager.TotalPages = response.TotalPages;
-        //    pager.RowCount = response.Data!.Count;
-        //}
+        model.TipoDocumentos = resultTipoDocumento;
+        model.DocumentoLegales = resultDocumentoLegal.Result;
 
         return View("~/Views/Home/SUBCAFAE/Index.cshtml", model);
     }
 
+    /// <summary>
+    /// Documento Legal Listar
+    /// </summary>
+    /// <param name="model"></param>
+    /// <returns></returns>
+    public async Task<List<DocumentoLegalDtoResponse>> DocumentoLegalListar(DocumentoLegalViewModel model)
+    {
+        var resultDocumentoLegales = await _proxy.DocumentoLegalListar(new DocumentoLegalDtoRequest()
+        {
+            Documento = model.Documento,
+            Descripcion = model.Descripcion,
+            CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
+            Area = "SUBCAFAE",
+            Estado = "A",
+            EstadoRegistro = 1
+        });
 
-    //public IActionResult Download1(string fileName)
-    //{
-    //    try
-    //    {
-    //        var filePath = Path.Combine(_enviroment.ContentRootPath, "Documentos/NormasDocumentosLegales", fileName);
-
-    //        if (!System.IO.File.Exists(filePath))
-    //        {
-    //            return NotFound(); // Manejo de archivo no encontrado
-    //        }
-
-    //        var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-
-    //        return new FileStreamResult(fileStream, "application/pdf");
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        // Manejar cualquier otro tipo de error
-    //        // Por ejemplo: Loggear el error para su revisión posterior
-    //        return StatusCode(StatusCodes.Status500InternalServerError);
-    //    }
-    //}
+        return (List<DocumentoLegalDtoResponse>)resultDocumentoLegales;
+    }
 }
