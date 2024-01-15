@@ -1,5 +1,6 @@
 ﻿using INSN.Web.Models;
 using INSN.Web.Models.Request;
+using INSN.Web.Models.Request.Home;
 using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
 
 //using INSN.Web.Portal.Services.Interfaces.Home.LibroReclamaciones;
@@ -31,6 +32,18 @@ public class LibroReclamacionesController : Controller
         _enviroment = env;
     }
 
+
+    /// <summary>
+    /// Cargar Página Index
+    /// </summary>
+    /// <param name="model"></param>
+    /// <returns></returns>
+    public async Task<IActionResult> Index(LibroReclamacionViewModel model)
+    {        
+
+        return View("~/Views/Home/LibroReclamaciones/Index.cshtml", model);
+    }
+
     // GET
     /// <summary>
     /// Modelo del Documento Legal
@@ -39,14 +52,8 @@ public class LibroReclamacionesController : Controller
     /// <returns></returns>
     public async Task<IActionResult> DocumentoLegalLibroReclamaciones(DocumentoLegalViewModel model)
     {
-        PaginationData pager = ViewBag.Pager != null
-            ? ViewBag.Pager
-            : new PaginationData();
+       
 
-        if (pager.CurrentPage == 0)
-            pager.CurrentPage = model.Page <= 0 ? 1 : model.Page;
-
-        pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
 
         //model.TipoDocumentos = await _TipoDocumentoProxy.TipoDocumentoListar("LibroReclamaciones","A",1);
 
