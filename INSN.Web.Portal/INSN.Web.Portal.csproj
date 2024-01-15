@@ -105,6 +105,10 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>LibroReclamacionResource.resx</DependentUpon>
+    <Compile Update="Resources\Home\DocumentoLegalResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DocumentoLegalResource.resx</DependentUpon>
     </Compile>
     <Compile Update="Resources\NoticiaResource.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -131,6 +135,9 @@
     <EmbeddedResource Update="Resources\Home\LibroReclamacionResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LibroReclamacionResource.Designer.cs</LastGenOutput>
+    <EmbeddedResource Update="Resources\Home\DocumentoLegalResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DocumentoLegalResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\NoticiaResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

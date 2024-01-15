@@ -13,11 +13,11 @@ namespace INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento
         Task<ICollection<UsuarioRolDtoResponse>> UsuarioRolListar(string UserId);
 
         /// <summary>
-        /// IProxy: Usuario Rol Asignar
+        /// IProxy: Usuario Rol Insertar
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        Task UsuarioRolAsignar(UsuarioRolDtoRequest request);
+        Task UsuarioRolInsertar(UsuarioRolDtoRequest request);
 
         /// <summary>
         /// IProxy: Usuario Rol Eliminar

@@ -172,6 +172,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                                 predicate: r => r.Id == data.Id,
                                 updateAction: r =>
                             {
+                                r.Estado = request.Estado;
                                 r.UsuarioCreacion = request.UsuarioCreacion;
                                 r.TerminalCreacion = Environment.MachineName; 
                             });

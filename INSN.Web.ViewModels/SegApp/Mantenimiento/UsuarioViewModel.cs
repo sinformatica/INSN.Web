@@ -1,5 +1,4 @@
-﻿using INSN.Web.Models;
-using INSN.Web.Models.Response.SegApp.Mantenimiento;
+﻿using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.Sistemas;
 using System;
 using System.Collections.Generic;
@@ -9,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using INSN.Web.Models.Response.SegApp;
 
 namespace INSN.Web.ViewModels.SegApp.Mantenimiento
 {

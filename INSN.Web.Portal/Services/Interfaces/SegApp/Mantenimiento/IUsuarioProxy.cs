@@ -13,6 +13,13 @@ namespace INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento
         Task<ICollection<UsuarioDtoResponse>> UsuarioListar(UsuarioDtoRequest request);
 
         /// <summary>
+        /// IProxy: Usuario Validar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<string> UsuarioValidar(UsuarioDtoRequest request);
+
+        /// <summary>
         /// IProxy: Usuario Insertar
         /// </summary>
         /// <param name="request"></param>

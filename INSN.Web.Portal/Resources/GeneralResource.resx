@@ -120,13 +120,49 @@
   <data name="EtiquetaAccion" xml:space="preserve">
     <value>Acción</value>
   </data>
+  <data name="EtiquetaAccion1" xml:space="preserve">
+    <value>Acción</value>
+  </data>
   <data name="EtiquetaActivo" xml:space="preserve">
     <value>Activo</value>
+  </data>
+  <data name="EtiquetaActivo1" xml:space="preserve">
+    <value>Activo</value>
+  </data>
+  <data name="EtiquetaConsultar" xml:space="preserve">
+    <value>Consultar</value>
+  </data>
+  <data name="EtiquetaEditar" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="EtiquetaEliminar" xml:space="preserve">
+    <value>Eliminar</value>
   </data>
   <data name="EtiquetaEstado" xml:space="preserve">
     <value>Estado</value>
   </data>
+  <data name="EtiquetaEstado1" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="EtiquetaGrabar" xml:space="preserve">
+    <value>Grabar</value>
+  </data>
   <data name="EtiquetaInactivo" xml:space="preserve">
     <value>Inactivo</value>
+  </data>
+  <data name="EtiquetaInactivo1" xml:space="preserve">
+    <value>Inactivo</value>
+  </data>
+  <data name="EtiquetaLimpiar" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="EtiquetaNuevo" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="EtiquetaRegresar" xml:space="preserve">
+    <value>Regresar</value>
+  </data>
+  <data name="EtiquetaSeleccionar" xml:space="preserve">
+    <value>Seleccionar</value>
   </data>
 </root>

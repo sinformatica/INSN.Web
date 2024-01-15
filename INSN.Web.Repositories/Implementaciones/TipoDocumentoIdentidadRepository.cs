@@ -1,6 +1,6 @@
 ﻿using INSN.Web.DataAccess;
-using INSN.Web.Entities;
-using INSN.Web.Repositories.Interfaces;
+using INSN.Web.Entities.SegApp;
+using INSN.Web.Repositories.Interfaces.SegApp;
 using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
 using Microsoft.EntityFrameworkCore;
 using System;

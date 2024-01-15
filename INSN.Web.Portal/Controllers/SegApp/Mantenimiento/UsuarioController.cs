@@ -1,9 +1,8 @@
-﻿using INSN.Web.Models;
-using INSN.Web.Models.Request.SegApp;
+﻿using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
+using INSN.Web.Models.Response.SegApp;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.Sistemas;
-using INSN.Web.Portal.Services.Interfaces;
 using INSN.Web.Portal.Services.Interfaces.SegApp;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.ViewModels;
@@ -11,6 +10,8 @@ using INSN.Web.ViewModels.Exceptions;
 using INSN.Web.ViewModels.SegApp.Mantenimiento;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Globalization;
+using System.Text;
 
 namespace INSN.Web.Portal.Controllers.SegApp.Usuario
 {
@@ -130,9 +131,8 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 if (string.IsNullOrWhiteSpace(request.DocumentoIdentidad)) throw new ModelException(nameof(request.DocumentoIdentidad), "Campo requerido: Documento identidad");
                 if (string.IsNullOrWhiteSpace(request.Correo)) throw new ModelException(nameof(request.Correo), "Campo requerido: Correo");
                 if (string.IsNullOrWhiteSpace(request.Telefono1)) throw new ModelException(nameof(request.Telefono1), "Campo requerido: Teléfono 1");
-                if (string.IsNullOrWhiteSpace(request.Usuario)) throw new ModelException(nameof(request.Usuario), "Campo requerido: Usuario");
                 if (string.IsNullOrWhiteSpace(request.Clave)) throw new ModelException(nameof(request.Clave), "Campo requerido: Contraseña");
-               
+
                 if (string.IsNullOrWhiteSpace(request.ConfirmaClave))
                 {
                     throw new ModelException(nameof(request.ConfirmaClave), "Campo requerido: Confirmar contraseña");
@@ -141,6 +141,15 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 {
                     if (request.Clave != request.ConfirmaClave) throw new ModelException(nameof(request.ConfirmaClave), "Contraseñas no coinciden");
                 }
+
+                // Validar usuario
+                string usuario = await _proxy.UsuarioValidar(new UsuarioDtoRequest
+                {
+                    Nombres = request.Nombre,
+                    ApellidoPaterno = request.ApellidoPaterno,
+                    ApellidoMaterno = request.ApellidoMaterno
+                });
+                request.Usuario = usuario;
 
                 await _proxy.UsuarioInsertar(new UsuarioDtoRequest
                 {
@@ -261,8 +270,16 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 if (string.IsNullOrWhiteSpace(request.DocumentoIdentidad)) throw new ModelException(nameof(request.DocumentoIdentidad), "Campo requerido: Documento identidad");
                 if (string.IsNullOrWhiteSpace(request.Correo)) throw new ModelException(nameof(request.Correo), "Campo requerido: Correo");
                 if (string.IsNullOrWhiteSpace(request.Telefono1)) throw new ModelException(nameof(request.Telefono1), "Campo requerido: Teléfono 1");
-                if (string.IsNullOrWhiteSpace(request.Usuario)) throw new ModelException(nameof(request.Usuario), "Campo requerido: Usuario");
-                
+
+                // Validar usuario
+                string usuario = await _proxy.UsuarioValidar(new UsuarioDtoRequest
+                {
+                    Nombres = request.Nombre,
+                    ApellidoPaterno = request.ApellidoPaterno,
+                    ApellidoMaterno = request.ApellidoMaterno
+                });
+                request.Usuario = usuario;
+
                 var dtoRequest = new UsuarioDtoRequest
                 {
                     Id = request.Id,
@@ -431,7 +448,8 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         public async Task<IActionResult> EditarRolesVista(UsuarioViewModel model)
         {
             model.Sistemas = await SistemaListar();
-            model.Roles = await RolPorSistemaListar(9);
+            var sist = model.Sistemas?.FirstOrDefault();
+            model.Roles = await RolPorSistemaListar(sist.CodigoSistemaId);
             model.UsuarioRoles = await UsuarioRolListar(model.Id);
 
             return View("~/Views/SegApp/Mantenimiento/Usuario/EditarRoles.cshtml", model);
@@ -483,11 +501,11 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> UsuarioRolAsignar(UsuarioViewModel request)
+        public async Task<IActionResult> UsuarioRolInsertar(UsuarioViewModel request)
         {
             try
             {
-                await _proxyUsuarioRol.UsuarioRolAsignar(new UsuarioRolDtoRequest
+                await _proxyUsuarioRol.UsuarioRolInsertar(new UsuarioRolDtoRequest
                 {
                     UserId = request.Id,
                     RolId = request.RolSeleccionado,

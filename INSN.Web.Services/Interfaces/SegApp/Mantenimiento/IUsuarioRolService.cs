@@ -22,11 +22,11 @@ namespace INSN.Web.Services.Interfaces.SegApp.Mantenimiento
         Task<BaseResponseGeneric<ICollection<UsuarioRolDtoResponse>>> UsuarioRolListar(string UserId);
 
         /// <summary>
-        /// IService: Usuario Rol Asignar
+        /// IService: Usuario Rol Insertar
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        Task<BaseResponse> UsuarioRolAsignar(UsuarioRolDtoRequest request);
+        Task<BaseResponse> UsuarioRolInsertar(UsuarioRolDtoRequest request);
 
         /// <summary>
         /// IService: Usuario Rol Eliminar

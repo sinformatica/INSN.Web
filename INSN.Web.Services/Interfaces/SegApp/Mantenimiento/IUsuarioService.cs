@@ -29,6 +29,13 @@ namespace INSN.Web.Services.Interfaces.SegApp.Mantenimiento
         Task<BaseResponseGeneric<UsuarioDtoResponse>> UsuarioBuscarId(string Id);
 
         /// <summary>
+        /// IService: Usuario Validar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<BaseResponseGeneric<string>> UsuarioValidar(UsuarioDtoRequest request);
+
+        /// <summary>
         /// IService: Usuario Insertar
         /// </summary>
         /// <param name="request"></param>

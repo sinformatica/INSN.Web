@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
-using INSN.Web.Entities;
 using INSN.Web.Entities.DocumentoLegal;
 using INSN.Web.Entities.Info.Mantenimiento;
 using INSN.Web.Entities.SegApp;
-using INSN.Web.Models;
 using INSN.Web.Models.Request.Home;
 using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.Home;
+using INSN.Web.Models.Response.SegApp;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.Sistemas;
 using Microsoft.EntityFrameworkCore.Infrastructure;

@@ -13,10 +13,7 @@ using Serilog;
 using System.Text;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
-using INSN.Web.Services.Implementaciones;
-using INSN.Web.Services.Interfaces;
 using INSN.Web.Repositories.Implementaciones;
-using INSN.Web.Repositories.Interfaces;
 using INSN.Web.Services.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.Services.Implementaciones.SegApp.Mantenimiento;
 using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
@@ -26,6 +23,10 @@ using INSN.Web.Services.Implementaciones.SegApp;
 using INSN.Web.Services.Interfaces.SegApp;
 using INSN.Web.Repositories.Interfaces.SegApp;
 using INSN.Web.DataAccess.Acceso;
+using INSN.Web.Repositories.Implementaciones.Acceso;
+using INSN.Web.Repositories.Interfaces.Acceso;
+using INSN.Web.Services.Interfaces.Acceso;
+using INSN.Web.Services.Implementaciones.Acceso;
 
 var builder = WebApplication.CreateBuilder(args);
 

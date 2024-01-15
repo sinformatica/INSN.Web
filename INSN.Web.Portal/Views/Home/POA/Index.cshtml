@@ -1,4 +1,6 @@
 ﻿@using INSN.Web.ViewModels.Home
+@using INSN.Web.Portal.Resources.Home
+@using INSN.Web.Portal.Resources
 
 @model DocumentoLegalViewModel
 
@@ -142,6 +144,7 @@
             </div>
         </div>
     </section>
+    <br />    <br />     
     <!-- ======= FIN CURSOS  ======= -->
     <!-- ================================================= -->
     <!-- ======= INICIO DE DATATABLE  ======= -->
@@ -149,78 +152,68 @@
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
             <div class="row">
-                <div class="col-6">                    
+                <div class="col-4">                    
                         <div class="form-floating mb-4">
                             @Html.DropDownListFor(m => m.TipoDocumentoSeleccionada,
-                            new SelectList(Model.TipoDocumentos, "Id", "Descripcion"), "Todos", new { @class = "form-select", @id = "cmbTipoDocumento"})
+                            new SelectList(Model.TipoDocumentos, "CodigoTipoDocumentoId", "Descripcion"), "Todos", new { @class = "form-select", @id = "cmbTipoDocumento"})
                         <label class="form-label">Tipo Información PROA</label>
                         </div>
                 </div>
-                <div class="col-6">
-                    <div class="row mt-3 justify-content">
-                        <div class="col-auto">
-                            <button id="btnBuscar" class="btn btn-outline-primary" type="submit"><i class="bi bi-search me-1"></i>Buscar</button>
-                        </div>
+                    <div class="col-md-2 col-sm-6 text-md-right text-sm-left">
+                        <button id="btnConsultar" class="btn btn-primary" asp-controller="POA" asp-action="Index" title="@Html.Raw(GeneralResource.EtiquetaConsultar)">
+                            <i class="fa fa-search"></i> @Html.Raw(GeneralResource.EtiquetaConsultar)
+                        </button>
                     </div>
                 </div>
-            </div>
-            <br />
-            <div class="row">
+         
+                <!-- ======= INICIO : Mostrar DataTable - Datos ========================== -->
                 <div>
-                    Mostrar
-                    <select id="pageSize" class="form-select-sm" asp-for="Rows">
-                        <option>20</option>
-                        <option>35</option>
-                        <option>50</option>
-                        <option>100</option>
-                    </select>
-                    registros
+                    <div class="row">
+                        @if (Model.DocumentoLegales is null)
+                        {
+                            <p>Sin resultados</p>
+                        }
+                        else if (!Model.DocumentoLegales.Any())
+                        {
+                            <p>Sin datos para mostrar</p>
+                        }
+                        else
+                        {
+                            @*   Clase: Carga de Tabla- Grid Datos - Visual *@
+                            <div id="GridResultado">
+                                @*   Clase: Responsive para Columnas / Barra Desplazamiento *@
+                                <div class="table-responsive" style="width: 100%;">
+                                    <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center"> @Html.Raw(DocumentoLegalResource.EtiquetaGridDescripción)</th>
+                                                <th class="text-center"> @Html.Raw(DocumentoLegalResource.EtiquetaGridArchivoPDF)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.DocumentoLegales)
+                                            {
+                                                <tr>
+                                                    <td class="col-10">
+                                                        <h5 class="fw-bold">@item.Documento</h5>
+                                                        <br>
+                                                        @item.Descripcion
+                                                    </td>
+                                                    <td class="col-2 d-none d-sm-table-cell">
+                                                        <a target="_blank" href="@Url.Action("Download1", "POA", new { fileName = item.PDF })">
+                                                            <img src="~/imagenes/iconos/pdf.svg" alt="Icono PDF" width="32" height="32">
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        }
+                    </div>                   
                 </div>
-            </div>
-            <div class="row mt-4">
-                @if (Model.DocumentoLegales is null)
-                {
-                    <p>Sin resultados</p>
-                }
-                else if (!Model.DocumentoLegales.Any())
-                {
-                    <p>Sin datos para mostrar</p>
-                }
-                else
-                {
-                    <table class="table table-striped table-vcenter">
-                        <thead>
-                            <tr>
-                                <th class="col-10">Descripción del Documento</th>
-                                <th class="col-2 d-none d-sm-table-cell">Documento PDF</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.DocumentoLegales)
-                            {
-                                <tr>
-                                    <td class="col-10">
-                                        <h5 class="fw-bold">@item.Documento</h5>
-                                        <br>
-                                        @item.Descripcion
-                                    </td>
-                                    <td class="col-2 d-none d-sm-table-cell">
-                                        <a target="_blank" href="@Url.Action("Download1", "DirectorioInstitucional", new { fileName = item.PDF })">
-                                            <img src="~/imagenes/iconos/pdf.svg" alt="Icono PDF" width="32" height="32">
-                                        </a>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                }
-            </div>
-
-
-            <div class="container">
-                <partial name="_DataPager" model="ViewBag.Pager" />
-                @Html.HiddenFor(m => m.Page, new { id = "currentPage" })
-            </div>
+                <!-- ======= FIN    : Mostrar DataTable - Datos ========================== -->
         </div>
     </section>
 @* <<<<<<< Updated upstream *@
@@ -292,7 +285,6 @@
             </div>
         </div>
     </div>
-
     <!-- FIN MODAL - Curso 3 -->
     <!-- INICIO MODAL - Curso 2 -->
     <div class="modal fade" id="modal-fromleft_Curso2" tabindex="-1" role="dialog" aria-hidden="true">
@@ -357,7 +349,6 @@
             </div>
         </div>
     </div>
-
     <!-- FIN MODAL - Curso 2 -->
     <!-- INICIO MODAL - Curso 1 -->
     <div class="modal fade" id="modal-fromleft_Curso1" tabindex="-1" role="dialog" aria-hidden="true">
@@ -427,4 +418,3 @@
     <!-- FIN MODAL - Curso 1 -->
     <br />
 </main>
-

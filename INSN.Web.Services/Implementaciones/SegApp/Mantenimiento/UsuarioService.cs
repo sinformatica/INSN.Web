@@ -16,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.Data.SqlClient;
 using INSN.Web.DataAccess.Acceso;
+using System.Globalization;
 
 namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 {
@@ -101,6 +102,49 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         }
 
         /// <summary>
+        /// Service: Usuario Validar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<BaseResponseGeneric<string>> UsuarioValidar(UsuarioDtoRequest request)
+        {
+            var response = new BaseResponseGeneric<string>();
+
+            string nombreTransformado = request.Nombres.Substring(0, 1).ToUpper();
+            string apellidoPaternoTransformado = request.ApellidoPaterno.Replace(" ", "").ToUpper();
+            apellidoPaternoTransformado = QuitarTildes(apellidoPaternoTransformado);
+            apellidoPaternoTransformado = apellidoPaternoTransformado.Replace("Ñ", "N");
+
+            // Concatenar los valores transformados
+            string Usuario = nombreTransformado + apellidoPaternoTransformado;
+
+            // validar que exista usuario
+            var usuarioExistente = await _userManager.FindByNameAsync(Usuario);
+
+            if (usuarioExistente != null)
+            {
+                // Crear el nuevo nombre de usuario sin modificar el original
+                Usuario = usuarioExistente.UserName.ToUpper() + (request.ApellidoMaterno?.FirstOrDefault().ToString().ToUpper() ?? "");
+            }
+
+            response.Data = Usuario;
+            response.Success = true;
+            return response;
+        }
+
+        /// <summary>
+        /// Quitar tildes
+        /// </summary>
+        /// <param name="texto"></param>
+        /// <returns></returns>
+        string QuitarTildes(string texto)
+        {
+            return new string(texto.Normalize(NormalizationForm.FormD)
+                                     .Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                                     .ToArray());
+        }
+
+        /// <summary>
         /// Service: Usuario Insertar
         /// </summary>
         /// <param name="request"></param>
@@ -133,12 +177,14 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                 if (result.Succeeded)
                 {
                     // actualizar campos UsuarioCreacion y TerminalCreacion
-                    var data = await _userManager.FindByEmailAsync(user.Email);
+                    var usu = await _userManager.FindByEmailAsync(user.Email);
 
                     await _repository.ActualizarCampos(
-                                predicate: r => r.Id == data.Id,
+                                predicate: r => r.Id == usu.Id,
                                 updateAction: r =>
                                 {
+                                    r.Estado = request.Estado;
+                                    r.EstadoRegistro = 1;
                                     r.UsuarioCreacion = request.UsuarioCreacion;
                                     r.TerminalCreacion = Environment.MachineName;
                                 });

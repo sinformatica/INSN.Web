@@ -48,14 +48,14 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         }
 
         /// <summary>
-        /// Proxy: Usuario Rol Asignar
+        /// Proxy: Usuario Rol Insertar
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public async Task UsuarioRolAsignar(UsuarioRolDtoRequest request)
+        public async Task UsuarioRolInsertar(UsuarioRolDtoRequest request)
         {
-            var response = await HttpClient.PostAsJsonAsync($"{BaseUrl}/UsuarioRolAsignar", request);
+            var response = await HttpClient.PostAsJsonAsync($"{BaseUrl}/UsuarioRolInsertar", request);
 
             if (!response.IsSuccessStatusCode)
             {
