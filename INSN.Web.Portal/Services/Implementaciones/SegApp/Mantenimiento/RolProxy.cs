@@ -2,19 +2,38 @@
 using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
+using System.Net.Http.Headers;
+using System.Net.Http;
 
 namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
 {
     public class RolProxy : CrudRestHelperBase<RolDtoRequest, RolDtoResponse>, IRolProxy
     {
+        //private readonly HttpClient _httpClient;
+
         /// <summary>
         /// Proxy
         /// </summary>
         /// <param name="httpClient"></param>
-        public RolProxy(HttpClient httpClient)
-            : base("api/SegApp/Mantenimiento/Rol", httpClient)
+        public RolProxy(HttpClient httpClient) : base("api/SegApp/Mantenimiento/Rol", httpClient)
         {
         }
+
+        //public RolProxy(HttpClient httpClient) : base("api/SegApp/Mantenimiento/Rol", httpClient)
+        //{
+
+        //}
+
+        //public RolProxy(string baseUrl, string token)
+        //{
+        //    _httpClient = new HttpClient
+        //    {
+        //        BaseAddress = new Uri(baseUrl)
+        //    };
+
+        //    // Agrega el token a la cabecera de autorización
+        //    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        //}
 
         /// <summary>
         /// Proxy: Listar Paginación
