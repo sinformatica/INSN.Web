@@ -62,18 +62,25 @@ namespace INSN.Web.Portal.Controllers.Acceso
                     if (p == 1) // SegApp
                     {
                         // Leer token
-                        var handler = new JwtSecurityTokenHandler();
-                        var jwt = handler.ReadJwtToken(response.Token);
+                        tokenHandler = new JwtSecurityTokenHandler();
+                        jwtToken = tokenHandler.ReadJwtToken(response.Token);
+
+                        // Acceder a los claims (información) dentro del token
+                        claims = jwtToken.Claims;
+
+                        // Obtener el valor de un claim específico
+                        var FechaVencimiento = claims.FirstOrDefault(c => c.Type == "FechaVencimiento")?.Value;
 
                         // Leer los Claims
-                        var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-                        identity.AddClaims(jwt.Claims);
+                        //var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+                        //identity.AddClaims(jwt.Claims);
 
-                        var principal = new ClaimsPrincipal(identity);
-                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                        //var principal = new ClaimsPrincipal(identity);
+                        //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                        // Guardar token
+                        // Guardar en constantes
                         HttpContext.Session.SetString(Constantes.JwtToken, response.Token);
+                        HttpContext.Session.SetString(Constantes.FechaVencimiento, FechaVencimiento);
 
                         return RedirectToAction("Index", "Menu");
                     }

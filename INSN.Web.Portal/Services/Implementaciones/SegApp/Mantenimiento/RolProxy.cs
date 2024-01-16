@@ -4,36 +4,29 @@ using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
 using System.Net.Http.Headers;
 using System.Net.Http;
+using System.Reflection.Metadata;
+using INSN.Web.Common;
+using System.Net;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
 {
     public class RolProxy : CrudRestHelperBase<RolDtoRequest, RolDtoResponse>, IRolProxy
     {
-        //private readonly HttpClient _httpClient;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         /// <summary>
         /// Proxy
         /// </summary>
         /// <param name="httpClient"></param>
-        public RolProxy(HttpClient httpClient) : base("api/SegApp/Mantenimiento/Rol", httpClient)
+        public RolProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor) : base("api/SegApp/Mantenimiento/Rol", httpClient)
         {
+            _httpContextAccessor = httpContextAccessor;
+
+            // Configurar la cabecera de autorización con el token
+            string token = _httpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
-
-        //public RolProxy(HttpClient httpClient) : base("api/SegApp/Mantenimiento/Rol", httpClient)
-        //{
-
-        //}
-
-        //public RolProxy(string baseUrl, string token)
-        //{
-        //    _httpClient = new HttpClient
-        //    {
-        //        BaseAddress = new Uri(baseUrl)
-        //    };
-
-        //    // Agrega el token a la cabecera de autorización
-        //    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-        //}
 
         /// <summary>
         /// Proxy: Listar Paginación
@@ -42,6 +35,9 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         /// <returns></returns>
         public async Task<PaginationResponse<RolDtoResponse>> RolPaginacionListar(RolDtoRequest request)
         {
+            // Configurar la cabecera de autorización con el token
+            HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Constantes.JwtToken);
+
             var response = await HttpClient.GetFromJsonAsync<PaginationResponse<RolDtoResponse>>(
                 $"{BaseUrl}?Name={request.Name}&estado={request.Estado}&page={request.Page}&rows={request.Rows}");
 
@@ -61,10 +57,15 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         /// <exception cref="InvalidOperationException"></exception>
         public async Task<ICollection<RolDtoResponse>> RolListar(RolDtoRequest request)
         {
-            try
-            {
+            //try
+            //{
                 var queryString = $"?Name={request.Name}&Estado={request.Estado}";
                 var response = await HttpClient.GetAsync($"{BaseUrl}/RolListar{queryString}");
+
+                if (response.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    throw new Excepciones("401", response.ReasonPhrase);
+                }
 
                 response.EnsureSuccessStatusCode();
 
@@ -77,11 +78,11 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
                 }
 
                 return result.Data!;
-            }
-            catch (Exception ex)
-            {
-                throw new InvalidOperationException(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new InvalidOperationException(ex.Message);
+            //}
         }
 
         /// <summary>

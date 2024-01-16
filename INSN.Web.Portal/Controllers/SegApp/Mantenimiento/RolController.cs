@@ -1,8 +1,15 @@
-﻿using INSN.Web.Models.Request.SegApp.Mantenimiento;
+﻿using INSN.Web.Common;
+using INSN.Web.Models.Request.SegApp.Mantenimiento;
+using INSN.Web.Portal.Services;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
+using INSN.Web.ViewModels;
 using INSN.Web.ViewModels.Exceptions;
 using INSN.Web.ViewModels.SegApp.Mantenimiento;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http.Headers;
+using System.Net.Http;
 
 namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
 {
@@ -24,7 +31,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
         {
             _proxy = proxy;
             _logger = logger;
-            _enviroment = env;
+            _enviroment = env;            
         }
 
         /// <summary>
@@ -32,12 +39,9 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public IActionResult Index(RolViewModel model)
+        public async Task<IActionResult> Index(RolViewModel model)
         {
-            var result = RolListar(model);
-            result.Wait();
-
-            return View("~/Views/SegApp/Mantenimiento/Rol/Index.cshtml", model);
+            return await RolListar(model);
         }
 
         /// <summary>
@@ -56,14 +60,31 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
         /// <returns></returns>
         public async Task<IActionResult> RolListar(RolViewModel model)
         {
-            var response = await _proxy.RolListar(new RolDtoRequest()
+            try
             {
-                Name = model.Name,
-                Estado = model.EstadoSeleccionado
-            });
+                var response = await _proxy.RolListar(new RolDtoRequest()
+                {
+                    Name = model.Name,
+                    Estado = model.EstadoSeleccionado
+                });
 
-            model.Roles = response;
-            return View("~/Views/SegApp/Mantenimiento/Rol/Index.cshtml", model);
+                model.Roles = response;
+                return View("~/Views/SegApp/Mantenimiento/Rol/Index.cshtml", model);
+            }
+            catch (Excepciones ex)
+            {
+                var error = new ExcepcionesViewModel {
+                    Code = ex.Code,
+                    ReasonPhrase = ex.ReasonPhrase 
+                };
+
+                return RedirectToAction("Index", "Excepciones", error);
+            }
+            catch (Exception)
+            {
+                // Maneja otros tipos de excepciones si es necesario
+                return View("~/Views/Shared/Error.cshtml");
+            }
         }
 
         #region [Nuevo]
