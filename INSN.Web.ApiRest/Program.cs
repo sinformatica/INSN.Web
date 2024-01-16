@@ -27,6 +27,7 @@ using INSN.Web.Repositories.Implementaciones.Acceso;
 using INSN.Web.Repositories.Interfaces.Acceso;
 using INSN.Web.Services.Interfaces.Acceso;
 using INSN.Web.Services.Implementaciones.Acceso;
+using INSN.Web.ApiRest.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -147,6 +148,9 @@ builder.Services.AddAuthentication(x =>
         IssuerSigningKey = new SymmetricSecurityKey(key)
     };
 });
+
+// Registrar el filtro personalizado
+builder.Services.AddScoped<CodigoSistemaIdAutorizacion>();
 
 var app = builder.Build();
 

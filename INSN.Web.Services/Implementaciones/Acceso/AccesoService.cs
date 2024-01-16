@@ -230,7 +230,8 @@ namespace INSN.Web.Services.Implementaciones.Acceso
                     new Claim("rol", roleName?.Name),
                     new Claim("CodigoSistemaId", request.CodigoSistemaId.ToString()),
                     new Claim("FechaVencimiento", fechaVencimiento.ToString("yyyy-MM-dd HH:mm:ss")),
-                    //new Claim(ClaimTypes.Expiration, fechaVencimiento.ToString("yyyy-MM-dd HH:mm:ss"))
+                    new Claim(ClaimTypes.Role, roleName?.Name),
+                    new Claim(ClaimTypes.Expiration, fechaVencimiento.ToString("yyyy-MM-dd HH:mm:ss"))
                 };
 
                 // Creacion del JWT

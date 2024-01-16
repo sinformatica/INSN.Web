@@ -1,7 +1,9 @@
-﻿using INSN.Web.Models.Request.SegApp.Mantenimiento;
+﻿using INSN.Web.Common;
+using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Services.Interfaces.SegApp.Mantenimiento;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -10,8 +12,9 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
     /// <summary>
     /// Creador de API
     /// </summary>
-    [Route("api/SegApp/Mantenimiento/[controller]")]
     [ApiController]
+    [Route("api/SegApp/Mantenimiento/[controller]")]
+    //[ServiceFilter(typeof(CodigoSistemaIdAutorizacion))] 
     public class RolController : ControllerBase
     {
         private readonly IRolService _service;
@@ -31,10 +34,19 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet("RolListar")]
+        //[Authorize(Roles = $"{Constantes.RolAdminSistemas},{Constantes.RolJefe}")]
         [ProducesResponseType((int)StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
         [ProducesResponseType((int)StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
         public async Task<IActionResult> RolListar([FromQuery] RolDtoRequest request)
         {
+            //var codigoSistemaIdClaim = User.Claims.FirstOrDefault(c => c.Type == "CodigoSistemaId")?.Value;
+
+            //if (codigoSistemaIdClaim != Constantes.CodigoSistemaIdFijo)
+            //{
+            //    // No tiene el CodigoSistemaId permitido, devolver un UnauthorizedResult
+            //    return Unauthorized();
+            //}
+
             var response = await _service.RolListar(request);
             return response.Success ? Ok(response) : BadRequest(response);
         }
