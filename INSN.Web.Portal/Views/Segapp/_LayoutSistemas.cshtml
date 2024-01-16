@@ -24,19 +24,6 @@
     <link rel="icon" href="~/imagenes/varios/favicon_insn.ico" type="image/png">
 </head>
 <body>
-<<<<<<< Updated upstream
-    <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-modern main-content-boxed">
-        <nav id="sidebar">
-            <!-- Sidebar Content -->
-            <div class="sidebar-content">
-                <!-- Side Header -->
-                <div class="content-header justify-content-lg-center">
-                    <!-- Logo -->
-                    <div>
-                        <img src="/Imagenes/logo.png" style="height: 50px;" />
-                    </div>
-                    <!-- END Logo -->
-=======
     @{
         if (FechaVencimiento != "FechaVencimiento")
         {
@@ -45,183 +32,179 @@
                 <div class="container">
                     <main role="main">
                         <br>
-                        <h4>Su sesión ha expirado... 
+                        <h4>
+                            Su sesión ha expirado...
                             <a asp-controller="Acceso" asp-action="Login" class="linkedin" target="_self">Ir al login</a>
                         </h4>
                         @RenderBody()
                     </main>
->>>>>>> Stashed changes
                 </div>
             }
             else
             {
                 <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-modern main-content-boxed">
-                <nav id="sidebar">
-                    <!-- Sidebar Content -->
-                    <div class="sidebar-content">
-                        <!-- Side Header -->
-                        <div class="content-header justify-content-lg-center">
-                            <!-- Logo -->
-                            <div>
-                                <a class="link-fx fw-bold tracking-wide mx-auto" href="#">
-                                    <span class="smini-hidden">
-                                        <span class="fs-3 text-dual">IN</span><span class="fs-3 text-primary">SN</span>
-                                    </span>
-                                </a>
+                    <nav id="sidebar">
+                        <!-- Sidebar Content -->
+                        <div class="sidebar-content">
+                            <!-- Side Header -->
+                            <div class="content-header justify-content-lg-center">
+                                <!-- Logo -->
+                                <div>
+                                    <img src="/Imagenes/logo.png" style="height: 50px;" />
+                                </div>
+                                <!-- END Logo -->
                             </div>
-                            <!-- END Logo -->
-                        </div>
-                        <!-- END Side Header -->
-                        <!-- Sidebar Scrolling -->
-                        <div class="js-sidebar-scroll">
-                            <!-- Side User -->
-                            <div class="content-side content-side-user px-0 py-0">
-                                <!-- Visible only in normal mode -->
-                                <div class="smini-hidden text-center mx-auto">
-                                    <ul class="list-inline mt-3 mb-0">
-                                        <li class="list-inline-item">
-                                            <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" href="be_pages_generic_profile.html">@Usuario</a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="link-fx text-dual" asp-controller="Acceso" asp-action="Logout">
-                                                <i class="fa fa-sign-out-alt"></i>
-                                            </a>
-                                        </li>
+                            <!-- END Side Header -->
+                            <!-- Sidebar Scrolling -->
+                            <div class="js-sidebar-scroll">
+                                <!-- Side User -->
+                                <div class="content-side content-side-user px-0 py-0">
+                                    <!-- Visible only in normal mode -->
+                                    <div class="smini-hidden text-center mx-auto">
+                                        <ul class="list-inline mt-3 mb-0">
+                                            <li class="list-inline-item">
+                                                <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" href="be_pages_generic_profile.html">@Usuario</a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a class="link-fx text-dual" asp-controller="Acceso" asp-action="Logout">
+                                                    <i class="fa fa-sign-out-alt"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- END Visible only in normal mode -->
+                                </div>
+                                <!-- END Side User -->
+                                <!-- Side Navigation -->
+                                <div class="content-side content-side-full">
+                                    <ul class="nav-main">
+                                        <li class="nav-main-heading">Menú</li>
+
+                                        @if (menu.SeccionLista is null)
+                                        {
+                                            <p>Sin resultados</p>
+                                        }
+                                        else if (!menu.SeccionLista.Any())
+                                        {
+                                            <p>Sin datos para mostrar</p>
+                                        }
+                                        else
+                                        {
+                                            @foreach (var item in menu.SeccionLista)
+                                            {
+                                                <li class="nav-main-item">
+                                                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                                        <i class="nav-main-link-icon fa fa-grip-vertical"></i>
+                                                        <span class="nav-main-link-name">@item.Descripcion</span>
+                                                    </a>
+
+                                                    <ul class="nav-main-submenu">
+                                                        @foreach (var modulo in item.ModuloLista)
+                                                        {
+                                                            <li class="nav-main-item">
+                                                                <a class="nav-main-link" asp-area="" asp-controller="@modulo.Controlador" asp-action="@modulo.Url">
+                                                                    <i class="nav-main-link-icon fa @modulo.Icono"></i>
+                                                                    <span class="nav-main-link-name">@modulo.Descripcion</span>
+                                                                </a>
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                </li>
+                                            }
+                                        }
                                     </ul>
                                 </div>
-                                <!-- END Visible only in normal mode -->
+                                <!-- END Side Navigation -->
                             </div>
-                            <!-- END Side User -->
-                            <!-- Side Navigation -->
-                            <div class="content-side content-side-full">
-                                <ul class="nav-main">
-                                    <li class="nav-main-heading">Menú</li>
-
-                                    @if (menu.SeccionLista is null)
-                                    {
-                                        <p>Sin resultados</p>
-                                    }
-                                    else if (!menu.SeccionLista.Any())
-                                    {
-                                        <p>Sin datos para mostrar</p>
-                                    }
-                                    else
-                                    {
-                                        @foreach (var item in menu.SeccionLista)
-                                        {
-                                            <li class="nav-main-item">
-                                                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                                                    <i class="nav-main-link-icon fa fa-grip-vertical"></i>
-                                                    <span class="nav-main-link-name">@item.Descripcion</span>
-                                                </a>
-
-                                                <ul class="nav-main-submenu">
-                                                    @foreach (var modulo in item.ModuloLista)
-                                                    {
-                                                        <li class="nav-main-item">
-                                                            <a class="nav-main-link" asp-area="" asp-controller="@modulo.Controlador" asp-action="@modulo.Url">
-                                                                <i class="nav-main-link-icon fa @modulo.Icono"></i>
-                                                                <span class="nav-main-link-name">@modulo.Descripcion</span>
-                                                            </a>
-                                                        </li>
-                                                    }
-                                                </ul>
-                                            </li>
-                                        }
-                                    }
-                                </ul>
-                            </div>
-                            <!-- END Side Navigation -->
+                            <!-- END Sidebar Scrolling -->
                         </div>
-                        <!-- END Sidebar Scrolling -->
-                    </div>
-                    <!-- Sidebar Content -->
-                </nav>
-                <!-- END Sidebar -->
-                <!-- Header -->
-                <header id="page-header">
-                    <!-- Header Content -->
-                    <div class="content-header">
-                        <!-- Left Section -->
-                        <div class="space-x-1">
-                            <!-- Toggle Sidebar -->
-                            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                            <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout" data-action="sidebar_toggle">
-                                <i class="fa fa-fw fa-bars"></i>
-                            </button>
-                            <!-- END Toggle Sidebar -->
-                        </div>
-                        <!-- END Left Section -->
-                        <!-- Right Section -->
-                        <div class="space-x-1">
-                            <!-- User Dropdown -->
-                            <div class="dropdown d-inline-block">
-                                <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-user d-sm-none"></i>
-                                    <span class="d-none d-sm-inline-block fw-semibold">@Usuario.ToUpper()</span>
-                                    <i class="fa fa-angle-down opacity-50 ms-1"></i>
+                        <!-- Sidebar Content -->
+                    </nav>
+                    <!-- END Sidebar -->
+                    <!-- Header -->
+                    <header id="page-header">
+                        <!-- Header Content -->
+                        <div class="content-header">
+                            <!-- Left Section -->
+                            <div class="space-x-1">
+                                <!-- Toggle Sidebar -->
+                                <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                                <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout" data-action="sidebar_toggle">
+                                    <i class="fa fa-fw fa-bars"></i>
                                 </button>
-                                <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown">
-                                    <div class="px-2 py-3 bg-body-light rounded-top">
-                                        <h5 class="h6 text-center mb-0">
-                                            @NombreUsuario
-                                        </h5>
-                                    </div>
-                                    <div class="p-2">
-                                        <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1" asp-controller="Acceso" asp-action="Logout">
-                                            <span>Cerrar sesión</span>
-                                            <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
-                                        </a>
+                                <!-- END Toggle Sidebar -->
+                            </div>
+                            <!-- END Left Section -->
+                            <!-- Right Section -->
+                            <div class="space-x-1">
+                                <!-- User Dropdown -->
+                                <div class="dropdown d-inline-block">
+                                    <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-user d-sm-none"></i>
+                                        <span class="d-none d-sm-inline-block fw-semibold">@Usuario.ToUpper()</span>
+                                        <i class="fa fa-angle-down opacity-50 ms-1"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown">
+                                        <div class="px-2 py-3 bg-body-light rounded-top">
+                                            <h5 class="h6 text-center mb-0">
+                                                @NombreUsuario
+                                            </h5>
+                                        </div>
+                                        <div class="p-2">
+                                            <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1" asp-controller="Acceso" asp-action="Logout">
+                                                <span>Cerrar sesión</span>
+                                                <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
+                                <!-- END User Dropdown -->
+                                <!-- Toggle Side Overlay -->
                             </div>
-                            <!-- END User Dropdown -->
-                            <!-- Toggle Side Overlay -->
+                            <!-- END Right Section -->
                         </div>
-                        <!-- END Right Section -->
-                    </div>
-                    <!-- END Header Content -->
-                    <!-- Header Loader -->
-                    <!-- Please check out the Activity page under Elements category to see examples of showing/hiding it -->
-                    <div id="page-header-loader" class="overlay-header bg-primary">
-                        <div class="content-header">
-                            <div class="w-100 text-center">
-                                <i class="far fa-sun fa-spin text-white"></i>
+                        <!-- END Header Content -->
+                        <!-- Header Loader -->
+                        <!-- Please check out the Activity page under Elements category to see examples of showing/hiding it -->
+                        <div id="page-header-loader" class="overlay-header bg-primary">
+                            <div class="content-header">
+                                <div class="w-100 text-center">
+                                    <i class="far fa-sun fa-spin text-white"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- END Header Loader -->
-                </header>
-                <!-- END Header -->
+                        <!-- END Header Loader -->
+                    </header>
+                    <!-- END Header -->
 
-                <div class="container">
-                    <main role="main" class="pb-3">
-                        @RenderBody()
-                    </main>
+                    <div class="container">
+                        <main role="main" class="pb-3">
+                            @RenderBody()
+                        </main>
+                    </div>
+
+                    <!-- Footer -->
+                    <footer id="page-footer">
+                        <div class="content py-3">
+                            <div class="row fs-sm">
+                                <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
+                                    <a class="fw-semibold">INSN &nbsp;</a> <i class="fa fa-hospital"></i>  <a class="fw-semibold"> &nbsp; SegApp </a>
+                                </div>
+                                <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
+                                    <a class="fw-semibold" href="http://www.insn.gob.pe/" target="_blank">
+                                        Instituto Nacional de Salud del Niño
+                                    </a> &copy; 2023
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- END Footer -->
                 </div>
-
-                <!-- Footer -->
-                <footer id="page-footer">
-                    <div class="content py-3">
-                        <div class="row fs-sm">
-                            <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
-                                <a class="fw-semibold">INSN &nbsp;</a> <i class="fa fa-hospital"></i>  <a class="fw-semibold"> &nbsp; SegApp </a>
-                            </div>
-                            <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-                                <a class="fw-semibold" href="http://www.insn.gob.pe/" target="_blank">
-                                    Instituto Nacional de Salud del Niño
-                                </a> &copy; 2023
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                <!-- END Footer -->
-            </div>
             }
         }
     }
-    
-    
+
+
     <script src="~/js/lib/jquery.min.js"></script>
     <script src="~/js/codebase.app.min.js"></script>
 
