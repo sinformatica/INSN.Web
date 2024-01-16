@@ -304,7 +304,7 @@
                     <div class="service-item  position-relative" align="center">
 
                         <a asp-area="" asp-controller="Covid19" asp-action="Index">
-                            <img src="~/imagenes/iconos/staff_medico.svg" width="60" height="60">
+                            <img src="~/imagenes/iconos/Covid19.svg" width="60" height="60">
                             <br />
                             <br />
                             <h3 align="center">Covid 19</h3>
@@ -316,8 +316,9 @@
                 <!--INICIO ITEM 23-->
                 <div class="col-lg-2 col-md-2">
                     <div class="service-item  position-relative" align="center">
-                        <a href="http://www.insn.gob.pe/telesalud" target="_blank">
-                            <img src="~/imagenes/iconos/lactancia_materna.svg" width="60" height="60">
+                        @* <a href="http://www.insn.gob.pe/telesalud" target="_blank"> *@
+                            <a asp-area="" asp-controller="Telesalud" asp-action="Index">
+                            <img src="~/imagenes/iconos/Telesalud.svg" width="60" height="60">
                             <br />
                             <br />
                             <h3 align="center">Telesalud</h3>
