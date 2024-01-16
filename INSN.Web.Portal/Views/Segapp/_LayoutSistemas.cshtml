@@ -4,7 +4,7 @@
 
 @{
     string Usuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.Usuario);
-    string NombreUsuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.NombreUsuario); 
+    string NombreUsuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.NombreUsuario);
     string json = HttpContextAccessor.HttpContext.Session.GetString(Constantes.MenuDinamico);
 
     SeccionViewModel menu = JsonConvert.DeserializeObject<SeccionViewModel>(json);
@@ -31,11 +31,7 @@
                 <div class="content-header justify-content-lg-center">
                     <!-- Logo -->
                     <div>
-                        <a class="link-fx fw-bold tracking-wide mx-auto" href="#">
-                            <span class="smini-hidden">
-                                <span class="fs-3 text-dual">IN</span><span class="fs-3 text-primary">SN</span>
-                            </span>
-                        </a>
+                        <img src="/Imagenes/logo.png" style="height: 50px;" />
                     </div>
                     <!-- END Logo -->
                 </div>
@@ -292,7 +288,7 @@
         }
     };
 
-    function Modal_Grabar_Editar_Correcto_Id(nCodigoMensaje, sMensaje, sMetodo, sControlador,sId) {
+    function Modal_Grabar_Editar_Correcto_Id(nCodigoMensaje, sMensaje, sMetodo, sControlador, sId) {
         const swalDistribucion = Swal.mixin({
             customClass: {
                 confirmButton: 'btn btn-lg btn-primary min-width-100 mx-4'
@@ -313,7 +309,7 @@
                         var sMetodoEncoded = encodeURIComponent(sMetodo);
                         var sControladorEncoded = encodeURIComponent(sControlador);
                         var sIdEncoded = sId;
-                        var url = '/' + sControladorEncoded + '/' + sMetodoEncoded + '?'+ sIdEncoded;
+                        var url = '/' + sControladorEncoded + '/' + sMetodoEncoded + '?' + sIdEncoded;
 
                         window.location.href = url;
                     }, 200); // tiempo de espera (milisegundos)
