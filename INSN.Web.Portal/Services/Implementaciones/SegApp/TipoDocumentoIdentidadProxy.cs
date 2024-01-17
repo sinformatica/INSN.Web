@@ -1,4 +1,5 @@
-﻿using INSN.Web.Models.Request;
+﻿using INSN.Web.Common;
+using INSN.Web.Models.Request;
 using INSN.Web.Models.Request.Home;
 using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
@@ -8,18 +9,27 @@ using INSN.Web.Models.Response.SegApp;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
 using INSN.Web.Portal.Services.Interfaces.SegApp;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http.Headers;
 
 namespace INSN.Web.Portal.Services.Implementaciones.SegApp
 {
     public class TipoDocumentoIdentidadProxy : CrudRestHelperBase<TipoDocumentoIdentidadDtoRequest, TipoDocumentoIdentidadDtoResponse>, ITipoDocumentoIdentidadProxy
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
         /// <summary>
         /// Proxy
         /// </summary>
         /// <param name="httpClient"></param>
-        public TipoDocumentoIdentidadProxy(HttpClient httpClient)
+        public TipoDocumentoIdentidadProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
         : base("api/SegApp/TipoDocumentoIdentidad", httpClient)
         {
+            _httpContextAccessor = httpContextAccessor;
+
+            // Configurar la cabecera de autorización con el token
+            string token = _httpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 
         /// <summary>

@@ -9,8 +9,8 @@ namespace INSN.Web.ApiRest.Controllers.SegApp
     /// <summary>
     /// Creador de API
     /// </summary>
-    [Route("api/SegApp/[controller]")]
     [ApiController]
+    [Route("api/SegApp/[controller]")]
     public class TipoDocumentoIdentidadController : ControllerBase
     {
         private readonly ITipoDocumentoIdentidadService _service;

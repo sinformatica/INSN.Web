@@ -1,6 +1,8 @@
-﻿using INSN.Web.Models;
+﻿using INSN.Web.Common;
+using INSN.Web.Models;
 using INSN.Web.Models.Request.Sistema;
 using INSN.Web.Services.Interfaces.Acceso;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace INSN.Web.ApiRest.Controllers.Acceso

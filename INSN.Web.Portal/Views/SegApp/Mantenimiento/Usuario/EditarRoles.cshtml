@@ -125,33 +125,33 @@
 
     <script>
         //#region [Métodos - Funciones]
-        document.addEventListener('DOMContentLoaded', function () {
-            const ddlDpto = document.getElementById('cmbSistema');
-            var ddlProv = document.getElementById('cmbRol');
+        //document.addEventListener('DOMContentLoaded', function () {
+        //    const ddlDpto = document.getElementById('cmbSistema');
+        //    var ddlProv = document.getElementById('cmbRol');
 
-            ddlDpto.addEventListener('change', function () {
-                const codDpto = this.value;
+        //    ddlDpto.addEventListener('change', function () {
+        //        const codDpto = this.value;
 
-                fetch('/Usuario/RolPorSistemaListar?CodigoSistemaId=' + codDpto)
-                    .then(function (response) {
-                        return response.json();
-                    })
-                    .then(function (provincias) {
-                        ddlProv.innerHTML = '';
+        //        fetch('/Usuario/RolPorSistemaListar?CodigoSistemaId=' + codDpto)
+        //            .then(function (response) {
+        //                return response.json();
+        //            })
+        //            .then(function (provincias) {
+        //                ddlProv.innerHTML = '';
 
-                        provincias.forEach(function (ciudad) {
-                            debugger;
-                            const option = document.createElement('option');
-                            option.value = ciudad.id;
-                            option.text = ciudad.name;
-                            ddlProv.appendChild(option);
-                        });
-                    })
-                    .catch(function (error) {
-                        console.error('Error:', error);
-                    });
-            });            
-        });
+        //                provincias.forEach(function (ciudad) {
+        //                    debugger;
+        //                    const option = document.createElement('option');
+        //                    option.value = ciudad.id;
+        //                    option.text = ciudad.name;
+        //                    ddlProv.appendChild(option);
+        //                });
+        //            })
+        //            .catch(function (error) {
+        //                console.error('Error:', error);
+        //            });
+        //    });            
+        //});
 
 
         //#region [Success Operación]

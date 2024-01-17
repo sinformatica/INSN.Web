@@ -18,6 +18,9 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
         private readonly IWebHostEnvironment _enviroment;
         private readonly IRolProxy _proxy;
         private readonly ILogger<RolController> _logger;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly string CodigoSistemaIdUsuario;
+        private readonly string NombreRolUsuario;
 
         /// <summary>
         /// 
@@ -25,13 +28,21 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
         /// <param name="proxy"></param>
         /// <param name="logger"></param>
         /// <param name="env"></param>
-        public RolController(IRolProxy proxy, 
-                        ILogger<RolController> logger, 
-                        IWebHostEnvironment env)
+        public RolController(IRolProxy proxy, ILogger<RolController> logger, IWebHostEnvironment env, 
+                        IHttpContextAccessor httpContextAccessor)
         {
             _proxy = proxy;
             _logger = logger;
-            _enviroment = env;            
+            _enviroment = env;
+            _httpContextAccessor = httpContextAccessor;
+
+            CodigoSistemaIdUsuario = _httpContextAccessor.HttpContext.Session.GetString(Constantes.CodigoSistemaIdUsuario);
+            NombreRolUsuario = _httpContextAccessor.HttpContext.Session.GetString(Constantes.NombreRolUsuario);
+        }
+
+        private bool ValidarSistema()
+        {
+            return CodigoSistemaIdUsuario == Constantes.CodigoSistemaIdFijo;
         }
 
         /// <summary>
@@ -41,7 +52,17 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
         /// <returns></returns>
         public async Task<IActionResult> Index(RolViewModel model)
         {
-            return await RolListar(model);
+            bool b = false;
+
+            if (ValidarSistema())
+            {
+                if (NombreRolUsuario == Constantes.RolAdminSistemas || NombreRolUsuario == Constantes.RolJefe) b = true;
+            }
+
+            if (b)
+                return await RolListar(model);
+            else
+                return RedirectToAction("AccesoDenegado", "Acceso");
         }
 
         /// <summary>
@@ -71,15 +92,15 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
                 model.Roles = response;
                 return View("~/Views/SegApp/Mantenimiento/Rol/Index.cshtml", model);
             }
-            catch (Excepciones ex)
-            {
-                var error = new ExcepcionesViewModel {
-                    Code = ex.Code,
-                    ReasonPhrase = ex.ReasonPhrase 
-                };
+            //catch (Excepciones ex)
+            //{
+            //    var error = new ExcepcionesViewModel {
+            //        Code = ex.Code,
+            //        ReasonPhrase = ex.ReasonPhrase 
+            //    };
 
-                return RedirectToAction("Index", "Excepciones", error);
-            }
+            //    return RedirectToAction("Index", "Excepciones", error);
+            //}
             catch (Exception)
             {
                 // Maneja otros tipos de excepciones si es necesario
@@ -94,9 +115,22 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
         /// <returns></returns>
         public IActionResult NuevoVista()
         {
-            var model = new RolViewModel();
+            bool b = false;
 
-            return View("~/Views/SegApp/Mantenimiento/Rol/Nuevo.cshtml", model);
+            if (ValidarSistema())
+            {
+                if (NombreRolUsuario == Constantes.RolAdminSistemas) b = true;
+            }
+
+            if (b)
+            {
+                var model = new RolViewModel();
+                return View("~/Views/SegApp/Mantenimiento/Rol/Nuevo.cshtml", model);
+            }
+            else
+            {
+                return RedirectToAction("AccesoDenegado", "Acceso");
+            }
         }
 
         /// <summary>
@@ -160,20 +194,34 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
         /// <returns></returns>
         public async Task<IActionResult> EditarVista(string Id)
         {
-            var response = await _proxy.RolBuscarId(Id);
-            if (response is null)
+            bool b = false;
+
+            if (ValidarSistema())
             {
-                return RedirectToAction(nameof(Index));
+                if (NombreRolUsuario == Constantes.RolAdminSistemas) b = true;
             }
 
-            var model = new RolViewModel
+            if (b)
             {
-                Id = response.Id,
-                Name = response.Name,
-                EstadoSeleccionado = response.Estado
-            };
+                var response = await _proxy.RolBuscarId(Id);
+                if (response is null)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
 
-            return View("~/Views/SegApp/Mantenimiento/Rol/Editar.cshtml", model);
+                var model = new RolViewModel
+                {
+                    Id = response.Id,
+                    Name = response.Name,
+                    EstadoSeleccionado = response.Estado
+                };
+
+                return View("~/Views/SegApp/Mantenimiento/Rol/Editar.cshtml", model);
+            }
+            else
+            {
+                return RedirectToAction("AccesoDenegado", "Acceso");
+            }
         }
 
         /// <summary>
@@ -243,6 +291,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
         }
         #endregion
 
+        #region [Eliminar]
         /// <summary>
         /// Rol Eliminar
         /// </summary>
@@ -253,5 +302,6 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
             await _proxy.RolEliminar(id);
             return RedirectToAction(nameof(Index));
         }
+        #endregion
     }
 }

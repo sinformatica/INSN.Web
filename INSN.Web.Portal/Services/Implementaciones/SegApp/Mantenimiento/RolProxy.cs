@@ -19,7 +19,8 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         /// Proxy
         /// </summary>
         /// <param name="httpClient"></param>
-        public RolProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor) : base("api/SegApp/Mantenimiento/Rol", httpClient)
+        public RolProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor) 
+            : base("api/SegApp/Mantenimiento/Rol", httpClient)
         {
             _httpContextAccessor = httpContextAccessor;
 
@@ -57,15 +58,15 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         /// <exception cref="InvalidOperationException"></exception>
         public async Task<ICollection<RolDtoResponse>> RolListar(RolDtoRequest request)
         {
-            //try
-            //{
+            try
+            {
                 var queryString = $"?Name={request.Name}&Estado={request.Estado}";
                 var response = await HttpClient.GetAsync($"{BaseUrl}/RolListar{queryString}");
 
-                if (response.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    throw new Excepciones("401", response.ReasonPhrase);
-                }
+                //if (response.StatusCode == HttpStatusCode.Unauthorized)
+                //{
+                //    throw new Excepciones("401", response.ReasonPhrase);
+                //}
 
                 response.EnsureSuccessStatusCode();
 
@@ -78,11 +79,11 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
                 }
 
                 return result.Data!;
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw new InvalidOperationException(ex.Message);
-            //}
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
         }
 
         /// <summary>

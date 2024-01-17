@@ -5,14 +5,16 @@ using INSN.Web.Services.Interfaces.SegApp.Mantenimiento;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using INSN.Web.Common;
+using Microsoft.AspNetCore.Authorization;
 
 namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
 {
     /// <summary>
     /// Creador de API
     /// </summary>
-    [Route("api/SegApp/Mantenimiento/[controller]")]
     [ApiController]
+    [Route("api/SegApp/Mantenimiento/[controller]")]
+    [ServiceFilter(typeof(CodigoSistemaIdAutorizacion))]
     public class UsuarioRolController : ControllerBase
     {
         private readonly IUsuarioRolService _service;
@@ -32,6 +34,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet("UsuarioRolListar/{UserId}")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         [ProducesResponseType((int)StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<UsuarioRolDtoResponse>>))]
         [ProducesResponseType((int)StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<UsuarioRolDtoResponse>>))]
         public async Task<IActionResult> UsuarioRolListar(string UserId)
@@ -46,9 +49,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost("UsuarioRolInsertar")]
-        //[AuthorizeByRolesAndCodigoSistemaId(Constantes.CodigoSistemaId, Constantes.RolAdminSistemas)]
-        //[AuthorizeByCodigoSistemaId(Constantes.CodigoSistemaId)]
-        //[AuthorizeMultipleRoles(Constantes.RolAdminSistemas)]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         public async Task<IActionResult> UsuarioRolInsertar(UsuarioRolDtoRequest request)
         {
             var response = await _service.UsuarioRolInsertar(request);
@@ -61,6 +62,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
         /// <param name="Id"></param>
         /// <returns></returns>
         [HttpDelete("UsuarioRolEliminar/{Id}")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         [ProducesResponseType((int)StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
         [ProducesResponseType((int)StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
         public async Task<IActionResult> UsuarioRolEliminar(int Id)

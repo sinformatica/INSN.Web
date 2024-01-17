@@ -5,14 +5,16 @@ using INSN.Web.Services.Interfaces.SegApp.Mantenimiento;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using INSN.Web.Common;
+using Microsoft.AspNetCore.Authorization;
 
 namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
 {
     /// <summary>
     /// Creador de API
     /// </summary>
-    [Route("api/SegApp/Mantenimiento/[controller]")]
     [ApiController]
+    [Route("api/SegApp/Mantenimiento/[controller]")]
+    [ServiceFilter(typeof(CodigoSistemaIdAutorizacion))]
     public class UsuarioController : ControllerBase
     {
         private readonly IUsuarioService _service;
@@ -32,6 +34,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet("UsuarioListar")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         [ProducesResponseType((int)StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<UsuarioDtoResponse>>))]
         [ProducesResponseType((int)StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<UsuarioDtoResponse>>))]
         public async Task<IActionResult> UsuarioListar([FromQuery] UsuarioDtoRequest request)
@@ -46,6 +49,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("UsuarioBuscarId/{id}")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(UsuarioDtoResponse))]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> UsuarioBuscarId(string id)
@@ -60,6 +64,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost("UsuarioValidar")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         public async Task<IActionResult> UsuarioValidar(UsuarioDtoRequest request)
         {
             var response = await _service.UsuarioValidar(request);
@@ -72,6 +77,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost("UsuarioInsertar")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         public async Task<IActionResult> UsuarioInsertar(UsuarioDtoRequest request)
         {
             var response = await _service.UsuarioInsertar(request);
@@ -84,6 +90,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPut("UsuarioActualizar")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         public async Task<IActionResult> UsuarioActualizar(UsuarioDtoRequest request)
         {
             var response = await _service.UsuarioActualizar(request);
@@ -96,6 +103,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
         /// <param name="Id"></param>
         /// <returns></returns>
         [HttpDelete("UsuarioEliminar/{Id}")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         [ProducesResponseType((int)StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<UsuarioDtoResponse>>))]
         [ProducesResponseType((int)StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<UsuarioDtoResponse>>))]
         public async Task<IActionResult> UsuarioEliminar(string Id)
@@ -110,6 +118,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPut("UsuarioActualizarClave")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         public async Task<IActionResult> UsuarioActualizarClave(UsuarioDtoRequest request)
         {
             var response = await _service.UsuarioActualizarClave(request);

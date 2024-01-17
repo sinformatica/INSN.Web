@@ -35,13 +35,17 @@ namespace INSN.Web.Portal.Controllers.Acceso
             return View("~/Views/Acceso/Login.cshtml");
         }
 
+        public IActionResult AccesoDenegado()
+        {
+            return View("~/Views/AccesoDenegado.cshtml");
+        }
+
         /// <summary>
         /// Login
         /// </summary>
         /// <param name="modelo"></param>
         /// <returns></returns>
         [HttpPost]
-        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginDtoRequest modelo)
         {
             try

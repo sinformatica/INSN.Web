@@ -10,6 +10,8 @@
         public const string MenuDinamico = "menu";
         public const string Usuario = "usuario";
         public const string NombreUsuario = "NombreUsuario";
+        public const string CodigoSistemaIdUsuario = "CodigoSistemaIdUsuario";
+        public const string NombreRolUsuario = "NombreRolUsuario";
         public const string FechaVencimiento = "FechaVencimiento";
 
         /// <summary>
