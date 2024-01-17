@@ -16,10 +16,8 @@ namespace INSN.Web.Portal.Services.Implementaciones.Acceso
         /// Proxy
         /// </summary>
         /// <param name="httpClient"></param>
-        public AccesoProxy(HttpClient httpClient)
-            : base("api/Acceso/Acceso", httpClient)
+        public AccesoProxy(HttpClient httpClient): base("api/Acceso/Acceso", httpClient)
         {
-
         }
 
         /// <summary>

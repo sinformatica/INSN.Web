@@ -14,7 +14,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
     /// </summary>
     [ApiController]
     [Route("api/SegApp/Mantenimiento/[controller]")]
-    //[ServiceFilter(typeof(CodigoSistemaIdAutorizacion))] 
+    [ServiceFilter(typeof(CodigoSistemaIdAutorizacion))] 
     public class RolController : ControllerBase
     {
         private readonly IRolService _service;
@@ -34,7 +34,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet("RolListar")]
-        //[Authorize(Roles = $"{Constantes.RolAdminSistemas},{Constantes.RolJefe}")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas},{Constantes.RolJefe}")]
         [ProducesResponseType((int)StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
         [ProducesResponseType((int)StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
         public async Task<IActionResult> RolListar([FromQuery] RolDtoRequest request)
@@ -57,6 +57,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("RolBuscarId/{id}")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(RolDtoResponse))]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> RolBuscarId(string id)
@@ -71,6 +72,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost("RolInsertar")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         public async Task<IActionResult> RolInsertar(RolDtoRequest request)
         {
             var response = await _service.RolInsertar(request);
@@ -83,6 +85,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPut("RolActualizar")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         public async Task<IActionResult> RolActualizar(RolDtoRequest request)
         {
             var response = await _service.RolActualizar(request);
@@ -95,6 +98,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
         /// <param name="Id"></param>
         /// <returns></returns>
         [HttpDelete("RolEliminar/{Id}")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         [ProducesResponseType((int)StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
         [ProducesResponseType((int)StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
         public async Task<IActionResult> RolEliminar(string Id)
@@ -109,6 +113,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet("RolPorSistemaListar/{CodigoSistemaId}")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         [ProducesResponseType((int)StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
         [ProducesResponseType((int)StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
         public async Task<IActionResult> RolPorSistemaListar(int CodigoSistemaId)

@@ -25,11 +25,5 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
             _logger = logger;
             _enviroment = env;
         }
-
-        /// <summary>
-        /// Rol Listar
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
     }
 }

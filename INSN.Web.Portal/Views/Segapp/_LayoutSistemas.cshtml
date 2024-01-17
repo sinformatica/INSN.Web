@@ -2,15 +2,6 @@
 @using Newtonsoft.Json;
 @inject IHttpContextAccessor HttpContextAccessor
 
-@{
-    string Usuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.Usuario);
-    string NombreUsuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.NombreUsuario);
-    string json = HttpContextAccessor.HttpContext.Session.GetString(Constantes.MenuDinamico);
-    string FechaVencimiento = HttpContextAccessor.HttpContext.Session.GetString(Constantes.FechaVencimiento);
-
-    SeccionViewModel menu = JsonConvert.DeserializeObject<SeccionViewModel>(json);
-}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +16,21 @@
 </head>
 <body>
     @{
-        if (FechaVencimiento != "FechaVencimiento")
+        string FechaVencimiento = HttpContextAccessor.HttpContext.Session.GetString(Constantes.FechaVencimiento);
+
+        if (FechaVencimiento == null)
+        {
+            <div class="container">
+                <main role="main">
+                    <br>
+                    <h4>
+                        No ha iniciado sesión...
+                        <a asp-controller="Acceso" asp-action="Login" class="linkedin" target="_self">Ir al login</a>
+                    </h4>
+                </main>
+            </div>
+        }
+        else 
         {
             if (DateTime.Parse(FechaVencimiento) < DateTime.Now)
             {
@@ -36,12 +41,17 @@
                             Su sesión ha expirado...
                             <a asp-controller="Acceso" asp-action="Login" class="linkedin" target="_self">Ir al login</a>
                         </h4>
-                        @RenderBody()
                     </main>
                 </div>
             }
             else
             {
+                string Usuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.Usuario);
+                string NombreUsuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.NombreUsuario);
+                string jsonMenu = HttpContextAccessor.HttpContext.Session.GetString(Constantes.MenuDinamico);
+
+                SeccionViewModel menu = JsonConvert.DeserializeObject<SeccionViewModel>(jsonMenu);
+
                 <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-modern main-content-boxed">
                     <nav id="sidebar">
                         <!-- Sidebar Content -->

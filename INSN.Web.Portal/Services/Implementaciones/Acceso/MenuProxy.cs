@@ -7,6 +7,7 @@ using INSN.Web.ViewModels;
 using INSN.Web.Common;
 using System.IdentityModel.Tokens.Jwt;
 using INSN.Web.Portal.Services.Interfaces.Acceso;
+using System.Net.Http.Headers;
 
 namespace INSN.Web.Portal.Services.Implementaciones.Acceso
 {
@@ -15,14 +16,20 @@ namespace INSN.Web.Portal.Services.Implementaciones.Acceso
     /// </summary>
     public class MenuProxy : RestBase, IMenuProxy
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
         /// <summary>
         /// Proxy
         /// </summary>
         /// <param name="httpClient"></param>
-        public MenuProxy(HttpClient httpClient)
+        public MenuProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor) 
             : base("api/Acceso/Menu", httpClient)
         {
+            _httpContextAccessor = httpContextAccessor;
 
+            // Configurar la cabecera de autorización con el token
+            string token = _httpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 
         /// <summary>

@@ -1,6 +1,9 @@
-﻿using INSN.Web.Models.Request.Acceso;
+﻿using INSN.Web.Common;
+using INSN.Web.Models.Request.Acceso;
 using INSN.Web.Models.Response.Acceso;
 using INSN.Web.Portal.Services.Interfaces.Acceso;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http.Headers;
 
 namespace INSN.Web.Portal.Services.Implementaciones.Acceso
 {
@@ -9,14 +12,20 @@ namespace INSN.Web.Portal.Services.Implementaciones.Acceso
     /// </summary>
     public class RedireccionarProxy : RestBase, IRedireccionarProxy
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
         /// <summary>
         /// Proxy
         /// </summary>
         /// <param name="httpClient"></param>
-        public RedireccionarProxy(HttpClient httpClient)
+        public RedireccionarProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor) 
             : base("api/Acceso/Acceso", httpClient)
         {
+            _httpContextAccessor = httpContextAccessor;
 
+            // Configurar la cabecera de autorización con el token
+            string token = _httpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 
         /// <summary>

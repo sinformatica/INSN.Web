@@ -5,14 +5,17 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using INSN.Web.Services.Interfaces.SegApp;
 using INSN.Web.Models.Response.Sistemas;
+using INSN.Web.Common;
+using Microsoft.AspNetCore.Authorization;
 
 namespace INSN.Web.ApiRest.Controllers.SegApp
 {
     /// <summary>
     /// Creador de API
     /// </summary>
-    [Route("api/SegApp/[controller]")]
     [ApiController]
+    [Route("api/SegApp/[controller]")]
+    [ServiceFilter(typeof(CodigoSistemaIdAutorizacion))]
     public class SistemaController : ControllerBase
     {
         private readonly ISistemaService _service;
@@ -32,6 +35,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet("SistemaListar")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<SistemaDtoResponse>>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<SistemaDtoResponse>>))]
         public async Task<IActionResult> SistemaListar()
