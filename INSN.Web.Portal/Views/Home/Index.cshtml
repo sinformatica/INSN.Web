@@ -7,12 +7,12 @@
 <!-- ======= INICIO Seccion de Banner - Portada - Modificar Fotos y Texto ======= -->
 <div class="main-banner">
     <div class="owl-carousel owl-banner">
-         <div class="item item-1">
+        <div class="item item-1">
             <div class="header-text">
                 <span class="category">INSN, <em>Breña</em></span>
                 <h2>Especialistas<br>en salud y atención infantil</h2>
             </div>
-        </div> 
+        </div>
         <div class="item item-2">
             <div class="header-text">
                 <span class="category">INSN, <em>Breña</em></span>
@@ -31,306 +31,260 @@
 <!-- ============== -->
 
 <main id="main">
-   
-    <!-- ============== -->
+
     <!-- ======= INICIO DE CARTERA - SERVICIOS ======= -->
-    <section id="CarteraServicios" class="services sections-bg">
-        <div class="container " data-aos="fade-up">
-            <div class="section-header">
-                <h2>Categorías</h2>
-                <p align="center">
-                    Conoce todos los trámites, servicios y contenido de orientación sobre un tema en específico.
-                </p>
+    <!-- ======= INICIO OBJETIVOS - ORGANIGRAMA - HISTORIA ======= -->
+    <div class="section best-deal sections-bg" style="background-color: #f6f6f6;">
+        <div class="container">
+            <div class="col-lg-12">
+                <div class="section-header">
+                    <h2>Categorías</h2>
+                    <p>Conoce todos los trámites, servicios y contenido de orientación sobre un tema en específico.</p>
+                    <br />
+                </div>
+                <div class="tabs-content">
+                    <!-- ======= INICIO TABS ======= -->
+                    <div class="nav-wrapper ">
+                        <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-bottom: 2px solid #0096ad !important;">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="Servicios-tab" data-bs-toggle="tab" data-bs-target="#Servicios" type="button" role="tab" aria-controls="Servicios" aria-selected="true">Servicios</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="Administración-tab" data-bs-toggle="tab" data-bs-target="#Administración" type="button" role="tab" aria-controls="Administración" aria-selected="false">Administración</button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="Otros-tab" data-bs-toggle="tab" data-bs-target="#Otros" type="button" role="tab" aria-controls="Otros" aria-selected="false">Otros</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- ======= FIN TABS ======= -->
+                    <!-- ============== -->
+                    <div class="tab-content" id="myTabContent">
+                        <!-- ============== -->
+                        <!-- ======= INICIO PUBLICO ======= -->
+                        <div class="tab-pane fade show active" id="Servicios" role="tabpanel" aria-labelledby="Servicios-tab">
+                            <br />
+                            <br />
+                            <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                <div class="col-6 col-md-4 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-shadow text-center" href="http://solicitudcitas.insn.gob.pe/TeleGestion/cliente/" target="_blank">
+                                        <div class="block-content">
+                                            <p class="mt-1">
+                                                <img src="~/imagenes/iconos/icono_persona.svg" width="100%" height="100%">
+                                            </p>
+                                            <p class="fw-medium">Solicitud de Citas</p>
+                                        </div>
+                                    </a>
+                                </div>                               
+                                <div class="col-6 col-md-4 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Telesalud" asp-action="Index">
+                                        <div class="block-content">
+                                            <p class="mt-1">
+                                                <img src="~/imagenes/iconos/Telesalud.svg" width="100%" height="100%">
+
+                                            </p>
+                                            <p class="fw-medium">Telesalud</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="OportunidadLaboral" asp-action="DocumentoLegalOportunidadLaboral">
+                                        <div class="block-content">
+                                            <p class="mt-1">
+                                                <img src="~/imagenes/iconos/oportunidad_laboral.svg" width="100%" height="100%">
+                                            </p>
+                                            <p class="fw-medium">Oportunidad Laboral</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-shadow text-center" href="https://revistapediatricae.insn.gob.pe/index.php/rpe" target="_blank">
+                                        <div class="block-content">
+                                            <p class="mt-1">
+                                                <img src="~/imagenes/iconos/revista.svg" width="100%" height="100%">
+                                            </p>
+                                            <p class="fw-medium">Revista Pediátrica Especializada</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="BibliotecaVirtual" asp-action="Index">
+                                        <div class="block-content">
+                                            <p class="mt-1">
+                                                <img src="~/imagenes/iconos/biblioteca.svg" width="100%" height="100%">
+                                            </p>
+                                            <p class="fw-medium">Biblioteca Virtual</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="MesaParte" asp-action="Index">
+                                        <div class="block-content">
+                                            <p class="mt-1">
+                                                <img src="~/imagenes/iconos/mesa_parte.svg" width="100%" height="100%">
+                                            </p>
+                                            <p class="fw-medium">Mesa de Parte</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-shadow text-center" href="https://www.angelitosdecristalperu.org/" target="_blank">
+                                        <div class="block-content">
+                                            <p class="mt-1">
+                                                <img src="~/imagenes/iconos/angel.svg" width="100%" height="100%">
+                                            </p>
+                                            <p class="fw-medium">Angelitos de Cristal</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-shadow text-center" href="https://www.youtube.com/watch?v=nEZyjvM4avw" target="_blank">
+                                        <div class="block-content">
+                                            <p class="mt-1">
+                                                <img src="~/imagenes/iconos/lactancia_materna.svg" width="100%" height="100%">
+                                            </p>
+                                            <p class="fw-medium">Lactancia Materna</p>
+                                        </div>
+                                    </a>
+                                </div>                              
+                                <div class="col-6 col-md-4 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Covid19" asp-action="Index">
+                                        <div class="block-content">
+                                            <p class="mt-1">
+                                                <img src="~/imagenes/iconos/Covid19.svg"  width="100%" height="100%">
+
+                                            </p>
+                                            <p class="fw-medium">Covid 19</p>
+                                        </div>
+                                    </a>
+                                </div>                              
+                            </div>
+                        </div>
+                        <!-- ======= FIN PUBLICO ======= -->
+                        <!-- ============== -->
+                        <!-- ======= INICIO ADMINISTRACIÓN ======= -->
+                        <div class="tab-pane fade" id="Administración" role="tabpanel" aria-labelledby="Administración-tab">
+                            <div class="tab-pane fade show active" id="Administración" role="tabpanel" aria-labelledby="Administración-tab">
+                                <br />
+                                <br />
+                                <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" href="http://asistencia.insn.gob.pe/" target="_blank">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/biometrico.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Biométrico</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" href="http://srvdb03/farmacia" target="_blank">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/stock.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Stock Medicamentos</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="SistemaControlInt" asp-action="Index">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/sistema_control.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Sistema de Control Interno</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" href="http://telehis.insn.gob.pe/" target="_blank">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/telehist.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">TeleHist</p>
+                                            </div>
+                                        </a>
+                                    </div>                                
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ======= FIN CIRUGÍA ======= -->
+                        <!-- ============== -->
+                        <!-- ======= INICIO OTROS ======= -->
+                        <div class="tab-pane fade" id="Otros" role="tabpanel" aria-labelledby="Otros-tab">
+                            <div class="tab-pane fade show active" id="Otros" role="tabpanel" aria-labelledby="Otros-tab">
+                                <br />
+                                <br />
+                                <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="POA" asp-action="Index">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/Programa_antimicrobiana.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Programa de Opt. Antimicrobianos</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="SeguridadySalud" asp-action="Index">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/seguridad_salud.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Seguridad y Salud en el Trabajo</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" href="https://www.gob.pe/institucion/insn/colecciones/28038-analisis-de-situacion-de-salud-asis" target="_blank">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/analisis.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Análisis Situacional de Salud</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="SubCAFAE" asp-action="Index">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/subcafae.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">SUB - CAFAE</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="UFGRD" asp-action="Index">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/staff_medico.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">
+                                                    Uni. de Gestión Riesgo Desastre
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ======= FIN OTROS ======= -->           
+                    </div>
+                </div>
             </div>
-            <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
-                
-                <!--INICIO ITEM 1-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a href="http://solicitudcitas.insn.gob.pe/TeleGestion/cliente/" target="_blank">
-                            <img src="~/imagenes/iconos/icono_persona.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3>Solicitud de Citas</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--FIN ITEM 1-->
-                <!--INICIO ITEM 2-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a href="http://telehis.insn.gob.pe/" target="_blank">
-                            <img src="~/imagenes/iconos/telehist.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3>TeleHist</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--FIN ITEM 2-->
-                <!--INICIO ITEM 3-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a asp-area="" asp-controller="POA" asp-action="Index">
-                            <img src="~/imagenes/iconos/Programa_antimicrobiana.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Programa de Opt. Antimicrobianos</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--FIN ITEM 3-->               
-                <!--INICIO ITEM 5-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a href="http://asistencia.insn.gob.pe/" target="_blank">
-                            <img src="~/imagenes/iconos/biometrico.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Biométrico</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--FIN ITEM 5-->
-                <!--INICIO ITEM 6-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a href="http://srvdb03/farmacia" target="_blank">
-                            <img src="~/imagenes/iconos/stock.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Stock Medicamentos</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--FIN ITEM 6-->
-                <!--INICIO ITEM 7-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a asp-area="" asp-controller="SistemaControlInt" asp-action="Index">
-                            <img src="~/imagenes/iconos/sistema_control.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Sistema de Control Interno</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--FIN ITEM 7-->
-                <!--INICIO ITEM 8-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a asp-area="" asp-controller="OportunidadLaboral" asp-action="DocumentoLegalOportunidadLaboral">
-                            <img src="~/imagenes/iconos/oportunidad_laboral.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Oportunidad Laboral</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--FIN ITEM 8-->
-
-                <!--INICIO ITEM 9-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a href="https://revistapediatricae.insn.gob.pe/index.php/rpe" target="_blank">
-                            <img src="~/imagenes/iconos/revista.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Revista Pediátrica Especializada</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--FIN ITEM 9-->
-                <!--INICIO ITEM 10-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a asp-area="" asp-controller="BibliotecaVirtual" asp-action="Index">
-                            <img src="~/imagenes/iconos/biblioteca.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Biblioteca Virtual</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--FIN ITEM 10-->
-                <!--INICIO ITEM 11-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a asp-area="" asp-controller="MesaParte" asp-action="Index">
-                            <img src="~/imagenes/iconos/mesa_parte.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Mesa de Parte</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--FIN ITEM 11-->
-                <!--INICIO ITEM 12-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a href="https://www.angelitosdecristalperu.org/" target="_blank">
-                            <img src="~/imagenes/iconos/angel.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Angelitos de Cristal</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--FIN ITEM 12-->
-                <!--INICIO ITEM 13-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a asp-area="" asp-controller="SeguridadySalud" asp-action="Index">
-                            <img src="~/imagenes/iconos/seguridad_salud.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Seguridad y Salud en el Trabajo</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--FIN ITEM 13-->
-                <!--INICIO ITEM 14-->
-                @* <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a asp-area="" asp-controller="ReglamentoInterno" asp-action="DocumentoLegalRI">
-                            <img src="~/imagenes/iconos/reglamento_interno.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Reglamento Interno de Trabajo</h3>
-                        </a>
-                    </div>
-                </div> *@
-                <!--FIN ITEM 14-->
-                <!--INICIO ITEM 15-->
-                @* <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a href="" target="_blank">
-                            <img src="~/imagenes/iconos/reglamento_interno.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Reglamento Interno de Trabajo</h3>
-                        </a>
-                    </div>
-                </div> *@
-                <!--FIN ITEM 15-->
-                <!--INICIO ITEM 16-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a href="https://www.gob.pe/institucion/insn/colecciones/28038-analisis-de-situacion-de-salud-asis" target="_blank">
-                            <img src="~/imagenes/iconos/analisis.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Análisis Situacional de Salud</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--FIN ITEM 16-->
-
-                <!--INICIO ITEM 17-->
-                @* <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a asp-area="" asp-controller="Donaciones" asp-action="Index">
-                            <img src="~/imagenes/iconos/donaciones.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Donaciones</h3>
-                        </a>
-                    </div>
-                </div> *@
-                <!--FIN ITEM 17-->
-                <!--INICIO ITEM 18-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a asp-area="" asp-controller="SubCAFAE" asp-action="Index">
-                            <img src="~/imagenes/iconos/subcafae.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">SUB - CAFAE</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--FIN ITEM 18-->
-                <!--INICIO ITEM 19-->
-               @*  <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a asp-area="" asp-controller="GestionCalidad" asp-action="Index">
-                            <img src="~/imagenes/iconos/gestion.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Gestión de Calidad</h3>
-                        </a>
-                    </div>
-                </div> *@
-                <!--FIN ITEM 19-->
-                <!--INICIO ITEM 20-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a href="https://www.youtube.com/watch?v=nEZyjvM4avw" target="_blank">
-                            <img src="~/imagenes/iconos/lactancia_materna.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Lactancia Materna</h3>
-                        </a>
-                    </div>
-                </div>
-                <!--FIN ITEM 20-->
-                <!--INICIO ITEM 20-->
-              @*   <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a asp-area="" asp-controller="DocumentosConsulta" asp-action="Index">
-                            <img src="~/imagenes/iconos/documentos_consulta.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Documentos en Consulta</h3>
-                        </a>
-                    </div>
-                </div> *@
-                <!--FIN ITEM 20-->
-                <!--INICIO ITEM 21-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        <a asp-area="" asp-controller="UFGRD" asp-action="Index">
-                            <img src="~/imagenes/iconos/staff_medico.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Unidad de Gestión del Riesgo de Desastre</h3>
-                        </a>
-                    </div>
-                </div>
-                </>
-                <!--FIN ITEM 21-->
-                <!--INICIO ITEM 22-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-
-                        <a asp-area="" asp-controller="Covid19" asp-action="Index">
-                            <img src="~/imagenes/iconos/Covid19.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Covid 19</h3>
-                        </a>
-                    </div>
-                </div>
-                </>
-                <!--FIN ITEM 22-->
-                <!--INICIO ITEM 23-->
-                <div class="col-lg-2 col-md-2">
-                    <div class="service-item  position-relative" align="center">
-                        @* <a href="http://www.insn.gob.pe/telesalud" target="_blank"> *@
-                            <a asp-area="" asp-controller="Telesalud" asp-action="Index">
-                            <img src="~/imagenes/iconos/Telesalud.svg" width="60" height="60">
-                            <br />
-                            <br />
-                            <h3 align="center">Telesalud</h3>
-                        </a>
-                    </div>
-                </div>
-                </>
-                <!--FIN ITEM 23-->
-            </div>       
         </div>
-    </section>
+    </div>
     <!-- ======= FIN DE CARTERA - SERVICIOS ======= -->
+    <!-- ======= FIN DE SESSION CON PESTAÑA ======= -->
+    <!-- ============== -->
+
     <!-- ======= INICIO NOTICIAS  ======= -->
     <!-- ======= Incrementador de 1 a más  ======= -->
     <section id="Noticias" class="testimonials">
@@ -652,22 +606,22 @@
                         </div>
                     </div>
                     <!-- ======= FIN DE COMUNICADO 2======= -->
-                        <!-- ============== -->
+                    <!-- ============== -->
                     <!-- ======= INICIO DE COMUNICADO 1======= -->
                     <div class="col-xl-4 col-md-6 portfolio-item filter-app">
                         <div class="portfolio-wrap" style="height: 500px; /* Altura definida */">
                             <div style="text-align: center; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                            <a href="~/imagenes/comunicados/comunicado_1.jpeg" data-gallery="Portafolio_Comunicado_1" class="glightbox">
+                                <a href="~/imagenes/comunicados/comunicado_1.jpeg" data-gallery="Portafolio_Comunicado_1" class="glightbox">
                                     <img src="~/imagenes/comunicados/comunicado_1.jpeg" class="img-fluid" style="max-height: 400px;" alt="">
-                            </a>
-                            <div class="portfolio-info">
-                                <h6>
-                                    <a>
-                                        Invitación Izamiento
-                                    </a>
-                                </h6>
-                                <p>29 Abril, 2023</p>
-                            </div>
+                                </a>
+                                <div class="portfolio-info">
+                                    <h6>
+                                        <a>
+                                            Invitación Izamiento
+                                        </a>
+                                    </h6>
+                                    <p>29 Abril, 2023</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -788,7 +742,7 @@
                                             <img src="~/imagenes/noticias/portafolio_noticia_5/noticia_5_f2.jpeg"
                                                  class="img-fluid" alt="">
                                         </a>
-                                    </div>                                 
+                                    </div>
                                 </div>
                                 @* FIN Fotos Ocultas *@
                             </div>
@@ -948,7 +902,7 @@
                                             <img src="~/imagenes/noticias/portafolio_noticia_3/noticia_3_f4.jpeg"
                                                  class="img-fluid" alt="">
                                         </a>
-                                    </div>                                
+                                    </div>
                                 </div>
                                 @* FIN Fotos Ocultas *@
                             </div>
@@ -1070,16 +1024,16 @@
                         <h2>Noticias</h2>
                     </div>
                     <div class="row gy-4">
-                     @*    Titulo y Contenido Noticia 1 *@
-                      @*     Columna 1 *@
-                         <h5 style="text-align: center;text-transform: uppercase;">
+                        @*    Titulo y Contenido Noticia 1 *@
+                        @*     Columna 1 *@
+                        <h5 style="text-align: center;text-transform: uppercase;">
                             @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_1)
                         </h5>
                         <div class="col-lg-6">
                             <!-- Inicio de Portafolio Noticia 1 -->
                             <div class="row gy-4 portfolio-container">
-                                  Foto que se Mostrara 
-                                 <div class="portfolio-item filter-app">
+                                Foto que se Mostrara
+                                <div class="portfolio-item filter-app">
                                     <div class="portfolio-wrap">
                                         <a href="~/imagenes/noticias/portafolio_noticia_1/noticia_1_f1.jpeg" data-gallery="portfolio-noticia_1" class="glightbox">
                                             <img src="~/imagenes/noticias/portafolio_noticia_1/noticia_1_f1.jpeg"
@@ -1110,17 +1064,17 @@
                                 </div>
 
                                 @* FIN Fotos Ocultas *@
-                            </div> 
+                            </div>
                             <!-- Fin de Portafolio Noticia 1 -->
-                             <p>
+                            <p>
                                 <strong>
                                     @Html.Raw(NoticiaResource.EtiquetaContenidoCodigoFechaNoticia_1)
                                 </strong>
                             </p>
                             <p style="text-align: justify;">@Html.Raw(NoticiaResource.EtiquetaContenidoNoticia_1_p1)</p>
                         </div>
-                    @*       Columna 2  *@
-                         <div class="col-lg-6">
+                        @*       Columna 2  *@
+                        <div class="col-lg-6">
                             <p style="text-align: justify;">@Html.Raw(NoticiaResource.EtiquetaContenidoNoticia_1_p2)</p>
                             <p style="text-align: right;">@Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_1)</p>
                         </div>
@@ -1134,6 +1088,5 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
 <!-- FIN MODAL - NOTICIA 1 -->
-
