@@ -2720,6 +2720,51 @@ Banner Style
     background-image: url(../Imagenes/Portada_3.jpg);
 }
 
+.main-banner .item-TeleSalud-1 {
+    background-image: url(../Imagenes/Telesalud/Tele1.jpg);
+}
+
+.main-banner .item-TeleSalud-2 {
+    background-image: url(../Imagenes/Telesalud/Tele2.jpg);
+}
+
+.main-banner .item-TeleSalud-3 {
+    background-image: url(../Imagenes/Telesalud/Tele3.jpg);
+}
+
+.main-banner .item-TeleSalud-4 {
+    background-image: url(../Imagenes/Telesalud/Tele4.jpg);
+}
+
+.main-banner .item-TeleSalud-5 {
+    background-image: url(../Imagenes/Telesalud/Tele5.jpg);
+}
+
+.main-banner .item-TeleSalud-6 {
+    background-image: url(../Imagenes/Telesalud/Tele6.jpg);
+}
+
+.main-banner .item-TeleSalud-7 {
+    background-image: url(../Imagenes/Telesalud/Tele7.jpg);
+}
+
+.main-banner .item-TeleSalud-8 {
+    background-image: url(../Imagenes/Telesalud/Tele8.jpg);
+}
+
+.main-banner .item-TeleSalud-9 {
+    background-image: url(../Imagenes/Telesalud/Tele9.jpg);
+}
+.main-banner .item-TeleSalud-10 {
+    background-image: url(../Imagenes/Telesalud/Tele10.jpg);
+}
+.main-banner .item-TeleSalud-11 {
+    background-image: url(../Imagenes/Telesalud/Tele11.jpg);
+}
+.main-banner .item-TeleSalud-12 {
+    background-image: url(../Imagenes/Telesalud/Tele12.jpg);
+}
+
 .main-banner .item span.category {
     background-color: #fff;
     color: #1e1e1e;
