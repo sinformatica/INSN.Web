@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using INSN.Web.Entities.DocumentoLegal;
+using INSN.Web.Entities.DocumentoInstitucional;
 using INSN.Web.Models.Response.Home;
 using INSN.Web.Models.Response;
 using INSN.Web.Repositories.Interfaces.Home;
