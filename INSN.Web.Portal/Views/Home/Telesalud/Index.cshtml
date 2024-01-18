@@ -1,4 +1,6 @@
-﻿@{
+﻿@using INSN.Web.Portal.Resources;
+
+@{
     ViewData["Title"] = "INSN Breña";
 }
 <!-- ======= INICIO DE SESSION DE carrucel DE FOTOS ======= -->
@@ -16,7 +18,7 @@
 </div>
 <!-- ======= FIN DE SESSION DE carrucel DE FOTOS ======= -->
 <main id="main">
-   
+
     <!-- ======= INICIO DE SESSION CON PESTAÑA ( TELESALUD )======= -->
     <div class="section best-deal">
         <div class="container">
@@ -26,8 +28,8 @@
                     <p align="justify">
                         La telesalud constituye un servicio de atención médica remota, ofrecido por profesionales de la salud como médicos,
                         obstetras, enfermeras, psicólogos, entre otros, mediante el uso de tecnologías de la información y comunicación (TIC),
-                        que incluyen computadoras, teléfonos, aplicativos y sistemas, entre otros recursos. Este innovador enfoque permite 
-                        acceder a información y atención especializada en salud de manera oportuna y de alta calidad, sin importar la ubicación 
+                        que incluyen computadoras, teléfonos, aplicativos y sistemas, entre otros recursos. Este innovador enfoque permite
+                        acceder a información y atención especializada en salud de manera oportuna y de alta calidad, sin importar la ubicación
                         geográfica del usuario. Para garantizar una experiencia óptima en telesalud, es esencial contar, al menos, con:
                     </p>
                     <br />
@@ -38,7 +40,7 @@
                         <a class="block block-link-shadow text-center" href="javascript:void(0)">
                             <div class="block-content">
                                 <p class="fw-medium">Conexión a Internet Rápida y Estable.</p>
-                                <br /> 
+                                <br />
                             </div>
                         </a>
                     </div>
@@ -53,7 +55,7 @@
                         <a class="block block-link-shadow text-center" href="javascript:void(0)">
                             <div class="block-content">
                                 <p class="fw-medium">Herramientas de Conferencia Familiarizadas</p>
-                                <br />  
+                                <br />
                             </div>
                         </a>
                     </div>
@@ -63,9 +65,8 @@
         </div>
     </div>
     <!-- ======= FIN DE SESSION CON PESTAÑA ======= -->
-
-     <!-- ======= INICIO DE COMPONENTES======= -->
-   @*  <section id="componentes" class="services sections-bg"> *@
+    <!-- ======= INICIO DE COMPONENTES======= -->
+    @*  <section id="componentes" class="services sections-bg"> *@
     <section id="componentes" class="testimonials">
         <div class="container" data-aos="fade-up">
             <br />
@@ -74,8 +75,8 @@
             </div>
             <!-- ======= INICIO Telemedicina - TeleCapacitación - TeleGestión - TeleIEC ======= -->
 
-            <div class="section best-deal"> 
-                 <div class="container">
+            <div class="section best-deal">
+                <div class="container">
                     <div class="col-lg-12">
                         <div class="tabs-content">
                             <!-- ======= INICIO TABS ======= -->
@@ -99,11 +100,9 @@
                             <!-- ============== -->
                             <div class="tab-content" id="myTabContent">
                                 <!-- ============== -->
-
-
                                 <!-- ======= INICIO TELEMEDICINA ======= -->
 
-                                    <div class="tab-pane fade show active" id="Telemedicina" role="tabpanel" aria-labelledby="Telemedicina-tab">
+                                <div class="tab-pane fade show active" id="Telemedicina" role="tabpanel" aria-labelledby="Telemedicina-tab">
                                     <div class="row">
                                         <div class="row gy-4">
                                             <section id="Mision_Vision" class="about">
@@ -112,7 +111,7 @@
                                                         <div class="col-lg-12">
                                                             <h3> Telemedicina </h3>
                                                             <p align="justify">
-                                                                Son servicios de salud a distancia que se brindan a través de una llamada telefónica, videollamada, 
+                                                                Son servicios de salud a distancia que se brindan a través de una llamada telefónica, videollamada,
                                                                 mensaje de texto, entre otros medios de comunicación, mediante los cuales puedes recibir una atención,
                                                                 asesoría, seguimiento en salud por parte de un profesional de salud competente.
                                                                 Tenemos los siguientes servicios:
@@ -130,199 +129,282 @@
                                                                 <i class="bi bi-check-circle-fill"></i>
                                                                 TeleMonitoreo
                                                             </p>
-                                                          </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </section>
-                                        </div>
-                                    </div>
-                                        <div class="row">
-                                        @* IN  CARRUSEL *@
-                                        <div class="col-md-12">
-                                            <!-- Slider with multiple images and center mode -->
-                                           @*  <div class="block block-rounded">
-                                                <div class="block-header block-header-default">
-                                                    <h3 class="block-title"><i class="fa fa-play fa-fw text-primary"></i> Multiple Images &amp; Center Mode</h3>
-                                                </div> *@
-                                                <div class="js-slider slick-nav-black slick-nav-hover js-slider-enabled slick-initialized slick-slider slick-dotted" data-dots="true" data-arrows="true" data-slides-to-show="3" data-center-mode="true" data-autoplay="true" data-autoplay-speed="3000">
-                                                    <button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="">Previous</button>
-                                                    <div class="slick-list draggable" style="padding: 0px 50px;">
-                                                        <div class="slick-track" style="opacity: 1; width: 5152px; transform: translate3d(-2576px, 0px, 0px);">
-                                                            <div class="slick-slide slick-cloned" data-slick-index="-4" id="" aria-hidden="true" tabindex="-1" style="width: 368px;">
-                                                                <img class="img-fluid" src="~/Imagenes/Telesalud/Teleconsulta.jpg" alt="">
-                                                            </div><div class="slick-slide slick-cloned" data-slick-index="-3" id="" aria-hidden="true" tabindex="-1" style="width: 368px;">
-                                                                <img class="img-fluid" src="~/Imagenes/Telesalud/Teleinterconsulta.jpeg" alt="">
-                                                            </div><div class="slick-slide slick-cloned" data-slick-index="-2" id="" aria-hidden="true" tabindex="-1" style="width: 368px;">
-                                                                <img class="img-fluid" src="~/Imagenes/Telesalud/Telemonitoreo.jpg" alt="">
-                                                            </div><div class="slick-slide slick-cloned slick-center" data-slick-index="-1" id="" aria-hidden="true" tabindex="-1" style="width: 368px;">
-                                                                <img class="img-fluid" src="~/Imagenes/Telesalud/Teleorientacion.jpeg" alt="">
+                                                    <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+                                                        <div class="swiper-wrapper">
+                                                            <!-- Inicio Noticia 6 -->
+                                                            <div class="swiper-slide">
+                                                                <div class="testimonial-wrap">
+                                                                    <div class="testimonial-item">
+                                                                        <div class="d-flex align-items-center">
+                                                                            <div style="text-align: center; width: 100%;">
+                                                                                <img src="~/imagenes/telesalud/teleconsulta.jpg" class="testimonial-img flex-shrink-0" alt="">
+                                                                            </div>
+                                                                        </div>                                                                     
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <button class="slick-next slick-arrow" aria-label="Next" type="button" style="">Next</button><ul class="slick-dots" style="" role="tablist"><li class="" role="presentation"><button type="button" role="tab" id="slick-slide-control70" aria-controls="slick-slide70" aria-label="1 of 2" tabindex="-1">1</button></li><li role="presentation" class=""><button type="button" role="tab" id="slick-slide-control71" aria-controls="slick-slide71" aria-label="2 of 2" tabindex="-1">2</button></li><li role="presentation" class=""><button type="button" role="tab" id="slick-slide-control72" aria-controls="slick-slide72" aria-label="3 of 2" tabindex="-1">3</button></li><li role="presentation" class=""><button type="button" role="tab" id="slick-slide-control73" aria-controls="slick-slide73" aria-label="4 of 2" tabindex="-1">4</button></li><li role="presentation" class="slick-active"><button type="button" role="tab" id="slick-slide-control74" aria-controls="slick-slide74" aria-label="5 of 2" tabindex="0" aria-selected="true">5</button></li></ul>
-                                                    </div>
-                                                </div>
-                                                <!-- END Slider with multiple images and center mode -->
-                                            </div>
-                                            @* FIN  CARRUSEL *@
-                                        @* </div> *@
-                                  </div>
-                                </div>
-                         
-                                <!-- ======= FIN TELEMEDICINA ======= -->
-
-                                 
-
-                                <!-- ======= INICIO TELECAPACITACIÓN ======= -->
-                                <div class="tab-pane fade" id="TeleCapacitación" role="tabpanel" aria-labelledby="TeleCapacitación-tab">
-                                    <div class="row">
-                                        <div class="row gy-4">
-                                            <section id="TeleCapacitación" class="about">
-                                                <div class="container" data-aos="fade-up">
-                                                    <div class="row">
-                                                        <div class="col-6 col-md-4 col-xl-4">
-                                                            <a class="block block-link-shadow text-center">
-                                                                <div class="block-content">
-                                                                    <p class="fw-medium"> RESEARCH4LIFE </p>
-                                                                    <p align="justify"> Plataforma y sitio web dedicado a hacer público el conocimiento revisado por pares para estudiantes e investigadores en países de bajos ingresos.</p>
-                                                                    <img src="~/imagenes/BibliotecaVirtual/CI.png" class="img-fluid">
-                                                                    <br /><br />
-                                                                    <div class="text-center">
-                                                                        <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://portal.research4life.org/', '_blank')">
-                                                                            Ir al sitio web
-                                                                        </button>
-                                                                        <br /><br />
+                                                            <!-- Fin Noticia 6 -->
+                                                            <!-- Inicio Noticia 5 -->
+                                                            <div class="swiper-slide">
+                                                                <div class="testimonial-wrap">
+                                                                    <div class="testimonial-item">
+                                                                        <div class="d-flex align-items-center">
+                                                                            <div style="text-align: center; width: 100%;">
+                                                                                <img src="~/imagenes/noticias/portafolio_noticia_5/noticia_5_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <br>
+                                                                        <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_5)</h4>
+                                                                        <p>
+                                                                            @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_5)
+                                                                        </p>
+                                                                        <br>
+                                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_5" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
                                                                     </div>
                                                                 </div>
-                                                            </a>
+                                                            </div>
+                                                            <!-- Fin Noticia 5 -->
+                                                            <!-- Inicio Noticia 4 -->
+                                                            <div class="swiper-slide">
+                                                                <div class="testimonial-wrap">
+                                                                    <div class="testimonial-item">
+                                                                        <div class="d-flex align-items-center">
+                                                                            <div style="text-align: center; width: 100%;">
+                                                                                <img src="~/imagenes/noticias/portafolio_noticia_4/noticia_4_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <br>
+                                                                        <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_4)</h4>
+                                                                        <p>
+                                                                            @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_4)
+                                                                        </p>
+                                                                        <br>
+                                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_4" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Fin Noticia 4 -->
+                                                            <!-- Inicio Noticia 3 -->
+                                                            <div class="swiper-slide">
+                                                                <div class="testimonial-wrap">
+                                                                    <div class="testimonial-item">
+                                                                        <div class="d-flex align-items-center">
+                                                                            <div style="text-align: center; width: 100%;">
+                                                                                <img src="~/imagenes/noticias/portafolio_noticia_3/noticia_3_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <br>
+                                                                        <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_3)</h4>
+                                                                        <p>
+                                                                            @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_3)
+                                                                        </p>
+                                                                        <br>
+                                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_3" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Fin Noticia 3 -->
+                                                            <!-- Inicio Noticia 2 -->
+                                                            <div class="swiper-slide">
+                                                                <div class="testimonial-wrap">
+                                                                    <div class="testimonial-item">
+                                                                        <div class="d-flex align-items-center">
+                                                                            <div style="text-align: center; width: 100%;">
+                                                                                <img src="~/imagenes/noticias/portafolio_noticia_2/noticia_2_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <br>
+                                                                        <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_2)</h4>
+                                                                        <p>
+                                                                            @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_2)
+                                                                        </p>
+                                                                        <br>
+                                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_2" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Fin Noticia 2 -->
+                                                            <!-- Inicio Noticia 1 -->
+                                                            <div class="swiper-slide">
+                                                                <div class="testimonial-wrap">
+                                                                    <div class="testimonial-item">
+                                                                        <div class="d-flex align-items-center">
+                                                                            <div style="text-align: center; width: 100%;">
+                                                                                <img src="~/imagenes/noticias/portafolio_noticia_1/noticia_1_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <br>
+                                                                        <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_1)</h4>
+                                                                        <p>
+                                                                            @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_1)
+                                                                        </p>
+                                                                        <br>
+                                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_1" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Fin Noticia 1 -->
                                                         </div>
-
-
+                                                        <div class="swiper-pagination"></div>
                                                     </div>
                                                 </div>
                                             </section>
                                         </div>
                                     </div>
+
                                 </div>
-                                <!-- ======= FIN TELECAPACITACIÓN ======= -->
-                                <!-- ============== -->
-                                <!-- ======= INICIO TELEGESTIÓN ======= -->
-                                <div class="tab-pane fade" id="TeleGestión" role="tabpanel" aria-labelledby="TeleGestión-tab">
-                                    <div class="row">
-                                        <div class="row gy-4">
-                                            <section id="TeleGestión" class="about">
-                                                <div class="container" data-aos="fade-up">
-                                                    <div class="row">
-                                                        <div class="col-6 col-md-4 col-xl-4">
-                                                            <a class="block block-link-shadow text-center">
-                                                                <div class="block-content">
-                                                                    <p class="fw-medium"> NEJM </p>
-                                                                    <p align="justify"> Revista médica con sistema revisión por pares publicada por la Sociedad Médica de Massachusetts. </p>
-                                                                    <img src="~/imagenes/BibliotecaVirtual/RI.png" class="img-fluid">
-                                                                    <br /><br />
-                                                                    <div class="text-center">
-                                                                        <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://www.nejm.org/', '_blank')">
-                                                                            Ir al sitio web
-                                                                        </button>
-                                                                        <br /><br />
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-
-
-                                                        <div class="col-6 col-md-4 col-xl-4">
-                                                            <a class="block block-link-shadow text-center">
-                                                                <div class="block-content">
-                                                                    <p class="fw-medium"> AAP PUBLICATIONS </p>
-                                                                    <p align="justify"> Revista médica mensual revisada por pares publicada por la Academia Estadounidense de Pediatría.</p>
-                                                                    <img src="~/imagenes/BibliotecaVirtual/RII.png" class="img-fluid">
-                                                                    <br /><br />
-                                                                    <div class="text-center">
-                                                                        <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://publications.aap.org/', '_blank')">
-                                                                            Ir al sitio web
-                                                                        </button>
-                                                                        <br /><br />
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-6 col-md-4 col-xl-4">
-                                                            <a class="block block-link-shadow text-center">
-                                                                <div class="block-content">
-                                                                    <p class="fw-medium"> SCIENCE DIRECT </p>
-                                                                    <p align="justify">  Una de las mayores fuentes de información para la investigación científica, técnica y médica.</p>
-                                                                    <img src="~/imagenes/BibliotecaVirtual/RIII.png" class="img-fluid">
-                                                                    <br /><br />
-                                                                    <div class="text-center">
-                                                                        <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://www.sciencedirect.com/?login=Acceder', '_blank')">
-                                                                            Ir al sitio web
-                                                                        </button>
-                                                                        <br /><br />
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- ======= FIN TELEGESTIÓN ======= -->
-                                <!-- ============== -->
-
                             </div>
+
+                            <!-- ======= FIN TELEMEDICINA ======= -->
+                            <!-- ======= INICIO TELECAPACITACIÓN ======= -->
+                            <div class="tab-pane fade" id="TeleCapacitación" role="tabpanel" aria-labelledby="TeleCapacitación-tab">
+                                <div class="row">
+                                    <div class="row gy-4">
+                                        <section id="TeleCapacitación" class="about">
+                                            <div class="container" data-aos="fade-up">
+                                                <div class="row">
+                                                    <div class="col-6 col-md-4 col-xl-4">
+                                                        <a class="block block-link-shadow text-center">
+                                                            <div class="block-content">
+                                                                <p class="fw-medium"> RESEARCH4LIFE </p>
+                                                                <p align="justify"> Plataforma y sitio web dedicado a hacer público el conocimiento revisado por pares para estudiantes e investigadores en países de bajos ingresos.</p>
+                                                                <img src="~/imagenes/BibliotecaVirtual/CI.png" class="img-fluid">
+                                                                <br /><br />
+                                                                <div class="text-center">
+                                                                    <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://portal.research4life.org/', '_blank')">
+                                                                        Ir al sitio web
+                                                                    </button>
+                                                                    <br /><br />
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ======= FIN TELECAPACITACIÓN ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO TELEGESTIÓN ======= -->
+                            <div class="tab-pane fade" id="TeleGestión" role="tabpanel" aria-labelledby="TeleGestión-tab">
+                                <div class="row">
+                                    <div class="row gy-4">
+                                        <section id="TeleGestión" class="about">
+                                            <div class="container" data-aos="fade-up">
+                                                <div class="row">
+                                                    <div class="col-6 col-md-4 col-xl-4">
+                                                        <a class="block block-link-shadow text-center">
+                                                            <div class="block-content">
+                                                                <p class="fw-medium"> NEJM </p>
+                                                                <p align="justify"> Revista médica con sistema revisión por pares publicada por la Sociedad Médica de Massachusetts. </p>
+                                                                <img src="~/imagenes/BibliotecaVirtual/RI.png" class="img-fluid">
+                                                                <br /><br />
+                                                                <div class="text-center">
+                                                                    <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://www.nejm.org/', '_blank')">
+                                                                        Ir al sitio web
+                                                                    </button>
+                                                                    <br /><br />
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+
+                                                    <div class="col-6 col-md-4 col-xl-4">
+                                                        <a class="block block-link-shadow text-center">
+                                                            <div class="block-content">
+                                                                <p class="fw-medium"> AAP PUBLICATIONS </p>
+                                                                <p align="justify"> Revista médica mensual revisada por pares publicada por la Academia Estadounidense de Pediatría.</p>
+                                                                <img src="~/imagenes/BibliotecaVirtual/RII.png" class="img-fluid">
+                                                                <br /><br />
+                                                                <div class="text-center">
+                                                                    <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://publications.aap.org/', '_blank')">
+                                                                        Ir al sitio web
+                                                                    </button>
+                                                                    <br /><br />
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-6 col-md-4 col-xl-4">
+                                                        <a class="block block-link-shadow text-center">
+                                                            <div class="block-content">
+                                                                <p class="fw-medium"> SCIENCE DIRECT </p>
+                                                                <p align="justify">  Una de las mayores fuentes de información para la investigación científica, técnica y médica.</p>
+                                                                <img src="~/imagenes/BibliotecaVirtual/RIII.png" class="img-fluid">
+                                                                <br /><br />
+                                                                <div class="text-center">
+                                                                    <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://www.sciencedirect.com/?login=Acceder', '_blank')">
+                                                                        Ir al sitio web
+                                                                    </button>
+                                                                    <br /><br />
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ======= FIN TELEGESTIÓN ======= -->
+                            <!-- ============== -->
+
                         </div>
                     </div>
                 </div>
             </div>
-                </div> 
-         </div>
-       
+        </div>
+        </div>
+        </div>
+
     </section>
     <!-- ======= FIN DE COMPONENTES ======= -->
-
-
     <!-- ======= INICIO ENLACES======= -->
-   
-        <section id="Enlaces" class="services sections-bg">
-            <div class="container " data-aos="fade-up">
-                <div class="section-header">
-                    <h2>Enlaces</h2>
-                   @*  <p align="center">
-                        Conoce todos los trámites, servicios y contenido de orientación sobre un tema en específico.
-                    </p> *@
-                </div>
-               @*  <div class="row gy-4" data-aos="fade-up" data-aos-delay="100"> *@
-                <div class="row" data-aos="fade-up" data-aos-delay="100">
-                    <!--INICIO ITEM 1-->
-                    <div class="col-lg-2 col-md-3">
-                        <div class="service-item  position-relative" align="center">
-                            <a href="http://solicitudcitas.insn.gob.pe/TeleGestion/cliente/" target="_blank">
-                                <img src="~/imagenes/iconos/requerimientos.svg" width="60" height="60">
-                                <br />
-                                <br />
+
+    <section id="Enlaces" class="services sections-bg">
+        <div class="container " data-aos="fade-up">
+            <div class="section-header">
+                <h2>Enlaces</h2>
+                @*  <p align="center">
+                Conoce todos los trámites, servicios y contenido de orientación sobre un tema en específico.
+                </p> *@
+            </div>
+            @*  <div class="row gy-4" data-aos="fade-up" data-aos-delay="100"> *@
+            <div class="row" data-aos="fade-up" data-aos-delay="100">
+                <!--INICIO ITEM 1-->
+                <div class="col-lg-2 col-md-3">
+                    <div class="service-item  position-relative" align="center">
+                        <a href="http://solicitudcitas.insn.gob.pe/TeleGestion/cliente/" target="_blank">
+                            <img src="~/imagenes/iconos/requerimientos.svg" width="60" height="60">
+                            <br />
+                            <br />
                             <h3>
                                 Requisitos para TeleInterconsulta
                             </h3>
-                            </a>
-                        </div>
+                        </a>
                     </div>
-                    <!--FIN ITEM 1-->
-        
-                    <!--INICIO ITEM 2-->
-                    <div class="col-lg-2 col-md-2">
-                        <div class="service-item  position-relative" align="center">
-                            <a href="http://telehis.insn.gob.pe/" target="_blank">
-                                <img src="~/imagenes/iconos/planificacion.svg" width="60" height="60">
-                                <br />
-                                <br />
+                </div>
+                <!--FIN ITEM 1-->
+                <!--INICIO ITEM 2-->
+                <div class="col-lg-2 col-md-2">
+                    <div class="service-item  position-relative" align="center">
+                        <a href="http://telehis.insn.gob.pe/" target="_blank">
+                            <img src="~/imagenes/iconos/planificacion.svg" width="60" height="60">
+                            <br />
+                            <br />
                             <h3>Programación de TeleInterconsulta</h3>
-                            </a>
-                        </div>
+                        </a>
                     </div>
-                    <!--FIN ITEM 2-->
-                    
+                </div>
+                <!--FIN ITEM 2-->
                 <!--INICIO ITEM 3-->
                 <div class="col-lg-2 col-md-2">
                     <div class="service-item  position-relative" align="center">
@@ -335,8 +417,7 @@
                     </div>
                 </div>
                 <!--FIN ITEM 3-->
-                
-           <!--INICIO ITEM 4-->
+                <!--INICIO ITEM 4-->
                 <div class="col-lg-2 col-md-2">
                     <div class="service-item  position-relative" align="center">
                         <a href="http://telehis.insn.gob.pe/" target="_blank">
@@ -348,7 +429,6 @@
                     </div>
                 </div>
                 <!--FIN ITEM 4-->
-                 
                 <!--INICIO ITEM 5-->
                 <div class="col-lg-2 col-md-3">
                     <div class="service-item  position-relative" align="center">
@@ -361,10 +441,10 @@
                     </div>
                 </div>
                 <!--FIN ITEM 5-->
-                </div>
             </div>
-        </section>
- 
+        </div>
+    </section>
+
     <!-- ======= FIN ENLACES======= -->
     <!-- ======= INICIO DE RECONOCIMIENTOS======= -->
     IMAGENES
