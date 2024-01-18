@@ -15,6 +15,7 @@
     string NombreUsuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.NombreUsuario);
 }
 
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -40,6 +41,17 @@
 </head>
 
 <body>
+
+    <script src="~/js/lib/jquery.min.js"></script>
+    @if (ViewBag.ShowModal != null && ViewBag.ShowModal)
+    {
+        <script>
+            $(document).ready(function () {
+                $('#ClaveModal').modal('show');
+            });
+        </script>
+    }
+
     <form asp-controller="Acceso" asp-action="Index" method="post">
         <input asp-for="UsuarioId" hidden />
         <input asp-for="Usuario" hidden />
@@ -195,7 +207,7 @@
                             <div class="col-md-12 col-sm-12 text-center">
                                 <div class="form-floating mb-4">
                                     <button id="btnGuardar" class="btn btn-primary" asp-controller="Acceso"
-                                            asp-action="UsuarioActualizarClave" title="Guardar" onclick="console.log('Botón Guardar clickeado');">
+                                                asp-action="UsuarioActualizarClave" asp-route-Usuario=@Usuario title="Guardar">
                                         <i class="fas fa-save"></i> Guardar
                                     </button>
                                 </div>
@@ -209,14 +221,79 @@
 </form>
     <!-- ======= FIN MODAL  ============================== -->
 
+    <script src="~/js/codebase.app.min.js"></script>
+
+    <script src="~/js/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/js/plugins/datatables-bs5/js/dataTables.bootstrap5.js"></script>
+    <script src="~/js/plugins/datatables-responsive/js/dataTables.responsive.js"></script>
+    <script src="~/js/plugins/datatables-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <script src="~/js/plugins/datatables-buttons/dataTables.buttons.js"></script>
+    <script src="~/js/plugins/datatables-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+    <script src="~/js/plugins/datatables-buttons-jszip/jszip.min.js"></script>
+    <script src="~/js/plugins/datatables-buttons-pdfmake/pdfmake.min.js"></script>
+    <script src="~/js/plugins/datatables-buttons-pdfmake/vfs_fonts.js"></script>
+    <script src="~/js/plugins/datatables-buttons/buttons.print.min.js"></script>
+    <script src="~/js/plugins/datatables-buttons/buttons.html5.min.js"></script>
+    <script src="~/js/plugins/sweetalert2/sweetalert2.js"></script>
+
+    <script src="~/js/plugins/select2/js/select2.full.js"></script>
+
+
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="~/js/plugins/datatables-bs5/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="~/js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css">
+    <link rel="stylesheet" href="~/js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css">
+
+
     <!--
         Codebase JS
 
         Core libraries and functionality
         webpack is putting everything together at assets/_js/main/app.js
     -->
-    <script src="~/js/codebase.app.min.js"></script>
-    <script>
+   
+
+    <script>     
+        function Modal_Grabar_Editar_Correcto(nCodigoMensaje, sMensaje, sMetodo, sControlador) {
+            const swalDistribucion = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-lg btn-primary min-width-100 mx-4'
+                },
+                buttonsStyling: false
+            });
+
+            if (nCodigoMensaje === 1) {
+                swalDistribucion.fire({
+                    title: sMensaje,
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar',
+                    showCancelButton: false,
+                }).then((resultado) => {
+                    if (resultado.isConfirmed) {
+                        setTimeout(function () {
+                            // Generar la URL con los parámetros
+                            var sMetodoEncoded = encodeURIComponent(sMetodo);
+                            var sControladorEncoded = encodeURIComponent(sControlador);
+                            var url = '/' + sControladorEncoded + '/' + sMetodoEncoded;
+
+                            window.location.href = url;
+                        }, 200); // tiempo de espera (milisegundos)
+                    }
+                });
+            } else if (nCodigoMensaje === -1) {
+                swalDistribucion.fire({
+                    title: sMensaje,
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar',
+                    showCancelButton: false,
+                }).then((resultado) => {
+                    if (resultado.isConfirmed) {
+                        // Acciones adicionales si se confirma el mensaje
+                    }
+                });
+            }
+        };
+
         //#region [Success Operación]
         window.onload = function () {
             var nCodigoMensaje = '@TempData["CodigoMensaje"]'; // Obtener el valor de Código de Mensaje

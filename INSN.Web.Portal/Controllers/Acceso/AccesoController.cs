@@ -135,6 +135,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
 
                 model.UsuarioId = UsuarioId;
                 model.ListaSistema = response;
+                model.Usuario = Usuario;
             }
 
             return View("~/Views/Acceso/Sistema.cshtml", model);
@@ -206,6 +207,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
             {
                 ModelState.AddModelError(ex.PropertyName, ex.Message);
                 _logger.LogError(ex, "Validación de registro {Message}", ex.Message);
+                ViewBag.ShowModal = true;
                 return View("~/Views/Acceso/Sistema.cshtml", request);
             }
             catch (Exception ex)
