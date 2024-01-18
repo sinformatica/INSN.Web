@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using INSN.Web.Entities.DocumentoInstitucional;
 using INSN.Web.Entities.Info.Mantenimiento;
+using INSN.Web.Entities.Info.OportunidadLaboral;
 using INSN.Web.Entities.OportunidadLaboral;
 using INSN.Web.Entities.SegApp;
 using INSN.Web.Models.Request.Home;
@@ -37,6 +38,8 @@ namespace INSN.Web.Services.Profiles
 
             CreateMap<DocumentoConvocatoria, DocumentoConvocatoriaDtoResponse>();
             CreateMap<ConvocatoriaDtoRequest, Convocatoria>();
+
+            CreateMap<DocumentoConvocatoriaInfo, DocumentoConvocatoriaDtoResponse>();
 
             // Mapear Rol
             CreateMap<Rol, RolDtoResponse>();
