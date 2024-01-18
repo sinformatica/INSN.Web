@@ -200,7 +200,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
                 TempData["Controlador"] = "Acceso";
                 #endregion
 
-                return View("~/Views/Acceso/Sistema.cshtml", request);
+                return RedirectToAction("Index", "Acceso");
             }
             catch (ModelException ex)
             {
