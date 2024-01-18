@@ -41,9 +41,14 @@ namespace INSN.Web.Repositories.Implementaciones.Home.OportunidadLaboral
                     .Where(predicate)
                     .Select(p => new DocumentoConvocatoriaInfo
                     {
-                        CodigoDocumentoConvocatoriaId = p.CodigoDocumentoConvocatoriaId,
+                        CodigoConvocatoriaId = p.Convocatoria.CodigoConvocatoriaId,
                         DescripcionConvocatoria = p.Descripcion,
-                        Estado = p.Estado
+                        FechaInicio= p.Convocatoria.FechaInicio,
+                        FechaFinal = p.Convocatoria.FechaFinal,
+                        
+                        CodigoDocumentoConvocatoriaId = p.CodigoDocumentoConvocatoriaId,
+
+                        Estado = p.Convocatoria.Estado
                     })
                     .Take(1000)
                     .ToListAsync();
