@@ -29,7 +29,10 @@
     <!-- END Icons -->
     <!-- Stylesheets -->
     <!-- Codebase framework -->
-    <link rel="stylesheet" id="css-main" href="~/css/codebase.css">
+    <link href="~/js/plugins/select2/css/select2.css" rel="stylesheet" />
+    <link href="~/css/codebase.css" rel="stylesheet" />
+    <link href="~/js/plugins/sweetalert2/sweetalert2.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="..." crossorigin="anonymous" />
 
     <style>
@@ -254,6 +257,19 @@
    
 
     <script>     
+       
+        //#region [Success Operación]
+        window.onload = function () {
+            var nCodigoMensaje = '@TempData["CodigoMensaje"]'; // Obtener el valor de Código de Mensaje
+            var sMensaje = '@TempData["Mensaje"]'; // Obtener el valor de Mensaje
+            var sMetodo = '@TempData["Metodo"]';
+            var sControlador = '@TempData["Controlador"]';
+
+            if (nCodigoMensaje !== '' && nCodigoMensaje !== '0' && sMensaje !== '') {
+                Modal_Grabar_Editar_Correcto(parseInt(nCodigoMensaje), sMensaje, sMetodo, sControlador); // Llamar a la función con los valores
+            }
+        };
+
         function Modal_Grabar_Editar_Correcto(nCodigoMensaje, sMensaje, sMetodo, sControlador) {
             const swalDistribucion = Swal.mixin({
                 customClass: {
@@ -294,17 +310,6 @@
             }
         };
 
-        //#region [Success Operación]
-        window.onload = function () {
-            var nCodigoMensaje = '@TempData["CodigoMensaje"]'; // Obtener el valor de Código de Mensaje
-            var sMensaje = '@TempData["Mensaje"]'; // Obtener el valor de Mensaje
-            var sMetodo = '@TempData["Metodo"]';
-            var sControlador = '@TempData["Controlador"]';
-
-            if (nCodigoMensaje !== '' && nCodigoMensaje !== '0' && sMensaje !== '') {
-                Modal_Grabar_Editar_Correcto(parseInt(nCodigoMensaje), sMensaje, sMetodo, sControlador); // Llamar a la función con los valores
-            }
-        };
       //#endregion
 
         //#region

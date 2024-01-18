@@ -88,6 +88,15 @@ namespace INSN.Web.Services.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Las contraseñas deben tener al menos una minúscula (&apos;a&apos;-&apos;z&apos;).
+        /// </summary>
+        public static string PasswordRequiresLower {
+            get {
+                return ResourceManager.GetString("PasswordRequiresLower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a La contraseña debe tener al menos 6 caracteres.
         /// </summary>
         public static string PasswordTooShort {
