@@ -1,5 +1,7 @@
-﻿using INSN.Web.Models.Request.SegApp.Mantenimiento;
+﻿using INSN.Web.Models.Request.SegApp;
+using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
+using INSN.Web.ViewModels.SegApp;
 
 namespace INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento
 {

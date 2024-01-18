@@ -1,4 +1,6 @@
 ﻿@using INSN.Web.ViewModels.SegApp
+@using INSN.Web.Portal.Resources;
+@using INSN.Web.Portal.Resources.SegApp.Mantenimiento;
 @inject IHttpContextAccessor HttpContextAccessor
 
 @model SistemasViewModel
@@ -8,6 +10,8 @@
 }
 
 @{
+    string UsuarioId = HttpContextAccessor.HttpContext.Session.GetString(Constantes.UsuarioId);
+    string Usuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.Usuario);
     string NombreUsuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.NombreUsuario);
 }
 
@@ -28,7 +32,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="..." crossorigin="anonymous" />
 
     <style>
-        i {
+        #content i {
             color: #0096ad;
         }
     </style>
@@ -36,6 +40,9 @@
 </head>
 
 <body>
+    <form asp-controller="Acceso" asp-action="Index" method="post">
+        <input asp-for="UsuarioId" hidden />
+        <input asp-for="Usuario" hidden />
     <div id="page-container" class="sidebar-o sidebar-dark sidebar-mini enable-page-overlay side-scroll page-header-fixed page-header-glass" style="padding-left: 0px;">
         <!-- Main Container -->
         <main id="main-container">
@@ -48,7 +55,31 @@
                         {
                             <div style="color: #FFF; padding-top: 10px; margin-right: 0px;">
                                 <div style="float: right;">
-                                    <a class="nav-link text-light" asp-controller="Acceso" asp-action="Logout" style="margin-right: 20px;">Cerrar sesión</a>
+                                    <div class="dropdown d-inline-block">
+                                        <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-user d-sm-none"></i>
+                                            <span class="d-none d-sm-inline-block fw-semibold">@Usuario</span>
+                                            <i class="fa fa-angle-down opacity-50 ms-1"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown">
+                                            <div class="p-2">
+                                                <span id="addon-Clave" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#ClaveModal">
+                                                    <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1">
+                                                        <span style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#ClaveModal">
+                                                            Cambiar contraseña
+                                                        </span>
+                                                        <i class="fas fa-key opacity-25"></i>
+                                                    </a>
+                                                </span>
+                                            </div>
+                                            <div class="p-2">
+                                                <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1" asp-controller="Acceso" asp-action="Logout">
+                                                    <span>Cerrar sesión</span>
+                                                    <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div style="float: left;">
                                     <h6 style="margin-left: 20px;">Bienvenido(a), @NombreUsuario.ToUpper()</h6>
@@ -73,7 +104,7 @@
             </div>
             <!-- END header -->
             <!-- Page Content -->
-            <div class="content">
+            <div id="content" class="content">
                 <div class="row justify-content-center text-center">
                     <br />
 
@@ -129,6 +160,55 @@
         <!-- END Main Container -->
     </div>
     <!-- END Page Container -->
+
+    <!-- ======= INICIO: MODAL  ============================== -->
+    <div class="modal fade" id="ClaveModal" tabindex="-1" aria-labelledby="ClaveModal" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="block block-themed block-rounded">
+                    <div class="block-header block-header-default">
+                        <h3 class="block-title">Cambiar contraseña</h3>
+                        <div class="block-options">
+                            <button type="button" class="btn-block-option" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.Clave, new { @class = "form-control", @placeholder = "Contraseña", @id = "txtClave", @type = "password" }) <!-- Restricción -->
+                                    <span asp-validation-for="Clave" class="text-danger"></span>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaClave)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.ConfirmaClave, new { @class = "form-control", @placeholder = "Confirmar contraseña", @id = "txtConfirmaClave", @type = "password" }) <!-- Restricción -->
+                                    <span asp-validation-for="ConfirmaClave" class="text-danger"></span>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaConfirmaClave)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 text-center">
+                                <div class="form-floating mb-4">
+                                    <button id="btnGuardar" class="btn btn-primary" asp-controller="Acceso"
+                                            asp-action="UsuarioActualizarClave" title="Guardar" onclick="console.log('Botón Guardar clickeado');">
+                                        <i class="fas fa-save"></i> Guardar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    <!-- ======= FIN MODAL  ============================== -->
+
     <!--
         Codebase JS
 
@@ -136,5 +216,35 @@
         webpack is putting everything together at assets/_js/main/app.js
     -->
     <script src="~/js/codebase.app.min.js"></script>
+    <script>
+        //#region [Success Operación]
+        window.onload = function () {
+            var nCodigoMensaje = '@TempData["CodigoMensaje"]'; // Obtener el valor de Código de Mensaje
+            var sMensaje = '@TempData["Mensaje"]'; // Obtener el valor de Mensaje
+            var sMetodo = '@TempData["Metodo"]';
+            var sControlador = '@TempData["Controlador"]';
+
+            if (nCodigoMensaje !== '' && nCodigoMensaje !== '0' && sMensaje !== '') {
+                Modal_Grabar_Editar_Correcto(parseInt(nCodigoMensaje), sMensaje, sMetodo, sControlador); // Llamar a la función con los valores
+            }
+        };
+      //#endregion
+
+        //#region
+        function CerrarModal() {
+            $('#ClaveModal').modal('hide');
+        }
+
+        //function SeleccionaProductoSiga(CodigoProductoId, Descripcion) {
+        //    let hiddenInstructorId = document.getElementById("txtCodigoProductoId");
+        //    hiddenInstructorId.value = CodigoProductoId;
+
+        //    let inputInstructor = document.getElementById("txtDescripcion");
+        //    inputInstructor.value = Descripcion;
+
+        //    CerrarModal();
+        //}
+            //#endregion
+    </script>
 </body>
 </html>

@@ -22,8 +22,8 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
             _httpContextAccessor = httpContextAccessor;
 
             // Configurar la cabecera de autorización con el token
-            string token = _httpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken);
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            //string token = _httpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken);
+            //httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 
         /// <summary>

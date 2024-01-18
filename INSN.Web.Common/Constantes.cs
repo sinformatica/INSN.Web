@@ -8,6 +8,7 @@
         public const string JwtToken = "JWTToken";
         public const string CodigoSistemaIdFijo = "1";
         public const string MenuDinamico = "menu";
+        public const string UsuarioId = "UsuarioId";
         public const string Usuario = "usuario";
         public const string NombreUsuario = "NombreUsuario";
         public const string CodigoSistemaIdUsuario = "CodigoSistemaIdUsuario";

@@ -12,5 +12,13 @@ namespace INSN.Web.ViewModels.SegApp
     public class SistemasViewModel
     {
         public ICollection<SistemaDtoResponse>? ListaSistema { get; set; }
+
+        public string? UsuarioId { get; set; }
+
+        public string? Usuario { get; set; }
+
+        public string? Clave { get; set; }
+
+        public string? ConfirmaClave { get; set; }
     }
 }

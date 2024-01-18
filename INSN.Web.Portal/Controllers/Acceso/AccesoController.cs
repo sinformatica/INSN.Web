@@ -8,22 +8,29 @@ using INSN.Web.ViewModels.Exceptions;
 using INSN.Web.ViewModels.SegApp;
 using INSN.Web.Models.Request.Acceso;
 using INSN.Web.Portal.Services.Interfaces.Acceso;
+using INSN.Web.Models.Request.SegApp.Mantenimiento;
+using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
 
 namespace INSN.Web.Portal.Controllers.Acceso
 {
     public class AccesoController : Controller
     {
         private readonly IAccesoProxy _proxy;
+        private readonly IUsuarioProxy _proxyUsuario;
+        private readonly ILogger<AccesoController> _logger;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="proxy"></param>
-        public AccesoController(IAccesoProxy proxy, IHttpContextAccessor httpContextAccessor)
+        public AccesoController(IAccesoProxy proxy, IUsuarioProxy proxyUsuario, 
+                IHttpContextAccessor httpContextAccessor, ILogger<AccesoController> logger)
         {
             _proxy = proxy;
+            _proxyUsuario = proxyUsuario;
             _httpContextAccessor = httpContextAccessor;
+            _logger = logger;
         }
 
         /// <summary>
@@ -112,20 +119,102 @@ namespace INSN.Web.Portal.Controllers.Acceso
                 var claims = jwtToken.Claims;
 
                 // Obtener el valor de un claim específico
-                var usuario = claims.FirstOrDefault(c => c.Type == "username")?.Value;
+                var UsuarioId = claims.FirstOrDefault(c => c.Type == "UserId")?.Value;
+                var Usuario = claims.FirstOrDefault(c => c.Type == "username")?.Value;
                 string NombreUsuario = claims.FirstOrDefault(c => c.Type == "name")?.Value;
+
+                _httpContextAccessor.HttpContext.Session.SetString(Constantes.UsuarioId, UsuarioId);
+                _httpContextAccessor.HttpContext.Session.SetString(Constantes.Usuario, Usuario);
                 _httpContextAccessor.HttpContext.Session.SetString(Constantes.NombreUsuario, NombreUsuario);
 
                 // Realizar acciones con la información del token deserializado
                 var response = await _proxy.SistemasPorUsuarioListar(new LoginUsuarioDtoRequest()
                 {
-                    Usuario = usuario
+                    Usuario = Usuario
                 });
 
+                model.UsuarioId = UsuarioId;
                 model.ListaSistema = response;
             }
 
             return View("~/Views/Acceso/Sistema.cshtml", model);
+        }
+
+        /// <summary>
+        /// Usuario Actualizar Clave desde el menú principal
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> UsuarioActualizarClave(SistemasViewModel request)
+        {
+            try
+            {
+                var result = await _proxy.SistemasPorUsuarioListar(new LoginUsuarioDtoRequest()
+                {
+                    Usuario = request.Usuario
+                });
+
+                request.ListaSistema = result;
+
+                var response = _proxyUsuario.UsuarioBuscarId(request.UsuarioId);
+
+                if (response is null)
+                {
+                    ModelState.AddModelError("ID", "No se encontro el registro");
+                    return View();
+                }
+
+                if (string.IsNullOrWhiteSpace(request.Clave)) throw new ModelException(nameof(request.Clave), "Campo requerido: Contraseña");
+
+                if (string.IsNullOrWhiteSpace(request.ConfirmaClave))
+                {
+                    throw new ModelException(nameof(request.ConfirmaClave), "Campo requerido: Confirmar contraseña");
+                }
+                else
+                {
+                    if (request.Clave != request.ConfirmaClave) throw new ModelException(nameof(request.ConfirmaClave), "Contraseñas no coinciden");
+                }
+
+                var dtoRequest = new UsuarioDtoRequest
+                {
+                    Id = request.UsuarioId,
+                    Password = request.Clave,
+                    ConfirmarPassword = request.Clave,
+                    #region [Base Update]
+                    EstadoRegistro = 1,
+                    FechaCreacion = response.Result.FechaCreacion,
+                    UsuarioCreacion = response.Result.UsuarioCreacion,
+                    TerminalCreacion = response.Result.TerminalCreacion,
+                    TerminalModificacion = Environment.MachineName,
+                    UsuarioModificacion = Environment.UserName, //Modificar por Usuario de sesion logueada
+                    FechaModificacion = DateTime.Now
+                    #endregion
+                };
+
+                await _proxyUsuario.UsuarioActualizarClave(dtoRequest);
+
+                #region[Controles de Codigo/Controller]
+                TempData["CodigoMensaje"] = 1;
+                TempData["Mensaje"] = "Contraseña actualizada correctamente";
+                TempData["Metodo"] = "Index";
+                TempData["Controlador"] = "Acceso";
+                #endregion
+
+                return View("~/Views/Acceso/Sistema.cshtml", request);
+            }
+            catch (ModelException ex)
+            {
+                ModelState.AddModelError(ex.PropertyName, ex.Message);
+                _logger.LogError(ex, "Validación de registro {Message}", ex.Message);
+                return View("~/Views/Acceso/Sistema.cshtml", request);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Modificación de Usuario {Message}", ex.Message);
+                TempData["CodigoMensaje"] = -1;
+                TempData["Mensaje"] = ex.Message;
+                return View("~/Views/Acceso/Sistema.cshtml", request);
+            }
         }
     }
 }
