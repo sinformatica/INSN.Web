@@ -186,7 +186,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
                     UsuarioCreacion = response.Result.UsuarioCreacion,
                     TerminalCreacion = response.Result.TerminalCreacion,
                     TerminalModificacion = Environment.MachineName,
-                    UsuarioModificacion = Environment.UserName, //Modificar por Usuario de sesion logueada
+                    UsuarioModificacion = request.Usuario,
                     FechaModificacion = DateTime.Now
                     #endregion
                 };
