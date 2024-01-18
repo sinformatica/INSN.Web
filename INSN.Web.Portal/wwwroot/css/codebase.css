@@ -8068,6 +8068,10 @@ textarea.form-control-lg {
     opacity: 0.25 !important;
 }
 
+.opacity-40 {
+    opacity: 0.40 !important;
+}
+
 .opacity-50 {
     opacity: 0.5 !important;
 }
@@ -18517,15 +18521,16 @@ a.block {
     }
 
     a.block.block-link-pop:hover {
-        box-shadow: 0 0.125rem 2rem #d8dde5;
+        box-shadow: 0 0.125rem 1.5rem #0096ad;
         transform: translateY(-3px);
         opacity: 1;
     }
 
-    a.block.block-link-pop:active {
-        box-shadow: 0 0.125rem 0.625rem #edeff3;
-        transform: translateY(0);
-    }
+
+a.block.block-link-pop:active {
+    box-shadow: 0 0.125rem 0.625rem #edeff3;
+    transform: translateY(0);
+}
 
     a.block.block-link-shadow:hover {
         box-shadow: 0 0 2.125rem #d8dde5;
@@ -37095,6 +37100,23 @@ pre.pre-sh {
 .boton-hover:hover {
     transform: scale(1.2);
 }
+
+/* Anula la opacidad y hace el texto negrita al pasar el mouse sobre el bloque */
+.block-content-brillante:hover {
+    opacity: 1 !important;
+}
+
+    /* Anula la opacidad del ícono al pasar el mouse */
+    .block-content-brillante:hover i.fa {
+        opacity: 1 !important;
+    }
+
+    /* Hace el texto negrita y quita la clase text-muted al pasar el mouse */
+    .block-content-brillante:hover p.text-uppercase.text-muted {
+        font-weight: bold;
+        color: #0096ad !important; /* Puedes ajustar el color según tus preferencias */
+    }
+
 
 .link-hover:hover {
     transform: scale(1.1);

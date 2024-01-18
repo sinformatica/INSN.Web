@@ -89,7 +89,7 @@
                                                         <span id="addon-Clave" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#ClaveModal">
                                                             <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1">
                                                                 <span style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#ClaveModal">
-                                                                    Cambiar contraseña
+                                                                    Cambiar contraseña &nbsp;
                                                                 </span>
                                                                 <i class="fas fa-key opacity-25"></i>
                                                             </a>
@@ -126,8 +126,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-1 col-sm-6"></div>
-                    <div class="col-md-10 col-sm-6">
+                    <div class="col-md-2 col-sm-6"></div>
+                    <div class="col-md-8 col-sm-6">
                         <div id="content" class="content">
                             <div class="row justify-content-center text-center">
                                 <br />
@@ -135,7 +135,7 @@
                                 @if (HttpContextAccessor.HttpContext?.Session.GetString(Constantes.JwtToken) != null
                                 && HttpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken)!.Length > 0)
                                 {
-                                    <h5 class="fw-bold text-black mb-2">
+                                    <h5 class="fw-bold mb-2" style="color: #0096ad;">
                                         Seleccione el sistema a ingresar
                                     </h5>
                                     <br />
@@ -155,13 +155,13 @@
                                         @foreach (var item in Model.ListaSistema)
                                         {
                                             <div class="col-md-6 col-xl-2">
-                                                <a class="block block-rounded block-bordered block-link-pop text-center p-0" target="@item.target"
+                                                <a class="block block-rounded block-bordered block-link-pop text-center p-0 block-content-brillante" target="@item.target"
                                                    href="Redireccionar?p=@item.CodigoSistemaId&url=@item.url&ut=@item.UsarToken">
                                                     <div class="block-content block-content-full text-center p-2">
                                                         <p class="p-1 m-0">
-                                                            <i class="fa @item.icono fa-2x opacity-25 m-0"></i>
+                                                            <i class="fa @item.icono fa-2x opacity-40 m-0"></i>
                                                         </p>
-                                                        <p class="font-w600 m-0">@item.descripcion</p>
+                                                        <p class="fs-sm fw-semibold text-uppercase text-muted">@item.descripcion</p>
                                                     </div>
                                                 </a>
                                             </div>
@@ -183,12 +183,30 @@
 
 
                     </div>
-                    <div class="col-md-1 col-sm-6"></div>
+                    <div class="col-md-2 col-sm-6"></div>
                 </div>
                    <!-- END Page Content -->
+
             </main>
             <!-- END Main Container -->
+            <!-- Footer -->
+            <footer id="page-footer">
+                <div class="content py-3">
+                    <div class="row fs-sm">
+                        <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
+                            <a class="fw-semibold">INSN &nbsp;</a> <i class="fa fa-hospital"></i>  <a class="fw-semibold"> &nbsp; </a>
+                        </div>
+                        <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
+                            <a class="fw-semibold" href="http://www.insn.gob.pe/" target="_blank">
+                                Instituto Nacional de Salud del Niño
+                            </a> &copy; 2023
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- END Footer -->
         </div>
+
         <!-- END Page Container -->
         <!-- ======= INICIO: MODAL  ============================== -->
         <div class="modal fade" id="ClaveModal" tabindex="-1" aria-labelledby="ClaveModal" style="display: none;" aria-hidden="true">
