@@ -56,7 +56,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
 
             if (ValidarSistema())
             {
-                if (NombreRolUsuario == Constantes.RolAdminSistemas || NombreRolUsuario == Constantes.RolJefe) b = true;
+                if (NombreRolUsuario == Constantes.RolAdminSistemas) b = true;
             }
 
             if (b)

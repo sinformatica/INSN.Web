@@ -6,7 +6,7 @@
     public static class Constantes
     {
         public const string JwtToken = "JWTToken";
-        public const string CodigoSistemaIdFijo = "1";
+        public const string CodigoSistemaIdFijo = "1"; // id sistema seguridad
         public const string MenuDinamico = "menu";
         public const string UsuarioId = "UsuarioId";
         public const string Usuario = "usuario";
