@@ -79,15 +79,15 @@
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
                                     @Html.DropDownListFor(m => m.TipoDocumentoIdentidadId,
-                                    new SelectList(Model.TiposDocIdentidad, "Id", "Descripcion"), new { @class = "form-select", @id = "cmbTipoDocumento"})
+                                    new SelectList(Model.TiposDocIdentidad, "Id", "Descripcion"), new { @class = "form-select", @id = "cmbTipoDocumento",
+                                    onchange = "validarLongitudNumeroIdentidad()"})
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaTipoDocIdentidad)</label>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
                                     @Html.TextBoxFor(m => m.DocumentoIdentidad, new { @class = "form-control", @placeholder = "Documento de identidad", @id = "txtDocumentoIdentidad",
-                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros')" ,/* <!-- Restricción --> */
-                                    @maxlength = "8"})
+                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros')" })
                                     <span asp-validation-for="DocumentoIdentidad" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaDocumentoIdentidad)</label>
                                 </div>
@@ -98,7 +98,7 @@
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
                                     @Html.TextBoxFor(m => m.Correo, new { @class = "form-control", @placeholder = "Correo", @id = "txtCorreo" ,/* <!-- Restricción --> */
-                                    @maxlength = "250"})
+                                    @maxlength = "100"})
                                     <span asp-validation-for="Correo" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaCorreo)</label>
                                 </div>
@@ -107,7 +107,7 @@
                                 <div class="form-floating mb-4">
                                     @Html.TextBoxFor(m => m.Telefono1, new { @class = "form-control", @placeholder = "Teléfono 1", @id = "txtTelefono1",
                                     @onkeypress = "return permite(event, 'numeros')" ,/* <!-- Restricción --> */
-                                    @maxlength = "8"})
+                                    @maxlength = "9"})
                                     <span asp-validation-for="Telefono1" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaTelefono1)</label>
                                 </div>
@@ -116,7 +116,7 @@
                                 <div class="form-floating mb-4">
                                     @Html.TextBoxFor(m => m.Telefono2, new { @class = "form-control", @placeholder = "Teléfono 2", @id = "txtTelefono2",
                                     @onkeypress = "return permite(event, 'numeros')" ,/* <!-- Restricción --> */
-                                    @maxlength = "8"})
+                                    @maxlength = "9"})
                                     <span asp-validation-for="Telefono2" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaTelefono2)</label>
                                 </div>
@@ -168,6 +168,33 @@
             }
         };
                                 //#endregion
+
+        function validarLongitudNumeroIdentidad() {
+            var tipoDocumento = document.getElementById('cmbTipoDocumento');
+            var numeroIdentidadInput = document.getElementById('txtDocumentoIdentidad');
+
+            // Obtener el valor seleccionado del combo
+            var tipoDocumentoSeleccionado = tipoDocumento.options[tipoDocumento.selectedIndex].value;
+
+            // Longitud predeterminada
+            var longitudMaxima = 8;
+
+            // Verificar el tipo de documento y ajustar la longitud máxima según sea necesario
+            if (tipoDocumentoSeleccionado == 2) {
+                longitudMaxima = 9;
+            }
+
+            // Aplicar la longitud máxima al campo de número de identidad
+            numeroIdentidadInput.maxLength = longitudMaxima;
+
+            // Restringir la longitud actual si es mayor que la nueva longitud máxima
+            if (numeroIdentidadInput.value.length > longitudMaxima) {
+                numeroIdentidadInput.value = numeroIdentidadInput.value.slice(0, longitudMaxima);
+            }
+        }
+
+        // Llamar a la función cuando se carga la página
+        window.onload = validarLongitudNumeroIdentidad;
                                 //#endregion
     </script>
 }

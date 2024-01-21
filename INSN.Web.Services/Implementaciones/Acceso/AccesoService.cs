@@ -225,6 +225,7 @@ namespace INSN.Web.Services.Implementaciones.Acceso
 
                 var claims = new List<Claim>
                 {
+                    new Claim("UserId", identity.Id),
                     new Claim("username", request.Usuario),
                     new Claim("name", identity.Nombres + " " + identity.ApellidoPaterno + " " + identity.ApellidoMaterno),
                     new Claim("RolId", roles.First()),

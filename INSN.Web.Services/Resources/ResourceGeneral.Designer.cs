@@ -79,6 +79,15 @@ namespace INSN.Web.Services.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El correo ingresado no tiene el formato válido.
+        /// </summary>
+        public static string InvalidEmail {
+            get {
+                return ResourceManager.GetString("InvalidEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a La contraseña debe tener al menos un dígito (&apos;0&apos;-&apos;9&apos;).
         /// </summary>
         public static string PasswordRequiresDigit {

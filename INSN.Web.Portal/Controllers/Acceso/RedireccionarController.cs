@@ -69,21 +69,16 @@ namespace INSN.Web.Portal.Controllers.Acceso
                         claims = jwtToken.Claims;
 
                         // Obtener el valor de un claim específico
+                        var UsuarioId = claims.FirstOrDefault(c => c.Type == "UserId")?.Value;
                         var Usuario = claims.FirstOrDefault(c => c.Type == "username")?.Value;
                         var NombreUsuario = claims.FirstOrDefault(c => c.Type == "name")?.Value;
                         var CodigSistemaIdUsuario = claims.FirstOrDefault(c => c.Type == "CodigoSistemaId")?.Value;
                         var NombreRolUsuario = claims.FirstOrDefault(c => c.Type == "rol")?.Value;
                         var FechaVencimiento = claims.FirstOrDefault(c => c.Type == "FechaVencimiento")?.Value;
 
-                        // Leer los Claims
-                        //var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-                        //identity.AddClaims(jwt.Claims);
-
-                        //var principal = new ClaimsPrincipal(identity);
-                        //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
                         // Guardar en constantes
                         HttpContext.Session.SetString(Constantes.JwtToken, response.Token);
+                        HttpContext.Session.SetString(Constantes.UsuarioId, UsuarioId);
                         HttpContext.Session.SetString(Constantes.Usuario, Usuario);
                         HttpContext.Session.SetString(Constantes.NombreUsuario, NombreUsuario);
                         HttpContext.Session.SetString(Constantes.CodigoSistemaIdUsuario, CodigSistemaIdUsuario);

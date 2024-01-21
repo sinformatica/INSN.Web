@@ -41,7 +41,7 @@
                         <div class="row">
                             <div class="col-md-8 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Nombre", @id = "txtName",
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Nombre", @id = "txtName", @maxlength = "30",
                                     @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" }) <!-- Restricción -->
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(RolResource.EtiquetaName)</label>

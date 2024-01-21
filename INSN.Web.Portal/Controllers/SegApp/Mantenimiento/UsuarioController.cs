@@ -59,10 +59,10 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
             NombreRolUsuario = _httpContextAccessor.HttpContext.Session.GetString(Constantes.NombreRolUsuario);
         }
 
-        //private bool ValidarSistema()
-        //{
-        //    return CodigoSistemaIdUsuario == Constantes.CodigoSistemaIdFijo;
-        //}
+        private bool ValidarSistema()
+        {
+            return CodigoSistemaIdUsuario == Constantes.CodigoSistemaIdFijo;
+        }
 
         /// <summary>
         /// Cargar Página Index
@@ -71,25 +71,25 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         /// <returns></returns>
         public IActionResult Index(UsuarioViewModel model)
         {
-            //bool b = false;
+            bool b = false;
 
-            //if (ValidarSistema())
-            //{
-            //    if (NombreRolUsuario == Constantes.RolAdminSistemas) b = true;
-            //}
+            if (ValidarSistema())
+            {
+                if (NombreRolUsuario == Constantes.RolAdminSistemas) b = true;
+            }
 
-            //if (b)
-            //{
+            if (b)
+            {
                 var result = UsuarioListar(model);
                 result.Wait();
                 model.Usuarios = result.Result;
 
                 return View("~/Views/SegApp/Mantenimiento/Usuario/Index.cshtml", model);
-            //}
-            //else
-            //{
-            //    return RedirectToAction("AccesoDenegado", "Acceso");
-            //}
+            }
+            else
+            {
+                return RedirectToAction("AccesoDenegado", "Acceso");
+            }
         }
 
         /// <summary>
@@ -138,24 +138,24 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         /// <returns></returns>
         public async Task<IActionResult> NuevoVista(UsuarioViewModel model)
         {
-            //bool b = false;
+            bool b = false;
 
-            //if (ValidarSistema())
-            //{
-            //    if (NombreRolUsuario == Constantes.RolAdminSistemas) b = true;
-            //}
+            if (ValidarSistema())
+            {
+                if (NombreRolUsuario == Constantes.RolAdminSistemas) b = true;
+            }
 
-            //if (b)
-            //{
+            if (b)
+            {
                 var resultTiposDoc = TipoDocumentoIdentidadListar();
                 model.TiposDocIdentidad = resultTiposDoc.Result;
 
                 return View("~/Views/SegApp/Mantenimiento/Usuario/Nuevo.cshtml", model);
-            //}
-            //else
-            //{
-            //    return RedirectToAction("AccesoDenegado", "Acceso");
-            //}
+            }
+            else
+            {
+                return RedirectToAction("AccesoDenegado", "Acceso");
+            }
         }
 
         /// <summary>
@@ -259,15 +259,15 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         /// <returns></returns>
         public async Task<IActionResult> EditarVista(string Id)
         {
-            //bool b = false;
+            bool b = false;
 
-            //if (ValidarSistema())
-            //{
-            //    if (NombreRolUsuario == Constantes.RolAdminSistemas) b = true;
-            //}
+            if (ValidarSistema())
+            {
+                if (NombreRolUsuario == Constantes.RolAdminSistemas) b = true;
+            }
 
-            //if (b) 
-            //{
+            if (b)
+            {
                 var response = await _proxy.UsuarioBuscarId(Id);
                 if (response is null)
                 {
@@ -294,11 +294,11 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 model.TiposDocIdentidad = resultTiposDoc.Result;
 
                 return View("~/Views/SegApp/Mantenimiento/Usuario/Editar.cshtml", model);
-            //}
-            //else
-            //{
-            //    return RedirectToAction("AccesoDenegado", "Acceso");
-            //}
+            }
+            else
+            {
+                return RedirectToAction("AccesoDenegado", "Acceso");
+            }
         }
 
         /// <summary>
@@ -406,24 +406,24 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         /// <returns></returns>
         public async Task<IActionResult> EditarClaveVista(UsuarioViewModel model)
         {
-            //bool b = false;
+            bool b = false;
 
-            //if (ValidarSistema())
-            //{
-            //    if (NombreRolUsuario == Constantes.RolAdminSistemas) b = true;
-            //}
+            if (ValidarSistema())
+            {
+                if (NombreRolUsuario == Constantes.RolAdminSistemas) b = true;
+            }
 
-            //if (b)
-            //{
+            if (b)
+            {
                 var resultTiposDoc = TipoDocumentoIdentidadListar();
                 model.TiposDocIdentidad = resultTiposDoc.Result;
 
                 return View("~/Views/SegApp/Mantenimiento/Usuario/EditarClave.cshtml", model);
-            //}
-            //else
-            //{
-            //    return RedirectToAction("AccesoDenegado", "Acceso");
-            //}
+            }
+            else
+            {
+                return RedirectToAction("AccesoDenegado", "Acceso");
+            }
         }
 
         /// <summary>
@@ -507,26 +507,26 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         /// <returns></returns>
         public async Task<IActionResult> EditarRolesVista(UsuarioViewModel model)
         {
-            //bool b = false;
+            bool b = false;
 
-            //if (ValidarSistema())
-            //{
-            //    if (NombreRolUsuario == Constantes.RolAdminSistemas) b = true;
-            //}
+            if (ValidarSistema())
+            {
+                if (NombreRolUsuario == Constantes.RolAdminSistemas) b = true;
+            }
 
-            //if (b)
-            //{
+            if (b)
+            {
                 model.Sistemas = await SistemaListar();
                 //var sist = model.Sistemas?.FirstOrDefault();
                 model.Roles = await RolPorSistemaListar();
                 model.UsuarioRoles = await UsuarioRolListar(model.Id);
 
                 return View("~/Views/SegApp/Mantenimiento/Usuario/EditarRoles.cshtml", model);
-            //}
-            //else
-            //{
-            //    return RedirectToAction("AccesoDenegado", "Acceso");
-            //}
+            }
+            else
+            {
+                return RedirectToAction("AccesoDenegado", "Acceso");
+            }
         }
 
         /// <summary>

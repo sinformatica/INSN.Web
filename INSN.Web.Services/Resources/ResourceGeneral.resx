@@ -123,6 +123,9 @@
   <data name="DuplicateUserName" xml:space="preserve">
     <value>El usuario ya está en uso o eliminado</value>
   </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>El correo ingresado no tiene el formato válido</value>
+  </data>
   <data name="PasswordRequiresDigit" xml:space="preserve">
     <value>La contraseña debe tener al menos un dígito ('0'-'9')</value>
   </data>

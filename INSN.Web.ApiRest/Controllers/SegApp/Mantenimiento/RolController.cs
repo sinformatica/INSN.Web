@@ -34,7 +34,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet("RolListar")]
-        [Authorize(Roles = $"{Constantes.RolAdminSistemas},{Constantes.RolJefe}")]
+        [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]
         [ProducesResponseType((int)StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
         [ProducesResponseType((int)StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<RolDtoResponse>>))]
         public async Task<IActionResult> RolListar([FromQuery] RolDtoRequest request)

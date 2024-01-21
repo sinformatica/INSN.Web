@@ -80,7 +80,7 @@ builder.Services.AddIdentity<INSNIdentityUser, IdentityRole>(policies =>
 
     // politica de bloqueo de cuenta
     policies.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
-    policies.Lockout.MaxFailedAccessAttempts = 5;
+    policies.Lockout.MaxFailedAccessAttempts = 10;
 }).AddEntityFrameworkStores<SegAppDbContext>()
 .AddDefaultTokenProviders();
 
