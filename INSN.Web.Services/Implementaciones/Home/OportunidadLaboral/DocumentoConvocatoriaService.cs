@@ -44,6 +44,7 @@ namespace INSN.Web.Services.Implementaciones.Home.OportunidadLaboral
             {
                 var lista = await _repository.DocumentoConvocatoriaListar(new Convocatoria
                 {
+                    CodigoConvocatoriaId = request.CodigoConvocatoriaId,
                     Descripcion = request.Descripcion,
                     CodigoTipoConvocatoriaId = request.CodigoTipoConvocatoriaId,
                     Estado = request.Estado,

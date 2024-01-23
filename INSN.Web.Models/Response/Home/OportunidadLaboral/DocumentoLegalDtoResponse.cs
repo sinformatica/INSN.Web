@@ -6,7 +6,7 @@
         /// <summary>
         /// Codigo Convocatoria Id
         /// </summary>
-        public int? CodigoConvocatoriaId { get; set; }
+        public int CodigoConvocatoriaId { get; set; }
 
         /// <summary>
         /// Descripcion de la Convocatoria

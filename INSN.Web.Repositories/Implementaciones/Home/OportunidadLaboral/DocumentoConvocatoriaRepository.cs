@@ -42,13 +42,21 @@ namespace INSN.Web.Repositories.Implementaciones.Home.OportunidadLaboral
                     .Select(p => new DocumentoConvocatoriaInfo
                     {
                         CodigoConvocatoriaId = p.Convocatoria.CodigoConvocatoriaId,
-                        DescripcionConvocatoria = p.Descripcion,
+                        DescripcionConvocatoria = p.Convocatoria.Descripcion,
                         FechaInicio= p.Convocatoria.FechaInicio,
                         FechaFinal = p.Convocatoria.FechaFinal,
-                        
-                        CodigoDocumentoConvocatoriaId = p.CodigoDocumentoConvocatoriaId,
+                        Estado = p.Convocatoria.Estado,
 
-                        Estado = p.Convocatoria.Estado
+                        CodigoTipoConvocatoriaId = p.Convocatoria.TipoConvocatoria.CodigoTipoConvocatoriaId,
+                        DescripcionTipoConvocatoria = p.Convocatoria.TipoConvocatoria.Descripcion,
+
+                        CodigoDocumentoConvocatoriaId = p.CodigoDocumentoConvocatoriaId,
+                        DescripcionDocumentoConvocatoria = p.Descripcion,
+                        Ruta = p.Ruta,
+                        TipoArchivo = p.TipoArchivo,
+
+                        CodigoTipoDocumentoConvocatoriaId = p.TipoDocumentoConvocatoria.CodigoTipoDocumentoConvocatoriaId,
+                        DescripcionTipoDocumentoConvocatoria = p.TipoDocumentoConvocatoria.Descripcion,                                              
                     })
                     .Take(1000)
                     .ToListAsync();
