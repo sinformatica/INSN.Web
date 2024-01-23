@@ -160,6 +160,24 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Fecha Final:.
+        /// </summary>
+        public static string EtiquetaFechaFinal {
+            get {
+                return ResourceManager.GetString("EtiquetaFechaFinal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha Inicio:.
+        /// </summary>
+        public static string EtiquetaFechaInicio {
+            get {
+                return ResourceManager.GetString("EtiquetaFechaInicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Grabar.
         /// </summary>
         public static string EtiquetaGrabar {

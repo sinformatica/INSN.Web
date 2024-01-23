@@ -150,6 +150,12 @@
   <data name="EtiquetaEstado1" xml:space="preserve">
     <value>Estado</value>
   </data>
+  <data name="EtiquetaFechaFinal" xml:space="preserve">
+    <value>Fecha Final:</value>
+  </data>
+  <data name="EtiquetaFechaInicio" xml:space="preserve">
+    <value>Fecha Inicio:</value>
+  </data>
   <data name="EtiquetaGrabar" xml:space="preserve">
     <value>Grabar</value>
   </data>
