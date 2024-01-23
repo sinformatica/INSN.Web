@@ -1,4 +1,5 @@
 ﻿@using INSN.Web.ViewModels.Home
+@using INSN.Web.Portal.Resources;
 
 @model DocumentoConvocatoriaViewModel
 
@@ -60,7 +61,7 @@
                     <!-- ======= FIN TABS ======= -->
                     <!-- ============== -->
                     <div class="tab-content" id="myTabContent">
-                        <!-- ============== -->                      
+                        <!-- ============== -->
                         <!-- ======= INICIO CAS======= -->
                         @{
                             int codigoConvocatoriaActual = 0;
@@ -79,93 +80,95 @@
                                 <div class="row">
                                     <div class="row gy-4">
                                         <section id="Mision_Vision" class="about">
-                                            <div class="container" data-aos="fade-up">
+                                            <div class="container" data-aos="fade-up">                                           
                                                 <div class="row gy-4">
-                                                    <div class="col-lg-6">
-                                                        @foreach (var grupo in documentosFiltrados.Take(2))
+                                                    <div class="col-lg-12">
+                                                        @foreach (var grupo in documentosFiltrados)
                                                         {
-                                                            <div class="row">
+                                                            <div class="row gy-4">
                                                                 <div class="col-lg-12">
                                                                     @if (codigoConvocatoriaActual != grupo.CodigoConvocatoriaId)
                                                                     {
-                                                                        <div>
-                                                                            <h3>@grupo.CodigoConvocatoriaId - @grupo.DescripcionConvocatoria</h3>
-                                                                            <p>Fecha Inicio: @grupo.FechaInicio.ToString("yyyy-MM-dd")</p>
-                                                                            <p>Fecha Final: @grupo.FechaFinal.ToString("yyyy-MM-dd")</p>
+                                                                        <div class="block block-rounded h-100 mb-0">
+                                                                            <div class="block-content bg-gd-primary py-5 text-center">
+                                                                                <h3 class="fs-base fw-semibold mb-2">
+                                                                                    <a class="text-white">@grupo.DescripcionConvocatoria</a>
+                                                                                </h3>
+                                                                                <h4 class="fw-medium text-white-75 mb-1">
+                                                                                    @if (grupo.Estado == "C")
+                                                                                    {
+                                                                                        <span class="badge bg-success">@Html.Raw(GeneralResource.EtiquetaConcluida)</span>
+                                                                                    }
+                                                                                    else if (grupo.Estado == "E")
+                                                                                    {
+                                                                                        <span class="badge bg-primary">@Html.Raw(GeneralResource.EtiquetaEnProceso)</span>
+                                                                                    }
+                                                                                </h4>
+                                                                            </div>
+                                                                            <div class="block-content block-content-full text-center">
+                                                                                <div class="row g-sm mt-3">
+                                                                                    <div class="col-6">
+                                                                                            <p><strong>Fecha Inicio:</strong> @grupo.FechaInicio.ToString("yyyy-MM-dd")</p>
+                                                                                     
+                                                                                    </div>
+                                                                                    <div class="col-6">
+                                                                                            <p><strong>Fecha Final:</strong> @grupo.FechaFinal.ToString("yyyy-MM-dd")</p>
+                                                                                        
+                                                                                    </div>
+                                                                                </div>                                                                               
+                                                                            </div>
                                                                         </div>
+
                                                                         codigoConvocatoriaActual = grupo.CodigoConvocatoriaId;
                                                                         // Reiniciar código de tipo de documento al cambiar de convocatoria
                                                                         codigoTipoDocumentoActual = 0;
                                                                     }
 
-                                                                    <div>
-                                                                        @foreach (var detalle in grupo.Detalles)
-                                                                        {
-                                                                            if (codigoTipoDocumentoActual != detalle.CodigoTipoDocumentoConvocatoriaId)
-                                                                            {
-                                                                                <h4>@detalle.CodigoTipoDocumentoConvocatoriaId - @detalle.DescripcionTipoDocumentoConvocatoria</h4>
-                                                                                codigoTipoDocumentoActual = detalle.CodigoTipoDocumentoConvocatoriaId;
-                                                                            }
-                                                                            <ul>
-                                                                                <li>
-                                                                                    <p>Código Documento: @detalle.CodigoDocumentoConvocatoriaId</p>
-                                                                                    <p>Descripción: @detalle.DescripcionDocumentoConvocatoria</p>
-                                                                                    <p>Ruta: @detalle.Ruta</p>
-                                                                                    <!-- Agrega más detalles según sea necesario -->
-                                                                                </li>
-                                                                            </ul>
-                                                                        }
-                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        }
-                                                    </div>
-
-                                                    <div class="col-lg-6">
-                                                        @foreach (var grupo in documentosFiltrados.Skip(2))
-                                                        {
-                                                            <div class="row">
                                                                 <div class="col-lg-12">
-                                                                    @if (codigoConvocatoriaActual != grupo.CodigoConvocatoriaId)
-                                                                    {
-                                                                        <div>
-                                                                            <h3>@grupo.CodigoConvocatoriaId - @grupo.DescripcionConvocatoria</h3>
-                                                                            <p>Fecha Inicio: @grupo.FechaInicio.ToString("yyyy-MM-dd")</p>
-                                                                            <p>Fecha Final: @grupo.FechaFinal.ToString("yyyy-MM-dd")</p>
-                                                                        </div>
-                                                                        codigoConvocatoriaActual = grupo.CodigoConvocatoriaId;
-                                                                        // Reiniciar código de tipo de documento al cambiar de convocatoria
-                                                                        codigoTipoDocumentoActual = 0;
-                                                                    }
-
-                                                                    <div>
+                                                                    <table class="table table-borderless table-vcenter mb-4">
                                                                         @foreach (var detalle in grupo.Detalles)
-                                                                        {
-                                                                            if (codigoTipoDocumentoActual != detalle.CodigoTipoDocumentoConvocatoriaId)
-                                                                            {
-                                                                                <h4>@detalle.CodigoTipoDocumentoConvocatoriaId - @detalle.DescripcionTipoDocumentoConvocatoria</h4>
-                                                                                codigoTipoDocumentoActual = detalle.CodigoTipoDocumentoConvocatoriaId;
-                                                                            }
-                                                                            <ul>
-                                                                                <li>
-                                                                                    <p>Código Documento: @detalle.CodigoDocumentoConvocatoriaId</p>
-                                                                                    <p>Descripción: @detalle.DescripcionDocumentoConvocatoria</p>
-                                                                                    <p>Ruta: @detalle.Ruta</p>
-                                                                                    <!-- Agrega más detalles según sea necesario -->
-                                                                                </li>
-                                                                            </ul>
+                                                                        {                                                                            <tbody>
+
+                                                                                @if (codigoTipoDocumentoActual != detalle.CodigoTipoDocumentoConvocatoriaId)
+                                                                                {
+                                                                                    <tr class="table-active">
+                                                                                        <th style="width: 50px;"></th>
+                                                                                        <th>@detalle.DescripcionTipoDocumentoConvocatoria</th>
+
+                                                                                    </tr>
+
+                                                                                    codigoTipoDocumentoActual = detalle.CodigoTipoDocumentoConvocatoriaId;
+                                                                                }
+
+
+                                                                                <tr>
+                                                                                    <td class="table-success text-center">
+                                                                                        <i class="fab fa-dochub text-success"></i>
+                                                                                    </td>
+                                                                                    <td>
+
+                                                                                        <a>@detalle.DescripcionDocumentoConvocatoria</a>
+
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+
+
                                                                         }
-                                                                    </div>
+                                                                    </table>
                                                                 </div>
                                                             </div>
                                                         }
                                                     </div>
+
+
                                                 </div>
                                             </div>
                                         </section>
                                     </div>
                                 </div>
-                            </div>  
+                            </div>
                             <!-- ============== -->
                             <!-- ======= INICIO Interno ======= -->
                             <div class="tab-pane fade" id="Interno" role="tabpanel" aria-labelledby="Interno-tab">

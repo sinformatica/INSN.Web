@@ -97,6 +97,15 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Concluida.
+        /// </summary>
+        public static string EtiquetaConcluida {
+            get {
+                return ResourceManager.GetString("EtiquetaConcluida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Consultar.
         /// </summary>
         public static string EtiquetaConsultar {
@@ -120,6 +129,15 @@ namespace INSN.Web.Portal.Resources {
         public static string EtiquetaEliminar {
             get {
                 return ResourceManager.GetString("EtiquetaEliminar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a En Proceso.
+        /// </summary>
+        public static string EtiquetaEnProceso {
+            get {
+                return ResourceManager.GetString("EtiquetaEnProceso", resourceCulture);
             }
         }
         
