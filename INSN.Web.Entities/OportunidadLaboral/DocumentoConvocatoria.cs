@@ -35,7 +35,7 @@ namespace INSN.Web.Entities.OportunidadLaboral
         public string? TipoArchivo { get; set; } = default!;
 
         /// <summary>
-        /// Tipo Convocatoria
+        /// Tipo Documento Convocatoria
         /// </summary>
         [ForeignKey("CodigoTipoDocumentoConvocatoriaId")]
         public TipoDocumentoConvocatoria TipoDocumentoConvocatoria { get; set; } = default!;

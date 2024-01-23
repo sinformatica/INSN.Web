@@ -4,7 +4,12 @@
     /// Clase EL Documento Convocatoria
     /// </summary>
     public class ConvocatoriaDtoRequest : AuditoriaRequest
-    {        
+    {
+        /// <summary>
+        /// Codigo  Convocatoria Id
+        /// </summary>
+        public int CodigoConvocatoriaId { get; set; }
+
         /// <summary>
         /// Descripcion del Documento
         /// </summary>
