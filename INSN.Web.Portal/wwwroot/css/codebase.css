@@ -20202,6 +20202,11 @@ button.bg-sidebar-dark:focus {
     background: #2facb2 linear-gradient(135deg, #2facb2 0%, #36b3a0 100%) !important;
 }
 
+.bg-gd-insn {
+    background: #0096ad linear-gradient(135deg, #0096ad 0%, #0096ad 100%) !important;
+}
+
+
 .bg-gd-emerald {
     background: #32a67f linear-gradient(135deg, #32a67f 0%, #2facb2 100%) !important;
 }

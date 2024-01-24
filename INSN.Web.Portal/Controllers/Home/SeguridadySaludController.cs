@@ -1,6 +1,6 @@
 ﻿using INSN.Web.Models.Request.Home;
 using INSN.Web.Models.Response.Home;
-using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
+using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
 

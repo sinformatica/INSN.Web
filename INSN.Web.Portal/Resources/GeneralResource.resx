@@ -129,6 +129,9 @@
   <data name="EtiquetaActivo1" xml:space="preserve">
     <value>Activo</value>
   </data>
+  <data name="EtiquetaConcluida" xml:space="preserve">
+    <value>Concluida</value>
+  </data>
   <data name="EtiquetaConsultar" xml:space="preserve">
     <value>Consultar</value>
   </data>
@@ -138,11 +141,20 @@
   <data name="EtiquetaEliminar" xml:space="preserve">
     <value>Eliminar</value>
   </data>
+  <data name="EtiquetaEnProceso" xml:space="preserve">
+    <value>En Proceso</value>
+  </data>
   <data name="EtiquetaEstado" xml:space="preserve">
     <value>Estado</value>
   </data>
   <data name="EtiquetaEstado1" xml:space="preserve">
     <value>Estado</value>
+  </data>
+  <data name="EtiquetaFechaFinal" xml:space="preserve">
+    <value>Fecha Final:</value>
+  </data>
+  <data name="EtiquetaFechaInicio" xml:space="preserve">
+    <value>Fecha Inicio:</value>
   </data>
   <data name="EtiquetaGrabar" xml:space="preserve">
     <value>Grabar</value>
