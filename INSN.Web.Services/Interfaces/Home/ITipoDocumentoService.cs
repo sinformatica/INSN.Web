@@ -1,4 +1,5 @@
-﻿using INSN.Web.Models.Response;
+﻿using INSN.Web.Models.Request.Home;
+using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.Home;
 
 namespace INSN.Web.Services.Interfaces.Home
@@ -12,6 +13,6 @@ namespace INSN.Web.Services.Interfaces.Home
         /// Interface de Listar Tipo Documento
         /// </summary>
         /// <returns></returns>
-        Task<BaseResponseGeneric<ICollection<TipoDocumentoDtoResponse>>> ListAsync();
+        Task<BaseResponseGeneric<ICollection<TipoDocumentoDtoResponse>>> TipoDocumentoListar(TipoDocumentoDtoRequest request);
     }
 }

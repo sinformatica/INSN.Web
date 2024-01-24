@@ -32,6 +32,7 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
 body {
     font-family: "Poppins", sans-serif;
     color: var(--color-default);
@@ -539,7 +540,7 @@ section {
             font-family: "Poppins", sans-serif;
             font-size: 15px;
             font-weight: 600;
-            color: #0096ad;
+            color: #fff;
             white-space: nowrap;
             transition: 0.3s;
         }
@@ -590,7 +591,7 @@ section {
         }
 
     .mobile-nav-show {
-        color: rgba(255, 255, 255, 0.6);
+        color: #6c757d;
         font-size: 28px;
         cursor: pointer;
         line-height: 0;
@@ -2702,7 +2703,7 @@ Banner Style
 .main-banner .item {
     background-position: center center;
     background-repeat: no-repeat;
-    padding: 120px 20% 120px 20%;
+    padding: 120px 50% 120px 20%;
     margin-top: 0px;
    margin-bottom: 40px;
 }
@@ -2717,6 +2718,51 @@ Banner Style
 
 .main-banner .item-3 {
     background-image: url(../Imagenes/Portada_3.jpg);
+}
+
+.main-banner .item-TeleSalud-1 {
+    background-image: url(../Imagenes/Telesalud/Tele1.jpg);
+}
+
+.main-banner .item-TeleSalud-2 {
+    background-image: url(../Imagenes/Telesalud/Tele2.jpg);
+}
+
+.main-banner .item-TeleSalud-3 {
+    background-image: url(../Imagenes/Telesalud/Tele3.jpg);
+}
+
+.main-banner .item-TeleSalud-4 {
+    background-image: url(../Imagenes/Telesalud/Tele4.jpg);
+}
+
+.main-banner .item-TeleSalud-5 {
+    background-image: url(../Imagenes/Telesalud/Tele5.jpg);
+}
+
+.main-banner .item-TeleSalud-6 {
+    background-image: url(../Imagenes/Telesalud/Tele6.jpg);
+}
+
+.main-banner .item-TeleSalud-7 {
+    background-image: url(../Imagenes/Telesalud/Tele7.jpg);
+}
+
+.main-banner .item-TeleSalud-8 {
+    background-image: url(../Imagenes/Telesalud/Tele8.jpg);
+}
+
+.main-banner .item-TeleSalud-9 {
+    background-image: url(../Imagenes/Telesalud/Tele9.jpg);
+}
+.main-banner .item-TeleSalud-10 {
+    background-image: url(../Imagenes/Telesalud/Tele10.jpg);
+}
+.main-banner .item-TeleSalud-11 {
+    background-image: url(../Imagenes/Telesalud/Tele11.jpg);
+}
+.main-banner .item-TeleSalud-12 {
+    background-image: url(../Imagenes/Telesalud/Tele12.jpg);
 }
 
 .main-banner .item span.category {
@@ -11740,7 +11786,10 @@ readers do not read off random characters that represent icons */
     src: url('../fonts/poppins-semibold.ttf') format('truetype');
 }
 
-/*JYATACO*/
+
+
+
+/*JYATACO Nuevo estilos*/
 kbd {
     padding: 0.1875rem 0.375rem;
     font-size: 0.875em;
@@ -15914,6 +15963,8 @@ textarea.form-control-lg {
     display: block;
 }
 
+/*JYATACO CONFLICTO*/
+/*
 .navbar {
     --bs-navbar-padding-x: 0;
     --bs-navbar-padding-y: 0.5rem;
@@ -16003,7 +16054,7 @@ textarea.form-control-lg {
     .navbar-text a:focus {
         color: var(--bs-navbar-active-color);
     }
-
+*/
 .navbar-collapse {
     flex-basis: 100%;
     flex-grow: 1;
@@ -19956,7 +20007,7 @@ textarea.form-control-lg {
 
 .align-items-center {
     align-items: center !important;
-    padding-top:2px;
+    padding-top: 2px;
 }
 
 .align-items-baseline {
@@ -29710,6 +29761,10 @@ small,
         margin-bottom: 4.875rem;
     }
 
+    .block-content.block-fondo {
+        background: #fff;
+    }
+
     .block-content.block-content-sm {
         padding-top: 0.8125rem;
     }
@@ -29737,7 +29792,7 @@ small,
 
 .block.block-rounded {
     border-radius: 0.875rem 1rem;
-    height:200px;
+    height: 200px;
 }
 
     .block.block-rounded > .block-header,
@@ -31177,7 +31232,7 @@ a.block.block-themed .btn-block-option:focus,
 }
 
 .bg-image-insn {
-    background-color: #fbfbfc !important;
+    /*background-color: #fbfbfc !important;*/
     /*background-position: 50% 80%;
   background-size: cover;*/
     background-repeat: no-repeat;
@@ -48504,7 +48559,7 @@ Best Deal Style
     .best-deal .tabs-content .nav-link {
         font-size: 16px;
         font-weight: 500;
-        background-color: #fff !important;     
+        background-color: #fff !important;
         border-radius: 5px;
         height: 50px;
         line-height: 50px;
@@ -48520,7 +48575,7 @@ Best Deal Style
 
     .best-deal .tabs-content ul.nav-tabs {
         border-bottom: none !important;
-  padding-bottom:10px;
+        padding-bottom: 10px;
         align-items: end;
     }
 
@@ -48594,7 +48649,6 @@ Best Deal Style
     padding: 30px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-
 }
 
     .dcjq-accordion ul.menu {
@@ -48638,9 +48692,9 @@ Best Deal Style
     color: #0096ad;
 }
 
-    .sub-menu li {
-        margin-bottom: 0px;
-    }
+.sub-menu li {
+    margin-bottom: 0px;
+}
 
 .sub-menu a {
     padding: 8px 20px;
@@ -48650,9 +48704,9 @@ Best Deal Style
     transition: background-color 0.3s;
 }
 
-        .sub-menu a:hover {
-            background-color: #0096ad;
-        }
+    .sub-menu a:hover {
+        background-color: #0096ad;
+    }
 
 
 

@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using INSN.Web.Entities.DocumentoLegal;
+using INSN.Web.Entities.SegApp;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace INSN.Web.DataAccess
@@ -14,8 +16,7 @@ namespace INSN.Web.DataAccess
         /// <param name="options"></param>
         public INSNWebDBContext(DbContextOptions< INSNWebDBContext> options ) 
             : base( options ) 
-        { 
-        
+        {         
         }
 
         /// <summary>
@@ -25,6 +26,15 @@ namespace INSN.Web.DataAccess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            #region [Declarar Identificador de Tabla]      
+            modelBuilder.Entity<DocumentoLegal>().HasKey(f => f.CodigoDocumentoLegalId);
+            modelBuilder.Entity<TipoDocumento>().HasKey(f => f.CodigoTipoDocumentoId);
+            modelBuilder.Entity<Rol>().HasKey(f => f.Id);
+            modelBuilder.Entity<Usuario>().HasKey(f => f.Id);
+            modelBuilder.Entity<Sistema>().HasKey(f => f.CodigoSistemaId);
+            modelBuilder.Entity<UsuarioRol>().HasKey(f => f.CodigoUsuarioRolId);
+            #endregion
 
             //Se va agregar la configuracion de las entidades desde este mismo ensamblado
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

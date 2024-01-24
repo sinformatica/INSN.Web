@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,7 +11,7 @@
     <link href="~/img/favicon.png" rel="icon">
     <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  
+
     <!-- Vendor CSS Files -->
     <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -27,7 +29,7 @@
         <div class="container d-flex justify-content-center justify-content-md-between">
             <div class="contact-info d-flex align-items-center">
                 <button onclick="window.open('https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13180&id_tema=1&ver=D#.ZEavMnZBwdU/', '_blank');" type="button" class="btn btn-outline-primary btn-sm me-1 mb-1">
-                    <img src="~/imagenes/iconos/portal-transparencia-estandar.jpeg" width="42" height="35"/>
+                    <img src="~/imagenes/iconos/portal-transparencia-estandar.jpeg" width="42" height="35" />
                     Portal de Transparencia
                 </button>
             </div>
@@ -38,6 +40,19 @@
                 <a href="https://www.facebook.com/INSNoficial/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
                 <a href="https://www.instagram.com/hospital_del_nino_insn/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
                 <a href="https://www.linkedin.com/company/insn/about/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+
+                @if (HttpContextAccessor.HttpContext?.Session.GetString(Constantes.JwtToken) != null
+                && HttpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken)!.Length > 0)
+                {
+                    <div style="padding-left: 10px;">
+                        <span>Hola @User.Identity?.Name</span>
+                        <a class="nav-link text-dark" asp-controller="Acceso" asp-action="Logout">Salir</a>
+                    </div>
+                }
+                else
+                {
+                    <a asp-controller="Acceso" asp-action="Login" class="linkedin" target="_blank"><i class="bi bi-person-fill"></i></a>
+                }
             </div>
         </div>
     </section><!-- End Top Bar -->
@@ -46,7 +61,7 @@
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
             <a asp-area="" asp-controller="Home" asp-action="Index">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="~/imagenes/varios/insn_logo.png" width="200" height="80" />             
+                <img src="~/imagenes/varios/insn_logo.png" width="200" height="80" />
             </a>
             <nav id="navbar" class="navbar">
                 <ul>
@@ -54,12 +69,11 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a></li>
                     <li><a asp-area="" asp-controller="Especialidades" asp-action="Index">Especialidades</a></li>
                     <li><a asp-controller="DirectorioInstitucional" asp-action="Index">Directorio Institucional</a></li>
-                    </a>
-                    <li><a href="#team">Staff Médico</a></li>
+                    @*  </a>
+                    <li><a href="#team">Staff Médico</a></li> *@
                     <li><a asp-area="" asp-controller="Home" asp-action="Contacto">Contáctenos</a></li>
-               
                     <li class="dropdown">
-                        <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                        <a href="#"><span>Ver más</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
                             <li><a href="#">Drop Down 1</a></li>
                             <li class="dropdown">
@@ -76,7 +90,7 @@
                             <li><a href="#">Drop Down 3</a></li>
                             <li><a href="#">Drop Down 4</a></li>
                         </ul>
-                    </li>                
+                    </li>
                 </ul>
             </nav><!-- .navbar -->
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -106,15 +120,13 @@
     </div>
     </nav>
     </header> *@
-    
+
     <div>
         @RenderBody()
 
     </div>
-    <section id="hero">        
-        
+    <section id="hero">
     </section>
-
 
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
@@ -130,9 +142,8 @@
                     <p>
                         Instituo Nacional de Salud del Niño
                     </p>
-                  
                 </div>
-                <div class="col-lg-5 col-md-12 footer-info">                  
+                <div class="col-lg-5 col-md-12 footer-info">
                     <div class="social-links d-flex mt-4">
                         <a href="https://mail.insn.gob.pe/" class="envelope" target="_blank"><i class="bi bi-envelope-fill"></i></a>
                         <a href="https://www.youtube.com/INSNvideos" class="youtube" target="_blank"><i class="bi bi-youtube"></i></a>
@@ -142,13 +153,19 @@
                         <a href="https://www.linkedin.com/company/insn/about/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
+                <div class="col-lg-2 col-md-12 footer-info">
+                    <br />
+                    <br />
+                    <a style="color: #ffffff;" asp-area="" asp-controller="LibroReclamacion" asp-action="Index">
+                        <h6>Libro de Reclamaciones</h6>
+                    </a>
+                </div>
             </div>
         </div>
-
         <div class="container mt-4">
             <div class="copyright">
-            ® Derechos Reservados INSN - 2021
-            </div>       
+                ® Derechos Reservados INSN - 2021
+            </div>
         </div>
     </footer>
 
@@ -168,8 +185,6 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-
-
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -196,5 +211,4 @@
             });
         });
     });
-
 </script>

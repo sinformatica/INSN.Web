@@ -1,0 +1,210 @@
+﻿@using INSN.Web.Portal.Resources;
+@using INSN.Web.Portal.Resources.SegApp.Mantenimiento;
+@using INSN.Web.ViewModels.SegApp.Mantenimiento;
+
+@model UsuarioViewModel
+
+@using INSN.Web.Portal.Controllers;
+@{
+    Layout = "~/Views/SegApp/_LayoutSistemas.cshtml";
+}
+
+@{
+    ViewData["Title"] = "INSN";
+}
+
+<main id="main-container">
+    <h2 class="content-heading">@Html.Raw(UsuarioResource.EtiquetaSeccion)</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-controller="Usuario" asp-action="EditarRolesVista" method="post">
+                <input asp-for="Id" hidden />
+                <div class="block block-themed block-rounded">
+                    <!-- ======= INICIO : Cabecera y Botones Principales ========================= -->
+                    <div class="block-header">
+                        <h3 class="block-title">@Html.Raw(UsuarioResource.EtiquetaTituloEditarRoles)</h3>
+                        <div class="block-options">
+                            <button class="btn btn-sm btn-block-option boton-hover" asp-area="" asp-controller="Usuario" asp-action="Regresar" title="Regresar">
+                                <i class="fa fa-reply fa-2x"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- ======= FIN : Cabecera y Botones Principales ============================ -->
+                    <!-- ========================================================================= -->
+                    <div class="block-content block-content-full">
+                        <!-- ======= INICIO : Controles para Guardar ============================== -->
+                        
+                        <div class="row">
+                            <div class="col-md-5 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.DropDownListFor(m => m.SistemaSeleccionado,
+                                    new SelectList(Model.Sistemas, "CodigoSistemaId", "descripcion"), new { @class = "form-select", @id = "cmbSistema"})
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaSistema)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.DropDownListFor(m => m.RolSeleccionado,
+                                    new SelectList(Model.Roles, "Id", "Name"), new { @class = "form-select", @id = "cmbRol"})
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaRol)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    <button id="btnAgregar" class="btn btn-primary" asp-controller="Usuario" asp-action="UsuarioRolInsertar" title="Agregar">
+                                        <i class="fa fa-plus"></i> Agregar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- ======= FIN    : Controles de Búsqueda ============================== -->
+                        <!-- ===================================================================== -->
+                        <!-- ======= INICIO : Mostrar DataTable - Datos ========================== -->
+                        <div>
+                            <div class="row">
+                                @if (Model is null)
+                                {
+                                    <p>Sin resultados</p>
+                                }
+                                else if (!Model.UsuarioRoles.Any())
+                                {
+                                    <p>Sin datos para mostrar</p>
+                                }
+                                else
+                                {
+                                    @*   Clase: Carga de Tabla- Grid Datos - Visual *@
+                                    <div id="GridResultado">
+                                        @*   Clase: Responsive para Columnas / Barra Desplazamiento *@
+                                        <div class="table-responsive" style="width: 100%;">
+                                            <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">Sistema</th>
+                                                        <th class="text-center" style="width: 15%;">Rol</th>
+                                                        <th class="text-center" style="width: 15%;">@Html.Raw(GeneralResource.EtiquetaAccion)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in Model.UsuarioRoles)
+                                                    {
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                @item.NombreSistema
+                                                            </td>
+                                                            <td class="text-center">
+                                                                @item.NombreRol
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a class="btn btnEliminar" data-id="@item.CodigoUsuarioRolId"><i class="fa fa fa-trash-can"></i></a>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <!-- ======= FIN    : Mostrar DataTable - Datos ========================== -->
+                    </div>
+                </div>
+            </form>
+            <!-- ======= FIN    : Controles  ============================== -->
+            <!-- ===================================================================== -->
+        </div>
+    </div>
+</main>
+
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+
+    <script>
+        //#region [Métodos - Funciones]
+        //document.addEventListener('DOMContentLoaded', function () {
+        //    const ddlDpto = document.getElementById('cmbSistema');
+        //    var ddlProv = document.getElementById('cmbRol');
+
+        //    ddlDpto.addEventListener('change', function () {
+        //        const codDpto = this.value;
+
+        //        fetch('/Usuario/RolPorSistemaListar?CodigoSistemaId=' + codDpto)
+        //            .then(function (response) {
+        //                return response.json();
+        //            })
+        //            .then(function (provincias) {
+        //                ddlProv.innerHTML = '';
+
+        //                provincias.forEach(function (ciudad) {
+        //                    debugger;
+        //                    const option = document.createElement('option');
+        //                    option.value = ciudad.id;
+        //                    option.text = ciudad.name;
+        //                    ddlProv.appendChild(option);
+        //                });
+        //            })
+        //            .catch(function (error) {
+        //                console.error('Error:', error);
+        //            });
+        //    });            
+        //});
+
+
+        //#region [Success Operación]
+        window.onload = function () {
+            debugger;
+            var nCodigoMensaje = '@TempData["CodigoMensaje"]'; // Obtener el valor de Código de Mensaje
+            var sMensaje = '@TempData["Mensaje"]'; // Obtener el valor de Mensaje
+            var sMetodo = '@TempData["Metodo"]';
+            var sControlador = '@TempData["Controlador"]';
+            var sNombreParametroId = 'Id=';
+            var sCodigoId = '@TempData["CodigoId"]';
+            var sCodigoConcatenado = sNombreParametroId + sCodigoId;
+
+            if (nCodigoMensaje !== '' && nCodigoMensaje !== '0' && sMensaje !== '') {
+                Modal_Grabar_Editar_Correcto_Id(parseInt(nCodigoMensaje), sMensaje, sMetodo, sControlador, sCodigoConcatenado); // Llamar a la función con los valores
+            }
+        };
+        //#endregion
+
+        //#region [Método Eliminar]
+        document.addEventListener('DOMContentLoaded', function () {
+            let btnEliminarList = document.querySelectorAll('.btnEliminar');
+
+            btnEliminarList.forEach(function (btnEliminar) {
+                btnEliminar.addEventListener('click', function () {
+                    let registroId = this.getAttribute('data-id');
+                    console.log('Registro ID:', registroId); // Agrega esta línea para imprimir el valor en la consola
+                    confirmarEliminacion(registroId);
+                });
+            });
+
+            async function confirmarEliminacion(registroId) {
+                const userId = document.getElementById('Id').value;
+
+                const resultado = await Swal.fire({
+                    title: '¿Está seguro que desea eliminar este registro?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'SI',
+                    cancelButtonText: 'NO',
+                    didRender: () => {
+                        // Personaliza los estilos de los botones después de que se haya renderizado el cuadro de diálogo
+                        Swal.getConfirmButton().classList = 'btn btn-lg btn-primary min-width-100 mx-4';
+                        Swal.getCancelButton().classList = 'btn btn-lg btn-danger min-width-100 mx-4';
+                    }
+                });
+
+                if (resultado.isConfirmed) {
+                    // Cambia la URL para incluir el parámetro directamente
+                    window.location.href = `/Usuario/UsuarioRolEliminar?CodigoUsurioRolId=${registroId}&UserId=${userId}`;
+                }
+            }
+        });
+
+    </script>
+}

@@ -1,7 +1,19 @@
 ﻿namespace INSN.Web.Models.Request.Home;
 
-public class TipoDocumentoDtoRequest
+public class TipoDocumentoDtoRequest : AuditoriaRequest
 {
-    public string Codigo { get; set; } = default!;
-    public string Descripcion { get; set; } = default!;
+    /// <summary>
+    /// Codigo Tipo Documento
+    /// </summary>
+    public int CodigoTipoDocumentoId { get; set; }
+
+    /// <summary>
+    /// Descripcion Tipo Documento
+    /// </summary>
+    public string? Descripcion { get; set; } = default!;
+
+    /// <summary>
+    /// Area
+    /// </summary>
+    public string? Area { get; set; } = default!;
 }

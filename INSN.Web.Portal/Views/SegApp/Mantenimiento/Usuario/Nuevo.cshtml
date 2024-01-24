@@ -1,0 +1,272 @@
+﻿@using INSN.Web.Portal.Resources;
+@using INSN.Web.Portal.Resources.SegApp.Mantenimiento;
+@using INSN.Web.ViewModels.SegApp.Mantenimiento;
+
+@model UsuarioViewModel
+
+@using INSN.Web.Portal.Controllers;
+@{
+    Layout = "~/Views/SegApp/_LayoutSistemas.cshtml";
+}
+
+@{
+    ViewData["Title"] = "INSN";
+}
+
+<main id="main-container">
+    <h2 class="content-heading">@Html.Raw(UsuarioResource.EtiquetaSeccion)</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-controller="Usuario" asp-action="NuevoVista" method="post">
+                <div class="block block-themed block-rounded">
+                    <!-- ======= INICIO : Cabecera y Botones Principales ========================= -->
+                    <div class="block-header">
+                        <h3 class="block-title">@Html.Raw(UsuarioResource.EtiquetaTituloNuevo)</h3>
+                        <div class="block-options">
+                            <button type="submit" class="btn btn-sm btn-block-option boton-hover" formaction="/Usuario/UsuarioInsertar" title="Grabar">
+                                <i class="fa  fa-floppy-disk fa-2x"></i>
+                            </button>
+                            <button class="btn btn-sm btn-block-option boton-hover" onclick="Limpiar()" title="Limpiar">
+                                <i class="fa fa-repeat fa-2x"></i>
+                            </button>
+                            <button class="btn btn-sm btn-block-option boton-hover" asp-area="" asp-controller="Usuario" asp-action="Regresar" title="Regresar">
+                                <i class="fa fa-reply fa-2x"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- ======= FIN : Cabecera y Botones Principales ============================ -->
+                    <!-- ========================================================================= -->
+                    <div class="block-content block-content-full">
+                        <!-- ======= INICIO : Controles para Guardar ============================== -->
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", @placeholder = "Nombre", @id = "txtNombre",
+                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,/* <!-- Restricción --> */
+                                    @maxlength = "50"})                                    
+                                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaNombre)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.ApellidoPaterno, new { @class = "form-control", @placeholder = "Apellido Paterno", @id = "txtApellidoPaterno",
+                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,/* <!-- Restricción --> */
+                                    @maxlength = "50"}) 
+                                    <span asp-validation-for="ApellidoPaterno" class="text-danger"></span>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaApellidoPaterno)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.ApellidoMaterno, new { @class = "form-control", @placeholder = "Apellido Materno", @id = "txtApellidoMaterno",
+                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,/* <!-- Restricción --> */
+                                    @maxlength = "50"}) 
+                                    <span asp-validation-for="ApellidoMaterno" class="text-danger"></span>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaApellidoMaterno)</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.Servicio, new { @class = "form-control", @placeholder = "Servicio", @id = "txtServicio",
+                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros_caracteres')" ,/* <!-- Restricción --> */
+                                    @maxlength = "20"}) 
+                                    <span asp-validation-for="Servicio" class="text-danger"></span>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaServicio)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.DropDownListFor(m => m.TipoDocumentoIdentidadId,
+                                    new SelectList(Model.TiposDocIdentidad, "Id", "Descripcion"), new { @class = "form-select", @id = "cmbTipoDocumento", 
+                                    onchange = "validarLongitudNumeroIdentidad()" })
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaTipoDocIdentidad)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.DocumentoIdentidad, new { @class = "form-control", @placeholder = "Documento de identidad", @id = "txtDocumentoIdentidad",
+                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros')" }) 
+                                    <span asp-validation-for="DocumentoIdentidad" class="text-danger"></span>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaDocumentoIdentidad)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.Correo, new { @class = "form-control", @placeholder = "Correo", 
+                                        @id = "txtCorreo", @maxlength = "100" }) 
+                                    <span asp-validation-for="Correo" class="text-danger"></span>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaCorreo)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.Telefono1, new { @class = "form-control", @placeholder = "Teléfono 1", @id = "txtTelefono1",
+                                    @onkeypress = "return permite(event, 'numeros')" ,/* <!-- Restricción --> */
+                                    @maxlength = "9"}) 
+                                    <span asp-validation-for="Telefono1" class="text-danger"></span>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaTelefono1)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.Telefono2, new { @class = "form-control", @placeholder = "Teléfono 2", @id = "txtTelefono2",
+                                    @onkeypress = "return permite(event, 'numeros')" ,/* <!-- Restricción --> */
+                                    @maxlength = "9"}) 
+                                    <span asp-validation-for="Telefono2" class="text-danger"></span>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaTelefono2)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.Usuario, new { @class = "form-control", @placeholder = "Usuario", @id = "txtUsuario",
+                                    @onkeypress = "return permite(event, 'caracteres')", @disabled = "disabled" }) <!-- Restricción -->
+                                    <span asp-validation-for="Usuario" class="text-danger"></span>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaUsuario)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.Clave, new { @class = "form-control", @placeholder = "Contraseña", @id = "txtClave", @type = "password" ,/* <!-- Restricción --> */
+                                    @maxlength = "15"}) 
+                                    <span asp-validation-for="Clave" class="text-danger"></span>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaClave)</label>
+
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.ConfirmaClave, new { @class = "form-control", @placeholder = "Confirmar Clave", @id = "txtConfirmaClave", @type = "password" ,/* <!-- Restricción --> */
+                                    @maxlength = "15"}) 
+                                    <span asp-validation-for="ConfirmaClave" class="text-danger"></span>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaConfirmaClave)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.DropDownListFor(m => m.EstadoSeleccionado,
+                                    new SelectList(Model.Estados, "Codigo", "Nombre"), new { @class = "form-select", @id = "cmbEstadoSeleccionado"})
+                                    <label class="form-label">@Html.Raw(GeneralResource.EtiquetaEstado)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ======= FIN    : Controles para Guardar ============================== -->
+                    </div>
+                </div>
+            </form>
+            <!-- ======= FIN    : Controles  ============================== -->
+            <!-- ===================================================================== -->
+        </div>
+    </div>
+</main>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+    <script>
+        //#region [Métodos - Funciones]
+        //#region [Limpiar]
+        function Limpiar() {
+            document.getElementById('cmbTipoDocumento').selectedIndex = 0; // Reemplaza 'cmbTipoDocumento' con el ID de tu combobox
+            document.getElementById('txtNombre').value = ''; // Esto limpia el contenido del campo de texto
+            document.getElementById('txtApellidoPaterno').value = ''; // Esto limpia el contenido del campo de texto
+            document.getElementById('txtApellidoMaterno').value = ''; // Esto limpia el contenido del campo de texto
+            document.getElementById('txtServicio').value = ''; // Esto limpia el contenido del campo de texto
+            document.getElementById('txtDocumentoIdentidad').value = ''; // Esto limpia el contenido del campo de texto
+            document.getElementById('txtCorreo').value = ''; // Esto limpia el contenido del campo de texto
+            document.getElementById('txtTelefono1').value = ''; // Esto limpia el contenido del campo de texto
+            document.getElementById('txtTelefono2').value = ''; // Esto limpia el contenido del campo de texto
+            document.getElementById('txtUsuario').value = ''; // Esto limpia el contenido del campo de texto
+            document.getElementById('txtClave').value = ''; // Esto limpia el contenido del campo de texto
+            document.getElementById('txtConfirmaClave').value = ''; // Esto limpia el contenido del campo de texto
+        }
+        //#endregion
+
+        //#region [Success Operación]
+        window.onload = function () {
+            var nCodigoMensaje = '@TempData["CodigoMensaje"]'; // Obtener el valor de Código de Mensaje
+            var sMensaje = '@TempData["Mensaje"]'; // Obtener el valor de Mensaje
+            var sMetodo = '@TempData["Metodo"]';
+            var sControlador = '@TempData["Controlador"]';
+
+            if (nCodigoMensaje !== '' && nCodigoMensaje !== '0' && sMensaje !== '') {
+                Modal_Grabar_Editar_Correcto(parseInt(nCodigoMensaje), sMensaje, sMetodo, sControlador); // Llamar a la función con los valores
+            }
+        };
+                        //#endregion
+                        //#endregion
+        document.addEventListener('DOMContentLoaded', function () {
+            // Obtener referencias a los campos de nombre, apellido paterno y usuario
+            var nombreInput = document.getElementById('txtNombre');
+            var apellidoPaternoInput = document.getElementById('txtApellidoPaterno');
+            var usuarioInput = document.getElementById('txtUsuario');
+
+            // Agregar eventos de entrada para los campos de nombre y apellido paterno
+            nombreInput.addEventListener('input', actualizarUsuario);
+            apellidoPaternoInput.addEventListener('input', actualizarUsuario);
+
+            // Función para actualizar el campo de usuario
+            function actualizarUsuario() {
+                // Obtener el valor del nombre y apellido paterno
+                var nombreValor = quitarAcentos(nombreInput.value.trim());
+                var apellidoPaternoValor = quitarAcentos(apellidoPaternoInput.value.trim());
+
+                // Reemplazar "Ñ" por "N" en el nombre y apellido paterno
+                nombreValor = nombreValor.replace(/Ñ/g, 'N');
+                apellidoPaternoValor = apellidoPaternoValor.replace(/Ñ/g, 'N');
+
+                // Eliminar espacios en blanco del apellido paterno
+                apellidoPaternoValor = apellidoPaternoValor.replace(/\s+/g, '');
+
+                // Construir el nuevo valor del campo de usuario
+                var nuevoUsuarioValor = nombreValor.charAt(0).toLowerCase() + apellidoPaternoValor.toLowerCase();
+
+                // Asignar el nuevo valor al campo de usuario
+                usuarioInput.value = nuevoUsuarioValor.toUpperCase();
+            }
+
+            // Función para quitar acentos de una cadena
+            function quitarAcentos(cadena) {
+                return cadena.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            }
+        });
+
+        function validarLongitudNumeroIdentidad() {
+            var tipoDocumento = document.getElementById('cmbTipoDocumento');
+            var numeroIdentidadInput = document.getElementById('txtDocumentoIdentidad');
+
+            // Obtener el valor seleccionado del combo
+            var tipoDocumentoSeleccionado = tipoDocumento.options[tipoDocumento.selectedIndex].value;
+
+            // Longitud predeterminada
+            var longitudMaxima = 8;
+
+            // Verificar el tipo de documento y ajustar la longitud máxima según sea necesario
+            if (tipoDocumentoSeleccionado == 2) {
+                longitudMaxima = 9;
+            }
+
+            // Aplicar la longitud máxima al campo de número de identidad
+            numeroIdentidadInput.maxLength = longitudMaxima;
+
+            // Restringir la longitud actual si es mayor que la nueva longitud máxima
+            if (numeroIdentidadInput.value.length > longitudMaxima) {
+                numeroIdentidadInput.value = numeroIdentidadInput.value.slice(0, longitudMaxima);
+            }
+        }
+
+        // Llamar a la función cuando se carga la página
+        window.onload = validarLongitudNumeroIdentidad;
+    </script>
+}

@@ -1,5 +1,6 @@
 ﻿using INSN.Web.Models.Response.Home;
 using INSN.Web.Models.Response;
+using INSN.Web.Models.Request.Home;
 
 namespace INSN.Web.Services.Interfaces.Home
 {
@@ -8,17 +9,11 @@ namespace INSN.Web.Services.Interfaces.Home
     /// </summary>
     public interface IDocumentoLegalService
     {
-
         /// <summary>
-        /// 
+        /// Documento Legal Listar
         /// </summary>
-        /// <param name="Documento"></param>
-        /// <param name="TipoDocumentoId"></param>
-        /// <param name="Estado"></param>
-        /// <param name="Page"></param>
-        /// <param name="Rows"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<PaginationResponse<DocumentoLegalDtoResponse>> ListAsync(string? Documento, string? Descripcion, int? TipoDocumentoId,
-            string? Estado, int EstadoRegistro, int Page, int Rows);
+        Task<BaseResponseGeneric<ICollection<DocumentoLegalDtoResponse>>> DocumentoLegalListar(DocumentoLegalDtoRequest request);
     }
 }

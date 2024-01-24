@@ -1,11 +1,11 @@
 ﻿namespace INSN.Web.Models.Response;
 
-public class BaseResponse
+public class BaseResponse : AuditoriaResponse
 {
     public bool Success { get; set; }
     public string? ErrorMessage { get; set; }
 
-    public string? Estado { get; set; }
+    //public string? Estado { get; set; }
 }
 
 public class BaseResponseGeneric<T> : BaseResponse

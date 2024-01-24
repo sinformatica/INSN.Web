@@ -1,5 +1,7 @@
 ﻿using INSN.Web.Models;
 using INSN.Web.Models.Request;
+using INSN.Web.Models.Request.Home;
+using INSN.Web.Models.Response.Home;
 using INSN.Web.Portal.Services.Interfaces.Home.DirectorioInstitucional;
 using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
@@ -30,73 +32,58 @@ public class DirectorioInstitucionalController : Controller
         _enviroment = env;
     }
 
+    /// <summary>
+    /// Index
+    /// </summary>
+    /// <returns></returns>
     public IActionResult Index()
     {
         return View("~/Views/Home/DirectorioInstitucional/Index.cshtml");
     }
 
-    // GET
     /// <summary>
-    /// Modelo del Documento Legal
+    /// Documento Legal Listar
     /// </summary>
     /// <param name="model"></param>
     /// <returns></returns>
     public async Task<IActionResult> DocumentoLegal(DocumentoLegalViewModel model)
     {
-        PaginationData pager = ViewBag.Pager != null
-            ? ViewBag.Pager
-            : new PaginationData();
-
-        if (pager.CurrentPage == 0)
-            pager.CurrentPage = model.Page <= 0 ? 1 : model.Page;
-
-        pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
-
-        model.TipoDocumentos = await _TipoDocumentoProxy.ListAsync();
-
-        var response = await _proxy.ListAsync(new BusquedaDocumentoLegalRequest()
+        var resultDocumentoLegales = await _proxy.DocumentoLegalListar(new DocumentoLegalDtoRequest()
         {
             Documento = model.Documento,
-            Descripcion=model.Descripcion,
-            TipoDocumentoId = model.TipoDocumentoSeleccionada,         
-            EstadoRegistro = 1,
-            Page = pager.CurrentPage,
-            Rows = pager.RowsPerPage
+            Descripcion = model.Descripcion,
+            CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
+            Area = "DOCUMENTOLEGAL",
+            Estado = "A",
+            EstadoRegistro = 1
         });
 
-        ViewBag.Pager = pager;
-
-        if (response.Success)
-        {
-            model.DocumentoLegales = response.Data;
-            pager.TotalPages = response.TotalPages;
-            pager.RowCount = response.Data!.Count;
-        }
+        model.DocumentoLegales = resultDocumentoLegales;
+        model.TituloPagina = model.TituloPagina;
 
         return View("~/Views/Home/DirectorioInstitucional/DocumentoLegal.cshtml", model);
     }
 
+    //public IActionResult Download1(string fileName)
+    //{
+    //    try
+    //    {
+    //        var filePath = Path.Combine(_enviroment.ContentRootPath, "Documentos/NormasDocumentosLegales", fileName);
 
-    public IActionResult Download1(string fileName)
-    {
-        try
-        {
-            var filePath = Path.Combine(_enviroment.ContentRootPath, "Documentos/NormasDocumentosLegales", fileName);
+    //        if (!System.IO.File.Exists(filePath))
+    //        {
+    //            return NotFound(); // Manejo de archivo no encontrado
+    //        }
 
-            if (!System.IO.File.Exists(filePath))
-            {
-                return NotFound(); // Manejo de archivo no encontrado
-            }
+    //        var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
 
-            var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-
-            return new FileStreamResult(fileStream, "application/pdf");
-        }
-        catch (Exception ex)
-        {
-            // Manejar cualquier otro tipo de error
-            // Por ejemplo: Loggear el error para su revisión posterior
-            return StatusCode(StatusCodes.Status500InternalServerError);
-        }
-    }
+    //        return new FileStreamResult(fileStream, "application/pdf");
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        // Manejar cualquier otro tipo de error
+    //        // Por ejemplo: Loggear el error para su revisión posterior
+    //        return StatusCode(StatusCodes.Status500InternalServerError);
+    //    }
+    //}
 }

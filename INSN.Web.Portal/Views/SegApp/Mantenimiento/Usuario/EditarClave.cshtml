@@ -1,0 +1,88 @@
+﻿@using INSN.Web.Portal.Resources;
+@using INSN.Web.Portal.Resources.SegApp.Mantenimiento;
+@using INSN.Web.ViewModels.SegApp.Mantenimiento;
+
+@model UsuarioViewModel
+
+@using INSN.Web.Portal.Controllers;
+@{
+    Layout = "~/Views/SegApp/_LayoutSistemas.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Usuario";
+}
+
+<main id="main-container">
+    <h2 class="content-heading">@Html.Raw(UsuarioResource.EtiquetaSeccion)</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-controller="Usuario" asp-action="EditarClaveVista" method="post">
+                <input asp-for="Id" hidden />
+                <div class="block block-themed block-rounded">
+                    <!-- ======= INICIO : Cabecera y Botones Principales ========================= -->
+                    <div class="block-header">
+                        <h3 class="block-title">@Html.Raw(UsuarioResource.EtiquetaTituloEditarClave)</h3>
+                        <div class="block-options">
+                            <button type="submit" class="btn btn-sm btn-block-option boton-hover" formaction="/Usuario/UsuarioActualizarClave" title="Grabar">
+                                <i class="fa  fa-floppy-disk fa-2x"></i>
+                            </button>
+                            <button class="btn btn-sm btn-block-option boton-hover" asp-area="" asp-controller="Usuario" asp-action="Regresar" title="Regresar">
+                                <i class="fa fa-reply fa-2x"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- ======= FIN : Cabecera y Botones Principales ============================ -->
+                    <!-- ========================================================================= -->
+                    <div class="block-content block-content-full">
+                        <!-- ======= INICIO : Controles para Guardar ============================== -->
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.Clave, new { @class = "form-control", @placeholder = "Contraseña", @id = "txtClave", @type = "password" ,/* <!-- Restricción --> */
+                                    @maxlength = "15"})
+                                    <span asp-validation-for="Clave" class="text-danger"></span>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaClave)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-floating mb-4">
+                                    @Html.TextBoxFor(m => m.ConfirmaClave, new { @class = "form-control", @placeholder = "Confirmar contraseña", @id = "txtConfirmaClave", @type = "password",/* <!-- Restricción --> */
+                                    @maxlength = "15"})
+                                    <span asp-validation-for="ConfirmaClave" class="text-danger"></span>
+                                    <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaConfirmaClave)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ======= FIN    : Controles para Guardar ============================== -->
+                    </div>
+                </div>
+            </form>
+            <!-- ======= FIN    : Controles  ============================== -->
+            <!-- ===================================================================== -->
+        </div>
+    </div>
+</main>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+    <script>
+        //#region [Métodos - Funciones]
+        //#region [Success Operación]
+        window.onload = function () {
+            var nCodigoMensaje = '@TempData["CodigoMensaje"]'; // Obtener el valor de Código de Mensaje
+            var sMensaje = '@TempData["Mensaje"]'; // Obtener el valor de Mensaje
+            var sMetodo = '@TempData["Metodo"]';
+            var sControlador = '@TempData["Controlador"]';
+
+            if (nCodigoMensaje !== '' && nCodigoMensaje !== '0' && sMensaje !== '') {
+                Modal_Grabar_Editar_Correcto(parseInt(nCodigoMensaje), sMensaje, sMetodo, sControlador); // Llamar a la función con los valores
+            }
+        };
+                        //#endregion
+                        //#endregion
+    </script>
+}

@@ -21,7 +21,6 @@ namespace INSN.Web.Portal.Services.Implementaciones
             HttpMethod method, string uri)
             where TOutput : BaseResponse
         {
-
             var requestMessage = new HttpRequestMessage(method, $"{BaseUrl}/{uri}");
             requestMessage.Content = new StringContent(JsonSerializer.Serialize(request), Encoding.UTF8,
                 MediaTypeNames.Application.Json);

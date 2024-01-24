@@ -1,0 +1,247 @@
+﻿@using INSN.Web.ViewModels.Home
+@using INSN.Web.Portal.Resources.Home
+
+@model LibroReclamacionViewModel
+
+@{
+    ViewData["Title"] = "INSN Breña";
+}
+
+<main id="main">
+
+    <!-- ======= INICIO DE SESSION CON PESTAÑA ( LIBRO DE RECLAMACIONES )======= -->
+    <div class="section best-deal">
+        <div class="container">
+            <div class="col-lg-12">
+                <div class="section-header">
+                    <h2>LIBRO DE RECLAMACIONES</h2>
+                    <div class="col-lg-12">
+                        <div class="content ps-0 ps-lg-5">
+                            <div class="position-relative mt-4">
+                                <img src="~/imagenes/LibroReclamaciones/Libro.PNG" class="img-fluid rounded-4" alt="" style="padding-bottom: 20px;">
+                            </div>
+                        </div>
+                    </div>
+                    <p align="justify">
+                        Bienvenidos al Libro de Reclamaciones del Instituto Nacional de Salud del Niño (INSN)
+
+                        En nuestro compromiso constante por garantizar la excelencia en la atención y cuidado de la salud infantil,
+                        el Instituto Nacional de Salud del Niño pone a disposición el Libro de Reclamaciones como un espacio transparente
+                        y accesible para nuestros usuarios. Su propósito es brindarles la oportunidad de expresar sus sugerencias,
+                        comentarios o preocupaciones, contribuyendo así a fortalecer nuestra calidad asistencial. Valoramos cada retroalimentación
+                        como una oportunidad para mejorar y evolucionar en nuestra misión de proporcionar servicios médicos especializados a la
+                        comunidad pediátrica. Su participación es fundamental para seguir creciendo juntos en el cuidado de la salud de los niños y
+                        adolescentes. Agradecemos su confianza en el Instituto Nacional de Salud del Niño.
+                    </p>
+                    <br />
+                    <br />
+                    <h5 class="fw-bold">Datos del Usuario </h5>
+                    <div class="row"> 
+                        <div class="col-md-4 col-sm-6">
+                            </div>
+                          
+
+                            <div class="form-floating mb-4">
+                        </div>
+
+                             <div class="form-floating mb-4">
+
+                                @Html.TextBoxFor(m => m.Nombres, new
+                                    {
+                                        @class = "form-control",
+                                        @placeholder = "Nombre o usuario",
+                                        @id = "txtNombres",
+                                        @oninput = "this.value = this.value.toUpperCase()",
+                                        @onkeypress = "return permite(event, 'caracteres')"
+                                    }) <!-- Restricción -->
+                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaNombres)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="form-floating mb-4">
+                                @Html.TextBoxFor(m => m.Nombres, new
+                                    {
+                                        @class = "form-control",
+                                        @placeholder = "Nombre o usuario",
+                                        @id = "txtNombres",
+                                        @oninput = "this.value = this.value.toUpperCase()",
+                                        @onkeypress = "return permite(event, 'caracteres')"
+                                    }) <!-- Restricción -->
+                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaNombres)</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="form-floating mb-4">
+                                @Html.TextBoxFor(m => m.NroDocumento, new
+                                    {
+                                        @class = "form-control",
+                                        @placeholder = "Nombre o usuario",
+                                        @id = "txtNroDocumento",
+                                        @oninput = "this.value = this.value.toUpperCase()",
+                                        @onkeypress = "return permite(event, 'caracteres')"
+                                    }) <!-- Restricción -->
+                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaNroDocumento)</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="form-floating mb-4">
+                                @Html.TextBoxFor(m => m.NroDocumento, new
+                                    {
+                                        @class = "form-control",
+                                        @placeholder = "Nombre o usuario",
+                                        @id = "txtNroDocumento",
+                                        @oninput = "this.value = this.value.toUpperCase()",
+                                        @onkeypress = "return permite(event, 'caracteres')"
+                                    }) <!-- Restricción -->
+                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaNroDocumento)</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-6">
+                            <div class="form-floating mb-4">
+                                @Html.TextBoxFor(m => m.Domicilio, new
+                                    {
+                                        @class = "form-control",
+                                        @placeholder = "Nombre o usuario",
+                                        @id = "txtDomicilio",
+                                        @oninput = "this.value = this.value.toUpperCase()",
+                                        @onkeypress = "return permite(event, 'caracteres')"
+                                    }) <!-- Restricción -->
+                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaDomicilio)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="form-floating mb-4">
+                                @Html.TextBoxFor(m => m.Nombres, new
+                                    {
+                                        @class = "form-control",
+                                        @placeholder = "Nombre o usuario",
+                                        @id = "txtNombres",
+                                        @oninput = "this.value = this.value.toUpperCase()",
+                                        @onkeypress = "return permite(event, 'caracteres')"
+                                    }) <!-- Restricción -->
+                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaNombres)</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="form-floating mb-4">
+                                @Html.TextBoxFor(m => m.NroDocumento, new
+                                    {
+                                        @class = "form-control",
+                                        @placeholder = "Nombre o usuario",
+                                        @id = "txtNroDocumento",
+                                        @oninput = "this.value = this.value.toUpperCase()",
+                                        @onkeypress = "return permite(event, 'caracteres')"
+                                    }) <!-- Restricción -->
+                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaNroDocumento)</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="form-floating mb-4">
+                                @Html.TextBoxFor(m => m.NroDocumento, new
+                                    {
+                                        @class = "form-control",
+                                        @placeholder = "Nombre o usuario",
+                                        @id = "txtNroDocumento",
+                                        @oninput = "this.value = this.value.toUpperCase()",
+                                        @onkeypress = "return permite(event, 'caracteres')"
+                                    }) <!-- Restricción -->
+                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaNroDocumento)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="form-floating mb-4">
+                                @Html.TextBoxFor(m => m.Telefono, new
+                                    {
+                                        @class = "form-control",
+                                        @placeholder = "Nombre o usuario",
+                                        @id = "txtTelefono",
+                                        @oninput = "this.value = this.value.toUpperCase()",
+                                        @onkeypress = "return permite(event, 'caracteres')"
+                                    }) <!-- Restricción -->
+                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaTelefono)</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="form-floating mb-4">
+                                @Html.TextBoxFor(m => m.Celular, new
+                                    {
+                                        @class = "form-control",
+                                        @placeholder = "Nombre o usuario",
+                                        @id = "txtCelular",
+                                        @oninput = "this.value = this.value.toUpperCase()",
+                                        @onkeypress = "return permite(event, 'caracteres')"
+                                    }) <!-- Restricción -->
+                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaCelular)</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="form-floating mb-4">
+                                @Html.TextBoxFor(m => m.Email, new
+                                    {
+                                        @class = "form-control",
+                                        @placeholder = "Nombre o usuario",
+                                        @id = "txtEmail",
+                                        @oninput = "this.value = this.value.toUpperCase()",
+                                        @onkeypress = "return permite(event, 'caracteres')"
+                                    }) <!-- Restricción -->
+                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaEmail)</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-6">
+                            <div class="form-floating mb-4">
+                                @Html.TextBoxFor(m => m.Reclamo, new
+                                    {
+                                        @class = "form-control",
+                                        @placeholder = "Nombre o usuario",
+                                        @id = "txtReclamo",
+                                        @oninput = "this.value = this.value.toUpperCase()",
+                                        @onkeypress = "return permite(event, 'caracteres')"
+                                    }) <!-- Restricción -->
+                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaReclamo)</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="login-remember-me" name="login-remember-me" checked="">
+                                <label class="form-check-label" for="login-remember-me">Autorizo notificación del resultado</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br />  
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <input class="form-control" type="file" id="example-file-input">
+                        </div>
+                    </div>
+                    <br />  
+                    <div class="row">
+                        <div class="col-md-12 col-sm-6">
+                    <button type="button" class="btn btn-success mb-2" disabled="">Enviar</button>
+                        </div>
+
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+</main>
+

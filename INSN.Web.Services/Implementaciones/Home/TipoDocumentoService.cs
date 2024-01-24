@@ -4,6 +4,8 @@ using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.Home;
 using INSN.Web.Repositories.Interfaces.Home;
 using INSN.Web.Services.Interfaces.Home;
+using INSN.Web.Entities.DocumentoLegal;
+using INSN.Web.Models.Request.Home;
 
 namespace INSN.Web.Services.Implementaciones.Home
 {
@@ -30,30 +32,36 @@ namespace INSN.Web.Services.Implementaciones.Home
         }
 
         /// <summary>
-        /// Servicio - Listar Tipo Documento
+        /// Service: Tipo Documento Listar
         /// </summary>
+        /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<BaseResponseGeneric<ICollection<TipoDocumentoDtoResponse>>> ListAsync()
+        public async Task<BaseResponseGeneric<ICollection<TipoDocumentoDtoResponse>>> TipoDocumentoListar(TipoDocumentoDtoRequest request)
         {
             var response = new BaseResponseGeneric<ICollection<TipoDocumentoDtoResponse>>();
 
             try
             {
-                response.Data = await _repository.ListAsync(x => new TipoDocumentoDtoResponse
+                var lista = await _repository.TipoDocumentoListar(new TipoDocumento
                 {
-                    Id = x.Id,
-                    Descripcion = x.Descripcion
+                    CodigoTipoDocumentoId = request.CodigoTipoDocumentoId,
+                    Descripcion = request.Descripcion,
+                    Area = request.Area,
+                    Estado = request.Estado,
+                    EstadoRegistro = request.EstadoRegistro
                 });
+
+                response.Data = lista.Select(x => _mapper.Map<TipoDocumentoDtoResponse>(x)).ToList();
 
                 response.Success = true;
             }
             catch (Exception ex)
             {
-                response.ErrorMessage = "Error al Listar las Tipo Documentos";
+                response.ErrorMessage = "Service: Error al listar: " + ex.Message;
                 _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
             }
 
             return response;
-        }
+        }       
     }
 }

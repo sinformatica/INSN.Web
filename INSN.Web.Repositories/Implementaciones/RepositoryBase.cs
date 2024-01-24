@@ -10,10 +10,10 @@ namespace INSN.Web.Repositories.Implementaciones
     /// Repositorio Base - Métodos Basicos
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : EntityBase
+    public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : AuditoriaBase
     {
         protected readonly INSNWebDBContext Context;
-
+   
         protected RepositoryBase(INSNWebDBContext context)
         {
             Context = context;
@@ -77,18 +77,18 @@ namespace INSN.Web.Repositories.Implementaciones
             return await Context.Set<TEntity>().FindAsync(id);
         }
 
-        /// <summary>
-        /// Agregar - Registrar Nuevo Item - Registro
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        public async Task<int> AddAsync(TEntity entity)
-        {
-            await Context.Set<TEntity>().AddAsync(entity);
-            await Context.SaveChangesAsync();
+        ///// <summary>
+        ///// Agregar - Registrar Nuevo Item - Registro
+        ///// </summary>
+        ///// <param name="entity"></param>
+        ///// <returns></returns>
+        //public async Task<int> AddAsync(TEntity entity)
+        //{
+        //    await Context.Set<TEntity>().AddAsync(entity);
+        //    await Context.SaveChangesAsync();
 
-            return entity.Id;
-        }
+        //    return entity.Id;
+        //}
 
         /// <summary>
         /// Actualizar Registro - Item
