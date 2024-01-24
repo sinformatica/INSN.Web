@@ -56,6 +56,7 @@ public class OportunidadLaboralController : Controller
          Detalles = grupo.ToList(),
          CodigoTipoConvocatoriaId = grupo.First().CodigoTipoConvocatoriaId,
          DescripcionTipoConvocatoria = grupo.First().DescripcionTipoConvocatoria,
+         Estado = grupo.First().Estado,
      })
      .ToList();
 
@@ -73,7 +74,6 @@ public class OportunidadLaboralController : Controller
     {
         var resultDocumentoConvocatoria = await _proxy.DocumentoConvocatoriaListar(new ConvocatoriaDtoRequest()
         {     
-            Estado = "A",
             EstadoRegistro = 1
         });
 

@@ -97,6 +97,15 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Concluida.
+        /// </summary>
+        public static string EtiquetaConcluida {
+            get {
+                return ResourceManager.GetString("EtiquetaConcluida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Consultar.
         /// </summary>
         public static string EtiquetaConsultar {
@@ -124,6 +133,15 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a En Proceso.
+        /// </summary>
+        public static string EtiquetaEnProceso {
+            get {
+                return ResourceManager.GetString("EtiquetaEnProceso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Estado.
         /// </summary>
         public static string EtiquetaEstado {
@@ -138,6 +156,24 @@ namespace INSN.Web.Portal.Resources {
         public static string EtiquetaEstado1 {
             get {
                 return ResourceManager.GetString("EtiquetaEstado1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha Final:.
+        /// </summary>
+        public static string EtiquetaFechaFinal {
+            get {
+                return ResourceManager.GetString("EtiquetaFechaFinal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha Inicio:.
+        /// </summary>
+        public static string EtiquetaFechaInicio {
+            get {
+                return ResourceManager.GetString("EtiquetaFechaInicio", resourceCulture);
             }
         }
         
