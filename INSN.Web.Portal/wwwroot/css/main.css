@@ -360,7 +360,7 @@ section {
 --------------------------------------------------------------*/
 @media (min-width: 1280px) {
     .navbar {
-        padding: 0;
+        padding-top: 50px;
     }
 
         .navbar ul {
