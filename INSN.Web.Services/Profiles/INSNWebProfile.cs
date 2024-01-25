@@ -35,7 +35,7 @@ namespace INSN.Web.Services.Profiles
             CreateMap<DocumentoLegal, DocumentoLegalDtoResponse>();
             CreateMap<DocumentoLegalDtoRequest, DocumentoLegal>();
 
-
+            //Mapear Convocatoria
             CreateMap<DocumentoConvocatoria, DocumentoConvocatoriaDtoResponse>();
             CreateMap<ConvocatoriaDtoRequest, Convocatoria>();
 

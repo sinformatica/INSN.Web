@@ -1,13 +1,8 @@
-﻿using INSN.Web.Models;
-using INSN.Web.Models.Request.Home;
-using INSN.Web.Models.Response.Home;
+﻿using INSN.Web.Models.Request.Home;
 using INSN.Web.Models.Response.Home.OportunidadLaboral;
 using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
-
-//using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
 using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
@@ -34,13 +29,12 @@ public class OportunidadLaboralController : Controller
     /// </summary>
     /// <param name="model"></param>
     /// <returns></returns>
-    public async Task<IActionResult> Index(DocumentoConvocatoriaViewModel model)
-    {        
-        var resultDocumentoConvocatoria = DocumentoConvocatoriaListar(model);
+    public IActionResult Index(DocumentoConvocatoriaViewModel model)
+    {
+        var resultDocumentoConvocatoria = DocumentoConvocatoriaListar();
         resultDocumentoConvocatoria.Wait();
 
         model.DocumentoConvocatorias = resultDocumentoConvocatoria.Result;
-        //  model.DocumentoConvocatorias = resultDocumentoConvocatoria.Result;
 
         // Ordenar y agrupar los documentos por codigoConvocatoriaId y codigoTipoDocumentoConvocatoriaId
         var documentosAgrupados = model.DocumentoConvocatorias
@@ -66,11 +60,11 @@ public class OportunidadLaboralController : Controller
     }
 
     /// <summary>
-    /// Documento Legal Listar
+    /// Documento Convocatoria Listar
     /// </summary>
     /// <param name="model"></param>
     /// <returns></returns>
-    public async Task<List<DocumentoConvocatoriaDtoResponse>> DocumentoConvocatoriaListar(DocumentoConvocatoriaViewModel model)
+    public async Task<List<DocumentoConvocatoriaDtoResponse>> DocumentoConvocatoriaListar()
     {
         var resultDocumentoConvocatoria = await _proxy.DocumentoConvocatoriaListar(new ConvocatoriaDtoRequest()
         {     

@@ -320,11 +320,12 @@ section {
 }
 
     .header.sticked {
+        margin-top:-50px;
         position: fixed;
         top: 0;
         right: 0;
         left: 0;
-        height: 90px;
+        height: 199px;
         box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
     }
 
