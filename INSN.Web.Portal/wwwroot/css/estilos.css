@@ -1,0 +1,19 @@
+﻿/* Estilo adicional para el contenedor del Swiper con clase en lugar de ID */
+.swiper-gallery {
+    margin: 0 auto;
+    height: 90vh; /* Ajusta el alto al 90% de la altura de la ventana */
+}
+
+    /* Estilo adicional para centrar imágenes en las diapositivas del Swiper */
+    .swiper-gallery .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%; /* Ocupa el 100% del alto del contenedor */
+    }
+
+/* Estilo adicional para ajustar el tamaño máximo de las imágenes */
+.swiper-slide img {
+    max-width: 100%; /* Establece el ancho máximo al 100% del contenedor */
+    max-height: 100%; /* Establece la altura máxima al 100% del contenedor */
+}

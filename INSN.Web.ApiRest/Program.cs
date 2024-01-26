@@ -32,6 +32,10 @@ using INSN.Web.Repositories.Interfaces.Home.OportunidadLaboral;
 using INSN.Web.Services.Implementaciones.Home.OportunidadLaboral;
 using INSN.Web.Repositories.Implementaciones.Home.OportunidadLaboral;
 using INSN.Web.Services.Interfaces.Home.OportunidadLaboral;
+using INSN.Web.Repositories.Implementaciones.Mantenimiento.Comunicados;
+using INSN.Web.Services.Implementaciones.Mantenimiento.Comunicados;
+using INSN.Web.Services.Interfaces.Mantenimiento.Comunicados;
+using INSN.Web.Repositories.Interfaces.Mantenimiento.Comunicados;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -126,6 +130,10 @@ builder.Services.AddTransient<IUsuarioRolService, UsuarioRolService>();
 // Sistema
 builder.Services.AddTransient<ISistemaRepository, SistemaRepository>();
 builder.Services.AddTransient<ISistemaService, SistemaService>();
+
+// Comunicado
+builder.Services.AddTransient<IComunicadoRepository, ComunicadoRepository>();
+builder.Services.AddTransient<IComunicadoService, ComunicadoService>();
 
 //builder.Services.AddTransient<IFileUploader, AzureBlobStorageUploader>();
 
