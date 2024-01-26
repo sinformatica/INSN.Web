@@ -61,20 +61,56 @@ namespace INSN.Web.Portal.Resources.Home {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Celular.
+        ///   Busca una cadena traducida similar a Apellido Materno.
         /// </summary>
-        public static string EtiquetaCelular {
+        public static string EtiquetaApellidoMaterno {
             get {
-                return ResourceManager.GetString("EtiquetaCelular", resourceCulture);
+                return ResourceManager.GetString("EtiquetaApellidoMaterno", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Domicilio.
+        ///   Busca una cadena traducida similar a Apellido Paterno.
         /// </summary>
-        public static string EtiquetaDomicilio {
+        public static string EtiquetaApellidoPaterno {
             get {
-                return ResourceManager.GetString("EtiquetaDomicilio", resourceCulture);
+                return ResourceManager.GetString("EtiquetaApellidoPaterno", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Celular o Teléfono.
+        /// </summary>
+        public static string EtiquetaCelularTelefono {
+            get {
+                return ResourceManager.GetString("EtiquetaCelularTelefono", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Datos del Paciente.
+        /// </summary>
+        public static string EtiquetaDatosPaciente {
+            get {
+                return ResourceManager.GetString("EtiquetaDatosPaciente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Dirección.
+        /// </summary>
+        public static string EtiquetaDirección {
+            get {
+                return ResourceManager.GetString("EtiquetaDirección", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nro. Documento.
+        /// </summary>
+        public static string EtiquetaDocumentoIdentidad {
+            get {
+                return ResourceManager.GetString("EtiquetaDocumentoIdentidad", resourceCulture);
             }
         }
         
@@ -97,11 +133,11 @@ namespace INSN.Web.Portal.Resources.Home {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Nro. Documento.
+        ///   Busca una cadena traducida similar a Razón Social.
         /// </summary>
-        public static string EtiquetaNroDocumento {
+        public static string EtiquetaRazonSocial {
             get {
-                return ResourceManager.GetString("EtiquetaNroDocumento", resourceCulture);
+                return ResourceManager.GetString("EtiquetaRazonSocial", resourceCulture);
             }
         }
         
@@ -115,16 +151,43 @@ namespace INSN.Web.Portal.Resources.Home {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Telefono.
+        ///   Busca una cadena traducida similar a RUC.
         /// </summary>
-        public static string EtiquetaTelefono {
+        public static string EtiquetaRUC {
             get {
-                return ResourceManager.GetString("EtiquetaTelefono", resourceCulture);
+                return ResourceManager.GetString("EtiquetaRUC", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a TipoPersona.
+        ///   Busca una cadena traducida similar a Registro del Libro de Reclamaciones en Salud Web.
+        /// </summary>
+        public static string EtiquetaSeccion {
+            get {
+                return ResourceManager.GetString("EtiquetaSeccion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tipo Documento.
+        /// </summary>
+        public static string EtiquetaTipoDocumentoIdentidad {
+            get {
+                return ResourceManager.GetString("EtiquetaTipoDocumentoIdentidad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Parentesco.
+        /// </summary>
+        public static string EtiquetaTipoParentesco {
+            get {
+                return ResourceManager.GetString("EtiquetaTipoParentesco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tipo Persona.
         /// </summary>
         public static string EtiquetaTipoPersona {
             get {

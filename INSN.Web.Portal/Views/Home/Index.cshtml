@@ -5,25 +5,13 @@
 }
 
 <!-- ======= INICIO Seccion de Banner - Portada - Modificar Fotos y Texto ======= -->
-<div class="main-banner">
+<div class="main-banner" style="padding-top: 50px;" />
     <div class="owl-carousel owl-banner">
-        <div class="item item-1">
-            <div class="header-text">
-                <span class="category">INSN, <em>Breña</em></span>
-                <h2>Especialistas<br>en salud y atención infantil</h2>
-            </div>
+        <div class="item item-1" style="height: 550px;">          
         </div>
-        <div class="item item-2">
-            <div class="header-text">
-                <span class="category">INSN, <em>Breña</em></span>
-                <h2>Experiencia<br>pediátrica de primera clase</h2>
-            </div>
+        <div class="item item-2" style="height: 550px;">            
         </div>
-        <div class="item item-3">
-            <div class="header-text">
-                <span class="category">INSN, <em>Breña</em></span>
-                <h2>Juntos<br>por la salud de los niños</h2>
-            </div>
+        <div class="item item-3" style="height: 550px;">           
         </div>
     </div>
 </div>
@@ -108,6 +96,9 @@
                                         </div>
                                     </a>
                                 </div>
+                               
+                            </div>
+                            <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
                                 <div class="col-6 col-md-4 col-xl-2">
                                     <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="BibliotecaVirtual" asp-action="Index">
                                         <div class="block-content">
@@ -300,13 +291,13 @@
                             <div class="testimonial-item">
                                 <div class="d-flex align-items-center">
                                     <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_6/noticia_6_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                        <img src="~/imagenes/noticias/portafolio_noticia_6/noticia_6_f1.jpeg" class="testimonial-img flex-shrink-0" alt="" style="height: 165px">
                                     </div>
                                 </div>
                                 <br>
                                 <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_6)</h4>
                                 <p>
-                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_6)
+                                    INSN presente en mesa de trabajo sobre propuesta de Ley...
                                 </p>
                                 <br />
                                 <br />
@@ -321,15 +312,15 @@
                             <div class="testimonial-item">
                                 <div class="d-flex align-items-center">
                                     <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_5/noticia_5_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                        <img src="~/imagenes/noticias/portafolio_noticia_5/noticia_5_f1.jpeg" class="testimonial-img flex-shrink-0" alt="" style="height: 165px">
                                     </div>
                                 </div>
-                                <br>
-                                <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_5)</h4>
+                                <br />
+                              <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_5)</h4>
                                 <p>
-                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_5)
+                                    Con éxito se realizó primera tele - interconsulta médica por Telemedicina de...
                                 </p>
-                                <br>
+                                <br /> <br />
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_5" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -341,17 +332,15 @@
                             <div class="testimonial-item">
                                 <div class="d-flex align-items-center">
                                     <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_4/noticia_4_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                        <img src="~/imagenes/noticias/portafolio_noticia_4/noticia_4_f1.jpeg" class="testimonial-img flex-shrink-0" alt="" style="height: 165px">
                                     </div>
                                 </div>
                                 <br />
-                                <br />
-                                <br />
                                 <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_4)</h4>
                                 <p>
-                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_4)
+                                    INSN conmemora el día Mundial de la Higiene de Manos...
                                 </p>
-                                <br>
+                                <br />  <br />
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_4" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -363,14 +352,16 @@
                             <div class="testimonial-item">
                                 <div class="d-flex align-items-center">
                                     <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_3/noticia_3_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                        <img src="~/imagenes/noticias/portafolio_noticia_3/noticia_3_f1.jpeg" class="testimonial-img flex-shrink-0" alt="" style="height: 165px">
                                     </div>
                                 </div>
+                                <br />
                                 <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_3)</h4>
                                 <p>
-                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_3)
+                                  INSN: Por primera vez en el Perú, colocan válvulas pulmonares auto...
                                 </p>
-                                <br>
+                                <br />  
+                                <br />
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_3" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -382,16 +373,16 @@
                             <div class="testimonial-item">
                                 <div class="d-flex align-items-center">
                                     <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_2/noticia_2_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                        <img src="~/imagenes/noticias/portafolio_noticia_2/noticia_2_f1.jpeg" class="testimonial-img flex-shrink-0" alt="" style="height: 165px">
                                     </div>
                                 </div>
                                 <br />
-                                <br />
                                 <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_2)</h4>
                                 <p>
-                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_2)
+                                    Servicio de Neonatología y Microbiología izaron nuestro pabellón Naciona...
                                 </p>
-                                <br>
+                                <br />
+                                <br />
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_2" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -403,16 +394,16 @@
                             <div class="testimonial-item">
                                 <div class="d-flex align-items-center">
                                     <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_1/noticia_1_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                        <img src="~/imagenes/noticias/portafolio_noticia_1/noticia_1_f1.jpeg" class="testimonial-img flex-shrink-0" alt="" style="height: 165px">
                                     </div>
                                 </div>
                                 <br />
-                                <br />
                                 <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_1)</h4>
                                 <p>
-                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_1)
+                                    INSN tendrá moderno resonador magnético para aplicaciones en patologías complejas...
                                 </p>
-                                <br>
+                                <br />
+                                <br />
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_1" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -635,9 +626,6 @@
     </section>
     <!-- ======= FIN DE COMUNICADOS======= -->
 </main>
-
-
-
 
 
 

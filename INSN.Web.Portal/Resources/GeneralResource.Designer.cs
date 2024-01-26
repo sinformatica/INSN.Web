@@ -142,6 +142,15 @@ namespace INSN.Web.Portal.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Enviar.
+        /// </summary>
+        public static string EtiquetaEnviar {
+            get {
+                return ResourceManager.GetString("EtiquetaEnviar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Estado.
         /// </summary>
         public static string EtiquetaEstado {

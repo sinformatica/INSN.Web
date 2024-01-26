@@ -1,12 +1,11 @@
-﻿using INSN.Web.Models.Response.Home;
-using INSN.Web.Models.Response;
+﻿using INSN.Web.Models.Response;
 using INSN.Web.Models.Request.Home;
 using INSN.Web.Models.Response.Home.OportunidadLaboral;
 
 namespace INSN.Web.Services.Interfaces.Home.OportunidadLaboral
 {
     /// <summary>
-    /// Interface Servicio Convocatoria Legal
+    /// Interface Servicio Convocatoria
     /// </summary>
     public interface IDocumentoConvocatoriaService
     {

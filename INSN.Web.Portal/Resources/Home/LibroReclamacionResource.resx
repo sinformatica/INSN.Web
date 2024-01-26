@@ -117,11 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EtiquetaCelular" xml:space="preserve">
-    <value>Celular</value>
+  <data name="EtiquetaApellidoMaterno" xml:space="preserve">
+    <value>Apellido Materno</value>
   </data>
-  <data name="EtiquetaDomicilio" xml:space="preserve">
-    <value>Domicilio</value>
+  <data name="EtiquetaApellidoPaterno" xml:space="preserve">
+    <value>Apellido Paterno</value>
+  </data>
+  <data name="EtiquetaCelularTelefono" xml:space="preserve">
+    <value>Celular o Teléfono</value>
+  </data>
+  <data name="EtiquetaDatosPaciente" xml:space="preserve">
+    <value>Datos del Paciente</value>
+  </data>
+  <data name="EtiquetaDirección" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
+  <data name="EtiquetaDocumentoIdentidad" xml:space="preserve">
+    <value>Nro. Documento</value>
   </data>
   <data name="EtiquetaEmail" xml:space="preserve">
     <value>Email</value>
@@ -129,16 +141,25 @@
   <data name="EtiquetaNombres" xml:space="preserve">
     <value>Nombres</value>
   </data>
-  <data name="EtiquetaNroDocumento" xml:space="preserve">
-    <value>Nro. Documento</value>
+  <data name="EtiquetaRazonSocial" xml:space="preserve">
+    <value>Razón Social</value>
   </data>
   <data name="EtiquetaReclamo" xml:space="preserve">
     <value>Reclamo</value>
   </data>
-  <data name="EtiquetaTelefono" xml:space="preserve">
-    <value>Telefono</value>
+  <data name="EtiquetaRUC" xml:space="preserve">
+    <value>RUC</value>
+  </data>
+  <data name="EtiquetaSeccion" xml:space="preserve">
+    <value>Registro del Libro de Reclamaciones en Salud Web</value>
+  </data>
+  <data name="EtiquetaTipoDocumentoIdentidad" xml:space="preserve">
+    <value>Tipo Documento</value>
+  </data>
+  <data name="EtiquetaTipoParentesco" xml:space="preserve">
+    <value>Parentesco</value>
   </data>
   <data name="EtiquetaTipoPersona" xml:space="preserve">
-    <value>TipoPersona</value>
+    <value>Tipo Persona</value>
   </data>
 </root>

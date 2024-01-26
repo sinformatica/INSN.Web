@@ -1,0 +1,134 @@
+﻿@using INSN.Web.ViewModels.Home
+@using INSN.Web.Portal.Resources.Home
+@using INSN.Web.Portal.Resources
+
+@model DocumentoLegalViewModel
+
+@{
+    ViewData["Title"] = "INSN Breña";
+}
+
+<main id="main">
+    <!-- ======= INICIO DE SESSION CON PESTAÑA ( OEAIDE )======= -->
+    <div class="section best-deal">
+        <div class="container">
+            <div class="col-lg-12">
+                <div class="section-header">
+                    <h2>Oficina Ejecutiva de Apoyo a la Investigación y Docencia Especializada (OEAIDE) </h2>
+
+
+                    <div class="tab-content" id="myTabContent">
+                        <!-- ============== -->
+                        <!-- ======= INICIO PUBLICO ======= -->
+                        <div class="tab-pane fade show active" id="Servicios" role="tabpanel" aria-labelledby="Servicios-tab">
+                            <br />
+                            <br />
+                            <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                <div class="col-6 col-md-4 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-shadow text-center" href="http://solicitudcitas.insn.gob.pe/TeleGestion/cliente/" target="_blank">
+                                        <div class="block-content">
+                                            <p class="mt-1">
+                                                <img src="~/imagenes/iconos/Investig.svg" width="100%" height="100%">
+                                            </p>
+                                            <p class="fw-medium">Solicitud de Citas</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Telesalud" asp-action="Index">
+                                        <div class="block-content">
+                                            <p class="mt-1">
+                                                <img src="~/imagenes/iconos/Docencia.svg" width="100%" height="100%">
+
+                                            </p>
+                                            <p class="fw-medium">Telesalud</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="OportunidadLaboral" asp-action="Index">
+                                        <div class="block-content">
+                                            <p class="mt-1">
+                                                <img src="~/imagenes/iconos/Etica.svg" width="100%" height="100%">
+                                            </p>
+                                            <p class="fw-medium">Oportunidad Laboral</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                <div class="col-6 col-md-4 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="BibliotecaVirtual" asp-action="Index">
+                                        <div class="block-content">
+                                            <p class="mt-1">
+                                                <img src="~/imagenes/iconos/Biblio.svg" width="100%" height="100%">
+                                            </p>
+                                            <p class="fw-medium">Biblioteca Virtual</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Telesalud" asp-action="Index">
+                                        <div class="block-content">
+                                            <p class="mt-1">
+                                                <img src="~/imagenes/iconos/Telesa.svg" width="100%" height="100%">
+
+                                            </p>
+                                            <p class="fw-medium">Telesalud</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-xl-2">
+                                    <a class="block block-rounded block-bordered block-link-shadow text-center" href="https://revistapediatricae.insn.gob.pe/index.php/rpe" target="_blank">
+                                        <div class="block-content">
+                                            <p class="mt-1">
+                                                <img src="~/imagenes/iconos/revistape.svg" width="100%" height="100%">
+                                            </p>
+                                            <p class="fw-medium">Revista Pediátrica Especializada</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ======= FIN PUBLICO ======= -->
+
+
+                    <p align="justify">
+                        Es la entidad responsable en el INSN de coordinar, asesorar y dar seguimiento a los proyectos de investigación llevados 
+                        a cabo por nuestro personal del sector. Además, impulsamos activamente la difusión de los valiosos resultados obtenidos 
+                        en estos proyectos, contribuyendo así al avance y la excelencia en la investigación y docencia especializada.
+</p>
+                    <br />
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <img src="~/imagenes/oeaide/oeaide.png" class="img-fluid">
+                            </div>
+                    </div>
+                    <br />
+                     </div>
+                <div class="row g-sm">
+                    <div class="col-md-4 col-md-6">
+                        <a class="block block-link-shadow text-center">
+                            <div class="block-content">
+                                <p class="fw-medium">MISIÓN</p>
+                            <p class="fw-medium">Apoyar la investigación, docencia y capacitación de calidad en el Instituto Nacional de Salud del Niño</p>
+                            </div>
+                        </a> 
+                    </div>
+                    <div class="col-md-4 col-md-6">
+                        <a class="block block-link-shadow text-center">
+                            <div class="block-content">
+                                <p class="fw-medium">VISIÓN</p>
+                            <p class="fw-medium">Lograr que el Instituto Nacional de Salud del Niño sea líder en la investigación, docencia y capacitación de la pediatría nacional</p>
+
+                            </div>
+                         </a>
+                    </div>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
