@@ -81,9 +81,9 @@ namespace INSN.Web.Portal.Resources.Home {
         /// <summary>
         ///   Busca una cadena traducida similar a Celular o Teléfono.
         /// </summary>
-        public static string EtiquetaCelularTeléfono {
+        public static string EtiquetaCelularTelefono {
             get {
-                return ResourceManager.GetString("EtiquetaCelularTeléfono", resourceCulture);
+                return ResourceManager.GetString("EtiquetaCelularTelefono", resourceCulture);
             }
         }
         
@@ -165,15 +165,6 @@ namespace INSN.Web.Portal.Resources.Home {
         public static string EtiquetaSeccion {
             get {
                 return ResourceManager.GetString("EtiquetaSeccion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Teléfono.
-        /// </summary>
-        public static string EtiquetaTeléfono {
-            get {
-                return ResourceManager.GetString("EtiquetaTeléfono", resourceCulture);
             }
         }
         
