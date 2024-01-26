@@ -3,6 +3,7 @@ using INSN.Web.Entities.DocumentoInstitucional;
 using INSN.Web.Entities.SegApp;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using INSN.Web.Entities.Mantenimiento.Comunicado;
 
 namespace INSN.Web.DataAccess
 {
@@ -46,6 +47,11 @@ namespace INSN.Web.DataAccess
             modelBuilder.Entity<TipoConvocatoria>().HasKey(f => f.CodigoTipoConvocatoriaId);
             modelBuilder.Entity<TipoDocumentoConvocatoria>().HasKey(f => f.CodigoTipoDocumentoConvocatoriaId);
             modelBuilder.Entity<DocumentoConvocatoria>().HasKey(f => f.CodigoDocumentoConvocatoriaId);
+            #endregion
+
+            #region [Mantenimiento - Comunicado]
+            modelBuilder.Entity<Comunicado>().HasKey(f => f.CodigoComunicadoId);
+            modelBuilder.Entity<ComunicadoDetalle>().HasKey(f => f.CodigoComunicadoDetId);
             #endregion
             #endregion
 

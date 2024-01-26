@@ -2,13 +2,16 @@
 using INSN.Web.Entities.DocumentoInstitucional;
 using INSN.Web.Entities.Info.Mantenimiento;
 using INSN.Web.Entities.Info.OportunidadLaboral;
+using INSN.Web.Entities.Mantenimiento.Comunicado;
 using INSN.Web.Entities.OportunidadLaboral;
 using INSN.Web.Entities.SegApp;
 using INSN.Web.Models.Request.Home;
+using INSN.Web.Models.Request.Mantenimiento.Comunicados;
 using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.Home;
 using INSN.Web.Models.Response.Home.OportunidadLaboral;
+using INSN.Web.Models.Response.Mantenimiento.Comunicados;
 using INSN.Web.Models.Response.SegApp;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.Sistemas;
@@ -35,7 +38,7 @@ namespace INSN.Web.Services.Profiles
             CreateMap<DocumentoLegal, DocumentoLegalDtoResponse>();
             CreateMap<DocumentoLegalDtoRequest, DocumentoLegal>();
 
-
+            //Mapear Convocatoria
             CreateMap<DocumentoConvocatoria, DocumentoConvocatoriaDtoResponse>();
             CreateMap<ConvocatoriaDtoRequest, Convocatoria>();
 
@@ -61,6 +64,10 @@ namespace INSN.Web.Services.Profiles
 
             // Mapear Sistema
             CreateMap<Sistema, SistemaDtoResponse>();
+
+            // Mapear Comunicado
+            CreateMap<Comunicado, ComunicadoDtoResponse>();
+            CreateMap<ComunicadoDtoRequest, Comunicado>();
         }
     }
 }
