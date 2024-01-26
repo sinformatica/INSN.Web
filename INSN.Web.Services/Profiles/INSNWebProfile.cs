@@ -68,6 +68,8 @@ namespace INSN.Web.Services.Profiles
             // Mapear Comunicado
             CreateMap<Comunicado, ComunicadoDtoResponse>();
             CreateMap<ComunicadoDtoRequest, Comunicado>();
+            CreateMap<ComunicadoDetalle, ComunicadoDetalleDtoResponse>();
+            CreateMap<ComunicadoDetalleDtoRequest, ComunicadoDetalle>();
         }
     }
 }

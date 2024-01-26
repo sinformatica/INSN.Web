@@ -39,6 +39,7 @@ namespace INSN.Web.Services.Implementaciones.Mantenimiento.Comunicados
             _repository = repository;
         }
 
+        #region[Comunicado]
         /// <summary>
         /// Service: Comunicado
         /// </summary>
@@ -59,7 +60,6 @@ namespace INSN.Web.Services.Implementaciones.Mantenimiento.Comunicados
                 });
 
                 response.Data = lista.Select(x => _mapper.Map<ComunicadoDtoResponse>(x)).ToList();
-
                 response.Success = true;
             }
             catch (Exception ex)
@@ -70,5 +70,32 @@ namespace INSN.Web.Services.Implementaciones.Mantenimiento.Comunicados
 
             return response;
         }
+        #endregion
+
+        #region[Comunicado detalle]
+        /// <summary>
+        /// Service: Comunicado Detalle
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<BaseResponseGeneric<ICollection<ComunicadoDetalleDtoResponse>>> ComunicadoDetalleListar(int CodigoComunicadoId)
+        {
+            var response = new BaseResponseGeneric<ICollection<ComunicadoDetalleDtoResponse>>();
+
+            try
+            {
+                var lista = await _repository.ComunicadoDetalleListar(CodigoComunicadoId);
+                response.Data = lista.Select(x => _mapper.Map<ComunicadoDetalleDtoResponse>(x)).ToList();
+                response.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.ErrorMessage = "Service: Error al listar: " + ex.Message;
+                _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
+            }
+
+            return response;
+        }
+        #endregion
     }
 }

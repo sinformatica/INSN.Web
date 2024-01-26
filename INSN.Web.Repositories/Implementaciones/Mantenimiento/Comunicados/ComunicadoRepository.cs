@@ -23,6 +23,7 @@ namespace INSN.Web.Repositories.Implementaciones.Mantenimiento.Comunicados
         {
         }
 
+        #region[Comunicado]
         /// <summary>
         /// Repository: Comunicado Listar
         /// </summary>
@@ -45,12 +46,40 @@ namespace INSN.Web.Repositories.Implementaciones.Mantenimiento.Comunicados
                     FechaPublicacion = p.FechaPublicacion,
                     FechaExpiracion = p.FechaExpiracion,
                     NombreModal = p.NombreModal,
-                    NombreImagenPortada = p.NombreImagenPortada,
+                    RutaImagenPortada = p.RutaImagenPortada,
                     Ancho = p.Ancho,
                     Estado = p.Estado,
                     EstadoRegistro = p.EstadoRegistro
                 })
                 .ToListAsync();
         }
+        #endregion
+
+        #region[Comunicado detalle]
+        /// <summary>
+        /// Repository: Comunicado Detalle Listar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<ICollection<ComunicadoDetalle>> ComunicadoDetalleListar(int CodigoComunicadoId)
+        {
+            Expression<Func<ComunicadoDetalle, bool>> predicate =
+                    x => (x.CodigoComunicadoId == CodigoComunicadoId)
+                         && (x.Estado == "A")
+                         && (x.EstadoRegistro == 1);
+
+            return await Context.Set<ComunicadoDetalle>()
+                .Where(predicate)
+                .Select(p => new ComunicadoDetalle
+                {
+                    CodigoComunicadoDetId = p.CodigoComunicadoDetId,
+                    CodigoComunicadoId = p.CodigoComunicadoId,
+                    RutaImagen = p.RutaImagen,
+                    Estado = p.Estado,
+                    EstadoRegistro = p.EstadoRegistro
+                })
+                .ToListAsync();
+        }
+        #endregion
     }
 }

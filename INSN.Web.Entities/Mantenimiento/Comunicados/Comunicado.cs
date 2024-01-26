@@ -39,7 +39,7 @@ namespace INSN.Web.Entities.Mantenimiento.Comunicado
         /// <summary>
         /// Ruta Portada
         /// </summary>
-        public string? NombreImagenPortada { get; set; }
+        public string? RutaImagenPortada { get; set; }
 
         /// <summary>
         /// Ancho

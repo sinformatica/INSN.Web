@@ -4,7 +4,7 @@ using INSN.Web.Models.Response.Home;
 namespace INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 
 /// <summary>
-/// Interface Documento Lega Producto
+/// Interface Documento Legal Producto
 /// </summary>
 public interface IDocumentoLegalProxy : ICrudRestHelper<DocumentoLegalDtoRequest, DocumentoLegalDtoResponse>
 {

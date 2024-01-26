@@ -36,7 +36,7 @@ namespace INSN.Web.Models.Request.Mantenimiento.Comunicados
         /// <summary>
         /// Ruta Portada
         /// </summary>
-        public string? NombreImagenPortada { get; set; } = default!;
+        public string? RutaImagenPortada { get; set; } = default!;
 
         /// <summary>
         /// Ancho

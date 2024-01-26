@@ -1,17 +1,33 @@
 ﻿@using INSN.Web.Portal.Resources;
+@using INSN.Web.ViewModels.Home;
+@using INSN.Web.Portal.Controllers;
+
+@model PrincipalViewModel
 
 @{
     ViewData["Title"] = "INSN Breña";
 }
 
 <!-- ======= INICIO Seccion de Banner - Portada - Modificar Fotos y Texto ======= -->
-<div class="main-banner" style="padding-top: 50px;" />
+<div class="main-banner">
     <div class="owl-carousel owl-banner">
-        <div class="item item-1" style="height: 550px;">          
+        <div class="item item-1">
+            <div class="header-text">
+                <span class="category">INSN, <em>Breña</em></span>
+                <h2>Especialistas<br>en salud y atención infantil</h2>
+            </div>
         </div>
-        <div class="item item-2" style="height: 550px;">            
+        <div class="item item-2">
+            <div class="header-text">
+                <span class="category">INSN, <em>Breña</em></span>
+                <h2>Experiencia<br>pediátrica de primera clase</h2>
+            </div>
         </div>
-        <div class="item item-3" style="height: 550px;">           
+        <div class="item item-3">
+            <div class="header-text">
+                <span class="category">INSN, <em>Breña</em></span>
+                <h2>Juntos<br>por la salud de los niños</h2>
+            </div>
         </div>
     </div>
 </div>
@@ -19,7 +35,7 @@
 <!-- ============== -->
 
 <main id="main">
-
+    <form>
     <!-- ======= INICIO DE CARTERA - SERVICIOS ======= -->
     <!-- ======= INICIO OBJETIVOS - ORGANIGRAMA - HISTORIA ======= -->
     <div class="section best-deal sections-bg" style="background-color: #f6f6f6;">
@@ -96,9 +112,6 @@
                                         </div>
                                     </a>
                                 </div>
-                               
-                            </div>
-                            <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
                                 <div class="col-6 col-md-4 col-xl-2">
                                     <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="BibliotecaVirtual" asp-action="Index">
                                         <div class="block-content">
@@ -291,13 +304,13 @@
                             <div class="testimonial-item">
                                 <div class="d-flex align-items-center">
                                     <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_6/noticia_6_f1.jpeg" class="testimonial-img flex-shrink-0" alt="" style="height: 165px">
+                                        <img src="~/imagenes/noticias/portafolio_noticia_6/noticia_6_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
                                     </div>
                                 </div>
                                 <br>
                                 <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_6)</h4>
                                 <p>
-                                    INSN presente en mesa de trabajo sobre propuesta de Ley...
+                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_6)
                                 </p>
                                 <br />
                                 <br />
@@ -312,15 +325,15 @@
                             <div class="testimonial-item">
                                 <div class="d-flex align-items-center">
                                     <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_5/noticia_5_f1.jpeg" class="testimonial-img flex-shrink-0" alt="" style="height: 165px">
+                                        <img src="~/imagenes/noticias/portafolio_noticia_5/noticia_5_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
                                     </div>
                                 </div>
-                                <br />
-                              <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_5)</h4>
+                                <br>
+                                <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_5)</h4>
                                 <p>
-                                    Con éxito se realizó primera tele - interconsulta médica por Telemedicina de...
+                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_5)
                                 </p>
-                                <br /> <br />
+                                <br>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_5" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -332,15 +345,17 @@
                             <div class="testimonial-item">
                                 <div class="d-flex align-items-center">
                                     <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_4/noticia_4_f1.jpeg" class="testimonial-img flex-shrink-0" alt="" style="height: 165px">
+                                        <img src="~/imagenes/noticias/portafolio_noticia_4/noticia_4_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
                                     </div>
                                 </div>
                                 <br />
+                                <br />
+                                <br />
                                 <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_4)</h4>
                                 <p>
-                                    INSN conmemora el día Mundial de la Higiene de Manos...
+                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_4)
                                 </p>
-                                <br />  <br />
+                                <br>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_4" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -352,16 +367,14 @@
                             <div class="testimonial-item">
                                 <div class="d-flex align-items-center">
                                     <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_3/noticia_3_f1.jpeg" class="testimonial-img flex-shrink-0" alt="" style="height: 165px">
+                                        <img src="~/imagenes/noticias/portafolio_noticia_3/noticia_3_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
                                     </div>
                                 </div>
-                                <br />
                                 <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_3)</h4>
                                 <p>
-                                  INSN: Por primera vez en el Perú, colocan válvulas pulmonares auto...
+                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_3)
                                 </p>
-                                <br />  
-                                <br />
+                                <br>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_3" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -373,16 +386,16 @@
                             <div class="testimonial-item">
                                 <div class="d-flex align-items-center">
                                     <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_2/noticia_2_f1.jpeg" class="testimonial-img flex-shrink-0" alt="" style="height: 165px">
+                                        <img src="~/imagenes/noticias/portafolio_noticia_2/noticia_2_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
                                     </div>
                                 </div>
                                 <br />
+                                <br />
                                 <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_2)</h4>
                                 <p>
-                                    Servicio de Neonatología y Microbiología izaron nuestro pabellón Naciona...
+                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_2)
                                 </p>
-                                <br />
-                                <br />
+                                <br>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_2" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -394,16 +407,16 @@
                             <div class="testimonial-item">
                                 <div class="d-flex align-items-center">
                                     <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_1/noticia_1_f1.jpeg" class="testimonial-img flex-shrink-0" alt="" style="height: 165px">
+                                        <img src="~/imagenes/noticias/portafolio_noticia_1/noticia_1_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
                                     </div>
                                 </div>
                                 <br />
+                                <br />
                                 <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_1)</h4>
                                 <p>
-                                    INSN tendrá moderno resonador magnético para aplicaciones en patologías complejas...
+                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_1)
                                 </p>
-                                <br />
-                                <br />
+                                <br>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_1" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -417,217 +430,56 @@
     <!-- ======= FIN NOTICIAS  ======= -->
     <!-- ============== -->
     <!-- ======= INICIO DE COMUNICADOS======= -->
-    <section id="Comunicado" class="portfolio sections-bg">
+    <section id="Comunicado" class="testimonials">
         <div class="container" data-aos="fade-up">
+            <br />
             <div class="section-header">
                 <h2>Comunicados</h2>
                 <p align="center">
                     Campañas y eventos
                 </p>
             </div>
-            <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
-                <div class="row gy-4 portfolio-container">
-                    <!-- ============== -->
-                    <!-- ============== -->
-                    <!-- ============== -->
-                    <!-- ======= INICIO DE COMUNICADO 10======= -->
-                    <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap" style="height: 500px; /* Altura definida */">
-                            <div style="text-align: center; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                                <a href="~/imagenes/comunicados/comunicado_10.jpeg" data-gallery="Portafolio_Comunicado_10" class="glightbox">
-                                    <img src="~/imagenes/comunicados/comunicado_10.jpeg" class="img-fluid" style="max-height: 400px;" alt="">
-                                </a>
-                                <div class="portfolio-info">
-                                    <h6><a>Curso Metodología INSN</a></h6>
-                                    <p>13 Noviembre, 2023</p>
+            <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+                    @if (Model is null)
+                    {
+                        <p>Sin resultados</p>
+                    }
+                    else if (!Model.ComunicadoLista.Any())
+                    {
+                        <p>Sin datos para mostrar</p>
+                    }
+                    else
+                    {
+                            @foreach (var item in Model.ComunicadoLista)
+                            {
+                                <div class="swiper-slide">
+                                    <div class="testimonial-wrap">
+                                        <div class="testimonial-item">
+                                            <div class="d-flex align-items-center">
+                                                <div style="text-align: center; width: 100%;">
+                                                    <img src="@item.RutaImagenPortada" class="testimonial-img flex-shrink-0" alt="">
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <h4>@item.FechaPublicacion.ToString("dd/MM/yyyy")</h4>
+                                            <p>
+                                                @item.Titulo
+                                            </p>
+                                            <a data-bs-toggle="modal" data-bs-target="#@item.NombreModal" class="readmore stretched-link" style="cursor: pointer;"></a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ======= FIN DE COMUNICADO 10======= -->
-                    <!-- ======= INICIO DE COMUNICADO 9======= -->
-                    <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap" style="height: 500px; /* Altura definida */">
-                            <div style="text-align: center; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                                <a href="~/imagenes/comunicados/comunicado_9.jpeg" data-gallery="Portafolio_Comunicado_9" class="glightbox">
-                                    <img src="~/imagenes/comunicados/comunicado_9.jpeg" class="img-fluid" style="max-height: 400px;" alt="">
-                                </a>
-                                <div class="portfolio-info">
-                                    <h6><a>Concurso Danza INSN</a></h6>
-                                    <p>13 Noviembre, 2023</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ======= FIN DE COMUNICADO 9======= -->
-                    <!-- ============== -->
-                    <!-- ======= INICIO DE COMUNICADO 8======= -->
-                    <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap" style="height: 500px; /* Altura definida */">
-                            <div style="text-align: center; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                                <a href="~/imagenes/comunicados/comunicado_8.jpeg" data-gallery="Portafolio_Comunicado_7" class="glightbox">
-                                    <img src="~/imagenes/comunicados/comunicado_8.jpeg" class="img-fluid" style="max-height: 400px;" alt="">
-                                </a>
-                                <div class="portfolio-info">
-                                    <h6>
-                                        <a>
-                                            Cursos INSN
-                                        </a>
-                                    </h6>
-                                    <p>9 Noviembre, 2023</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ======= FIN DE COMUNICADO 8======= -->
-                    <!-- ============== -->
-                    <!-- ======= INICIO DE COMUNICADO 7======= -->
-                    <div class="col-xl-4 col-md-6 portfolio-item filter-app" style="display: none;">
-                        <div class="portfolio-wrap" style="height: 500px; /* Altura definida */">
-                            <div style="text-align: center; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                                <a href="~/imagenes/comunicados/comunicado_7.jpeg" data-gallery="Portafolio_Comunicado_7" class="glightbox">
-                                    <img src="~/imagenes/comunicados/comunicado_7.jpeg" class="img-fluid" style="max-height: 400px;" alt="">
-                                </a>
-                                <div class="portfolio-info">
-                                    <h6>
-                                        <a>
-                                            Cursos INSN
-                                        </a>
-                                    </h6>
-                                    <p>9 Noviembre, 2023</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ======= FIN DE COMUNICADO 7======= -->
-                    <!-- ======= INICIO DE COMUNICADO 6======= -->
-                    <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap" style="height: 500px; /* Altura definida */">
-                            <div style="text-align: center; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                                <a href="~/imagenes/comunicados/comunicado_6.jpeg" data-gallery="Portafolio_Comunicado_6" class="glightbox">
-                                    <img src="~/imagenes/comunicados/comunicado_6.jpeg" class="img-fluid" style="max-height: 400px;" alt="">
-                                </a>
-                                <div class="portfolio-info">
-                                    <h6>
-                                        <a>
-                                            Citas
-                                        </a>
-                                    </h6>
-                                    <p>6 Noviembre, 2023</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ======= FIN DE COMUNICADO 6======= -->
-                    <!-- ============== -->
-                    <!-- ======= INICIO DE COMUNICADO 5======= -->
-                    <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap">
-                            <div style="text-align: center; width: 100%;">
-                                <a href="~/imagenes/comunicados/comunicado_5.jpeg" data-gallery="Portafolio_Comunicado_5" class="glightbox">
-                                    <img src="~/imagenes/comunicados/comunicado_5.jpeg" class="img-fluid" style="max-height: 400px;" alt="">
-                                </a>
-                                <div class="portfolio-info">
-                                    <h6>
-                                        <a>
-                                            Felices Fiestas Patrias 2023
-                                        </a>
-                                    </h6>
-                                    <p>27 Julio, 2023</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ======= FIN DE COMUNICADO 5======= -->
-                    <!-- ============== -->
-                    <!-- ======= INICIO DE COMUNICADO 4======= -->
-                    <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap" style="height: 500px; /* Altura definida */">
-                            <div style="text-align: center; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                                <a href="~/imagenes/comunicados/comunicado_4.jpeg" data-gallery="Portafolio_Comunicado_4" class="glightbox">
-                                    <img src="~/imagenes/comunicados/comunicado_4.jpeg" class="img-fluid" style="max-height: 400px;" alt="">
-                                </a>
-                                <div class="portfolio-info">
-                                    <h6>
-                                        <a>
-                                            VI Congreso Internacional
-                                        </a>
-                                    </h6>
-                                    <p>24 Julio, 2023</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ======= FIN DE COMUNICADO 4======= -->
-                    <!-- ============== -->
-                    <!-- ======= INICIO DE COMUNICADO 3======= -->
-                    <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap" style="height: 500px; /* Altura definida */">
-                            <div style="text-align: center; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                                <a href="~/imagenes/comunicados/comunicado_3.jpeg" data-gallery="Portafolio_Comunicado_3" class="glightbox">
-                                    <img src="~/imagenes/comunicados/comunicado_3.jpeg" class="img-fluid" style="max-height: 400px;" alt="">
-                                </a>
-                                <div class="portfolio-info">
-                                    <h6>
-                                        <a>
-                                            Día del Trabajo
-                                        </a>
-                                    </h6>
-                                    <p>1 Mayo, 2023</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ======= FIN DE COMUNICADO 3======= -->
-                    <!-- ============== -->
-                    <!-- ======= INICIO DE COMUNICADO 2======= -->
-                    <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap" style="height: 500px; /* Altura definida */">
-                            <div style="text-align: center; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                                <a href="~/imagenes/comunicados/comunicado_2.jpeg" data-gallery="Portafolio_Comunicado_2" class="glightbox">
-                                    <img src="~/imagenes/comunicados/comunicado_2.jpeg" class="img-fluid" style="max-height: 400px;" alt="">
-                                </a>
-                                <div class="portfolio-info">
-                                    <h6>
-                                        <a>
-                                            Día del Psicólogo
-                                        </a>
-                                    </h6>
-                                    <p>30 Abril, 2023</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ======= FIN DE COMUNICADO 2======= -->
-                    <!-- ============== -->
-                    <!-- ======= INICIO DE COMUNICADO 1======= -->
-                    <div class="col-xl-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap" style="height: 500px; /* Altura definida */">
-                            <div style="text-align: center; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                                <a href="~/imagenes/comunicados/comunicado_1.jpeg" data-gallery="Portafolio_Comunicado_1" class="glightbox">
-                                    <img src="~/imagenes/comunicados/comunicado_1.jpeg" class="img-fluid" style="max-height: 400px;" alt="">
-                                </a>
-                                <div class="portfolio-info">
-                                    <h6>
-                                        <a>
-                                            Invitación Izamiento
-                                        </a>
-                                    </h6>
-                                    <p>29 Abril, 2023</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ======= FIN DE COMUNICADO 1======= -->
-                    <!-- ============== -->
+                            }
+                        }
                 </div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
     <!-- ======= FIN DE COMUNICADOS======= -->
+    </form>
 </main>
-
-
 
 <!-- INICIO CREACION DE MODALS -->
 <!-- INICIO MODAL - NOTICIA 6 -->
@@ -1079,3 +931,55 @@
     </div>
 </div>
 <!-- FIN MODAL - NOTICIA 1 -->
+
+<!-- INICIO MODAL - COMUNICADOS -->
+@if (Model is not null)
+{
+    if (Model.ComunicadoLista.Any())
+    {
+        @foreach (var item in Model.ComunicadoLista)
+        {
+            <div id="@item.NombreModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="@item.NombreModal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-fromleft modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <!-- Contenedor para Swiper y lightGallery con clase en lugar de ID -->
+                            <div class="swiper-container swiper-gallery" style="max-width: @item.Ancho px;">
+                                <div class="swiper-wrapper">
+
+                                    @foreach (var det in item.DetalleLista)
+                                    {
+                                        <div class="swiper-slide">
+                                            <img src="@det.RutaImagen">
+                                        </div>
+                                    }
+                                </div>
+                                <!-- Agrega las flechas de navegación si lo deseas -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}
+<!-- FIN MODAL - COMUNICADOS -->
+
+<!-- jQuery desde CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Inicializa Swiper
+        var swiper = new Swiper('.swiper-gallery', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    });
+</script>

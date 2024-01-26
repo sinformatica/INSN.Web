@@ -8,6 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using INSN.Web.Entities.Mantenimiento.Comunicado;
 
 namespace INSN.Web.DataAccess
 {
@@ -52,6 +53,12 @@ namespace INSN.Web.DataAccess
             modelBuilder.Entity<TipoDocumentoConvocatoria>().HasKey(f => f.CodigoTipoDocumentoConvocatoriaId);
             modelBuilder.Entity<DocumentoConvocatoria>().HasKey(f => f.CodigoDocumentoConvocatoriaId);
             #endregion
+
+            #region[Mantenimiento]
+            modelBuilder.Entity<Comunicado>().HasKey(f => f.CodigoComunicadoId);
+            modelBuilder.Entity<ComunicadoDetalle>().HasKey(f => f.CodigoComunicadoDetId);
+            #endregion
+
             #endregion
 
             //Se va agregar la configuracion de las entidades desde este mismo ensamblado
