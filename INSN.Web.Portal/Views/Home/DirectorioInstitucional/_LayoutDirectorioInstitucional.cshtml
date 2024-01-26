@@ -663,23 +663,20 @@
 
 
     <!-- ======= Footer ======= -->
-   <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
-
         <div class="container">
             <div class="row gy-0">
-                <div class="col-lg-5 col-md-12 footer-info">
+                <div class="col-lg-4 col-md-12 footer-info" style="align-self: center;">
                     <br />
                     <br />
-                    <a class="logo d-flex align-items-center">
-                        <span>INSN</span>
-                    </a>
-                    <p>
-                        Instituo Nacional de Salud del Niño
-                    </p>
+                    <div style="text-align-last: center;">
+                        <span style="font-weight: bold; font-size: 2.3em;">INSN</span>
+                        <br />
+                        <span style="font-weight: normal; font-size: 1.7em;">Instituto Nacional de Salud del Niño</span>
+                    </div>
                 </div>
-                <div class="col-lg-5 col-md-12 footer-info">
-                    <div class="social-links d-flex mt-4">
+                <div class="col-lg-5 col-md-12 footer-info" style="align-self: center;">
+                    <div class="social-links d-flex mt-4" style="justify-content: center;">
                         <a href="https://mail.insn.gob.pe/" class="envelope" target="_blank"><i class="bi bi-envelope-fill"></i></a>
                         <a href="https://www.youtube.com/INSNvideos" class="youtube" target="_blank"><i class="bi bi-youtube"></i></a>
                         <a href="https://twitter.com/insn_oficial" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
@@ -688,11 +685,12 @@
                         <a href="https://www.linkedin.com/company/insn/about/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-12 footer-info">
+                <div class="col-lg-3 col-md-12 footer-info" style="text-align-last: center;">
                     <br />
-                    <br />
-                    <a style="color: #ffffff;" asp-area="" asp-controller="LibroReclamacion" asp-action="Index">
-                        <h6>Libro de Reclamaciones</h6>
+                    <br />   <a style="color: #ffffff;" asp-area="" asp-controller="LibroReclamacion" asp-action="Index">
+                        <img src="~/imagenes/LibroReclamaciones/Libro_sin_fondo.PNG" alt="" style="width: 170px; height: 55px;">
+
+                        <h6><strong>Libro de <br /> Reclamaciones</strong></h6>
                     </a>
                 </div>
             </div>
@@ -703,6 +701,7 @@
             </div>
         </div>
     </footer>
+
 
     <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/vendor/aos/aos.js"></script>

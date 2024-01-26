@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using INSN.Web.Models.Response;
-
-namespace INSN.Web.Models.Response.SegApp
+﻿namespace INSN.Web.Models.Response.SegApp
 {
     public class TipoDocumentoIdentidadDtoResponse : BaseResponse
     {

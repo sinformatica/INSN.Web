@@ -144,6 +144,9 @@
   <data name="EtiquetaEnProceso" xml:space="preserve">
     <value>En Proceso</value>
   </data>
+  <data name="EtiquetaEnviar" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
   <data name="EtiquetaEstado" xml:space="preserve">
     <value>Estado</value>
   </data>
