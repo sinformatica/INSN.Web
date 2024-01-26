@@ -1,6 +1,4 @@
-﻿using INSN.Web.Entities.OportunidadLaboral;
-using INSN.Web.Entities.DocumentoInstitucional;
-using INSN.Web.Entities.SegApp;
+﻿using INSN.Web.Entities.SegApp;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,6 +6,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using INSN.Web.Entities.Mantenimiento.OportunidadLaboral;
+using INSN.Web.Entities.Mantenimiento.DocumentoInstitucional;
 
 namespace INSN.Web.DataAccess
 {

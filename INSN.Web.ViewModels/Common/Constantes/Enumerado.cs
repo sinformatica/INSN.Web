@@ -1,7 +1,7 @@
 ﻿namespace INSN.Web.ViewModels.Common.Constantes
 {
     /// <summary>
-    /// Variables - Constantes - Enumerado
+    /// Variables - Constantes - Enumerado - FrontEnd
     /// </summary>
     public class Enumerado
     {

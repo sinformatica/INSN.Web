@@ -24,18 +24,18 @@ using INSN.Web.Repositories.Interfaces.Acceso;
 using INSN.Web.Services.Interfaces.Acceso;
 using INSN.Web.Services.Implementaciones.Acceso;
 using INSN.Web.ApiRest.Controllers;
-using INSN.Web.Repositories.Implementaciones.Home.DocumentoInstitucional;
-using INSN.Web.Repositories.Interfaces.Home.DocumentoInstitucional;
-using INSN.Web.Services.Interfaces.Home.DocumentoInstitucional;
-using INSN.Web.Services.Implementaciones.Home.DocumentoInstitucional;
-using INSN.Web.Repositories.Interfaces.Home.OportunidadLaboral;
-using INSN.Web.Services.Implementaciones.Home.OportunidadLaboral;
-using INSN.Web.Repositories.Implementaciones.Home.OportunidadLaboral;
-using INSN.Web.Services.Interfaces.Home.OportunidadLaboral;
 using INSN.Web.Repositories.Implementaciones.Mantenimiento.Comunicados;
 using INSN.Web.Services.Implementaciones.Mantenimiento.Comunicados;
 using INSN.Web.Services.Interfaces.Mantenimiento.Comunicados;
 using INSN.Web.Repositories.Interfaces.Mantenimiento.Comunicados;
+using INSN.Web.Repositories.Implementaciones.Mantenimiento.DocumentoInstitucional;
+using INSN.Web.Repositories.Implementaciones.Mantenimiento.OportunidadLaboral;
+using INSN.Web.Repositories.Interfaces.Mantenimiento.DocumentoInstitucional;
+using INSN.Web.Repositories.Interfaces.Mantenimiento.OportunidadLaboral;
+using INSN.Web.Services.Implementaciones.Mantenimiento.DocumentoInstitucional;
+using INSN.Web.Services.Implementaciones.Mantenimiento.OportunidadLaboral;
+using INSN.Web.Services.Interfaces.Mantenimiento.OportunidadLaboral;
+using INSN.Web.Services.Interfaces.Mantenimiento.DocumentoInstitucional;
 
 var builder = WebApplication.CreateBuilder(args);
 
