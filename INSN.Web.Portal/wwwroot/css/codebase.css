@@ -18302,6 +18302,10 @@ small,
     border: 1px solid #e4e7ed;
     box-shadow: none;
 }
+.block.block-altura {
+    height: 200px!important;
+}
+
 
 .block.block-rounded {
     border-radius: 0.875rem 1rem;
