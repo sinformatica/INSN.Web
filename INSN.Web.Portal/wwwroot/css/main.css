@@ -29712,6 +29712,9 @@ small,
     padding: 1.625rem 1.625rem 1px;
     overflow-x: visible;
 }
+.block.block-altura {
+    height: 200px !important;
+}
 
     .block-content > .pull-t,
     .block-content > .pull-y {

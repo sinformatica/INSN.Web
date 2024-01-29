@@ -11,23 +11,11 @@
 <!-- ======= INICIO Seccion de Banner - Portada - Modificar Fotos y Texto ======= -->
 <div class="main-banner">
     <div class="owl-carousel owl-banner">
-        <div class="item item-1">
-            <div class="header-text">
-                <span class="category">INSN, <em>Breña</em></span>
-                <h2>Especialistas<br>en salud y atención infantil</h2>
-            </div>
+        <div class="item item-1" style="height: 550px;">
         </div>
-        <div class="item item-2">
-            <div class="header-text">
-                <span class="category">INSN, <em>Breña</em></span>
-                <h2>Experiencia<br>pediátrica de primera clase</h2>
-            </div>
+        <div class="item item-2" style="height: 550px;">
         </div>
-        <div class="item item-3">
-            <div class="header-text">
-                <span class="category">INSN, <em>Breña</em></span>
-                <h2>Juntos<br>por la salud de los niños</h2>
-            </div>
+        <div class="item item-3" style="height: 550px;">
         </div>
     </div>
 </div>
@@ -36,421 +24,431 @@
 
 <main id="main">
     <form>
-    <!-- ======= INICIO DE CARTERA - SERVICIOS ======= -->
-    <!-- ======= INICIO OBJETIVOS - ORGANIGRAMA - HISTORIA ======= -->
-    <div class="section best-deal sections-bg" style="background-color: #f6f6f6;">
-        <div class="container">
-            <div class="col-lg-12">
+        <!-- ======= INICIO DE CARTERA - SERVICIOS ======= -->
+        <!-- ======= INICIO OBJETIVOS - ORGANIGRAMA - HISTORIA ======= -->
+        <div class="section best-deal sections-bg" style="background-color: #f6f6f6;">
+            <div class="container">
+                <div class="col-lg-12">
+                    <div class="section-header">
+                        <h2>Categorías</h2>
+                        <p>Conoce todos los trámites, servicios y contenido de orientación sobre un tema en específico.</p>
+                        <br />
+                    </div>
+                    <div class="tabs-content">
+                        <!-- ======= INICIO TABS ======= -->
+                        <div class="nav-wrapper ">
+                            <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-bottom: 2px solid #0096ad !important;">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="Servicios-tab" data-bs-toggle="tab" data-bs-target="#Servicios" type="button" role="tab" aria-controls="Servicios" aria-selected="true">Servicios</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="Administración-tab" data-bs-toggle="tab" data-bs-target="#Administración" type="button" role="tab" aria-controls="Administración" aria-selected="false">Administración</button>
+                                </li>
+
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="Otros-tab" data-bs-toggle="tab" data-bs-target="#Otros" type="button" role="tab" aria-controls="Otros" aria-selected="false">Otros</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- ======= FIN TABS ======= -->
+                        <!-- ============== -->
+                        <div class="tab-content" id="myTabContent">
+                            <!-- ============== -->
+                            <!-- ======= INICIO PUBLICO ======= -->
+                            <div class="tab-pane fade show active" id="Servicios" role="tabpanel" aria-labelledby="Servicios-tab">
+                                <br />
+                                <br />
+                                <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="row" style="justify-content: center;">
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="http://solicitudcitas.insn.gob.pe/TeleGestion/cliente/" target="_blank">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/icono_persona.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Solictud de Citas</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="Telesalud" asp-action="Index">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/Telesalud.svg" width="100%" height="100%">
+
+                                                    </p>
+                                                    <p class="fw-medium">Telesalud</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="OportunidadLaboral" asp-action="Index">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/oportunidad_laboral.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Oportunidad Laboral</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="https://revistapediatricae.insn.gob.pe/index.php/rpe" target="_blank">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/revista.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Revista</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="justify-content: center;">
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="BibliotecaVirtual" asp-action="Index">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/biblioteca.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Biblioteca Virtual</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="MesaParte" asp-action="Index">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/mesa_parte.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Mesa de Parte</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="https://www.angelitosdecristalperu.org/" target="_blank">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/angel.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Angelitos de Cristal</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="https://www.youtube.com/watch?v=nEZyjvM4avw" target="_blank">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/lactancia_materna.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Lactancia Materna</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ======= FIN PUBLICO ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO ADMINISTRACIÓN ======= -->
+                            <div class="tab-pane fade" id="Administración" role="tabpanel" aria-labelledby="Administración-tab">
+                                <div class="tab-pane fade show active" id="Administración" role="tabpanel" aria-labelledby="Administración-tab">
+                                    <br />
+                                    <br />
+                                    <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="row" style="justify-content: center;">
+                                            <div class="col-6 col-md-4 col-xl-2">
+                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="http://asistencia.insn.gob.pe/" target="_blank">
+                                                    <div class="block-content">
+                                                        <p class="mt-1">
+                                                            <img src="~/imagenes/iconos/biometrico.svg" width="100%" height="100%">
+                                                        </p>
+                                                        <p class="fw-medium">Biométrico</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-6 col-md-4 col-xl-2">
+                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="http://srvdb03/farmacia" target="_blank">
+                                                    <div class="block-content">
+                                                        <p class="mt-1">
+                                                            <img src="~/imagenes/iconos/stock.svg" width="100%" height="100%">
+                                                        </p>
+                                                        <p class="fw-medium">Stock Medicamentos</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-6 col-md-4 col-xl-2">
+                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="SistemaControlInt" asp-action="Index">
+                                                    <div class="block-content">
+                                                        <p class="mt-1">
+                                                            <img src="~/imagenes/iconos/sistema_control.svg" width="100%" height="100%">
+                                                        </p>
+                                                        <p class="fw-medium">Sistema de Control Interno</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-6 col-md-4 col-xl-2">
+                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="http://telehis.insn.gob.pe/" target="_blank">
+                                                    <div class="block-content">
+                                                        <p class="mt-1">
+                                                            <img src="~/imagenes/iconos/telehist.svg" width="100%" height="100%">
+                                                        </p>
+                                                        <p class="fw-medium">TeleHist</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ======= FIN CIRUGÍA ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO OTROS ======= -->
+                            <div class="tab-pane fade" id="Otros" role="tabpanel" aria-labelledby="Otros-tab">
+                                <div class="tab-pane fade show active" id="Otros" role="tabpanel" aria-labelledby="Otros-tab">
+                                    <br />
+                                    <br />
+                                    <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="row" style="justify-content: center;">
+                                            <div class="col-6 col-md-4 col-xl-2">
+                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="POA" asp-action="Index">
+                                                    <div class="block-content">
+                                                        <p class="mt-1">
+                                                            <img src="~/imagenes/iconos/Programa_antimicrobiana.svg" width="100%" height="100%">
+                                                        </p>
+                                                        <p class="fw-medium">Programa de Opt. Antimicrobianos</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-6 col-md-4 col-xl-2">
+                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="SeguridadySalud" asp-action="Index">
+                                                    <div class="block-content">
+                                                        <p class="mt-1">
+                                                            <img src="~/imagenes/iconos/seguridad_salud.svg" width="100%" height="100%">
+                                                        </p>
+                                                        <p class="fw-medium">Seguridad y Salud en el Trabajo</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-6 col-md-4 col-xl-2">
+                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="https://www.gob.pe/institucion/insn/colecciones/28038-analisis-de-situacion-de-salud-asis" target="_blank">
+                                                    <div class="block-content">
+                                                        <p class="mt-1">
+                                                            <img src="~/imagenes/iconos/analisis.svg" width="100%" height="100%">
+                                                        </p>
+                                                        <p class="fw-medium">Análisis Situacional de Salud</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-6 col-md-4 col-xl-2">
+                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="SubCAFAE" asp-action="Index">
+                                                    <div class="block-content">
+                                                        <p class="mt-1">
+                                                            <img src="~/imagenes/iconos/subcafae.svg" width="100%" height="100%">
+                                                        </p>
+                                                        <p class="fw-medium">SUB - CAFAE</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="justify-content: center;">
+                                            <div class="col-6 col-md-4 col-xl-2">
+                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="UFGRD" asp-action="Index">
+                                                    <div class="block-content">
+                                                        <p class="mt-1">
+                                                            <img src="~/imagenes/iconos/staff_medico.svg" width="100%" height="100%">
+                                                        </p>
+                                                        <p class="fw-medium">
+                                                            Uni. de Gestión Riesgo Desastre
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-6 col-md-4 col-xl-2">
+                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="Covid19" asp-action="Index">
+                                                    <div class="block-content">
+                                                        <p class="mt-1">
+                                                            <img src="~/imagenes/iconos/Covid19.svg" width="100%" height="100%">
+
+                                                        </p>
+                                                        <p class="fw-medium">Covid 19</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ======= FIN OTROS ======= -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ======= FIN DE CARTERA - SERVICIOS ======= -->
+        <!-- ======= FIN DE SESSION CON PESTAÑA ======= -->
+        <!-- ============== -->
+        <!-- ======= INICIO NOTICIAS  ======= -->
+        <!-- ======= Incrementador de 1 a más  ======= -->
+        <section id="Noticias" class="testimonials">
+            <div class="container" data-aos="fade-up">
+                <br />
                 <div class="section-header">
-                    <h2>Categorías</h2>
-                    <p>Conoce todos los trámites, servicios y contenido de orientación sobre un tema en específico.</p>
-                    <br />
+                    <h2>Noticias</h2>
                 </div>
-                <div class="tabs-content">
-                    <!-- ======= INICIO TABS ======= -->
-                    <div class="nav-wrapper ">
-                        <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-bottom: 2px solid #0096ad !important;">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="Servicios-tab" data-bs-toggle="tab" data-bs-target="#Servicios" type="button" role="tab" aria-controls="Servicios" aria-selected="true">Servicios</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="Administración-tab" data-bs-toggle="tab" data-bs-target="#Administración" type="button" role="tab" aria-controls="Administración" aria-selected="false">Administración</button>
-                            </li>
-
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="Otros-tab" data-bs-toggle="tab" data-bs-target="#Otros" type="button" role="tab" aria-controls="Otros" aria-selected="false">Otros</button>
-                            </li>
-                        </ul>
+                <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        <!-- Inicio Noticia 6 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <div class="d-flex align-items-center">
+                                        <div style="text-align: center; width: 100%;">
+                                            <img src="~/imagenes/noticias/portafolio_noticia_6/noticia_6_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_6)</h4>
+                                    <p>
+                                        @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_6)
+                                    </p>
+                                    <br />
+                                    <br />
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_6" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin Noticia 6 -->
+                        <!-- Inicio Noticia 5 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <div class="d-flex align-items-center">
+                                        <div style="text-align: center; width: 100%;">
+                                            <img src="~/imagenes/noticias/portafolio_noticia_5/noticia_5_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_5)</h4>
+                                    <p>
+                                        @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_5)
+                                    </p>
+                                    <br>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_5" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin Noticia 5 -->
+                        <!-- Inicio Noticia 4 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <div class="d-flex align-items-center">
+                                        <div style="text-align: center; width: 100%;">
+                                            <img src="~/imagenes/noticias/portafolio_noticia_4/noticia_4_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_4)</h4>
+                                    <p>
+                                        @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_4)
+                                    </p>
+                                    <br>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_4" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin Noticia 4 -->
+                        <!-- Inicio Noticia 3 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <div class="d-flex align-items-center">
+                                        <div style="text-align: center; width: 100%;">
+                                            <img src="~/imagenes/noticias/portafolio_noticia_3/noticia_3_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                        </div>
+                                    </div>
+                                    <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_3)</h4>
+                                    <p>
+                                        @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_3)
+                                    </p>
+                                    <br>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_3" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin Noticia 3 -->
+                        <!-- Inicio Noticia 2 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <div class="d-flex align-items-center">
+                                        <div style="text-align: center; width: 100%;">
+                                            <img src="~/imagenes/noticias/portafolio_noticia_2/noticia_2_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_2)</h4>
+                                    <p>
+                                        @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_2)
+                                    </p>
+                                    <br>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_2" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin Noticia 2 -->
+                        <!-- Inicio Noticia 1 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-wrap">
+                                <div class="testimonial-item">
+                                    <div class="d-flex align-items-center">
+                                        <div style="text-align: center; width: 100%;">
+                                            <img src="~/imagenes/noticias/portafolio_noticia_1/noticia_1_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_1)</h4>
+                                    <p>
+                                        @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_1)
+                                    </p>
+                                    <br>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_1" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fin Noticia 1 -->
                     </div>
-                    <!-- ======= FIN TABS ======= -->
-                    <!-- ============== -->
-                    <div class="tab-content" id="myTabContent">
-                        <!-- ============== -->
-                        <!-- ======= INICIO PUBLICO ======= -->
-                        <div class="tab-pane fade show active" id="Servicios" role="tabpanel" aria-labelledby="Servicios-tab">
-                            <br />
-                            <br />
-                            <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
-                                <div class="col-6 col-md-4 col-xl-2">
-                                    <a class="block block-rounded block-bordered block-link-shadow text-center" href="http://solicitudcitas.insn.gob.pe/TeleGestion/cliente/" target="_blank">
-                                        <div class="block-content">
-                                            <p class="mt-1">
-                                                <img src="~/imagenes/iconos/icono_persona.svg" width="100%" height="100%">
-                                            </p>
-                                            <p class="fw-medium">Solictud de Citas</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-6 col-md-4 col-xl-2">
-                                    <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Telesalud" asp-action="Index">
-                                        <div class="block-content">
-                                            <p class="mt-1">
-                                                <img src="~/imagenes/iconos/Telesalud.svg" width="100%" height="100%">
-
-                                            </p>
-                                            <p class="fw-medium">Telesalud</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-6 col-md-4 col-xl-2">
-                                    <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="OportunidadLaboral" asp-action="Index">
-                                        <div class="block-content">
-                                            <p class="mt-1">
-                                                <img src="~/imagenes/iconos/oportunidad_laboral.svg" width="100%" height="100%">
-                                            </p>
-                                            <p class="fw-medium">Oportunidad Laboral</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-6 col-md-4 col-xl-2">
-                                    <a class="block block-rounded block-bordered block-link-shadow text-center" href="https://revistapediatricae.insn.gob.pe/index.php/rpe" target="_blank">
-                                        <div class="block-content">
-                                            <p class="mt-1">
-                                                <img src="~/imagenes/iconos/revista.svg" width="100%" height="100%">
-                                            </p>
-                                            <p class="fw-medium">O´portunidad Laboral</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-6 col-md-4 col-xl-2">
-                                    <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="BibliotecaVirtual" asp-action="Index">
-                                        <div class="block-content">
-                                            <p class="mt-1">
-                                                <img src="~/imagenes/iconos/biblioteca.svg" width="100%" height="100%">
-                                            </p>
-                                            <p class="fw-medium">Biblioteca Virtual</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-6 col-md-4 col-xl-2">
-                                    <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="MesaParte" asp-action="Index">
-                                        <div class="block-content">
-                                            <p class="mt-1">
-                                                <img src="~/imagenes/iconos/mesa_parte.svg" width="100%" height="100%">
-                                            </p>
-                                            <p class="fw-medium">Mesa de Parte</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-6 col-md-4 col-xl-2">
-                                    <a class="block block-rounded block-bordered block-link-shadow text-center" href="https://www.angelitosdecristalperu.org/" target="_blank">
-                                        <div class="block-content">
-                                            <p class="mt-1">
-                                                <img src="~/imagenes/iconos/angel.svg" width="100%" height="100%">
-                                            </p>
-                                            <p class="fw-medium">Angelitos de Cristal</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-6 col-md-4 col-xl-2">
-                                    <a class="block block-rounded block-bordered block-link-shadow text-center" href="https://www.youtube.com/watch?v=nEZyjvM4avw" target="_blank">
-                                        <div class="block-content">
-                                            <p class="mt-1">
-                                                <img src="~/imagenes/iconos/lactancia_materna.svg" width="100%" height="100%">
-                                            </p>
-                                            <p class="fw-medium">Lactancia Materna</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ======= FIN PUBLICO ======= -->
-                        <!-- ============== -->
-                        <!-- ======= INICIO ADMINISTRACIÓN ======= -->
-                        <div class="tab-pane fade" id="Administración" role="tabpanel" aria-labelledby="Administración-tab">
-                            <div class="tab-pane fade show active" id="Administración" role="tabpanel" aria-labelledby="Administración-tab">
-                                <br />
-                                <br />
-                                <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center" href="http://asistencia.insn.gob.pe/" target="_blank">
-                                            <div class="block-content">
-                                                <p class="mt-1">
-                                                    <img src="~/imagenes/iconos/biometrico.svg" width="100%" height="100%">
-                                                </p>
-                                                <p class="fw-medium">Biométrico</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center" href="http://srvdb03/farmacia" target="_blank">
-                                            <div class="block-content">
-                                                <p class="mt-1">
-                                                    <img src="~/imagenes/iconos/stock.svg" width="100%" height="100%">
-                                                </p>
-                                                <p class="fw-medium">Stock Medicamentos</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="SistemaControlInt" asp-action="Index">
-                                            <div class="block-content">
-                                                <p class="mt-1">
-                                                    <img src="~/imagenes/iconos/sistema_control.svg" width="100%" height="100%">
-                                                </p>
-                                                <p class="fw-medium">Sistema de Control Interno</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center" href="http://telehis.insn.gob.pe/" target="_blank">
-                                            <div class="block-content">
-                                                <p class="mt-1">
-                                                    <img src="~/imagenes/iconos/telehist.svg" width="100%" height="100%">
-                                                </p>
-                                                <p class="fw-medium">TeleHist</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ======= FIN CIRUGÍA ======= -->
-                        <!-- ============== -->
-                        <!-- ======= INICIO OTROS ======= -->
-                        <div class="tab-pane fade" id="Otros" role="tabpanel" aria-labelledby="Otros-tab">
-                            <div class="tab-pane fade show active" id="Otros" role="tabpanel" aria-labelledby="Otros-tab">
-                                <br />
-                                <br />
-                                <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="POA" asp-action="Index">
-                                            <div class="block-content">
-                                                <p class="mt-1">
-                                                    <img src="~/imagenes/iconos/Programa_antimicrobiana.svg" width="100%" height="100%">
-                                                </p>
-                                                <p class="fw-medium">Programa de Opt. Antimicrobianos</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="SeguridadySalud" asp-action="Index">
-                                            <div class="block-content">
-                                                <p class="mt-1">
-                                                    <img src="~/imagenes/iconos/seguridad_salud.svg" width="100%" height="100%">
-                                                </p>
-                                                <p class="fw-medium">Seguridad y Salud en el Trabajo</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center" href="https://www.gob.pe/institucion/insn/colecciones/28038-analisis-de-situacion-de-salud-asis" target="_blank">
-                                            <div class="block-content">
-                                                <p class="mt-1">
-                                                    <img src="~/imagenes/iconos/analisis.svg" width="100%" height="100%">
-                                                </p>
-                                                <p class="fw-medium">Análisis Situacional de Salud</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="SubCAFAE" asp-action="Index">
-                                            <div class="block-content">
-                                                <p class="mt-1">
-                                                    <img src="~/imagenes/iconos/subcafae.svg" width="100%" height="100%">
-                                                </p>
-                                                <p class="fw-medium">SUB - CAFAE</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="UFGRD" asp-action="Index">
-                                            <div class="block-content">
-                                                <p class="mt-1">
-                                                    <img src="~/imagenes/iconos/staff_medico.svg" width="100%" height="100%">
-                                                </p>
-                                                <p class="fw-medium">
-                                                    Uni. de Gestión Riesgo Desastre
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Covid19" asp-action="Index">
-                                            <div class="block-content">
-                                                <p class="mt-1">
-                                                    <img src="~/imagenes/iconos/Covid19.svg" width="100%" height="100%">
-
-                                                </p>
-                                                <p class="fw-medium">Covid 19</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ======= FIN OTROS ======= -->
-                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- ======= FIN DE CARTERA - SERVICIOS ======= -->
-    <!-- ======= FIN DE SESSION CON PESTAÑA ======= -->
-    <!-- ============== -->
-    <!-- ======= INICIO NOTICIAS  ======= -->
-    <!-- ======= Incrementador de 1 a más  ======= -->
-    <section id="Noticias" class="testimonials">
-        <div class="container" data-aos="fade-up">
-            <br />
-            <div class="section-header">
-                <h2>Noticias</h2>
-            </div>
-            <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
-                <div class="swiper-wrapper">
-                    <!-- Inicio Noticia 6 -->
-                    <div class="swiper-slide">
-                        <div class="testimonial-wrap">
-                            <div class="testimonial-item">
-                                <div class="d-flex align-items-center">
-                                    <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_6/noticia_6_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
-                                    </div>
-                                </div>
-                                <br>
-                                <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_6)</h4>
-                                <p>
-                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_6)
-                                </p>
-                                <br />
-                                <br />
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_6" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Fin Noticia 6 -->
-                    <!-- Inicio Noticia 5 -->
-                    <div class="swiper-slide">
-                        <div class="testimonial-wrap">
-                            <div class="testimonial-item">
-                                <div class="d-flex align-items-center">
-                                    <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_5/noticia_5_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
-                                    </div>
-                                </div>
-                                <br>
-                                <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_5)</h4>
-                                <p>
-                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_5)
-                                </p>
-                                <br>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_5" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Fin Noticia 5 -->
-                    <!-- Inicio Noticia 4 -->
-                    <div class="swiper-slide">
-                        <div class="testimonial-wrap">
-                            <div class="testimonial-item">
-                                <div class="d-flex align-items-center">
-                                    <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_4/noticia_4_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
-                                    </div>
-                                </div>
-                                <br />
-                                <br />
-                                <br />
-                                <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_4)</h4>
-                                <p>
-                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_4)
-                                </p>
-                                <br>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_4" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Fin Noticia 4 -->
-                    <!-- Inicio Noticia 3 -->
-                    <div class="swiper-slide">
-                        <div class="testimonial-wrap">
-                            <div class="testimonial-item">
-                                <div class="d-flex align-items-center">
-                                    <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_3/noticia_3_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
-                                    </div>
-                                </div>
-                                <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_3)</h4>
-                                <p>
-                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_3)
-                                </p>
-                                <br>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_3" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Fin Noticia 3 -->
-                    <!-- Inicio Noticia 2 -->
-                    <div class="swiper-slide">
-                        <div class="testimonial-wrap">
-                            <div class="testimonial-item">
-                                <div class="d-flex align-items-center">
-                                    <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_2/noticia_2_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
-                                    </div>
-                                </div>
-                                <br />
-                                <br />
-                                <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_2)</h4>
-                                <p>
-                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_2)
-                                </p>
-                                <br>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_2" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Fin Noticia 2 -->
-                    <!-- Inicio Noticia 1 -->
-                    <div class="swiper-slide">
-                        <div class="testimonial-wrap">
-                            <div class="testimonial-item">
-                                <div class="d-flex align-items-center">
-                                    <div style="text-align: center; width: 100%;">
-                                        <img src="~/imagenes/noticias/portafolio_noticia_1/noticia_1_f1.jpeg" class="testimonial-img flex-shrink-0" alt="">
-                                    </div>
-                                </div>
-                                <br />
-                                <br />
-                                <h4> @Html.Raw(NoticiaResource.EtiquetaContenidoFechaNoticia_1)</h4>
-                                <p>
-                                    @Html.Raw(NoticiaResource.EtiquetaTítuloNoticia_1)
-                                </p>
-                                <br>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal-fromleft_Noticia_1" class="readmore stretched-link">Leer Más <i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Fin Noticia 1 -->
+        </section>
+        <!-- ======= FIN NOTICIAS  ======= -->
+        <!-- ============== -->
+        <!-- ======= INICIO DE COMUNICADOS======= -->
+        <section id="Comunicado" class="testimonials">
+            <div class="container" data-aos="fade-up">
+                <br />
+                <div class="section-header">
+                    <h2>Comunicados</h2>
+                    <p align="center">
+                        Campañas y eventos
+                    </p>
                 </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-    </section>
-    <!-- ======= FIN NOTICIAS  ======= -->
-    <!-- ============== -->
-    <!-- ======= INICIO DE COMUNICADOS======= -->
-    <section id="Comunicado" class="testimonials">
-        <div class="container" data-aos="fade-up">
-            <br />
-            <div class="section-header">
-                <h2>Comunicados</h2>
-                <p align="center">
-                    Campañas y eventos
-                </p>
-            </div>
-            <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
-                <div class="swiper-wrapper">
-                    @if (Model is null)
-                    {
-                        <p>Sin resultados</p>
-                    }
-                    else if (!Model.ComunicadoLista.Any())
-                    {
-                        <p>Sin datos para mostrar</p>
-                    }
-                    else
-                    {
+                <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        @if (Model is null)
+                        {
+                            <p>Sin resultados</p>
+                        }
+                        else if (!Model.ComunicadoLista.Any())
+                        {
+                            <p>Sin datos para mostrar</p>
+                        }
+                        else
+                        {
                             @foreach (var item in Model.ComunicadoLista)
                             {
                                 <div class="swiper-slide">
@@ -472,12 +470,12 @@
                                 </div>
                             }
                         }
+                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
-                <div class="swiper-pagination"></div>
             </div>
-        </div>
-    </section>
-    <!-- ======= FIN DE COMUNICADOS======= -->
+        </section>
+        <!-- ======= FIN DE COMUNICADOS======= -->
     </form>
 </main>
 
@@ -931,7 +929,6 @@
     </div>
 </div>
 <!-- FIN MODAL - NOTICIA 1 -->
-
 <!-- INICIO MODAL - COMUNICADOS -->
 @if (Model is not null)
 {
@@ -965,7 +962,6 @@
     }
 }
 <!-- FIN MODAL - COMUNICADOS -->
-
 <!-- jQuery desde CDN -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
