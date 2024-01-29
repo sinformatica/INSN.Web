@@ -2,13 +2,11 @@ using INSN.Web.Portal.Services;
 using INSN.Web.Portal.Services.Implementaciones.Acceso;
 using INSN.Web.Portal.Services.Implementaciones.Home.DocumentoInstitucional;
 using INSN.Web.Portal.Services.Implementaciones.Home.OportunidadLaboral;
-using INSN.Web.Portal.Services.Implementaciones.Mantenimiento.Comunicados;
 using INSN.Web.Portal.Services.Implementaciones.SegApp;
 using INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento;
 using INSN.Web.Portal.Services.Interfaces.Acceso;
 using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
-using INSN.Web.Portal.Services.Interfaces.Mantenimiento.Comunicados;
 using INSN.Web.Portal.Services.Interfaces.SegApp;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -40,7 +38,6 @@ builder.Services.AddScoped<IUsuarioProxy, UsuarioProxy>();
 builder.Services.AddScoped<ITipoDocumentoIdentidadProxy, TipoDocumentoIdentidadProxy>();
 builder.Services.AddScoped<IUsuarioRolProxy, UsuarioRolProxy>();
 builder.Services.AddScoped<IAccesoProxy, AccesoProxy>();
-builder.Services.AddScoped<IComunicadoProxy, ComunicadoProxy>();
 
 //FIN Agregar Los Proxy - Api - DynamiClient
 builder.Services.AddDistributedMemoryCache();
