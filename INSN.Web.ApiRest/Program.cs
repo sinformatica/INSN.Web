@@ -29,13 +29,13 @@ using INSN.Web.Services.Implementaciones.Mantenimiento.Comunicados;
 using INSN.Web.Services.Interfaces.Mantenimiento.Comunicados;
 using INSN.Web.Repositories.Interfaces.Mantenimiento.Comunicados;
 using INSN.Web.Repositories.Implementaciones.Mantenimiento.DocumentoInstitucional;
-using INSN.Web.Repositories.Implementaciones.Mantenimiento.OportunidadLaboral;
 using INSN.Web.Repositories.Interfaces.Mantenimiento.DocumentoInstitucional;
 using INSN.Web.Repositories.Interfaces.Mantenimiento.OportunidadLaboral;
 using INSN.Web.Services.Implementaciones.Mantenimiento.DocumentoInstitucional;
 using INSN.Web.Services.Implementaciones.Mantenimiento.OportunidadLaboral;
 using INSN.Web.Services.Interfaces.Mantenimiento.OportunidadLaboral;
 using INSN.Web.Services.Interfaces.Mantenimiento.DocumentoInstitucional;
+using INSN.Web.Repositories.Implementaciones.Mantenimiento.OportunidadLaboral;
 
 var builder = WebApplication.CreateBuilder(args);
 

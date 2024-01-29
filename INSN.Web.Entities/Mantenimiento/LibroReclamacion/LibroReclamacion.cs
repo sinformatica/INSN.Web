@@ -1,10 +1,17 @@
-﻿namespace INSN.Web.Models.Request.Home
+﻿using INSN.Web.Entities.Base;
+
+namespace INSN.Web.Entities.Mantenimiento.LibroReclamacion
 {
     /// <summary>
-    /// Clase EL Documento Legal
+    /// Entidad Logica : Libro Reclamacion
     /// </summary>
-    public class LibroReclamacionDtoRequest : AuditoriaRequest
-    {       
+    public class LibroReclamacion : AuditoriaBase
+    {
+        /// <summary>
+        /// Codigo Libro Reclamacion Id
+        /// </summary>
+        public int CodigoLibroReclamacionId { get; set; }
+
         /// <summary>
         /// Tipo Documento Identidad
         /// </summary>
