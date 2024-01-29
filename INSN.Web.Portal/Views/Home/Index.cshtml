@@ -458,7 +458,7 @@
                                         <div class="testimonial-item">
                                             <div class="d-flex align-items-center">
                                                 <div style="text-align: center; width: 100%;">
-                                                    <img src="@item.RutaImagenPortada" class="testimonial-img flex-shrink-0" alt="">
+                                                    <img src="@item.RutaImagenPortada" style="height: 300px; /* Altura definida * /" class="testimonial-img flex-shrink-0" alt="">
                                                 </div>
                                             </div>
                                             <br>
@@ -946,7 +946,6 @@
                             <!-- Contenedor para Swiper y lightGallery con clase en lugar de ID -->
                             <div class="swiper-container swiper-gallery" style="max-width: @item.Ancho px;">
                                 <div class="swiper-wrapper">
-
                                     @foreach (var det in item.DetalleLista)
                                     {
                                         <div class="swiper-slide">
