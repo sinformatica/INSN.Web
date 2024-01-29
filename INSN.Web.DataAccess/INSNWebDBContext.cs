@@ -31,17 +31,17 @@ namespace INSN.Web.DataAccess
             base.OnModelCreating(modelBuilder);
 
             #region [Declarar Identificador de Tabla]
-            #region [DocumentoInstitucional]
-            modelBuilder.Entity<DocumentoLegal>().HasKey(f => f.CodigoDocumentoLegalId);
-            modelBuilder.Entity<TipoDocumento>().HasKey(f => f.CodigoTipoDocumentoId);
-            #endregion
-
             #region [SegApp]
             modelBuilder.Entity<Rol>().HasKey(f => f.Id);
             modelBuilder.Entity<Usuario>().HasKey(f => f.Id);
             modelBuilder.Entity<Sistema>().HasKey(f => f.CodigoSistemaId);
             modelBuilder.Entity<UsuarioRol>().HasKey(f => f.CodigoUsuarioRolId);
             #endregion
+
+            #region [DocumentoInstitucional]
+            modelBuilder.Entity<DocumentoLegal>().HasKey(f => f.CodigoDocumentoLegalId);
+            modelBuilder.Entity<TipoDocumento>().HasKey(f => f.CodigoTipoDocumentoId);
+            #endregion          
 
             #region [Oportunidad Laboral]
             modelBuilder.Entity<Convocatoria>().HasKey(f => f.CodigoConvocatoriaId);
@@ -57,6 +57,11 @@ namespace INSN.Web.DataAccess
 
             #region [LibroReclamacion]
             modelBuilder.Entity<LibroReclamacion>().HasKey(f => f.CodigoLibroReclamacionId);
+            #endregion
+
+            #region [Comunicado]
+            modelBuilder.Entity<Comunicado>().HasKey(f => f.CodigoComunicadoId);
+            modelBuilder.Entity<ComunicadoDetalle>().HasKey(f => f.CodigoComunicadoDetId);
             #endregion
             #endregion
 

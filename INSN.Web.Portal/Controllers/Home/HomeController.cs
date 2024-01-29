@@ -1,7 +1,4 @@
-﻿using INSN.Web.Models.Request.Home;
-using INSN.Web.Models.Request.Mantenimiento.Comunicados;
-using INSN.Web.Models.Request.Sistema;
-using INSN.Web.Models.Response.Home;
+﻿using INSN.Web.Models.Request.Mantenimiento.Comunicados;
 using INSN.Web.Models.Response.Mantenimiento.Comunicados;
 using INSN.Web.Portal.Models;
 using INSN.Web.Portal.Services.Interfaces.Mantenimiento.Comunicados;
