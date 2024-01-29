@@ -1,11 +1,11 @@
 ﻿using INSN.Web.Models;
 using INSN.Web.Models.Request;
 using INSN.Web.Models.Request.Home;
-using INSN.Web.Models.Response.Home;
-using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
+using INSN.Web.Models.Response.Mantenimiento.DocumentoLegal;
+using INSN.Web.Portal.Services.Interfaces.Mantenimiento.DocumentoInstitucional;
 
 //using INSN.Web.Portal.Services.Interfaces.Home.Covid19;
-using INSN.Web.ViewModels.Home;
+using INSN.Web.ViewModels.Home.DocumentoLegal;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
 

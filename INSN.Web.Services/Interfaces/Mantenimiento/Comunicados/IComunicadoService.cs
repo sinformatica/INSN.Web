@@ -1,11 +1,4 @@
-﻿using INSN.Web.Models.Request.Home;
-using INSN.Web.Models.Response.Home;
-using INSN.Web.Models.Response;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.Mantenimiento.Comunicados;
 using INSN.Web.Models.Request.Mantenimiento.Comunicados;
 

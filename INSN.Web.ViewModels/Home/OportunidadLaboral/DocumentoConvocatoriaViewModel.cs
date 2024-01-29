@@ -1,8 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-using INSN.Web.Models.Response.Home;
-using INSN.Web.Models.Response.Home.OportunidadLaboral;
+﻿using INSN.Web.Models.Response.Mantenimiento.OportunidadLaboral;
 
-namespace INSN.Web.ViewModels.Home;
+namespace INSN.Web.ViewModels.Home.OportunidadLaboral;
 
 public class DocumentoConvocatoriaViewModel : BaseModel
 {

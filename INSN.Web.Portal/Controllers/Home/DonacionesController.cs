@@ -1,7 +1,7 @@
 ﻿using INSN.Web.Models;
 using INSN.Web.Models.Request;
-using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
-using INSN.Web.ViewModels.Home;
+using INSN.Web.Portal.Services.Interfaces.Mantenimiento.DocumentoInstitucional;
+using INSN.Web.ViewModels.Home.DocumentoLegal;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
 

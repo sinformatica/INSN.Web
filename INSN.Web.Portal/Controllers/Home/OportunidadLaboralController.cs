@@ -1,7 +1,7 @@
 ﻿using INSN.Web.Models.Request.Home;
-using INSN.Web.Models.Response.Home.OportunidadLaboral;
-using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
-using INSN.Web.ViewModels.Home;
+using INSN.Web.Models.Response.Mantenimiento.OportunidadLaboral;
+using INSN.Web.Portal.Services.Interfaces.Mantenimiento.OportunidadLaboral;
+using INSN.Web.ViewModels.Home.OportunidadLaboral;
 using Microsoft.AspNetCore.Mvc;
 
 namespace INSN.Web.Portal.Controllers.Home;

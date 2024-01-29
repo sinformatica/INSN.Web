@@ -1,12 +1,11 @@
-using INSN.Web.Portal.Services;
 using INSN.Web.Portal.Services.Implementaciones.Acceso;
-using INSN.Web.Portal.Services.Implementaciones.Home.DocumentoInstitucional;
-using INSN.Web.Portal.Services.Implementaciones.Home.OportunidadLaboral;
+using INSN.Web.Portal.Services.Implementaciones.Mantenimiento.DocumentoInstitucional;
+using INSN.Web.Portal.Services.Implementaciones.Mantenimiento.OportunidadLaboral;
 using INSN.Web.Portal.Services.Implementaciones.SegApp;
 using INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento;
 using INSN.Web.Portal.Services.Interfaces.Acceso;
-using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
-using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
+using INSN.Web.Portal.Services.Interfaces.Mantenimiento.DocumentoInstitucional;
+using INSN.Web.Portal.Services.Interfaces.Mantenimiento.OportunidadLaboral;
 using INSN.Web.Portal.Services.Interfaces.SegApp;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
 using Microsoft.AspNetCore.Authentication.Cookies;

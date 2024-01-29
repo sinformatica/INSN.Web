@@ -1,15 +1,8 @@
 ﻿using INSN.Web.Common;
-using INSN.Web.Models.Request;
-using INSN.Web.Models.Request.Home;
 using INSN.Web.Models.Request.SegApp;
-using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Models.Response;
-using INSN.Web.Models.Response.Home;
 using INSN.Web.Models.Response.SegApp;
-using INSN.Web.Models.Response.SegApp.Mantenimiento;
-using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.Portal.Services.Interfaces.SegApp;
-using Microsoft.AspNetCore.Http;
 using System.Net.Http.Headers;
 
 namespace INSN.Web.Portal.Services.Implementaciones.SegApp

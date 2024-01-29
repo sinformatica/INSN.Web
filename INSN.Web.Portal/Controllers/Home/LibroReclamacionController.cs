@@ -1,8 +1,8 @@
 ﻿using INSN.Web.Portal.Services.Interfaces.SegApp;
-using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
 using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Models.Request.Home;
+using INSN.Web.ViewModels.Home.LibroReclamacion;
 
 namespace INSN.Web.Portal.Controllers.Home;
 

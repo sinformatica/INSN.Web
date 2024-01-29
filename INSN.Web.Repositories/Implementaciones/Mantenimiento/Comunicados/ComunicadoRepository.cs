@@ -1,15 +1,8 @@
 ﻿using INSN.Web.DataAccess;
-using INSN.Web.Entities.DocumentoInstitucional;
 using INSN.Web.Entities.Mantenimiento.Comunicado;
-using INSN.Web.Repositories.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.Repositories.Interfaces.Mantenimiento.Comunicados;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace INSN.Web.Repositories.Implementaciones.Mantenimiento.Comunicados
 {

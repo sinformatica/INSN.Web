@@ -1,9 +1,10 @@
-﻿using INSN.Web.Entities.OportunidadLaboral;
-using INSN.Web.Entities.DocumentoInstitucional;
-using INSN.Web.Entities.SegApp;
+﻿using INSN.Web.Entities.SegApp;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using INSN.Web.Entities.Mantenimiento.Comunicado;
+using INSN.Web.Entities.Mantenimiento.OportunidadLaboral;
+using INSN.Web.Entities.Mantenimiento.DocumentoInstitucional;
+using INSN.Web.Entities.Mantenimiento.LibroReclamacion;
 
 namespace INSN.Web.DataAccess
 {
@@ -52,6 +53,10 @@ namespace INSN.Web.DataAccess
             #region [Mantenimiento - Comunicado]
             modelBuilder.Entity<Comunicado>().HasKey(f => f.CodigoComunicadoId);
             modelBuilder.Entity<ComunicadoDetalle>().HasKey(f => f.CodigoComunicadoDetId);
+            #endregion
+
+            #region [LibroReclamacion]
+            modelBuilder.Entity<LibroReclamacion>().HasKey(f => f.CodigoLibroReclamacionId);
             #endregion
             #endregion
 
