@@ -10,7 +10,7 @@ namespace INSN.Web.ApiRest.Controllers.Mantenimiento.Comunicados
     /// Creador de API
     /// </summary>
     [ApiController]
-    [Route("api/Mantenimiento/Comunicado/[controller]")]
+    [Route("api/Mantenimiento/[controller]")]
     public class ComunicadoController : ControllerBase
     {
         private readonly IComunicadoService _service;
@@ -24,6 +24,7 @@ namespace INSN.Web.ApiRest.Controllers.Mantenimiento.Comunicados
             _service = service;
         }
 
+        #region[Comunicado]
         /// <summary>
         /// ApiRest: Comunicado Listar
         /// </summary>
@@ -37,5 +38,22 @@ namespace INSN.Web.ApiRest.Controllers.Mantenimiento.Comunicados
             var response = await _service.ComunicadoListar(request);
             return response.Success ? Ok(response) : BadRequest(response);
         }
+        #endregion
+
+        #region[Comunicado Detalle]
+        /// <summary>
+        /// ApiRest: Comunicado Detalle Listar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpGet("ComunicadoDetalleListar/{CodigoComunicadoId}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<ComunicadoDetalleDtoResponse>>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<ComunicadoDetalleDtoResponse>>))]
+        public async Task<IActionResult> ComunicadoDetalleListar(int CodigoComunicadoId)
+        {
+            var response = await _service.ComunicadoDetalleListar(CodigoComunicadoId);
+            return response.Success ? Ok(response) : BadRequest(response);
+        }
+        #endregion
     }
 }

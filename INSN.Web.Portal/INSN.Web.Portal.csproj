@@ -149,6 +149,7 @@
 
   <ItemGroup>
     <Folder Include="Documentos\NormasDocumentosLegales\" />
+    <Folder Include="Views\Mantenimiento\Comunicados\" />
     <Folder Include="wwwroot\js\plugins\" />
   </ItemGroup>
 

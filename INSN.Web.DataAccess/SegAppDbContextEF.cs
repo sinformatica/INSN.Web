@@ -14,7 +14,7 @@ namespace INSN.Web.DataAccess
     /// <summary>
     /// DBContext
     /// </summary>
-    public class SegAppDbContextEF: DbContext
+    public class SegAppDbContextEF : DbContext
     {
         /// <summary>
         /// SegAppDbContextEF

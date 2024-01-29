@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace INSN.Web.Models.Response.Mantenimiento.Comunicados
+﻿namespace INSN.Web.Models.Response.Mantenimiento.Comunicados
 {
     public class ComunicadoDtoResponse : BaseResponse
     {
         /// <summary>
         /// Codigo Comunicado Id
         /// </summary>
-        public int? CodigoComunicadoId { get; set; }
+        public int CodigoComunicadoId { get; set; }
 
         /// <summary>
         /// Titulo
@@ -36,11 +30,13 @@ namespace INSN.Web.Models.Response.Mantenimiento.Comunicados
         /// <summary>
         /// Ruta Portada
         /// </summary>
-        public string? NombreImagenPortada { get; set; } = default!;
+        public string? RutaImagenPortada { get; set; } = default!;
 
         /// <summary>
         /// Ancho
         /// </summary>
         public int Ancho { get; set; }
+
+        public ICollection<ComunicadoDetalleDtoResponse>? DetalleLista { get; set; }
     }
 }

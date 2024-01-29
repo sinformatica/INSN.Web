@@ -9,11 +9,22 @@ namespace INSN.Web.Services.Interfaces.Mantenimiento.Comunicados
     /// </summary>
     public interface IComunicadoService
     {
+        #region[Comunicado]
         /// <summary>
         /// Comunicado Listar
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         Task<BaseResponseGeneric<ICollection<ComunicadoDtoResponse>>> ComunicadoListar(ComunicadoDtoRequest request);
+        #endregion
+
+        #region[Comunicado detalle]
+        /// <summary>
+        /// Comunicado Detalle Listar
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<BaseResponseGeneric<ICollection<ComunicadoDetalleDtoResponse>>> ComunicadoDetalleListar(int CodigoComunicadoId);
+        #endregion
     }
 }

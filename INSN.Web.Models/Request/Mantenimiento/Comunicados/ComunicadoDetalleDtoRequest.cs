@@ -1,26 +1,18 @@
-﻿using INSN.Web.Entities.Base;
-using INSN.Web.Entities.SegApp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INSN.Web.Entities.Mantenimiento.Comunicado
+namespace INSN.Web.Models.Request.Mantenimiento.Comunicados
 {
-    public class ComunicadoDetalle : AuditoriaBase
+    public class ComunicadoDetalleDtoRequest : AuditoriaRequest
     {
         /// <summary>
         /// Codigo Comunicado Id
         /// </summary>
         public int? CodigoComunicadoDetId { get; set; }
-
-        /// <summary>
-        /// Comunicado - CodigoComunicadoId
-        /// </summary>
-        [ForeignKey("CodigoComunicadoId")]
-        public Comunicado Comunicado { get; set; } = default!;
 
         /// <summary>
         /// UserId
