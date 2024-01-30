@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INSN.Web.ViewModels.SegApp
+namespace INSN.Web.ViewModels
 {
     public class SeccionViewModel
     {

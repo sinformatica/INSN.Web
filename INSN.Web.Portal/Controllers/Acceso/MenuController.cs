@@ -2,7 +2,7 @@
 using INSN.Web.Models;
 using INSN.Web.Models.Request.Sistema;
 using INSN.Web.Portal.Services.Interfaces.Acceso;
-using INSN.Web.ViewModels.SegApp;
+using INSN.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
@@ -32,7 +32,6 @@ namespace INSN.Web.Portal.Controllers.Acceso
         public async Task<IActionResult> Index()
         {
             string token = HttpContext.Session.GetString(Constantes.JwtToken);
-            SeccionViewModel model = new SeccionViewModel();
 
             if (token != null)
             {
@@ -60,6 +59,8 @@ namespace INSN.Web.Portal.Controllers.Acceso
 
                     if (DateTime.Now <= DateTime.Parse(FechaVencimiento))
                     {
+                        SeccionViewModel model = new SeccionViewModel();
+
                         // Realizar acciones con la información del token deserializado
                         var response = await _proxy.SeccionListar(new SeccionDtoRequest()
                         {

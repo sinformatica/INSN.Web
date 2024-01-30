@@ -14,7 +14,7 @@ namespace INSN.Web.Entities.Mantenimiento.Comunicado
         /// <summary>
         /// Codigo Comunicado Id
         /// </summary>
-        public int? CodigoComunicadoDetId { get; set; }
+        public int? CodigoComunicadoDetalleId { get; set; }
 
         /// <summary>
         /// Comunicado - CodigoComunicadoId

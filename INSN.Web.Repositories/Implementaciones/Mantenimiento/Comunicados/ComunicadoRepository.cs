@@ -65,7 +65,7 @@ namespace INSN.Web.Repositories.Implementaciones.Mantenimiento.Comunicados
                 .Where(predicate)
                 .Select(p => new ComunicadoDetalle
                 {
-                    CodigoComunicadoDetId = p.CodigoComunicadoDetId,
+                    CodigoComunicadoDetalleId = p.CodigoComunicadoDetalleId,
                     CodigoComunicadoId = p.CodigoComunicadoId,
                     RutaImagen = p.RutaImagen,
                     Estado = p.Estado,

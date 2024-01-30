@@ -59,7 +59,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
 
                 if (response.Success)
                 {
-                    if (p == 1 || p == 2) // 1 = SegApp | 2 = web INSN
+                    if (p == 1) // 1 = SegApp
                     {
                         // Leer token
                         tokenHandler = new JwtSecurityTokenHandler();
@@ -85,10 +85,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
                         HttpContext.Session.SetString(Constantes.NombreRolUsuario, NombreRolUsuario);
                         HttpContext.Session.SetString(Constantes.FechaVencimiento, FechaVencimiento);
 
-                        if (p == 1) // 1=SegApp
-                            return RedirectToAction("Index", "Menu");
-                        else // 2 = web INSN
-                            return RedirectToAction("Index", "Comunicado");
+                        return RedirectToAction("Index", "Menu");
                     }
                     else
                     {

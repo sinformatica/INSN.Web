@@ -1,12 +1,12 @@
 ﻿using INSN.Web.Models.Response.Mantenimiento.Comunicados;
 using System.ComponentModel.DataAnnotations;
 
-namespace INSN.Web.ViewModels.Home
+namespace INSN.Web.ViewModels.Mantenimiento.Comunicados
 {
     /// <summary>
     /// Represencacion ViewModel : Principal
     /// </summary>
-    public class PrincipalViewModel : BaseModel
+    public class ComunicadoViewModel : BaseModel
     {
         /// <summary>
         /// Titulo

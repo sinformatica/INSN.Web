@@ -52,7 +52,7 @@ namespace INSN.Web.DataAccess
 
             #region [Mantenimiento - Comunicado]
             modelBuilder.Entity<Comunicado>().HasKey(f => f.CodigoComunicadoId);
-            modelBuilder.Entity<ComunicadoDetalle>().HasKey(f => f.CodigoComunicadoDetId);
+            modelBuilder.Entity<ComunicadoDetalle>().HasKey(f => f.CodigoComunicadoDetalleId);
             #endregion
 
             #region [LibroReclamacion]
@@ -61,7 +61,7 @@ namespace INSN.Web.DataAccess
 
             #region [Comunicado]
             modelBuilder.Entity<Comunicado>().HasKey(f => f.CodigoComunicadoId);
-            modelBuilder.Entity<ComunicadoDetalle>().HasKey(f => f.CodigoComunicadoDetId);
+            modelBuilder.Entity<ComunicadoDetalle>().HasKey(f => f.CodigoComunicadoDetalleId);
             #endregion
             #endregion
 
