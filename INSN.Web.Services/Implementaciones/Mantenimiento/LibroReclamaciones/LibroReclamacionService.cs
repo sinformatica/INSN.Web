@@ -1,15 +1,15 @@
 ﻿using AutoMapper;
 using INSN.Web.Models.Response;
 using Microsoft.Extensions.Logging;
-using INSN.Web.Models.Request.Home;
 using INSN.Web.Repositories.Interfaces.Mantenimiento.LibroReclamaciones;
+using INSN.Web.Services.Interfaces.Mantenimiento.LibroReclamaciones;
 using INSN.Web.Entities.Mantenimiento.LibroReclamacion;
-using INSN.Web.Services.Interfaces.Mantenimiento.OportunidadLaboral;
+using INSN.Web.Models.Request.Mantenimiento.LibroReclamaciones;
 
-namespace INSN.Web.Services.Implementaciones.Mantenimiento.OportunidadLaboral
+namespace INSN.Web.Services.Implementaciones.Mantenimiento.LibroReclamaciones
 {
     /// <summary>
-    /// Service Documento Convocatoria
+    /// Service Libro Reclamacion
     /// </summary>
     public class LibroReclamacionService : ILibroReclamacionService
     {
@@ -41,8 +41,17 @@ namespace INSN.Web.Services.Implementaciones.Mantenimiento.OportunidadLaboral
 
             try
             {
-                await _repository.Insertar(_mapper.Map<LibroReclamacion>(request));
-                response.Success = true;
+                int respuesta = await _repository.Insertar(_mapper.Map<LibroReclamacion>(request));
+
+                if (respuesta == 1)
+                {
+                    response.Success = true;
+                }
+                else
+                {
+                    response.ErrorMessage = "Service: Error al insertar registro";
+                    response.Success = false;
+                }
             }
             catch (Exception ex)
             {

@@ -1,9 +1,7 @@
-﻿using INSN.Web.Models.Response;
-using INSN.Web.Models.Request.Home;
-using INSN.Web.Models.Response.Mantenimiento.OportunidadLaboral;
-using INSN.Web.Entities.Mantenimiento.LibroReclamacion;
+﻿using INSN.Web.Models.Request.Mantenimiento.LibroReclamaciones;
+using INSN.Web.Models.Response;
 
-namespace INSN.Web.Services.Interfaces.Mantenimiento.OportunidadLaboral
+namespace INSN.Web.Services.Interfaces.Mantenimiento.LibroReclamaciones
 {
     /// <summary>
     /// Interface Servicio Libro Reclamacion

@@ -84,6 +84,7 @@ namespace INSN.Web.Repositories.Implementaciones
         /// <returns></returns>
         public async Task<int> Insertar(TEntity entity)
         {
+            int respuesta = 1;
             try
             {
                 await Context.Set<TEntity>().AddAsync(entity);
@@ -91,17 +92,16 @@ namespace INSN.Web.Repositories.Implementaciones
             }
             catch (DbUpdateException ex)
             {
+                respuesta = -1;
                 var innerException = ex.InnerException;
                 while (innerException != null)
                 {
                     Console.WriteLine(innerException.Message);
                     innerException = innerException.InnerException;
                 }
-
-                // También puedes lanzar una nueva excepción o manejar el error de otra manera
             }
 
-            return 1;
+            return respuesta;
         }
 
         /// <summary>

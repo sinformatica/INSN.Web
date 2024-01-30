@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using INSN.Web.Models.Request.Home;
-using INSN.Web.Services.Interfaces.Mantenimiento.OportunidadLaboral;
+using INSN.Web.Services.Interfaces.Mantenimiento.LibroReclamaciones;
+using INSN.Web.Models.Request.Mantenimiento.LibroReclamaciones;
 
 namespace INSN.Web.ApiRest.Controllers.Mantenimiento.LibroReclamacion
 {

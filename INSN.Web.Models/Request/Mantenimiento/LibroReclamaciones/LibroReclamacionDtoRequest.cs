@@ -1,14 +1,19 @@
-﻿namespace INSN.Web.Models.Request.Home
+﻿namespace INSN.Web.Models.Request.Mantenimiento.LibroReclamaciones
 {
     /// <summary>
     /// Clase EL Documento Legal
     /// </summary>
     public class LibroReclamacionDtoRequest : AuditoriaRequest
-    {       
+    {
+        /// <summary>
+        /// Tipo Persona
+        /// </summary>
+        public string? TipoPersona { get; set; } = default!;
+
         /// <summary>
         /// Tipo Documento Identidad
         /// </summary>
-        public string? TipoDocumentoIdentidad { get; set; } = default!;
+        public int? TipoDocumentoIdentidad { get; set; }
 
         /// <summary>
         /// Documento Identidad
@@ -48,7 +53,7 @@
         /// <summary>
         /// Celular Teléfono
         /// </summary>
-        public string? CelularTeléfono { get; set; } = default!;
+        public string? CelularTelefono { get; set; } = default!;
 
         /// <summary>
         /// Email
@@ -68,7 +73,7 @@
         /// <summary>
         /// Tipo Documento Identidad Paciente
         /// </summary>
-        public string? TipoDocumentoIdentidadPaciente { get; set; } = default!;
+        public int TipoDocumentoIdentidadPaciente { get; set; }
 
         /// <summary>
         /// Documento Identidad Paciente

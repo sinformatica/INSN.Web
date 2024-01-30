@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace INSN.Web.DataAccess.Configurations.Mantenimiento.OportunidadLaboral
+namespace INSN.Web.DataAccess.Configurations.Mantenimiento.LibroReclamaciones
 {
     /// <summary>
     /// Configuracion de Tabla Libro Reclamacion

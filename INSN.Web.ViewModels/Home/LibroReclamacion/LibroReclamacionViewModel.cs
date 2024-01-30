@@ -99,7 +99,7 @@ public class LibroReclamacionViewModel : BaseModel
     /// Tipo Documento Identidad Paciente Seleccionada
     /// </summary>
     [Display(Name = "Tipo Documento")]
-    public int? TipoDocumentoIdentidadPacienteSeleccionada { get; set; }
+    public int TipoDocumentoIdentidadPacienteSeleccionada { get; set; }
 
     /// <summary>
     /// Documento Identidad Paciente

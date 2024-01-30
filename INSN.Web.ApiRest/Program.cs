@@ -36,6 +36,10 @@ using INSN.Web.Services.Implementaciones.Mantenimiento.OportunidadLaboral;
 using INSN.Web.Services.Interfaces.Mantenimiento.OportunidadLaboral;
 using INSN.Web.Services.Interfaces.Mantenimiento.DocumentoInstitucional;
 using INSN.Web.Repositories.Implementaciones.Mantenimiento.OportunidadLaboral;
+using INSN.Web.Repositories.Interfaces.Mantenimiento.LibroReclamaciones;
+using INSN.Web.Repositories.Implementaciones.Mantenimiento.LibroReclamaciones;
+using INSN.Web.Services.Implementaciones.Mantenimiento.LibroReclamaciones;
+using INSN.Web.Services.Interfaces.Mantenimiento.LibroReclamaciones;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -134,6 +138,10 @@ builder.Services.AddTransient<ISistemaService, SistemaService>();
 // Comunicado
 builder.Services.AddTransient<IComunicadoRepository, ComunicadoRepository>();
 builder.Services.AddTransient<IComunicadoService, ComunicadoService>();
+
+// LibroReclamacion
+builder.Services.AddTransient<ILibroReclamacionRepository, LibroReclamacionRepository>();
+builder.Services.AddTransient<ILibroReclamacionService, LibroReclamacionService>();
 
 //builder.Services.AddTransient<IFileUploader, AzureBlobStorageUploader>();
 

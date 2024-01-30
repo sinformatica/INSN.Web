@@ -1,12 +1,14 @@
 using INSN.Web.Portal.Services.Implementaciones.Acceso;
 using INSN.Web.Portal.Services.Implementaciones.Mantenimiento.Comunicados;
 using INSN.Web.Portal.Services.Implementaciones.Mantenimiento.DocumentoInstitucional;
+using INSN.Web.Portal.Services.Implementaciones.Mantenimiento.LibroReclamaciones;
 using INSN.Web.Portal.Services.Implementaciones.Mantenimiento.OportunidadLaboral;
 using INSN.Web.Portal.Services.Implementaciones.SegApp;
 using INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento;
 using INSN.Web.Portal.Services.Interfaces.Acceso;
 using INSN.Web.Portal.Services.Interfaces.Mantenimiento.Comunicados;
 using INSN.Web.Portal.Services.Interfaces.Mantenimiento.DocumentoInstitucional;
+using INSN.Web.Portal.Services.Interfaces.Mantenimiento.LibroReclamaciones;
 using INSN.Web.Portal.Services.Interfaces.Mantenimiento.OportunidadLaboral;
 using INSN.Web.Portal.Services.Interfaces.SegApp;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
@@ -40,6 +42,7 @@ builder.Services.AddScoped<ITipoDocumentoIdentidadProxy, TipoDocumentoIdentidadP
 builder.Services.AddScoped<IUsuarioRolProxy, UsuarioRolProxy>();
 builder.Services.AddScoped<IAccesoProxy, AccesoProxy>();
 builder.Services.AddScoped<IComunicadoProxy, ComunicadoProxy>();
+builder.Services.AddScoped<ILibroReclamacionProxy, LibroReclamacionProxy>();
 
 //FIN Agregar Los Proxy - Api - DynamiClient
 builder.Services.AddDistributedMemoryCache();

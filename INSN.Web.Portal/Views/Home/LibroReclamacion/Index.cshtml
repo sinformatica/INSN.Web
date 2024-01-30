@@ -7,9 +7,11 @@
 @{
     ViewData["Title"] = "INSN Breña";
 }
+<head>
+    <link href="~/js/plugins/sweetalert2/sweetalert2.css" rel="stylesheet" />
+</head>
 
-<main id="main">
-
+<main id="main">  
     <!-- ======= INICIO DE SESSION CON PESTAÑA ( LIBRO DE RECLAMACIONES )======= -->
     <div class="section best-deal">
         <div class="container">
@@ -38,7 +40,7 @@
                     <br />
                     <div class="row">
                         <div class="col-md-12">
-                            <form>
+                            <form asp-controller="LibroReclamacion" asp-action="Index" method="post" id="FormReclamo">
                                 <div class="block block-themed block-rounded">
                                     <!-- ======= INICIO : Cabecera ========================= -->
                                     <div class="block-header">
@@ -75,7 +77,6 @@
                                                     <span asp-validation-for="RazonSocial" class="text-danger"></span>
                                                     <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaRazonSocial)</label>
                                                 </div>
-
                                             </div>
                                         </div>
                                         <div id="divDatosPersonaNatural1">
@@ -147,20 +148,19 @@
                                             <div class="col-md-3 col-sm-6">
                                                 <div class="form-floating mb-4">
                                                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email", @id = "txtEmail",
-                                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros_caracteres')" ,
+                                                    @oninput = "this.value = this.value.toUpperCase()",
                                                     @maxlength = "50"})
                                                     <span asp-validation-for="Email" class="text-danger"></span>
                                                     <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaEmail)</label>
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="row">
                                             <div class="col-md-12 col-sm-6">
                                                 <div class="mb-4">
                                                     <label class="form-label" style="float: left;">@Html.Raw(LibroReclamacionResource.EtiquetaReclamo)</label>
                                                     @Html.TextArea("Reclamo", Model.Reclamo, 4,0, new { @class = "form-control", @placeholder = "Describa su reclamo", @id = "txtReclamo",
-                                                    @maxlength = "500"})
+                                                    @maxlength = "500", @required = "required"})
                                                     <span asp-validation-for="Reclamo" class="text-danger"></span>
                                                 </div>
                                             </div>
@@ -223,7 +223,7 @@
                                         <div class="row" style="
                                              justify-content: center;">
                                             <div class="col-md-2 col-sm-6 text-center">
-                                                <button id="btnConsultar" class="btn btn-primary" asp-controller="Usuario" asp-action="Index" title="Consultar">
+                                                <button id="btnEnviar" class="btn btn-primary" asp-area="" asp-controller="LibroReclamacion" asp-action="LibroReclamacionInsertar">
                                                     @Html.Raw(GeneralResource.EtiquetaEnviar)
                                                 </button>
                                             </div>
@@ -241,8 +241,61 @@
     </div>
     <br />
 </main>
-
+<script src="~/js/plugins/sweetalert2/sweetalert2.js"></script>
 <script>
+        function Modal_Grabar_Editar_Correcto(nCodigoMensaje, sMensaje, sMetodo, sControlador) {
+        const swalDistribucion = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-lg btn-primary min-width-100 mx-4'
+            },
+            buttonsStyling: false
+        });
+
+        if (nCodigoMensaje === 1) {
+            swalDistribucion.fire({
+                title: sMensaje,
+                icon: 'success',
+                confirmButtonText: 'Aceptar',
+                showCancelButton: false,
+            }).then((resultado) => {
+                if (resultado.isConfirmed) {
+                    setTimeout(function () {                       
+                        // Generar la URL con los parámetros
+                        var sMetodoEncoded = encodeURIComponent(sMetodo);
+                        var sControladorEncoded = encodeURIComponent(sControlador);
+                        var url = '/' + sControladorEncoded + '/' + sMetodoEncoded;
+
+                        window.location.href = url;
+                    }, 200); // tiempo de espera (milisegundos)
+                }
+            });
+        } else if (nCodigoMensaje === -1) {
+            swalDistribucion.fire({
+                title: sMensaje,
+                icon: 'error',
+                confirmButtonText: 'Aceptar',
+                showCancelButton: false,
+            }).then((resultado) => {
+                if (resultado.isConfirmed) {
+                    // Acciones adicionales si se confirma el mensaje
+                }
+            });
+        }
+    };
+
+     //#region [Success Operación]
+        window.onload = function () {
+            var nCodigoMensaje = '@TempData["CodigoMensaje"]'; // Obtener el valor de Código de Mensaje
+            var sMensaje = '@TempData["Mensaje"]'; // Obtener el valor de Mensaje
+            var sMetodo = '@TempData["Metodo"]';
+            var sControlador = '@TempData["Controlador"]';
+
+            if (nCodigoMensaje !== '' && nCodigoMensaje !== '0' && sMensaje !== '') {
+                Modal_Grabar_Editar_Correcto(parseInt(nCodigoMensaje), sMensaje, sMetodo, sControlador); // Llamar a la función con los valores
+            }
+        };
+        //#endregion
+
     function mostrarOcultarElementos() {
         var tipoPersonaSeleccionada = document.getElementById("cmbTipoPersona").value;
         var divRUC = document.getElementById("divRUC");
@@ -255,11 +308,33 @@
             divRazonSocial.style.display = "none";
             divDatosPersonaNatural1.style.display = "block";
             divDatosPersonaNatural2.style.display = "block";
-        } else if (tipoPersonaSeleccionada === "Juridica") {
+
+            document.getElementById('txtRUC').value = '';
+            document.getElementById('txtRazonSocial').value = '';
+            txtRUC.required = false;
+            txtRazonSocial.required = false;
+            txtDocumentoIdentidad.required = true;
+            txtNombres.required = true;
+            txtApellidoPaterno.required = true;
+            txtApellidoMaterno.required = true;
+        } 
+        else if (tipoPersonaSeleccionada === "Juridica") {
             divRazonSocial.style.display = "block";
             divRUC.style.display = "block";
             divDatosPersonaNatural1.style.display = "none";
             divDatosPersonaNatural2.style.display = "none";
+
+            document.getElementById('txtDocumentoIdentidad').value = '';
+            document.getElementById('txtNombres').value = '';
+            document.getElementById('txtApellidoPaterno').value = '';
+            document.getElementById('txtApellidoMaterno').value = '';
+            document.getElementById('cmbTipoDocumentoIdentidad').selectedIndex = 0;
+            txtRUC.required = true;
+            txtRazonSocial.required = true;
+            txtDocumentoIdentidad.required = false;
+            txtNombres.required = false;
+            txtApellidoPaterno.required = false;
+            txtApellidoMaterno.required = false;
         }
-    }
+    }  
 </script>

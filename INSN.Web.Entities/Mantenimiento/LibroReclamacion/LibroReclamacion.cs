@@ -8,6 +8,11 @@ namespace INSN.Web.Entities.Mantenimiento.LibroReclamacion
     public class LibroReclamacion : AuditoriaBase
     {
         /// <summary>
+        /// Tipo Persona
+        /// </summary>
+        public string? TipoPersona { get; set; } = default!;
+
+        /// <summary>
         /// Codigo Libro Reclamacion Id
         /// </summary>
         public int CodigoLibroReclamacionId { get; set; }
@@ -55,7 +60,7 @@ namespace INSN.Web.Entities.Mantenimiento.LibroReclamacion
         /// <summary>
         /// Celular Teléfono
         /// </summary>
-        public string? CelularTeléfono { get; set; } = default!;
+        public string? CelularTelefono { get; set; } = default!;
 
         /// <summary>
         /// Email

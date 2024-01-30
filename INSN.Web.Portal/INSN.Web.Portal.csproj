@@ -7,9 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Mantenimiento\**" />
     <Compile Remove="wwwroot\lib\**" />
+    <Content Remove="Views\Mantenimiento\**" />
     <Content Remove="wwwroot\lib\**" />
+    <EmbeddedResource Remove="Views\Mantenimiento\**" />
     <EmbeddedResource Remove="wwwroot\lib\**" />
+    <None Remove="Views\Mantenimiento\**" />
     <None Remove="wwwroot\lib\**" />
   </ItemGroup>
 

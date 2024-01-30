@@ -3,14 +3,17 @@ using INSN.Web.Entities.Info.Home.OportunidadLaboral;
 using INSN.Web.Entities.Info.Mantenimiento;
 using INSN.Web.Entities.Mantenimiento.Comunicado;
 using INSN.Web.Entities.Mantenimiento.DocumentoInstitucional;
+using INSN.Web.Entities.Mantenimiento.LibroReclamacion;
 using INSN.Web.Entities.Mantenimiento.OportunidadLaboral;
 using INSN.Web.Entities.SegApp;
 using INSN.Web.Models.Request.Home;
 using INSN.Web.Models.Request.Mantenimiento.Comunicados;
+using INSN.Web.Models.Request.Mantenimiento.LibroReclamaciones;
 using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.Mantenimiento.Comunicados;
 using INSN.Web.Models.Response.Mantenimiento.DocumentoLegal;
+using INSN.Web.Models.Response.Mantenimiento.LibroReclamacion;
 using INSN.Web.Models.Response.Mantenimiento.OportunidadLaboral;
 using INSN.Web.Models.Response.SegApp;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
@@ -70,6 +73,10 @@ namespace INSN.Web.Services.Profiles
             CreateMap<ComunicadoDtoRequest, Comunicado>();
             CreateMap<ComunicadoDetalle, ComunicadoDetalleDtoResponse>();
             CreateMap<ComunicadoDetalleDtoRequest, ComunicadoDetalle>();
+
+            // Mapear Libro Reclamacion
+            CreateMap<LibroReclamacion, LibroReclamacionDtoResponse>();
+            CreateMap<LibroReclamacionDtoRequest, LibroReclamacion>();
         }
     }
 }
