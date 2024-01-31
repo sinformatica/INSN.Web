@@ -92,7 +92,7 @@
                                                     <div class="form-floating mb-4">
                                                         @Html.TextBoxFor(m => m.DocumentoIdentidad, new { @class = "form-control", @placeholder = "Documento de identidad", @id = "txtDocumentoIdentidad",
                                                         @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros')" ,
-                                                        @maxlength = "8"})
+                                                        @maxlength = "8", @required = "required"})
                                                         <span asp-validation-for="DocumentoIdentidad" class="text-danger"></span>
                                                         <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaDocumentoIdentidad)</label>
                                                     </div>
@@ -101,7 +101,7 @@
                                                     <div class="form-floating mb-4">
                                                         @Html.TextBoxFor(m => m.Nombres, new { @class = "form-control", @placeholder = "Nombres", @id = "txtNombres",
                                                         @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,
-                                                        @maxlength = "50"})
+                                                        @maxlength = "50", @required = "required"})
                                                         <span asp-validation-for="Nombres" class="text-danger"></span>
                                                         <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaNombres)</label>
                                                     </div>
@@ -110,7 +110,7 @@
                                                     <div class="form-floating mb-4">
                                                         @Html.TextBoxFor(m => m.ApellidoPaterno, new { @class = "form-control", @placeholder = "Apellido Paterno", @id = "txtApellidoPaterno",
                                                         @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,
-                                                        @maxlength = "50"})
+                                                        @maxlength = "50", @required = "required"})
                                                         <span asp-validation-for="ApellidoPaterno" class="text-danger"></span>
                                                         <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaApellidoPaterno)</label>
                                                     </div>
@@ -122,7 +122,7 @@
                                                 <div class="form-floating mb-4">
                                                     @Html.TextBoxFor(m => m.ApellidoMaterno, new { @class = "form-control", @placeholder = "Apellido Materno", @id = "txtApellidoMaterno",
                                                     @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,
-                                                    @maxlength = "50"})
+                                                    @maxlength = "50", @required = "required"})
                                                     <span asp-validation-for="ApellidoMaterno" class="text-danger"></span>
                                                     <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaApellidoMaterno)</label>
                                                 </div>
@@ -149,7 +149,7 @@
                                                 <div class="form-floating mb-4">
                                                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email", @id = "txtEmail",
                                                     @oninput = "this.value = this.value.toUpperCase()",
-                                                    @maxlength = "50"})
+                                                    @maxlength = "50", @required = "required"})
                                                     <span asp-validation-for="Email" class="text-danger"></span>
                                                     <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaEmail)</label>
                                                 </div>

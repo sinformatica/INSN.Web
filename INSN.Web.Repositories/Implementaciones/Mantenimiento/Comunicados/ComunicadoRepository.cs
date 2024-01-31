@@ -38,7 +38,6 @@ namespace INSN.Web.Repositories.Implementaciones.Mantenimiento.Comunicados
                     Titulo = p.Titulo,
                     FechaPublicacion = p.FechaPublicacion,
                     FechaExpiracion = p.FechaExpiracion,
-                    NombreModal = p.NombreModal,
                     RutaImagenPortada = p.RutaImagenPortada,
                     Ancho = p.Ancho,
                     Estado = p.Estado,

@@ -7,13 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Mantenimiento\**" />
     <Compile Remove="wwwroot\lib\**" />
-    <Content Remove="Views\Mantenimiento\**" />
     <Content Remove="wwwroot\lib\**" />
-    <EmbeddedResource Remove="Views\Mantenimiento\**" />
     <EmbeddedResource Remove="wwwroot\lib\**" />
-    <None Remove="Views\Mantenimiento\**" />
     <None Remove="wwwroot\lib\**" />
   </ItemGroup>
 
@@ -111,11 +107,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>LibroReclamacionResource.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\Mantenimiento\Comunicados\ComunicadoResource.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ComunicadoResource.resx</DependentUpon>
-    </Compile>
     <Compile Update="Resources\NoticiaResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -141,10 +132,6 @@
     <EmbeddedResource Update="Resources\Home\LibroReclamacionResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LibroReclamacionResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Mantenimiento\Comunicados\ComunicadoResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ComunicadoResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\NoticiaResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

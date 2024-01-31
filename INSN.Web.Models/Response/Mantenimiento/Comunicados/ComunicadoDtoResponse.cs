@@ -23,11 +23,6 @@
         public DateTime FechaExpiracion { get; set; } = default!;
 
         /// <summary>
-        /// Nombre Modal
-        /// </summary>
-        public string? NombreModal { get; set; } = default!;
-
-        /// <summary>
         /// Ruta Portada
         /// </summary>
         public string? RutaImagenPortada { get; set; } = default!;
