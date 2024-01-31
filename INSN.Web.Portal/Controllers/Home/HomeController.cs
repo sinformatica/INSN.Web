@@ -8,17 +8,29 @@ using System.Diagnostics;
 
 namespace INSN.Web.Portal.Controllers.Home
 {
+    /// <summary>
+    /// Controlador Home
+    /// </summary>
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IComunicadoProxy _proxyComunicado;
 
+        /// <summary>
+        /// HomeController
+        /// </summary>
+        /// <param name="logger"></param>
+        /// <param name="proxyComunicado"></param>
         public HomeController(ILogger<HomeController> logger, IComunicadoProxy proxyComunicado)
         {
             _logger = logger;
             _proxyComunicado = proxyComunicado;
         }
 
+        /// <summary>
+        /// Index
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             PrincipalViewModel model = new PrincipalViewModel();
@@ -34,25 +46,46 @@ namespace INSN.Web.Portal.Controllers.Home
             return View("~/Views/Home/Index.cshtml", model);
         }
 
+        /// <summary>
+        /// Nosotros
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Nosotros()
         {
             return View();
         }
+
+        /// <summary>
+        /// Contacto
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Contacto()
         {
             return View();
         }
 
+        /// <summary>
+        /// Especialidades
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Especialidades()
         {
             return View();
         }
 
+        /// <summary>
+        /// Privacy
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Privacy()
         {
             return View();
         }
 
+        /// <summary>
+        /// Error
+        /// </summary>
+        /// <returns></returns>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
@@ -62,8 +95,7 @@ namespace INSN.Web.Portal.Controllers.Home
         #region[Comunicado]
         /// <summary>
         /// Comunicado Listar
-        /// </summary>
-        /// <param name="model"></param>
+        /// </summary>  
         /// <returns></returns>
         public async Task<List<ComunicadoDtoResponse>> ComunicadoListar()
         {
