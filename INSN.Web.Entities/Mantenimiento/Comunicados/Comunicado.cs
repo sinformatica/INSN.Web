@@ -32,11 +32,6 @@ namespace INSN.Web.Entities.Mantenimiento.Comunicado
         public DateTime FechaExpiracion { get; set; }
 
         /// <summary>
-        /// Nombre Modal
-        /// </summary>
-        public string? NombreModal { get; set; }
-
-        /// <summary>
         /// Ruta Portada
         /// </summary>
         public string? RutaImagenPortada { get; set; }

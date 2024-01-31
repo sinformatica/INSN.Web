@@ -465,7 +465,7 @@
                                             <p>
                                                 @item.Titulo
                                             </p>
-                                            <a data-bs-toggle="modal" data-bs-target="#@item.NombreModal" class="readmore stretched-link" style="cursor: pointer;"></a>
+                                            <a data-bs-toggle="modal" data-bs-target="#comunicado_@item.CodigoComunicadoId" class="readmore stretched-link" style="cursor: pointer;"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -937,7 +937,7 @@
     {
         @foreach (var item in Model.ComunicadoLista)
         {
-            <div id="@item.NombreModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="@item.NombreModal" aria-hidden="true">
+            <div id="comunicado_@item.CodigoComunicadoId" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-fromleft modal-xl" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
