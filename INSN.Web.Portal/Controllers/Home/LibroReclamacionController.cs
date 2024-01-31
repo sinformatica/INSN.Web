@@ -67,6 +67,40 @@ public class LibroReclamacionController : Controller
 
             request.TiposDocumentosIdentidad = resultTiposDocumentos;
 
+            if (request.TipoPersonaSeleccionada == "Natural")
+            {
+                if (string.IsNullOrWhiteSpace(request.DocumentoIdentidad)) 
+                    throw new ModelException(nameof(request.DocumentoIdentidad), "Campo requerido: Documento de Identidad");
+
+                if (string.IsNullOrWhiteSpace(request.Nombres))
+                    throw new ModelException(nameof(request.Nombres), "Campo requerido: Nombres");
+
+                if (string.IsNullOrWhiteSpace(request.ApellidoPaterno))
+                    throw new ModelException(nameof(request.ApellidoPaterno), "Campo requerido: Apellido Paterno");
+
+                if (string.IsNullOrWhiteSpace(request.ApellidoMaterno))
+                    throw new ModelException(nameof(request.ApellidoMaterno), "Campo requerido: Apellido Materno");
+            }
+
+            else if (request.TipoPersonaSeleccionada == "Juridica")
+            {
+                if (string.IsNullOrWhiteSpace(request.RUC))
+                    throw new ModelException(nameof(request.RUC), "Campo requerido: RUC");
+
+                if (string.IsNullOrWhiteSpace(request.RazonSocial))
+                    throw new ModelException(nameof(request.RUC), "Campo requerido: Razón Social");
+            }
+
+            if (string.IsNullOrWhiteSpace(request.Email))
+                throw new ModelException(nameof(request.Email), "Campo requerido: Email");
+                    
+            if (string.IsNullOrWhiteSpace(request.Reclamo))
+                throw new ModelException(nameof(request.Reclamo), "Campo requerido: Reclamo");
+
+            if (request.Autorizacion == false)
+                throw new ModelException(nameof(request.Autorizacion), "Campo requerido: Autorización");
+
+
             await _proxy.LibroReclamacionInsertar(new LibroReclamacionDtoRequest
             {
                 TipoPersona = request.TipoPersonaSeleccionada,

@@ -105,6 +105,6 @@ namespace INSN.Web.Entities.Mantenimiento.LibroReclamacion
         /// <summary>
         /// Autorizacion
         /// </summary>
-        public int Autorizacion { get; set; }
+        public bool Autorizacion { get; set; }
     }
 }

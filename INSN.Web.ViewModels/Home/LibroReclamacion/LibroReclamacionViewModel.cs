@@ -122,9 +122,9 @@ public class LibroReclamacionViewModel : BaseModel
     public string? ApellidoMaternoPaciente { get; set; }
 
     /// <summary>
-    /// Autorización
+    /// Acepto Politica Privacidad
     /// </summary>
-    public int Autorizacion { get; set; }
+    public bool Autorizacion { get; set; }
 
     /// <summary>
     /// Tipos de Documentos de Identidad

@@ -1,4 +1,4 @@
-﻿namespace INSN.Web.ViewModels.Common.Constantes
+﻿namespace INSN.Web.Common
 {
     /// <summary>
     /// Variables - Constantes - Enumerado - FrontEnd

@@ -96,8 +96,8 @@
         public string? ApellidoMaternoPaciente { get; set; } = default!;
 
         /// <summary>
-        /// Autorizacion
+        /// Acepto Politica Privacidad
         /// </summary>
-        public int Autorizacion { get; set; }
+        public bool Autorizacion { get; set; }
     }
 }

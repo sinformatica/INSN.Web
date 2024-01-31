@@ -118,13 +118,43 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EtiquetaApellidoMaterno" xml:space="preserve">
-    <value>Apellido Materno</value>
+    <value>Apellido Materno (*)</value>
   </data>
   <data name="EtiquetaApellidoPaterno" xml:space="preserve">
-    <value>Apellido Paterno</value>
+    <value>Apellido Paterno (*)</value>
+  </data>
+  <data name="EtiquetaARCO" xml:space="preserve">
+    <value>Ejercicio de los derechos ARCO</value>
   </data>
   <data name="EtiquetaCelularTelefono" xml:space="preserve">
     <value>Celular o Teléfono</value>
+  </data>
+  <data name="EtiquetaConsecuencias" xml:space="preserve">
+    <value>Consecuencias de proporcionar los datos o su negativa a hacerlo</value>
+  </data>
+  <data name="EtiquetaContextoARCO" xml:space="preserve">
+    <value>Puede ejercer sus derechos de acceso, rectificación, cancelación, oposición, así como revocar su consentimiento para el uso de sus datos, cuando corresponda, dirigiéndose al Instituto Nacional de Salud del Niño – Breña. Puede hacerlo presencialmente en Av. Brasil 600 Breña - Lima, o mediante correo electrónico a libroreclamacion@insn.gob.pe.</value>
+  </data>
+  <data name="EtiquetaContextoConsecuencias" xml:space="preserve">
+    <value>En caso de no proporcionar la información obligatoria marcada con (*) no será posible ofrecerle el servicio de atención médica.</value>
+  </data>
+  <data name="EtiquetaContextoDatosObligatorios" xml:space="preserve">
+    <value>Con el fin de cumplir con los objetivos mencionados en esta política de privacidad, es necesario que nos facilite la siguiente información: Datos identificativos, que incluyen nombres, apellidos, número de documento nacional de identidad, carné de extranjería, dirección de domicilio, número de teléfono y dirección de correo electrónico. Además, datos de características personales como estado civil, fecha de nacimiento, nacionalidad, género y detalles de la persona de contacto. También se incluyen datos sensibles relacionados con la salud física o mental.</value>
+  </data>
+  <data name="EtiquetaContextoFinalidad" xml:space="preserve">
+    <value>La información personal que comparta con nosotros será empleada para administrar comentarios y reclamaciones, abordar cualquier inconveniente y reconocer oportunidades de mejora en relación con nuestros servicios de atención médica</value>
+  </data>
+  <data name="EtiquetaContextoIdentidad" xml:space="preserve">
+    <value>Instituto Nacional de Salud del Niño, con RUC N° 20131368403, y con domicilio en Av. Brasil 600 Breña- Lima - Lima</value>
+  </data>
+  <data name="EtiquetaContextoTiempo" xml:space="preserve">
+    <value>Se conservará sus datos personales por un plazo indeterminado o superior a un (01) año.</value>
+  </data>
+  <data name="EtiquetaContextoTransferencia" xml:space="preserve">
+    <value>Se efectúa la transferencia de datos personales a nivel nacional hacia otra entidad pública, específicamente a la Superintendencia Nacional de Salud (SUSALUD) , no se lleva a cabo la transferencia de datos personales a nivel internacional.</value>
+  </data>
+  <data name="EtiquetaDatosObligatorios" xml:space="preserve">
+    <value>Datos personales obligatorios</value>
   </data>
   <data name="EtiquetaDatosPaciente" xml:space="preserve">
     <value>Datos del Paciente</value>
@@ -133,25 +163,34 @@
     <value>Dirección</value>
   </data>
   <data name="EtiquetaDocumentoIdentidad" xml:space="preserve">
-    <value>Nro. Documento</value>
+    <value>Nro. Documento (*)</value>
   </data>
   <data name="EtiquetaEmail" xml:space="preserve">
-    <value>Email</value>
+    <value>Email (*)</value>
+  </data>
+  <data name="EtiquetaFinalidad" xml:space="preserve">
+    <value>Finalidad</value>
+  </data>
+  <data name="EtiquetaIdentidad" xml:space="preserve">
+    <value>Identidad y domicilio</value>
   </data>
   <data name="EtiquetaNombres" xml:space="preserve">
-    <value>Nombres</value>
+    <value>Nombres (*)</value>
   </data>
   <data name="EtiquetaRazonSocial" xml:space="preserve">
-    <value>Razón Social</value>
+    <value>Razón Social (*)</value>
   </data>
   <data name="EtiquetaReclamo" xml:space="preserve">
-    <value>Reclamo</value>
+    <value>Reclamo (*)</value>
   </data>
   <data name="EtiquetaRUC" xml:space="preserve">
-    <value>RUC</value>
+    <value>RUC (*)</value>
   </data>
   <data name="EtiquetaSeccion" xml:space="preserve">
     <value>Registro del Libro de Reclamaciones en Salud Web</value>
+  </data>
+  <data name="EtiquetaTiempo" xml:space="preserve">
+    <value>Tiempo</value>
   </data>
   <data name="EtiquetaTipoDocumentoIdentidad" xml:space="preserve">
     <value>Tipo Documento</value>
@@ -161,5 +200,8 @@
   </data>
   <data name="EtiquetaTipoPersona" xml:space="preserve">
     <value>Tipo Persona</value>
+  </data>
+  <data name="EtiquetaTransferencia" xml:space="preserve">
+    <value>Transferencia</value>
   </data>
 </root>

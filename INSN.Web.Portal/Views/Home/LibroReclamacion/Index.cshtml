@@ -11,239 +11,249 @@
     <link href="~/js/plugins/sweetalert2/sweetalert2.css" rel="stylesheet" />
 </head>
 
-<main id="main">  
-    <!-- ======= INICIO DE SESSION CON PESTAÑA ( LIBRO DE RECLAMACIONES )======= -->
+<main id="main">
     <div class="section best-deal">
-        <div class="container">
-            <div class="col-lg-12">
-                <div class="section-header">
-                    <h2>LIBRO DE RECLAMACIONES</h2>
-                    <div class="col-lg-12">
-                        <div class="content ps-0 ps-lg-5">
-                            <div class="position-relative mt-4">
-                                <img src="~/imagenes/LibroReclamaciones/Libro.PNG" class="img-fluid rounded-4" alt="" style="padding-bottom: 20px;">
-                            </div>
-                        </div>
-                    </div>
-                    <p align="justify">
-                        Bienvenidos al Libro de Reclamaciones del Instituto Nacional de Salud del Niño (INSN)<br />
-                        En nuestro compromiso constante por garantizar la excelencia en la atención y cuidado de la salud infantil,
-                        el Instituto Nacional de Salud del Niño pone a disposición el Libro de Reclamaciones como un espacio transparente
-                        y accesible para nuestros usuarios. Su propósito es brindarles la oportunidad de expresar sus sugerencias,
-                        comentarios o preocupaciones, contribuyendo así a fortalecer nuestra calidad asistencial. Valoramos cada retroalimentación
-                        como una oportunidad para mejorar y evolucionar en nuestra misión de proporcionar servicios médicos especializados a la
-                        comunidad pediátrica. Su participación es fundamental para seguir creciendo juntos en el cuidado de la salud de los niños y
-                        adolescentes. <br />
-                        Agradecemos su confianza en el Instituto Nacional de Salud del Niño.
-                    </p>
-                    <br />
-                    <br />
-                    <div class="row">
-                        <div class="col-md-12">
-                            <form asp-controller="LibroReclamacion" asp-action="Index" method="post" id="FormReclamo">
-                                <div class="block block-themed block-rounded">
-                                    <!-- ======= INICIO : Cabecera ========================= -->
-                                    <div class="block-header">
-                                        <h3 class="block-title" style="font-size: 1.1em; font-weight: bold;">
-                                            @Html.Raw(LibroReclamacionResource.EtiquetaSeccion)
-                                        </h3>
-                                    </div>
-                                    <!-- ======= FIN : Cabecera ============================ -->
-                                    <!-- ========================================================================= -->
-                                    <div class="block-content block-content-full">
-                                        <!-- ======= INICIO : Controles de BúInsertsqueda ============================== -->
-                                        <div class="row">
-                                            <div class="col-md-3 col-sm-6">
-                                                <div class="form-floating mb-4">
-                                                    @Html.DropDownListFor(m => m.TipoPersonaSeleccionada,
-                                                    new SelectList(Model.TipoPersona, "Codigo", "Nombre"), new { @class = "form-select", @id = "cmbTipoPersona",@onchange = "mostrarOcultarElementos()" })
-                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaTipoPersona)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6" id="divRUC" style="display: none;">
-                                                <div class="form-floating mb-4">
-                                                    @Html.TextBoxFor(m => m.RUC, new { @class = "form-control", @placeholder = "RUC", @id = "txtRUC",
-                                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros')",
-                                                    @maxlength = "11"})
-                                                    <span asp-validation-for="RUC" class="text-danger"></span>
-                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaRUC)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6" id="divRazonSocial" style="display: none;">
-                                                <div class="form-floating mb-4">
-                                                    @Html.TextBoxFor(m => m.RazonSocial, new { @class = "form-control", @placeholder = "Razón Social", @id = "txtRazonSocial",
-                                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros_caracteres')" ,
-                                                    @maxlength = "200"})
-                                                    <span asp-validation-for="RazonSocial" class="text-danger"></span>
-                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaRazonSocial)</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="divDatosPersonaNatural1">
-                                            <div class="row">
-                                                <div class="col-md-3 col-sm-6">
-                                                    <div class="form-floating mb-4">
-                                                        @Html.DropDownListFor(m => m.TipoDocumentoIdentidadSeleccionada,
-                                                        new SelectList(Model.TiposDocumentosIdentidad, "Id", "Descripcion"), new { @class = "form-select", @id = "cmbTipoDocumentoIdentidad"})
-                                                        <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaTipoDocumentoIdentidad)</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 col-sm-6">
-                                                    <div class="form-floating mb-4">
-                                                        @Html.TextBoxFor(m => m.DocumentoIdentidad, new { @class = "form-control", @placeholder = "Documento de identidad", @id = "txtDocumentoIdentidad",
-                                                        @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros')" ,
-                                                        @maxlength = "8", @required = "required"})
-                                                        <span asp-validation-for="DocumentoIdentidad" class="text-danger"></span>
-                                                        <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaDocumentoIdentidad)</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 col-sm-6">
-                                                    <div class="form-floating mb-4">
-                                                        @Html.TextBoxFor(m => m.Nombres, new { @class = "form-control", @placeholder = "Nombres", @id = "txtNombres",
-                                                        @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,
-                                                        @maxlength = "50", @required = "required"})
-                                                        <span asp-validation-for="Nombres" class="text-danger"></span>
-                                                        <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaNombres)</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 col-sm-6">
-                                                    <div class="form-floating mb-4">
-                                                        @Html.TextBoxFor(m => m.ApellidoPaterno, new { @class = "form-control", @placeholder = "Apellido Paterno", @id = "txtApellidoPaterno",
-                                                        @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,
-                                                        @maxlength = "50", @required = "required"})
-                                                        <span asp-validation-for="ApellidoPaterno" class="text-danger"></span>
-                                                        <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaApellidoPaterno)</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-3 col-sm-6" id="divDatosPersonaNatural2">
-                                                <div class="form-floating mb-4">
-                                                    @Html.TextBoxFor(m => m.ApellidoMaterno, new { @class = "form-control", @placeholder = "Apellido Materno", @id = "txtApellidoMaterno",
-                                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,
-                                                    @maxlength = "50", @required = "required"})
-                                                    <span asp-validation-for="ApellidoMaterno" class="text-danger"></span>
-                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaApellidoMaterno)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6">
-                                                <div class="form-floating mb-4">
-                                                    @Html.TextBoxFor(m => m.Direccion, new { @class = "form-control", @placeholder = "Dirección", @id = "txtDireccion",
-                                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros_caracteres')" ,
-                                                    @maxlength = "100"})
-                                                    <span asp-validation-for="Direccion" class="text-danger"></span>
-                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaDirección)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6">
-                                                <div class="form-floating mb-4">
-                                                    @Html.TextBoxFor(m => m.CelularTelefono, new { @class = "form-control", @placeholder = "Celular o Teléfono", @id = "txtCelularTelefono",
-                                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros')" ,
-                                                    @maxlength = "9"})
-                                                    <span asp-validation-for="CelularTelefono" class="text-danger"></span>
-                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaCelularTelefono)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6">
-                                                <div class="form-floating mb-4">
-                                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email", @id = "txtEmail",
-                                                    @oninput = "this.value = this.value.toUpperCase()",
-                                                    @maxlength = "50", @required = "required"})
-                                                    <span asp-validation-for="Email" class="text-danger"></span>
-                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaEmail)</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12 col-sm-6">
-                                                <div class="mb-4">
-                                                    <label class="form-label" style="float: left;">@Html.Raw(LibroReclamacionResource.EtiquetaReclamo)</label>
-                                                    @Html.TextArea("Reclamo", Model.Reclamo, 4,0, new { @class = "form-control", @placeholder = "Describa su reclamo", @id = "txtReclamo",
-                                                    @maxlength = "500", @required = "required"})
-                                                    <span asp-validation-for="Reclamo" class="text-danger"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h4 class="content-heading pt-0" style="text-align: left;">@Html.Raw(LibroReclamacionResource.EtiquetaDatosPaciente)</h4>
-                                        <div class="row">
-                                            <div class="col-md-4 col-sm-6">
-                                                <div class="form-floating mb-4">
-                                                    @Html.DropDownListFor(m => m.TipoParentescoSeleccionada,
-                                                    new SelectList(Model.TipoParentesco, "Codigo", "Nombre"), "Seleccione",new { @class = "form-select", @id = "cmbTipoParentesco"})
-                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaTipoParentesco)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-6">
-                                                <div class="form-floating mb-4">
-                                                    @Html.DropDownListFor(m => m.TipoDocumentoIdentidadPacienteSeleccionada,
-                                                    new SelectList(Model.TiposDocumentosIdentidad, "Id", "Descripcion"), new { @class = "form-select", @id = "cmbTipoDocumentoIdentidadPaciente"})
-                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaTipoDocumentoIdentidad)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-6">
-                                                <div class="form-floating mb-4">
-                                                    @Html.TextBoxFor(m => m.DocumentoIdentidadPaciente, new { @class = "form-control", @placeholder = "Documento de identidad", @id = "txtDocumentoIdentidadPaciente",
-                                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros')" ,
-                                                    @maxlength = "11"})
-                                                    <span asp-validation-for="DocumentoIdentidadPaciente" class="text-danger"></span>
-                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaDocumentoIdentidad)</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4 col-sm-6">
-                                                <div class="form-floating mb-4">
-                                                    @Html.TextBoxFor(m => m.NombrePaciente, new { @class = "form-control", @placeholder = "Nombres", @id = "txtNombrePaciente",
-                                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,
-                                                    @maxlength = "50"})
-                                                    <span asp-validation-for="NombrePaciente" class="text-danger"></span>
-                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaNombres)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-6">
-                                                <div class="form-floating mb-4">
-                                                    @Html.TextBoxFor(m => m.ApellidoPaternoPaciente, new { @class = "form-control", @placeholder = "Apellido Paterno", @id = "txtApellidoPaternoPaciente",
-                                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,
-                                                    @maxlength = "50"})
-                                                    <span asp-validation-for="ApellidoPaternoPaciente" class="text-danger"></span>
-                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaApellidoPaterno)</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-6">
-                                                <div class="form-floating mb-4">
-                                                    @Html.TextBoxFor(m => m.ApellidoMaternoPaciente, new { @class = "form-control", @placeholder = "Apellido Materno", @id = "txtApellidoMaternoPaciente",
-                                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,
-                                                    @maxlength = "50"})
-                                                    <span asp-validation-for="ApellidoMaternoPaciente" class="text-danger"></span>
-                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaApellidoMaterno)</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="
-                                             justify-content: center;">
-                                            <div class="col-md-2 col-sm-6 text-center">
-                                                <button id="btnEnviar" class="btn btn-primary" asp-area="" asp-controller="LibroReclamacion" asp-action="LibroReclamacionInsertar">
-                                                    @Html.Raw(GeneralResource.EtiquetaEnviar)
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <!-- ======= FIN    : Controles de Insert ============================== -->
-                                        <!-- ===================================================================== -->
-                                    </div>
-                                </div>
-                            </form>
+        <div class="container" data-aos="fade-up">
+
+            <section class="section-header">
+                <h2>LIBRO DE RECLAMACIONES</h2>
+                <div class="col-lg-12">
+                    <div class="content ps-0 ps-lg-5">
+                        <div class="position-relative mt-4">
+                            <img src="~/imagenes/LibroReclamaciones/Libro.PNG" class="img-fluid rounded-4" alt="" style="padding-bottom: 20px;">
                         </div>
                     </div>
                 </div>
-            </div>
+                <p align="justify">
+                    Bienvenidos al Libro de Reclamaciones del Instituto Nacional de Salud del Niño (INSN)<br />
+                    En nuestro compromiso constante por garantizar la excelencia en la atención y cuidado de la salud infantil,
+                    el Instituto Nacional de Salud del Niño pone a disposición el Libro de Reclamaciones como un espacio transparente
+                    y accesible para nuestros usuarios. Su propósito es brindarles la oportunidad de expresar sus sugerencias,
+                    comentarios o preocupaciones, contribuyendo así a fortalecer nuestra calidad asistencial. Valoramos cada retroalimentación
+                    como una oportunidad para mejorar y evolucionar en nuestra misión de proporcionar servicios médicos especializados a la
+                    comunidad pediátrica. Su participación es fundamental para seguir creciendo juntos en el cuidado de la salud de los niños y
+                    adolescentes. <br />
+                    Agradecemos su confianza en el Instituto Nacional de Salud del Niño.
+                </p>
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <form asp-controller="LibroReclamacion" asp-action="Index" method="post" id="FormReclamo">
+                            <div class="block block-themed block-rounded">
+                                <!-- ======= INICIO : Cabecera ========================= -->
+                                <div class="block-header">
+                                    <h3 class="block-title" style="font-size: 1.1em; font-weight: bold;">
+                                        @Html.Raw(LibroReclamacionResource.EtiquetaSeccion)
+                                    </h3>
+                                </div>
+                                <!-- ======= FIN : Cabecera ============================ -->
+                                <!-- ========================================================================= -->
+                                <div class="block-content block-content-full">
+                                    <!-- ======= INICIO : Controles de BúInsertsqueda ============================== -->
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="form-floating mb-4">
+                                                @Html.DropDownListFor(m => m.TipoPersonaSeleccionada,
+                                                new SelectList(Model.TipoPersona, "Codigo", "Nombre"), new { @class = "form-select", @id = "cmbTipoPersona",@onchange = "mostrarOcultarElementos()" })
+                                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaTipoPersona)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6" id="divRUC" style="display: none;">
+                                            <div class="form-floating mb-4">
+                                                @Html.TextBoxFor(m => m.RUC, new { @class = "form-control", @placeholder = "RUC", @id = "txtRUC",
+                                                @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros')",
+                                                @maxlength = "11"})
+                                                <span asp-validation-for="RUC" class="text-danger"></span>
+                                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaRUC)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6" id="divRazonSocial" style="display: none;">
+                                            <div class="form-floating mb-4">
+                                                @Html.TextBoxFor(m => m.RazonSocial, new { @class = "form-control", @placeholder = "Razón Social", @id = "txtRazonSocial",
+                                                @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros_caracteres')" ,
+                                                @maxlength = "200"})
+                                                <span asp-validation-for="RazonSocial" class="text-danger"></span>
+                                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaRazonSocial)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="divDatosPersonaNatural1">
+                                        <div class="row">
+                                            <div class="col-md-3 col-sm-6">
+                                                <div class="form-floating mb-4">
+                                                    @Html.DropDownListFor(m => m.TipoDocumentoIdentidadSeleccionada,
+                                                    new SelectList(Model.TiposDocumentosIdentidad, "Id", "Descripcion"), new { @class = "form-select", @id = "cmbTipoDocumentoIdentidad"})
+                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaTipoDocumentoIdentidad)</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-6">
+                                                <div class="form-floating mb-4">
+                                                    @Html.TextBoxFor(m => m.DocumentoIdentidad, new { @class = "form-control", @placeholder = "Documento de identidad", @id = "txtDocumentoIdentidad",
+                                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros')" ,
+                                                    @maxlength = "8", @required = "required"})
+                                                    <span asp-validation-for="DocumentoIdentidad" class="text-danger"></span>
+                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaDocumentoIdentidad)</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-6">
+                                                <div class="form-floating mb-4">
+                                                    @Html.TextBoxFor(m => m.Nombres, new { @class = "form-control", @placeholder = "Nombres", @id = "txtNombres",
+                                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,
+                                                    @maxlength = "50", @required = "required"})
+                                                    <span asp-validation-for="Nombres" class="text-danger"></span>
+                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaNombres)</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-6">
+                                                <div class="form-floating mb-4">
+                                                    @Html.TextBoxFor(m => m.ApellidoPaterno, new { @class = "form-control", @placeholder = "Apellido Paterno", @id = "txtApellidoPaterno",
+                                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,
+                                                    @maxlength = "50", @required = "required"})
+                                                    <span asp-validation-for="ApellidoPaterno" class="text-danger"></span>
+                                                    <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaApellidoPaterno)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-6" id="divDatosPersonaNatural2">
+                                            <div class="form-floating mb-4">
+                                                @Html.TextBoxFor(m => m.ApellidoMaterno, new { @class = "form-control", @placeholder = "Apellido Materno", @id = "txtApellidoMaterno",
+                                                @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,
+                                                @maxlength = "50", @required = "required"})
+                                                <span asp-validation-for="ApellidoMaterno" class="text-danger"></span>
+                                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaApellidoMaterno)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="form-floating mb-4">
+                                                @Html.TextBoxFor(m => m.Direccion, new { @class = "form-control", @placeholder = "Dirección", @id = "txtDireccion",
+                                                @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros_caracteres')" ,
+                                                @maxlength = "100"})
+                                                <span asp-validation-for="Direccion" class="text-danger"></span>
+                                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaDirección)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="form-floating mb-4">
+                                                @Html.TextBoxFor(m => m.CelularTelefono, new { @class = "form-control", @placeholder = "Celular o Teléfono", @id = "txtCelularTelefono",
+                                                @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros')" ,
+                                                @maxlength = "9"})
+                                                <span asp-validation-for="CelularTelefono" class="text-danger"></span>
+                                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaCelularTelefono)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="form-floating mb-4">
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email", @id = "txtEmail",
+                                                @oninput = "this.value = this.value.toUpperCase()",
+                                                @maxlength = "50", @required = "required"})
+                                                <span asp-validation-for="Email" class="text-danger"></span>
+                                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaEmail)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-6">
+                                            <div class="mb-4">
+                                                <label class="form-label" style="float: left;">@Html.Raw(LibroReclamacionResource.EtiquetaReclamo)</label>
+                                                @Html.TextArea("Reclamo", Model.Reclamo, 4,0, new { @class = "form-control", @placeholder = "Describa su reclamo", @id = "txtReclamo",
+                                                @maxlength = "500", @required = "required"})
+                                                <span asp-validation-for="Reclamo" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h4 class="content-heading pt-0" style="text-align: left;">@Html.Raw(LibroReclamacionResource.EtiquetaDatosPaciente)</h4>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-6">
+                                            <div class="form-floating mb-4">
+                                                @Html.DropDownListFor(m => m.TipoParentescoSeleccionada,
+                                                new SelectList(Model.TipoParentesco, "Codigo", "Nombre"), "Seleccione",new { @class = "form-select", @id = "cmbTipoParentesco"})
+                                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaTipoParentesco)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6">
+                                            <div class="form-floating mb-4">
+                                                @Html.DropDownListFor(m => m.TipoDocumentoIdentidadPacienteSeleccionada,
+                                                new SelectList(Model.TiposDocumentosIdentidad, "Id", "Descripcion"), new { @class = "form-select", @id = "cmbTipoDocumentoIdentidadPaciente"})
+                                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaTipoDocumentoIdentidad)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6">
+                                            <div class="form-floating mb-4">
+                                                @Html.TextBoxFor(m => m.DocumentoIdentidadPaciente, new { @class = "form-control", @placeholder = "Documento de identidad", @id = "txtDocumentoIdentidadPaciente",
+                                                @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros')" ,
+                                                @maxlength = "11"})
+                                                <span asp-validation-for="DocumentoIdentidadPaciente" class="text-danger"></span>
+                                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaDocumentoIdentidad)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-6">
+                                            <div class="form-floating mb-4">
+                                                @Html.TextBoxFor(m => m.NombrePaciente, new { @class = "form-control", @placeholder = "Nombres", @id = "txtNombrePaciente",
+                                                @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,
+                                                @maxlength = "50"})
+                                                <span asp-validation-for="NombrePaciente" class="text-danger"></span>
+                                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaNombres)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6">
+                                            <div class="form-floating mb-4">
+                                                @Html.TextBoxFor(m => m.ApellidoPaternoPaciente, new { @class = "form-control", @placeholder = "Apellido Paterno", @id = "txtApellidoPaternoPaciente",
+                                                @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,
+                                                @maxlength = "50"})
+                                                <span asp-validation-for="ApellidoPaternoPaciente" class="text-danger"></span>
+                                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaApellidoPaterno)</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6">
+                                            <div class="form-floating mb-4">
+                                                @Html.TextBoxFor(m => m.ApellidoMaternoPaciente, new { @class = "form-control", @placeholder = "Apellido Materno", @id = "txtApellidoMaternoPaciente",
+                                                @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,
+                                                @maxlength = "50"})
+                                                <span asp-validation-for="ApellidoMaternoPaciente" class="text-danger"></span>
+                                                <label class="form-label">@Html.Raw(LibroReclamacionResource.EtiquetaApellidoMaterno)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="form-check form-check-inline" style="float: left;">
+                                                @Html.CheckBoxFor(m => m.Autorizacion, new { @class = "form-check-input", @id = "chkAprobarPolitica" , @required = "required"})
+                                                <label class="form-check-label" for="example-checkbox-inline1"> </label>Autorizo la notificación del resultado del reclamo al E-Mail  consignado
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">                                           
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row" style="
+                                             justify-content: center;">
+                                        <div class="col-md-2 col-sm-6 text-center">
+                                            <button id="btnEnviar" class="btn btn-primary" asp-area="" asp-controller="LibroReclamacion" asp-action="LibroReclamacionInsertar">
+                                                @Html.Raw(GeneralResource.EtiquetaEnviar)
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- ======= FIN    : Controles de Insert ============================== -->
+                                    <!-- ===================================================================== -->
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
     <br />
 </main>
+
 <script src="~/js/plugins/sweetalert2/sweetalert2.js"></script>
 <script>
-        function Modal_Grabar_Editar_Correcto(nCodigoMensaje, sMensaje, sMetodo, sControlador) {
+    function Modal_Grabar_Editar_Correcto(nCodigoMensaje, sMensaje, sMetodo, sControlador) {
         const swalDistribucion = Swal.mixin({
             customClass: {
                 confirmButton: 'btn btn-lg btn-primary min-width-100 mx-4'
@@ -259,7 +269,7 @@
                 showCancelButton: false,
             }).then((resultado) => {
                 if (resultado.isConfirmed) {
-                    setTimeout(function () {                       
+                    setTimeout(function () {
                         // Generar la URL con los parámetros
                         var sMetodoEncoded = encodeURIComponent(sMetodo);
                         var sControladorEncoded = encodeURIComponent(sControlador);
@@ -283,18 +293,18 @@
         }
     };
 
-     //#region [Success Operación]
-        window.onload = function () {
-            var nCodigoMensaje = '@TempData["CodigoMensaje"]'; // Obtener el valor de Código de Mensaje
-            var sMensaje = '@TempData["Mensaje"]'; // Obtener el valor de Mensaje
-            var sMetodo = '@TempData["Metodo"]';
-            var sControlador = '@TempData["Controlador"]';
+    //#region [Success Operación]
+    window.onload = function () {
+        var nCodigoMensaje = '@TempData["CodigoMensaje"]'; // Obtener el valor de Código de Mensaje
+        var sMensaje = '@TempData["Mensaje"]'; // Obtener el valor de Mensaje
+        var sMetodo = '@TempData["Metodo"]';
+        var sControlador = '@TempData["Controlador"]';
 
-            if (nCodigoMensaje !== '' && nCodigoMensaje !== '0' && sMensaje !== '') {
-                Modal_Grabar_Editar_Correcto(parseInt(nCodigoMensaje), sMensaje, sMetodo, sControlador); // Llamar a la función con los valores
-            }
-        };
-        //#endregion
+        if (nCodigoMensaje !== '' && nCodigoMensaje !== '0' && sMensaje !== '') {
+            Modal_Grabar_Editar_Correcto(parseInt(nCodigoMensaje), sMensaje, sMetodo, sControlador); // Llamar a la función con los valores
+        }
+    };
+    //#endregion
 
     function mostrarOcultarElementos() {
         var tipoPersonaSeleccionada = document.getElementById("cmbTipoPersona").value;
@@ -317,7 +327,7 @@
             txtNombres.required = true;
             txtApellidoPaterno.required = true;
             txtApellidoMaterno.required = true;
-        } 
+        }
         else if (tipoPersonaSeleccionada === "Juridica") {
             divRazonSocial.style.display = "block";
             divRUC.style.display = "block";
@@ -336,5 +346,5 @@
             txtApellidoPaterno.required = false;
             txtApellidoMaterno.required = false;
         }
-    }  
+    }
 </script>
