@@ -115,11 +115,5 @@ namespace INSN.Web.Services.Implementaciones.Acceso
 
             return response;
         }
-
-        //public async Task<BaseResponseGeneric<ICollection<ModuloDtoResponse>>> ModuloListar(ModuloDtoRequest request)
-        //{
-        //    // Llamar al método SeccionListar del repositorio y devolver el resultado
-        //    return await _menuRepository.ModuloListar(request);
-        //}
     }
 }

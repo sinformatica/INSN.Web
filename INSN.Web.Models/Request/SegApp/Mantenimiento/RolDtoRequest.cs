@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace INSN.Web.Models.Request.SegApp.Mantenimiento
+﻿namespace INSN.Web.Models.Request.SegApp.Mantenimiento
 {
     /// <summary>
     /// Clase Entidad Lógica Resquest Rol

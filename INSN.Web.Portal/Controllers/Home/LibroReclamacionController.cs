@@ -1,11 +1,10 @@
 ﻿using INSN.Web.Portal.Services.Interfaces.SegApp;
-using INSN.Web.Portal.Services.Interfaces.Mantenimiento.LibroReclamaciones;
 using Microsoft.AspNetCore.Mvc;
 using INSN.Web.Models.Request.SegApp;
 using INSN.Web.ViewModels.Home.LibroReclamacion;
 using INSN.Web.ViewModels.Exceptions;
-using INSN.Web.Models.Request.Mantenimiento.LibroReclamaciones;
-using INSN.Web.Portal.Resources.Home;
+using INSN.Web.Models.Request.Home.LibroReclamaciones;
+using INSN.Web.Portal.Services.Interfaces.Home.LibroReclamaciones;
 
 namespace INSN.Web.Portal.Controllers.Home;
 

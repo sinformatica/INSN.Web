@@ -1,20 +1,8 @@
 ﻿using Dapper;
 using INSN.Web.DataAccess;
 using INSN.Web.Entities.SegApp;
-using INSN.Web.Models.Request.Sistema;
-using INSN.Web.Models.Response;
-using INSN.Web.Models.Response.Sistema;
 using INSN.Web.Repositories.Interfaces.Acceso;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace INSN.Web.Repositories.Implementaciones.Acceso
 {

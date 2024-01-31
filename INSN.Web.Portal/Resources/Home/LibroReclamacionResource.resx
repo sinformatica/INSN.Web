@@ -126,6 +126,9 @@
   <data name="EtiquetaARCO" xml:space="preserve">
     <value>Ejercicio de los derechos ARCO</value>
   </data>
+  <data name="EtiquetaAutorizoEmail" xml:space="preserve">
+    <value>Autorizo la notificación del resultado del reclamo al correo electrónico consignado.</value>
+  </data>
   <data name="EtiquetaCelularTelefono" xml:space="preserve">
     <value>Celular o Teléfono</value>
   </data>
@@ -166,7 +169,7 @@
     <value>Nro. Documento (*)</value>
   </data>
   <data name="EtiquetaEmail" xml:space="preserve">
-    <value>Email (*)</value>
+    <value>Correo electrónico  (*)</value>
   </data>
   <data name="EtiquetaFinalidad" xml:space="preserve">
     <value>Finalidad</value>
@@ -200,6 +203,9 @@
   </data>
   <data name="EtiquetaTipoPersona" xml:space="preserve">
     <value>Tipo Persona</value>
+  </data>
+  <data name="EtiquetaTitulo" xml:space="preserve">
+    <value>LIBRO DE RECLAMACIONES EN SALUD</value>
   </data>
   <data name="EtiquetaTransferencia" xml:space="preserve">
     <value>Transferencia</value>

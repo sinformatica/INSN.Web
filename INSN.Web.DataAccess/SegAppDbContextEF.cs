@@ -1,10 +1,10 @@
 ﻿using INSN.Web.Entities.SegApp;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using INSN.Web.Entities.Mantenimiento.OportunidadLaboral;
-using INSN.Web.Entities.Mantenimiento.DocumentoInstitucional;
-using INSN.Web.Entities.Mantenimiento.Comunicado;
-using INSN.Web.Entities.Mantenimiento.LibroReclamacion;
+using INSN.Web.Entities.Home.LibroReclamacion;
+using INSN.Web.Entities.Home.OportunidadLaboral;
+using INSN.Web.Entities.Home.DocumentoInstitucional;
+using INSN.Web.Entities.Home.Comunicados;
 
 namespace INSN.Web.DataAccess
 {

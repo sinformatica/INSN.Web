@@ -1,11 +1,14 @@
-﻿using INSN.Web.Models.Request.Home;
-using INSN.Web.Models.Response.Mantenimiento.DocumentoLegal;
-using INSN.Web.Portal.Services.Interfaces.Mantenimiento.DocumentoInstitucional;
+﻿using INSN.Web.Models.Request.Home.DocumentoLegal;
+using INSN.Web.Models.Response.Home.DocumentoLegal;
+using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.ViewModels.Home.DocumentoLegal;
 using Microsoft.AspNetCore.Mvc;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
+/// <summary>
+/// Controlador Sistema Control Interno
+/// </summary>
 public class SistemaControlIntController : Controller
 {
     private readonly IWebHostEnvironment _enviroment;
@@ -14,7 +17,7 @@ public class SistemaControlIntController : Controller
     private readonly ILogger<SistemaControlIntController> _logger;
 
     /// <summary>
-    /// 
+    /// SistemaControlIntController
     /// </summary>
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>

@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using INSN.Web.DataAccess;
-using INSN.Web.Entities.SegApp;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Models.Response;
@@ -8,11 +7,6 @@ using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.Services.Interfaces.SegApp.Mantenimiento;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using INSN.Web.DataAccess.Acceso;
 

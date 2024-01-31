@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace INSN.Web.Models.Response.SegApp.Mantenimiento
+﻿namespace INSN.Web.Models.Response.SegApp.Mantenimiento
 {
+    /// <summary>
+    /// Clase UsuarioRolDtoResponse
+    /// </summary>
     public class UsuarioRolDtoResponse : BaseResponse
     {
         /// <summary>

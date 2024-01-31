@@ -1,11 +1,7 @@
-﻿using INSN.Web.Models.Response.Sistemas;
-using INSN.Web.Models.Response;
-using INSN.Web.Models;
+﻿using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.Sistema;
 using INSN.Web.Models.Request.Sistema;
-using INSN.Web.ViewModels;
 using INSN.Web.Common;
-using System.IdentityModel.Tokens.Jwt;
 using INSN.Web.Portal.Services.Interfaces.Acceso;
 using System.Net.Http.Headers;
 

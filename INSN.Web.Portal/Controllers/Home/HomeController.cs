@@ -1,7 +1,7 @@
-﻿using INSN.Web.Models.Request.Mantenimiento.Comunicados;
-using INSN.Web.Models.Response.Mantenimiento.Comunicados;
+﻿using INSN.Web.Models.Request.Home.Comunicados;
+using INSN.Web.Models.Response.Home.Comunicados;
 using INSN.Web.Portal.Models;
-using INSN.Web.Portal.Services.Interfaces.Mantenimiento.Comunicados;
+using INSN.Web.Portal.Services.Interfaces.Home.Comunicados;
 using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;

@@ -1,6 +1,6 @@
 ﻿using INSN.Web.Models;
 using INSN.Web.Models.Request;
-using INSN.Web.Portal.Services.Interfaces.Mantenimiento.DocumentoInstitucional;
+using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.ViewModels.Home.DocumentoLegal;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
@@ -44,14 +44,14 @@ public class DonacionesController : Controller
     /// <returns></returns>
     public async Task<IActionResult> DocumentoLegalCovid19(DocumentoLegalViewModel model)
     {
-        PaginationData pager = ViewBag.Pager != null
-            ? ViewBag.Pager
-            : new PaginationData();
+        //PaginationData pager = ViewBag.Pager != null
+        //    ? ViewBag.Pager
+        //    : new PaginationData();
 
-        if (pager.CurrentPage == 0)
-            pager.CurrentPage = model.Page <= 0 ? 1 : model.Page;
+        //if (pager.CurrentPage == 0)
+        //    pager.CurrentPage = model.Page <= 0 ? 1 : model.Page;
 
-        pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
+        //pager.RowsPerPage = model.Rows <= 0 ? 20 : model.Rows;
 
         //model.TipoDocumentos = await _TipoDocumentoProxy.ListAsync();
 

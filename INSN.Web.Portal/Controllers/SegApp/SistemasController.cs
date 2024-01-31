@@ -1,14 +1,11 @@
-﻿using INSN.Web.Common;
-using INSN.Web.Models;
-using INSN.Web.Models.Request.SegApp;
-using INSN.Web.Portal.Services.Interfaces.SegApp;
-using INSN.Web.ViewModels;
+﻿using INSN.Web.Portal.Services.Interfaces.SegApp;
 using Microsoft.AspNetCore.Mvc;
-using System.IdentityModel.Tokens.Jwt;
-using System.Reflection;
 
 namespace INSN.Web.Portal.Controllers.SegApp
 {
+    /// <summary>
+    /// Controlador SistemasController
+    /// </summary>
     public class SistemasController : Controller
     {
         private readonly IWebHostEnvironment _enviroment;

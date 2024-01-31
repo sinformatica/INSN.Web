@@ -1,10 +1,13 @@
-﻿using INSN.Web.Models.Request.Home;
-using INSN.Web.Portal.Services.Interfaces.Mantenimiento.DocumentoInstitucional;
+﻿using INSN.Web.Models.Request.Home.DocumentoLegal;
+using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.ViewModels.Home.DocumentoLegal;
 using Microsoft.AspNetCore.Mvc;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
+/// <summary>
+/// Controlador Directorio Institucional
+/// </summary>
 public class DirectorioInstitucionalController : Controller
 {
     private readonly IWebHostEnvironment _enviroment;
@@ -12,10 +15,8 @@ public class DirectorioInstitucionalController : Controller
     private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
     private readonly ILogger<DirectorioInstitucionalController> _logger;
 
-    private const int MaxFileSize = 4 * 1024 * 1024;
-
     /// <summary>
-    /// 
+    /// DirectorioInstitucionalController
     /// </summary>
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
@@ -59,27 +60,4 @@ public class DirectorioInstitucionalController : Controller
 
         return View("~/Views/Home/DirectorioInstitucional/DocumentoLegal.cshtml", model);
     }
-
-    //public IActionResult Download1(string fileName)
-    //{
-    //    try
-    //    {
-    //        var filePath = Path.Combine(_enviroment.ContentRootPath, "Documentos/NormasDocumentosLegales", fileName);
-
-    //        if (!System.IO.File.Exists(filePath))
-    //        {
-    //            return NotFound(); // Manejo de archivo no encontrado
-    //        }
-
-    //        var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-
-    //        return new FileStreamResult(fileStream, "application/pdf");
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        // Manejar cualquier otro tipo de error
-    //        // Por ejemplo: Loggear el error para su revisión posterior
-    //        return StatusCode(StatusCodes.Status500InternalServerError);
-    //    }
-    //}
 }

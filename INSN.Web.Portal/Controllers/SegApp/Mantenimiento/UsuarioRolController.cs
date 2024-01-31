@@ -1,10 +1,11 @@
-﻿using INSN.Web.Models.Request.SegApp.Mantenimiento;
-using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
-using INSN.Web.ViewModels.SegApp.Mantenimiento;
+﻿using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
 using Microsoft.AspNetCore.Mvc;
 
 namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
 {
+    /// <summary>
+    /// Controlador Usuario Rol
+    /// </summary>
     public class UsuarioRolController : Controller
     {
         private readonly IWebHostEnvironment _enviroment;
@@ -12,7 +13,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
         private readonly ILogger<UsuarioRolController> _logger;
 
         /// <summary>
-        /// 
+        /// UsuarioRolController
         /// </summary>
         /// <param name="proxy"></param>
         /// <param name="logger"></param>

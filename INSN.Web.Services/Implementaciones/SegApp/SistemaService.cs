@@ -1,17 +1,8 @@
 ﻿using AutoMapper;
 using INSN.Web.Models.Response;
-using INSN.Web.Models;
-using INSN.Web.Repositories.Interfaces;
 using INSN.Web.Repositories.Interfaces.SegApp;
-using INSN.Web.Services.Implementaciones.SegApp.Mantenimiento;
-using INSN.Web.Services.Interfaces;
 using INSN.Web.Services.Interfaces.SegApp;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using INSN.Web.Models.Response.Sistemas;
 
 namespace INSN.Web.Services.Implementaciones.SegApp

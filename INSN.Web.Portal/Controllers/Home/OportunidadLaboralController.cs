@@ -1,6 +1,6 @@
 ﻿using INSN.Web.Models.Request.Home;
-using INSN.Web.Models.Response.Mantenimiento.OportunidadLaboral;
-using INSN.Web.Portal.Services.Interfaces.Mantenimiento.OportunidadLaboral;
+using INSN.Web.Models.Response.Home.OportunidadLaboral;
+using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
 using INSN.Web.ViewModels.Home.OportunidadLaboral;
 using Microsoft.AspNetCore.Mvc;
 
@@ -64,13 +64,13 @@ public class OportunidadLaboralController : Controller
     /// </summary>
     /// <param name="model"></param>
     /// <returns></returns>
-    public async Task<List<DocumentoConvocatoriaDtoResponse>> DocumentoConvocatoriaListar()
+    public async Task<List<ConvocatoriaDtoResponse>> DocumentoConvocatoriaListar()
     {
         var resultDocumentoConvocatoria = await _proxy.DocumentoConvocatoriaListar(new ConvocatoriaDtoRequest()
         {     
             EstadoRegistro = 1
         });
 
-        return (List<DocumentoConvocatoriaDtoResponse>)resultDocumentoConvocatoria;
+        return (List<ConvocatoriaDtoResponse>)resultDocumentoConvocatoria;
     }
 }

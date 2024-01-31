@@ -1,10 +1,4 @@
 ﻿using INSN.Web.Models.Response;
-using INSN.Web.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using INSN.Web.Models.Response.Sistemas;
 
 namespace INSN.Web.Services.Interfaces.SegApp

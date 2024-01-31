@@ -1,10 +1,4 @@
 ﻿using INSN.Web.Models.Response.SegApp;
-using INSN.Web.Models.Response.SegApp.Mantenimiento;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace INSN.Web.ViewModels.SegApp
 {
@@ -18,6 +12,9 @@ namespace INSN.Web.ViewModels.SegApp
         /// </summary>       
         public ICollection<TipoDocumentoIdentidadDtoResponse>? TiposDocIdentidad { get; set; }
 
+        /// <summary>
+        /// Estados
+        /// </summary>
         public ICollection<BaseModel> Estados { get; } = new List<BaseModel>()
         {
             new() { Codigo = "A", Nombre = "Activo" },

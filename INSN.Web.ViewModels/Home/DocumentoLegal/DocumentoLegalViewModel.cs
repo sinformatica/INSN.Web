@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using INSN.Web.Models.Response.Mantenimiento.DocumentoLegal;
+using INSN.Web.Models.Response.Home.DocumentoLegal;
 
 namespace INSN.Web.ViewModels.Home.DocumentoLegal;
 

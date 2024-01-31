@@ -2,7 +2,6 @@
 using INSN.Web.Models.Request.Acceso;
 using INSN.Web.Models.Response.Acceso;
 using INSN.Web.Portal.Services.Interfaces.Acceso;
-using Microsoft.AspNetCore.Http;
 using System.Net.Http.Headers;
 
 namespace INSN.Web.Portal.Services.Implementaciones.Acceso

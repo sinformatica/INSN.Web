@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace INSN.Web.Models.Request.SegApp
+﻿namespace INSN.Web.Models.Request.SegApp
 {
+    /// <summary>
+    /// Clase TipoDocumentoIdentidadDtoRequest
+    /// </summary>
     public class TipoDocumentoIdentidadDtoRequest : BaseRequest
     {
-
     }
 }

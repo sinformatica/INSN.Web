@@ -1,11 +1,6 @@
 ﻿using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Models.Response;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace INSN.Web.Services.Interfaces.SegApp.Mantenimiento
 {

@@ -1,7 +1,4 @@
 ﻿using AutoMapper;
-using INSN.Web.Common;
-using INSN.Web.DataAccess;
-using INSN.Web.Entities.Base;
 using INSN.Web.Entities.SegApp;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Models.Response;
@@ -9,15 +6,8 @@ using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.Services.Interfaces.SegApp.Mantenimiento;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 {
@@ -70,51 +60,6 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
             {
                 response.ErrorMessage = "Service: Error al listar: " + ex.Message;
                 _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
-            }
-
-            return response;
-        }
-
-        /// <summary>
-        /// Service: Listar Rol con Paginación
-        /// </summary>
-        /// <param name="Name"></param>
-        /// <param name="Estado"></param>
-        /// <param name="Page"></param>
-        /// <param name="Rows"></param>
-        /// <returns></returns>
-        public async Task<PaginationResponse<RolDtoResponse>> Listar(string? Name, string? Estado, int Page, int Rows)
-        {
-            var response = new PaginationResponse<RolDtoResponse>();
-
-            try
-            {
-                Expression<Func<Rol, bool>> predicate =
-                            x => (Name == null || x.Name.Contains(Name))
-                            && (Estado == null || x.Estado == Estado);
-
-                var tupla = await _repository
-                    .Listar<RolDtoResponse, string>(
-                        predicate: predicate,
-                        selector: x => _mapper.Map<RolDtoResponse>(x),
-                        orderBy: p => "Id",
-                        relationships: "Rol", // Eager Loading - EF Core
-                        Page,
-                        Rows);
-
-                response.Data = tupla.Collection;
-                response.TotalPages = tupla.Total / Rows;
-                if (tupla.Total % Rows > 0)
-                {
-                    response.TotalPages++;
-                }
-
-                response.Success = true;
-            }
-            catch (Exception ex)
-            {
-                response.ErrorMessage = "Service: Error al Listar: " + ex.Message;
-                _logger.LogError(ex, "{ErroMessage} {Message}", response.ErrorMessage, ex.Message);
             }
 
             return response;

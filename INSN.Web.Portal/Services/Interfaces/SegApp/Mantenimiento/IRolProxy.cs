@@ -10,13 +10,6 @@ namespace INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento
     public interface IRolProxy : ICrudRestHelper<RolDtoRequest, RolDtoResponse>
     {
         /// <summary>
-        /// IProxy: Listar
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        Task<PaginationResponse<RolDtoResponse>> RolPaginacionListar(RolDtoRequest request);
-
-        /// <summary>
         /// IProxy: Rol Listar
         /// </summary>
         /// <param name="request"></param>

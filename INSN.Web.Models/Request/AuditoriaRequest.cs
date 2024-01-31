@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace INSN.Web.Models.Request
+﻿namespace INSN.Web.Models.Request
 {
+    /// <summary>
+    /// Clase AuditoriaRequest
+    /// </summary>
     public class AuditoriaRequest
     {
         /// <summary>

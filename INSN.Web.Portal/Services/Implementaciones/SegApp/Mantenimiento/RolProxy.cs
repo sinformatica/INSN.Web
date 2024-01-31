@@ -30,27 +30,6 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         }
 
         /// <summary>
-        /// Proxy: Listar Paginación
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        public async Task<PaginationResponse<RolDtoResponse>> RolPaginacionListar(RolDtoRequest request)
-        {
-            // Configurar la cabecera de autorización con el token
-            HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Constantes.JwtToken);
-
-            var response = await HttpClient.GetFromJsonAsync<PaginationResponse<RolDtoResponse>>(
-                $"{BaseUrl}?Name={request.Name}&estado={request.Estado}&page={request.Page}&rows={request.Rows}");
-
-            if (response is { Success: true })
-            {
-                return response;
-            }
-
-            return await Task.FromResult(new PaginationResponse<RolDtoResponse>());
-        }
-
-        /// <summary>
         /// Proxy: Rol Listar
         /// </summary>
         /// <param name="request"></param>

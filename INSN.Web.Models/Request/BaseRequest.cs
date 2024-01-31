@@ -1,21 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace INSN.Web.Models.Request
+﻿namespace INSN.Web.Models.Request
 {
+    /// <summary>
+    /// Clase BaseRequest
+    /// </summary>
     public class BaseRequest : AuditoriaRequest
-    {
-        /// <summary>
-        /// Página
-        /// </summary>
-        public int Page { get; set; }
-
-        /// <summary>
-        /// Fila
-        /// </summary>
-        public int Rows { get; set; }
+    {       
     }
 }

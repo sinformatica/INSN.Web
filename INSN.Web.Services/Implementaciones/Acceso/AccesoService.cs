@@ -4,19 +4,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Security;
 using System.Text;
-using System.Threading.Tasks;
 using INSN.Web.DataAccess;
 using Microsoft.EntityFrameworkCore;
-using Azure;
 using INSN.Web.Models.Response.Sistemas;
-using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.DataAccess.Acceso;
 using INSN.Web.Models.Response.Acceso;
 using INSN.Web.Models.Request.Acceso;
@@ -177,10 +171,10 @@ namespace INSN.Web.Services.Implementaciones.Acceso
                         var sistemaDto = new SistemaDtoResponse
                         {
                             CodigoSistemaId = sistema.CodigoSistemaId,
-                            descripcion = sistema.descripcion,
-                            url = sistema.url,
-                            icono = sistema.icono,
-                            target = sistema.Target,
+                            Descripcion = sistema.descripcion,
+                            Url = sistema.url,
+                            Icono = sistema.icono,
+                            Target = sistema.Target,
                             UsarToken = sistema.UsarToken
                         };
 
@@ -264,121 +258,6 @@ namespace INSN.Web.Services.Implementaciones.Acceso
             }
 
             return response;
-        }
-
-        ///// <summary>
-        ///// Service: Rol Insertar
-        ///// </summary>
-        ///// <param name="request"></param>
-        ///// <returns></returns>
-        //public async Task<BaseResponse> RolInsertar(string nombreRol)
-        //{
-        //    var response = new BaseResponse();
-
-        //    try
-        //    {
-        //        if (!await _roleManager.RoleExistsAsync(nombreRol))
-        //        {
-        //            var nuevoRol = new IdentityRole(nombreRol);
-        //            var resultado = await _roleManager.CreateAsync(nuevoRol);
-
-        //            if (resultado.Succeeded)
-        //            {
-        //                // Rol creado exitosamente
-        //                response.Success = true;
-        //            }
-        //            else
-        //            {
-        //                response.ErrorMessage = "Error al crear el rol";
-        //                foreach (var error in resultado.Errors)
-        //                {
-        //                    response.ErrorMessage += $"{error.Description}, ";
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            response.ErrorMessage = "El rol ya existe";
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        response.ErrorMessage = "Error al crear el rol";
-        //        _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
-        //    }
-
-        //    return response;
-        //}
-
-        ///// <summary>
-        ///// Service: Roles Usuario Asignar
-        ///// </summary>
-        ///// <param name="request"></param>
-        ///// <returns></returns>
-        //public async Task<BaseResponse> RolesUsuarioAsignar(UsuarioRolDtoRequest request)
-        //{
-        //    var response = new BaseResponse();
-
-        //    try
-        //    {
-        //        var user = await _userManager.FindByIdAsync(request.UsuarioId);
-
-        //        if (user is null)
-        //        {
-        //            response.ErrorMessage = "Usuario no encontrado";
-        //            return response;
-        //        }
-
-        //        foreach (var roleName in request.ListaRoles)
-        //        {
-        //            var role = await _roleManager.FindByNameAsync(roleName.rol);
-
-        //            if (role != null)
-        //            {
-        //                // Verificar si el usuario ya tiene el rol para este sistema
-        //                var existingUserRole = await _segAppDbContext.INSNIdentityUsuarioRol
-        //                    .FirstOrDefaultAsync(ur => ur.UserId == user.Id && ur.CodigoSistemaId == roleName.CodigoSistemaId && ur.RoleId == role.Id);
-
-        //                if (existingUserRole != null)
-        //                {
-        //                    response.ErrorMessage = $"El usuario ya tiene el rol {roleName.rol} en este sistema";
-        //                    return response;
-        //                }
-
-        //                // Eliminar roles anteriores del usuario en este sistema
-        //                var userRolesInSystem = await _segAppDbContext.INSNIdentityUsuarioRol
-        //                    .Where(ur => ur.UserId == user.Id && ur.CodigoSistemaId == roleName.CodigoSistemaId)
-        //                    .ToListAsync();
-
-        //                _segAppDbContext.INSNIdentityUsuarioRol.RemoveRange(userRolesInSystem);
-
-        //                // Asignar el nuevo rol al usuario para este sistema
-        //                var newUserRole = new INSNIdentityUsuarioRol
-        //                {
-        //                    UserId = user.Id,
-        //                    RoleId = role.Id,
-        //                    CodigoSistemaId = roleName.CodigoSistemaId
-        //                };
-
-        //                _segAppDbContext.INSNIdentityUsuarioRol.Add(newUserRole);
-        //                await _segAppDbContext.SaveChangesAsync();
-        //            }
-        //            else
-        //            {
-        //                response.ErrorMessage = $"Rol {roleName.rol} no encontrado";
-        //                return response;
-        //            }
-        //        }
-
-        //        response.Success = true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        response.ErrorMessage = "Error al asignar roles al usuario";
-        //        _logger.LogCritical(ex, "{ErrorMessage} {Message}", response.ErrorMessage, ex.Message);
-        //    }
-
-        //    return response;
-        //}
+        }      
     }
 }

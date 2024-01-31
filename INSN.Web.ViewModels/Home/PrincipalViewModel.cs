@@ -1,4 +1,4 @@
-﻿using INSN.Web.Models.Response.Mantenimiento.Comunicados;
+﻿using INSN.Web.Models.Response.Home.Comunicados;
 using System.ComponentModel.DataAnnotations;
 
 namespace INSN.Web.ViewModels.Home

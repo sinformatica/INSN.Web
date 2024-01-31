@@ -1,25 +1,24 @@
 ﻿using AutoMapper;
+using INSN.Web.Entities.Home.Comunicados;
+using INSN.Web.Entities.Home.DocumentoInstitucional;
+using INSN.Web.Entities.Home.LibroReclamacion;
+using INSN.Web.Entities.Home.OportunidadLaboral;
 using INSN.Web.Entities.Info.Home.OportunidadLaboral;
 using INSN.Web.Entities.Info.Mantenimiento;
-using INSN.Web.Entities.Mantenimiento.Comunicado;
-using INSN.Web.Entities.Mantenimiento.DocumentoInstitucional;
-using INSN.Web.Entities.Mantenimiento.LibroReclamacion;
-using INSN.Web.Entities.Mantenimiento.OportunidadLaboral;
 using INSN.Web.Entities.SegApp;
 using INSN.Web.Models.Request.Home;
-using INSN.Web.Models.Request.Mantenimiento.Comunicados;
-using INSN.Web.Models.Request.Mantenimiento.LibroReclamaciones;
+using INSN.Web.Models.Request.Home.Comunicados;
+using INSN.Web.Models.Request.Home.DocumentoLegal;
+using INSN.Web.Models.Request.Home.LibroReclamaciones;
 using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
-using INSN.Web.Models.Response.Mantenimiento.Comunicados;
-using INSN.Web.Models.Response.Mantenimiento.DocumentoLegal;
-using INSN.Web.Models.Response.Mantenimiento.LibroReclamacion;
-using INSN.Web.Models.Response.Mantenimiento.OportunidadLaboral;
+using INSN.Web.Models.Response.Home.Comunicados;
+using INSN.Web.Models.Response.Home.DocumentoLegal;
+using INSN.Web.Models.Response.Home.LibroReclamaciones;
+using INSN.Web.Models.Response.Home.OportunidadLaboral;
 using INSN.Web.Models.Response.SegApp;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.Sistemas;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace INSN.Web.Services.Profiles
 {
@@ -42,10 +41,10 @@ namespace INSN.Web.Services.Profiles
             CreateMap<DocumentoLegalDtoRequest, DocumentoLegal>();
 
             //Mapear Convocatoria
-            CreateMap<DocumentoConvocatoria, DocumentoConvocatoriaDtoResponse>();
+            CreateMap<DocumentoConvocatoria, ConvocatoriaDtoResponse>();
             CreateMap<ConvocatoriaDtoRequest, Convocatoria>();
 
-            CreateMap<DocumentoConvocatoriaInfo, DocumentoConvocatoriaDtoResponse>();
+            CreateMap<DocumentoConvocatoriaInfo, ConvocatoriaDtoResponse>();
 
             // Mapear Rol
             CreateMap<Rol, RolDtoResponse>();

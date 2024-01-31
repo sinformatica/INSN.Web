@@ -1,10 +1,10 @@
-﻿using INSN.Web.Models.Response.Mantenimiento.OportunidadLaboral;
+﻿using INSN.Web.Models.Response.Home.OportunidadLaboral;
 
 namespace INSN.Web.ViewModels.Home.OportunidadLaboral;
 
 public class DocumentoConvocatoriaViewModel : BaseModel
 {
-    public ICollection<DocumentoConvocatoriaDtoResponse>? DocumentoConvocatorias { get; set; }
+    public ICollection<ConvocatoriaDtoResponse>? DocumentoConvocatorias { get; set; }
 
     public string? PDF { get; set; }
 
@@ -51,5 +51,5 @@ public class GrupoDocumentoConvocatoria
     /// <summary>
     /// Detalles
     /// </summary>
-    public List<DocumentoConvocatoriaDtoResponse> Detalles { get; set; }
+    public List<ConvocatoriaDtoResponse> Detalles { get; set; }
 }

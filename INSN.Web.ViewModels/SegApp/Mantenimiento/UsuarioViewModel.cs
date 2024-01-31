@@ -1,13 +1,6 @@
 ﻿using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.Sistemas;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using INSN.Web.Models.Response.SegApp;
 
 namespace INSN.Web.ViewModels.SegApp.Mantenimiento
@@ -126,15 +119,27 @@ namespace INSN.Web.ViewModels.SegApp.Mantenimiento
         [Display(Name = "ConfirmaClave")]
         public string? ConfirmaClave { get; set; } = default!;
 
+        /// <summary>
+        /// Sistema Seleccionado
+        /// </summary>
         [Display(Name = "SistemaSeleccionado")]
         public int SistemaSeleccionado { get; set; } = default!;
 
+        /// <summary>
+        /// Rol Seleccionado
+        /// </summary>
         [Display(Name = "RolSeleccionado")]
         public string? RolSeleccionado { get; set; } = default!;
 
+        /// <summary>
+        /// Codigo Usuario Rol Id
+        /// </summary>
         [Display(Name = "CodigoUsuarioRolId")]
         public int? CodigoUsuarioRolId { get; set; } = default!;
 
+        /// <summary>
+        /// Estados
+        /// </summary>
         public ICollection<BaseModel> Estados { get; } = new List<BaseModel>()
         {
             new() { Codigo = "A", Nombre = "Activo" },

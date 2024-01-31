@@ -88,6 +88,15 @@ namespace INSN.Web.Portal.Resources.Home {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Autorizo la notificación del resultado del reclamo al correo electrónico consignado..
+        /// </summary>
+        public static string EtiquetaAutorizoEmail {
+            get {
+                return ResourceManager.GetString("EtiquetaAutorizoEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Celular o Teléfono.
         /// </summary>
         public static string EtiquetaCelularTelefono {
@@ -205,7 +214,7 @@ namespace INSN.Web.Portal.Resources.Home {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Email (*).
+        ///   Busca una cadena traducida similar a Correo electrónico  (*).
         /// </summary>
         public static string EtiquetaEmail {
             get {
@@ -309,6 +318,15 @@ namespace INSN.Web.Portal.Resources.Home {
         public static string EtiquetaTipoPersona {
             get {
                 return ResourceManager.GetString("EtiquetaTipoPersona", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a LIBRO DE RECLAMACIONES EN SALUD.
+        /// </summary>
+        public static string EtiquetaTitulo {
+            get {
+                return ResourceManager.GetString("EtiquetaTitulo", resourceCulture);
             }
         }
         

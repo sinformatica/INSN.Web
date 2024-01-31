@@ -1,20 +1,17 @@
-﻿using INSN.Web.Models;
-using INSN.Web.Models.Request;
-//using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
-using INSN.Web.ViewModels.Home;
-using Microsoft.AspNetCore.Mvc;
-using System.Reflection;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
+/// <summary>
+/// Controlador Biblioteca Virtual
+/// </summary>
 public class BibliotecaVirtualController : Controller
 {
     private readonly IWebHostEnvironment _enviroment;
   //  private readonly IDocumentoLegalProxy _proxy;
   //  private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
     private readonly ILogger<AnalisisSituacionalController> _logger;
-
-    
+        
     /// <summary>
     /// 
     /// </summary>

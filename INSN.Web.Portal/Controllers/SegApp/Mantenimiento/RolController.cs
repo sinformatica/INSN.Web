@@ -1,18 +1,15 @@
 ﻿using INSN.Web.Common;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
-using INSN.Web.Portal.Services;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
-using INSN.Web.ViewModels;
 using INSN.Web.ViewModels.Exceptions;
 using INSN.Web.ViewModels.SegApp.Mantenimiento;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.IdentityModel.Tokens.Jwt;
-using System.Net.Http.Headers;
-using System.Net.Http;
 
 namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
 {
+    /// <summary>
+    /// Controlador Rol
+    /// </summary>
     public class RolController : Controller
     {
         private readonly IWebHostEnvironment _enviroment;
@@ -23,7 +20,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
         private readonly string NombreRolUsuario;
 
         /// <summary>
-        /// 
+        /// RolController
         /// </summary>
         /// <param name="proxy"></param>
         /// <param name="logger"></param>
@@ -40,6 +37,10 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
             NombreRolUsuario = _httpContextAccessor.HttpContext.Session.GetString(Constantes.NombreRolUsuario);
         }
 
+        /// <summary>
+        /// Validar Sistema
+        /// </summary>
+        /// <returns></returns>
         private bool ValidarSistema()
         {
             return CodigoSistemaIdUsuario == Constantes.CodigoSistemaIdFijo;

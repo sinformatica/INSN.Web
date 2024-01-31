@@ -1,20 +1,18 @@
 ﻿namespace INSN.Web.Models.Response;
 
+/// <summary>
+/// Clase BaseResponse
+/// </summary>
 public class BaseResponse : AuditoriaResponse
 {
     public bool Success { get; set; }
     public string? ErrorMessage { get; set; }
-
-    //public string? Estado { get; set; }
 }
 
+/// <summary>
+/// Clase BaseResponseGeneric
+/// </summary>
 public class BaseResponseGeneric<T> : BaseResponse
 {
     public T? Data { get; set; }
-}
-
-public class PaginationResponse<T> : BaseResponse
-{
-    public ICollection<T>? Data { get; set; }
-    public int TotalPages { get; set; }
 }

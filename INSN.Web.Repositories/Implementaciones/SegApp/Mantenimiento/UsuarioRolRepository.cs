@@ -1,15 +1,9 @@
-﻿using Dapper;
-using INSN.Web.DataAccess;
+﻿using INSN.Web.DataAccess;
 using INSN.Web.Entities.Info.Mantenimiento;
 using INSN.Web.Entities.SegApp;
 using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
 {
@@ -19,7 +13,7 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
     public class UsuarioRolRepository : RepositoryBaseSegAppEF<UsuarioRol>, IUsuarioRolRepository
     {
         /// <summary>
-        /// 
+        /// SegAppDbContextEF
         /// </summary>
         /// <param name="context"></param>
         public UsuarioRolRepository(SegAppDbContextEF context) : base(context)

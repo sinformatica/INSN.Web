@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace INSN.Web.Models.Request.SegApp.Mantenimiento
+﻿namespace INSN.Web.Models.Request.SegApp.Mantenimiento
 {
+    /// <summary>
+    /// Clase UsuarioRolDtoRequest
+    /// </summary>
     public class UsuarioRolDtoRequest : BaseRequest
     {
         /// <summary>

@@ -6,18 +6,16 @@ using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.Sistemas;
 using INSN.Web.Portal.Services.Interfaces.SegApp;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
-using INSN.Web.ViewModels;
 using INSN.Web.ViewModels.Exceptions;
-using INSN.Web.ViewModels.SegApp;
 using INSN.Web.ViewModels.SegApp.Mantenimiento;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Globalization;
 using System.Text;
 
 namespace INSN.Web.Portal.Controllers.SegApp.Usuario
 {
+    /// <summary>
+    /// Controlador Usuario
+    /// </summary>
     public class UsuarioController : Controller
     {
         private readonly IWebHostEnvironment _enviroment;
@@ -32,7 +30,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         private readonly string NombreRolUsuario;
 
         /// <summary>
-        /// 
+        /// UsuarioController
         /// </summary>
         /// <param name="proxy"></param>
         /// <param name="logger"></param>
@@ -59,6 +57,10 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
             NombreRolUsuario = _httpContextAccessor.HttpContext.Session.GetString(Constantes.NombreRolUsuario);
         }
 
+        /// <summary>
+        /// Validar Sistema
+        /// </summary>
+        /// <returns></returns>
         private bool ValidarSistema()
         {
             return CodigoSistemaIdUsuario == Constantes.CodigoSistemaIdFijo;

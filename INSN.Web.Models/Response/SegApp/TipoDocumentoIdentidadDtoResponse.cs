@@ -1,5 +1,8 @@
 ﻿namespace INSN.Web.Models.Response.SegApp
 {
+    /// <summary>
+    /// Clase TipoDocumentoIdentidadDtoResponse
+    /// </summary>
     public class TipoDocumentoIdentidadDtoResponse : BaseResponse
     {
         /// <summary>

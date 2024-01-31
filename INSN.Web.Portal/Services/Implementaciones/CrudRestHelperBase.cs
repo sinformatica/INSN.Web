@@ -11,28 +11,6 @@ where TResponse : class
     {
     }
 
-    public async Task<PaginationResponse<TResponse>> ListAsync(string? filter, int page = 1, int pageSize = 5)
-    {
-        var response = await HttpClient.GetFromJsonAsync<PaginationResponse<TResponse>>($"{BaseUrl}/{filter}");
-        if (response!.Success)
-        {
-            return response;
-        }
-
-        throw new InvalidOperationException(response.ErrorMessage);
-    }
-
-    public async Task<ICollection<TResponse>> ListAsync()
-    {
-        var response = await HttpClient.GetFromJsonAsync<PaginationResponse<TResponse>>($"{BaseUrl}");
-        if (response!.Success)
-        {
-            return response.Data!;
-        }
-
-        throw new InvalidOperationException(response.ErrorMessage);
-    }
-
     public async Task<TResponse> FindByIdAsync(int id)
     {
         var response = await HttpClient.GetFromJsonAsync<BaseResponseGeneric<TResponse>>($"{BaseUrl}/{id}");

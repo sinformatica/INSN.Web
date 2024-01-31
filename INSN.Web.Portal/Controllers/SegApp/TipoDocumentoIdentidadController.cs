@@ -1,15 +1,13 @@
-﻿using INSN.Web.Models.Request;
-using INSN.Web.Models;
-using INSN.Web.ViewModels.Home;
-using Microsoft.AspNetCore.Mvc;
-using INSN.Web.Models.Request.SegApp.Mantenimiento;
-using INSN.Web.ViewModels.SegApp.Mantenimiento;
+﻿using Microsoft.AspNetCore.Mvc;
 using INSN.Web.Models.Request.SegApp;
 using INSN.Web.ViewModels.SegApp;
 using INSN.Web.Portal.Services.Interfaces.SegApp;
 
 namespace INSN.Web.Portal.Controllers.SegApp
 {
+    /// <summary>
+    /// Controlador Tipo Documento Identidad
+    /// </summary>
     public class TipoDocumentoIdentidadController : Controller
     {
         private readonly IWebHostEnvironment _enviroment;
@@ -17,7 +15,7 @@ namespace INSN.Web.Portal.Controllers.SegApp
         private readonly ILogger<TipoDocumentoIdentidadController> _logger;
 
         /// <summary>
-        /// 
+        /// TipoDocumentoIdentidadController
         /// </summary>
         /// <param name="proxy"></param>
         /// <param name="logger"></param>

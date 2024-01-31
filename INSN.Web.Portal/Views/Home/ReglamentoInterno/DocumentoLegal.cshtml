@@ -45,18 +45,7 @@
 
                 </div>
              
-                <div class="row">
-                    <div>
-                        Mostrar
-                        <select id="pageSize" class="form-select-sm" asp-for="Rows">
-                            <option>20</option>
-                            <option>35</option>
-                            <option>50</option>
-                            <option>100</option>
-                        </select>
-                        registros
-                    </div>
-                </div>
+             
 
 
                 <div class="row mt-4">
@@ -91,12 +80,7 @@
                         </table>
                     }
                 </div>
-
-
-                <div class="container">
-                    <partial name="_DataPager" model="ViewBag.Pager" />
-                    @Html.HiddenFor(m => m.Page, new { id = "currentPage"})
-                </div>
+             
             </form>
         </div>
     </section>
