@@ -7,12 +7,15 @@ using Microsoft.EntityFrameworkCore;
 namespace INSN.Web.Repositories.Implementaciones.Acceso
 {
     /// <summary>
-    /// Repository Menu
+    /// MenuRepository
     /// </summary>
     public class MenuRepository : RepositoryBaseSegApp<Seccion>, IMenuRepository
     {
-        public MenuRepository(SegAppDbContext context)
-        : base(context)
+        /// <summary>
+        /// Inicializar
+        /// </summary>
+        /// <param name="context"></param>
+        public MenuRepository(SegAppDbContext context): base(context)
         {
         }
 

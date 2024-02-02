@@ -7,12 +7,11 @@ using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.Services.Interfaces.SegApp.Mantenimiento;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using System.Linq.Expressions;
 
 namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Service Rol
+    /// RolService
     /// </summary>
     public class RolService : IRolService
     {
@@ -190,7 +189,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         /// <summary>
         /// Service: Rol Por Sistema Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="CodigoSistemaId"></param>
         /// <returns></returns>
         public async Task<BaseResponseGeneric<ICollection<RolDtoResponse>>> RolPorSistemaListar(int CodigoSistemaId)
         {

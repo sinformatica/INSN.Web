@@ -1,11 +1,10 @@
 ﻿using INSN.Web.Models.Request.SegApp.Mantenimiento;
-using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 
 namespace INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Interface Proxy Rol
+    /// IRolProxy
     /// </summary>
     public interface IRolProxy : ICrudRestHelper<RolDtoRequest, RolDtoResponse>
     {
@@ -47,7 +46,7 @@ namespace INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento
         /// <summary>
         /// IProxy: Rol Por Sistema Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="CodigoSistemaId"></param>
         /// <returns></returns>
         Task<ICollection<RolDtoResponse>> RolPorSistemaListar(int CodigoSistemaId);
     }

@@ -7,12 +7,12 @@ using System.Linq.Expressions;
 namespace INSN.Web.Repositories.Implementaciones.SegApp
 {
     /// <summary>
-    /// Metodos de Tipo Documento Identidad
+    /// TipoDocumentoIdentidadRepository
     /// </summary>
     public class TipoDocumentoIdentidadRepository : RepositoryBaseSegAppEF<TipoDocumentoIdentidad>, ITipoDocumentoIdentidadRepository
     {
         /// <summary>
-        /// {
+        /// Inicializar
         /// </summary>
         /// <param name="context"></param>
         public TipoDocumentoIdentidadRepository(SegAppDbContextEF context) : base(context)
@@ -22,7 +22,6 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp
         /// <summary>
         /// Repository: Tipo Documento Identidad Listar
         /// </summary>
-        /// <param name="request"></param>
         /// <returns></returns>
         public async Task<ICollection<TipoDocumentoIdentidad>> TipoDocumentoIdentidadListar()
         {

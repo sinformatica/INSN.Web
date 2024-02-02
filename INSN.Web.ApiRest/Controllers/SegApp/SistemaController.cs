@@ -1,7 +1,4 @@
 ﻿using INSN.Web.Models.Response;
-using INSN.Web.Models;
-using INSN.Web.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using INSN.Web.Services.Interfaces.SegApp;
 using INSN.Web.Models.Response.Sistemas;
@@ -21,7 +18,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp
         private readonly ISistemaService _service;
 
         /// <summary>
-        /// Tipo Documento Identidad Controller
+        /// Inicializar
         /// </summary>
         /// <param name="service"></param>
         public SistemaController(ISistemaService service)
@@ -32,7 +29,6 @@ namespace INSN.Web.ApiRest.Controllers.SegApp
         /// <summary>
         /// ApiRest: Sistema Listar
         /// </summary>
-        /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet("SistemaListar")]
         [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]

@@ -1,21 +1,23 @@
-﻿using INSN.Web.Common;
-using INSN.Web.Models.Request.SegApp.Mantenimiento;
+﻿using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
 using Newtonsoft.Json;
-using System.Net.Http.Headers;
 
 namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
 {
+    /// <summary>
+    /// Usuario Proxy
+    /// </summary>
     public class UsuarioProxy : CrudRestHelperBase<UsuarioDtoRequest, UsuarioDtoResponse>, IUsuarioProxy
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         /// <summary>
-        /// Proxy
+        /// Inicializar
         /// </summary>
         /// <param name="httpClient"></param>
+        /// <param name="httpContextAccessor"></param>
         public UsuarioProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
             : base("api/SegApp/Mantenimiento/Usuario", httpClient)
         {

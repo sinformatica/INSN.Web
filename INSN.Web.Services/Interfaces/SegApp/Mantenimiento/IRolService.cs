@@ -5,7 +5,7 @@ using INSN.Web.Models.Response.SegApp.Mantenimiento;
 namespace INSN.Web.Services.Interfaces.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Interface Servicio Rol
+    /// IRolService
     /// </summary>
     public interface IRolService
     {
@@ -47,7 +47,7 @@ namespace INSN.Web.Services.Interfaces.SegApp.Mantenimiento
         /// <summary>
         /// Rol Por Sistema Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="CodigoSistemaId"></param>
         /// <returns></returns>
         Task<BaseResponseGeneric<ICollection<RolDtoResponse>>> RolPorSistemaListar(int CodigoSistemaId);
     }

@@ -13,6 +13,9 @@ using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
 
 namespace INSN.Web.Portal.Controllers.Acceso
 {
+    /// <summary>
+    /// AccesoController
+    /// </summary>
     public class AccesoController : Controller
     {
         private readonly IAccesoProxy _proxy;
@@ -21,9 +24,12 @@ namespace INSN.Web.Portal.Controllers.Acceso
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         /// <summary>
-        /// 
+        /// Inicializar
         /// </summary>
         /// <param name="proxy"></param>
+        /// <param name="proxyUsuario"></param>
+        /// <param name="httpContextAccessor"></param>
+        /// <param name="logger"></param>
         public AccesoController(IAccesoProxy proxy, IUsuarioProxy proxyUsuario, 
                 IHttpContextAccessor httpContextAccessor, ILogger<AccesoController> logger)
         {
@@ -42,6 +48,10 @@ namespace INSN.Web.Portal.Controllers.Acceso
             return View("~/Views/Acceso/Login.cshtml");
         }
 
+        /// <summary>
+        /// Acceso Denegado
+        /// </summary>
+        /// <returns></returns>
         public IActionResult AccesoDenegado()
         {
             return View("~/Views/AccesoDenegado.cshtml");

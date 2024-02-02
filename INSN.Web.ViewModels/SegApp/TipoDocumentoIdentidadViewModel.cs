@@ -3,7 +3,7 @@
 namespace INSN.Web.ViewModels.SegApp
 {
     /// <summary>
-    /// Represencacion ViewModel : Tipo Documento Identidad
+    /// TipoDocumentoIdentidadViewModel
     /// </summary>
     public class TipoDocumentoIdentidadViewModel : BaseModel
     {

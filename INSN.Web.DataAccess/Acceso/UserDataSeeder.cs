@@ -1,16 +1,17 @@
 ﻿using INSN.Web.Common;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace INSN.Web.DataAccess.Acceso
 {
+    /// <summary>
+    /// UserDataSeeder
+    /// </summary>
     public class UserDataSeeder
     {
+        /// <summary>
+        /// Seed
+        /// </summary>
         public static async Task Seed(IServiceProvider service)
         {
             // Repositorio de usuarios

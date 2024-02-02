@@ -3,12 +3,15 @@ using INSN.Web.Models.Response.SegApp.Mantenimiento;
 
 namespace INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento
 {
+    /// <summary>
+    /// IUsuarioRolProxy
+    /// </summary>
     public interface IUsuarioRolProxy : ICrudRestHelper<UsuarioRolDtoRequest, UsuarioRolDtoResponse>
     {
         /// <summary>
         /// IProxy: Usuario Rol Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="UserId"></param>
         /// <returns></returns>
         Task<ICollection<UsuarioRolDtoResponse>> UsuarioRolListar(string UserId);
 

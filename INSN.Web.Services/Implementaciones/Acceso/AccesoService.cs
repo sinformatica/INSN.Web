@@ -19,7 +19,7 @@ using INSN.Web.Services.Interfaces.Acceso;
 namespace INSN.Web.Services.Implementaciones.Acceso
 {
     /// <summary>
-    /// Service Usuario
+    /// AccesoService
     /// </summary>
     public class AccesoService : IAccesoService
     {
@@ -171,7 +171,7 @@ namespace INSN.Web.Services.Implementaciones.Acceso
                         var sistemaDto = new SistemaDtoResponse
                         {
                             CodigoSistemaId = sistema.CodigoSistemaId,
-                            Descripcion = sistema.descripcion,
+                            descripcion = sistema.descripcion,
                             Url = sistema.url,
                             Icono = sistema.icono,
                             Target = sistema.Target,

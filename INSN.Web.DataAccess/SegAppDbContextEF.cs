@@ -9,12 +9,12 @@ using INSN.Web.Entities.Home.Comunicados;
 namespace INSN.Web.DataAccess
 {
     /// <summary>
-    /// DBContext
+    /// SegAppDbContextEF
     /// </summary>
     public class SegAppDbContextEF : DbContext
     {
         /// <summary>
-        /// SegAppDbContextEF
+        /// Inicializar
         /// </summary>
         /// <param name="options"></param>
         public SegAppDbContextEF(DbContextOptions<SegAppDbContextEF> options)

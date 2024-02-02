@@ -1,13 +1,11 @@
 ﻿using INSN.Web.Entities.Base;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace INSN.Web.Entities.SegApp
 {
+    /// <summary>
+    /// Seccion
+    /// </summary>
     public class Seccion : AuditoriaBase
     {
         /// <summary>
@@ -30,9 +28,15 @@ namespace INSN.Web.Entities.SegApp
         /// </summary>
         public string Icono { get; set; } = default!;
 
+        /// <summary>
+        /// Codigo Sistema Id
+        /// </summary>
         [Required]
         public int CodigoSistemaId { get; set; } = default!;
 
+        /// <summary>
+        /// Rol Id
+        /// </summary>
         [Required]
         public string RolId { get; set; } = default!;
     }

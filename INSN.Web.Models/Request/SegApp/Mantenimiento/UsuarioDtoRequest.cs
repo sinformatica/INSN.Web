@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace INSN.Web.Models.Request.SegApp.Mantenimiento
 {
+    /// <summary>
+    /// Clase UsuarioDtoRequest
+    /// </summary>
     public class UsuarioDtoRequest : BaseRequest
     {
         /// <summary>

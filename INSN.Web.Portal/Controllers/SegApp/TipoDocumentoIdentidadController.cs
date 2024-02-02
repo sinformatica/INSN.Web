@@ -6,31 +6,23 @@ using INSN.Web.Portal.Services.Interfaces.SegApp;
 namespace INSN.Web.Portal.Controllers.SegApp
 {
     /// <summary>
-    /// Controlador Tipo Documento Identidad
+    /// TipoDocumentoIdentidadController
     /// </summary>
     public class TipoDocumentoIdentidadController : Controller
     {
-        private readonly IWebHostEnvironment _enviroment;
         private readonly ITipoDocumentoIdentidadProxy _proxy;
-        private readonly ILogger<TipoDocumentoIdentidadController> _logger;
 
         /// <summary>
-        /// TipoDocumentoIdentidadController
+        /// Inicializar
         /// </summary>
         /// <param name="proxy"></param>
-        /// <param name="logger"></param>
-        /// <param name="env"></param>
-        public TipoDocumentoIdentidadController(ITipoDocumentoIdentidadProxy proxy,
-                        ILogger<TipoDocumentoIdentidadController> logger,
-                        IWebHostEnvironment env)
+        public TipoDocumentoIdentidadController(ITipoDocumentoIdentidadProxy proxy)
         {
             _proxy = proxy;
-            _logger = logger;
-            _enviroment = env;
         }
 
         /// <summary>
-        /// Modelo Tipo Documento Identidad
+        /// Tipo Documento Identidad Listar
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>

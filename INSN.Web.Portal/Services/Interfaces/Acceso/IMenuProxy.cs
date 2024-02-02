@@ -1,13 +1,10 @@
-﻿using INSN.Web.Models.Response.Sistemas;
-using INSN.Web.Models;
-using INSN.Web.Models.Response.Sistema;
+﻿using INSN.Web.Models.Response.Sistema;
 using INSN.Web.Models.Request.Sistema;
-using INSN.Web.ViewModels;
 
 namespace INSN.Web.Portal.Services.Interfaces.Acceso
 {
     /// <summary>
-    /// Interface Proxy Menu
+    /// IMenuProxy
     /// </summary>
     public interface IMenuProxy
     {

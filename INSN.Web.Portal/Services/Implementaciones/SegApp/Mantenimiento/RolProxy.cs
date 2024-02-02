@@ -3,22 +3,22 @@ using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
 using System.Net.Http.Headers;
-using System.Net.Http;
-using System.Reflection.Metadata;
 using INSN.Web.Common;
-using System.Net;
-using System.IdentityModel.Tokens.Jwt;
 
 namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
 {
+    /// <summary>
+    /// Proxy: Rol
+    /// </summary>
     public class RolProxy : CrudRestHelperBase<RolDtoRequest, RolDtoResponse>, IRolProxy
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         /// <summary>
-        /// Proxy
-        /// </summary>
+        /// Inicializar
         /// <param name="httpClient"></param>
+        /// <param name="httpContextAccessor"></param>
+        /// </summary>
         public RolProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor) 
             : base("api/SegApp/Mantenimiento/Rol", httpClient)
         {

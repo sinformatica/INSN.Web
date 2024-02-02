@@ -14,7 +14,7 @@ using System.Text;
 namespace INSN.Web.Portal.Controllers.SegApp.Usuario
 {
     /// <summary>
-    /// Controlador Usuario
+    /// UsuarioController
     /// </summary>
     public class UsuarioController : Controller
     {
@@ -30,11 +30,16 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         private readonly string NombreRolUsuario;
 
         /// <summary>
-        /// UsuarioController
+        /// Inicializar
         /// </summary>
         /// <param name="proxy"></param>
         /// <param name="logger"></param>
         /// <param name="env"></param>
+        /// <param name="proxyTipoDoc"></param>
+        /// <param name="proxySistema"></param>
+        /// <param name="proxyRol"></param>
+        /// <param name="proxyUsuarioRol"></param>
+        /// <param name="httpContextAccessor"></param>
         public UsuarioController(IUsuarioProxy proxy,
                                 ILogger<UsuarioController> logger,
                                 IWebHostEnvironment env, 
@@ -390,7 +395,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
 
         #region [Eliminar]
         /// <summary>
-        /// UsuarioEliminar
+        /// Usuario Eliminar
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -519,7 +524,6 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
             if (b)
             {
                 model.Sistemas = await SistemaListar();
-                //var sist = model.Sistemas?.FirstOrDefault();
                 model.Roles = await RolPorSistemaListar();
                 model.UsuarioRoles = await UsuarioRolListar(model.Id);
 
@@ -634,7 +638,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
 
         #region [Eliminar Rol Usuario]
         /// <summary>
-        /// UsuarioRolEliminar
+        /// Usuario Rol Eliminar
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

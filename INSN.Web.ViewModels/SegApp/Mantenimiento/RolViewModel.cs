@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace INSN.Web.ViewModels.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Represencacion ViewModel : Rol
+    /// RolViewModel
     /// </summary>
     public class RolViewModel : BaseModel
     {
@@ -25,6 +25,9 @@ namespace INSN.Web.ViewModels.SegApp.Mantenimiento
         [Display(Name = "Name")]
         public string? Name { get; set; } = default!;
 
+        /// <summary>
+        /// Estados
+        /// </summary>
         public ICollection<BaseModel> Estados { get; } = new List<BaseModel>()
         {
             new() { Codigo = "A", Nombre = "Activo" },

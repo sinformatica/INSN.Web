@@ -2,6 +2,9 @@
 
 namespace INSN.Web.ViewModels
 {
+    /// <summary>
+    /// SeccionViewModel
+    /// </summary>
     public class SeccionViewModel
     {
         /// <summary>

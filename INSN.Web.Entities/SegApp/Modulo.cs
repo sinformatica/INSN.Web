@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace INSN.Web.Entities.SegApp
 {
+    /// <summary>
+    /// Modulo
+    /// </summary>
     public class Modulo
     {
         /// <summary>
@@ -34,9 +32,15 @@ namespace INSN.Web.Entities.SegApp
         /// </summary>
         public string Icono { get; set; } = default!;
 
+        /// <summary>
+        /// Codigo Seccion Id
+        /// </summary>
         [Required]
         public int CodigoSeccionId { get; set; } = default!;
 
+        /// <summary>
+        /// Rol Id
+        /// </summary>
         [Required]
         public string RolId { get; set; } = default!;
     }

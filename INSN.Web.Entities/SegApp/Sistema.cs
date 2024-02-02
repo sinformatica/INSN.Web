@@ -1,12 +1,10 @@
 ﻿using INSN.Web.Entities.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace INSN.Web.Entities.SegApp
 {
+    /// <summary>
+    /// Sistema
+    /// </summary>
     public class Sistema : AuditoriaBase
     {
         /// <summary>

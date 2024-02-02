@@ -1,12 +1,10 @@
 ﻿using INSN.Web.Entities.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace INSN.Web.Entities.SegApp
 {
+    /// <summary>
+    /// Rol
+    /// </summary>
     public class Rol : AuditoriaBase
     {
         /// <summary>
@@ -20,12 +18,12 @@ namespace INSN.Web.Entities.SegApp
         public string? Name { get; set; } = default!;
 
         /// <summary>
-        /// NormalizedName
+        /// Normalized Name
         /// </summary>
         public string? NormalizedName { get; set; }
 
         /// <summary>
-        /// ConcurrencyStamp
+        /// Concurrency Stamp
         /// </summary>
         public string? ConcurrencyStamp { get; set; }
     }

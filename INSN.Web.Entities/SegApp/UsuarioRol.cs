@@ -1,13 +1,11 @@
 ﻿using INSN.Web.Entities.Base;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace INSN.Web.Entities.SegApp
 {
+    /// <summary>
+    /// UsuarioRol
+    /// </summary>
     public class UsuarioRol : AuditoriaBase
     {
         /// <summary>
@@ -33,7 +31,7 @@ namespace INSN.Web.Entities.SegApp
         public Rol Rol { get; set; } = default!;
 
         /// <summary>
-        /// RoleId
+        /// Role Id
         /// </summary>
         public string RoleId { get; set; }
 

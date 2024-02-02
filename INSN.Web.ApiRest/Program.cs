@@ -8,7 +8,6 @@ using INSN.Web.Services.Profiles;
 using Serilog;
 using System.Text;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.Extensions.Configuration;
 using INSN.Web.Services.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.Services.Implementaciones.SegApp.Mantenimiento;
 using INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento;
@@ -142,10 +141,7 @@ builder.Services.AddTransient<IComunicadoService, ComunicadoService>();
 builder.Services.AddTransient<ILibroReclamacionRepository, LibroReclamacionRepository>();
 builder.Services.AddTransient<ILibroReclamacionService, LibroReclamacionService>();
 
-//builder.Services.AddTransient<IFileUploader, AzureBlobStorageUploader>();
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -176,11 +172,11 @@ builder.Services.AddScoped<CodigoSistemaIdAutorizacion>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 
@@ -188,12 +184,6 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 // Validacion de permisos
 app.UseAuthorization();
-
-//app.MapGet("api/TipoDocumento", async (ITipoDocumentoService service) =>
-//{
-//    return Results.Ok(await service.ListAsync());
-//});
-
 
 app.MapControllers();
 

@@ -1,5 +1,4 @@
 ﻿using INSN.Web.Common;
-using INSN.Web.Models;
 using INSN.Web.Models.Request.Sistema;
 using INSN.Web.Portal.Services.Interfaces.Acceso;
 using INSN.Web.ViewModels;
@@ -9,6 +8,9 @@ using System.IdentityModel.Tokens.Jwt;
 
 namespace INSN.Web.Portal.Controllers.Acceso
 {
+    /// <summary>
+    /// MenuController
+    /// </summary>
     public class MenuController : Controller
     {
         private readonly IWebHostEnvironment _enviroment;
@@ -16,7 +18,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         /// <summary>
-        /// Menu Controller
+        /// Inicalizar
         /// </summary>
         /// <param name="proxy"></param>
         /// <param name="env"></param>
@@ -29,6 +31,9 @@ namespace INSN.Web.Portal.Controllers.Acceso
             _httpContextAccessor = httpContextAccessor;
         }
 
+        /// <summary>
+        /// Index
+        /// </summary>
         public async Task<IActionResult> Index()
         {
             string token = HttpContext.Session.GetString(Constantes.JwtToken);

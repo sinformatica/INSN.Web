@@ -8,14 +8,18 @@ using System.Net.Http.Headers;
 
 namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
 {
+    /// <summary>
+    /// UsuarioRolProxy
+    /// </summary>
     public class UsuarioRolProxy : CrudRestHelperBase<UsuarioRolDtoRequest, UsuarioRolDtoResponse>, IUsuarioRolProxy
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         /// <summary>
-        /// Proxy
+        /// Inicializar
         /// </summary>
         /// <param name="httpClient"></param>
+        /// <param name="httpContextAccessor"></param>
         public UsuarioRolProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
             : base("api/SegApp/Mantenimiento/UsuarioRol", httpClient)
         {
@@ -29,7 +33,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         /// <summary>
         /// Proxy: Rol Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="UserId"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
         public async Task<ICollection<UsuarioRolDtoResponse>> UsuarioRolListar(string UserId)

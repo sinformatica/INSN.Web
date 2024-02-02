@@ -6,19 +6,43 @@ using Microsoft.EntityFrameworkCore;
 
 namespace INSN.Web.DataAccess
 {
+    /// <summary>
+    /// SegAppDbContext
+    /// </summary>
     public class SegAppDbContext : IdentityDbContext<INSNIdentityUser>
     {
+        /// <summary>
+        /// Inicializar
+        /// </summary>
+        /// <param name="options"></param>
         public SegAppDbContext(DbContextOptions<SegAppDbContext> options)
             : base(options)
         {
-
         }
 
+        /// <summary>
+        /// INSNIdentityUsuarioRol
+        /// </summary>
         public DbSet<INSNIdentityUsuarioRol> INSNIdentityUsuarioRol { get; set; }
+
+        /// <summary>
+        /// INSNIdentitySistema
+        /// </summary>
         public DbSet<INSNIdentitySistema> INSNIdentitySistema { get; set; }
+
+        /// <summary>
+        /// Seccion
+        /// </summary>
         public DbSet<Seccion> Seccion { get; set; }
+
+        /// <summary>
+        /// Modulo
+        /// </summary>
         public DbSet<Modulo> Modulo { get; set; }
 
+        /// <summary>
+        /// OnModelCreating
+        /// </summary>
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

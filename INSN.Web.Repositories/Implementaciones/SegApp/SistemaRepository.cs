@@ -7,12 +7,12 @@ using System.Linq.Expressions;
 namespace INSN.Web.Repositories.Implementaciones.SegApp
 {
     /// <summary>
-    /// Metodos de Tipo Documento Identidad
+    /// SistemaRepository
     /// </summary>
     public class SistemaRepository : RepositoryBaseSegAppEF<Sistema>, ISistemaRepository
     {
         /// <summary>
-        /// SegAppDbContextEF
+        /// Inicializar
         /// </summary>
         /// <param name="context"></param>
         public SistemaRepository(SegAppDbContextEF context) : base(context)

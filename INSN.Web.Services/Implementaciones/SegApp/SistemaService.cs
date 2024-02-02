@@ -8,7 +8,7 @@ using INSN.Web.Models.Response.Sistemas;
 namespace INSN.Web.Services.Implementaciones.SegApp
 {
     /// <summary>
-    /// Service Sistema
+    /// SistemaService
     /// </summary>
     public class SistemaService : ISistemaService
     {
@@ -34,7 +34,6 @@ namespace INSN.Web.Services.Implementaciones.SegApp
         /// <summary>
         /// Service: Sistema
         /// </summary>
-        /// <param name="request"></param>
         /// <returns></returns>
         public async Task<BaseResponseGeneric<ICollection<SistemaDtoResponse>>> SistemaListar()
         {

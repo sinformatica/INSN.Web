@@ -4,20 +4,34 @@
 namespace INSN.Web.Common
 {
     /// <summary>
-    /// Token
+    /// AppConfiguration
     /// </summary>
     public class AppConfiguration
     {
+        /// <summary>
+        /// Variable Jwt
+        /// </summary>
         public Jwt Jwt { get; set; }  
     }
 
     /// <summary>
-    /// Token
+    /// Clase Jwt
     /// </summary>
     public class Jwt
     {
+        /// <summary>
+        /// SecretKey
+        /// </summary>
         public string SecretKey { get; set; }
+
+        /// <summary>
+        /// Audiencia
+        /// </summary>
         public string Audiencia { get; set; }
+
+        /// <summary>
+        /// Emisor
+        /// </summary>
         public string Emisor { get; set; }
     }        
 }

@@ -11,16 +11,17 @@ using System.Net.Http.Headers;
 namespace INSN.Web.Portal.Services.Implementaciones.SegApp
 {
     /// <summary>
-    /// Clase Proxy Sistema
+    /// SistemaProxy
     /// </summary>
     public class SistemaProxy : CrudRestHelperBase<SistemaDtoRequest, SistemaDtoResponse>, ISistemaProxy
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         /// <summary>
-        /// Proxy
+        /// Inicializar
         /// </summary>
         /// <param name="httpClient"></param>
+        /// <param name="httpContextAccessor"></param>
         public SistemaProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
         : base("api/SegApp/Sistema", httpClient)
         {
@@ -34,7 +35,6 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp
         /// <summary>
         /// Proxy: Sistema Listar
         /// </summary>
-        /// <param name="request"></param>
         /// <returns></returns>
         public async Task<ICollection<SistemaDtoResponse>> SistemaListar()
         {

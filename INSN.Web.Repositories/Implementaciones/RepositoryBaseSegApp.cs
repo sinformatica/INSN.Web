@@ -12,8 +12,15 @@ namespace INSN.Web.Repositories.Implementaciones
     /// <typeparam name="TEntity"></typeparam>
     public class RepositoryBaseSegApp<TEntity> : IRepositoryBaseSegApp<TEntity> where TEntity : AuditoriaBase
     {
+        /// <summary>
+        /// Context
+        /// </summary>
         protected readonly SegAppDbContext Context;
 
+        /// <summary>
+        /// Inicializar
+        /// </summary>
+        /// <param name="context"></param>
         protected RepositoryBaseSegApp(SegAppDbContext context)
         {
             Context = context;

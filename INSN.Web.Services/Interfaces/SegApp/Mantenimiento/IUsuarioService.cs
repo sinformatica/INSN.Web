@@ -5,7 +5,7 @@ using INSN.Web.Models.Response;
 namespace INSN.Web.Services.Interfaces.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Interface Servicio Usuario
+    /// IUsuarioService
     /// </summary>
     public interface IUsuarioService
     {
@@ -54,7 +54,7 @@ namespace INSN.Web.Services.Interfaces.SegApp.Mantenimiento
         /// <summary>
         /// IService: Usuario Actualizar clave
         /// </summary>
-        /// <param name="Id"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
         Task<BaseResponse> UsuarioActualizarClave(UsuarioDtoRequest request);
     }

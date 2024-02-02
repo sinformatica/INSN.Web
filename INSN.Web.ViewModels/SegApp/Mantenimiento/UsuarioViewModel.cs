@@ -6,7 +6,7 @@ using INSN.Web.Models.Response.SegApp;
 namespace INSN.Web.ViewModels.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Represencacion ViewModel : Usuario
+    /// UsuarioViewModel
     /// </summary>
     public class UsuarioViewModel : BaseModel
     {

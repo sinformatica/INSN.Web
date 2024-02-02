@@ -10,7 +10,7 @@ using INSN.Web.Services.Interfaces.Acceso;
 namespace INSN.Web.Services.Implementaciones.Acceso
 {
     /// <summary>
-    /// Service Menu
+    /// MenuService
     /// </summary>
     public class MenuService : IMenuService
     {

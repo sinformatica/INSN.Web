@@ -1,5 +1,4 @@
-﻿using INSN.Web.Models.Request.SegApp;
-using INSN.Web.Models.Response;
+﻿using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.SegApp;
 using INSN.Web.Services.Interfaces.SegApp;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +15,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp
         private readonly ITipoDocumentoIdentidadService _service;
 
         /// <summary>
-        /// Tipo Documento Identidad Controller
+        /// Inicializar
         /// </summary>
         /// <param name="service"></param>
         public TipoDocumentoIdentidadController(ITipoDocumentoIdentidadService service)
@@ -27,7 +26,6 @@ namespace INSN.Web.ApiRest.Controllers.SegApp
         /// <summary>
         /// ApiRest: Tipo Documento Identidad Listar
         /// </summary>
-        /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet("TipoDocumentoIdentidadListar")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<TipoDocumentoIdentidadDtoResponse>>))]

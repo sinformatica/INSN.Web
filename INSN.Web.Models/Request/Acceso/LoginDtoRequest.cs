@@ -3,7 +3,7 @@
 namespace INSN.Web.Models.Request.Acceso
 {
     /// <summary>
-    ///LoginDtoRequest
+    /// Clase LoginDtoRequest
     /// </summary>
     public class LoginDtoRequest
     {

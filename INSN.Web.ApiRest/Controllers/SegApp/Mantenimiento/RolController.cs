@@ -20,7 +20,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
         private readonly IRolService _service;
 
         /// <summary>
-        /// Rol Controller
+        /// Inicializar
         /// </summary>
         /// <param name="service"></param>
         public RolController(IRolService service)
@@ -110,7 +110,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
         /// <summary>
         /// ApiRest: Rol Por Sistema Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="CodigoSistemaId"></param>
         /// <returns></returns>
         [HttpGet("RolPorSistemaListar/{CodigoSistemaId}")]
         [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]

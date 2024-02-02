@@ -7,12 +7,12 @@ using System.Linq.Expressions;
 namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Metodos de Usuario
+    /// UsuarioRepository
     /// </summary>
     public class UsuarioRepository : RepositoryBaseSegAppEF<Usuario>, IUsuarioRepository
     {
         /// <summary>
-        /// SegAppDbContextEF
+        /// Inicializar
         /// </summary>
         /// <param name="context"></param>
         public UsuarioRepository(SegAppDbContextEF context) : base(context)

@@ -9,7 +9,7 @@ using INSN.Web.Repositories.Interfaces.SegApp;
 namespace INSN.Web.Services.Implementaciones.SegApp
 {
     /// <summary>
-    /// Service Tipo Documento Identidad
+    /// TipoDocumentoIdentidadService
     /// </summary>
     public class TipoDocumentoIdentidadService : ITipoDocumentoIdentidadService
     {
@@ -35,7 +35,6 @@ namespace INSN.Web.Services.Implementaciones.SegApp
         /// <summary>
         /// Service: Tipo Documento Identidad Listar
         /// </summary>
-        /// <param name="request"></param>
         /// <returns></returns>
         public async Task<BaseResponseGeneric<ICollection<TipoDocumentoIdentidadDtoResponse>>> TipoDocumentoIdentidadListar()
         {

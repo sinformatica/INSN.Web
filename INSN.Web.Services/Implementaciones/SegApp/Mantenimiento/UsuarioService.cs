@@ -16,7 +16,7 @@ using System.Globalization;
 namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Service Usuario
+    /// UsuarioService
     /// </summary>
     public class UsuarioService : IUsuarioService
     {
@@ -31,6 +31,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         /// <param name="repository"></param>
         /// <param name="logger"></param>
         /// <param name="mapper"></param>
+        /// <param name="userManager"></param>
         public UsuarioService(IUsuarioRepository repository, 
                         ILogger<UsuarioService> logger,
                         IMapper mapper,
@@ -302,7 +303,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         /// <summary>
         /// Serivce: Usuario Actualizar Clave
         /// </summary>
-        /// <param name="Id"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
         public async Task<BaseResponse> UsuarioActualizarClave(UsuarioDtoRequest request)
         {

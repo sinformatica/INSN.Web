@@ -13,8 +13,21 @@ using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
 using INSN.Web.Portal.Services.Interfaces.SegApp;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Serilog;
+using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var logger = new LoggerConfiguration()
+        .WriteTo.Console(LogEventLevel.Information)
+        .WriteTo.File("logs.log",
+            outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level:u3}] - {Message}{NewLine}{Exception}",
+            rollingInterval: RollingInterval.Day,
+            restrictedToMinimumLevel: LogEventLevel.Warning)
+    .CreateLogger();
+
+builder.Logging.AddSerilog(logger);
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

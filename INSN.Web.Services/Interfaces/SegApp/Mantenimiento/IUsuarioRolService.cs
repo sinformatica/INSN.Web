@@ -5,14 +5,14 @@ using INSN.Web.Models.Response;
 namespace INSN.Web.Services.Interfaces.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Interface Servicio Usuario Rol
+    /// IUsuarioRolService
     /// </summary>
     public interface IUsuarioRolService
     {
         /// <summary>
         /// Usuario Rol Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="UserId"></param>
         /// <returns></returns>
         Task<BaseResponseGeneric<ICollection<UsuarioRolDtoResponse>>> UsuarioRolListar(string UserId);
 

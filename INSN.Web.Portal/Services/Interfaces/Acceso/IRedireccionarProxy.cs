@@ -4,7 +4,7 @@ using INSN.Web.Models.Response.Acceso;
 namespace INSN.Web.Portal.Services.Interfaces.Acceso
 {
     /// <summary>
-    /// Interface Proxy Redireccionar
+    /// IRedireccionarProxy
     /// </summary>
     public interface IRedireccionarProxy
     {

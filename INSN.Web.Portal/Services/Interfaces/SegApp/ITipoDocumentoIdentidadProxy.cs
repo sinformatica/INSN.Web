@@ -1,11 +1,11 @@
 ﻿using INSN.Web.Models.Request.SegApp;
-using INSN.Web.Models.Request.SegApp.Mantenimiento;
-using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.SegApp;
-using INSN.Web.Models.Response.SegApp.Mantenimiento;
 
 namespace INSN.Web.Portal.Services.Interfaces.SegApp
 {
+    /// <summary>
+    /// ITipoDocumentoIdentidadProxy
+    /// </summary>
     public interface ITipoDocumentoIdentidadProxy : ICrudRestHelper<TipoDocumentoIdentidadDtoRequest, TipoDocumentoIdentidadDtoResponse>
     {
         /// <summary>

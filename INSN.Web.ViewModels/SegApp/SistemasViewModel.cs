@@ -2,6 +2,9 @@
 
 namespace INSN.Web.ViewModels.SegApp
 {
+    /// <summary>
+    /// SistemasViewModel
+    /// </summary>
     public class SistemasViewModel
     {
         /// <summary>

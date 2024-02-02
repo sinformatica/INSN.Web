@@ -7,14 +7,18 @@ using System.Net.Http.Headers;
 
 namespace INSN.Web.Portal.Services.Implementaciones.SegApp
 {
+    /// <summary>
+    /// TipoDocumentoIdentidadProxy
+    /// </summary>
     public class TipoDocumentoIdentidadProxy : CrudRestHelperBase<TipoDocumentoIdentidadDtoRequest, TipoDocumentoIdentidadDtoResponse>, ITipoDocumentoIdentidadProxy
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         /// <summary>
-        /// Proxy
+        /// Inicializar
         /// </summary>
         /// <param name="httpClient"></param>
+        /// <param name="httpContextAccessor"></param>
         public TipoDocumentoIdentidadProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
         : base("api/SegApp/TipoDocumentoIdentidad", httpClient)
         {

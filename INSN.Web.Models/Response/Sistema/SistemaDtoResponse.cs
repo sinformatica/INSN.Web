@@ -13,7 +13,7 @@
         /// <summary>
         /// Descripcion
         /// </summary>
-        public string Descripcion { get; set; } = default!;
+        public string descripcion { get; set; } = default!;
 
         /// <summary>
         /// Url

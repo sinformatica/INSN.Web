@@ -1,7 +1,7 @@
 ﻿namespace INSN.Web.Models.Request.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Clase Entidad Lógica Resquest Rol
+    /// Clase RolDtoRequest
     /// </summary>
     public class RolDtoRequest : BaseRequest
     {

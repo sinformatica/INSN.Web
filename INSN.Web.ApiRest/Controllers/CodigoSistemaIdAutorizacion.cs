@@ -4,10 +4,17 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace INSN.Web.ApiRest.Controllers
 {
+    /// <summary>
+    /// CodigoSistemaIdAutorizacion
+    /// </summary>
     public class CodigoSistemaIdAutorizacion : IAsyncAuthorizationFilter
     {
         private readonly string codigoSistemaIdClaimValue;
 
+        /// <summary>
+        /// Inicializar
+        /// </summary>
+        /// <param name="httpContextAccessor"></param>
         public CodigoSistemaIdAutorizacion(IHttpContextAccessor httpContextAccessor)
         {
             // Accede al claim "CodigoSistemaId" en el constructor del filtro
@@ -15,6 +22,10 @@ namespace INSN.Web.ApiRest.Controllers
                 .Claims.FirstOrDefault(c => c.Type == "CodigoSistemaId")?.Value;
         }
 
+        /// <summary>
+        /// OnAuthorizationAsync
+        /// </summary>
+        /// <param name="context"></param>
         public async Task OnAuthorizationAsync(AuthorizationFilterContext context)
         {
             // Valida el claim "CodigoSistemaId" según tus requisitos

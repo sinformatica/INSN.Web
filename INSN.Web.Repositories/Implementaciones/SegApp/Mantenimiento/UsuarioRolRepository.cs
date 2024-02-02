@@ -8,12 +8,12 @@ using System.Linq.Expressions;
 namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Metodos de Usuario Rol
+    /// UsuarioRolRepository
     /// </summary>
     public class UsuarioRolRepository : RepositoryBaseSegAppEF<UsuarioRol>, IUsuarioRolRepository
     {
         /// <summary>
-        /// SegAppDbContextEF
+        /// Inicializar
         /// </summary>
         /// <param name="context"></param>
         public UsuarioRolRepository(SegAppDbContextEF context) : base(context)
@@ -23,7 +23,7 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
         /// <summary>
         /// Repository: Usuario Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="UserId"></param>
         /// <returns></returns>
         public async Task<ICollection<UsuarioRolInfo>> UsuarioRolListar(string UserId)
         {

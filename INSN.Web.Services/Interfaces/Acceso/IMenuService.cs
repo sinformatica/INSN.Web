@@ -5,7 +5,7 @@ using INSN.Web.Models.Request.Sistema;
 namespace INSN.Web.Services.Interfaces.Acceso
 {
     /// <summary>
-    /// Interface Servicio Menu
+    /// IMenuService
     /// </summary>
     public interface IMenuService
     {

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Controlador Rol
+    /// RolController
     /// </summary>
     public class RolController : Controller
     {
@@ -20,11 +20,12 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
         private readonly string NombreRolUsuario;
 
         /// <summary>
-        /// RolController
+        /// Inicializar
         /// </summary>
         /// <param name="proxy"></param>
         /// <param name="logger"></param>
         /// <param name="env"></param>
+        /// <param name="httpContextAccessor"></param>
         public RolController(IRolProxy proxy, ILogger<RolController> logger, IWebHostEnvironment env, 
                         IHttpContextAccessor httpContextAccessor)
         {

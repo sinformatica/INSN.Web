@@ -2,7 +2,6 @@
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Models.Response;
 using INSN.Web.Services.Interfaces.SegApp.Mantenimiento;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using INSN.Web.Common;
 using Microsoft.AspNetCore.Authorization;
@@ -20,7 +19,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
         private readonly IUsuarioRolService _service;
 
         /// <summary>
-        /// Usuario Controller
+        /// Inicializar
         /// </summary>
         /// <param name="service"></param>
         public UsuarioRolController(IUsuarioRolService service)
@@ -31,7 +30,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
         /// <summary>
         /// ApiRest: Usuario Rol Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="UserId"></param>
         /// <returns></returns>
         [HttpGet("UsuarioRolListar/{UserId}")]
         [Authorize(Roles = $"{Constantes.RolAdminSistemas}")]

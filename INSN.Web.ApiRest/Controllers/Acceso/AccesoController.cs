@@ -1,12 +1,6 @@
-﻿using Azure.Core;
-using INSN.Web.Common;
-using INSN.Web.Models.Request.Acceso;
-using INSN.Web.Models.Request.SegApp.Mantenimiento;
+﻿using INSN.Web.Models.Request.Acceso;
 using INSN.Web.Services.Interfaces.Acceso;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Xml.Linq;
 
 namespace INSN.Web.ApiRest.Controllers.Acceso
 {
@@ -15,13 +9,12 @@ namespace INSN.Web.ApiRest.Controllers.Acceso
     /// </summary>
     [Route("api/Acceso/[controller]/[action]")]
     [ApiController]
-
     public class AccesoController : ControllerBase
     {
         private readonly IAccesoService _service;
 
         /// <summary>
-        /// 
+        /// Inicializar
         /// </summary>
         /// <param name="service"></param>
         public AccesoController(IAccesoService service)

@@ -1,13 +1,11 @@
 ﻿using INSN.Web.Entities.Base;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace INSN.Web.Entities.SegApp
 {
+    /// <summary>
+    /// Usuario
+    /// </summary>
     public class Usuario : AuditoriaBase
     {
         /// <summary>

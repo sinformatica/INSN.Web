@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using INSN.Web.Models.Response.Sistemas;
+﻿using INSN.Web.Models.Response.Sistemas;
 using INSN.Web.Models.Response.Acceso;
 using INSN.Web.Models.Request.Acceso;
 
 namespace INSN.Web.Portal.Services.Interfaces.Acceso
 {
     /// <summary>
-    /// Interface Proxy Usuario
+    /// IAccesoProxy
     /// </summary>
     public interface IAccesoProxy
     {

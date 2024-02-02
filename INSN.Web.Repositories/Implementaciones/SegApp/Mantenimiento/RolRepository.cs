@@ -8,12 +8,12 @@ using System.Linq.Expressions;
 namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Metodos de Rol
+    /// RolRepository
     /// </summary>
     public class RolRepository : RepositoryBaseSegAppEF<Rol>, IRolRepository
     {
         /// <summary>
-        /// SegAppDbContextEF
+        /// Inicializar
         /// </summary>
         /// <param name="context"></param>
         public RolRepository(SegAppDbContextEF context) : base(context)

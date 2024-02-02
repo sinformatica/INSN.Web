@@ -19,7 +19,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Mantenimiento
         private readonly IUsuarioService _service;
 
         /// <summary>
-        /// Usuario Controller
+        /// Inicializar
         /// </summary>
         /// <param name="service"></param>
         public UsuarioController(IUsuarioService service)

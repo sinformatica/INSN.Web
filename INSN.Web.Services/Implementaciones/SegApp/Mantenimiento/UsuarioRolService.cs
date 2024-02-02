@@ -13,7 +13,7 @@ using INSN.Web.DataAccess.Acceso;
 namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Service Usuario Rol
+    /// UsuarioRolService
     /// </summary>
     public class UsuarioRolService : IUsuarioRolService
     {
@@ -30,6 +30,9 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         /// <param name="repository"></param>
         /// <param name="logger"></param>
         /// <param name="mapper"></param>
+        /// <param name="userManager"></param>
+        /// <param name="roleManager"></param>
+        /// <param name="segAppDbContext"></param>
         public UsuarioRolService(IUsuarioRolRepository repository,
                         ILogger<UsuarioService> logger,
                         IMapper mapper,
@@ -48,7 +51,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         /// <summary>
         /// Service: Usuario Rol Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="UserId"></param>
         /// <returns></returns>
         public async Task<BaseResponseGeneric<ICollection<UsuarioRolDtoResponse>>> UsuarioRolListar(string UserId)
         {
