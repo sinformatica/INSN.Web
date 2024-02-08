@@ -640,11 +640,12 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         /// <summary>
         /// Usuario Rol Eliminar
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="CodigoUsuarioRolId"></param>
+        /// <param name="UserId"></param>
         /// <returns></returns>
-        public async Task<IActionResult> UsuarioRolEliminar(int CodigoUsurioRolId, string UserId)
+        public async Task<IActionResult> UsuarioRolEliminar(int CodigoUsuarioRolId, string UserId)
         {
-            await _proxyUsuarioRol.UsuarioRolEliminar(CodigoUsurioRolId);
+            await _proxyUsuarioRol.UsuarioRolEliminar(CodigoUsuarioRolId);
 
             var model = new UsuarioViewModel
             {
