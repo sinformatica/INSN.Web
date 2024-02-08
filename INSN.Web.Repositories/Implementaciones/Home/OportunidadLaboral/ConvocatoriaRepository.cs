@@ -59,9 +59,8 @@ namespace INSN.Web.Repositories.Implementaciones.Home.OportunidadLaboral
                     .Take(1000)
                     .ToListAsync();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
                 throw new Exception();
             }
         }

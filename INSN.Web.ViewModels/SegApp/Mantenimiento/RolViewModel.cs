@@ -11,13 +11,13 @@ namespace INSN.Web.ViewModels.SegApp.Mantenimiento
         /// <summary>
         /// Lista de Rol
         /// </summary>       
-        public ICollection<RolDtoResponse>? Roles { get; set; }
+        public ICollection<RolDtoResponse>? Roles { get; set; } = default!;
 
         /// <summary>
         /// Id
         /// </summary>
         [Display(Name = "Id")]
-        public string Id { get; set; }
+        public string? Id { get; set; } = default!;
 
         /// <summary>
         /// Name

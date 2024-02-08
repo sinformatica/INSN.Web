@@ -12,8 +12,15 @@ namespace INSN.Web.Repositories.Implementaciones
     /// <typeparam name="TEntity"></typeparam>
     public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : AuditoriaBase
     {
+        /// <summary>
+        /// Context
+        /// </summary>
         protected readonly INSNWebDBContext Context;
-   
+
+        /// <summary>
+        /// Repository Base
+        /// </summary>
+        /// <param name="context"></param>
         protected RepositoryBase(INSNWebDBContext context)
         {
             Context = context;

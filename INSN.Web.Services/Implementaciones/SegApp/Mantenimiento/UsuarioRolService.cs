@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using INSN.Web.DataAccess.Acceso;
+using INSN.Web.Common;
 
 namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 {
@@ -92,7 +93,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                     return response;
                 }
 
-                var role = await _roleManager.FindByIdAsync(request.RolId);
+                var role = await _roleManager.FindByIdAsync(request.RolId ?? string.Empty);
 
                 if (role != null)
                 {
@@ -106,24 +107,14 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                         return response;
                     }
 
-                   //Verificar si el usuario ya tiene el rol para este sistema
-                   //existingUserRole = await _segAppDbContext.INSNIdentityUsuarioRol
-                   //    .FirstOrDefaultAsync(ur => ur.UserId == user.Id && ur.CodigoSistemaId == request.CodigoSistemaId && ur.RoleId == role.Id && ur.Estado == "A" && ur.EstadoRegistro == 1);
-
-                   // if (existingUserRole != null)
-                   // {
-                   //     response.ErrorMessage = Resources.ResourceGeneral.UsuarioRolSitemaDuplicado;
-                   //     return response;
-                   // }
-
                     // Asignar el nuevo rol al usuario para este sistema
                     var newUserRole = new INSNIdentityUsuarioRol
                     {
                         UserId = user.Id,
                         RoleId = role.Id,
                         CodigoSistemaId = request.CodigoSistemaId,
-                        Estado = "A",
-                        EstadoRegistro = 1,
+                        Estado = Enumerado.Estado.Activo,
+                        EstadoRegistro = Enumerado.EstadoRegistro.Activo,
                         UsuarioCreacion = request.UsuarioCreacion,
                         TerminalCreacion = Environment.MachineName
                     };

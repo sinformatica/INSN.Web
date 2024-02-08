@@ -47,7 +47,7 @@ namespace INSN.Web.Services.Implementaciones.Home.DocumentoInstitucional
                     Area = request.Area,
                     CodigoDocumentoLegalId = request.CodigoDocumentoLegalId,
                     Documento = request.Documento,
-                    Descripcion = request.Descripcion,
+                    Descripcion = request.Descripcion ?? string.Empty,
                     CodigoTipoDocumentoId = request.CodigoTipoDocumentoId,
                     Estado = request.Estado,
                     EstadoRegistro = request.EstadoRegistro

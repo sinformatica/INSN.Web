@@ -13,7 +13,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
     /// </summary>
     public class UsuarioRolProxy : CrudRestHelperBase<UsuarioRolDtoRequest, UsuarioRolDtoResponse>, IUsuarioRolProxy
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IHttpContextAccessor? _httpContextAccessor;
 
         /// <summary>
         /// Inicializar
@@ -23,10 +23,10 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         public UsuarioRolProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
             : base("api/SegApp/Mantenimiento/UsuarioRol", httpClient)
         {
-            _httpContextAccessor = httpContextAccessor;
+            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
 
             // Configurar la cabecera de autorización con el token
-            string token = _httpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken);
+            string token = _httpContextAccessor?.HttpContext?.Session.GetString(Constantes.JwtToken) ?? string.Empty;
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 
@@ -36,7 +36,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         /// <param name="UserId"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public async Task<ICollection<UsuarioRolDtoResponse>> UsuarioRolListar(string UserId)
+        public async Task<ICollection<UsuarioRolDtoResponse>> UsuarioRolListar(string? UserId)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
                     BaseResponse errorResponse = JsonConvert.DeserializeObject<BaseResponse>(errorMessage);
 
                     // Acceder a la propiedad errorMessage
-                    string errorText = errorResponse.ErrorMessage;
+                    string errorText = errorResponse?.ErrorMessage ?? string.Empty;
 
                     throw new InvalidOperationException(errorText);
                 }

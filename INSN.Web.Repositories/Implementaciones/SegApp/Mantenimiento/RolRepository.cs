@@ -45,8 +45,9 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
 
         /// <summary>
         /// Rol Por Sistema Listar
-        /// <param name="request"></param>
         /// </summary>
+        /// <param name="CodigoSistemaId"></param>
+        /// <returns></returns>
         public async Task<ICollection<Rol>> RolPorSistemaListar(int CodigoSistemaId)
         {
             var connection = Context.Database.GetDbConnection();

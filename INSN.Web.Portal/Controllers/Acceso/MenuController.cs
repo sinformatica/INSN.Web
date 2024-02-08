@@ -15,7 +15,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
     {
         private readonly IWebHostEnvironment _enviroment;
         private readonly IMenuProxy _proxy;
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IHttpContextAccessor? _httpContextAccessor;
 
         /// <summary>
         /// Inicalizar
@@ -28,7 +28,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
         {
             _proxy = proxy;
             _enviroment = env;
-            _httpContextAccessor = httpContextAccessor;
+            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
         /// </summary>
         public async Task<IActionResult> Index()
         {
-            string token = HttpContext.Session.GetString(Constantes.JwtToken);
+            string token = HttpContext.Session.GetString(Constantes.JwtToken) ?? string.Empty;
 
             if (token != null)
             {
@@ -56,11 +56,11 @@ namespace INSN.Web.Portal.Controllers.Acceso
                 if (b)
                 {
                     // Obtener el valor de un claim específico
-                    string Usuario = claims.FirstOrDefault(c => c.Type == "username")?.Value ?? string.Empty;
-                    string NombreUsuario = claims.FirstOrDefault(c => c.Type == "name")?.Value ?? string.Empty;
-                    string RolId = claims.FirstOrDefault(c => c.Type == "RolId")?.Value ?? string.Empty;
-                    string CodigoSistemaId = claims.FirstOrDefault(c => c.Type == "CodigoSistemaId")?.Value ?? string.Empty;
-                    string FechaVencimiento = claims.FirstOrDefault(c => c.Type == "FechaVencimiento")?.Value ?? string.Empty;
+                    string Usuario = (claims?.FirstOrDefault(c => c.Type == "username")?.Value) ?? string.Empty;
+                    string NombreUsuario = (claims?.FirstOrDefault(c => c.Type == "name")?.Value) ?? string.Empty;
+                    string RolId = (claims?.FirstOrDefault(c => c.Type == "RolId")?.Value) ?? string.Empty;
+                    string CodigoSistemaId = (claims?.FirstOrDefault(c => c.Type == "CodigoSistemaId")?.Value) ?? string.Empty;
+                    string FechaVencimiento = (claims?.FirstOrDefault(c => c.Type == "FechaVencimiento")?.Value) ?? string.Empty;
 
                     if (DateTime.Now <= DateTime.Parse(FechaVencimiento))
                     {
@@ -89,9 +89,9 @@ namespace INSN.Web.Portal.Controllers.Acceso
 
                         // guardar menú
                         string json = JsonConvert.SerializeObject(model);
-                        _httpContextAccessor.HttpContext.Session.SetString(Constantes.MenuDinamico, json);
-                        _httpContextAccessor.HttpContext.Session.SetString(Constantes.Usuario, Usuario);
-                        _httpContextAccessor.HttpContext.Session.SetString(Constantes.NombreUsuario, NombreUsuario);
+                        _httpContextAccessor?.HttpContext?.Session.SetString(Constantes.MenuDinamico, json);
+                        _httpContextAccessor?.HttpContext?.Session.SetString(Constantes.Usuario, Usuario);
+                        _httpContextAccessor?.HttpContext?.Session.SetString(Constantes.NombreUsuario, NombreUsuario);
                     }
                     else
                     {

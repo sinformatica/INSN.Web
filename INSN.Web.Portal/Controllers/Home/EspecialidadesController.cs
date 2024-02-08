@@ -1,6 +1,4 @@
-﻿using INSN.Web.Portal.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace INSN.Web.Portal.Controllers.Home
 {
@@ -9,11 +7,11 @@ namespace INSN.Web.Portal.Controllers.Home
     /// </summary>
     public class EspecialidadesController : Controller
     {
-        private readonly ILogger<EspecialidadesController> _logger;
-
-        public EspecialidadesController(ILogger<EspecialidadesController> logger)
+        /// <summary>
+        /// Especialidades Controller
+        /// </summary>
+        public EspecialidadesController()
         {
-            _logger = logger;
         }
 
         /// <summary>
@@ -313,11 +311,5 @@ namespace INSN.Web.Portal.Controllers.Home
             return View("~/Views/Home/Especialidades/Emergencia/ServicioEmergencia.cshtml");
         }
         #endregion
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }

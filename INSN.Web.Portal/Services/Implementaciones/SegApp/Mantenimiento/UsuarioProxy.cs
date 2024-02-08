@@ -1,8 +1,11 @@
-﻿using INSN.Web.Models.Request.SegApp.Mantenimiento;
+﻿using INSN.Web.Common;
+using INSN.Web.Models.Request.SegApp.Mantenimiento;
 using INSN.Web.Models.Response;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
+using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
 {
@@ -11,7 +14,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
     /// </summary>
     public class UsuarioProxy : CrudRestHelperBase<UsuarioDtoRequest, UsuarioDtoResponse>, IUsuarioProxy
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IHttpContextAccessor? _httpContextAccessor;
 
         /// <summary>
         /// Inicializar
@@ -21,11 +24,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         public UsuarioProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
             : base("api/SegApp/Mantenimiento/Usuario", httpClient)
         {
-            _httpContextAccessor = httpContextAccessor;
-
-            // Configurar la cabecera de autorización con el token
-            //string token = _httpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken);
-            //httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
         }
 
         /// <summary>
@@ -70,7 +69,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
             var response = await HttpClient.PostAsJsonAsync($"{BaseUrl}/UsuarioValidar", request);
             var resultado = await response.Content.ReadFromJsonAsync<BaseResponseGeneric<string>>();
 
-            return resultado.Data;
+            return resultado?.Data ?? string.Empty;
         }
 
         /// <summary>
@@ -89,11 +88,8 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
 
                 if (!string.IsNullOrEmpty(errorMessage))
                 {
-                    // Deserializar el JSON a la clase ErrorResponse
                     BaseResponse errorResponse = JsonConvert.DeserializeObject<BaseResponse>(errorMessage);
-
-                    // Acceder a la propiedad errorMessage
-                    string errorText = errorResponse.ErrorMessage;
+                    string errorText = errorResponse.ErrorMessage ?? string.Empty;
 
                     throw new InvalidOperationException(errorText);
                 }
@@ -119,7 +115,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public async Task<UsuarioDtoResponse> UsuarioBuscarId(string id)
+        public async Task<UsuarioDtoResponse> UsuarioBuscarId(string? id)
         {
             var response = await HttpClient.GetFromJsonAsync<BaseResponseGeneric<UsuarioDtoResponse>>($"{BaseUrl}/UsuarioBuscarId/{id}");
             if (response!.Success)
@@ -146,11 +142,8 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
 
                 if (!string.IsNullOrEmpty(errorMessage))
                 {
-                    // Deserializar el JSON a la clase ErrorResponse
                     BaseResponse errorResponse = JsonConvert.DeserializeObject<BaseResponse>(errorMessage);
-
-                    // Acceder a la propiedad errorMessage
-                    string errorText = errorResponse.ErrorMessage;
+                    string errorText = errorResponse.ErrorMessage ?? string.Empty;
 
                     throw new InvalidOperationException(errorText);
                 }
@@ -207,11 +200,8 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
 
                 if (!string.IsNullOrEmpty(errorMessage))
                 {
-                    // Deserializar el JSON a la clase ErrorResponse
                     BaseResponse errorResponse = JsonConvert.DeserializeObject<BaseResponse>(errorMessage);
-
-                    // Acceder a la propiedad errorMessage
-                    string errorText = errorResponse.ErrorMessage;
+                    string errorText = errorResponse.ErrorMessage ?? string.Empty;
 
                     throw new InvalidOperationException(errorText);
                 }

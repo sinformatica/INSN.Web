@@ -154,7 +154,7 @@ namespace INSN.Web.Repositories.Implementaciones
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<TEntity?> BuscarStringId(string id)
+        public async Task<TEntity?> BuscarStringId(string? id)
         {
             return await Context.Set<TEntity>().FindAsync(id);
         }

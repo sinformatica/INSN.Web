@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
 using INSN.Web.DataAccess.Acceso;
 using System.Globalization;
+using INSN.Web.Common;
 
 namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 {
@@ -106,8 +107,8 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         {
             var response = new BaseResponseGeneric<string>();
 
-            string nombreTransformado = request.Nombres.Substring(0, 1).ToUpper();
-            string apellidoPaternoTransformado = request.ApellidoPaterno.Replace(" ", "").ToUpper();
+            string nombreTransformado = (request.Nombres?.Length > 0 ? request.Nombres.Substring(0, 1).ToUpper() : string.Empty);
+            string apellidoPaternoTransformado = (request.ApellidoPaterno?.Replace(" ", "") ?? string.Empty).ToUpper();
             apellidoPaternoTransformado = QuitarTildes(apellidoPaternoTransformado);
             apellidoPaternoTransformado = apellidoPaternoTransformado.Replace("Ñ", "N");
 
@@ -120,7 +121,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
             if (usuarioExistente != null)
             {
                 // Crear el nuevo nombre de usuario sin modificar el original
-                Usuario = usuarioExistente.UserName.ToUpper() + (request.ApellidoMaterno?.FirstOrDefault().ToString().ToUpper() ?? "");
+                Usuario = (usuarioExistente?.UserName ?? "").ToUpper() + (request.ApellidoMaterno?.FirstOrDefault().ToString().ToUpper() ?? "");
             }
 
             response.Data = Usuario;
@@ -160,30 +161,32 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                     TipoDocumentoIdentidadId = request.TipoDocumentoIdentidadId,
                     DocumentoIdentidad = request.DocumentoIdentidad,
                     UserName = request.UserName,
-                    NormalizedUserName = request.UserName.ToUpper(),
+                    NormalizedUserName = (request.UserName ?? string.Empty).ToUpper(),
                     Email = request.Email,
-                    NormalizedEmail = request.Email.ToUpper(),
+                    NormalizedEmail = (request.Email ?? string.Empty).ToUpper(),
                     PhoneNumber = request.PhoneNumber,
                     Telefono2 = request.Telefono2,
                     EmailConfirmed = true
                 };
 
-                var result = await _userManager.CreateAsync(user, request.Password);
+                var result = await _userManager.CreateAsync(user, request.Password ?? string.Empty);
 
                 if (result.Succeeded)
                 {
-                    // actualizar campos UsuarioCreacion y TerminalCreacion
-                    var usu = await _userManager.FindByEmailAsync(user.Email);
+                    var usu = await _userManager.FindByEmailAsync(user.Email??string.Empty);
 
-                    await _repository.ActualizarCampos(
-                                predicate: r => r.Id == usu.Id,
-                                updateAction: r =>
-                                {
-                                    r.Estado = request.Estado;
-                                    r.EstadoRegistro = 1;
-                                    r.UsuarioCreacion = request.UsuarioCreacion;
-                                    r.TerminalCreacion = Environment.MachineName;
-                                });
+                    if (usu != null)
+                    {
+                        await _repository.ActualizarCampos(
+                            predicate: r => r.Id == usu.Id,
+                            updateAction: r =>
+                            {
+                                r.Estado = request.Estado;
+                                r.EstadoRegistro = 1;
+                                r.UsuarioCreacion = request.UsuarioCreacion;
+                                r.TerminalCreacion = Environment.MachineName;
+                            });
+                    }
                 }
                 else
                 {
@@ -238,7 +241,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                 if (registro is not null)
                 {
                     // Verificamos si otro usuario ya tiene el mismo email
-                    var existingUserWithEmail = await _userManager.FindByEmailAsync(request.Email);
+                    var existingUserWithEmail = await _userManager.FindByEmailAsync(request.Email ?? string.Empty);
 
                     if (existingUserWithEmail != null && existingUserWithEmail.Id != registro.Id)
                     {
@@ -316,7 +319,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                 if (user != null)
                 {
                     var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-                    var result = await _userManager.ResetPasswordAsync(user, token, request.Password);
+                    var result = await _userManager.ResetPasswordAsync(user, token, request.Password ?? string.Empty);
 
                     if (result.Succeeded)
                     {

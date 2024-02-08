@@ -1,4 +1,5 @@
-﻿using INSN.Web.Models.Request.Home.DocumentoLegal;
+﻿using INSN.Web.Common;
+using INSN.Web.Models.Request.Home.DocumentoLegal;
 using INSN.Web.Models.Response.Home.DocumentoLegal;
 using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.ViewModels.Home.DocumentoLegal;
@@ -11,25 +12,18 @@ namespace INSN.Web.Portal.Controllers.Home;
 /// </summary>
 public class UFGRDController : Controller
 {
-    private readonly IWebHostEnvironment _enviroment;
     private readonly IDocumentoLegalProxy _proxy;
     private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<UFGRDController> _logger;
-
-    //private const int MaxFileSize = 4 * 1024 * 1024;
 
     /// <summary>
-    /// 
+    /// UFGRD Controller
     /// </summary>
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
-    /// <param name="logger"></param>
-    public UFGRDController(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy, ILogger<UFGRDController> logger, IWebHostEnvironment env)
+    public UFGRDController(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy)
     {
         _proxy = proxy;
-       _TipoDocumentoProxy = TipoDocumentoProxy;
-        _logger = logger;
-        _enviroment = env;
+        _TipoDocumentoProxy = TipoDocumentoProxy;
     }
 
     /// <summary>
@@ -41,9 +35,9 @@ public class UFGRDController : Controller
     {
         var resultTipoDocumento = await _TipoDocumentoProxy.TipoDocumentoListar(new TipoDocumentoDtoRequest()
         {
-            Area = "UFGRD",
-            Estado = "A",
-            EstadoRegistro = 1
+            Area = Enumerado.DocumentosLegales.UFGRD,
+            Estado = Enumerado.Estado.Activo,
+            EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });
 
         var resultDocumentoLegal = DocumentoLegalListar(model);
@@ -67,34 +61,11 @@ public class UFGRDController : Controller
             Documento = model.Documento,
             Descripcion = model.Descripcion,
             CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
-            Area = "UFGRD",
-            Estado = "A",
-            EstadoRegistro = 1
+            Area = Enumerado.DocumentosLegales.UFGRD,
+            Estado = Enumerado.Estado.Activo,
+            EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });
 
         return (List<DocumentoLegalDtoResponse>)resultDocumentoLegales;
     }
-
-    //public IActionResult Download1(string fileName)
-    //{
-    //    try
-    //    {
-    //        var filePath = Path.Combine(_enviroment.ContentRootPath, "Documentos/NormasDocumentosLegales", fileName);
-
-    //        if (!System.IO.File.Exists(filePath))
-    //        {
-    //            return NotFound(); // Manejo de archivo no encontrado
-    //        }
-
-    //        var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-
-    //        return new FileStreamResult(fileStream, "application/pdf");
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        // Manejar cualquier otro tipo de error
-    //        // Por ejemplo: Loggear el error para su revisión posterior
-    //        return StatusCode(StatusCodes.Status500InternalServerError);
-    //    }
-    //}
 }

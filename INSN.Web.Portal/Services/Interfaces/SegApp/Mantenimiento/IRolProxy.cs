@@ -27,7 +27,7 @@ namespace INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<RolDtoResponse> RolBuscarId(string id);
+        Task<RolDtoResponse> RolBuscarId(string? id);
 
         /// <summary>
         /// IProxy: Rol Actualizar

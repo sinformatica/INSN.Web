@@ -8,34 +8,34 @@ using Microsoft.AspNetCore.Mvc;
 namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
 {
     /// <summary>
-    /// RolController
+    /// Controlador Rol
     /// </summary>
     public class RolController : Controller
     {
         private readonly IWebHostEnvironment _enviroment;
         private readonly IRolProxy _proxy;
         private readonly ILogger<RolController> _logger;
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IHttpContextAccessor? _httpContextAccessor;
         private readonly string CodigoSistemaIdUsuario;
         private readonly string NombreRolUsuario;
 
         /// <summary>
-        /// Inicializar
+        /// Rol Controller
         /// </summary>
         /// <param name="proxy"></param>
         /// <param name="logger"></param>
         /// <param name="env"></param>
         /// <param name="httpContextAccessor"></param>
-        public RolController(IRolProxy proxy, ILogger<RolController> logger, IWebHostEnvironment env, 
+        public RolController(IRolProxy proxy, ILogger<RolController> logger, IWebHostEnvironment env,
                         IHttpContextAccessor httpContextAccessor)
         {
             _proxy = proxy;
             _logger = logger;
             _enviroment = env;
-            _httpContextAccessor = httpContextAccessor;
+            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
 
-            CodigoSistemaIdUsuario = _httpContextAccessor.HttpContext.Session.GetString(Constantes.CodigoSistemaIdUsuario);
-            NombreRolUsuario = _httpContextAccessor.HttpContext.Session.GetString(Constantes.NombreRolUsuario);
+            CodigoSistemaIdUsuario = _httpContextAccessor?.HttpContext?.Session.GetString(Constantes.CodigoSistemaIdUsuario) ?? string.Empty;
+            NombreRolUsuario = _httpContextAccessor?.HttpContext?.Session.GetString(Constantes.NombreRolUsuario) ?? string.Empty;
         }
 
         /// <summary>
@@ -94,18 +94,8 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
                 model.Roles = response;
                 return View("~/Views/SegApp/Mantenimiento/Rol/Index.cshtml", model);
             }
-            //catch (Excepciones ex)
-            //{
-            //    var error = new ExcepcionesViewModel {
-            //        Code = ex.Code,
-            //        ReasonPhrase = ex.ReasonPhrase 
-            //    };
-
-            //    return RedirectToAction("Index", "Excepciones", error);
-            //}
             catch (Exception)
             {
-                // Maneja otros tipos de excepciones si es necesario
                 return View("~/Views/Shared/Error.cshtml");
             }
         }
@@ -155,7 +145,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
                     Name = request.Name,
                     Estado = request.EstadoSeleccionado,
                     #region [Base Insert]
-                    EstadoRegistro = 1,
+                    EstadoRegistro = Enumerado.EstadoRegistro.Activo,
                     FechaCreacion = DateTime.Now,
                     UsuarioCreacion = Environment.UserName, //Modificar por Usuario de sesion logueada
                     TerminalCreacion = Environment.MachineName
@@ -254,7 +244,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
                     Name = request.Name,
                     Estado = request.EstadoSeleccionado,
                     #region [Base Update]
-                    EstadoRegistro = 1,
+                    EstadoRegistro = Enumerado.EstadoRegistro.Activo,
                     FechaCreacion = response.FechaCreacion,
                     UsuarioCreacion = response.UsuarioCreacion,
                     TerminalCreacion = response.TerminalCreacion,
@@ -284,7 +274,6 @@ namespace INSN.Web.Portal.Controllers.SegApp.Mantenimiento
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Modificación de Rol {Message}", ex.Message);
-
                 TempData["CodigoMensaje"] = -1;
                 TempData["Mensaje"] = ex.Message;
 

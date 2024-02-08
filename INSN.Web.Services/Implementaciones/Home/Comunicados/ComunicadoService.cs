@@ -9,6 +9,9 @@ using INSN.Web.Models.Response.Home.Comunicados;
 
 namespace INSN.Web.Services.Implementaciones.Home.Comunicados
 {
+    /// <summary>
+    /// Servicio Comunicado
+    /// </summary>
     public class ComunicadoService : IComunicadoService
     {
         private readonly IComunicadoRepository _repository;
@@ -42,7 +45,7 @@ namespace INSN.Web.Services.Implementaciones.Home.Comunicados
             {
                 var lista = await _repository.ComunicadoListar(new Comunicado
                 {
-                    Titulo = request.Titulo,
+                    Titulo = request.Titulo ?? string.Empty,
                     FechaExpiracion = request.FechaExpiracion,
                     Estado = request.Estado,
                     EstadoRegistro = request.EstadoRegistro
@@ -65,7 +68,7 @@ namespace INSN.Web.Services.Implementaciones.Home.Comunicados
         /// <summary>
         /// Service: Comunicado Detalle
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="CodigoComunicadoId"></param>
         /// <returns></returns>
         public async Task<BaseResponseGeneric<ICollection<ComunicadoDetalleDtoResponse>>> ComunicadoDetalleListar(int CodigoComunicadoId)
         {

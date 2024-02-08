@@ -21,7 +21,7 @@ namespace INSN.Web.Portal.Services.Interfaces.Home.Comunicados
         /// <summary>
         /// IProxy: Comunicado Detalle Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="CodigoComunicadoId"></param>
         /// <returns></returns>
         Task<ICollection<ComunicadoDetalleDtoResponse>> ComunicadoDetalleListar(int CodigoComunicadoId);
         #endregion

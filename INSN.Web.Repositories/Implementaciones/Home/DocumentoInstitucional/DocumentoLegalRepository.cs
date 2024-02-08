@@ -52,7 +52,7 @@ namespace INSN.Web.Repositories.Implementaciones.Home.DocumentoInstitucional
                     })
                     .ToListAsync();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new Exception();
             }

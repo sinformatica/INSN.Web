@@ -15,7 +15,7 @@ namespace INSN.Web.Entities.Home.DocumentoInstitucional
         /// <summary>
         /// Area del Tipo de Norma
         /// </summary>
-        public string? Area { get; set; } = default!;
+        public string Area { get; set; } = default!;
 
         /// <summary>
         /// Descripcion del Tipo de Norma

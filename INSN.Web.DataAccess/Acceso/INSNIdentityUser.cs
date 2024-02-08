@@ -11,12 +11,12 @@ namespace INSN.Web.DataAccess.Acceso
         /// <summary>
         /// Nombres
         /// </summary>
-        public string Nombres { get; set; } = default!;
+        public string? Nombres { get; set; } = default!;
 
         /// <summary>
         /// ApellidoPaterno
         /// </summary>
-        public string ApellidoPaterno { get; set; } = default!;
+        public string? ApellidoPaterno { get; set; } = default!;
 
         /// <summary>
         /// ApellidoMaterno
@@ -26,7 +26,7 @@ namespace INSN.Web.DataAccess.Acceso
         /// <summary>
         /// servicio
         /// </summary>
-        public string servicio { get; set; } = default!;
+        public string? servicio { get; set; } = default!;
 
         /// <summary>
         /// Telefono2

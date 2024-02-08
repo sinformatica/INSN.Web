@@ -146,14 +146,12 @@ namespace INSN.Web.Services.Implementaciones.Acceso
                 var user = await _userManager.FindByNameAsync(request.Usuario);
 
                 if (user == null)
-                {
-                    // Si el usuario no se encuentra, retornar lista vacía 
-                    //  return response;
+                {                    
                 }
 
                 // Consulta para obtener los sistemas asociados al usuario
                 var sistemasAsociados = await _segAppDbContext.INSNIdentityUsuarioRol
-                    .Where(ur => ur.UserId == user.Id && ur.Estado == "A" && ur.EstadoRegistro == 1)
+                    .Where(ur => user != null && ur.UserId == user.Id && ur.Estado == "A" && ur.EstadoRegistro == 1)
                     .Select(ur => ur.CodigoSistemaId)
                     .Distinct()
                     .ToListAsync();
@@ -187,7 +185,6 @@ namespace INSN.Web.Services.Implementaciones.Acceso
             }
             catch (Exception ex)
             {
-                // Manejo de excepciones
                 _logger.LogCritical(ex, "Error al obtener sistemas para el usuario {Usuario}: {Message}", request.Usuario, ex.Message);
             }
 
@@ -208,25 +205,31 @@ namespace INSN.Web.Services.Implementaciones.Acceso
                 var identity = await _userManager.FindByNameAsync(request.Usuario);
 
                 var roles = await _segAppDbContext.INSNIdentityUsuarioRol
-                        .Where(ur => ur.UserId == identity.Id && ur.CodigoSistemaId == request.CodigoSistemaId
-                                && ur.Estado == "A" && ur.EstadoRegistro == 1)
-                        .Select(ur => ur.RoleId)
-                        .ToListAsync();
+                              .Where(ur => identity != null && ur.UserId == identity.Id
+                                  && ur.CodigoSistemaId == request.CodigoSistemaId && ur.Estado == "A"
+                                  && ur.EstadoRegistro == 1)
+                              .Select(ur => ur.RoleId)
+                              .ToListAsync();
 
                 var fechaVencimiento = DateTime.Now.AddHours(6);
-                string nombreCompleto = $"{identity.ApellidoPaterno} {identity.ApellidoMaterno} {identity.Nombres}";
+
+                string apellidoPaterno = identity?.ApellidoPaterno ?? string.Empty;
+                string apellidoMaterno = identity?.ApellidoMaterno ?? string.Empty;
+                string nombres = identity?.Nombres ?? string.Empty;
+                string nombreCompleto = $"{apellidoPaterno} {apellidoMaterno} {nombres}";
+
                 var roleName = await _roleManager.FindByIdAsync(roles.First());
 
                 var claims = new List<Claim>
                 {
-                    new Claim("UserId", identity.Id),
+                    new Claim("UserId", identity?.Id ?? string.Empty),
                     new Claim("username", request.Usuario),
-                    new Claim("name", identity.Nombres + " " + identity.ApellidoPaterno + " " + identity.ApellidoMaterno),
+                    new Claim("name", $"{identity?.Nombres ?? string.Empty} {identity?.ApellidoPaterno ?? string.Empty} {identity?.ApellidoMaterno ?? string.Empty}"),
                     new Claim("RolId", roles.First()),
-                    new Claim("rol", roleName?.Name),
+                    new Claim("rol", roleName?.Name ?? ""),
                     new Claim("CodigoSistemaId", request.CodigoSistemaId.ToString()),
                     new Claim("FechaVencimiento", fechaVencimiento.ToString("yyyy-MM-dd HH:mm:ss")),
-                    new Claim(ClaimTypes.Role, roleName?.Name),
+                    new Claim(ClaimTypes.Role, roleName?.Name ??""),
                     new Claim(ClaimTypes.Expiration, fechaVencimiento.ToString("yyyy-MM-dd HH:mm:ss"))
                 };
 

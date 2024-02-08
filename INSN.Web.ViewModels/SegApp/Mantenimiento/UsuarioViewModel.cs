@@ -39,7 +39,7 @@ namespace INSN.Web.ViewModels.SegApp.Mantenimiento
         /// Id
         /// </summary>
         [Display(Name = "Id")]
-        public string? Id { get; set; } = default!;
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// Texto Buscar
@@ -51,7 +51,7 @@ namespace INSN.Web.ViewModels.SegApp.Mantenimiento
         /// Nombres
         /// </summary>
         [Display(Name = "Nombre")]
-        public string? Nombre { get; set; } = default!;
+        public string? Nombres { get; set; } = default!;
 
         /// <summary>
         /// Apellido Paterno
@@ -99,7 +99,7 @@ namespace INSN.Web.ViewModels.SegApp.Mantenimiento
         /// Usuario
         /// </summary>
         [Display(Name = "Usuario")]
-        public string? Usuario { get; set; } = default!;
+        public string? Usuario { get; set; }
 
         /// <summary>
         /// Correo

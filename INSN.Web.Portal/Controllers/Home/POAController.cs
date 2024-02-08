@@ -1,4 +1,5 @@
-﻿using INSN.Web.Models.Request.Home.DocumentoLegal;
+﻿using INSN.Web.Common;
+using INSN.Web.Models.Request.Home.DocumentoLegal;
 using INSN.Web.Models.Response.Home.DocumentoLegal;
 using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.ViewModels.Home.DocumentoLegal;
@@ -11,23 +12,18 @@ namespace INSN.Web.Portal.Controllers.Home;
 /// </summary>
 public class POAController : Controller
 {
-    private readonly IWebHostEnvironment _enviroment;
     private readonly IDocumentoLegalProxy _proxy;
     private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<POAController> _logger;
 
     /// <summary>
-    /// 
+    /// POA Controller
     /// </summary>
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
-    /// <param name="logger"></param>
-    public POAController(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy, ILogger<POAController> logger, IWebHostEnvironment env)
+    public POAController(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy)
     {
         _proxy = proxy;
         _TipoDocumentoProxy = TipoDocumentoProxy;
-        _logger = logger;
-        _enviroment = env;
     }
 
     /// <summary>
@@ -39,9 +35,9 @@ public class POAController : Controller
     {
         var resultTipoDocumento = await _TipoDocumentoProxy.TipoDocumentoListar(new TipoDocumentoDtoRequest()
         {
-            Area = "POA",
-            Estado = "A",
-            EstadoRegistro = 1
+            Area = Enumerado.DocumentosLegales.POA,
+            Estado = Enumerado.Estado.Activo,
+            EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });
 
         var resultDocumentoLegal = DocumentoLegalListar(model);
@@ -65,9 +61,9 @@ public class POAController : Controller
             Documento = model.Documento,
             Descripcion = model.Descripcion,
             CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
-            Area= "POA",
-            Estado = "A",
-            EstadoRegistro = 1
+            Area = Enumerado.DocumentosLegales.POA,
+            Estado = Enumerado.Estado.Activo,
+            EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });
 
         return (List<DocumentoLegalDtoResponse>)resultDocumentoLegales;

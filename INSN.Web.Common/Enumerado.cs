@@ -42,7 +42,7 @@
         }
 
         /// <summary>
-        /// Constantes Tipo Convocatoria Id
+        /// Constantes Estado Convocatoria
         /// </summary>
         public struct EstadoConvocatoria
         {
@@ -55,6 +55,85 @@
             /// Concluido
             /// </summary>
             public const string Concluido = "C";
+        }
+
+        /// <summary>
+        /// Constantes Estado
+        /// </summary>
+        public struct Estado
+        {
+            /// <summary>
+            /// Activo
+            /// </summary>
+            public const string Activo = "A";
+
+            /// <summary>
+            /// Inactivo
+            /// </summary>
+            public const string Inactivo = "I";
+        }
+
+        /// <summary>
+        /// Constantes Estado
+        /// </summary>
+        public struct EstadoRegistro
+        {
+            /// <summary>
+            /// Activo
+            /// </summary>
+            public const int Activo = 1;
+
+            /// <summary>
+            /// Inactivo
+            /// </summary>
+            public const int Inactivo = 0;
+
+        }
+
+        /// <summary>
+        /// Constantes Documentos Legales
+        /// </summary>
+        public struct DocumentosLegales
+        {
+            /// <summary>
+            /// COVID19
+            /// </summary>
+            public const string Covid19 = "COVID19";
+
+            /// <summary>
+            /// POA
+            /// </summary>
+            public const string POA = "POA";
+
+            /// <summary>
+            /// SST
+            /// </summary>
+            public const string SST = "SST";
+
+            /// <summary>
+            /// Documento Legal
+            /// </summary>
+            public const string DocumentoLegal = "DOCUMENTOLEGAL";
+
+            /// <summary>
+            /// Informe Gestion
+            /// </summary>
+            public const string InformeGestion = "InformeGestion";
+
+            /// <summary>
+            /// SCI
+            /// </summary>
+            public const string SCI = "SCI";
+
+            /// <summary>
+            /// SUBCAFAE
+            /// </summary>
+            public const string SUBCAFAE = "SUBCAFAE";
+
+            /// <summary>
+            /// UFGRD
+            /// </summary>
+            public const string UFGRD = "UFGRD";            
         }
     }
 }

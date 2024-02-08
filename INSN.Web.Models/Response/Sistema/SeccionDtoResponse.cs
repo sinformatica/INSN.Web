@@ -28,6 +28,6 @@
         /// <summary>
         /// Modulo lista
         /// </summary>
-        public ICollection<ModuloDtoResponse>? ModuloLista { get; set; }
+        public ICollection<ModuloDtoResponse>? ModuloLista { get; set; } = default!;
     }
 }

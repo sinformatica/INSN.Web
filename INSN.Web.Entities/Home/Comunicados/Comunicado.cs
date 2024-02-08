@@ -2,6 +2,9 @@
 
 namespace INSN.Web.Entities.Home.Comunicados
 {
+    /// <summary>
+    /// Entrada Logica Comunicado
+    /// </summary>
     public class Comunicado : AuditoriaBase
     {
         /// <summary>
@@ -12,7 +15,7 @@ namespace INSN.Web.Entities.Home.Comunicados
         /// <summary>
         /// Titulo
         /// </summary>
-        public string? Titulo { get; set; }
+        public string Titulo { get; set; } = default!;
 
         /// <summary>
         /// Fecha Publicacion
@@ -22,12 +25,12 @@ namespace INSN.Web.Entities.Home.Comunicados
         /// <summary>
         /// Fecha Expiracion
         /// </summary>
-        public DateTime FechaExpiracion { get; set; }
+        public DateTime? FechaExpiracion { get; set; } = default!;
 
         /// <summary>
         /// Ruta Portada
         /// </summary>
-        public string? RutaImagenPortada { get; set; }
+        public string? RutaImagenPortada { get; set; } = default!;
 
         /// <summary>
         /// Ancho

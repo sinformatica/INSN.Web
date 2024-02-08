@@ -11,19 +11,23 @@ namespace INSN.Web.Portal.Services.Implementaciones.Acceso
     /// </summary>
     public class RedireccionarProxy : RestBase, IRedireccionarProxy
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        /// <summary>
+        /// 
+        /// </summary>
+        private readonly IHttpContextAccessor? _httpContextAccessor;
 
         /// <summary>
-        /// Proxy
+        /// Redireccionar Proxy
         /// </summary>
         /// <param name="httpClient"></param>
+        /// <param name="httpContextAccessor"></param>
         public RedireccionarProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor) 
             : base("api/Acceso/Acceso", httpClient)
         {
-            _httpContextAccessor = httpContextAccessor;
+            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
 
             // Configurar la cabecera de autorización con el token
-            string token = _httpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken);
+            string token = _httpContextAccessor?.HttpContext?.Session.GetString(Constantes.JwtToken) ?? string.Empty;
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 

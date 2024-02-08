@@ -46,7 +46,7 @@ namespace INSN.Web.Services.Implementaciones.Home.DocumentoInstitucional
                 {
                     CodigoTipoDocumentoId = request.CodigoTipoDocumentoId,
                     Descripcion = request.Descripcion,
-                    Area = request.Area,
+                    Area = request.Area ?? string.Empty,
                     Estado = request.Estado,
                     EstadoRegistro = request.EstadoRegistro
                 });

@@ -10,9 +10,9 @@
 }
 
 @{
-    string UsuarioId = HttpContextAccessor.HttpContext.Session.GetString(Constantes.UsuarioId);
-    string Usuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.Usuario);
-    string NombreUsuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.NombreUsuario);
+    string? UsuarioId = HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.UsuarioId);
+    string? Usuario = HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.Usuario);
+    string? NombreUsuario = HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.NombreUsuario);
 }
 
 
@@ -73,7 +73,10 @@
                                         <div class="col-md-1 col-sm-6">
                                         </div>
                                         <div class="col-md-4 col-sm-6">
-                                            <h6 style="margin-left: 20px;">Bienvenido(a), @NombreUsuario.ToUpper()</h6>
+                                            @if (NombreUsuario != null)
+                                            {
+                                                <h6 style="margin-left: 20px;">Bienvenido(a), @NombreUsuario.ToUpper()</h6>
+                                            }
                                         </div>
                                         <div class="col-md-4 col-sm-6">
                                         </div>
@@ -132,8 +135,8 @@
                             <div class="row justify-content-center text-center">
                                 <br />
 
-                                @if (HttpContextAccessor.HttpContext?.Session.GetString(Constantes.JwtToken) != null
-                                && HttpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken)!.Length > 0)
+                                @if (HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.JwtToken) != null
+                                && HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.JwtToken)!.Length > 0)
                                 {
                                     <h5 class="fw-bold mb-2" style="color: #0096ad;">
                                         Seleccione el sistema a ingresar

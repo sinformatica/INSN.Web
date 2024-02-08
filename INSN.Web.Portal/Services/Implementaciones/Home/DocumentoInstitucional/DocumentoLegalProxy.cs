@@ -10,6 +10,10 @@ namespace INSN.Web.Portal.Services.Implementaciones.Home.DocumentoInstitucional;
 /// </summary>
 public class DocumentoLegalProxy : CrudRestHelperBase<DocumentoLegalDtoRequest, DocumentoLegalDtoResponse>, IDocumentoLegalProxy
 {
+    /// <summary>
+    /// Documento Legal Proxy
+    /// </summary>
+    /// <param name="httpClient"></param>
     public DocumentoLegalProxy(HttpClient httpClient)
         : base("api/Home/DocumentoInstitucional/DocumentoLegal", httpClient)
     {

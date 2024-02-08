@@ -25,9 +25,9 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         private readonly ISistemaProxy _proxySistema;
         private readonly IRolProxy _proxyRol;
         private readonly IUsuarioRolProxy _proxyUsuarioRol;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly string CodigoSistemaIdUsuario;
-        private readonly string NombreRolUsuario;
+        private readonly IHttpContextAccessor? _httpContextAccessor;
+        private readonly string? CodigoSistemaIdUsuario;
+        private readonly string? NombreRolUsuario;
 
         /// <summary>
         /// Inicializar
@@ -42,7 +42,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         /// <param name="httpContextAccessor"></param>
         public UsuarioController(IUsuarioProxy proxy,
                                 ILogger<UsuarioController> logger,
-                                IWebHostEnvironment env, 
+                                IWebHostEnvironment env,
                                 ITipoDocumentoIdentidadProxy proxyTipoDoc,
                                 ISistemaProxy proxySistema,
                                 IRolProxy proxyRol,
@@ -56,10 +56,10 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
             _proxySistema = proxySistema;
             _proxyRol = proxyRol;
             _proxyUsuarioRol = proxyUsuarioRol;
-            _httpContextAccessor = httpContextAccessor;
+            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
 
-            CodigoSistemaIdUsuario = _httpContextAccessor.HttpContext.Session.GetString(Constantes.CodigoSistemaIdUsuario);
-            NombreRolUsuario = _httpContextAccessor.HttpContext.Session.GetString(Constantes.NombreRolUsuario);
+            CodigoSistemaIdUsuario = _httpContextAccessor?.HttpContext?.Session.GetString(Constantes.CodigoSistemaIdUsuario);
+            NombreRolUsuario = _httpContextAccessor?.HttpContext?.Session.GetString(Constantes.NombreRolUsuario);
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
             {
                 Estado = model.EstadoSeleccionado,
                 Nombres = model.TextoBuscar,
-                EstadoRegistro = 1
+                EstadoRegistro = Enumerado.EstadoRegistro.Activo
             });
 
             return (List<UsuarioDtoResponse>)result;
@@ -143,7 +143,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         /// Vista Ventana Nuevo
         /// </summary>
         /// <returns></returns>
-        public async Task<IActionResult> NuevoVista(UsuarioViewModel model)
+        public Task<IActionResult> NuevoVista(UsuarioViewModel model)
         {
             bool b = false;
 
@@ -157,11 +157,11 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 var resultTiposDoc = TipoDocumentoIdentidadListar();
                 model.TiposDocIdentidad = resultTiposDoc.Result;
 
-                return View("~/Views/SegApp/Mantenimiento/Usuario/Nuevo.cshtml", model);
+                return Task.FromResult<IActionResult>(View("~/Views/SegApp/Mantenimiento/Usuario/Nuevo.cshtml", model));
             }
             else
             {
-                return RedirectToAction("AccesoDenegado", "Acceso");
+                return Task.FromResult<IActionResult>(RedirectToAction("AccesoDenegado", "Acceso"));
             }
         }
 
@@ -175,7 +175,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(request.Nombre)) throw new ModelException(nameof(request.Nombre), "Campo requerido: Nombre");
+                if (string.IsNullOrWhiteSpace(request.Nombres)) throw new ModelException(nameof(request.Nombres), "Campo requerido: Nombre");
                 if (string.IsNullOrWhiteSpace(request.ApellidoPaterno)) throw new ModelException(nameof(request.ApellidoPaterno), "Campo requerido: Apellido paterno");
                 if (string.IsNullOrWhiteSpace(request.ApellidoMaterno)) throw new ModelException(nameof(request.ApellidoMaterno), "Campo requerido: Apellido materno");
                 if (string.IsNullOrWhiteSpace(request.Servicio)) throw new ModelException(nameof(request.Servicio), "Campo requerido: Servicio");
@@ -196,7 +196,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 // Validar usuario
                 string usuario = await _proxy.UsuarioValidar(new UsuarioDtoRequest
                 {
-                    Nombres = request.Nombre,
+                    Nombres = request.Nombres,
                     ApellidoPaterno = request.ApellidoPaterno,
                     ApellidoMaterno = request.ApellidoMaterno
                 });
@@ -204,7 +204,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
 
                 await _proxy.UsuarioInsertar(new UsuarioDtoRequest
                 {
-                    Nombres = request.Nombre,
+                    Nombres = request.Nombres,
                     ApellidoPaterno = request.ApellidoPaterno,
                     ApellidoMaterno = request.ApellidoMaterno,
                     Servicio = request.Servicio,
@@ -218,7 +218,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                     ConfirmarPassword = request.ConfirmaClave,
                     Estado = request.EstadoSeleccionado,
                     #region [Base Insert]
-                    EstadoRegistro = 1,
+                    EstadoRegistro = Enumerado.EstadoRegistro.Activo,
                     FechaCreacion = DateTime.Now,
                     UsuarioCreacion = Environment.UserName, //Modificar por Usuario de sesion logueada
                     TerminalCreacion = Environment.MachineName
@@ -283,8 +283,8 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
 
                 var model = new UsuarioViewModel
                 {
-                    Id = response.Id,
-                    Nombre = response.Nombres,
+                    Id = response.Id ?? string.Empty,
+                    Nombres = response.Nombres,
                     ApellidoPaterno = response.ApellidoPaterno,
                     ApellidoMaterno = response.ApellidoMaterno,
                     Servicio = response.Servicio,
@@ -328,7 +328,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 var resultTiposDoc = TipoDocumentoIdentidadListar();
                 request.TiposDocIdentidad = resultTiposDoc.Result;
 
-                if (string.IsNullOrWhiteSpace(request.Nombre)) throw new ModelException(nameof(request.Nombre), "Campo requerido: Nombre");
+                if (string.IsNullOrWhiteSpace(request.Nombres)) throw new ModelException(nameof(request.Nombres), "Campo requerido: Nombre");
                 if (string.IsNullOrWhiteSpace(request.ApellidoPaterno)) throw new ModelException(nameof(request.ApellidoPaterno), "Campo requerido: Apellido paterno");
                 if (string.IsNullOrWhiteSpace(request.ApellidoMaterno)) throw new ModelException(nameof(request.ApellidoMaterno), "Campo requerido: Apellido materno");
                 if (string.IsNullOrWhiteSpace(request.Servicio)) throw new ModelException(nameof(request.Servicio), "Campo requerido: Servicio");
@@ -339,21 +339,21 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 var dtoRequest = new UsuarioDtoRequest
                 {
                     Id = request.Id,
-                    Nombres = request.Nombre,
+                    Nombres = request.Nombres,
                     ApellidoPaterno = request.ApellidoPaterno,
                     ApellidoMaterno = request.ApellidoMaterno,
                     Servicio = request.Servicio,
                     TipoDocumentoIdentidadId = request.TipoDocumentoIdentidadId,
                     DocumentoIdentidad = request.DocumentoIdentidad,
                     UserName = request.Usuario,
-                    NormalizedUserName = request.Usuario.ToUpper(),
+                    NormalizedUserName = (request.Usuario ?? string.Empty).ToUpper(),
                     Email = request.Correo,
                     NormalizedEmail = request.Correo.ToUpper(),
                     PhoneNumber = request.Telefono1,
                     Telefono2 = request.Telefono2,
                     Estado = request.EstadoSeleccionado,
                     #region [Base Update]
-                    EstadoRegistro = 1,
+                    EstadoRegistro = Enumerado.EstadoRegistro.Activo,
                     FechaCreacion = response.FechaCreacion,
                     UsuarioCreacion = response.UsuarioCreacion,
                     TerminalCreacion = response.TerminalCreacion,
@@ -411,7 +411,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         /// Vista Ventana Editar Clave
         /// </summary>
         /// <returns></returns>
-        public async Task<IActionResult> EditarClaveVista(UsuarioViewModel model)
+        public Task<IActionResult> EditarClaveVista(UsuarioViewModel model)
         {
             bool b = false;
 
@@ -425,11 +425,11 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 var resultTiposDoc = TipoDocumentoIdentidadListar();
                 model.TiposDocIdentidad = resultTiposDoc.Result;
 
-                return View("~/Views/SegApp/Mantenimiento/Usuario/EditarClave.cshtml", model);
+                return Task.FromResult<IActionResult>(View("~/Views/SegApp/Mantenimiento/Usuario/EditarClave.cshtml", model));
             }
             else
             {
-                return RedirectToAction("AccesoDenegado", "Acceso");
+                return Task.FromResult<IActionResult>(RedirectToAction("AccesoDenegado", "Acceso"));
             }
         }
 
@@ -470,7 +470,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                     Password = request.Clave,
                     ConfirmarPassword = request.Clave,
                     #region [Base Update]
-                    EstadoRegistro = 1,
+                    EstadoRegistro = Enumerado.EstadoRegistro.Activo,
                     FechaCreacion = response.FechaCreacion,
                     UsuarioCreacion = response.UsuarioCreacion,
                     TerminalCreacion = response.TerminalCreacion,
@@ -569,7 +569,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         /// Usuario Rol Listar
         /// </summary>
         /// <returns></returns>
-        public async Task<List<UsuarioRolDtoResponse>> UsuarioRolListar(string UserId)
+        public async Task<List<UsuarioRolDtoResponse>> UsuarioRolListar(string? UserId)
         {
             var result = await _proxyUsuarioRol.UsuarioRolListar(UserId);
             return (List<UsuarioRolDtoResponse>)result;
@@ -596,7 +596,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                     CodigoSistemaId = request.SistemaSeleccionado,
                     Estado = "A",
                     #region [Base Insert]
-                    EstadoRegistro = 1,
+                    EstadoRegistro = Enumerado.EstadoRegistro.Activo,
                     FechaCreacion = DateTime.Now,
                     UsuarioCreacion = Environment.UserName, //Modificar por Usuario de sesion logueada
                     TerminalCreacion = Environment.MachineName
@@ -615,7 +615,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 request.Roles = await RolPorSistemaListar();
                 request.UsuarioRoles = await UsuarioRolListar(request.Id);
 
-         
+
                 return View("~/Views/SegApp/Mantenimiento/Usuario/EditarRoles.cshtml", request);
             }
             catch (ModelException ex)
@@ -654,7 +654,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
                 UsuarioRoles = await UsuarioRolListar(UserId),
                 Id = UserId
             };
-            
+
             return View("~/Views/SegApp/Mantenimiento/Usuario/EditarRoles.cshtml", model);
         }
         #endregion

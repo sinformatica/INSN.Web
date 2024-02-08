@@ -10,6 +10,10 @@ namespace INSN.Web.Portal.Services.Implementaciones.Home.DocumentoInstitucional;
 /// </summary>
 public class TipoDocumentoProxy : CrudRestHelperBase<TipoDocumentoDtoRequest, TipoDocumentoDtoResponse>, ITipoDocumentoProxy
 {
+    /// <summary>
+    /// Tipo Documento Proxy
+    /// </summary>
+    /// <param name="httpClient"></param>
     public TipoDocumentoProxy(HttpClient httpClient)
         : base("api/Home/DocumentoInstitucional/TipoDocumento", httpClient)
     {

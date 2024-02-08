@@ -21,12 +21,13 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         private readonly RoleManager<IdentityRole> _roleManager;
 
         /// <summary>
-        /// Inicializar
+        /// Rol Service
         /// </summary>
         /// <param name="repository"></param>
         /// <param name="logger"></param>
         /// <param name="mapper"></param>
-        public RolService(IRolRepository repository, ILogger<RolService> logger, 
+        /// <param name="roleManager"></param>
+        public RolService(IRolRepository repository, ILogger<RolService> logger,
                         IMapper mapper, RoleManager<IdentityRole> roleManager)
         {
             _mapper = mapper;
@@ -48,7 +49,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
             {
                 var roles = await _repository.RolListar(new Rol
                 {
-                    Name = request.Name,
+                    Name = request.Name ?? string.Empty,
                     Estado = request.Estado
                 });
 
@@ -101,7 +102,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
             try
             {
                 // Crear rol
-                var role = new IdentityRole(request.Name);
+                var role = new IdentityRole(request.Name ?? throw new ArgumentNullException(nameof(request.Name)));
 
                 if (!await _roleManager.RoleExistsAsync(request.Name))
                 {
@@ -109,19 +110,24 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                     await _roleManager.CreateAsync(role);
 
                     var createdRole = await _roleManager.FindByNameAsync(request.Name);
-                    var data = await _repository.BuscarStringId(createdRole.Id);
+                    if (createdRole != null)
+                    {
+                        var data = await _repository.BuscarStringId(createdRole.Id);
 
-                    // actualizar campos UsuarioCreacion y TerminalCreacion
-                    await _repository.ActualizarCampos(
-                                predicate: r => r.Id == data.Id,
-                                updateAction: r =>
-                            {
-                                r.Estado = request.Estado;
-                                r.UsuarioCreacion = request.UsuarioCreacion;
-                                r.TerminalCreacion = Environment.MachineName; 
-                            });
+                        // actualizar campos UsuarioCreacion y TerminalCreacion
+                        if (data != null)
+                        {
+                            await _repository.ActualizarCampos(
+                                    predicate: r => r.Id == data.Id,
+                                    updateAction: r =>
+                                {
+                                    r.Estado = request.Estado;
+                                    r.UsuarioCreacion = request.UsuarioCreacion;
+                                    r.TerminalCreacion = Environment.MachineName;
+                                });
+                        }
+                    }
                 }
-                    
                 response.Success = true;
             }
             catch (Exception ex)

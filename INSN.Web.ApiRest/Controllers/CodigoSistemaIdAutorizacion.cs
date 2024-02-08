@@ -9,7 +9,7 @@ namespace INSN.Web.ApiRest.Controllers
     /// </summary>
     public class CodigoSistemaIdAutorizacion : IAsyncAuthorizationFilter
     {
-        private readonly string codigoSistemaIdClaimValue;
+        private readonly string? codigoSistemaIdClaimValue;
 
         /// <summary>
         /// Inicializar
@@ -17,7 +17,6 @@ namespace INSN.Web.ApiRest.Controllers
         /// <param name="httpContextAccessor"></param>
         public CodigoSistemaIdAutorizacion(IHttpContextAccessor httpContextAccessor)
         {
-            // Accede al claim "CodigoSistemaId" en el constructor del filtro
             codigoSistemaIdClaimValue = httpContextAccessor.HttpContext?.User?
                 .Claims.FirstOrDefault(c => c.Type == "CodigoSistemaId")?.Value;
         }
@@ -26,7 +25,7 @@ namespace INSN.Web.ApiRest.Controllers
         /// OnAuthorizationAsync
         /// </summary>
         /// <param name="context"></param>
-        public async Task OnAuthorizationAsync(AuthorizationFilterContext context)
+        public Task OnAuthorizationAsync(AuthorizationFilterContext context)
         {
             // Valida el claim "CodigoSistemaId" según tus requisitos
             if (codigoSistemaIdClaimValue != Constantes.CodigoSistemaIdFijo)
@@ -34,6 +33,8 @@ namespace INSN.Web.ApiRest.Controllers
                 // No tiene el CodigoSistemaId permitido, establece el resultado de autorización a No Autorizado
                 context.Result = new UnauthorizedResult();
             }
+
+            return Task.CompletedTask;
         }
     }
 }

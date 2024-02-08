@@ -2,6 +2,9 @@
 
 namespace INSN.Web.ViewModels;
 
+/// <summary>
+/// Clase Base Model
+/// </summary>
 public class BaseModel
 {
     /// <summary>

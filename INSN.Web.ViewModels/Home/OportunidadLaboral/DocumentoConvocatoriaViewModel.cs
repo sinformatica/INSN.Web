@@ -2,37 +2,52 @@
 
 namespace INSN.Web.ViewModels.Home.OportunidadLaboral;
 
+/// <summary>
+/// Clase Documento Convocatoria
+/// </summary>
 public class DocumentoConvocatoriaViewModel : BaseModel
 {
-    public ICollection<ConvocatoriaDtoResponse>? DocumentoConvocatorias { get; set; }
+    /// <summary>
+    /// Documento Convocatorias
+    /// </summary>
+    public ICollection<ConvocatoriaDtoResponse>? DocumentoConvocatorias { get; set; } = default!;
 
-    public string? PDF { get; set; }
+    /// <summary>
+    /// PDF
+    /// </summary>
+    public string? PDF { get; set; } = default!;
 
-    public List<GrupoDocumentoConvocatoria> DocumentoConvocatoriasAgrupados { get; set; }
-
+    /// <summary>
+    /// Documento Convocatorias Agrupados
+    /// </summary>
+    public List<GrupoDocumentoConvocatoria> DocumentoConvocatoriasAgrupados { get; set; } = default!;
 }
+
+/// <summary>
+/// Clase Grupo Documento Convocatoria
+/// </summary>
 public class GrupoDocumentoConvocatoria
 {
     /// <summary>
     /// Codigo Convocatoria Id
     /// </summary>
-    public int CodigoConvocatoriaId { get; set; }
+    public int CodigoConvocatoriaId { get; set; } = default!;
 
     /// <summary>
     /// Descripcion Convocatoria
     /// </summary>
-    public string? DescripcionConvocatoria { get; set; }
+    public string? DescripcionConvocatoria { get; set; } = default!;
 
     /// <summary>
     /// Fecha Inicio
     /// </summary>
-    public DateTime FechaInicio { get; set; }
+    public DateTime FechaInicio { get; set; } = default!;
 
     /// <summary>
     /// Fecha Final
     /// </summary>
-    public DateTime FechaFinal { get; set; }
-
+    public DateTime FechaFinal { get; set; } = default!;
+ 
     /// <summary>
     /// Codigo Tipo Convocatoria Id
     /// </summary>
@@ -41,15 +56,15 @@ public class GrupoDocumentoConvocatoria
     /// <summary>
     /// Descripcion Tipo Convocatoria
     /// </summary>
-    public string? DescripcionTipoConvocatoria { get; set; }
+    public string? DescripcionTipoConvocatoria { get; set; } = default!;
 
     /// <summary>
     /// Estado : C= Concluida, E: En Proceso
     /// </summary>
-    public string? Estado { get; set; }
+    public string? Estado { get; set; } = default!;
 
     /// <summary>
     /// Detalles
     /// </summary>
-    public List<ConvocatoriaDtoResponse> Detalles { get; set; }
+    public List<ConvocatoriaDtoResponse> Detalles { get; set; } = default!;
 }

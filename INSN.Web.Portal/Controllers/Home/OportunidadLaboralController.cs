@@ -1,4 +1,5 @@
-﻿using INSN.Web.Models.Request.Home;
+﻿using INSN.Web.Common;
+using INSN.Web.Models.Request.Home;
 using INSN.Web.Models.Response.Home.OportunidadLaboral;
 using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
 using INSN.Web.ViewModels.Home.OportunidadLaboral;
@@ -6,22 +7,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
+/// <summary>
+/// Controlador Oportunidad Laboral
+/// </summary>
 public class OportunidadLaboralController : Controller
 {
-    private readonly IWebHostEnvironment _enviroment;
     private readonly IDocumentoConvocatoriaProxy _proxy;
-    private readonly ILogger<OportunidadLaboralController> _logger;
-    
+
     /// <summary>
-    /// 
+    /// Oportunidad Laboral Controller
     /// </summary>
     /// <param name="proxy"></param>
-    /// <param name="logger"></param>
-    public OportunidadLaboralController(IDocumentoConvocatoriaProxy proxy, ILogger<OportunidadLaboralController> logger, IWebHostEnvironment env)
+    public OportunidadLaboralController(IDocumentoConvocatoriaProxy proxy)
     {
         _proxy = proxy;
-        _logger = logger;
-        _enviroment = env;
     }
 
     /// <summary>
@@ -62,13 +61,12 @@ public class OportunidadLaboralController : Controller
     /// <summary>
     /// Documento Convocatoria Listar
     /// </summary>
-    /// <param name="model"></param>
     /// <returns></returns>
     public async Task<List<ConvocatoriaDtoResponse>> DocumentoConvocatoriaListar()
     {
         var resultDocumentoConvocatoria = await _proxy.DocumentoConvocatoriaListar(new ConvocatoriaDtoRequest()
-        {     
-            EstadoRegistro = 1
+        {
+            EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });
 
         return (List<ConvocatoriaDtoResponse>)resultDocumentoConvocatoria;

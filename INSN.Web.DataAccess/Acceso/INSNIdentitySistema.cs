@@ -10,31 +10,31 @@ namespace INSN.Web.DataAccess.Acceso
         /// <summary>
         /// CodigoSistemaId
         /// </summary>
-        public int CodigoSistemaId { get; set; }
+        public int CodigoSistemaId { get; set; } = default!;
 
         /// <summary>
         /// descripcion
         /// </summary>
-        public string descripcion { get; set; }
+        public string descripcion { get; set; } = default!;
 
         /// <summary>
         /// url
         /// </summary>
-        public string url { get; set; }
+        public string url { get; set; } = default!;
 
         /// <summary>
         /// icono
         /// </summary>
-        public string icono { get; set; }
+        public string icono { get; set; } = default!;
 
         /// <summary>
         /// Target
         /// </summary>
-        public string Target { get; set; }
+        public string Target { get; set; } = default!;
 
         /// <summary>
         /// UsarToken
         /// </summary>
-        public int UsarToken { get; set; }
+        public int UsarToken { get; set; } = default!;
     }
 }

@@ -10,6 +10,10 @@ namespace INSN.Web.Portal.Services.Implementaciones.Home.OportunidadLaboral;
 /// </summary>
 public class ConvocatoriaProxy : CrudRestHelperBase<ConvocatoriaDtoRequest, ConvocatoriaDtoResponse>, IDocumentoConvocatoriaProxy
 {
+    /// <summary>
+    /// Convocatoria Proxy
+    /// </summary>
+    /// <param name="httpClient"></param>
     public ConvocatoriaProxy(HttpClient httpClient)
         : base("api/Home/OportunidadLaboral/DocumentoConvocatoria", httpClient)
     {

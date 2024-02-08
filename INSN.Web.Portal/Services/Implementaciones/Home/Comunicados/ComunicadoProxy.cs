@@ -10,6 +10,10 @@ namespace INSN.Web.Portal.Services.Implementaciones.Home.Comunicados
     /// </summary>
     public class ComunicadoProxy : CrudRestHelperBase<ComunicadoDtoRequest, ComunicadoDtoResponse>, IComunicadoProxy
     {
+        /// <summary>
+        /// Comunicado Proxy
+        /// </summary>
+        /// <param name="httpClient"></param>
         public ComunicadoProxy(HttpClient httpClient)
         : base("api/Home/Comunicado", httpClient)
         {
@@ -50,9 +54,9 @@ namespace INSN.Web.Portal.Services.Implementaciones.Home.Comunicados
 
         #region[Comunicado Detalle]
         /// <summary>
-        /// Proxy: Comunicado Detalle Listar
+        ///  Proxy: Comunicado Detalle Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="CodigoComunicadoId"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
         public async Task<ICollection<ComunicadoDetalleDtoResponse>> ComunicadoDetalleListar(int CodigoComunicadoId)

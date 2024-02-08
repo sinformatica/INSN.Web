@@ -21,7 +21,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
         private readonly IAccesoProxy _proxy;
         private readonly IUsuarioProxy _proxyUsuario;
         private readonly ILogger<AccesoController> _logger;
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IHttpContextAccessor? _httpContextAccessor;
 
         /// <summary>
         /// Inicializar
@@ -30,12 +30,12 @@ namespace INSN.Web.Portal.Controllers.Acceso
         /// <param name="proxyUsuario"></param>
         /// <param name="httpContextAccessor"></param>
         /// <param name="logger"></param>
-        public AccesoController(IAccesoProxy proxy, IUsuarioProxy proxyUsuario, 
+        public AccesoController(IAccesoProxy proxy, IUsuarioProxy proxyUsuario,
                 IHttpContextAccessor httpContextAccessor, ILogger<AccesoController> logger)
         {
             _proxy = proxy;
             _proxyUsuario = proxyUsuario;
-            _httpContextAccessor = httpContextAccessor;
+            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
             _logger = logger;
         }
 
@@ -116,7 +116,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
         /// <returns></returns>
         public async Task<IActionResult> Index()
         {
-            string token = HttpContext.Session.GetString(Constantes.JwtToken);
+            string token = HttpContext?.Session?.GetString(Constantes.JwtToken) ?? string.Empty;
             SistemasViewModel model = new SistemasViewModel();
 
             if (token != null)
@@ -131,16 +131,16 @@ namespace INSN.Web.Portal.Controllers.Acceso
                 // Obtener el valor de un claim específico
                 var UsuarioId = claims.FirstOrDefault(c => c.Type == "UserId")?.Value;
                 var Usuario = claims.FirstOrDefault(c => c.Type == "username")?.Value;
-                string NombreUsuario = claims.FirstOrDefault(c => c.Type == "name")?.Value;
+                var NombreUsuario = claims.FirstOrDefault(c => c.Type == "name")?.Value;
 
-                _httpContextAccessor.HttpContext.Session.SetString(Constantes.UsuarioId, UsuarioId);
-                _httpContextAccessor.HttpContext.Session.SetString(Constantes.Usuario, Usuario);
-                _httpContextAccessor.HttpContext.Session.SetString(Constantes.NombreUsuario, NombreUsuario);
+                _httpContextAccessor?.HttpContext?.Session.SetString(Constantes.UsuarioId, UsuarioId ?? string.Empty);
+                _httpContextAccessor?.HttpContext?.Session.SetString(Constantes.Usuario, Usuario ?? string.Empty);
+                _httpContextAccessor?.HttpContext?.Session.SetString(Constantes.NombreUsuario, NombreUsuario ?? string.Empty);
 
                 // Realizar acciones con la información del token deserializado
                 var response = await _proxy.SistemasPorUsuarioListar(new LoginUsuarioDtoRequest()
                 {
-                    Usuario = Usuario
+                    Usuario = Usuario ?? string.Empty
                 });
 
                 model.UsuarioId = UsuarioId;
@@ -162,7 +162,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
             {
                 var result = await _proxy.SistemasPorUsuarioListar(new LoginUsuarioDtoRequest()
                 {
-                    Usuario = request.Usuario
+                    Usuario = request.Usuario ?? throw new InvalidOperationException("Usuario no puede ser null")
                 });
 
                 request.ListaSistema = result;
@@ -192,7 +192,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
                     Password = request.Clave,
                     ConfirmarPassword = request.Clave,
                     #region [Base Update]
-                    EstadoRegistro = 1,
+                    EstadoRegistro = Enumerado.EstadoRegistro.Activo,
                     FechaCreacion = response.Result.FechaCreacion,
                     UsuarioCreacion = response.Result.UsuarioCreacion,
                     TerminalCreacion = response.Result.TerminalCreacion,

@@ -5,18 +5,42 @@ using System.Text.Json;
 
 namespace INSN.Web.Portal.Services.Implementaciones
 {
+    /// <summary>
+    /// RestBase
+    /// </summary>
     public abstract class RestBase
     {
+        /// <summary>
+        /// HttpClient
+        /// </summary>
         protected readonly HttpClient HttpClient;
 
+        /// <summary>
+        /// Base Url
+        /// </summary>
         protected string BaseUrl { get; set; }
 
+        /// <summary>
+        /// RestBase
+        /// </summary>
+        /// <param name="baseUrl"></param>
+        /// <param name="httpClient"></param>
         protected RestBase(string baseUrl, HttpClient httpClient)
         {
             BaseUrl = baseUrl;
             HttpClient = httpClient;
         }
 
+        /// <summary>
+        /// SendAsync
+        /// </summary>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="TOutput"></typeparam>
+        /// <param name="request"></param>
+        /// <param name="method"></param>
+        /// <param name="uri"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         protected async Task<TOutput> SendAsync<TInput, TOutput>(TInput request,
             HttpMethod method, string uri)
             where TOutput : BaseResponse

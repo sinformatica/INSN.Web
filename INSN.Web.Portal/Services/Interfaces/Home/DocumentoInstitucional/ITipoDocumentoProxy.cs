@@ -3,6 +3,9 @@ using INSN.Web.Models.Response.Home.DocumentoLegal;
 
 namespace INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 
+/// <summary>
+/// Interface Tipo Documento
+/// </summary>
 public interface ITipoDocumentoProxy : ICrudRestHelper<TipoDocumentoDtoRequest, TipoDocumentoDtoResponse>
 {
     /// <summary>

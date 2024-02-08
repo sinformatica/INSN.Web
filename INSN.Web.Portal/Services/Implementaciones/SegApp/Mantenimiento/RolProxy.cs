@@ -12,7 +12,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
     /// </summary>
     public class RolProxy : CrudRestHelperBase<RolDtoRequest, RolDtoResponse>, IRolProxy
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IHttpContextAccessor? _httpContextAccessor;
 
         /// <summary>
         /// Inicializar
@@ -22,10 +22,10 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         public RolProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor) 
             : base("api/SegApp/Mantenimiento/Rol", httpClient)
         {
-            _httpContextAccessor = httpContextAccessor;
+            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
 
             // Configurar la cabecera de autorización con el token
-            string token = _httpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken);
+            string token = _httpContextAccessor?.HttpContext?.Session.GetString(Constantes.JwtToken) ?? string.Empty;
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 
@@ -41,11 +41,6 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
             {
                 var queryString = $"?Name={request.Name}&Estado={request.Estado}";
                 var response = await HttpClient.GetAsync($"{BaseUrl}/RolListar{queryString}");
-
-                //if (response.StatusCode == HttpStatusCode.Unauthorized)
-                //{
-                //    throw new Excepciones("401", response.ReasonPhrase);
-                //}
 
                 response.EnsureSuccessStatusCode();
 
@@ -92,7 +87,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public async Task<RolDtoResponse> RolBuscarId(string id)
+        public async Task<RolDtoResponse> RolBuscarId(string? id)
         {
             var response = await HttpClient.GetFromJsonAsync<BaseResponseGeneric<RolDtoResponse>>($"{BaseUrl}/RolBuscarId/{id}");
             if (response!.Success)
@@ -148,7 +143,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         /// <summary>
         /// Proxy: Rol Por Sistema Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="CodigoSistemaId"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
         public async Task<ICollection<RolDtoResponse>> RolPorSistemaListar(int CodigoSistemaId)

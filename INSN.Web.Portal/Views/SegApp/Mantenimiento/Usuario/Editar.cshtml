@@ -39,10 +39,10 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", @placeholder = "Nombre", @id = "txtNombre",
+                                    @Html.TextBoxFor(m => m.Nombres, new { @class = "form-control", @placeholder = "Nombre", @id = "txtNombre",
                                     @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,/* <!-- Restricción --> */
                                     @maxlength = "50"})
-                                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                                    <span asp-validation-for="Nombres" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaNombre)</label>
                                 </div>
                             </div>

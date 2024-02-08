@@ -3,6 +3,9 @@ using INSN.Web.Entities.SegApp;
 
 namespace INSN.Web.Repositories.Interfaces.SegApp.Mantenimiento
 {
+    /// <summary>
+    /// Interface: IUsuarioRol
+    /// </summary>
     public interface IUsuarioRolRepository : IRepositoryBaseSegAppEF<UsuarioRol>
     {
         /// <summary>

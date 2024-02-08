@@ -44,7 +44,7 @@ namespace INSN.Web.ApiRest.Controllers.Home.Comunicados
         /// <summary>
         /// ApiRest: Comunicado Detalle Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="CodigoComunicadoId"></param>
         /// <returns></returns>
         [HttpGet("ComunicadoDetalleListar/{CodigoComunicadoId}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<ComunicadoDetalleDtoResponse>>))]

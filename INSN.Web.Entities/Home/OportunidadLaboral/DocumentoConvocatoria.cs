@@ -22,7 +22,7 @@ namespace INSN.Web.Entities.Home.OportunidadLaboral
         /// <summary>
         /// Descripcion de la Convocatoria
         /// </summary>
-        public string? Descripcion { get; set; } = default!;
+        public string Descripcion { get; set; } = default!;
 
         /// <summary>
         /// Ruta del documento PDF,Word

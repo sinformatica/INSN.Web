@@ -65,7 +65,7 @@
                                 {
                                     <p>Sin resultados</p>
                                 }
-                                else if (!Model.Usuarios.Any())
+                                else if (!(Model.Usuarios?.Any() ?? false))
                                 {
                                     <p>Sin datos para mostrar</p>
                                 }

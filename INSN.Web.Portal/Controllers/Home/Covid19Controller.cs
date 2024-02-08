@@ -1,4 +1,5 @@
-﻿using INSN.Web.Models.Request.Home.DocumentoLegal;
+﻿using INSN.Web.Common;
+using INSN.Web.Models.Request.Home.DocumentoLegal;
 using INSN.Web.Models.Response.Home.DocumentoLegal;
 using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.ViewModels.Home.DocumentoLegal;
@@ -11,23 +12,18 @@ namespace INSN.Web.Portal.Controllers.Home;
 /// </summary>
 public class Covid19Controller : Controller
 {
-    private readonly IWebHostEnvironment _enviroment;
     private readonly IDocumentoLegalProxy _proxy;
     private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<Covid19Controller> _logger;
 
     /// <summary>
-    /// 
+    /// Covid19 Controller
     /// </summary>
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
-    /// <param name="logger"></param>
-    public Covid19Controller(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy, ILogger<Covid19Controller> logger, IWebHostEnvironment env)
+    public Covid19Controller(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy)
     {
         _proxy = proxy;
         _TipoDocumentoProxy = TipoDocumentoProxy;
-        _logger = logger;
-        _enviroment = env;
     }
 
     /// <summary>
@@ -39,8 +35,8 @@ public class Covid19Controller : Controller
     {
         var resultTipoDocumento = await _TipoDocumentoProxy.TipoDocumentoListar(new TipoDocumentoDtoRequest()
         {
-            Area = "COVID19",
-            Estado = "A",
+            Area = Enumerado.DocumentosLegales.Covid19,
+            Estado = Enumerado.Estado.Activo,
             EstadoRegistro = 1
         });
 
@@ -65,8 +61,8 @@ public class Covid19Controller : Controller
             Documento = model.Documento,
             Descripcion = model.Descripcion,
             CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
-            Area = "COVID19",
-            Estado = "A",
+            Area = Enumerado.DocumentosLegales.Covid19,
+            Estado = Enumerado.Estado.Activo,
             EstadoRegistro = 1
         });
 

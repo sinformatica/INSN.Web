@@ -4,14 +4,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace INSN.Web.Entities.SegApp
 {
     /// <summary>
-    /// Usuario
+    /// Entidad Logica Usuario
     /// </summary>
     public class Usuario : AuditoriaBase
     {
         /// <summary>
         /// Id
         /// </summary>
-        public string Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// Nombres

@@ -22,7 +22,7 @@ namespace INSN.Web.Services.Interfaces.Home.Comunicados
         /// <summary>
         /// Comunicado Detalle Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="CodigoComunicadoId"></param>
         /// <returns></returns>
         Task<BaseResponseGeneric<ICollection<ComunicadoDetalleDtoResponse>>> ComunicadoDetalleListar(int CodigoComunicadoId);
         #endregion

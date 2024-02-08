@@ -27,13 +27,11 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
         public async Task<ICollection<UsuarioInfo>> UsuarioListar(Usuario request)
         {
             Expression<Func<Usuario, bool>> predicate =
-                                x => ((x.UserName == request.Nombres)
-                                    || (x.Nombres.Contains(request.Nombres ?? string.Empty))
-                                    || (request.Nombres != null &&
-                                    (x.Nombres + " " + x.ApellidoPaterno + " " + x.ApellidoMaterno)
-                                        .Contains(request.Nombres)))
-                                    && (request.Estado == null || x.Estado == request.Estado)
-                                    && (x.EstadoRegistro == 1);
+                               x => ((x.UserName == request.Nombres)
+                                   || (x.Nombres != null && x.Nombres.Contains(request.Nombres ?? string.Empty))
+                                   || (request.Nombres != null && (x.Nombres + " " + x.ApellidoPaterno + " " + x.ApellidoMaterno).Contains(request.Nombres)))
+                                   && (request.Estado == null || x.Estado == request.Estado)
+                                   && (x.EstadoRegistro == 1);
 
             return await Context.Set<Usuario>()
                 .Where(predicate)

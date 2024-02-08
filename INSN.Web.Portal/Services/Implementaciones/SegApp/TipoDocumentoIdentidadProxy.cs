@@ -12,7 +12,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp
     /// </summary>
     public class TipoDocumentoIdentidadProxy : CrudRestHelperBase<TipoDocumentoIdentidadDtoRequest, TipoDocumentoIdentidadDtoResponse>, ITipoDocumentoIdentidadProxy
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IHttpContextAccessor? _httpContextAccessor;
 
         /// <summary>
         /// Inicializar
@@ -22,10 +22,10 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp
         public TipoDocumentoIdentidadProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
         : base("api/SegApp/TipoDocumentoIdentidad", httpClient)
         {
-            _httpContextAccessor = httpContextAccessor;
+            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
 
             // Configurar la cabecera de autorización con el token
-            string token = _httpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken);
+            string token = _httpContextAccessor?.HttpContext?.Session.GetString(Constantes.JwtToken) ?? string.Empty;
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 

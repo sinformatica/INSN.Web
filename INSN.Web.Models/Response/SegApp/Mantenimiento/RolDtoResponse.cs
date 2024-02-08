@@ -8,7 +8,7 @@
         /// <summary>
         /// Id
         /// </summary>
-        public string? Id { get; set; }
+        public string? Id { get; set; } = default!;
 
         /// <summary>
         /// Name

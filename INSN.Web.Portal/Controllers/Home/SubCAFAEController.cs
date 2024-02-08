@@ -1,4 +1,5 @@
-﻿using INSN.Web.Models.Request.Home.DocumentoLegal;
+﻿using INSN.Web.Common;
+using INSN.Web.Models.Request.Home.DocumentoLegal;
 using INSN.Web.Models.Response.Home.DocumentoLegal;
 using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.ViewModels.Home.DocumentoLegal;
@@ -11,23 +12,18 @@ namespace INSN.Web.Portal.Controllers.Home;
 /// </summary>
 public class SubCAFAEController : Controller
 {
-    private readonly IWebHostEnvironment _enviroment;
     private readonly IDocumentoLegalProxy _proxy;
     private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<SubCAFAEController> _logger;
-        
+
     /// <summary>
-    /// 
+    /// Sub CAFAE Controller
     /// </summary>
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
-    /// <param name="logger"></param>
-    public SubCAFAEController(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy, ILogger<SubCAFAEController> logger, IWebHostEnvironment env)
+    public SubCAFAEController(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy)
     {
         _proxy = proxy;
         _TipoDocumentoProxy = TipoDocumentoProxy;
-        _logger = logger;
-        _enviroment = env;
     }
 
     /// <summary>
@@ -39,9 +35,9 @@ public class SubCAFAEController : Controller
     {
         var resultTipoDocumento = await _TipoDocumentoProxy.TipoDocumentoListar(new TipoDocumentoDtoRequest()
         {
-            Area = "SUBCAFAE",
-            Estado = "A",
-            EstadoRegistro = 1
+            Area = Enumerado.DocumentosLegales.SUBCAFAE,
+            Estado = Enumerado.Estado.Activo,
+            EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });
 
         var resultDocumentoLegal = DocumentoLegalListar(model);
@@ -65,9 +61,9 @@ public class SubCAFAEController : Controller
             Documento = model.Documento,
             Descripcion = model.Descripcion,
             CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
-            Area = "SUBCAFAE",
-            Estado = "A",
-            EstadoRegistro = 1
+            Area = Enumerado.DocumentosLegales.SUBCAFAE,
+            Estado = Enumerado.Estado.Activo,
+            EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });
 
         return (List<DocumentoLegalDtoResponse>)resultDocumentoLegales;

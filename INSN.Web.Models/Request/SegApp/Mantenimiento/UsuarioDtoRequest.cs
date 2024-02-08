@@ -25,7 +25,7 @@ namespace INSN.Web.Models.Request.SegApp.Mantenimiento
         /// <summary>
         /// Apellido Materno
         /// </summary>
-        public string? ApellidoMaterno { get; set; }
+        public string? ApellidoMaterno { get; set; } = default!;
 
         /// <summary>
         /// Servicio

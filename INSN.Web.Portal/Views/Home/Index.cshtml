@@ -457,7 +457,7 @@
                         {
                             <p>Sin resultados</p>
                         }
-                        else if (!Model.ComunicadoLista.Any())
+                        else if (!(Model.ComunicadoLista?.Any() ?? false))
                         {
                             <p>Sin datos para mostrar</p>
                         }
@@ -946,7 +946,7 @@
 <!-- INICIO MODAL - COMUNICADOS -->
 @if (Model is not null)
 {
-    if (Model.ComunicadoLista.Any())
+    if (Model != null && Model.ComunicadoLista != null && Model.ComunicadoLista.Any())
     {
         @foreach (var item in Model.ComunicadoLista)
         {
@@ -957,12 +957,15 @@
                             <!-- Contenedor para Swiper y lightGallery con clase en lugar de ID -->
                             <div class="swiper-container swiper-gallery" style="max-width: @item.Ancho px;">
                                 <div class="swiper-wrapper">
-                                    @foreach (var det in item.DetalleLista)
+                                    @if (item != null && item.DetalleLista != null)
                                     {
+                                        @foreach (var det in item.DetalleLista)
+                                        {                                    
                                         <div class="swiper-slide">
                                             <img src="@det.RutaImagen">
                                         </div>
                                     }
+                                        }
                                 </div>
                                 <!-- Agrega las flechas de navegación si lo deseas -->
                                 <div class="swiper-button-next"></div>

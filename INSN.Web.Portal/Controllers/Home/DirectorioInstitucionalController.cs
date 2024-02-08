@@ -1,4 +1,5 @@
-﻿using INSN.Web.Models.Request.Home.DocumentoLegal;
+﻿using INSN.Web.Common;
+using INSN.Web.Models.Request.Home.DocumentoLegal;
 using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.ViewModels.Home.DocumentoLegal;
 using Microsoft.AspNetCore.Mvc;
@@ -10,23 +11,16 @@ namespace INSN.Web.Portal.Controllers.Home;
 /// </summary>
 public class DirectorioInstitucionalController : Controller
 {
-    private readonly IWebHostEnvironment _enviroment;
     private readonly IDocumentoLegalProxy _proxy;
-    private readonly ITipoDocumentoProxy _TipoDocumentoProxy;
-    private readonly ILogger<DirectorioInstitucionalController> _logger;
 
     /// <summary>
-    /// DirectorioInstitucionalController
+    /// Directorio Institucional Controller
     /// </summary>
     /// <param name="proxy"></param>
     /// <param name="TipoDocumentoProxy"></param>
-    /// <param name="logger"></param>
-    public DirectorioInstitucionalController(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy, ILogger<DirectorioInstitucionalController> logger, IWebHostEnvironment env)
+    public DirectorioInstitucionalController(IDocumentoLegalProxy proxy, ITipoDocumentoProxy TipoDocumentoProxy)
     {
         _proxy = proxy;
-        _TipoDocumentoProxy = TipoDocumentoProxy;
-        _logger = logger;
-        _enviroment = env;
     }
 
     /// <summary>
@@ -50,9 +44,9 @@ public class DirectorioInstitucionalController : Controller
             Documento = model.Documento,
             Descripcion = model.Descripcion,
             CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
-            Area = "DOCUMENTOLEGAL",
-            Estado = "A",
-            EstadoRegistro = 1
+            Area = Enumerado.DocumentosLegales.DocumentoLegal,
+            Estado = Enumerado.Estado.Activo,
+            EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });
 
         model.DocumentoLegales = resultDocumentoLegales;

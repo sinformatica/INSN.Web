@@ -12,20 +12,17 @@ namespace INSN.Web.Portal.Controllers.Acceso
     /// </summary>
     public class RedireccionarController : Controller
     {
-        private readonly IWebHostEnvironment _enviroment;
         private readonly IRedireccionarProxy _proxy;
         private readonly ILogger<RedireccionarController> _logger;
 
         /// <summary>
-        /// Inicializar
+        /// Redireccionar Controller
         /// </summary>
         /// <param name="proxy"></param>
-        /// <param name="env"></param>
-        /// <returns></returns>
-        public RedireccionarController(IRedireccionarProxy proxy, IWebHostEnvironment env, ILogger<RedireccionarController> logger)
+        /// <param name="logger"></param>
+        public RedireccionarController(IRedireccionarProxy proxy, ILogger<RedireccionarController> logger)
         {
-            _proxy = proxy;
-            _enviroment = env;
+            _proxy = proxy;    
             _logger = logger;
         }
 
@@ -38,8 +35,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
         /// <returns></returns>
         public async Task<IActionResult> Index(int p, string url, int ut)
         {
-            string token = HttpContext.Session.GetString(Constantes.JwtToken);
-            //SistemasViewModel model = new SistemasViewModel();
+            string token = HttpContext.Session.GetString(Constantes.JwtToken) ?? string.Empty;
 
             if (!string.IsNullOrEmpty(token))
             {
@@ -57,7 +53,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
 
                     // Realizar acciones con la información del token deserializado
                     LoginSistemaDtoRequest modelo = new LoginSistemaDtoRequest();
-                    modelo.Usuario = usuario;
+                    modelo.Usuario = usuario?? string.Empty;
                     modelo.CodigoSistemaId = p;
 
                     var response = await _proxy.LoginSistema(modelo);
@@ -83,12 +79,12 @@ namespace INSN.Web.Portal.Controllers.Acceso
 
                             // Guardar en constantes
                             HttpContext.Session.SetString(Constantes.JwtToken, response.Token);
-                            HttpContext.Session.SetString(Constantes.UsuarioId, UsuarioId);
-                            HttpContext.Session.SetString(Constantes.Usuario, Usuario);
-                            HttpContext.Session.SetString(Constantes.NombreUsuario, NombreUsuario);
-                            HttpContext.Session.SetString(Constantes.CodigoSistemaIdUsuario, CodigSistemaIdUsuario);
-                            HttpContext.Session.SetString(Constantes.NombreRolUsuario, NombreRolUsuario);
-                            HttpContext.Session.SetString(Constantes.FechaVencimiento, FechaVencimiento);
+                            HttpContext.Session.SetString(Constantes.UsuarioId, UsuarioId ?? string.Empty);
+                            HttpContext.Session.SetString(Constantes.Usuario, Usuario ?? string.Empty);
+                            HttpContext.Session.SetString(Constantes.NombreUsuario, NombreUsuario ?? string.Empty);
+                            HttpContext.Session.SetString(Constantes.CodigoSistemaIdUsuario, CodigSistemaIdUsuario ?? string.Empty);
+                            HttpContext.Session.SetString(Constantes.NombreRolUsuario, NombreRolUsuario ?? string.Empty);
+                            HttpContext.Session.SetString(Constantes.FechaVencimiento, FechaVencimiento ?? string.Empty);
 
                             return RedirectToAction("Index", "Menu");
                         }

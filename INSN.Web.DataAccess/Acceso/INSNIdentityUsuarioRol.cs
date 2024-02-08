@@ -16,18 +16,18 @@ namespace INSN.Web.DataAccess.Acceso
         /// <summary>
         /// UserId
         /// </summary>
-        public string UserId { get; set; }
+        public string UserId { get; set; } = default!;
 
         /// <summary>
         /// RoleId
         /// </summary>
-        public string RoleId { get; set; }
+        public string RoleId { get; set; } = default!;
 
         /// <summary>
         /// Sistema
         /// </summary>
         [ForeignKey("CodigoSistemaId")]
-        public INSNIdentitySistema Sistema { get; set; }
+        public INSNIdentitySistema Sistema { get; set; } = default!;
 
         /// <summary>
         /// CodigoSistemaId

@@ -1,4 +1,5 @@
-﻿using INSN.Web.Models.Request.Home.Comunicados;
+﻿using INSN.Web.Common;
+using INSN.Web.Models.Request.Home.Comunicados;
 using INSN.Web.Models.Response.Home.Comunicados;
 using INSN.Web.Portal.Models;
 using INSN.Web.Portal.Services.Interfaces.Home.Comunicados;
@@ -13,17 +14,14 @@ namespace INSN.Web.Portal.Controllers.Home
     /// </summary>
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly IComunicadoProxy _proxyComunicado;
 
         /// <summary>
-        /// HomeController
+        /// Home Controller
         /// </summary>
-        /// <param name="logger"></param>
         /// <param name="proxyComunicado"></param>
-        public HomeController(ILogger<HomeController> logger, IComunicadoProxy proxyComunicado)
+        public HomeController(IComunicadoProxy proxyComunicado)
         {
-            _logger = logger;
             _proxyComunicado = proxyComunicado;
         }
 
@@ -103,8 +101,8 @@ namespace INSN.Web.Portal.Controllers.Home
             {
                 Titulo = "",
                 FechaExpiracion = DateTime.Now,
-                Estado = "A",
-                EstadoRegistro = 1
+                Estado = Enumerado.Estado.Activo,
+                EstadoRegistro = Enumerado.EstadoRegistro.Activo,
             });
 
             return (List<ComunicadoDtoResponse>)result;

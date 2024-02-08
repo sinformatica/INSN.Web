@@ -13,7 +13,7 @@ namespace INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento
         /// </summary>
         /// <param name="UserId"></param>
         /// <returns></returns>
-        Task<ICollection<UsuarioRolDtoResponse>> UsuarioRolListar(string UserId);
+        Task<ICollection<UsuarioRolDtoResponse>> UsuarioRolListar(string? UserId);
 
         /// <summary>
         /// IProxy: Usuario Rol Insertar

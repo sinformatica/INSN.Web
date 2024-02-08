@@ -16,7 +16,7 @@
 </head>
 <body>
     @{
-        string FechaVencimiento = HttpContextAccessor.HttpContext.Session.GetString(Constantes.FechaVencimiento);
+        string? FechaVencimiento = HttpContextAccessor?.HttpContext?.Session?.GetString(Constantes.FechaVencimiento);
 
         if (FechaVencimiento == null)
         {
@@ -30,7 +30,7 @@
                 </main>
             </div>
         }
-        else 
+        else
         {
             if (DateTime.Parse(FechaVencimiento) < DateTime.Now)
             {
@@ -46,9 +46,9 @@
             }
             else
             {
-                string Usuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.Usuario);
-                string NombreUsuario = HttpContextAccessor.HttpContext.Session.GetString(Constantes.NombreUsuario);
-                string jsonMenu = HttpContextAccessor.HttpContext.Session.GetString(Constantes.MenuDinamico);
+                string? Usuario = HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.Usuario);
+                string? NombreUsuario = HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.NombreUsuario);
+                string? jsonMenu = HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.MenuDinamico);
 
                 SeccionViewModel menu = JsonConvert.DeserializeObject<SeccionViewModel>(jsonMenu);
 
@@ -109,14 +109,17 @@
                                                     </a>
 
                                                     <ul class="nav-main-submenu">
-                                                        @foreach (var modulo in item.ModuloLista)
+                                                        @if (item.ModuloLista != null)
                                                         {
-                                                            <li class="nav-main-item">
-                                                                <a class="nav-main-link" asp-area="" asp-controller="@modulo.Controlador" asp-action="@modulo.Url">
-                                                                    <i class="nav-main-link-icon fa @modulo.Icono"></i>
-                                                                    <span class="nav-main-link-name">@modulo.Descripcion</span>
-                                                                </a>
-                                                            </li>
+                                                            @foreach (var modulo in item.ModuloLista)
+                                                            {
+                                                                <li class="nav-main-item">
+                                                                    <a class="nav-main-link" asp-area="" asp-controller="@modulo.Controlador" asp-action="@modulo.Url">
+                                                                        <i class="nav-main-link-icon fa @modulo.Icono"></i>
+                                                                        <span class="nav-main-link-name">@modulo.Descripcion</span>
+                                                                    </a>
+                                                                </li>
+                                                            }
                                                         }
                                                     </ul>
                                                 </li>
@@ -151,7 +154,10 @@
                                 <div class="dropdown d-inline-block">
                                     <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fa fa-user d-sm-none"></i>
-                                        <span class="d-none d-sm-inline-block fw-semibold">@Usuario.ToUpper()</span>
+                                        @if (Usuario != null)
+                                        {
+                                            <span class="d-none d-sm-inline-block fw-semibold">@Usuario.ToUpper()</span>
+                                        }
                                         <i class="fa fa-angle-down opacity-50 ms-1"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown">

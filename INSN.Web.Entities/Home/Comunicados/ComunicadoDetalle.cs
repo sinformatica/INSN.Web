@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace INSN.Web.Entities.Home.Comunicados
 {
+    /// <summary>
+    /// Clase Comunicado Detalle
+    /// </summary>
     public class ComunicadoDetalle : AuditoriaBase
     {
         /// <summary>

@@ -10,6 +10,10 @@ namespace INSN.Web.Portal.Services.Implementaciones.Home.LibroReclamaciones;
 /// </summary>
 public class LibroReclamacionProxy : CrudRestHelperBase<LibroReclamacionDtoRequest, LibroReclamacionDtoResponse>, ILibroReclamacionProxy
 {
+    /// <summary>
+    /// Libro Reclamacion Proxy
+    /// </summary>
+    /// <param name="httpClient"></param>
     public LibroReclamacionProxy(HttpClient httpClient)
         : base("api/Home/LibroReclamacion/LibroReclamacion", httpClient)
     {

@@ -21,6 +21,18 @@ namespace INSN.Web.Repositories.Interfaces
             Expression<Func<TEntity, TInfo>> selector,
             string? relationships = null);
 
+        /// <summary>
+        /// Listar
+        /// </summary>
+        /// <typeparam name="TInfo"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <param name="predicate"></param>
+        /// <param name="selector"></param>
+        /// <param name="orderBy"></param>
+        /// <param name="relationships"></param>
+        /// <param name="page"></param>
+        /// <param name="rows"></param>
+        /// <returns></returns>
         Task<(ICollection<TInfo> Collection, int Total)> Listar<TInfo, TKey>(
             Expression<Func<TEntity, bool>> predicate,
             Expression<Func<TEntity, TInfo>> selector,

@@ -22,7 +22,7 @@ namespace INSN.Web.Entities.SegApp
         /// <summary>
         /// UserId
         /// </summary>
-        public string UserId { get; set; }
+        public string? UserId { get; set; } = default!;
 
         /// <summary>
         /// Rol - RoleId
@@ -33,7 +33,7 @@ namespace INSN.Web.Entities.SegApp
         /// <summary>
         /// Role Id
         /// </summary>
-        public string RoleId { get; set; }
+        public string? RoleId { get; set; } = default!;
 
         /// <summary>
         /// Sistema - CodigoSistemaId

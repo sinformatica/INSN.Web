@@ -34,7 +34,7 @@ namespace INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<UsuarioDtoResponse> UsuarioBuscarId(string id);
+        Task<UsuarioDtoResponse> UsuarioBuscarId(string? id);
 
         /// <summary>
         /// IProxy: Usuario Actualizar

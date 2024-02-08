@@ -3,7 +3,7 @@
 namespace INSN.Web.Entities.SegApp
 {
     /// <summary>
-    /// Sistema
+    /// Entidad Logica Sistema
     /// </summary>
     public class Sistema : AuditoriaBase
     {
@@ -15,6 +15,6 @@ namespace INSN.Web.Entities.SegApp
         /// <summary>
         /// Descripcion
         /// </summary>
-        public string Descripcion { get; set; }
+        public string? Descripcion { get; set; } = default!;
     }
 }

@@ -3,6 +3,9 @@ using INSN.Web.Models.Response.SegApp;
 
 namespace INSN.Web.ViewModels.Home.LibroReclamacion;
 
+/// <summary>
+/// Clase Libro Reclamacion
+/// </summary>
 public class LibroReclamacionViewModel : BaseModel
 {
     /// <summary>

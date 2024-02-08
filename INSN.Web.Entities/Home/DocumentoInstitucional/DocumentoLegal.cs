@@ -21,7 +21,7 @@ namespace INSN.Web.Entities.Home.DocumentoInstitucional
         /// <summary>
         /// Descripcion del Documento
         /// </summary>
-        public string? Descripcion { get; set; } = default!;
+        public string Descripcion { get; set; } = default!;
 
         /// <summary>
         /// PDF

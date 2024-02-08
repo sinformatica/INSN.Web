@@ -22,7 +22,6 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp
         /// <summary>
         /// Repository: Sistema Listar
         /// </summary>
-        /// <param name="request"></param>
         /// <returns></returns>
         public async Task<ICollection<Sistema>> SistemaListar()
         {

@@ -12,19 +12,21 @@ namespace INSN.Web.Portal.Services.Implementaciones.Acceso
     /// </summary>
     public class MenuProxy : RestBase, IMenuProxy
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IHttpContextAccessor? _httpContextAccessor;
 
         /// <summary>
-        /// Proxy
+        /// Menu Proxy
         /// </summary>
         /// <param name="httpClient"></param>
+        /// <param name="httpContextAccessor"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public MenuProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor) 
             : base("api/Acceso/Menu", httpClient)
         {
-            _httpContextAccessor = httpContextAccessor;
+            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
 
             // Configurar la cabecera de autorización con el token
-            string token = _httpContextAccessor.HttpContext.Session.GetString(Constantes.JwtToken);
+            string? token = _httpContextAccessor?.HttpContext?.Session.GetString(Constantes.JwtToken);
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 

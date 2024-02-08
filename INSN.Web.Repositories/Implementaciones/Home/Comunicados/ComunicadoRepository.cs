@@ -54,7 +54,7 @@ namespace INSN.Web.Repositories.Implementaciones.Home.Comunicados
         /// <summary>
         /// Repository: Comunicado Detalle Listar
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="CodigoComunicadoId"></param>
         /// <returns></returns>
         public async Task<ICollection<ComunicadoDetalle>> ComunicadoDetalleListar(int CodigoComunicadoId)
         {
