@@ -970,19 +970,31 @@
                         <div class="modal-body">
                             <div class="swiper-container swiper-gallery" style="max-width: @item.Ancho px;">
                                 <div class="swiper-wrapper">
+                                    <!-- Inicio mostrar primero la imagen de la portada -->
+                                    <div class="swiper-slide">
+                                        @{
+                                            var base64 = Convert.ToBase64String(item.ImagenBytes ?? Array.Empty<byte>());
+                                            var imagenDataUrl = string.Format("data:image/" + @item.Extension + ";base64,{0}", base64);
+                                        }
+                                        <img src="@imagenDataUrl">
+                                    </div>
+                                    <!-- Fin mostrar primero la imagen de la portada -->
+
+                                    <!-- Inicio imagénes adicionales -->
                                     @if (item != null && item.DetalleLista != null)
                                     {
                                         @foreach (var det in item.DetalleLista)
                                         {   
                                             <div class="swiper-slide">
                                                 @{
-                                                    var base64 = Convert.ToBase64String(det.ImagenBytes ?? Array.Empty<byte>());
-                                                    var imagenDataUrl = string.Format("data:image/" + @det.Extension + ";base64,{0}", base64);
+                                                    base64 = Convert.ToBase64String(det.ImagenBytes ?? Array.Empty<byte>());
+                                                    imagenDataUrl = string.Format("data:image/" + @det.Extension + ";base64,{0}", base64);
                                                 }
                                                 <img src="@imagenDataUrl">
                                             </div>
                                         }
                                     }
+                                    <!-- Inicio imagénes adicionales -->
                                 </div>
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
