@@ -368,4 +368,16 @@
             });
         }
     };
+
+    //#region [Evento ENTER - Cosnulta Rápida]
+    // Función para asociar el evento 'Enter' a un campo de texto
+    function bindEnterKeyToButton(inputElement, buttonElement) {
+        inputElement.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                buttonElement.click();
+            }
+        });
+    }
+        //#endregion
 </script>
