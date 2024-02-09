@@ -28,14 +28,13 @@ namespace INSN.Web.ApiRest.Controllers.Home.Comunicados
         /// <summary>
         /// ApiRest: Comunicado Listar
         /// </summary>
-        /// <param name="request"></param>
         /// <returns></returns>
         [HttpGet("ComunicadoListar")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BaseResponseGeneric<ICollection<ComunicadoDtoResponse>>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(BaseResponseGeneric<ICollection<ComunicadoDtoResponse>>))]
-        public async Task<IActionResult> ComunicadoListar([FromQuery] ComunicadoDtoRequest request)
+        public async Task<IActionResult> ComunicadoListar()
         {
-            var response = await _service.ComunicadoListar(request);
+            var response = await _service.ComunicadoListar();
             return response.Success ? Ok(response) : BadRequest(response);
         }
         #endregion

@@ -463,25 +463,36 @@
                         }
                         else
                         {
+                            int i = 1;
+
                             @foreach (var item in Model.ComunicadoLista)
                             {
-                                <div class="swiper-slide">
-                                    <div class="testimonial-wrap">
-                                        <div class="testimonial-item">
-                                            <div class="d-flex align-items-center">
-                                                <div style="text-align: center; width: 100%;">
-                                                    <img src="@item.RutaImagenPortada" style="height: 300px; /* Altura definida * /" class="testimonial-img flex-shrink-0" alt="">
+                                @if (item != null)
+                                {
+                                    <div class="swiper-slide">
+                                        <div class="testimonial-wrap">
+                                            <div class="testimonial-item">
+                                                <div class="d-flex align-items-center">
+                                                    <div style="text-align: center; width: 100%;">
+                                                        @{
+                                                            var base64 = Convert.ToBase64String(item.ImagenBytes ?? Array.Empty<byte>());
+                                                            var imagenDataUrl = string.Format("data:image/" + @item.Extension + ";base64,{0}", base64);
+                                                          }
+
+                                                        <img src="@imagenDataUrl" style="height: 300px; /* Altura definida * /" class="testimonial-img flex-shrink-0" alt="">
+                                                    </div>
                                                 </div>
+                                                <br>
+                                                <h4>@item.FechaPublicacion.ToString("dd/MM/yyyy")</h4>
+                                                <p>
+                                                    @item.Titulo
+                                                </p>
+                                                <a data-bs-toggle="modal" data-bs-target="#comunicado_@i" class="readmore stretched-link" style="cursor: pointer;"></a>
                                             </div>
-                                            <br>
-                                            <h4>@item.FechaPublicacion.ToString("dd/MM/yyyy")</h4>
-                                            <p>
-                                                @item.Titulo
-                                            </p>
-                                            <a data-bs-toggle="modal" data-bs-target="#comunicado_@item.CodigoComunicadoId" class="readmore stretched-link" style="cursor: pointer;"></a>
                                         </div>
                                     </div>
-                                </div>
+                                }
+                                i++;
                             }
                         }
                     </div>
@@ -943,31 +954,36 @@
     </div>
 </div>
 <!-- FIN MODAL - NOTICIA 1 -->
+
 <!-- INICIO MODAL - COMUNICADOS -->
 @if (Model is not null)
 {
     if (Model != null && Model.ComunicadoLista != null && Model.ComunicadoLista.Any())
     {
+        int i = 1;
+
         @foreach (var item in Model.ComunicadoLista)
         {
-            <div id="comunicado_@item.CodigoComunicadoId" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div id="comunicado_@i" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-fromleft modal-xl" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
-                            <!-- Contenedor para Swiper y lightGallery con clase en lugar de ID -->
                             <div class="swiper-container swiper-gallery" style="max-width: @item.Ancho px;">
                                 <div class="swiper-wrapper">
                                     @if (item != null && item.DetalleLista != null)
                                     {
                                         @foreach (var det in item.DetalleLista)
-                                        {                                    
-                                        <div class="swiper-slide">
-                                            <img src="@det.RutaImagen">
-                                        </div>
-                                    }
+                                        {   
+                                            <div class="swiper-slide">
+                                                @{
+                                                    var base64 = Convert.ToBase64String(det.ImagenBytes ?? Array.Empty<byte>());
+                                                    var imagenDataUrl = string.Format("data:image/" + @det.Extension + ";base64,{0}", base64);
+                                                }
+                                                <img src="@imagenDataUrl">
+                                            </div>
                                         }
+                                    }
                                 </div>
-                                <!-- Agrega las flechas de navegación si lo deseas -->
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
                             </div>
@@ -975,10 +991,12 @@
                     </div>
                 </div>
             </div>
+            i++;
         }
     }
 }
 <!-- FIN MODAL - COMUNICADOS -->
+
 <!-- jQuery desde CDN -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

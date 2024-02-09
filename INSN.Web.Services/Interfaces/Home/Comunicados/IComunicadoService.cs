@@ -1,5 +1,4 @@
 ﻿using INSN.Web.Models.Response;
-using INSN.Web.Models.Request.Home.Comunicados;
 using INSN.Web.Models.Response.Home.Comunicados;
 
 namespace INSN.Web.Services.Interfaces.Home.Comunicados
@@ -13,9 +12,8 @@ namespace INSN.Web.Services.Interfaces.Home.Comunicados
         /// <summary>
         /// Comunicado Listar
         /// </summary>
-        /// <param name="request"></param>
         /// <returns></returns>
-        Task<BaseResponseGeneric<ICollection<ComunicadoDtoResponse>>> ComunicadoListar(ComunicadoDtoRequest request);
+        Task<BaseResponseGeneric<ICollection<ComunicadoDtoResponse>>> ComunicadoListar();
         #endregion
 
         #region[Comunicado detalle]

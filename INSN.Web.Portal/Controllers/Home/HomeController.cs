@@ -37,8 +37,38 @@ namespace INSN.Web.Portal.Controllers.Home
 
             foreach (var item in model.ComunicadoLista)
             {
+                if (item.RutaImagenPortada != null)
+                {
+                    // Obtener la extensión
+                    string? extension = Path.GetExtension(item.RutaImagenPortada);
+                    if (extension != null)
+                    {
+                        item.Extension = extension.TrimStart('.').ToLower();
+
+                        // Leer la imagen y convertirla en un arreglo de bytes
+                        item.ImagenBytes = System.IO.File.ReadAllBytes(item.RutaImagenPortada);
+                    }
+                }
+
+                // Listar detalle comunicado
                 var resultDetalle = _proxyComunicado.ComunicadoDetalleListar(item.CodigoComunicadoId);
                 item.DetalleLista = resultDetalle.Result;
+
+                foreach (var det in item.DetalleLista)
+                {
+                    if (det.RutaImagen != null)
+                    {
+                        // Obtener la extensión
+                        string? extension = Path.GetExtension(det.RutaImagen);
+                        if (extension != null)
+                        {
+                            det.Extension = extension.TrimStart('.').ToLower();
+
+                            // Leer la imagen y convertirla en un arreglo de bytes
+                            det.ImagenBytes = System.IO.File.ReadAllBytes(det.RutaImagen);
+                        }
+                    }
+                }
             }
 
             return View("~/Views/Home/Index.cshtml", model);
@@ -97,14 +127,7 @@ namespace INSN.Web.Portal.Controllers.Home
         /// <returns></returns>
         public async Task<List<ComunicadoDtoResponse>> ComunicadoListar()
         {
-            var result = await _proxyComunicado.ComunicadoListar(new ComunicadoDtoRequest()
-            {
-                Titulo = "",
-                FechaExpiracion = DateTime.Now,
-                Estado = Enumerado.Estado.Activo,
-                EstadoRegistro = Enumerado.EstadoRegistro.Activo,
-            });
-
+            var result = await _proxyComunicado.ComunicadoListar();
             return (List<ComunicadoDtoResponse>)result;
         }
         #endregion

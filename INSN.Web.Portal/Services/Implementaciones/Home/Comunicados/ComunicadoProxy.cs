@@ -23,16 +23,13 @@ namespace INSN.Web.Portal.Services.Implementaciones.Home.Comunicados
         /// <summary>
         /// Proxy: Comunicado Listar
         /// </summary>
-        /// <param name="request"></param>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public async Task<ICollection<ComunicadoDtoResponse>> ComunicadoListar(ComunicadoDtoRequest request)
+        public async Task<ICollection<ComunicadoDtoResponse>> ComunicadoListar()
         {
             try
             {
-                var queryString = $"?Titulo={request.Titulo}&FechaExpiracion={request.FechaExpiracion.ToString("yyyy-MM-dd")}&Estado={request.Estado}&EstadoRegistro={request.EstadoRegistro}";
-                var response = await HttpClient.GetAsync($"{BaseUrl}/ComunicadoListar{queryString}");
-
+                var response = await HttpClient.GetAsync($"{BaseUrl}/ComunicadoListar");
                 response.EnsureSuccessStatusCode();
 
                 var result = await response.Content

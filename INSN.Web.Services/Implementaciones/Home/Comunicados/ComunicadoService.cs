@@ -2,9 +2,7 @@
 using INSN.Web.Models.Response;
 using Microsoft.Extensions.Logging;
 using INSN.Web.Repositories.Interfaces.Home.Comunicados;
-using INSN.Web.Entities.Home.Comunicados;
 using INSN.Web.Services.Interfaces.Home.Comunicados;
-using INSN.Web.Models.Request.Home.Comunicados;
 using INSN.Web.Models.Response.Home.Comunicados;
 
 namespace INSN.Web.Services.Implementaciones.Home.Comunicados
@@ -35,22 +33,14 @@ namespace INSN.Web.Services.Implementaciones.Home.Comunicados
         /// <summary>
         /// Service: Comunicado
         /// </summary>
-        /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<BaseResponseGeneric<ICollection<ComunicadoDtoResponse>>> ComunicadoListar(ComunicadoDtoRequest request)
+        public async Task<BaseResponseGeneric<ICollection<ComunicadoDtoResponse>>> ComunicadoListar()
         {
             var response = new BaseResponseGeneric<ICollection<ComunicadoDtoResponse>>();
 
             try
             {
-                var lista = await _repository.ComunicadoListar(new Comunicado
-                {
-                    Titulo = request.Titulo ?? string.Empty,
-                    FechaExpiracion = request.FechaExpiracion,
-                    Estado = request.Estado,
-                    EstadoRegistro = request.EstadoRegistro
-                });
-
+                var lista = await _repository.ComunicadoListar();
                 response.Data = lista.Select(x => _mapper.Map<ComunicadoDtoResponse>(x)).ToList();
                 response.Success = true;
             }

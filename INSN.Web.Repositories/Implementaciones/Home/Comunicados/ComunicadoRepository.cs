@@ -23,15 +23,13 @@ namespace INSN.Web.Repositories.Implementaciones.Home.Comunicados
         /// <summary>
         /// Repository: Comunicado Listar
         /// </summary>
-        /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<ICollection<Comunicado>> ComunicadoListar(Comunicado request)
+        public async Task<ICollection<Comunicado>> ComunicadoListar()
         {
             Expression<Func<Comunicado, bool>> predicate =
-                    x => x.Titulo.Contains(request.Titulo ?? string.Empty)
-                         && (request.FechaExpiracion == null || x.FechaExpiracion >= request.FechaExpiracion)
-                         && (request.Estado == null || x.Estado == request.Estado)
-                         && x.EstadoRegistro == request.EstadoRegistro;
+                    x => (x.FechaExpiracion >= DateTime.Now)
+                         && (x.Estado == "A")
+                         && (x.EstadoRegistro == 1);
 
             return await Context.Set<Comunicado>()
                 .Where(predicate)

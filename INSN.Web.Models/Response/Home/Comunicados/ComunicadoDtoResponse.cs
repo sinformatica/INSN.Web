@@ -36,6 +36,16 @@
         public int Ancho { get; set; }
 
         /// <summary>
+        /// ImagenBytes
+        /// </summary>
+        public byte[]? ImagenBytes { get; set; } = default!;
+
+        /// <summary>
+        /// Extension
+        /// </summary>
+        public string? Extension { get; set; }
+
+        /// <summary>
         /// Detalle Lista
         /// </summary>
         public ICollection<ComunicadoDetalleDtoResponse>? DetalleLista { get; set; }

@@ -11,7 +11,7 @@ namespace INSN.Web.Repositories.Interfaces.Home.Comunicados
         /// <summary>
         /// IRepository: Comunicado Listar
         /// </summary>
-        Task<ICollection<Comunicado>> ComunicadoListar(Comunicado request);
+        Task<ICollection<Comunicado>> ComunicadoListar();
         #endregion
 
         #region[Comunicado detalle]

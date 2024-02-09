@@ -19,5 +19,15 @@
         /// Ruta Imagen
         /// </summary>
         public string? RutaImagen { get; set; }
+
+        /// <summary>
+        /// ImagenBytes
+        /// </summary>
+        public byte[]? ImagenBytes { get; set; } = default!;
+
+        /// <summary>
+        /// Extension
+        /// </summary>
+        public string? Extension { get; set; }
     }
 }
