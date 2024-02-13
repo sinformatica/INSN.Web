@@ -1039,7 +1039,7 @@ section {
 
     .testimonials .testimonial-item .testimonial-img {
         width: 250px;
-        border-radius: 50px;
+        border-radius: 10px;
         margin-right: 15px;
     }
 
@@ -48738,4 +48738,11 @@ Best Deal Style
     border: 2px solid #ccc; /* Borde de 2px sólido de color gris claro */
     border-radius: 8px; /* Bordes redondeados */
     padding: 10px; /* Espacio interno alrededor del borde */
+}
+
+/* Estilos para el contenedor con borde */
+.keykey {
+    height: 100px;
+    width: 100px;
+  /*  border-radius:0px;*/
 }
