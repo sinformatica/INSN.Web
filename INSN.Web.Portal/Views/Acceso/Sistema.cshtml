@@ -15,7 +15,6 @@
     string? NombreUsuario = HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.NombreUsuario);
 }
 
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -188,7 +187,7 @@
                     </div>
                     <div class="col-md-2 col-sm-6"></div>
                 </div>
-                   <!-- END Page Content -->
+                <!-- END Page Content -->
 
             </main>
             <!-- END Main Container -->
@@ -276,23 +275,12 @@
 
     <script src="~/js/plugins/select2/js/select2.full.js"></script>
 
-
     <!-- Page JS Plugins CSS -->
     <link rel="stylesheet" href="~/js/plugins/datatables-bs5/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" href="~/js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css">
     <link rel="stylesheet" href="~/js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css">
 
-
-    <!--
-        Codebase JS
-
-        Core libraries and functionality
-        webpack is putting everything together at assets/_js/main/app.js
-    -->
-
-
     <script>
-
         //#region [Success Operación]
         window.onload = function () {
             var nCodigoMensaje = '@TempData["CodigoMensaje"]'; // Obtener el valor de Código de Mensaje
@@ -352,16 +340,16 @@
             $('#ClaveModal').modal('hide');
         }
 
-                //function SeleccionaProductoSiga(CodigoProductoId, Descripcion) {
-                //    let hiddenInstructorId = document.getElementById("txtCodigoProductoId");
-                //    hiddenInstructorId.value = CodigoProductoId;
+        //function SeleccionaProductoSiga(CodigoProductoId, Descripcion) {
+        //    let hiddenInstructorId = document.getElementById("txtCodigoProductoId");
+        //    hiddenInstructorId.value = CodigoProductoId;
 
-                //    let inputInstructor = document.getElementById("txtDescripcion");
-                //    inputInstructor.value = Descripcion;
+        //    let inputInstructor = document.getElementById("txtDescripcion");
+        //    inputInstructor.value = Descripcion;
 
-                //    CerrarModal();
-                //}
-                    //#endregion
+        //    CerrarModal();
+        //}
+        //#endregion
     </script>
 </body>
 </html>

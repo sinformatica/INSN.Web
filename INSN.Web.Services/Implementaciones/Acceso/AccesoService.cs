@@ -146,7 +146,7 @@ namespace INSN.Web.Services.Implementaciones.Acceso
                 var user = await _userManager.FindByNameAsync(request.Usuario);
 
                 if (user == null)
-                {                    
+                {
                 }
 
                 // Consulta para obtener los sistemas asociados al usuario
@@ -261,6 +261,6 @@ namespace INSN.Web.Services.Implementaciones.Acceso
             }
 
             return response;
-        }      
+        }
     }
 }

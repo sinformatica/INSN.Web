@@ -1,7 +1,7 @@
 ﻿namespace INSN.Web.Models.Response.Sistema
 {
     /// <summary>
-    /// Clase ModuloDtoResponse
+    /// Clase Modulo Dto Response
     /// </summary>
     public class ModuloDtoResponse
     {

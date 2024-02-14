@@ -11,7 +11,7 @@ namespace INSN.Web.Common
         /// <summary>
         /// Variable Jwt
         /// </summary>
-        public Jwt Jwt { get; set; }  
+        public Jwt Jwt { get; set; }
     }
 
     /// <summary>
@@ -33,5 +33,5 @@ namespace INSN.Web.Common
         /// Emisor
         /// </summary>
         public string Emisor { get; set; }
-    }        
+    }
 }

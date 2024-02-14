@@ -22,7 +22,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
         /// <param name="logger"></param>
         public RedireccionarController(IRedireccionarProxy proxy, ILogger<RedireccionarController> logger)
         {
-            _proxy = proxy;    
+            _proxy = proxy;
             _logger = logger;
         }
 
@@ -53,7 +53,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
 
                     // Realizar acciones con la información del token deserializado
                     LoginSistemaDtoRequest modelo = new LoginSistemaDtoRequest();
-                    modelo.Usuario = usuario?? string.Empty;
+                    modelo.Usuario = usuario ?? string.Empty;
                     modelo.CodigoSistemaId = p;
 
                     var response = await _proxy.LoginSistema(modelo);

@@ -33,7 +33,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         /// <param name="logger"></param>
         /// <param name="mapper"></param>
         /// <param name="userManager"></param>
-        public UsuarioService(IUsuarioRepository repository, 
+        public UsuarioService(IUsuarioRepository repository,
                         ILogger<UsuarioService> logger,
                         IMapper mapper,
                         UserManager<INSNIdentityUser> userManager)
@@ -173,7 +173,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
 
                 if (result.Succeeded)
                 {
-                    var usu = await _userManager.FindByEmailAsync(user.Email??string.Empty);
+                    var usu = await _userManager.FindByEmailAsync(user.Email ?? string.Empty);
 
                     if (usu != null)
                     {
@@ -198,7 +198,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
                     {
                         // Buscar el mensaje de error personalizado en español desde los recursos
                         var errorMessage = Resources.ResourceGeneral.ResourceManager.GetString(error.Code);
-                        
+
                         // Si no se encuentra un mensaje personalizado, usa la descripción predeterminada del error
                         errorMessage = errorMessage ?? error.Description;
 

@@ -38,15 +38,22 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Nombre" , @id = "txtName", @maxlength = "100",
-                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" }) <!-- Restricción -->
+                                    @Html.TextBoxFor(m => m.Name, new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Nombre",
+                                            @id = "txtName",
+                                            @maxlength = "100",
+                                            @oninput = "this.value = this.value.toUpperCase()",
+                                            @onkeypress = "return permite(event, 'caracteres')"
+                                        }) <!-- Restricción -->
                                     <label class="form-label">@Html.Raw(RolResource.EtiquetaName)</label>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
                                     @Html.DropDownListFor(m => m.EstadoSeleccionado,
-                                    new SelectList(Model.Estados, "Codigo", "Nombre"), "Todos", new { @class = "form-select", @id = "cmbEstadoSeleccionado"})
+                                             new SelectList(Model.Estados, "Codigo", "Nombre"), "Todos", new { @class = "form-select", @id = "cmbEstadoSeleccionado" })
                                     <label class="form-label">@Html.Raw(GeneralResource.EtiquetaEstado)</label>
                                 </div>
                             </div>
@@ -123,7 +130,7 @@
 </main>
 
 @section Scripts
-    {
+{
     <script>
         //#region [Métodos Basicos]
         //#region [Limpiar]
@@ -192,6 +199,6 @@
                 form.submit();
             }
         });
-                //#endregion
+        //#endregion
     </script>
 }

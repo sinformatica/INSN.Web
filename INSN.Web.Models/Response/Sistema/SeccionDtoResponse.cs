@@ -1,9 +1,9 @@
 ﻿namespace INSN.Web.Models.Response.Sistema
 {
     /// <summary>
-    /// Clase SeccionDtoResponse
+    /// Clase Seccion Dto Response
     /// </summary>
-    public class SeccionDtoResponse 
+    public class SeccionDtoResponse
     {
         /// <summary>
         /// Codigo Seccion Id

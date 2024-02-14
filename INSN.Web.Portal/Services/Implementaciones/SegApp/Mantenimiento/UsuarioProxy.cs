@@ -25,6 +25,10 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
             : base("api/SegApp/Mantenimiento/Usuario", httpClient)
         {
             _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
+
+            // Configurar la cabecera de autorización con el token
+            string token = _httpContextAccessor?.HttpContext?.Session.GetString(Constantes.JwtToken) ?? string.Empty;
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 
         /// <summary>

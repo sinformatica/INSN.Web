@@ -4,7 +4,6 @@ using System.Reflection;
 using INSN.Web.Entities.Home.LibroReclamacion;
 using INSN.Web.Entities.Home.OportunidadLaboral;
 using INSN.Web.Entities.Home.DocumentoInstitucional;
-using INSN.Web.Entities.Home.Comunicados;
 
 namespace INSN.Web.DataAccess
 {
@@ -17,9 +16,9 @@ namespace INSN.Web.DataAccess
         /// INSNWebDBContext
         /// </summary>
         /// <param name="options"></param>
-        public INSNWebDBContext(DbContextOptions< INSNWebDBContext> options ) 
-            : base( options ) 
-        {         
+        public INSNWebDBContext(DbContextOptions<INSNWebDBContext> options)
+            : base(options)
+        {
         }
 
         /// <summary>
@@ -50,18 +49,8 @@ namespace INSN.Web.DataAccess
             modelBuilder.Entity<DocumentoConvocatoria>().HasKey(f => f.CodigoDocumentoConvocatoriaId);
             #endregion
 
-            #region [Mantenimiento - Comunicado]
-            modelBuilder.Entity<Comunicado>().HasKey(f => f.CodigoComunicadoId);
-            modelBuilder.Entity<ComunicadoDetalle>().HasKey(f => f.CodigoComunicadoDetalleId);
-            #endregion
-
             #region [LibroReclamacion]
             modelBuilder.Entity<LibroReclamacion>().HasKey(f => f.CodigoLibroReclamacionId);
-            #endregion
-
-            #region [Comunicado]
-            modelBuilder.Entity<Comunicado>().HasKey(f => f.CodigoComunicadoId);
-            modelBuilder.Entity<ComunicadoDetalle>().HasKey(f => f.CodigoComunicadoDetalleId);
             #endregion
             #endregion
 

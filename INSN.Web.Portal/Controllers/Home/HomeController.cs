@@ -127,7 +127,14 @@ namespace INSN.Web.Portal.Controllers.Home
         /// <returns></returns>
         public async Task<List<ComunicadoDtoResponse>> ComunicadoListar()
         {
-            var result = await _proxyComunicado.ComunicadoListar();
+            var result = await _proxyComunicado.ComunicadoListar(new ComunicadoDtoRequest()
+            {
+                Titulo = "",
+                FechaExpiracion = DateTime.Now,
+                Estado = Enumerado.Estado.Activo,
+                EstadoRegistro = Enumerado.EstadoRegistro.Activo
+            });
+
             return (List<ComunicadoDtoResponse>)result;
         }
         #endregion

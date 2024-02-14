@@ -4,6 +4,6 @@
     /// Clase BaseRequest
     /// </summary>
     public class BaseRequest : AuditoriaRequest
-    {       
+    {
     }
 }

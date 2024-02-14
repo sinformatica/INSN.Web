@@ -39,16 +39,28 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.Clave, new { @class = "form-control", @placeholder = "Contraseña", @id = "txtClave", @type = "password" ,/* <!-- Restricción --> */
-                                    @maxlength = "15"})
+                                    @Html.TextBoxFor(m => m.Clave, new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Contraseña",
+                                            @id = "txtClave",
+                                            @type = "password",/* <!-- Restricción --> */
+                                            @maxlength = "15"
+                                        })
                                     <span asp-validation-for="Clave" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaClave)</label>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.ConfirmaClave, new { @class = "form-control", @placeholder = "Confirmar contraseña", @id = "txtConfirmaClave", @type = "password",/* <!-- Restricción --> */
-                                    @maxlength = "15"})
+                                    @Html.TextBoxFor(m => m.ConfirmaClave, new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Confirmar contraseña",
+                                            @id = "txtConfirmaClave",
+                                            @type = "password",/* <!-- Restricción --> */
+                                            @maxlength = "15"
+                                        })
                                     <span asp-validation-for="ConfirmaClave" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaConfirmaClave)</label>
                                 </div>
@@ -64,7 +76,7 @@
     </div>
 </main>
 
-@section Scripts{
+@section Scripts {
     @{
         <partial name="_ValidationScriptsPartial" />
     }
@@ -82,7 +94,7 @@
                 Modal_Grabar_Editar_Correcto(parseInt(nCodigoMensaje), sMensaje, sMetodo, sControlador); // Llamar a la función con los valores
             }
         };
-                        //#endregion
-                        //#endregion
+        //#endregion
+        //#endregion
     </script>
 }

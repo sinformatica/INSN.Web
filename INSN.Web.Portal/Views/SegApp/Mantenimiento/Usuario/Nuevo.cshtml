@@ -41,39 +41,63 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.Nombres, new { @class = "form-control", @placeholder = "Nombre", @id = "txtNombre",
-                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,/* <!-- Restricción --> */
-                                    @maxlength = "50"})                                    
+                                    @Html.TextBoxFor(m => m.Nombres, new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Nombre",
+                                            @id = "txtNombre",
+                                            @oninput = "this.value = this.value.toUpperCase()",
+                                            @onkeypress = "return permite(event, 'caracteres')",/* <!-- Restricción --> */
+                                            @maxlength = "50"
+                                        })
                                     <span asp-validation-for="Nombres" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaNombre)</label>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.ApellidoPaterno, new { @class = "form-control", @placeholder = "Apellido Paterno", @id = "txtApellidoPaterno",
-                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,/* <!-- Restricción --> */
-                                    @maxlength = "50"}) 
+                                    @Html.TextBoxFor(m => m.ApellidoPaterno, new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Apellido Paterno",
+                                            @id = "txtApellidoPaterno",
+                                            @oninput = "this.value = this.value.toUpperCase()",
+                                            @onkeypress = "return permite(event, 'caracteres')",/* <!-- Restricción --> */
+                                            @maxlength = "50"
+                                        })
                                     <span asp-validation-for="ApellidoPaterno" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaApellidoPaterno)</label>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.ApellidoMaterno, new { @class = "form-control", @placeholder = "Apellido Materno", @id = "txtApellidoMaterno",
-                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'caracteres')" ,/* <!-- Restricción --> */
-                                    @maxlength = "50"}) 
+                                    @Html.TextBoxFor(m => m.ApellidoMaterno, new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Apellido Materno",
+                                            @id = "txtApellidoMaterno",
+                                            @oninput = "this.value = this.value.toUpperCase()",
+                                            @onkeypress = "return permite(event, 'caracteres')",/* <!-- Restricción --> */
+                                            @maxlength = "50"
+                                        })
                                     <span asp-validation-for="ApellidoMaterno" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaApellidoMaterno)</label>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.Servicio, new { @class = "form-control", @placeholder = "Servicio", @id = "txtServicio",
-                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros_caracteres')" ,/* <!-- Restricción --> */
-                                    @maxlength = "20"}) 
+                                    @Html.TextBoxFor(m => m.Servicio, new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Servicio",
+                                            @id = "txtServicio",
+                                            @oninput = "this.value = this.value.toUpperCase()",
+                                            @onkeypress = "return permite(event, 'numeros_caracteres')",/* <!-- Restricción --> */
+                                            @maxlength = "20"
+                                        })
                                     <span asp-validation-for="Servicio" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaServicio)</label>
                                 </div>
@@ -81,16 +105,26 @@
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
                                     @Html.DropDownListFor(m => m.TipoDocumentoIdentidadId,
-                                    new SelectList(Model.TiposDocIdentidad, "Id", "Descripcion"), new { @class = "form-select", @id = "cmbTipoDocumento", 
-                                    onchange = "validarLongitudNumeroIdentidad()" })
+                                             new SelectList(Model.TiposDocIdentidad, "Id", "Descripcion"), new
+                                             {
+                                                 @class = "form-select",
+                                                 @id = "cmbTipoDocumento",
+                                                 onchange = "validarLongitudNumeroIdentidad()"
+                                             })
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaTipoDocIdentidad)</label>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.DocumentoIdentidad, new { @class = "form-control", @placeholder = "Documento de identidad", @id = "txtDocumentoIdentidad",
-                                    @oninput = "this.value = this.value.toUpperCase()", @onkeypress = "return permite(event, 'numeros')" ,
-                                    @maxlength = "15"})
+                                    @Html.TextBoxFor(m => m.DocumentoIdentidad, new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Documento de identidad",
+                                            @id = "txtDocumentoIdentidad",
+                                            @oninput = "this.value = this.value.toUpperCase()",
+                                            @onkeypress = "return permite(event, 'numeros')",
+                                            @maxlength = "15"
+                                        })
                                     <span asp-validation-for="DocumentoIdentidad" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaDocumentoIdentidad)</label>
                                 </div>
@@ -100,26 +134,41 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.Correo, new { @class = "form-control", @placeholder = "Correo", 
-                                        @id = "txtCorreo", @maxlength = "100" }) 
+                                    @Html.TextBoxFor(m => m.Correo, new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Correo",
+                                            @id = "txtCorreo",
+                                            @maxlength = "100"
+                                        })
                                     <span asp-validation-for="Correo" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaCorreo)</label>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.Telefono1, new { @class = "form-control", @placeholder = "Teléfono 1", @id = "txtTelefono1",
-                                    @onkeypress = "return permite(event, 'numeros')" ,/* <!-- Restricción --> */
-                                    @maxlength = "9"}) 
+                                    @Html.TextBoxFor(m => m.Telefono1, new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Teléfono 1",
+                                            @id = "txtTelefono1",
+                                            @onkeypress = "return permite(event, 'numeros')",/* <!-- Restricción --> */
+                                            @maxlength = "9"
+                                        })
                                     <span asp-validation-for="Telefono1" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaTelefono1)</label>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.Telefono2, new { @class = "form-control", @placeholder = "Teléfono 2", @id = "txtTelefono2",
-                                    @onkeypress = "return permite(event, 'numeros')" ,/* <!-- Restricción --> */
-                                    @maxlength = "9"}) 
+                                    @Html.TextBoxFor(m => m.Telefono2, new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Teléfono 2",
+                                            @id = "txtTelefono2",
+                                            @onkeypress = "return permite(event, 'numeros')",/* <!-- Restricción --> */
+                                            @maxlength = "9"
+                                        })
                                     <span asp-validation-for="Telefono2" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaTelefono2)</label>
                                 </div>
@@ -129,16 +178,28 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.Usuario, new { @class = "form-control", @placeholder = "Usuario", @id = "txtUsuario",
-                                    @onkeypress = "return permite(event, 'caracteres')", @disabled = "disabled" }) <!-- Restricción -->
+                                    @Html.TextBoxFor(m => m.Usuario, new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Usuario",
+                                            @id = "txtUsuario",
+                                            @onkeypress = "return permite(event, 'caracteres')",
+                                            @disabled = "disabled"
+                                        }) <!-- Restricción -->
                                     <span asp-validation-for="Usuario" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaUsuario)</label>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.Clave, new { @class = "form-control", @placeholder = "Contraseña", @id = "txtClave", @type = "password" ,/* <!-- Restricción --> */
-                                    @maxlength = "15"}) 
+                                    @Html.TextBoxFor(m => m.Clave, new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Contraseña",
+                                            @id = "txtClave",
+                                            @type = "password",/* <!-- Restricción --> */
+                                            @maxlength = "15"
+                                        })
                                     <span asp-validation-for="Clave" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaClave)</label>
 
@@ -146,8 +207,14 @@
                             </div>
                             <div class="col-md-3 col-sm-6">
                                 <div class="form-floating mb-4">
-                                    @Html.TextBoxFor(m => m.ConfirmaClave, new { @class = "form-control", @placeholder = "Confirmar Clave", @id = "txtConfirmaClave", @type = "password" ,/* <!-- Restricción --> */
-                                    @maxlength = "15"}) 
+                                    @Html.TextBoxFor(m => m.ConfirmaClave, new
+                                        {
+                                            @class = "form-control",
+                                            @placeholder = "Confirmar Clave",
+                                            @id = "txtConfirmaClave",
+                                            @type = "password",/* <!-- Restricción --> */
+                                            @maxlength = "15"
+                                        })
                                     <span asp-validation-for="ConfirmaClave" class="text-danger"></span>
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaConfirmaClave)</label>
                                 </div>
@@ -155,7 +222,7 @@
                             <div class="col-md-2 col-sm-6">
                                 <div class="form-floating mb-4">
                                     @Html.DropDownListFor(m => m.EstadoSeleccionado,
-                                    new SelectList(Model.Estados, "Codigo", "Nombre"), new { @class = "form-select", @id = "cmbEstadoSeleccionado"})
+                                             new SelectList(Model.Estados, "Codigo", "Nombre"), new { @class = "form-select", @id = "cmbEstadoSeleccionado" })
                                     <label class="form-label">@Html.Raw(GeneralResource.EtiquetaEstado)</label>
                                 </div>
                             </div>
@@ -170,7 +237,7 @@
     </div>
 </main>
 
-@section Scripts{
+@section Scripts {
     @{
         <partial name="_ValidationScriptsPartial" />
     }
@@ -205,8 +272,8 @@
                 Modal_Grabar_Editar_Correcto(parseInt(nCodigoMensaje), sMensaje, sMetodo, sControlador); // Llamar a la función con los valores
             }
         };
-                        //#endregion
-                        //#endregion
+        //#endregion
+        //#endregion
         document.addEventListener('DOMContentLoaded', function () {
             // Obtener referencias a los campos de nombre, apellido paterno y usuario
             var nombreInput = document.getElementById('txtNombre');
@@ -267,7 +334,7 @@
             }
         }
 
-        // Llamar a la función cuando se carga la página
-        window.onload = validarLongitudNumeroIdentidad;
+        //Llamar a la función cuando se carga la página
+        window.addEventListener('load', validarLongitudNumeroIdentidad);
     </script>
 }
