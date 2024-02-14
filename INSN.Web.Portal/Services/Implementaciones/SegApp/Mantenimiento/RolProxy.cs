@@ -19,7 +19,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento
         /// <param name="httpClient"></param>
         /// <param name="httpContextAccessor"></param>
         /// </summary>
-        public RolProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor) 
+        public RolProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
             : base("api/SegApp/Mantenimiento/Rol", httpClient)
         {
             _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));

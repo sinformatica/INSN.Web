@@ -33,19 +33,19 @@
                     <!-- ========================================================================= -->
                     <div class="block-content block-content-full">
                         <!-- ======= INICIO : Controles para Guardar ============================== -->
-                        
+
                         <div class="row">
                             <div class="col-md-5 col-sm-6">
                                 <div class="form-floating mb-4">
                                     @Html.DropDownListFor(m => m.SistemaSeleccionado,
-                                    new SelectList(Model.Sistemas, "CodigoSistemaId", "descripcion"), new { @class = "form-select", @id = "cmbSistema"})
+                                             new SelectList(Model.Sistemas, "CodigoSistemaId", "descripcion"), new { @class = "form-select", @id = "cmbSistema" })
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaSistema)</label>
                                 </div>
                             </div>
                             <div class="col-md-5 col-sm-6">
                                 <div class="form-floating mb-4">
                                     @Html.DropDownListFor(m => m.RolSeleccionado,
-                                    new SelectList(Model.Roles, "Id", "Name"), new { @class = "form-select", @id = "cmbRol"})
+                                             new SelectList(Model.Roles, "Id", "Name"), new { @class = "form-select", @id = "cmbRol" })
                                     <label class="form-label">@Html.Raw(UsuarioResource.EtiquetaRol)</label>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- ======= FIN    : Controles de Búsqueda ============================== -->
                         <!-- ===================================================================== -->
                         <!-- ======= INICIO : Mostrar DataTable - Datos ========================== -->
@@ -117,10 +117,9 @@
     </div>
 </main>
 
-
-@section Scripts{
+@section Scripts {
     @{
-    <partial name="_ValidationScriptsPartial" />
+        <partial name="_ValidationScriptsPartial" />
     }
 
     <script>
@@ -150,7 +149,7 @@
         //            .catch(function (error) {
         //                console.error('Error:', error);
         //            });
-        //    });            
+        //    });
         //});
 
 
@@ -205,6 +204,5 @@
                 }
             }
         });
-
     </script>
 }

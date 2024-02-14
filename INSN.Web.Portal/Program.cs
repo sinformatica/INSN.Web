@@ -12,6 +12,7 @@ using INSN.Web.Portal.Services.Interfaces.Home.LibroReclamaciones;
 using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
 using INSN.Web.Portal.Services.Interfaces.SegApp;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
+using INSN.Web.Portal.Services.Util;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Serilog;
 using Serilog.Events;
@@ -28,36 +29,32 @@ var logger = new LoggerConfiguration()
 
 builder.Logging.AddSerilog(logger);
 
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-
-// Patron singleton para el objeto HttpClient
-builder.Services.AddSingleton(_ => new HttpClient
-{
-    BaseAddress = new Uri(builder.Configuration.GetValue<string>("Backend:ApiRestUrl")!)
-});
+#region[Agregar Url Apis]
+builder.Services.AddHttpClientIfConfigured("ApiHttpClient", builder.Configuration, "Backend:ApiRestUrl");
+builder.Services.AddHttpClientIfConfigured("ApiWebAdminHttpClient", builder.Configuration, "Backend:ApiRestUrlWebAdmin");
+#endregion
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+#region[Inyectar dependecias]
+builder.Services.AddProxy<IDocumentoLegalProxy, DocumentoLegalProxy>("ApiHttpClient");
+builder.Services.AddProxy<ITipoDocumentoProxy, TipoDocumentoProxy>("ApiHttpClient");
+builder.Services.AddProxy<IDocumentoConvocatoriaProxy, ConvocatoriaProxy>("ApiHttpClient");
+builder.Services.AddProxy<ISistemaProxy, SistemaProxy>("ApiHttpClient");
+builder.Services.AddProxy<IRedireccionarProxy, RedireccionarProxy>("ApiHttpClient");
+builder.Services.AddProxy<IMenuProxy, MenuProxy>("ApiHttpClient");
+builder.Services.AddProxy<IRolProxy, RolProxy>("ApiHttpClient");
+builder.Services.AddProxy<IUsuarioProxy, UsuarioProxy>("ApiHttpClient");
+builder.Services.AddProxy<ITipoDocumentoIdentidadProxy, TipoDocumentoIdentidadProxy>("ApiHttpClient");
+builder.Services.AddProxy<IUsuarioRolProxy, UsuarioRolProxy>("ApiHttpClient");
+builder.Services.AddProxy<IAccesoProxy, AccesoProxy>("ApiHttpClient");
+builder.Services.AddProxy<ILibroReclamacionProxy, LibroReclamacionProxy>("ApiHttpClient");
+builder.Services.AddProxy<IComunicadoProxy, ComunicadoProxy>("ApiWebAdminHttpClient");
+#endregion
 
-//INICIO Agregar Los Proxy - Api - DynamiClient
-builder.Services.AddScoped<IDocumentoLegalProxy, DocumentoLegalProxy>();
-builder.Services.AddScoped<ITipoDocumentoProxy, TipoDocumentoProxy>();
-builder.Services.AddScoped<IDocumentoConvocatoriaProxy, ConvocatoriaProxy>();
-builder.Services.AddScoped<ISistemaProxy, SistemaProxy>();
-builder.Services.AddScoped<IRedireccionarProxy, RedireccionarProxy>();
-builder.Services.AddScoped<IMenuProxy, MenuProxy>();
-builder.Services.AddScoped<IRolProxy, RolProxy>();
-builder.Services.AddScoped<IUsuarioProxy, UsuarioProxy>();
-builder.Services.AddScoped<ITipoDocumentoIdentidadProxy, TipoDocumentoIdentidadProxy>();
-builder.Services.AddScoped<IUsuarioRolProxy, UsuarioRolProxy>();
-builder.Services.AddScoped<IAccesoProxy, AccesoProxy>();
-builder.Services.AddScoped<IComunicadoProxy, ComunicadoProxy>();
-builder.Services.AddScoped<ILibroReclamacionProxy, LibroReclamacionProxy>();
-
-//FIN Agregar Los Proxy - Api - DynamiClient
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options =>

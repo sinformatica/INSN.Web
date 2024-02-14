@@ -14,7 +14,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
     /// </summary>
     [ApiController]
     [Route("api/SegApp/Mantenimiento/[controller]")]
-    [ServiceFilter(typeof(CodigoSistemaIdAutorizacion))] 
+    [ServiceFilter(typeof(CodigoSistemaIdAutorizacion))]
     public class RolController : ControllerBase
     {
         private readonly IRolService _service;

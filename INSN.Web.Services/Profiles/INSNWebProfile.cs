@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using INSN.Web.Entities.Home.Comunicados;
 using INSN.Web.Entities.Home.DocumentoInstitucional;
 using INSN.Web.Entities.Home.LibroReclamacion;
 using INSN.Web.Entities.Home.OportunidadLaboral;
@@ -7,12 +6,10 @@ using INSN.Web.Entities.Info.Home.OportunidadLaboral;
 using INSN.Web.Entities.Info.Mantenimiento;
 using INSN.Web.Entities.SegApp;
 using INSN.Web.Models.Request.Home;
-using INSN.Web.Models.Request.Home.Comunicados;
 using INSN.Web.Models.Request.Home.DocumentoLegal;
 using INSN.Web.Models.Request.Home.LibroReclamaciones;
 using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
-using INSN.Web.Models.Response.Home.Comunicados;
 using INSN.Web.Models.Response.Home.DocumentoLegal;
 using INSN.Web.Models.Response.Home.LibroReclamaciones;
 using INSN.Web.Models.Response.Home.OportunidadLaboral;
@@ -33,7 +30,7 @@ namespace INSN.Web.Services.Profiles
         public INSNWebProfile()
         {
             // El AutoMapper solo mapea de izquierda a derecha
-    
+
             CreateMap<TipoDocumento, TipoDocumentoDtoResponse>();
             CreateMap<TipoDocumentoDtoRequest, TipoDocumento>();
 
@@ -66,12 +63,6 @@ namespace INSN.Web.Services.Profiles
 
             // Mapear Sistema
             CreateMap<Sistema, SistemaDtoResponse>();
-
-            // Mapear Comunicado
-            CreateMap<Comunicado, ComunicadoDtoResponse>();
-            CreateMap<ComunicadoDtoRequest, Comunicado>();
-            CreateMap<ComunicadoDetalle, ComunicadoDetalleDtoResponse>();
-            CreateMap<ComunicadoDetalleDtoRequest, ComunicadoDetalle>();
 
             // Mapear Libro Reclamacion
             CreateMap<LibroReclamacion, LibroReclamacionDtoResponse>();

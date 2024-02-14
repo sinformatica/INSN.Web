@@ -133,7 +133,7 @@
             /// <summary>
             /// UFGRD
             /// </summary>
-            public const string UFGRD = "UFGRD";            
+            public const string UFGRD = "UFGRD";
         }
     }
 }

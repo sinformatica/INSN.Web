@@ -14,8 +14,9 @@ namespace INSN.Web.Portal.Services.Implementaciones.Home.Comunicados
         /// Comunicado Proxy
         /// </summary>
         /// <param name="httpClient"></param>
-        public ComunicadoProxy(HttpClient httpClient)
-        : base("api/Home/Comunicado", httpClient)
+        /// /// <param name="httpContextAccessor"></param>
+        public ComunicadoProxy(HttpClient httpClient, IHttpContextAccessor? httpContextAccessor)
+        : base("api/Comunicado", httpClient)
         {
         }
 
@@ -25,11 +26,12 @@ namespace INSN.Web.Portal.Services.Implementaciones.Home.Comunicados
         /// </summary>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public async Task<ICollection<ComunicadoDtoResponse>> ComunicadoListar()
+        public async Task<ICollection<ComunicadoDtoResponse>> ComunicadoListar(ComunicadoDtoRequest request)
         {
             try
             {
-                var response = await HttpClient.GetAsync($"{BaseUrl}/ComunicadoListar");
+                var queryString = $"?Titulo={request.Titulo}&FechaExpiracion={request.FechaExpiracion.ToString("yyyy-MM-dd")}&Estado={request.Estado}&EstadoRegistro={request.EstadoRegistro}";
+                var response = await HttpClient.GetAsync($"{BaseUrl}/ComunicadoListar{queryString}");
                 response.EnsureSuccessStatusCode();
 
                 var result = await response.Content

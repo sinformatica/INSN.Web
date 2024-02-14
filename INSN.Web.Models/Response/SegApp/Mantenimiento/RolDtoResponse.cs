@@ -1,7 +1,7 @@
 ﻿namespace INSN.Web.Models.Response.SegApp.Mantenimiento
 {
     /// <summary>
-    /// Clase RolDtoResponse
+    /// Clase Rol Dto Response
     /// </summary>
     public class RolDtoResponse : BaseResponse
     {

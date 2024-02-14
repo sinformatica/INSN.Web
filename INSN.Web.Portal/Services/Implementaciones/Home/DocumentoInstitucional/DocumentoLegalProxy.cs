@@ -14,7 +14,8 @@ public class DocumentoLegalProxy : CrudRestHelperBase<DocumentoLegalDtoRequest, 
     /// Documento Legal Proxy
     /// </summary>
     /// <param name="httpClient"></param>
-    public DocumentoLegalProxy(HttpClient httpClient)
+    /// <param name="httpContextAccessor"></param>
+    public DocumentoLegalProxy(HttpClient httpClient, IHttpContextAccessor? httpContextAccessor)
         : base("api/Home/DocumentoInstitucional/DocumentoLegal", httpClient)
     {
     }

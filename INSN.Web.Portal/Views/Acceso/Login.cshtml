@@ -49,7 +49,7 @@
                         <!-- Sign In Form -->
                         <form method="post">
                             <div class="form-floating mb-4">
-                                <input asp-for="Usuario" class="form-control" autocomplete="username"  />
+                                <input asp-for="Usuario" class="form-control" autocomplete="username" />
                                 <label class="form-label" for="login-username">Usuario</label>
                                 @* <span asp-validation-for="Usuario" class="text-danger"></span> *@
                             </div>
@@ -58,15 +58,15 @@
                                 <label class="form-label" for="login-password">Contraseña</label>
                             </div>
 
-                             <div style="margin: 0px; padding: 0px;" asp-validation-summary="All" class="text-danger" role="alert"></div>
+                            <div style="margin: 0px; padding: 0px;" asp-validation-summary="All" class="text-danger" role="alert"></div>
 
                             <div class="mb-4 text-center">
                                 <button type="submit" class="btn btn-lg btn-alt-primary fw-semibold">Ingresar</button>
 
                                 @* <div class="mt-4">
-                                    <a class="fs-sm fw-medium link-fx text-muted me-2 mb-1 d-inline-block" href="op_auth_reminder2.html">
-                                        Olvidé contraseña
-                                    </a>
+                                <a class="fs-sm fw-medium link-fx text-muted me-2 mb-1 d-inline-block" href="op_auth_reminder2.html">
+                                Olvidé contraseña
+                                </a>
                                 </div> *@
                             </div>
                         </form>
@@ -83,7 +83,6 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
-
 
 <body>
     <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

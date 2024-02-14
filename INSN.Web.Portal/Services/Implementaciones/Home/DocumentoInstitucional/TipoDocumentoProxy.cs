@@ -14,7 +14,8 @@ public class TipoDocumentoProxy : CrudRestHelperBase<TipoDocumentoDtoRequest, Ti
     /// Tipo Documento Proxy
     /// </summary>
     /// <param name="httpClient"></param>
-    public TipoDocumentoProxy(HttpClient httpClient)
+    /// <param name="httpContextAccessor"></param>
+    public TipoDocumentoProxy(HttpClient httpClient, IHttpContextAccessor? httpContextAccessor)
         : base("api/Home/DocumentoInstitucional/TipoDocumento", httpClient)
     {
     }

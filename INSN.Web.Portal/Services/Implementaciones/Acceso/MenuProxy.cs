@@ -20,7 +20,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.Acceso
         /// <param name="httpClient"></param>
         /// <param name="httpContextAccessor"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public MenuProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor) 
+        public MenuProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
             : base("api/Acceso/Menu", httpClient)
         {
             _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));

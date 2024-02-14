@@ -1,12 +1,4 @@
-﻿using INSN.Web.Models.Request.Sistema;
-using INSN.Web.Models.Response.Sistema;
-using INSN.Web.Models.Response;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using INSN.Web.Entities.SegApp;
+﻿using INSN.Web.Entities.SegApp;
 
 namespace INSN.Web.Repositories.Interfaces.Acceso
 {

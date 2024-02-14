@@ -21,7 +21,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.Acceso
         /// </summary>
         /// <param name="httpClient"></param>
         /// <param name="httpContextAccessor"></param>
-        public RedireccionarProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor) 
+        public RedireccionarProxy(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
             : base("api/Acceso/Acceso", httpClient)
         {
             _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));

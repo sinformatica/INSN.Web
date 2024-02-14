@@ -15,7 +15,7 @@ namespace INSN.Web.Repositories.Implementaciones.Acceso
         /// Inicializar
         /// </summary>
         /// <param name="context"></param>
-        public MenuRepository(SegAppDbContext context): base(context)
+        public MenuRepository(SegAppDbContext context) : base(context)
         {
         }
 

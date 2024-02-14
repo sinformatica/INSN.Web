@@ -59,7 +59,7 @@ namespace INSN.Web.Repositories.Implementaciones
         {
             var query = Context.Set<TEntity>()
                 .Where(predicate)
-                .AsQueryable();          
+                .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(relationships))
             {

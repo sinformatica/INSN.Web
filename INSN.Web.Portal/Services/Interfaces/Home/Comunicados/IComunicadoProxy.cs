@@ -13,7 +13,7 @@ namespace INSN.Web.Portal.Services.Interfaces.Home.Comunicados
         /// IProxy: Comunicado Listar
         /// </summary>
         /// <returns></returns>
-        Task<ICollection<ComunicadoDtoResponse>> ComunicadoListar();
+        Task<ICollection<ComunicadoDtoResponse>> ComunicadoListar(ComunicadoDtoRequest request);
         #endregion
 
         #region[Comunicado Detalle]

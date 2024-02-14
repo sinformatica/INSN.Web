@@ -25,16 +25,12 @@ using INSN.Web.ApiRest.Controllers;
 using INSN.Web.Repositories.Implementaciones.Home.OportunidadLaboral;
 using INSN.Web.Repositories.Implementaciones.Home.LibroReclamaciones;
 using INSN.Web.Repositories.Implementaciones.Home.DocumentoInstitucional;
-using INSN.Web.Repositories.Implementaciones.Home.Comunicados;
 using INSN.Web.Repositories.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.Repositories.Interfaces.Home.LibroReclamaciones;
 using INSN.Web.Repositories.Interfaces.Home.OportunidadLaboral;
-using INSN.Web.Repositories.Interfaces.Home.Comunicados;
 using INSN.Web.Services.Implementaciones.Home.OportunidadLaboral;
 using INSN.Web.Services.Implementaciones.Home.LibroReclamaciones;
 using INSN.Web.Services.Implementaciones.Home.DocumentoInstitucional;
-using INSN.Web.Services.Implementaciones.Home.Comunicados;
-using INSN.Web.Services.Interfaces.Home.Comunicados;
 using INSN.Web.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.Services.Interfaces.Home.LibroReclamaciones;
 using INSN.Web.Services.Interfaces.Home.OportunidadLaboral;
@@ -133,10 +129,6 @@ builder.Services.AddTransient<IUsuarioRolService, UsuarioRolService>();
 builder.Services.AddTransient<ISistemaRepository, SistemaRepository>();
 builder.Services.AddTransient<ISistemaService, SistemaService>();
 
-// Comunicado
-builder.Services.AddTransient<IComunicadoRepository, ComunicadoRepository>();
-builder.Services.AddTransient<IComunicadoService, ComunicadoService>();
-
 // LibroReclamacion
 builder.Services.AddTransient<ILibroReclamacionRepository, LibroReclamacionRepository>();
 builder.Services.AddTransient<ILibroReclamacionService, LibroReclamacionService>();
@@ -174,8 +166,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
 //}
 
 app.UseHttpsRedirection();

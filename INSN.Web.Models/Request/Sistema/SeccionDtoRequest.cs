@@ -5,7 +5,7 @@ namespace INSN.Web.Models.Request.Sistema
     /// <summary>
     /// Clase SeccionDtoRequest
     /// </summary>
-    public class SeccionDtoRequest 
+    public class SeccionDtoRequest
     {
         /// <summary>
         /// Codigo Sistema Id
