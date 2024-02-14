@@ -2765,6 +2765,19 @@ Banner Style
 .main-banner .item-TeleSalud-12 {
     background-image: url(../Imagenes/Telesalud/Tele12.jpg);
 }
+.main-banner .item-Docencia-1 {
+    background-image: url(../Imagenes/Docencia/DOC1.PNG);
+}
+.main-banner .item-Docencia-2 {
+    background-image: url(../Imagenes/Docencia/DOC2.PNG);
+}
+.main-banner .item-Docencia-3 {
+    background-image: url(../Imagenes/Docencia/DOC3.PNG);
+}
+.main-banner .item-Docencia-4 {
+    background-image: url(../Imagenes/Docencia/DOC4.PNG);
+}
+
 
 .main-banner .item span.category {
     background-color: #fff;
