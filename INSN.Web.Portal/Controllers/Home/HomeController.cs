@@ -1,8 +1,11 @@
 ﻿using INSN.Web.Common;
 using INSN.Web.Models.Request.Home.Comunicados;
+using INSN.Web.Models.Request.Home.Noticias;
 using INSN.Web.Models.Response.Home.Comunicados;
+using INSN.Web.Models.Response.Home.Noticias;
 using INSN.Web.Portal.Models;
 using INSN.Web.Portal.Services.Interfaces.Home.Comunicados;
+using INSN.Web.Portal.Services.Interfaces.Home.Noticias;
 using INSN.Web.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -15,14 +18,17 @@ namespace INSN.Web.Portal.Controllers.Home
     public class HomeController : Controller
     {
         private readonly IComunicadoProxy _proxyComunicado;
+        private readonly INoticiaProxy _proxyNoticia;
 
         /// <summary>
         /// Home Controller
         /// </summary>
         /// <param name="proxyComunicado"></param>
-        public HomeController(IComunicadoProxy proxyComunicado)
+        /// <param name="proxyNoticia"></param>
+        public HomeController(IComunicadoProxy proxyComunicado, INoticiaProxy proxyNoticia)
         {
             _proxyComunicado = proxyComunicado;
+            _proxyNoticia = proxyNoticia;
         }
 
         /// <summary>
@@ -32,6 +38,8 @@ namespace INSN.Web.Portal.Controllers.Home
         public IActionResult Index()
         {
             PrincipalViewModel model = new PrincipalViewModel();
+
+            #region[Comunicado]
             var resultComunicados = ComunicadoListar();
             model.ComunicadoLista = resultComunicados.Result;
 
@@ -70,6 +78,48 @@ namespace INSN.Web.Portal.Controllers.Home
                     }
                 }
             }
+            #endregion
+
+            #region[Noticia]
+            var resultNoticias = NoticiaListar();
+            model.NoticiaLista = resultNoticias.Result;
+
+            foreach (var item in model.NoticiaLista)
+            {
+                if (item.RutaImagenPortada != null)
+                {
+                    // Obtener la extensión
+                    string? extension = Path.GetExtension(item.RutaImagenPortada);
+                    if (extension != null)
+                    {
+                        item.Extension = extension.TrimStart('.').ToLower();
+
+                        // Leer la imagen y convertirla en un arreglo de bytes
+                        item.ImagenBytes = System.IO.File.ReadAllBytes(item.RutaImagenPortada);
+                    }
+                }
+
+                // Listar detalle Noticia
+                var resultDetalle = _proxyNoticia.NoticiaDetalleListar(item.CodigoNoticiaId);
+                item.DetalleLista = resultDetalle.Result;
+
+                foreach (var det in item.DetalleLista)
+                {
+                    if (det.RutaImagen != null)
+                    {
+                        // Obtener la extensión
+                        string? extension = Path.GetExtension(det.RutaImagen);
+                        if (extension != null)
+                        {
+                            det.Extension = extension.TrimStart('.').ToLower();
+
+                            // Leer la imagen y convertirla en un arreglo de bytes
+                            det.ImagenBytes = System.IO.File.ReadAllBytes(det.RutaImagen);
+                        }
+                    }
+                }
+            }
+            #endregion
 
             return View("~/Views/Home/Index.cshtml", model);
         }
@@ -136,6 +186,25 @@ namespace INSN.Web.Portal.Controllers.Home
             });
 
             return (List<ComunicadoDtoResponse>)result;
+        }
+        #endregion
+
+        #region[Noticia]
+        /// <summary>
+        /// Noticia Listar
+        /// </summary>  
+        /// <returns></returns>
+        public async Task<List<NoticiaDtoResponse>> NoticiaListar()
+        {
+            var result = await _proxyNoticia.NoticiaListar(new NoticiaDtoRequest()
+            {
+                Titulo = "",
+                FechaExpiracion = DateTime.Now,
+                Estado = Enumerado.Estado.Activo,
+                EstadoRegistro = Enumerado.EstadoRegistro.Activo
+            });
+
+            return (List<NoticiaDtoResponse>)result;
         }
         #endregion
     }

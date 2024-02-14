@@ -2,6 +2,7 @@ using INSN.Web.Portal.Services.Implementaciones.Acceso;
 using INSN.Web.Portal.Services.Implementaciones.Home.Comunicados;
 using INSN.Web.Portal.Services.Implementaciones.Home.DocumentoInstitucional;
 using INSN.Web.Portal.Services.Implementaciones.Home.LibroReclamaciones;
+using INSN.Web.Portal.Services.Implementaciones.Home.Noticias;
 using INSN.Web.Portal.Services.Implementaciones.Home.OportunidadLaboral;
 using INSN.Web.Portal.Services.Implementaciones.SegApp;
 using INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento;
@@ -9,6 +10,7 @@ using INSN.Web.Portal.Services.Interfaces.Acceso;
 using INSN.Web.Portal.Services.Interfaces.Home.Comunicados;
 using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.Portal.Services.Interfaces.Home.LibroReclamaciones;
+using INSN.Web.Portal.Services.Interfaces.Home.Noticias;
 using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
 using INSN.Web.Portal.Services.Interfaces.SegApp;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
@@ -53,6 +55,7 @@ builder.Services.AddProxy<IUsuarioRolProxy, UsuarioRolProxy>("ApiHttpClient");
 builder.Services.AddProxy<IAccesoProxy, AccesoProxy>("ApiHttpClient");
 builder.Services.AddProxy<ILibroReclamacionProxy, LibroReclamacionProxy>("ApiHttpClient");
 builder.Services.AddProxy<IComunicadoProxy, ComunicadoProxy>("ApiWebAdminHttpClient");
+builder.Services.AddProxy<INoticiaProxy, NoticiaProxy>("ApiWebAdminHttpClient");
 #endregion
 
 builder.Services.AddDistributedMemoryCache();

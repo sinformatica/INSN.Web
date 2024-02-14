@@ -1,4 +1,5 @@
 ﻿using INSN.Web.Models.Response.Home.Comunicados;
+using INSN.Web.Models.Response.Home.Noticias;
 using System.ComponentModel.DataAnnotations;
 
 namespace INSN.Web.ViewModels.Home
@@ -35,6 +36,11 @@ namespace INSN.Web.ViewModels.Home
         /// Lista de comunicados
         /// </summary>
         public ICollection<ComunicadoDtoResponse>? ComunicadoLista { get; set; }
+
+        /// <summary>
+        /// Lista de noticias
+        /// </summary>
+        public ICollection<NoticiaDtoResponse>? NoticiaLista { get; set; }
         #endregion
     }
 }
