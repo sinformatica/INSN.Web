@@ -26,7 +26,1042 @@
                     <br />
                     <br />
                 </div>
-                <div class="tabs-content">
+
+
+
+
+
+                <!-- ======= INICIO navegadores principales ======= -->
+                <div class="nav-wrapper ">
+                    <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-bottom: 2px solid #0096ad !important;">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="Especialidad-tab" data-bs-toggle="tab" data-bs-target="#Especialidad" type="button" role="tab" aria-controls="Especialidad" aria-selected="true">Especialidades</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="Servicio-tab" data-bs-toggle="tab" data-bs-target="#Servicio" type="button" role="tab" aria-controls="Servicio" aria-selected="false">Servicios</button>
+                        </li>
+                    </ul>
+                </div>
+                <!-- ======= FIN TABS ======= -->
+                <!-- ============== -->
+                <!-- ======= INICIO lo que va adentro  ESPECIALIDADES======= -->
+                <div class="tab-pane fade show active" id="Especialidad" role="tabpanel" aria-labelledby="Especialidad-tab">
+                    <br />
+                    <div class="tabs-content">
+                        <!-- ======= INICIO TABS ======= -->
+                        <div class="nav-wrapper ">
+                            <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-bottom: 2px solid #0096ad !important;">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="Medicina-tab" data-bs-toggle="tab" data-bs-target="#Medicina" type="button" role="tab" aria-controls="Medicina" aria-selected="true">Medicina</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="Cirugía-tab" data-bs-toggle="tab" data-bs-target="#Cirugía" type="button" role="tab" aria-controls="Cirugía" aria-selected="false">Cirugía</button>
+                                </li>
+
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="Biotecnología-tab" data-bs-toggle="tab" data-bs-target="#Biotecnología" type="button" role="tab" aria-controls="Biotecnología" aria-selected="false">Biotecnología</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="SaludMental-tab" data-bs-toggle="tab" data-bs-target="#SaludMental" type="button" role="tab" aria-controls="SaludMental" aria-selected="false">Salud Mental</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="Odontología-tab" data-bs-toggle="tab" data-bs-target="#Odontología" type="button" role="tab" aria-controls="Odontología" aria-selected="false">Odontología</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="Hemodiálisis-tab" data-bs-toggle="tab" data-bs-target="#Hemodiálisis" type="button" role="tab" aria-controls="Hemodiálisis" aria-selected="false">Hemodiálisis</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="Emergencia-tab" data-bs-toggle="tab" data-bs-target="#Emergencia" type="button" role="tab" aria-controls="Emergencia" aria-selected="false">Emergencia</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="CentroQuirúrgico-tab" data-bs-toggle="tab" data-bs-target="#CentroQuirúrgico" type="button" role="tab" aria-controls="CentroQuirúrgico" aria-selected="false">Centro Quirúrgico</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- ======= FIN TABS ======= -->
+                        <!-- ============== -->
+                        <div class="tab-content" id="myTabContent">
+                            <!-- ============== -->
+                            <!-- ======= INICIO MEDICINA ======= -->
+                            <div class="tab-pane fade show active" id="Medicina" role="tabpanel" aria-labelledby="Medicina-tab">
+                                <br />
+                                <br />
+                                <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Cardiologia">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/cardiologia.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Cardiología</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="AlergiaAsmaInmunologia">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/asma.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Alergia, Asma e Inmunología</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Gastroenterologia">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/Gastroenterologia.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Gastroenterología</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Dermatologia">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/Dermatologia.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Dermatología</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Endocrinologia">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/Endocrinologia.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Endocrinología</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Hematologia">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/Hematologia.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Hematología Clínica</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Infectologia">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/Infectologia.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Infectología</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="MedicinaAdolescente">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/MedicinaAdolescente.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Medicina del Adolescente</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="MedicinaFisica">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/MedicinaFisica.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Medicina Física</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="MedicinaPediatrica">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/MedicinaPediatrica.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Medicina Pediátrica</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Nefrologia">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/Nefrologia.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Nefrología</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Neonatologia">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/Neonatologia.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Neonatología</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Neumologia">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/Neumologia.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Neumología</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Neurologia">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/Neurologia.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Neurología</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Reumatologia">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/Reumatologia.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Reumatología</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/UnidadHospitalDia.svg" width="100%" height="100%">
+                                                </p>
+                                                <p class="fw-medium">Unidad Hospital de Día</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-xl-2">
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="UnidadCuidadoPaliativos">
+                                            <div class="block-content">
+                                                <p class="mt-1">
+                                                    <img src="~/imagenes/iconos/especialidades/UnidadCuidadoPaliativos.svg" width="100%" height="100%">
+
+                                                </p>
+                                                <p class="fw-medium">Unidad de Cuidados Paliativos</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ======= FIN MEDICINA ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO CIRUGÍA ======= -->
+                            <div class="tab-pane fade" id="Cirugía" role="tabpanel" aria-labelledby="Cirugía-tab">
+                                <div class="tab-pane fade show active" id="Cirugía" role="tabpanel" aria-labelledby="Cirugía-tab">
+                                    <br />
+                                    <br />
+                                    <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="CirugiaCabeza">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/CirugiaCabeza.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Cirugía de Cabeza y Cuello y Maxilofacial</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="CirugiaPediatrica">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/CirugiaPediatrica.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Cirugía Pediátrica</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="CirugiaPlastica">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/CirugiaPlastica.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Cirugía Plástica</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="CirugiaToraxCardiovascular">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/CirugiaToraxCardiovascular.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Cirugía Tórax y Cardiovascular</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Ginecologia">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Ginecologia.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Ginecología</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Neurocirugia">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Neurocirugia.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Neurocirugía</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Oftalmologia">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Oftalmologia.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Oftalmología</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Otorrinolaringologia">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Otorrinolaringologia.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium" style="font-size: 14px;">Otorrinolaringología</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Quemados">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Quemados.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Quemados</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Traumatologia">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Traumatologia.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Traumatología</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Urologia">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Urologia.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Urología</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <!-- ======= FIN CIRUGÍA ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO BIOTECNOLOGIA ======= -->
+                            <div class="tab-pane fade" id="Biotecnología" role="tabpanel" aria-labelledby="Biotecnología-tab">
+                                <div class="tab-pane fade show active" id="Biotecnología" role="tabpanel" aria-labelledby="Biotecnología-tab">
+                                    <br />
+                                    <br />
+                                    <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/cardiologia.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium" style="font-size: 14px;">Servicio de Cirugía Experimental</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/cardiologia.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium" style="font-size: 14px;">Servicio de Genética y Errores Innatos del Metabolismo</p>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ======= FIN BIOTECNOLOGIA ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO SALUD MENTAL ======= -->
+                            <div class="tab-pane fade" id="SaludMental" role="tabpanel" aria-labelledby="SaludMental-tab">
+                                <div class="tab-pane fade show active" id="SaludMental" role="tabpanel" aria-labelledby="SaludMental-tab">
+                                    <br />
+                                    <br />
+                                    <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Psicologia">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Psicologia.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Psicología</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Psiquiatria">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Psiquiatria.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Psiquiatría</p>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ======= FIN SALUD MENTAL ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO ODONTOLOGÍA ======= -->
+                            <div class="tab-pane fade" id="Odontología" role="tabpanel" aria-labelledby="Odontología-tab">
+                                <div class="tab-pane fade show active" id="Odontología" role="tabpanel" aria-labelledby="Odontología-tab">
+                                    <br />
+                                    <br />
+                                    <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Ortodoncia.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium" style="font-size: 14px;">Ortodoncia y Ortopedia Maxilar</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Dental.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium" style="font-size: 12px;">Estética Dental y Terapia Pulpar, y Rehabilitación de la Oclusión</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Estomatologia.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium" style="font-size: 14px;">Medicina Estomatológia y Atención al Infante</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/BucoMaxilo.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium" style="font-size: 14px;">Cirugía Buco Máxilo facial</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ======= FIN ODONTOLOGÍA ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO HEMODIÁLISIS ======= -->
+                            <div class="tab-pane fade" id="Hemodiálisis" role="tabpanel" aria-labelledby="Hemodiálisis-tab">
+                                <div class="tab-pane fade show active" id="Hemodiálisis" role="tabpanel" aria-labelledby="Hemodiálisis-tab">
+                                    <br />
+                                    <br />
+                                    <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Hemodialisis.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium" style="font-size: 12px;">Hemodiálisis; Métodos y Tratamiento por Insuficiencia Renal</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Dialisis.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Diálisis Peritoneal</p>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ======= FIN HEMODIÁLISIS ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO EMERGENCIA ======= -->
+                            <div class="tab-pane fade" id="Emergencia" role="tabpanel" aria-labelledby="Emergencia-tab">
+                                <div class="tab-pane fade show active" id="Emergencia" role="tabpanel" aria-labelledby="Emergencia-tab">
+                                    <br />
+                                    <br />
+                                    <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/UnidadCuidados.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium" style="font-size: 14px;">Unidad de Cuidados Intensivos - UCI</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="ServicioEmergencia">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Emergencia.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Servicio de Emergencia</p>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ======= FIN HEMODIÁLISIS ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO CENTRO QUIRÚRGICO ======= -->
+                            <div class="tab-pane fade" id="CentroQuirúrgico" role="tabpanel" aria-labelledby="CentroQuirúrgico-tab">
+                                <div class="tab-pane fade show active" id="CentroQuirúrgico" role="tabpanel" aria-labelledby="CentroQuirúrgico-tab">
+                                    <br />
+                                    <br />
+                                    <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/CirugiaMayor.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Cirugía Mayor</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/CirugiaDia.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Cirugía de Día</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Quemados.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">SOP Quemados</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Emergencia.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">SOP Emergencia</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-6 col-md-4 col-xl-2">
+                                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                                <div class="block-content">
+                                                    <p class="mt-1">
+                                                        <img src="~/imagenes/iconos/especialidades/Recuperacion.svg" width="100%" height="100%">
+                                                    </p>
+                                                    <p class="fw-medium">Sala de Recuperación</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ======= FIN CENTRO QUIRÚRGICO ======= -->
+                            <!-- ============== -->
+                            <!-- ============== -->
+                            <!-- ============== -->
+                            <!-- ============== -->
+                            <!-- ============== -->
+                            <!-- ============== -->
+                            <!-- ============== -->
+                    </div>
+
+                </div>
+                </div>
+                <!-- ======= FIN lo que va adentro ESPECIALIDADES ======= -->
+                <!-- ======= INICIO lo que va adentro SERVICIOS ======= -->
+                <div class="tab-pane fade" id="Servicio" role="tabpanel" aria-labelledby="Servicio-tab">
+                             <div class="tabs-content">
+                            <!-- ======= INICIO TABS ======= -->
+                            <div class="nav-wrapper ">
+                            <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-bottom: 2px solid #0096ad !important;">
+                            <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="UnidadPatologíaClínica-tab" data-bs-toggle="tab" data-bs-target="#UnidadPatologíaClínica" type="button" role="tab" aria-controls="UnidadPatologíaClínica" aria-selected="false">Unidad Patología Clínica</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="NutriciónyDietética-tab" data-bs-toggle="tab" data-bs-target="#NutriciónyDietética" type="button" role="tab" aria-controls="NutriciónyDietética" aria-selected="false">Nutrición y Dietética</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="Farmacia-tab" data-bs-toggle="tab" data-bs-target="#Farmacia" type="button" role="tab" aria-controls="Farmacia" aria-selected="false">Farmacia</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="CentrodeVacunación-tab" data-bs-toggle="tab" data-bs-target="#CentrodeVacunación" type="button" role="tab" aria-controls="CentrodeVacunación" aria-selected="false">Centro de Vacunación</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="ServicioSocial-tab" data-bs-toggle="tab" data-bs-target="#ServicioSocial" type="button" role="tab" aria-controls="ServicioSocial" aria-selected="false">Servicio Social</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="CentraldeEsterilización-tab" data-bs-toggle="tab" data-bs-target="#CentraldeEsterilización" type="button" role="tab" aria-controls="CentraldeEsterilización" aria-selected="false">Central de Esterilización</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="MAMIS-tab" data-bs-toggle="tab" data-bs-target="#MAMIS" type="button" role="tab" aria-controls="MAMIS" aria-selected="false">MAMIS</button>
+                            </li>
+                            </ul>
+                            </div>
+                            <!-- ======= FIN TABS ======= -->
+                            <!-- ============== -->
+                            <div class="tab-content" id="myTabContent">
+                            <!-- ============== -->                            <!-- ============== -->
+                            <!-- ======= INICIO UNIDAD PATOLOGÍA CLÍNICA ======= -->
+                            <div class="tab-pane fade" id="UnidadPatologíaClínica" role="tabpanel" aria-labelledby="UnidadPatologíaClínica-tab">
+                            <div class="tab-pane fade show active" id="UnidadPatologíaClínica" role="tabpanel" aria-labelledby="UnidadPatologíaClínica-tab">
+                            <br />
+                            <br />
+                            <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/BancoSangre.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium">Hemoterapia y Banco de Sangre</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Bioquimica.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium">Bioquímica</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Hematologia.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium">Hematología</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Microbiologia.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium">Microbiología</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Emergencia.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium">Laboratorio de Emergencia</p>
+                            </div>
+                            </a>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <!-- ======= FIN UNIDAD PATOLOGÍA CLÍNICA ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO DIAGNÓSTICO POR IMAGENES ======= -->
+                            <div class="tab-pane fade" id="DiagnósticoporImagenes" role="tabpanel" aria-labelledby="DiagnósticoporImagenes-tab">
+                            <div class="tab-pane fade show active" id="DiagnósticoporImagenes" role="tabpanel" aria-labelledby="DiagnósticoporImagenes-tab">
+                            <br />
+                            <br />
+                            <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Radiologia.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium">Radiología Convencional digital</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/EstudiosRadiologia.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 14px;">Estudios Radiológicos especiales, bajo guía fluroroscópica</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Ecografia.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium">Ecografía General y Doppler</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Tomografia.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium">Tomografía Multicorte Volumétrico 3D</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/RadiologiaIntervencionista.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 10px;">
+                            Radiología Intervencionista, Diagnóstico y
+                            tratamiento de patologías vasculares</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Hemodinamica.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium">Hemodinámica</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/DiagnosticoHemodinamica.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 14px;">CQ-Diagnóstico por Imágenes-Hemodinámica</p>
+                            </div>
+                            </a>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <!-- ======= FIN DIAGNÓSTICO POR IMAGENES ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO NUTRICIÓN Y DIETETICA ======= -->
+                            <div class="tab-pane fade" id="NutriciónyDietética" role="tabpanel" aria-labelledby="NutriciónyDietética-tab">
+                            <div class="tab-pane fade show active" id="NutriciónyDietética" role="tabpanel" aria-labelledby="NutriciónyDietética-tab">
+                            <br />
+                            <br />
+                            <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/FormulasLacteas.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 14px;">Soporte Nutricional por Fórmulas Lácteas</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/FormulaEnterales.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 14px;">Soporte Nutricional por Fórmulas Enterales</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Dieteticos.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 14px;">Soporte Nutricional con Regímenes Dietéticos</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Nutricion.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 14px;">Servicio de Nutrición: Consultas Ambulatoria en Nutrición</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Monitoreo.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 12px;">Monitoreo. Evaluación Nutricional y régimen de alta en hospitalización</p>
+                            </div>
+                            </a>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <!-- ======= FIN NUTRICIÓN Y DIETETICA ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO FARMACIA ======= -->
+                            <div class="tab-pane fade" id="Farmacia" role="tabpanel" aria-labelledby="Farmacia-tab">
+                            <div class="tab-pane fade show active" id="Farmacia" role="tabpanel" aria-labelledby="Farmacia-tab">
+                            <br />
+                            <br />
+                            <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/FarmaciaClinica.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium">Farmacia Clínica</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Almacenamiento.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 14px;">Gestión de Programación y Almacenamiento</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/MaterialesMedicos.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 14px;">Dispensación de Productos Farmacéuticos y Materiales Médicos</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Farmacotecnia.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium">Farmacotecnia</p>
+                            </div>
+                            </a>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <!-- ======= FIN FARMACIA ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO CENTRO DE VACUNACIÓN ======= -->
+                            <div class="tab-pane fade" id="CentrodeVacunación" role="tabpanel" aria-labelledby="CentrodeVacunación-tab">
+                            <div class="tab-pane fade show active" id="CentrodeVacunación" role="tabpanel" aria-labelledby="CentrodeVacunación-tab">
+                            <br />
+                            <br />
+                            <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" asp-area="" asp-controller="Especialidades" asp-action="Inmunizacion">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Inmunizacion.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium">Servicio de Inmunización</p>
+                            </div>
+                            </a>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <!-- ======= FIN CENTRO DE VACUNACIÓN ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO SERVICIO SOCIAL ======= -->
+                            <div class="tab-pane fade" id="ServicioSocial" role="tabpanel" aria-labelledby="ServicioSocial-tab">
+                            <div class="tab-pane fade show active" id="ServicioSocial" role="tabpanel" aria-labelledby="ServicioSocial-tab">
+                            <br />
+                            <br />
+                            <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/AtencionAmbulatoria.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 14px;">Consulta Externa - Atención Ambulatoria</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Hospitalizacion.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 14px;">Hospitalización - Atención Pacientes de Hospitalización</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Emergencia.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 14px;">Emergencia - Atención Pacientes de Hospitalización</p>
+                            </div>
+                            </a>
+                            </div>
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/VisitaDomiciliaria.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 14px;">Salud Familiar y Comunitaria - Visita Domiciliaria</p>
+                            </div>
+                            </a>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <!-- ======= FIN SERVICIO SOCIAL ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO CENTRAL ESTERILIZACION ======= -->
+                            <div class="tab-pane fade" id="CentraldeEsterilización" role="tabpanel" aria-labelledby="CentraldeEsterilización-tab">
+                            <div class="tab-pane fade show active" id="CentraldeEsterilización" role="tabpanel" aria-labelledby="CentraldeEsterilización-tab">
+                            <br />
+                            <br />
+                            <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Desinfeccion.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 12px;">Desinfección de alto nivel en Central de Esterilización</p>
+                            </div>
+                            </a>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <!-- ======= FIN CENTRAL ESTERILIZACION ======= -->
+                            <!-- ============== -->
+                            <!-- ======= INICIO MAMIS ======= -->
+                            <div class="tab-pane fade" id="MAMIS" role="tabpanel" aria-labelledby="MAMIS-tab">
+                            <div class="tab-pane fade show active" id="MAMIS" role="tabpanel" aria-labelledby="MAMIS-tab">
+                            <br />
+                            <br />
+                            <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="col-6 col-md-4 col-xl-2">
+                            <a class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                            <div class="block-content">
+                            <p class="mt-1">
+                            <img src="~/imagenes/iconos/especialidades/Infantil.svg" width="100%" height="100%">
+                            </p>
+                            <p class="fw-medium" style="font-size: 12px;">Módulos de Atención al Matrato Infantil y del Adolescente en Salud</p>
+                            </div>
+                            </a>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <!-- ======= FIN MAMIS ======= -->
+                            </div>
+                            </div> 
+                </div>
+                <!-- ======= FIN lo que va adentro SERVICIOS ======= -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              @*   <div class="tabs-content">
                     <!-- ======= INICIO TABS ======= -->
                     <div class="nav-wrapper ">
                         <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-bottom: 2px solid #0096ad !important;">
@@ -57,9 +1092,6 @@
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="UnidadPatologíaClínica-tab" data-bs-toggle="tab" data-bs-target="#UnidadPatologíaClínica" type="button" role="tab" aria-controls="UnidadPatologíaClínica" aria-selected="false">Unidad Patología Clínica</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="DiagnósticoporImagenes-tab" data-bs-toggle="tab" data-bs-target="#DiagnósticoporImagenes" type="button" role="tab" aria-controls="DiagnósticoporImagenes" aria-selected="false">Diagnóstico por Imágenes</button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="NutriciónyDietética-tab" data-bs-toggle="tab" data-bs-target="#NutriciónyDietética" type="button" role="tab" aria-controls="NutriciónyDietética" aria-selected="false">Nutrición y Dietética</button>
@@ -998,7 +2030,7 @@
                         </div>
                         <!-- ======= FIN SERVICIO SOCIAL ======= -->
                     </div>
-                </div>
+                </div> *@
             </div>
         </div>
     </div>

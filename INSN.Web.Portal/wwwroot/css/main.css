@@ -29726,7 +29726,7 @@ small,
     overflow-x: visible;
 }
 .block.block-altura {
-    height: 200px !important;
+    height: 140px !important;
 }
 
     .block-content > .pull-t,
@@ -29808,7 +29808,8 @@ small,
 }
 
 .block.block-rounded {
-    border-radius: 0.875rem 1rem;
+    border-radius: 0.380rem 0.380rem;
+    /*  border-radius: 0.875rem 1rem; comentado keyla*/
     /*height: 200px;*/ /*Comentado Jyataco*/
 }
 

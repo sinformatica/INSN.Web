@@ -18303,12 +18303,14 @@ small,
     box-shadow: none;
 }
 .block.block-altura {
-    height: 200px!important;
+  /*  height: 200px !important;*/
+    height: 140px !important;
 }
 
 
 .block.block-rounded {
-    border-radius: 0.875rem 1rem;
+    /*  border-radius: 0.875rem 1rem;*/
+    border-radius: 0.360rem 0.360rem;
 }
 
     .block.block-rounded > .block-header,
