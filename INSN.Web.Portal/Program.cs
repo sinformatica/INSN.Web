@@ -42,9 +42,9 @@ builder.Services.AddHttpClientIfConfigured("ApiWebAdminHttpClient", builder.Conf
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 #region[Inyectar dependecias]
-builder.Services.AddProxy<IDocumentoLegalProxy, DocumentoLegalProxy>("ApiHttpClient");
-builder.Services.AddProxy<ITipoDocumentoProxy, TipoDocumentoProxy>("ApiHttpClient");
-builder.Services.AddProxy<IDocumentoConvocatoriaProxy, ConvocatoriaProxy>("ApiHttpClient");
+builder.Services.AddProxy<IDocumentoLegalProxy, DocumentoLegalProxy>("ApiWebAdminHttpClient");
+builder.Services.AddProxy<ITipoDocumentoProxy, TipoDocumentoProxy>("ApiWebAdminHttpClient");
+builder.Services.AddProxy<IDocumentoConvocatoriaProxy, ConvocatoriaProxy>("ApiWebAdminHttpClient");
 builder.Services.AddProxy<ISistemaProxy, SistemaProxy>("ApiHttpClient");
 builder.Services.AddProxy<IRedireccionarProxy, RedireccionarProxy>("ApiHttpClient");
 builder.Services.AddProxy<IMenuProxy, MenuProxy>("ApiHttpClient");

@@ -22,18 +22,10 @@ using INSN.Web.Repositories.Interfaces.Acceso;
 using INSN.Web.Services.Interfaces.Acceso;
 using INSN.Web.Services.Implementaciones.Acceso;
 using INSN.Web.ApiRest.Controllers;
-using INSN.Web.Repositories.Implementaciones.Home.OportunidadLaboral;
 using INSN.Web.Repositories.Implementaciones.Home.LibroReclamaciones;
-using INSN.Web.Repositories.Implementaciones.Home.DocumentoInstitucional;
-using INSN.Web.Repositories.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.Repositories.Interfaces.Home.LibroReclamaciones;
-using INSN.Web.Repositories.Interfaces.Home.OportunidadLaboral;
-using INSN.Web.Services.Implementaciones.Home.OportunidadLaboral;
 using INSN.Web.Services.Implementaciones.Home.LibroReclamaciones;
-using INSN.Web.Services.Implementaciones.Home.DocumentoInstitucional;
-using INSN.Web.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.Services.Interfaces.Home.LibroReclamaciones;
-using INSN.Web.Services.Interfaces.Home.OportunidadLaboral;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -100,12 +92,6 @@ builder.Services.AddAutoMapper(config =>
     config.AddProfile<INSNWebProfile>();
 });
 
-builder.Services.AddTransient<ITipoDocumentoService, TipoDocumentoService>();
-builder.Services.AddTransient<ITipoDocumentoRepository, TipoDocumentoRepository>();
-builder.Services.AddTransient<IDocumentoLegalService, DocumentoLegalService>();
-builder.Services.AddTransient<IDocumentoLegalRepository, DocumentoLegalRepository>();
-builder.Services.AddTransient<IConvocatoriaService, ConvocatoriaService>();
-builder.Services.AddTransient<IConvocatoriaRepository, ConvocatoriaRepository>();
 builder.Services.AddTransient<IMenuRepository, MenuRepository>();
 builder.Services.AddTransient<IMenuService, MenuService>();
 

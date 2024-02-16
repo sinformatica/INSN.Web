@@ -1,8 +1,5 @@
 ﻿using AutoMapper;
-using INSN.Web.Entities.Home.DocumentoInstitucional;
 using INSN.Web.Entities.Home.LibroReclamacion;
-using INSN.Web.Entities.Home.OportunidadLaboral;
-using INSN.Web.Entities.Info.Home.OportunidadLaboral;
 using INSN.Web.Entities.Info.Mantenimiento;
 using INSN.Web.Entities.SegApp;
 using INSN.Web.Models.Request.Home;
@@ -30,19 +27,6 @@ namespace INSN.Web.Services.Profiles
         public INSNWebProfile()
         {
             // El AutoMapper solo mapea de izquierda a derecha
-
-            CreateMap<TipoDocumento, TipoDocumentoDtoResponse>();
-            CreateMap<TipoDocumentoDtoRequest, TipoDocumento>();
-
-            CreateMap<DocumentoLegal, DocumentoLegalDtoResponse>();
-            CreateMap<DocumentoLegalDtoRequest, DocumentoLegal>();
-
-            //Mapear Convocatoria
-            CreateMap<DocumentoConvocatoria, ConvocatoriaDtoResponse>();
-            CreateMap<ConvocatoriaDtoRequest, Convocatoria>();
-
-            CreateMap<DocumentoConvocatoriaInfo, ConvocatoriaDtoResponse>();
-
             // Mapear Rol
             CreateMap<Rol, RolDtoResponse>();
             CreateMap<RolDtoRequest, Rol>();

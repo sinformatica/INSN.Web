@@ -16,7 +16,7 @@ public class ConvocatoriaProxy : CrudRestHelperBase<ConvocatoriaDtoRequest, Conv
     /// <param name="httpClient"></param>
     /// <param name="httpContextAccessor"></param>
     public ConvocatoriaProxy(HttpClient httpClient, IHttpContextAccessor? httpContextAccessor)
-        : base("api/Home/OportunidadLaboral/DocumentoConvocatoria", httpClient)
+        : base("api/Consulta/OportunidadLaboral/DocumentoConvocatoria", httpClient)
     {
     }
 
