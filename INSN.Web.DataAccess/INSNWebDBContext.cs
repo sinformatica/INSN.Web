@@ -4,6 +4,7 @@ using System.Reflection;
 using INSN.Web.Entities.Home.LibroReclamacion;
 using INSN.Web.Entities.Home.OportunidadLaboral;
 using INSN.Web.Entities.Home.DocumentoInstitucional;
+using INSN.Web.Entities.Util;
 
 namespace INSN.Web.DataAccess
 {
@@ -12,6 +13,11 @@ namespace INSN.Web.DataAccess
     /// </summary>
     public class INSNWebDBContext : DbContext
     {
+        /// <summary>
+        /// Correo Credenciales
+        /// </summary>
+        public DbSet<CorreoCredenciales>? DbSetCorreoCredenciales { get; set; }
+
         /// <summary>
         /// INSNWebDBContext
         /// </summary>
