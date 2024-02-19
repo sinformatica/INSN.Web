@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using INSN.Web.Entities.Home.LibroReclamacion;
+using INSN.Web.Entities.Util;
 
 namespace INSN.Web.DataAccess
 {
@@ -37,6 +38,10 @@ namespace INSN.Web.DataAccess
 
             #region [LibroReclamacion]
             modelBuilder.Entity<LibroReclamacion>().HasKey(f => f.CodigoLibroReclamacionId);
+            #endregion
+
+            #region [Correo Credencial]
+            modelBuilder.Entity<CorreoCredencial>().HasKey(f => f.CodigoCorreoCredencialId);
             #endregion
             #endregion
 

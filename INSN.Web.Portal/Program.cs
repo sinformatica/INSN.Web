@@ -1,3 +1,4 @@
+#region[Librerias]
 using INSN.Web.Portal.Services.Implementaciones.Acceso;
 using INSN.Web.Portal.Services.Implementaciones.Home.Comunicados;
 using INSN.Web.Portal.Services.Implementaciones.Home.DocumentoInstitucional;
@@ -6,6 +7,7 @@ using INSN.Web.Portal.Services.Implementaciones.Home.Noticias;
 using INSN.Web.Portal.Services.Implementaciones.Home.OportunidadLaboral;
 using INSN.Web.Portal.Services.Implementaciones.SegApp;
 using INSN.Web.Portal.Services.Implementaciones.SegApp.Mantenimiento;
+using INSN.Web.Portal.Services.Implementaciones.Util;
 using INSN.Web.Portal.Services.Interfaces.Acceso;
 using INSN.Web.Portal.Services.Interfaces.Home.Comunicados;
 using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
@@ -14,10 +16,12 @@ using INSN.Web.Portal.Services.Interfaces.Home.Noticias;
 using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
 using INSN.Web.Portal.Services.Interfaces.SegApp;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
+using INSN.Web.Portal.Services.Interfaces.Util;
 using INSN.Web.Portal.Services.Util;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Serilog;
 using Serilog.Events;
+#endregion
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,9 +46,7 @@ builder.Services.AddHttpClientIfConfigured("ApiWebAdminHttpClient", builder.Conf
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 #region[Inyectar dependecias]
-builder.Services.AddProxy<IDocumentoLegalProxy, DocumentoLegalProxy>("ApiWebAdminHttpClient");
-builder.Services.AddProxy<ITipoDocumentoProxy, TipoDocumentoProxy>("ApiWebAdminHttpClient");
-builder.Services.AddProxy<IDocumentoConvocatoriaProxy, ConvocatoriaProxy>("ApiWebAdminHttpClient");
+#region[ApiHttpClient]
 builder.Services.AddProxy<ISistemaProxy, SistemaProxy>("ApiHttpClient");
 builder.Services.AddProxy<IRedireccionarProxy, RedireccionarProxy>("ApiHttpClient");
 builder.Services.AddProxy<IMenuProxy, MenuProxy>("ApiHttpClient");
@@ -54,8 +56,16 @@ builder.Services.AddProxy<ITipoDocumentoIdentidadProxy, TipoDocumentoIdentidadPr
 builder.Services.AddProxy<IUsuarioRolProxy, UsuarioRolProxy>("ApiHttpClient");
 builder.Services.AddProxy<IAccesoProxy, AccesoProxy>("ApiHttpClient");
 builder.Services.AddProxy<ILibroReclamacionProxy, LibroReclamacionProxy>("ApiHttpClient");
+builder.Services.AddProxy<ICorreoCredencialProxy, CorreoCredencialProxy>("ApiHttpClient");
+#endregion
+
+#region[ApiWebAdminHttpClient]
+builder.Services.AddProxy<IDocumentoLegalProxy, DocumentoLegalProxy>("ApiWebAdminHttpClient");
+builder.Services.AddProxy<ITipoDocumentoProxy, TipoDocumentoProxy>("ApiWebAdminHttpClient");
+builder.Services.AddProxy<IDocumentoConvocatoriaProxy, ConvocatoriaProxy>("ApiWebAdminHttpClient");
 builder.Services.AddProxy<IComunicadoProxy, ComunicadoProxy>("ApiWebAdminHttpClient");
 builder.Services.AddProxy<INoticiaProxy, NoticiaProxy>("ApiWebAdminHttpClient");
+#endregion
 #endregion
 
 builder.Services.AddDistributedMemoryCache();

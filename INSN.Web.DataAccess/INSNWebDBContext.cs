@@ -12,11 +12,6 @@ namespace INSN.Web.DataAccess
     public class INSNWebDBContext : DbContext
     {
         /// <summary>
-        /// Correo Credenciales
-        /// </summary>
-        public DbSet<CorreoCredenciales>? DbSetCorreoCredenciales { get; set; }
-
-        /// <summary>
         /// INSNWebDBContext
         /// </summary>
         /// <param name="options"></param>
@@ -41,8 +36,12 @@ namespace INSN.Web.DataAccess
             modelBuilder.Entity<UsuarioRol>().HasKey(f => f.CodigoUsuarioRolId);
             #endregion
 
-            #region [LibroReclamacion]
+            #region [Libro Reclamacion]
             modelBuilder.Entity<LibroReclamacion>().HasKey(f => f.CodigoLibroReclamacionId);
+            #endregion
+
+            #region [Correo Credencial]
+            modelBuilder.Entity<CorreoCredencial>().HasKey(f => f.CodigoCorreoCredencialId);
             #endregion
             #endregion
 
