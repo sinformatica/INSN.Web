@@ -2,6 +2,7 @@
 using INSN.Web.Entities.Home.LibroReclamacion;
 using INSN.Web.Entities.Info.Mantenimiento;
 using INSN.Web.Entities.SegApp;
+using INSN.Web.Entities.Util;
 using INSN.Web.Models.Request.Home;
 using INSN.Web.Models.Request.Home.DocumentoLegal;
 using INSN.Web.Models.Request.Home.LibroReclamaciones;
@@ -13,6 +14,7 @@ using INSN.Web.Models.Response.Home.OportunidadLaboral;
 using INSN.Web.Models.Response.SegApp;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.Sistemas;
+using INSN.Web.Models.Response.Util;
 
 namespace INSN.Web.Services.Profiles
 {
@@ -51,6 +53,9 @@ namespace INSN.Web.Services.Profiles
             // Mapear Libro Reclamacion
             CreateMap<LibroReclamacion, LibroReclamacionDtoResponse>();
             CreateMap<LibroReclamacionDtoRequest, LibroReclamacion>();
+
+            // Correo Credencial
+            CreateMap<CorreoCredencial, CorreoCredencialDtoResponse>();
         }
     }
 }

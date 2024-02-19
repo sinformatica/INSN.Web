@@ -10,6 +10,8 @@ using static INSN.Web.Common.Enumerado;
 using System.Net.Mail;
 using Microsoft.Extensions.Configuration;
 using System.Net;
+using INSN.Web.Portal.Services.Interfaces.Util;
+using System.Security.Principal;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
@@ -19,6 +21,7 @@ namespace INSN.Web.Portal.Controllers.Home;
 public class LibroReclamacionController : Controller
 {
     private readonly ILibroReclamacionProxy _proxy;
+    private readonly ICorreoCredencialProxy _proxyCorreoCrendencial;
     private readonly ITipoDocumentoIdentidadProxy _proxyTipoDocumentoIdentidad;
     private readonly IConfiguration _configuration;
 
@@ -27,12 +30,15 @@ public class LibroReclamacionController : Controller
     /// </summary>
     /// <param name="LibroReclamacion"></param>
     /// <param name="TipoDocumentoIdentidad"></param>
+    /// <param name="configuration"></param>
+    /// <param name="proxyCorreoCrendencial"></param>
     public LibroReclamacionController(ILibroReclamacionProxy LibroReclamacion, ITipoDocumentoIdentidadProxy TipoDocumentoIdentidad,
-                                IConfiguration configuration)
+                                IConfiguration configuration, ICorreoCredencialProxy proxyCorreoCrendencial)
     {
         _proxy = LibroReclamacion;
         _proxyTipoDocumentoIdentidad = TipoDocumentoIdentidad;
         _configuration = configuration;
+        _proxyCorreoCrendencial = proxyCorreoCrendencial;
     }
 
     /// <summary>
@@ -104,37 +110,37 @@ public class LibroReclamacionController : Controller
             if (request.Autorizacion == false)
                 throw new ModelException(nameof(request.Autorizacion), "Campo requerido: Autorización");
 
-            //await _proxy.LibroReclamacionInsertar(new LibroReclamacionDtoRequest
-            //{
-            //    TipoPersona = request.TipoPersonaSeleccionada,
-            //    TipoDocumentoIdentidad = request.TipoDocumentoIdentidadSeleccionada,
-            //    DocumentoIdentidad = request.DocumentoIdentidad,
-            //    RUC = request.RUC,
-            //    RazonSocial = request.RazonSocial,
-            //    Nombres = request.Nombres,
-            //    ApellidoPaterno = request.ApellidoPaterno,
-            //    ApellidoMaterno = request.ApellidoMaterno,
-            //    Direccion = request.Direccion,
-            //    CelularTelefono = request.CelularTelefono,
-            //    Email = request.Email,
-            //    Reclamo = request.Reclamo,
-            //    TipoParentesco = request.TipoParentescoSeleccionada,
-            //    TipoDocumentoIdentidadPaciente = request.TipoDocumentoIdentidadPacienteSeleccionada,
-            //    DocumentoIdentidadPaciente = request.DocumentoIdentidadPaciente,
-            //    NombrePaciente = request.NombrePaciente,
-            //    ApellidoPaternoPaciente = request.ApellidoPaternoPaciente,
-            //    ApellidoMaternoPaciente = request.ApellidoMaternoPaciente,
-            //    Autorizacion = request.Autorizacion,
-            //    Estado = Estado.Activo,
-            //    #region [Base Insert]
-            //    EstadoRegistro = EstadoRegistro.Activo,
-            //    FechaCreacion = DateTime.Now,
-            //    UsuarioCreacion = Environment.UserName,
-            //    TerminalCreacion = Environment.MachineName
-            //    #endregion
-            //});
+            await _proxy.LibroReclamacionInsertar(new LibroReclamacionDtoRequest
+            {
+                TipoPersona = request.TipoPersonaSeleccionada,
+                TipoDocumentoIdentidad = request.TipoDocumentoIdentidadSeleccionada,
+                DocumentoIdentidad = request.DocumentoIdentidad,
+                RUC = request.RUC,
+                RazonSocial = request.RazonSocial,
+                Nombres = request.Nombres,
+                ApellidoPaterno = request.ApellidoPaterno,
+                ApellidoMaterno = request.ApellidoMaterno,
+                Direccion = request.Direccion,
+                CelularTelefono = request.CelularTelefono,
+                Email = request.Email,
+                Reclamo = request.Reclamo,
+                TipoParentesco = request.TipoParentescoSeleccionada,
+                TipoDocumentoIdentidadPaciente = request.TipoDocumentoIdentidadPacienteSeleccionada,
+                DocumentoIdentidadPaciente = request.DocumentoIdentidadPaciente,
+                NombrePaciente = request.NombrePaciente,
+                ApellidoPaternoPaciente = request.ApellidoPaternoPaciente,
+                ApellidoMaternoPaciente = request.ApellidoMaternoPaciente,
+                Autorizacion = request.Autorizacion,
+                Estado = Estado.Activo,
+                #region [Base Insert]
+                EstadoRegistro = EstadoRegistro.Activo,
+                FechaCreacion = DateTime.Now,
+                UsuarioCreacion = Environment.UserName,
+                TerminalCreacion = Environment.MachineName
+                #endregion
+            });
 
-            EnviarCorreo();
+            await EnviarCorreo(request);
 
             #region[Controles de Codigo/Controller]
             TempData["CodigoMensaje"] = 1;
@@ -162,18 +168,37 @@ public class LibroReclamacionController : Controller
     /// <summary>
     /// Enviar correo
     /// </summary>
-    public void EnviarCorreo()
+    public async Task EnviarCorreo(LibroReclamacionViewModel request)
     {
-        string toAddress = "jriveros@sise.com.pe";
-        string asunto = "Asunto del correo";
-        string cuerpoMensaje = "Este es el cuerpo del mensaje del correo.";
+        // Destinatario
+        string? NombreDestinatario = $"{request.ApellidoPaterno} {request.ApellidoMaterno} {request.Nombres}";
+        string? toAddress = request.Email ?? "";
+        string asunto = $"INSN - RECLAMO {NombreDestinatario}";
 
-        var emailSettings = _configuration.GetSection("EmailSettings");
-        var fromAddress = emailSettings["FromAddress"];
-        var smtpServer = emailSettings["SmtpServer"];
-        var port = int.Parse(emailSettings["Port"]);
-        var userName = emailSettings["UserName"];
-        var password = emailSettings["Password"];
+        // Leer la imagen del logo y convertirla en un arreglo de bytes
+        byte[]? ImagenBytes = System.IO.File.ReadAllBytes("\\\\172.30.31.198\\dev\\Varios\\logo.png");
+        var base64 = Convert.ToBase64String(ImagenBytes ?? Array.Empty<byte>());
+        var imagenDataUrl = string.Format("data:image/png;base64,{0}", base64);
+
+        string? cuerpoMensaje = $"<h3>Estimado(a), {NombreDestinatario}</h3>";
+        cuerpoMensaje += "Te informamos que hemos recibido tu reclamo:<br><br>";
+        cuerpoMensaje += "<p style='text-align: justify;'>" + request.Reclamo + "</p>";
+        cuerpoMensaje += "<br>";
+        cuerpoMensaje += "<p>Se revisará y se te notificará la resolución del mismo.</p>";
+        cuerpoMensaje += "<p>Agradecemos tu compresión de antemano.</p>";
+        cuerpoMensaje += "<br><br>";
+        cuerpoMensaje += "Atte.<br>";
+        cuerpoMensaje += "Instituto Nacional de Salud del Niño - Breña <br>";
+        cuerpoMensaje += "<img src='" + imagenDataUrl + "' style='height: 100px;' />";
+
+        // Remitente
+        var credenciales = await _proxyCorreoCrendencial.ObtenerCorreoCredencial();
+
+        string? fromAddress = credenciales.Usuario ?? "";
+        string? smtpServer = credenciales.Host ?? "";
+        int port = credenciales.Puerto != 0 ? credenciales.Puerto : 0;
+        string? userName = credenciales.Usuario ?? "";
+        string? password = credenciales.Clave ?? "";
 
         using (MailMessage message = new MailMessage(fromAddress, toAddress))
         {

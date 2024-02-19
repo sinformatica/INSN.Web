@@ -1,3 +1,4 @@
+#region[Librerias]
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +27,11 @@ using INSN.Web.Repositories.Implementaciones.Home.LibroReclamaciones;
 using INSN.Web.Repositories.Interfaces.Home.LibroReclamaciones;
 using INSN.Web.Services.Implementaciones.Home.LibroReclamaciones;
 using INSN.Web.Services.Interfaces.Home.LibroReclamaciones;
+using INSN.Web.Repositories.Implementaciones.Util;
+using INSN.Web.Services.Implementaciones.Util;
+using INSN.Web.Services.Interfaces.Util;
+using INSN.Web.Repositories.Interfaces.Util;
+#endregion
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,8 +45,13 @@ builder.Logging.AddSerilog(logger);
 // Vamos a leer el archivo de configuracion con una clase mapeada
 builder.Services.Configure<AppConfiguration>(builder.Configuration);
 
-// Add services to the container.
+// AutoMapper
+builder.Services.AddAutoMapper(config =>
+{
+    config.AddProfile<INSNWebProfile>();
+});
 
+#region[DbContext]
 builder.Services.AddDbContext<INSNWebDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("INSNDatabase"));
@@ -62,8 +73,9 @@ builder.Services.AddDbContext<SegAppDbContextEF>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SegAppDatabase"));
 });
+#endregion
 
-
+#region[Identity]
 builder.Services.AddIdentity<INSNIdentityUser, IdentityRole>(policies =>
 {
     // politicas de contraseña
@@ -81,27 +93,26 @@ builder.Services.AddIdentity<INSNIdentityUser, IdentityRole>(policies =>
     policies.Lockout.MaxFailedAccessAttempts = 10;
 }).AddEntityFrameworkStores<SegAppDbContext>()
 .AddDefaultTokenProviders();
+#endregion
 
-
-// Inyectamos las dependencias
+#region[Inyectar dependecias]
+#region[Acceso]
 builder.Services.AddTransient<IAccesoService, AccesoService>();
-// AutoMapper
 
-builder.Services.AddAutoMapper(config =>
-{
-    config.AddProfile<INSNWebProfile>();
-});
+// Sistema
+builder.Services.AddTransient<ISistemaRepository, SistemaRepository>();
+builder.Services.AddTransient<ISistemaService, SistemaService>();
+#endregion
 
+#region[Menú]
 builder.Services.AddTransient<IMenuRepository, MenuRepository>();
 builder.Services.AddTransient<IMenuService, MenuService>();
+#endregion
 
+#region[SegApp]
 // Rol
 builder.Services.AddTransient<IRolRepository, RolRepository>();
 builder.Services.AddTransient<IRolService, RolService>();
-
-// Tipo Documento Identidad
-builder.Services.AddTransient<ITipoDocumentoIdentidadRepository, TipoDocumentoIdentidadRepository>();
-builder.Services.AddTransient<ITipoDocumentoIdentidadService, TipoDocumentoIdentidadService>();
 
 // Usuario
 builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
@@ -110,19 +121,29 @@ builder.Services.AddTransient<IUsuarioService, UsuarioService>();
 // Usuario Rol
 builder.Services.AddTransient<IUsuarioRolRepository, UsuarioRolRepository>();
 builder.Services.AddTransient<IUsuarioRolService, UsuarioRolService>();
+#endregion
 
-// Sistema
-builder.Services.AddTransient<ISistemaRepository, SistemaRepository>();
-builder.Services.AddTransient<ISistemaService, SistemaService>();
+#region[Tipo Documento Identidad]
+builder.Services.AddTransient<ITipoDocumentoIdentidadRepository, TipoDocumentoIdentidadRepository>();
+builder.Services.AddTransient<ITipoDocumentoIdentidadService, TipoDocumentoIdentidadService>();
+#endregion
 
-// LibroReclamacion
+#region[Libro Reclamacion]
 builder.Services.AddTransient<ILibroReclamacionRepository, LibroReclamacionRepository>();
 builder.Services.AddTransient<ILibroReclamacionService, LibroReclamacionService>();
+#endregion
+
+#region[Correo Credencial]
+builder.Services.AddTransient<ICorreoCredencialRepository, CorreoCredencialRepository>();
+builder.Services.AddTransient<ICorreoCredencialService, CorreoCredencialService>();
+#endregion
+#endregion
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+#region[Configuracion JWToken]
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -143,9 +164,12 @@ builder.Services.AddAuthentication(x =>
         IssuerSigningKey = new SymmetricSecurityKey(key)
     };
 });
+#endregion
 
-// Registrar el filtro personalizado
+#region[Filtros personalizados]
+// Filtro para validar el CodigoSistemaId
 builder.Services.AddScoped<CodigoSistemaIdAutorizacion>();
+#endregion
 
 var app = builder.Build();
 

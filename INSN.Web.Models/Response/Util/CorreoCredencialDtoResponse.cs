@@ -1,16 +1,14 @@
-﻿using INSN.Web.Entities.Base;
-
-namespace INSN.Web.Entities.Util
+﻿namespace INSN.Web.Models.Response.Util
 {
     /// <summary>
-    /// Correo Credenciales
+    /// Correo Credencial Dto Response
     /// </summary>
-    public class CorreoCredenciales : AuditoriaBase
+    public class CorreoCredencialDtoResponse : BaseResponse
     {
         /// <summary>
-        /// Codigo Correo Credenciales Id
+        /// Codigo Correo Credencial Id
         /// </summary>
-        public int CodigoCorreoCredencialesId { get; set; } = default!;
+        public int CodigoCorreoCredencialId { get; set; }
 
         /// <summary>
         /// Usuario
@@ -30,6 +28,6 @@ namespace INSN.Web.Entities.Util
         /// <summary>
         /// Puerto
         /// </summary>
-        public string? Puerto { get; set; } = default!;
+        public int Puerto { get; set; }
     }
 }
