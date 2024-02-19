@@ -29810,7 +29810,8 @@ small,
 .block.block-rounded {
     border-radius: 0.380rem 0.380rem;
     /*  border-radius: 0.875rem 1rem; comentado keyla*/
-    /*height: 200px;*/ /*Comentado Jyataco*/
+    height: 200px; 
+    /*Comentado Jyataco*/
 }
 
     .block.block-rounded > .block-header,
