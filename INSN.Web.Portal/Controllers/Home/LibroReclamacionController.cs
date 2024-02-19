@@ -175,8 +175,19 @@ public class LibroReclamacionController : Controller
         string? toAddress = request.Email ?? "";
         string asunto = $"INSN - RECLAMO {NombreDestinatario}";
 
+        // Remitente
+        var credenciales = await _proxyCorreoCrendencial.ObtenerCorreoCredencial();
+        string? fromAddress = credenciales.Usuario ?? "";
+        string? smtpServer = credenciales.Host ?? "";
+        int port = credenciales.Puerto != 0 ? credenciales.Puerto : 0;
+        string? userName = credenciales.Usuario ?? "";
+        string? password = credenciales.Clave ?? "";
+
+        #region[Cuerpo del mensaje]
         // Leer la imagen del logo y convertirla en un arreglo de bytes
-        byte[]? ImagenBytes = System.IO.File.ReadAllBytes("\\\\172.30.31.198\\dev\\Varios\\logo.png");
+        var Logo = _configuration.GetSection("ImagenLogo");
+        string? ruta = Logo["Ruta"];
+        byte[]? ImagenBytes = ruta != null ? System.IO.File.ReadAllBytes(ruta) : null;
         var base64 = Convert.ToBase64String(ImagenBytes ?? Array.Empty<byte>());
         var imagenDataUrl = string.Format("data:image/png;base64,{0}", base64);
 
@@ -190,15 +201,7 @@ public class LibroReclamacionController : Controller
         cuerpoMensaje += "Atte.<br>";
         cuerpoMensaje += "Instituto Nacional de Salud del Niño - Breña <br>";
         cuerpoMensaje += "<img src='" + imagenDataUrl + "' style='height: 100px;' />";
-
-        // Remitente
-        var credenciales = await _proxyCorreoCrendencial.ObtenerCorreoCredencial();
-
-        string? fromAddress = credenciales.Usuario ?? "";
-        string? smtpServer = credenciales.Host ?? "";
-        int port = credenciales.Puerto != 0 ? credenciales.Puerto : 0;
-        string? userName = credenciales.Usuario ?? "";
-        string? password = credenciales.Clave ?? "";
+        #endregion
 
         using (MailMessage message = new MailMessage(fromAddress, toAddress))
         {
