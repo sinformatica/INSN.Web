@@ -7,6 +7,9 @@ using INSN.Web.Models.Request.Home.LibroReclamaciones;
 using INSN.Web.Portal.Services.Interfaces.Home.LibroReclamaciones;
 using INSN.Web.Common;
 using static INSN.Web.Common.Enumerado;
+using System.Net.Mail;
+using Microsoft.Extensions.Configuration;
+using System.Net;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
@@ -17,16 +20,19 @@ public class LibroReclamacionController : Controller
 {
     private readonly ILibroReclamacionProxy _proxy;
     private readonly ITipoDocumentoIdentidadProxy _proxyTipoDocumentoIdentidad;
+    private readonly IConfiguration _configuration;
 
     /// <summary>
     /// Libro Reclamacion Controller
     /// </summary>
     /// <param name="LibroReclamacion"></param>
     /// <param name="TipoDocumentoIdentidad"></param>
-    public LibroReclamacionController(ILibroReclamacionProxy LibroReclamacion, ITipoDocumentoIdentidadProxy TipoDocumentoIdentidad)
+    public LibroReclamacionController(ILibroReclamacionProxy LibroReclamacion, ITipoDocumentoIdentidadProxy TipoDocumentoIdentidad,
+                                IConfiguration configuration)
     {
         _proxy = LibroReclamacion;
         _proxyTipoDocumentoIdentidad = TipoDocumentoIdentidad;
+        _configuration = configuration;
     }
 
     /// <summary>
@@ -98,35 +104,37 @@ public class LibroReclamacionController : Controller
             if (request.Autorizacion == false)
                 throw new ModelException(nameof(request.Autorizacion), "Campo requerido: Autorización");
 
-            await _proxy.LibroReclamacionInsertar(new LibroReclamacionDtoRequest
-            {
-                TipoPersona = request.TipoPersonaSeleccionada,
-                TipoDocumentoIdentidad = request.TipoDocumentoIdentidadSeleccionada,
-                DocumentoIdentidad = request.DocumentoIdentidad,
-                RUC = request.RUC,
-                RazonSocial = request.RazonSocial,
-                Nombres = request.Nombres,
-                ApellidoPaterno = request.ApellidoPaterno,
-                ApellidoMaterno = request.ApellidoMaterno,
-                Direccion = request.Direccion,
-                CelularTelefono = request.CelularTelefono,
-                Email = request.Email,
-                Reclamo = request.Reclamo,
-                TipoParentesco = request.TipoParentescoSeleccionada,
-                TipoDocumentoIdentidadPaciente = request.TipoDocumentoIdentidadPacienteSeleccionada,
-                DocumentoIdentidadPaciente = request.DocumentoIdentidadPaciente,
-                NombrePaciente = request.NombrePaciente,
-                ApellidoPaternoPaciente = request.ApellidoPaternoPaciente,
-                ApellidoMaternoPaciente = request.ApellidoMaternoPaciente,
-                Autorizacion = request.Autorizacion,
-                Estado = Estado.Activo,
-                #region [Base Insert]
-                EstadoRegistro = EstadoRegistro.Activo,
-                FechaCreacion = DateTime.Now,
-                UsuarioCreacion = Environment.UserName,
-                TerminalCreacion = Environment.MachineName
-                #endregion
-            });
+            //await _proxy.LibroReclamacionInsertar(new LibroReclamacionDtoRequest
+            //{
+            //    TipoPersona = request.TipoPersonaSeleccionada,
+            //    TipoDocumentoIdentidad = request.TipoDocumentoIdentidadSeleccionada,
+            //    DocumentoIdentidad = request.DocumentoIdentidad,
+            //    RUC = request.RUC,
+            //    RazonSocial = request.RazonSocial,
+            //    Nombres = request.Nombres,
+            //    ApellidoPaterno = request.ApellidoPaterno,
+            //    ApellidoMaterno = request.ApellidoMaterno,
+            //    Direccion = request.Direccion,
+            //    CelularTelefono = request.CelularTelefono,
+            //    Email = request.Email,
+            //    Reclamo = request.Reclamo,
+            //    TipoParentesco = request.TipoParentescoSeleccionada,
+            //    TipoDocumentoIdentidadPaciente = request.TipoDocumentoIdentidadPacienteSeleccionada,
+            //    DocumentoIdentidadPaciente = request.DocumentoIdentidadPaciente,
+            //    NombrePaciente = request.NombrePaciente,
+            //    ApellidoPaternoPaciente = request.ApellidoPaternoPaciente,
+            //    ApellidoMaternoPaciente = request.ApellidoMaternoPaciente,
+            //    Autorizacion = request.Autorizacion,
+            //    Estado = Estado.Activo,
+            //    #region [Base Insert]
+            //    EstadoRegistro = EstadoRegistro.Activo,
+            //    FechaCreacion = DateTime.Now,
+            //    UsuarioCreacion = Environment.UserName,
+            //    TerminalCreacion = Environment.MachineName
+            //    #endregion
+            //});
+
+            EnviarCorreo();
 
             #region[Controles de Codigo/Controller]
             TempData["CodigoMensaje"] = 1;
@@ -148,6 +156,37 @@ public class LibroReclamacionController : Controller
             TempData["Mensaje"] = ex.Message;
 
             return View("~/Views/Home/LibroReclamacion/Index.cshtml", request);
+        }
+    }
+
+    /// <summary>
+    /// Enviar correo
+    /// </summary>
+    public void EnviarCorreo()
+    {
+        string toAddress = "jriveros@sise.com.pe";
+        string asunto = "Asunto del correo";
+        string cuerpoMensaje = "Este es el cuerpo del mensaje del correo.";
+
+        var emailSettings = _configuration.GetSection("EmailSettings");
+        var fromAddress = emailSettings["FromAddress"];
+        var smtpServer = emailSettings["SmtpServer"];
+        var port = int.Parse(emailSettings["Port"]);
+        var userName = emailSettings["UserName"];
+        var password = emailSettings["Password"];
+
+        using (MailMessage message = new MailMessage(fromAddress, toAddress))
+        {
+            message.Subject = asunto;
+            message.Body = cuerpoMensaje;
+            message.IsBodyHtml = true;
+
+            using (SmtpClient smtp = new SmtpClient(smtpServer, port))
+            {
+                smtp.Credentials = new NetworkCredential(userName, password);
+                smtp.EnableSsl = true;
+                smtp.Send(message);
+            }
         }
     }
 }

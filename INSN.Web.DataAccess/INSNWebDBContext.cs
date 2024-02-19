@@ -2,8 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using INSN.Web.Entities.Home.LibroReclamacion;
-using INSN.Web.Entities.Home.OportunidadLaboral;
-using INSN.Web.Entities.Home.DocumentoInstitucional;
+using INSN.Web.Entities.Util;
 
 namespace INSN.Web.DataAccess
 {
@@ -12,6 +11,11 @@ namespace INSN.Web.DataAccess
     /// </summary>
     public class INSNWebDBContext : DbContext
     {
+        /// <summary>
+        /// Correo Credenciales
+        /// </summary>
+        public DbSet<CorreoCredenciales>? DbSetCorreoCredenciales { get; set; }
+
         /// <summary>
         /// INSNWebDBContext
         /// </summary>
@@ -35,18 +39,6 @@ namespace INSN.Web.DataAccess
             modelBuilder.Entity<Usuario>().HasKey(f => f.Id);
             modelBuilder.Entity<Sistema>().HasKey(f => f.CodigoSistemaId);
             modelBuilder.Entity<UsuarioRol>().HasKey(f => f.CodigoUsuarioRolId);
-            #endregion
-
-            #region [DocumentoInstitucional]
-            modelBuilder.Entity<DocumentoLegal>().HasKey(f => f.CodigoDocumentoLegalId);
-            modelBuilder.Entity<TipoDocumento>().HasKey(f => f.CodigoTipoDocumentoId);
-            #endregion          
-
-            #region [Oportunidad Laboral]
-            modelBuilder.Entity<Convocatoria>().HasKey(f => f.CodigoConvocatoriaId);
-            modelBuilder.Entity<TipoConvocatoria>().HasKey(f => f.CodigoTipoConvocatoriaId);
-            modelBuilder.Entity<TipoDocumentoConvocatoria>().HasKey(f => f.CodigoTipoDocumentoConvocatoriaId);
-            modelBuilder.Entity<DocumentoConvocatoria>().HasKey(f => f.CodigoDocumentoConvocatoriaId);
             #endregion
 
             #region [LibroReclamacion]

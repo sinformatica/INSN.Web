@@ -14,7 +14,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.Home.Comunicados
         /// Comunicado Proxy
         /// </summary>
         /// <param name="httpClient"></param>
-        /// /// <param name="httpContextAccessor"></param>
+        /// <param name="httpContextAccessor"></param>
         public ComunicadoProxy(HttpClient httpClient, IHttpContextAccessor? httpContextAccessor)
         : base("api/Comunicado", httpClient)
         {
