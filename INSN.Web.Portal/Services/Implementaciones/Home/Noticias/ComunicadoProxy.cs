@@ -16,7 +16,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.Home.Noticias
         /// <param name="httpClient"></param>
         /// /// <param name="httpContextAccessor"></param>
         public NoticiaProxy(HttpClient httpClient, IHttpContextAccessor? httpContextAccessor)
-        : base("api/Mantenimiento/Noticia", httpClient)
+        : base("api/Noticia", httpClient)
         {
         }
 
