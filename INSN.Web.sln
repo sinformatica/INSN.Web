@@ -31,7 +31,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03.API REST", "03.API REST"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INSN.Web.Common", "INSN.Web.Common\INSN.Web.Common.csproj", "{ED41BAD2-FE15-4407-BF08-650F965EABA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INSN.Web.ApiRest", "INSN.Web.ApiRest\INSN.Web.ApiRest.csproj", "{B2C24ACA-1328-4E51-93F0-52127F7F1AFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INSN.Web.ApiRest", "INSN.Web.ApiRest\INSN.Web.ApiRest.csproj", "{B2C24ACA-1328-4E51-93F0-52127F7F1AFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Utilitario", "02.Utilitario", "{02DA2763-BDFF-4FED-93C9-D96AE63582CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
