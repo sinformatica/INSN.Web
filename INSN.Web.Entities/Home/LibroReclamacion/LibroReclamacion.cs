@@ -8,19 +8,19 @@ namespace INSN.Web.Entities.Home.LibroReclamacion
     public class LibroReclamacion : AuditoriaBase
     {
         /// <summary>
-        /// Tipo Persona
-        /// </summary>
-        public string? TipoPersona { get; set; } = default!;
-
-        /// <summary>
         /// Codigo Libro Reclamacion Id
         /// </summary>
         public int CodigoLibroReclamacionId { get; set; }
 
         /// <summary>
+        /// Tipo Persona
+        /// </summary>
+        public string? TipoPersona { get; set; } = default!;
+
+        /// <summary>
         /// Tipo Documento Identidad
         /// </summary>
-        public string? TipoDocumentoIdentidad { get; set; } = default!;
+        public int TipoDocumentoIdentidad { get; set; } = default!;
 
         /// <summary>
         /// Documento Identidad
@@ -80,7 +80,7 @@ namespace INSN.Web.Entities.Home.LibroReclamacion
         /// <summary>
         /// Tipo Documento Identidad Paciente
         /// </summary>
-        public string? TipoDocumentoIdentidadPaciente { get; set; } = default!;
+        public int TipoDocumentoIdentidadPaciente { get; set; } = default!;
 
         /// <summary>
         /// Documento Identidad Paciente
@@ -101,6 +101,11 @@ namespace INSN.Web.Entities.Home.LibroReclamacion
         /// Apellido Materno Paciente
         /// </summary>
         public string? ApellidoMaternoPaciente { get; set; } = default!;
+
+        /// <summary>
+        /// Ruta Imagen
+        /// </summary>
+        public string? RutaImagen { get; set; } = default!;
 
         /// <summary>
         /// Autorizacion

@@ -12,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using System.Net;
 using INSN.Web.Portal.Services.Interfaces.Util;
 using System.Security.Principal;
+using INSN.Web.Portal.Services.Util;
+using INSN.Web.Models.Request.Home.Noticias;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
@@ -39,6 +41,15 @@ public class LibroReclamacionController : Controller
         _proxyTipoDocumentoIdentidad = TipoDocumentoIdentidad;
         _configuration = configuration;
         _proxyCorreoCrendencial = proxyCorreoCrendencial;
+    }
+
+    /// <summary>
+    /// Cargar Página Inicio
+    /// </summary>
+    /// <returns></returns>
+    public IActionResult Inicio()
+    {
+        return View("~/Views/Home/LibroReclamacion/Inicio.cshtml");
     }
 
     /// <summary>
@@ -77,6 +88,7 @@ public class LibroReclamacionController : Controller
 
             request.TiposDocumentosIdentidad = resultTiposDocumentos;
 
+            #region[Validar campos]
             if (request.TipoPersonaSeleccionada == "Natural")
             {
                 if (string.IsNullOrWhiteSpace(request.DocumentoIdentidad))
@@ -107,10 +119,19 @@ public class LibroReclamacionController : Controller
             if (string.IsNullOrWhiteSpace(request.Reclamo))
                 throw new ModelException(nameof(request.Reclamo), "Campo requerido: Reclamo");
 
+            if (request.Imagen != null)
+            {
+                if (request.Imagen.Length > 0)
+                {
+                    CarpetaHelper.ValidarArchivo("imagen", 5, request.Imagen);
+                }
+            }
+
             if (request.Autorizacion == false)
                 throw new ModelException(nameof(request.Autorizacion), "Campo requerido: Autorización");
+            #endregion
 
-            await _proxy.LibroReclamacionInsertar(new LibroReclamacionDtoRequest
+            request.CodigoLibroReclamacionId = await _proxy.LibroReclamacionInsertar(new LibroReclamacionDtoRequest
             {
                 TipoPersona = request.TipoPersonaSeleccionada,
                 TipoDocumentoIdentidad = request.TipoDocumentoIdentidadSeleccionada,
@@ -124,6 +145,7 @@ public class LibroReclamacionController : Controller
                 CelularTelefono = request.CelularTelefono,
                 Email = request.Email,
                 Reclamo = request.Reclamo,
+                RutaImagen = "",
                 TipoParentesco = request.TipoParentescoSeleccionada,
                 TipoDocumentoIdentidadPaciente = request.TipoDocumentoIdentidadPacienteSeleccionada,
                 DocumentoIdentidadPaciente = request.DocumentoIdentidadPaciente,
@@ -140,6 +162,30 @@ public class LibroReclamacionController : Controller
                 #endregion
             });
 
+            #region [Imagen]
+            if (request.Imagen != null && request.Imagen.Length > 0)
+            {
+                try
+                {
+                    string Nombre = "Reclamo_" + request.CodigoLibroReclamacionId;
+
+                    //Guardar imagen en el file server
+                    request.RutaImagen = await (request.Imagen != null ? CarpetaHelper.GuardarArchivo("Reclamos", "", Nombre, request.Imagen) : Task.FromResult(string.Empty));
+                }
+                catch (Exception ex)
+                {
+                    TempData["CodigoMensaje"] = -1;
+                    TempData["Mensaje"] = ex.Message;
+
+                    return View("~/Views/Home/LibroReclamacion/Index.cshtml", request);
+                }
+
+                // Actualizar campo Ruta imagen en la bd
+                await _proxy.LibroReclamacionRutaImagenActualizar(request.CodigoLibroReclamacionId, request.RutaImagen);
+            }            
+            #endregion
+
+            // Enviar correo
             await EnviarCorreo(request);
 
             #region[Controles de Codigo/Controller]
@@ -171,9 +217,15 @@ public class LibroReclamacionController : Controller
     public async Task EnviarCorreo(LibroReclamacionViewModel request)
     {
         // Destinatario
-        string? NombreDestinatario = $"{request.ApellidoPaterno} {request.ApellidoMaterno} {request.Nombres}";
+        string? NombreDestinatario = "";
+
+        if (request.TipoPersonaSeleccionada == "Natural")
+            NombreDestinatario = $"{request.ApellidoPaterno} {request.ApellidoMaterno} {request.Nombres}";
+        else
+            NombreDestinatario = request.RazonSocial;
+        
         string? toAddress = request.Email ?? "";
-        string asunto = $"INSN - RECLAMO {NombreDestinatario}";
+        string asunto = $"INSN RECLAMO #{request.CodigoLibroReclamacionId}";
 
         // Remitente
         var credenciales = await _proxyCorreoCrendencial.ObtenerCorreoCredencial();
@@ -184,12 +236,13 @@ public class LibroReclamacionController : Controller
         string? password = credenciales.Clave ?? "";
 
         #region[Cuerpo del mensaje]
-        // Leer la imagen del logo y convertirla en un arreglo de bytes
+        #region[Logo]
         var Logo = _configuration.GetSection("ImagenLogo");
         string? ruta = Logo["Ruta"];
         byte[]? ImagenBytes = ruta != null ? System.IO.File.ReadAllBytes(ruta) : null;
         var base64 = Convert.ToBase64String(ImagenBytes ?? Array.Empty<byte>());
         var imagenDataUrl = string.Format("data:image/png;base64,{0}", base64);
+        #endregion
 
         string? cuerpoMensaje = $"<h3>Estimado(a), {NombreDestinatario}</h3>";
         cuerpoMensaje += "Te informamos que hemos recibido tu reclamo:<br><br>";
@@ -208,6 +261,13 @@ public class LibroReclamacionController : Controller
             message.Subject = asunto;
             message.Body = cuerpoMensaje;
             message.IsBodyHtml = true;
+
+            // Adjuntar la imagen al correo electrónico
+            if (!string.IsNullOrEmpty(request.RutaImagen))
+            {
+                Attachment attachment = new Attachment(request.RutaImagen);
+                message.Attachments.Add(attachment);
+            }
 
             using (SmtpClient smtp = new SmtpClient(smtpServer, port))
             {

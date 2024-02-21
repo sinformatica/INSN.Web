@@ -6,6 +6,11 @@
 public class BaseResponse : AuditoriaResponse
 {
     /// <summary>
+    /// Id
+    /// </summary>
+    public int Id { get; set; }
+
+    /// <summary>
     /// Success
     /// </summary>
     public bool Success { get; set; }

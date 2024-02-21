@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using INSN.Web.Models.Response.SegApp;
+using Microsoft.AspNetCore.Http;
 
 namespace INSN.Web.ViewModels.Home.LibroReclamacion;
 
@@ -8,6 +9,17 @@ namespace INSN.Web.ViewModels.Home.LibroReclamacion;
 /// </summary>
 public class LibroReclamacionViewModel : BaseModel
 {
+    /// <summary>
+    /// Codigo Libro Reclamacion Id
+    /// </summary>
+    public int CodigoLibroReclamacionId { get; set; }
+
+    /// <summary>
+    /// Imagen
+    /// </summary>
+    [Display(Name = "Imagen")]
+    public IFormFile? Imagen { get; set; }
+
     /// <summary>
     /// Tipo Persona Seleccionada
     /// </summary>
@@ -82,6 +94,11 @@ public class LibroReclamacionViewModel : BaseModel
     /// Reclamo
     /// </summary>
     public string? Reclamo { get; set; }
+
+    /// <summary>
+    /// Ruta Imagen
+    /// </summary>
+    public string? RutaImagen { get; set; }
 
     /// <summary>
     /// Tipo Persona Seleccionada
