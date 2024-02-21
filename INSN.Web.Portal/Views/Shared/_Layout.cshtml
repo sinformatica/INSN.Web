@@ -110,21 +110,56 @@
     <section id="hero">
     </section>
 
+
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="container">
             <div class="row gy-0">
-                <div class="col-lg-4 col-md-12 footer-info" style="align-self: center;">
+                <div class="col-lg-3 col-md-12 footer-info" style="align-self: center;">
+                    <div style="text-align-last: left;">
+                        <br /> <br />
+                        <span style="font-weight: normal; font-size: 1.8em;">Contacto</span>
+                    </div>
                     <br />
-                    <br />
-                    <div style="text-align-last: center;">
-                        <span style="font-weight: bold; font-size: 2.3em;">INSN</span>
-                        <br />
-                        <span style="font-weight: normal; font-size: 1.7em;">Instituto Nacional de Salud del Niño</span>
+                    <div style="text-align: left;">
+                        <i class="si si-pointer fa-2x"></i><span style="font-size: 1.4em;">&nbsp;&nbsp;Av. Brasil N°600 - Breña, Lima, Perú</span>
+                        <br /> <br />
+                        <i class="si si-envelope fa-2x"></i><span style="font-size: 1.4em;">&nbsp;&nbsp;antencionalusuario@insn.gob.pe</span>
+                        <br /> <br />
+                        <i class="si si-call-out fa-2x"></i><span style="font-size: 1.4em;">&nbsp;&nbsp;(01) 330-0066 / (01) 330-0066</span>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-12 footer-info" style="align-self: center;">
+                <div class="col-lg-3 col-md-12 footer-info" style="align-self: center;">
+                    <div style="text-align-last: center;">
+                        <br /> <br />
+                        <span style="font-weight: normal; font-size: 1.8em;">Enlaces útiles</span>
+                    </div>
+                    <br />
+                    <div style="text-align: left;">
+                        <div class="row">
+                            <div class="col">
+                                <ul>
+                                    <li><a href="http://solicitudcitas.insn.gob.pe/TeleGestion/cliente/" target="_blank"><span style="font-size: 1.4em; color: white;">Citas</span></a></li>
+                                    <li><a href="http://asistencia.insn.gob.pe/" target="_blank"><span style="font-size: 1.4em; color: white;">Biométrico</span></a></li>
+                                    <li><a class=asp-area ="" asp-controller="Telesalud" asp-action="Index"><span style="font-size: 1.4em; color: white;">Telesalud</span></a></li>
+                                    <li><a class=asp-area ="" asp-controller="POA" asp-action="Index"><span style="font-size: 1.4em; color: white;">Proa</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="col">
+                                <ul>
+                                    <li><a href="http://srvdb03/farmacia" target="_blank"><span style="font-size: 1.4em; color: white;">Stock Meds</span></a></li>
+                                    <li><a class=asp-area ="" asp-controller="OportunidadLaboral" asp-action="Index"><span style="font-size: 1.4em; color: white;">Op.Laboral</span></a></li>
+                                    <li><a class=asp-area ="" asp-controller="MesaParte" asp-action="Index"><span style="font-size: 1.4em; color: white;">Mesa Partes</span></a></li>
+                                    <li><a href="https://revistapediatricae.insn.gob.pe/index.php/rpe" target="_blank"><span style="font-size: 1.4em; color: white;">Revista</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-12 footer-info" style="align-self: center;">
                     <div class="social-links d-flex mt-4" style="justify-content: center;">
+                        &nbsp; &nbsp; &nbsp;
                         <a href="https://mail.insn.gob.pe/" class="envelope" target="_blank"><i class="bi bi-envelope-fill"></i></a>
                         <a href="https://www.youtube.com/INSNvideos" class="youtube" target="_blank"><i class="bi bi-youtube"></i></a>
                         <a href="https://twitter.com/insn_oficial" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
@@ -135,11 +170,24 @@
                 </div>
                 <div class="col-lg-3 col-md-12 footer-info" style="text-align-last: center;">
                     <br />
-                    <br />   <a style="color: #ffffff;" asp-area="" asp-controller="LibroReclamacion" asp-action="Inicio">
-                    <img src="~/imagenes/LibroReclamaciones/Libro_sin_fondo.PNG" alt="" style="width: 170px; height: 55px;">
-                 
-                        <h6><strong>Libro de <br /> Reclamaciones</strong></h6>
+                    <br />
+                    <a style="color: #ffffff;" asp-area="" asp-controller="LibroReclamacion" asp-action="Index">
+                        <img src="~/imagenes/LibroReclamaciones/Libro_sin_fondo.PNG" alt="" style="width: 170px; height: 55px;">
+
+                        @* <h6><strong>Libro de <br /> Reclamaciones</strong></h6> *@ @* COMENTADO POR KEYLA *@
+                        <br />
+                        <span style="font-weight: normal; font-size: 1.4em;">Libro de</span>
+                        <br />
+                        <span style="font-weight: normal; font-size: 1.4em;">Reclamaciones</span>
                     </a>
+                    <br />  <br />
+                    <div style="text-align-last: center;">
+                        <span style="font-weight: normal; font-size: 1.8em;">INSN</span>
+                        <br />
+                        <span style="font-weight: normal; font-size: 1.4em;">Instituto Nacional de Salud del Niño</span>
+                    </div>
+                    <br />
+
                 </div>
             </div>
         </div>
