@@ -68,5 +68,10 @@ namespace INSN.Web.Repositories.Interfaces
         /// Eliminar un registro de la BD
         /// </summary>
         Task Eliminar(int id);
+
+        /// <summary>
+        /// Obtener el id generado
+        /// </summary>
+        Task<int> ObtenerIdGenerado(TEntity entity);
     }
 }

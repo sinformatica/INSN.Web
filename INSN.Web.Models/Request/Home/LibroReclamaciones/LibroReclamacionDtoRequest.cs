@@ -6,6 +6,11 @@
     public class LibroReclamacionDtoRequest : AuditoriaRequest
     {
         /// <summary>
+        /// Codigo Libro Reclamacion Id
+        /// </summary>
+        public int CodigoLibroReclamacionId { get; set; }
+
+        /// <summary>
         /// Tipo Persona
         /// </summary>
         public string? TipoPersona { get; set; } = default!;
@@ -64,6 +69,11 @@
         /// Reclamo
         /// </summary>
         public string? Reclamo { get; set; } = default!;
+
+        /// <summary>
+        /// Ruta Imagen
+        /// </summary>
+        public string? RutaImagen { get; set; } = default!;
 
         /// <summary>
         /// Tipo Parentesco

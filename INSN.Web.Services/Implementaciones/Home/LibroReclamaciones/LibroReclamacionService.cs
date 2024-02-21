@@ -5,6 +5,7 @@ using INSN.Web.Entities.Home.LibroReclamacion;
 using INSN.Web.Repositories.Interfaces.Home.LibroReclamaciones;
 using INSN.Web.Services.Interfaces.Home.LibroReclamaciones;
 using INSN.Web.Models.Request.Home.LibroReclamaciones;
+using INSN.Web.Models.Response.Home.LibroReclamaciones;
 
 namespace INSN.Web.Services.Implementaciones.Home.LibroReclamaciones
 {
@@ -45,6 +46,10 @@ namespace INSN.Web.Services.Implementaciones.Home.LibroReclamaciones
 
                 if (respuesta == 1)
                 {
+                    // Obtener el ID insertado 
+                    response.Id = await _repository.ObtenerIdGenerado(_mapper.Map<LibroReclamacion>(request));
+                    response.Success = true;
+
                     response.Success = true;
                 }
                 else
@@ -56,6 +61,30 @@ namespace INSN.Web.Services.Implementaciones.Home.LibroReclamaciones
             catch (Exception ex)
             {
                 response.ErrorMessage = "Service: Error al insertar registro: " + ex.Message;
+                _logger.LogError(ex, "{ErroMessage} {Message}", response.ErrorMessage, ex.Message);
+            }
+
+            return response;
+        }
+
+        /// <summary>
+        /// Service: Libro Reclamacion Actualizar
+        /// </summary>
+        /// <param name="CodigoLibroReclamacionId"></param>
+        /// <param name="RutaImagen"></param>
+        /// <returns></returns>
+        public async Task<BaseResponse> LibroReclamacionRutaImagenActualizar(int CodigoLibroReclamacionId, string RutaImagen)
+        {
+            var response = new BaseResponse();
+
+            try
+            {
+                await _repository.LibroReclamacionRutaImagenActualizar(CodigoLibroReclamacionId, RutaImagen);
+                response.Success = true;
+            }
+            catch (Exception ex)
+            {
+                response.ErrorMessage = "Service: Error al actualizar: " + ex.Message;
                 _logger.LogError(ex, "{ErroMessage} {Message}", response.ErrorMessage, ex.Message);
             }
 

@@ -13,5 +13,13 @@ public interface ILibroReclamacionProxy : ICrudRestHelper<LibroReclamacionDtoReq
     /// </summary>
     /// <param name="request"></param>
     /// <returns></returns>
-    Task LibroReclamacionInsertar(LibroReclamacionDtoRequest request);
+    Task<int> LibroReclamacionInsertar(LibroReclamacionDtoRequest request);
+
+    /// <summary>
+    /// IProxy: Libro Reclamacion Ruta Imagen Actualizar
+    /// </summary>
+    /// <param name="CodigoLibroReclamacionId"></param>
+    /// <param name="RutaImagen"></param>
+    /// <returns></returns>
+    Task LibroReclamacionRutaImagenActualizar(int CodigoLibroReclamacionId, string RutaImagen);
 }

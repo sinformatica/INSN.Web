@@ -50,6 +50,11 @@
         /// </summary>
         public const string FechaVencimiento = "FechaVencimiento";
 
+        /// <summary>
+        /// Directorio Padre
+        /// </summary>
+        public const string DirectorioPadre = @"\\172.30.31.198\dev\WebINSN\";
+
         #region [Definición de Roles]
         /// <summary>
         /// Rol Admin Sistemas

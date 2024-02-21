@@ -204,5 +204,27 @@ namespace INSN.Web.Repositories.Implementaciones
 
             return (collection, total);
         }
+
+        /// <summary>
+        /// Obtener Id Generado
+        /// <param name="entity"></param>
+        /// </summary>
+        public Task<int> ObtenerIdGenerado(TEntity entity)
+        {
+            // Obtener el EntityEntry del último objeto insertado en el contexto
+            var entry = Context.ChangeTracker.Entries<TEntity>().LastOrDefault();
+
+            if (entry != null)
+            {
+                // Obtener el ID generado para la entidad
+                var primaryKey = entry.Properties.FirstOrDefault(p => p.Metadata.IsPrimaryKey());
+                if (primaryKey != null && primaryKey.CurrentValue != null)
+                {
+                    return Task.FromResult(Convert.ToInt32(primaryKey.CurrentValue));
+                }
+            }
+
+            return Task.FromResult(-1); // O cualquier valor de retorno que indique que no se pudo obtener el ID generado
+        }
     }
 }

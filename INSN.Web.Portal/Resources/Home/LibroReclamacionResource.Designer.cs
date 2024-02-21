@@ -322,7 +322,7 @@ namespace INSN.Web.Portal.Resources.Home {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a LIBRO DE RECLAMACIONES EN SALUD.
+        ///   Busca una cadena traducida similar a Libro de Reclamaciones en Salud.
         /// </summary>
         public static string EtiquetaTitulo {
             get {
