@@ -1,6 +1,4 @@
-﻿using INSN.Web.Common;
-
-namespace INSN.Web.Portal.Services.Util
+﻿namespace INSN.Web.Portal.Services.Util
 {
     /// <summary>
     /// Carpeta Helper
@@ -14,8 +12,9 @@ namespace INSN.Web.Portal.Services.Util
         /// </summary>
         public static bool CrearCarpeta(string raiz, string nombreCarpeta)
         {
-            bool rpta = false;
-            string directorio = Constantes.DirectorioPadre + raiz;
+            bool rpta;
+            string? RutaDirectorioPadre = JsonConfiguracion.RutaDirectorioPadre;
+            string directorio = RutaDirectorioPadre + raiz;
 
             string rutaCarpeta = Path.Combine(directorio, nombreCarpeta);
 
@@ -66,7 +65,8 @@ namespace INSN.Web.Portal.Services.Util
                 string NombreArchivo = nombre + Extension;
 
                 // armar la ruta donde se guardará el archivo
-                string RutaServidorExterno = Constantes.DirectorioPadre + raiz + (!string.IsNullOrEmpty(carpeta) ? "\\" + carpeta : "") + "\\" + NombreArchivo;
+                string? RutaDirectorioPadre = JsonConfiguracion.RutaDirectorioPadre;
+                string RutaServidorExterno = RutaDirectorioPadre + raiz + (!string.IsNullOrEmpty(carpeta) ? "\\" + carpeta : "") + "\\" + NombreArchivo;
 
                 using (var stream = new FileStream(RutaServidorExterno, FileMode.Create))
                 {

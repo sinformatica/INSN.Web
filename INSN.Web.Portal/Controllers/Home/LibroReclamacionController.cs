@@ -5,15 +5,11 @@ using INSN.Web.ViewModels.Home.LibroReclamacion;
 using INSN.Web.ViewModels.Exceptions;
 using INSN.Web.Models.Request.Home.LibroReclamaciones;
 using INSN.Web.Portal.Services.Interfaces.Home.LibroReclamaciones;
-using INSN.Web.Common;
 using static INSN.Web.Common.Enumerado;
 using System.Net.Mail;
-using Microsoft.Extensions.Configuration;
 using System.Net;
 using INSN.Web.Portal.Services.Interfaces.Util;
-using System.Security.Principal;
 using INSN.Web.Portal.Services.Util;
-using INSN.Web.Models.Request.Home.Noticias;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
@@ -237,8 +233,8 @@ public class LibroReclamacionController : Controller
 
         #region[Cuerpo del mensaje]
         #region[Logo]
-        var Logo = _configuration.GetSection("ImagenLogo");
-        string? ruta = Logo["Ruta"];
+        var FileServer = _configuration.GetSection("FileServer");
+        string? ruta = FileServer["RutaImagenLogo"];
         byte[]? ImagenBytes = ruta != null ? System.IO.File.ReadAllBytes(ruta) : null;
         var base64 = Convert.ToBase64String(ImagenBytes ?? Array.Empty<byte>());
         var imagenDataUrl = string.Format("data:image/png;base64,{0}", base64);
