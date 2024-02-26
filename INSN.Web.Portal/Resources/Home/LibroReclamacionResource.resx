@@ -177,6 +177,9 @@
   <data name="EtiquetaIdentidad" xml:space="preserve">
     <value>Identidad y domicilio</value>
   </data>
+  <data name="EtiquetaImagen" xml:space="preserve">
+    <value>Adjuntar imagen</value>
+  </data>
   <data name="EtiquetaNombres" xml:space="preserve">
     <value>Nombres (*)</value>
   </data>

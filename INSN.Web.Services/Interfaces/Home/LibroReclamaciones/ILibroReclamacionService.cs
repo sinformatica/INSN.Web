@@ -17,7 +17,7 @@ namespace INSN.Web.Services.Interfaces.Home.LibroReclamaciones
         Task<BaseResponse> LibroReclamacionInsertar(LibroReclamacionDtoRequest request);
 
         /// <summary>
-        /// Libro Reclamacion Actualizar
+        /// Libro Reclamacion Ruta Imagen Actualizar
         /// </summary>
         /// <param name="CodigoLibroReclamacionId"></param>
         /// <param name="RutaImagen"></param>

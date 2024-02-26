@@ -68,7 +68,7 @@ namespace INSN.Web.Services.Implementaciones.Home.LibroReclamaciones
         }
 
         /// <summary>
-        /// Service: Libro Reclamacion Actualizar
+        /// Service: Libro Reclamacion Ruta Imagen Actualizar
         /// </summary>
         /// <param name="CodigoLibroReclamacionId"></param>
         /// <param name="RutaImagen"></param>

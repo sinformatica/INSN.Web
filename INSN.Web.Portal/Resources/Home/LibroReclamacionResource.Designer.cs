@@ -241,6 +241,15 @@ namespace INSN.Web.Portal.Resources.Home {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Adjuntar imagen.
+        /// </summary>
+        public static string EtiquetaImagen {
+            get {
+                return ResourceManager.GetString("EtiquetaImagen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Nombres (*).
         /// </summary>
         public static string EtiquetaNombres {
