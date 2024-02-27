@@ -1,40 +1,54 @@
-﻿@{
+﻿@using INSN.Web.ViewModels.Acceso;
+@using INSN.Web.Common;
+@using Newtonsoft.Json;
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
     ViewData["Title"] = "INSN Breña";
 }
 
 <main id="main">
-   
-  @*   <div class="section best-deal">
-        <div class="container">
-            <div class="col-lg-12">
-                <div class="section-header">
-                    <h3>BIBLIOTECA VIRTUAL</h3>
-                    <p align="justify">
-                          </p>
-                    <br />
-                </div>
-        </div> *@
+    @{
+        string? NombreUsuario = HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.NombreUsuario);
+        string? NombreRolUsuario = HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.NombreRolUsuario);        
+    }
 
-            <!-- ======= INICIO Introducción a la biblioteca virtual ======= -->
-            <section id="about" class="about">
-                <div class="container" data-aos="fade-up">
-                    <div class="section-header">
-                        <h2>BIBLIOTECA VIRTUAL</h2>
-                        <p align="justify">
-                            En el Instituto Nacional del Niño, reconocemos la importancia de fortalecer constantemente las habilidades y 
-                            conocimientos del valioso personal de salud dedicado al cuidado de nuestros niños. Nos complace presentar 
-                            nuestra Biblioteca Virtual, una herramienta educativa diseñada específicamente para apoyar el desarrollo 
-                            profesional del personal de salud. Accesible a todos los profesionales de la salud asociados con nuestra 
-                            institución, esta biblioteca virtual ofrece una amplia gama de recursos especializados, desde materiales 
-                            de referencia médica hasta actualizaciones sobre las últimas investigaciones pediátricas. Estamos comprometidos
-                            a proporcionar a nuestro equipo de salud las herramientas necesarias para brindar una atención de calidad y 
-                            promover un entorno de aprendizaje continuo. ¡Explora nuestra Biblioteca Virtual y descubre cómo juntos podemos
-                            avanzar en la excelencia en la atención médica infantil!
-                        </p>
+    <!-- ======= INICIO Introducción a la biblioteca virtual ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>BIBLIOTECA VIRTUAL</h2>
+                <p align="justify">
+                    En el Instituto Nacional del Niño, reconocemos la importancia de fortalecer constantemente las habilidades y
+                    conocimientos del valioso personal de salud dedicado al cuidado de nuestros niños. Nos complace presentar
+                    nuestra Biblioteca Virtual, una herramienta educativa diseñada específicamente para apoyar el desarrollo
+                    profesional del personal de salud. Accesible a todos los profesionales de la salud asociados con nuestra
+                    institución, esta biblioteca virtual ofrece una amplia gama de recursos especializados, desde materiales
+                    de referencia médica hasta actualizaciones sobre las últimas investigaciones pediátricas. Estamos comprometidos
+                    a proporcionar a nuestro equipo de salud las herramientas necesarias para brindar una atención de calidad y
+                    promover un entorno de aprendizaje continuo. ¡Explora nuestra Biblioteca Virtual y descubre cómo juntos podemos
+                    avanzar en la excelencia en la atención médica infantil!
+                </p>
+            </div>
+        </div>
+    </section>
+    <br />
+
+    
+
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+        <form>
+                <div class="row">
+                    <div class="col-md-12 col-sm-6" style="text-align-last: right;">                
+                    <button class="btn btn-sm btn-block-option" asp-controller="BibliotecaVirtual" asp-action="UsuarioBibliotecaExportarExcel" title="Exportar Excel Usuario Logueados">
+                    <img src="~/imagenes/iconos/documentos/excel.svg" alt="Exportar Excel" style="width: 45px; height: 45px;">
+                </button>
                     </div>
                 </div>
-            </section>
-            <br />
+        </form>
+        </div>
+        </section>
 
     <!-- ======= INICIO DE SESSION CON PESTAÑA ======= -->
     <!-- ======= INICIO BASE DE DATOS - COLECCIONES - REVISTAS ======= -->
@@ -75,10 +89,10 @@
                                                             <p align="justify"> Motor de búsqueda de libre acceso que permite consultar principal y mayoritariamente los contenidos de la base de datos MEDLINE.</p>
                                                             @* <div class="position-relative mt-4"> *@
                                                             <img src="~/imagenes/BibliotecaVirtual/BDI.jpg" class="img-fluid">
-                                                           @*  </div> *@
+                                                            @*  </div> *@
                                                             <br /><br /> <br />
                                                             <div class="text-center">
-                                                               <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://pubmed.ncbi.nlm.nih.gov/', '_blank')">
+                                                                <button type="button" class="btn rounded-pill btn-alt-success me-1 mb-1" onclick="window.open('https://pubmed.ncbi.nlm.nih.gov/', '_blank')">
                                                                     Ir al sitio web
                                                                 </button>
                                                                 <br /><br />
@@ -86,8 +100,6 @@
                                                         </div>
                                                     </a>
                                                 </div>
-
-
                                                 <div class="col-md-4">
                                                     <a class="block block-link-shadow text-center">
                                                         <div class="block-content">
@@ -121,7 +133,6 @@
                                                     </a>
                                                 </div>
                                             </div>
-
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <a class="block block-link-shadow text-center">
@@ -139,8 +150,6 @@
                                                         </div>
                                                     </a>
                                                 </div>
-
-
                                                 <div class="col-md-4">
                                                     <a class="block block-link-shadow text-center">
                                                         <div class="block-content">
@@ -187,8 +196,6 @@
                                                         </div>
                                                     </a>
                                                 </div>
-
-
                                                 <div class="col-md-4">
                                                     <a class="block block-link-shadow text-center">
                                                         <div class="block-content">
@@ -222,7 +229,6 @@
                                                     </a>
                                                 </div>
                                             </div>
-
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <a class="block block-link-shadow text-center">
@@ -240,8 +246,6 @@
                                                         </div>
                                                     </a>
                                                 </div>
-
-
                                                 <div class="col-md-4">
                                                     <a class="block block-link-shadow text-center">
                                                         <div class="block-content">
@@ -289,8 +293,6 @@
                                                         </div>
                                                     </a>
                                                 </div>
-
-
                                                 <div class="col-md-4">
                                                     <a class="block block-link-shadow text-center">
                                                         <div class="block-content">
@@ -331,91 +333,10 @@
                         </div>
                         <!-- ======= FIN REVISTAS ======= -->
                         <!-- ============== -->
-                     
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-@* 
-            <div class="content">
-                <div class="row">
-                    <div class="col-md-4 text-center">
-                     
-                        <button type="button" class="btn rounded-0 btn-outline-warning btn-lg mb-2 text-center">BASE DE DATOS</button>
-                        <br /> <br />
-                        <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank">
-                        <img src="~/imagenes/BibliotecaVirtual/BDI.JPG" class="rounded img-thumbnail">
-                        </a>
-                        <br /> <br />
-                        <a href="https://www.tripdatabase.com/Home" target="_blank">
-                        <img src="~/imagenes/BibliotecaVirtual/BDII.PNG" class="rounded img-thumbnail">
-                        </a>
-                        <br /> <br />
-                        <a href="https://www.cochranelibrary.com/" target="_blank">
-                        <img src="~/imagenes/BibliotecaVirtual/BDIV.PNG" class="rounded img-thumbnail">
-                        </a>
-                        <br /> <br />
-                        <a href="https://www.dynamed.com/?" target="_blank">
-                        <img src="~/imagenes/BibliotecaVirtual/BDV.PNG" class="rounded img-thumbnail">
-                        </a>
-                        <br /> <br />
-                        <a href="https://www.uptodate.com/contents/search" target="_blank">
-                        <img src="~/imagenes/BibliotecaVirtual/BDIII.PNG" class="rounded img-thumbnail">
-                        </a>
-
-                    </div>
-
-                    <div class="col-md-4 text-center">
-                        <button type="button" class="btn rounded-0 btn-outline-warning btn-lg mb-2 text-center">COLECCIONES</button>                  
-                        <br /> <br />
-                        <a href="https://portal.research4life.org/" target="_blank">
-                        <img src="~/imagenes/BibliotecaVirtual/CI.PNG" class="rounded img-thumbnail">
-                        </a>
-                        <br /> <br />
-                        <a href="https://ovidsp.dc2.ovid.com/ovid-new-a/ovidweb.cgi" target="_blank">
-                        <img src="~/imagenes/BibliotecaVirtual/CII.PNG" class="rounded img-thumbnail">
-                        </a>
-                        <br /> <br />
-                        <a href="https://scielo.org/es/" target="_blank">
-                        <img src="~/imagenes/BibliotecaVirtual/CIII.PNG" class="rounded img-thumbnail">
-                        </a>
-                        <br /> <br />
-                        <a href="https://search.ebscohost.com/" target="_blank">
-                        <img src="~/imagenes/BibliotecaVirtual/CIV.PNG" class="rounded img-thumbnail">
-                        </a>
-                        <br /> <br />
-                        <a href="https://bvsalud.org/es/" target="_blank">
-                        <img src="~/imagenes/BibliotecaVirtual/CV.PNG" class="rounded img-thumbnail">
-                        </a>
-                    </div>
-
-                    <div class="col-md-4 text-center">
-                        <button type="button" class="btn rounded-0 btn-outline-warning btn-lg mb-2 text-center">REVISTAS</button>
-                        <br /> <br />
-                        <a href="https://www.nejm.org/" target="_blank">
-                        <img src="~/imagenes/BibliotecaVirtual/RI.PNG" class="rounded img-thumbnail">
-                        </a>
-                        <br /> <br />
-                        <a href="https://publications.aap.org/" target="_blank">
-                        <img src="~/imagenes/BibliotecaVirtual/RII.PNG" class="rounded img-thumbnail">
-                        </a>
-                        <br /> <br />
-                        <a href="https://www.sciencedirect.com/?login=Acceder" target="_blank">
-                        <img src="~/imagenes/BibliotecaVirtual/RIII.PNG" class="rounded img-thumbnail">
-                        </a>
-                        
-                    </div>
-                </div>
-
-            </div>  *@
     <br />
-
-
-    @* </div>
-    </div> *@
-
-
 </main>
-

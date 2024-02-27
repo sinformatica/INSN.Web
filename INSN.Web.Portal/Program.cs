@@ -21,6 +21,8 @@ using INSN.Web.Portal.Services.Util;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Serilog;
 using Serilog.Events;
+using INSN.Web.Portal.Services.Implementaciones.Home.UsuarioBibliotecas;
+using INSN.Web.Portal.Services.Interfaces.Home.UsuarioBibliotecas;
 #endregion
 
 var builder = WebApplication.CreateBuilder(args);
@@ -65,6 +67,7 @@ builder.Services.AddProxy<ITipoDocumentoProxy, TipoDocumentoProxy>("ApiWebAdminH
 builder.Services.AddProxy<IConvocatoriaProxy, ConvocatoriaProxy>("ApiWebAdminHttpClient");
 builder.Services.AddProxy<IComunicadoProxy, ComunicadoProxy>("ApiWebAdminHttpClient");
 builder.Services.AddProxy<INoticiaProxy, NoticiaProxy>("ApiWebAdminHttpClient");
+builder.Services.AddProxy<IUsuarioBibliotecaProxy, UsuarioBibliotecaProxy>("ApiWebAdminHttpClient");
 #endregion
 #endregion
 

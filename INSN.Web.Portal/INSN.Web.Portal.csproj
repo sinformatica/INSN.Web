@@ -95,6 +95,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\INSN.Utilitarios\INSN.Utilitarios\INSN.Utilitarios.csproj" />
     <ProjectReference Include="..\INSN.Web.Common\INSN.Web.Common.csproj" />
     <ProjectReference Include="..\INSN.Web.Models\INSN.Web.Models.csproj" />
     <ProjectReference Include="..\INSN.Web.ViewModels\INSN.Web.ViewModels.csproj" />
