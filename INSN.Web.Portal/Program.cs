@@ -13,7 +13,7 @@ using INSN.Web.Portal.Services.Interfaces.Home.Comunicados;
 using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.Portal.Services.Interfaces.Home.LibroReclamaciones;
 using INSN.Web.Portal.Services.Interfaces.Home.Noticias;
-using INSN.Web.Portal.Services.Interfaces.Home.OportunidadLaboral;
+using INSN.Web.Portal.Services.Interfaces.Home.Convocatorias;
 using INSN.Web.Portal.Services.Interfaces.SegApp;
 using INSN.Web.Portal.Services.Interfaces.SegApp.Mantenimiento;
 using INSN.Web.Portal.Services.Interfaces.Util;
@@ -62,7 +62,7 @@ builder.Services.AddProxy<ICorreoCredencialProxy, CorreoCredencialProxy>("ApiHtt
 #region[ApiWebAdminHttpClient]
 builder.Services.AddProxy<IDocumentoLegalProxy, DocumentoLegalProxy>("ApiWebAdminHttpClient");
 builder.Services.AddProxy<ITipoDocumentoProxy, TipoDocumentoProxy>("ApiWebAdminHttpClient");
-builder.Services.AddProxy<IDocumentoConvocatoriaProxy, ConvocatoriaProxy>("ApiWebAdminHttpClient");
+builder.Services.AddProxy<IConvocatoriaProxy, ConvocatoriaProxy>("ApiWebAdminHttpClient");
 builder.Services.AddProxy<IComunicadoProxy, ComunicadoProxy>("ApiWebAdminHttpClient");
 builder.Services.AddProxy<INoticiaProxy, NoticiaProxy>("ApiWebAdminHttpClient");
 #endregion
