@@ -11,9 +11,9 @@
         public int CodigoConvocatoriaId { get; set; }
 
         /// <summary>
-        /// Descripcion Convocatoria
+        /// Descripcion
         /// </summary>
-        public string? DescripcionConvocatoria { get; set; } = default!;
+        public string? Descripcion { get; set; } = default!;
 
         /// <summary>
         /// Fecha Inicio
