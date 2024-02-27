@@ -26,7 +26,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         private readonly SegAppDbContext _segAppDbContext;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="repository"></param>
         /// <param name="logger"></param>

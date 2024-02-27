@@ -12,7 +12,7 @@ namespace INSN.Web.DataAccess
     public class SegAppDbContext : IdentityDbContext<INSNIdentityUser>
     {
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="options"></param>
         public SegAppDbContext(DbContextOptions<SegAppDbContext> options)

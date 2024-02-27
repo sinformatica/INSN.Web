@@ -19,7 +19,7 @@ namespace INSN.Web.Services.Implementaciones.Home.LibroReclamaciones
         private readonly IMapper _mapper;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="repository"></param>
         /// <param name="logger"></param>

@@ -13,7 +13,7 @@
         public static string? RutaDirectorioPadre { get; }
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         static JsonConfiguracion()
         {

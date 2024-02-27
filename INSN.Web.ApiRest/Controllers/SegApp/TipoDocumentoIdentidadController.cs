@@ -15,7 +15,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp
         private readonly ITipoDocumentoIdentidadService _service;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="service"></param>
         public TipoDocumentoIdentidadController(ITipoDocumentoIdentidadService service)

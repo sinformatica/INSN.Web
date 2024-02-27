@@ -30,7 +30,7 @@ namespace INSN.Web.Services.Implementaciones.Acceso
         private readonly SegAppDbContext _segAppDbContext;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="userManager"></param>
         /// <param name="roleManager"></param>

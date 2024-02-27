@@ -12,7 +12,7 @@ namespace INSN.Web.ApiRest.Controllers
         private readonly string? codigoSistemaIdClaimValue;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="httpContextAccessor"></param>
         public CodigoSistemaIdAutorizacion(IHttpContextAccessor httpContextAccessor)

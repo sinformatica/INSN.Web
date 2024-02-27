@@ -27,7 +27,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp.Mantenimiento
         private readonly UserManager<INSNIdentityUser> _userManager;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="repository"></param>
         /// <param name="logger"></param>

@@ -18,7 +18,7 @@ namespace INSN.Web.Repositories.Implementaciones
         protected readonly SegAppDbContextEF Context;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="context"></param>
         protected RepositoryBaseSegAppEF(SegAppDbContextEF context)

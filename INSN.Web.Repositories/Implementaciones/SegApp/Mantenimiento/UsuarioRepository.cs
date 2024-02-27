@@ -12,7 +12,7 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp.Mantenimiento
     public class UsuarioRepository : RepositoryBaseSegAppEF<Usuario>, IUsuarioRepository
     {
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="context"></param>
         public UsuarioRepository(SegAppDbContextEF context) : base(context)

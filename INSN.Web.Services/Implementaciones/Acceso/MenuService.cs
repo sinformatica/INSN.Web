@@ -19,7 +19,7 @@ namespace INSN.Web.Services.Implementaciones.Acceso
         private readonly ILogger<MenuService> _logger;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         public MenuService(IMenuRepository menuRepository, IMapper mapper, ILogger<MenuService> logger)
         {

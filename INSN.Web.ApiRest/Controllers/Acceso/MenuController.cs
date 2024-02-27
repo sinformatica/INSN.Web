@@ -14,7 +14,7 @@ namespace INSN.Web.ApiRest.Controllers.Acceso
         private readonly IMenuService _service;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="service"></param>
         public MenuController(IMenuService service)

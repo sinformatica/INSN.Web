@@ -12,7 +12,7 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp
     public class TipoDocumentoIdentidadRepository : RepositoryBaseSegAppEF<TipoDocumentoIdentidad>, ITipoDocumentoIdentidadRepository
     {
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="context"></param>
         public TipoDocumentoIdentidadRepository(SegAppDbContextEF context) : base(context)

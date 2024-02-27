@@ -15,7 +15,7 @@ public class ConvocatoriaController : Controller
     private readonly IConvocatoriaProxy _proxy;
 
     /// <summary>
-    /// Inicializar
+    /// Instanciar
     /// </summary>
     /// <param name="proxy"></param>
     public ConvocatoriaController(IConvocatoriaProxy proxy)

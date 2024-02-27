@@ -24,7 +24,7 @@ namespace INSN.Web.Portal.Controllers.Acceso
         private readonly IHttpContextAccessor? _httpContextAccessor;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="proxy"></param>
         /// <param name="proxyUsuario"></param>

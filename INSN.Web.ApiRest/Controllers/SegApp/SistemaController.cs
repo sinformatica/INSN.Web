@@ -18,7 +18,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp
         private readonly ISistemaService _service;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="service"></param>
         public SistemaController(ISistemaService service)

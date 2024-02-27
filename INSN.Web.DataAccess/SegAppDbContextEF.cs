@@ -12,7 +12,7 @@ namespace INSN.Web.DataAccess
     public class SegAppDbContextEF : DbContext
     {
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="options"></param>
         public SegAppDbContextEF(DbContextOptions<SegAppDbContextEF> options)

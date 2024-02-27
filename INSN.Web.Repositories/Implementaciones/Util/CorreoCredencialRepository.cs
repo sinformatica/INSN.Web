@@ -10,7 +10,7 @@ namespace INSN.Web.Repositories.Implementaciones.Util
     public class CorreoCredencialRepository : RepositoryBase<CorreoCredencial>, ICorreoCredencialRepository
     {
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// <param name="context"></param>
         /// </summary>
         public CorreoCredencialRepository(INSNWebDBContext context) : base(context)

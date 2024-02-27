@@ -12,7 +12,7 @@ namespace INSN.Web.Repositories.Implementaciones.Acceso
     public class MenuRepository : RepositoryBaseSegApp<Seccion>, IMenuRepository
     {
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="context"></param>
         public MenuRepository(SegAppDbContext context) : base(context)

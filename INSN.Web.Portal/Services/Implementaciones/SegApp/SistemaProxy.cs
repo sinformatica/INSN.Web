@@ -18,7 +18,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.SegApp
         private readonly IHttpContextAccessor? _httpContextAccessor;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="httpClient"></param>
         /// <param name="httpContextAccessor"></param>

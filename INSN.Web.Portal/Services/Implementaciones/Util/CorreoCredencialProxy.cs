@@ -14,7 +14,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.Util
         private readonly IHttpContextAccessor? _httpContextAccessor;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// <param name="httpClient"></param>
         /// <param name="httpContextAccessor"></param>
         /// </summary>

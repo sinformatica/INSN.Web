@@ -13,7 +13,7 @@ namespace INSN.Web.Portal.Controllers.SegApp
         private readonly ITipoDocumentoIdentidadProxy _proxy;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="proxy"></param>
         public TipoDocumentoIdentidadController(ITipoDocumentoIdentidadProxy proxy)

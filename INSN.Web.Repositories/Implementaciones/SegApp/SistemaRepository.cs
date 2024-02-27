@@ -12,7 +12,7 @@ namespace INSN.Web.Repositories.Implementaciones.SegApp
     public class SistemaRepository : RepositoryBaseSegAppEF<Sistema>, ISistemaRepository
     {
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="context"></param>
         public SistemaRepository(SegAppDbContextEF context) : base(context)

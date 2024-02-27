@@ -15,7 +15,7 @@ namespace INSN.Web.ApiRest.Controllers.Util
         private readonly ICorreoCredencialService _service;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="service"></param>
         public CorreoCredencialController(ICorreoCredencialService service)

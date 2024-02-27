@@ -18,7 +18,7 @@ namespace INSN.Web.Services.Implementaciones.SegApp
         private readonly IMapper _mapper;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="repository"></param>
         /// <param name="logger"></param>

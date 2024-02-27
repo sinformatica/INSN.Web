@@ -30,7 +30,7 @@ namespace INSN.Web.Portal.Controllers.SegApp.Usuario
         private readonly string? NombreRolUsuario;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="proxy"></param>
         /// <param name="logger"></param>

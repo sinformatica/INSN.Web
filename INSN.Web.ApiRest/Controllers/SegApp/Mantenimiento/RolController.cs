@@ -20,7 +20,7 @@ namespace INSN.Web.ApiRest.Controllers.SegApp.Rol
         private readonly IRolService _service;
 
         /// <summary>
-        /// Inicializar
+        /// Instanciar
         /// </summary>
         /// <param name="service"></param>
         public RolController(IRolService service)
