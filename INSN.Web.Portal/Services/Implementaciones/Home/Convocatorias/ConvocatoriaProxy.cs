@@ -6,7 +6,7 @@ using INSN.Web.Portal.Services.Interfaces.Home.Convocatorias;
 namespace INSN.Web.Portal.Services.Implementaciones.Home.OportunidadLaboral;
 
 /// <summary>
-/// Clase Proxy Documento Convocatoria
+/// Convocatoria Proxy
 /// </summary>
 public class ConvocatoriaProxy : CrudRestHelperBase<ConvocatoriaDtoRequest, ConvocatoriaDtoResponse>, IConvocatoriaProxy
 {
@@ -19,6 +19,36 @@ public class ConvocatoriaProxy : CrudRestHelperBase<ConvocatoriaDtoRequest, Conv
         : base("api/Mantenimiento/Convocatoria", httpClient)
     {
     }
+
+    #region[Convocatoria Tipo]
+    /// <summary>
+    /// Proxy: Convocatoria Tipo Listar
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException"></exception>
+    public async Task<ICollection<ConvocatoriaTipoDtoResponse>> ConvocatoriaTipoListar()
+    {
+        try
+        {
+            var response = await HttpClient.GetAsync($"{BaseUrl}/ConvocatoriaTipoListar");
+            response.EnsureSuccessStatusCode();
+
+            var result = await response.Content
+                .ReadFromJsonAsync<BaseResponseGeneric<ICollection<ConvocatoriaTipoDtoResponse>>>();
+
+            if (result!.Success == false)
+            {
+                throw new InvalidOperationException(result.ErrorMessage);
+            }
+
+            return result.Data!;
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException(ex.Message);
+        }
+    }
+    #endregion
 
     #region[Convocatoria]
     /// <summary>

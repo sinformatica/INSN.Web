@@ -4,10 +4,18 @@ using INSN.Web.Models.Response.Home.Convocatorias;
 namespace INSN.Web.Portal.Services.Interfaces.Home.Convocatorias;
 
 /// <summary>
-/// IDocumento Convocatoria Proxy
+/// IConvocatoria Proxy
 /// </summary>
 public interface IConvocatoriaProxy : ICrudRestHelper<ConvocatoriaDtoRequest, ConvocatoriaDtoResponse>
 {
+    #region[Convocatoria Tipo]
+    /// <summary>
+    /// IProxy: Convocatoria Tipo Listar
+    /// </summary>
+    /// <returns></returns>
+    Task<ICollection<ConvocatoriaTipoDtoResponse>> ConvocatoriaTipoListar();
+    #endregion
+
     #region[Convocatoria]
     /// <summary>
     /// IProxy: Convocatoria Listar

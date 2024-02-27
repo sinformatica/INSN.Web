@@ -9,22 +9,18 @@
 }
 
 <main id="main">
-    <!-- ======= INICIO Convocatoria ======= -->
+    <!-- ======= INICIO TÍTULO CONVOCATORIAS ======= -->
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
             <div class="section-header">
                 <h2>Convocatorias</h2>
-                <p align="justify">
-
-                </p>
+                <p align="justify"></p>
             </div>
         </div>
     </section>
     <br />
-    <!-- ======= FIN Convocatoria ======= -->
-    <!-- ============== -->
-    <!-- ======= INICIO DE SESSION CON PESTAÑA ======= -->
-    <!-- ======= INICIO CAS - INTERNO - PUBLICO - ETC ======= -->
+    <!-- ======= FIN TÍTULO CONVOCATORIAS ======= -->
+
     <div class="section best-deal">
         <div class="container">
             <div class="col-lg-12">
@@ -32,115 +28,128 @@
                     <!-- ======= INICIO TABS ======= -->
                     <div class="nav-wrapper ">
                         <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-bottom: 2px solid #0096ad !important;">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="CAS-tab" data-bs-toggle="tab" data-bs-target="#CAS" type="button" role="tab" aria-controls="CAS" aria-selected="true">CAS</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="Interno-tab" data-bs-toggle="tab" data-bs-target="#Interno" type="button" role="tab" aria-controls="Interno" aria-selected="false">Interno</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="Público-tab" data-bs-toggle="tab" data-bs-target="#Público" type="button" role="tab" aria-controls="Público" aria-selected="false">Público</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="Suplencias-tab" data-bs-toggle="tab" data-bs-target="#Suplencias" type="button" role="tab" aria-controls="Suplencias" aria-selected="false">Suplencias</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="Nombramiento-tab" data-bs-toggle="tab" data-bs-target="#Nombramiento" type="button" role="tab" aria-controls="Nombramiento" aria-selected="false">Nombramiento</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="Reasignación-tab" data-bs-toggle="tab" data-bs-target="#Reasignación" type="button" role="tab" aria-controls="Reasignación" aria-selected="false">Reasignación</button>
-                            </li>
+                            @if (Model.ConvocatoriaTipoLista != null)
+                            {
+                                @foreach (var item in Model.ConvocatoriaTipoLista)
+                                {
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link @(item == Model.ConvocatoriaTipoLista.First() ? "active" : "")" id="tab_@item.CodigoConvocatoriaTipoId" data-bs-toggle="tab" data-bs-target="#@item.Descripcion" type="button" role="tab" aria-controls="@item.Descripcion" aria-selected="@(item == Model.ConvocatoriaTipoLista.First())">
+                                            @item.Descripcion
+                                        </button>
+                                    </li>
+                                }
+                            }
                         </ul>
                     </div>
                     <!-- ======= FIN TABS ======= -->
-                    @if (Model.ConvocatoriaLista != null)
+
+                    <!-- ======= INICIO CONVOCATORIAS ======= -->
+                    @if (Model.ConvocatoriaTipoLista != null)
                     {
                         <div class="tab-content" id="myTabContent">
-                            <!-- ======= INICIO CAS ======= -->
-                            <div class="tab-pane fade show active" id="CAS" role="tabpanel" aria-labelledby="CAS-tab">
-                                <div class="row">
-                                    <div class="row gy-4">
-                                        <section class="about">
-                                            <div class="container" data-aos="fade-up">
-                                                @{
-                                                    var ConvocatoriasFiltradas = Model.ConvocatoriaLista
-                                                    .Where(cabecera => cabecera.CodigoConvocatoriaTipoId == @Enumerado.TipoConvocatoriaId.Interno)
-                                                    .ToList();
-                                                }
-                                                @foreach (var cabecera in ConvocatoriasFiltradas)
-                                                {
-                                                    <div class="row gy-4">
-                                                        <div class="col-lg-12">
-                                                            <div class="block block-rounded h-100 mb-0">
-                                                                <div class="block-content bg-gd-aqua py-5 text-center">
-                                                                    <h3 class="fs-base fw-semibold mb-2">
-                                                                        <a class="text-white">@cabecera.DescripcionConvocatoria</a>
-                                                                    </h3>
-                                                                    <h4 class="fw-medium text-white-75 mb-1">
-                                                                        @if (cabecera.Estado == Enumerado.EstadoConvocatoria.Concluido)
-                                                                        {
-                                                                            <span class="badge bg-success" style="font-size: 18px;">@Html.Raw(GeneralResource.EtiquetaConcluida)</span>
-                                                                        }
-                                                                        else if (cabecera.Estado == Enumerado.EstadoConvocatoria.EnProceso)
-                                                                        {
-                                                                            <span class="badge bg-primary" style="font-size: 18px;">@Html.Raw(GeneralResource.EtiquetaEnProceso)</span>
-                                                                        }
-                                                                    </h4>
-                                                                </div>
-                                                                <div class="block-content block-content-full text-center">
-                                                                    <div class="row g-sm mt-3">
-                                                                        <div class="col-6">
-                                                                            <p><strong>@Html.Raw(GeneralResource.EtiquetaFechaInicio)</strong> @cabecera.FechaInicio.ToString("yyyy-MM-dd")</p>
-                                                                        </div>
-                                                                        <div class="col-6">
-                                                                            <p><strong>@Html.Raw(GeneralResource.EtiquetaFechaFinal)</strong> @cabecera.FechaFinal.ToString("yyyy-MM-dd")</p>
+                            @foreach (var item in Model.ConvocatoriaTipoLista)
+                            {
+                                <div class="tab-pane fade @(item == Model.ConvocatoriaTipoLista.First() ? "show active" : "")" id="@item.Descripcion" role="tabpanel" aria-labelledby="tab_@item.CodigoConvocatoriaTipoId">
+                                    <div class="row">
+                                        <div class="row gy-4">
+                                            <section class="about">
+                                                <div class="container" data-aos="fade-up">
+                                                    @if (Model.ConvocatoriaLista != null)
+                                                    {
+                                                        var ConvocatoriasFiltradas = Model.ConvocatoriaLista
+                                                        .Where(cabecera => cabecera.CodigoConvocatoriaTipoId == item.CodigoConvocatoriaTipoId)
+                                                        .ToList();
+
+                                                        if (ConvocatoriasFiltradas.Count == 0)
+                                                        {
+                                                            <div class="row gy-4">
+                                                                <div class="col-lg-12">
+                                                                    <div class="block block-rounded h-100 mb-0">
+                                                                        <div class="block-content bg-gd-aqua py-5 text-center">
+                                                                            <h3 class="fs-base fw-semibold mb-2">
+                                                                                <a class="text-white">No existen convocatorias para mostrar</a>
+                                                                            </h3>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-
-                                                        @if(cabecera.DetalleLista != null)
-                                                        {
-                                                            <div class="col-lg-12">
-                                                                <table class="table table-borderless table-vcenter mb-4">
-                                                                    <tbody>
-                                                                        @foreach (var grupoDetalle in cabecera.DetalleLista.GroupBy(d => d.DescripcionConvocatoriaDetalleTipo))
-                                                                        {
-                                                                            <tr class="table-active">
-                                                                                <th colspan="2">@grupoDetalle.Key</th>
-                                                                            </tr>
-                                                                            @foreach (var detalle in grupoDetalle)
-                                                                            {
-                                                                                <tr>
-                                                                                    <td class="table-success text-center">
-                                                                                        <i class="fa fa-file-lines text-success"></i>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <a>@detalle.Descripcion</a>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            }
-                                                                        }
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
                                                         }
-                                                    </div>
-                                                }
-                                            </div>
-                                        </section>
+                                                        else
+                                                        {
+                                                            foreach (var cabecera in ConvocatoriasFiltradas)
+                                                            {
+                                                                <div class="row gy-4">
+                                                                    <div class="col-lg-12">
+                                                                        <div class="block block-rounded h-100 mb-0">
+                                                                            <div class="block-content bg-gd-aqua py-5 text-center">
+                                                                                <h3 class="fs-base fw-semibold mb-2">
+                                                                                    <a class="text-white">@cabecera.DescripcionConvocatoria</a>
+                                                                                </h3>
+                                                                                <h4 class="fw-medium text-white-75 mb-1">
+                                                                                    @if (cabecera.Estado == Enumerado.EstadoConvocatoria.Concluido)
+                                                                                    {
+                                                                                        <span class="badge bg-success" style="font-size: 18px;">@Html.Raw(GeneralResource.EtiquetaConcluida)</span>
+                                                                                    }
+                                                                                    else if (cabecera.Estado == Enumerado.EstadoConvocatoria.EnProceso)
+                                                                                    {
+                                                                                        <span class="badge bg-primary" style="font-size: 18px;">@Html.Raw(GeneralResource.EtiquetaEnProceso)</span>
+                                                                                    }
+                                                                                </h4>
+                                                                            </div>
+                                                                            <div class="block-content block-content-full text-center">
+                                                                                <div class="row g-sm mt-3">
+                                                                                    <div class="col-6">
+                                                                                        <p><strong>@Html.Raw(GeneralResource.EtiquetaFechaInicio)</strong> @cabecera.FechaInicio.ToString("yyyy-MM-dd")</p>
+                                                                                    </div>
+                                                                                    <div class="col-6">
+                                                                                        <p><strong>@Html.Raw(GeneralResource.EtiquetaFechaFinal)</strong> @cabecera.FechaFinal.ToString("yyyy-MM-dd")</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    @if (cabecera.DetalleLista != null)
+                                                                    {
+                                                                        <div class="col-lg-12">
+                                                                            <table class="table table-borderless table-vcenter mb-4">
+                                                                                <tbody>
+                                                                                    @foreach (var grupoDetalle in cabecera.DetalleLista.GroupBy(d => d.DescripcionConvocatoriaDetalleTipo))
+                                                                                    {
+                                                                                        <tr class="table-active">
+                                                                                            <th colspan="2">@grupoDetalle.Key</th>
+                                                                                        </tr>
+                                                                                        @foreach (var detalle in grupoDetalle)
+                                                                                        {
+                                                                                            <tr>
+                                                                                                <td class="table-success text-center">
+                                                                                                    <i class="fa fa-file-lines text-success"></i>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <a>@detalle.Descripcion</a>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        }
+                                                                                    }
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    }
+                                                                </div>
+                                                            }
+                                                        }
+                                                    }
+                                                </div>
+                                            </section>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- ============== -->
-
+                            }
                         </div>
                     }
+                    <!-- ======= FIN CONVOCATORIAS ======= -->
                 </div>
             </div>
         </div>
     </div>
-    <!-- ======= FIN CAS - INTERNO - PUBLICO - ETC ======= -->
-    <!-- ======= FIN DE SESSION CON PESTAÑA ======= -->
 </main>
