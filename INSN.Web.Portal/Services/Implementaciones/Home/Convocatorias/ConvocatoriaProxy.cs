@@ -61,7 +61,7 @@ public class ConvocatoriaProxy : CrudRestHelperBase<ConvocatoriaDtoRequest, Conv
     {
         try
         {
-            var queryString = $"?Descripcion={request.Descripcion}&Estado={request.Estado}&EstadoRegistro={request.EstadoRegistro}";
+            var queryString = $"?Descripcion={request.Descripcion}&CodigoConvocatoriaTipoId={request.CodigoConvocatoriaTipoId}&Estado={request.Estado}&EstadoRegistro={request.EstadoRegistro}";
             var response = await HttpClient.GetAsync($"{BaseUrl}/ConvocatoriaListar{queryString}");
 
             response.EnsureSuccessStatusCode();

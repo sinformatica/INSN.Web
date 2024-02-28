@@ -483,13 +483,29 @@
                                                             var imagenDataUrl = string.Format("data:image/" + @item.Extension + ";base64,{0}", base64);
                                                         }
 
-                                                        <img src="@imagenDataUrl" style="height: 300px; /* Altura definida * /" class="testimonial-img flex-shrink-0" alt="">
+                                                        <img src="@imagenDataUrl" style="height: 250px; /* Altura definida * /" class="testimonial-img flex-shrink-0" alt="">
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <h4>@item.FechaPublicacion.ToString("dd/MM/yyyy")</h4>
                                                 <p>
-                                                    @item.Titulo
+                                                    @if (!string.IsNullOrEmpty(item.Titulo))
+                                                    {
+                                                        @if (item.Titulo.Length <= 30)
+                                                        {
+                                                            @item.Titulo
+                                                            <br />
+                                                            <br />
+                                                        }
+                                                        else if (item.Titulo.Length <= 65)
+                                                        {
+                                                            @item.Titulo
+                                                        }
+                                                        else
+                                                        {
+                                                            @(item.Titulo.Substring(0, 65) + "...")
+                                                        }
+                                                    }
                                                 </p>
                                                 <a data-bs-toggle="modal" data-bs-target="#comunicado_@i" class="readmore stretched-link" style="cursor: pointer;"></a>
                                             </div>

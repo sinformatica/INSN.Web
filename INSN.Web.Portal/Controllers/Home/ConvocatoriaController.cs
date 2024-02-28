@@ -57,6 +57,7 @@ public class ConvocatoriaController : Controller
         var result = await _proxy.ConvocatoriaListar(new ConvocatoriaDtoRequest()
         {
             Descripcion = "",
+            CodigoConvocatoriaTipoId = 0,
             Estado = "",
             EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });
