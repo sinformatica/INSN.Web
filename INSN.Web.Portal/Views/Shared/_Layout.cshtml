@@ -44,12 +44,10 @@
 
                 @if (HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.JwtToken) != null
                 && HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.JwtToken)!.Length > 0)
-                {
-                    <div class="social-links d-none d-md-flex align-items-center">
+                {                   
                         <a class="nav-link text-dark" asp-controller="Acceso" asp-action="Logout" title="Cerrar sesión">
                             <i class="fas fa-sign-out-alt custom-size-icono-salir"></i>
-                        </a>
-                    </div>
+                        </a>              
                 }
                 else
                 {
