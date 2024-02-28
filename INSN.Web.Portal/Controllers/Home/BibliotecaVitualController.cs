@@ -16,7 +16,6 @@ public class BibliotecaVirtualController : Controller
     private readonly IUsuarioBibliotecaProxy _proxy;
     private readonly IHttpContextAccessor? _httpContextAccessor;
     private readonly string? Usuario; 
-    private readonly string? NombreRolUsuario;
 
     /// <summary>
     /// Biblioteca Virtual Controller
@@ -25,7 +24,6 @@ public class BibliotecaVirtualController : Controller
     {
         _proxy = proxy;
         _httpContextAccessor = httpContextAccessor;
-        NombreRolUsuario = _httpContextAccessor?.HttpContext?.Session.GetString(Constantes.NombreRolUsuario) ?? string.Empty;
         Usuario = _httpContextAccessor?.HttpContext?.Session.GetString(Constantes.Usuario);
     }
 

@@ -2,6 +2,8 @@
 @using INSN.Web.Common;
 @using Newtonsoft.Json;
 @inject IHttpContextAccessor HttpContextAccessor
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
 
 @{
     ViewData["Title"] = "INSN Breña";
@@ -9,8 +11,8 @@
 
 <main id="main">
     @{
-        string? NombreUsuario = HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.NombreUsuario);
-        string? NombreRolUsuario = HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.NombreRolUsuario);        
+        string? Usuario = HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.Usuario);
+        string? MasterBiblioteca = Configuration["PermisosEstaticos:MasterBiblioteca"];
     }
 
     <!-- ======= INICIO Introducción a la biblioteca virtual ======= -->
@@ -33,23 +35,22 @@
         </div>
     </section>
     <br />
-
-    
-
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
-        <form>
+            <form>
                 <div class="row">
-                    <div class="col-md-12 col-sm-6" style="text-align-last: right;">                
-                    <button class="btn btn-sm btn-block-option" asp-controller="BibliotecaVirtual" asp-action="UsuarioBibliotecaExportarExcel" title="Exportar Excel Usuario Logueados">
-                    <img src="~/imagenes/iconos/documentos/excel.svg" alt="Exportar Excel" style="width: 45px; height: 45px;">
-                </button>
+                    <div class="col-md-12 col-sm-6" style="text-align-last: right;">
+                        @if (Usuario == MasterBiblioteca)
+                        {
+                            <button class="btn btn-sm btn-block-option" asp-controller="BibliotecaVirtual" asp-action="UsuarioBibliotecaExportarExcel" title="Exportar Excel Usuario Logueados">
+                                <img src="~/imagenes/iconos/documentos/excel.svg" alt="Exportar Excel" style="width: 45px; height: 45px;">
+                            </button>
+                        }
                     </div>
                 </div>
-        </form>
+            </form>
         </div>
-        </section>
-
+    </section>
     <!-- ======= INICIO DE SESSION CON PESTAÑA ======= -->
     <!-- ======= INICIO BASE DE DATOS - COLECCIONES - REVISTAS ======= -->
     <div class="section best-deal">
