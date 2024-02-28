@@ -2720,6 +2720,9 @@ Banner Style
 .main-banner .item-3 {
     background-image: url(../Imagenes/Portada_3.jpg);
 }
+.main-banner .item-4 {
+    background-image: url(../Imagenes/Portada_4.jpg);
+}
 
 .main-banner .item-TeleSalud-1 {
     background-image: url(../Imagenes/Telesalud/Tele1.jpg);
@@ -2766,16 +2769,16 @@ Banner Style
     background-image: url(../Imagenes/Telesalud/Tele12.jpg);
 }
 .main-banner .item-Docencia-1 {
-    background-image: url(../Imagenes/Docencia/DOC1.PNG);
+    background-image: url(../Imagenes/Docencia/D1.jpg);
 }
 .main-banner .item-Docencia-2 {
-    background-image: url(../Imagenes/Docencia/DOC2.PNG);
+    background-image: url(../Imagenes/Docencia/D2.jpg);
 }
 .main-banner .item-Docencia-3 {
-    background-image: url(../Imagenes/Docencia/DOC3.PNG);
+    background-image: url(../Imagenes/Docencia/D3.jpg);
 }
 .main-banner .item-Docencia-4 {
-    background-image: url(../Imagenes/Docencia/DOC4.PNG);
+    background-image: url(../Imagenes/Docencia/DOC3.PNG);
 }
 
 
