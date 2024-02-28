@@ -16,8 +16,8 @@
         public string? Descripcion { get; set; } = default!;
 
         /// <summary>
-        /// Codigo Tipo Convocatoria Id
+        /// Codigo Convocatoria Tipo Id
         /// </summary>
-        public int CodigoTipoConvocatoriaId { get; set; }
+        public int CodigoConvocatoriaTipoId { get; set; }
     }
 }
