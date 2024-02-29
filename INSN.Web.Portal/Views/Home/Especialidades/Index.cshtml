@@ -2,9 +2,7 @@
     ViewData["Title"] = "INSN Breña";
 }
 
-
 <main id="main">
-
     <!-- ======= INICIO DE SESSION CON PESTAÑA ======= -->
     <!-- ======= INICIO OBJETIVOS - ORGANIGRAMA - HISTORIA ======= -->
     <div class="section best-deal">
@@ -27,8 +25,6 @@
                     <br />
                     <br />
                 </div>
-
-
                 <div>
                     <!-- ======= INICIO OPCIONES ESPECIALIDAD / SERVICIO  ======= -->
                     <div class="tabs-content">
@@ -47,20 +43,18 @@
                 </div>
                 <br />
                 <br />
-
                 <!-- ======= INICIO  ESPECIALIDADES ======= -->
                 <div class="tabs-content" id="TabContentEspecialidad">
                     <!-- ======= INICIO TABS ======= -->
                     <div class="nav-wrapper ">
                         <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-top: 2px solid #0096ad !important;">
-                          @*   <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-bottom: 2px solid #0096ad !important; border-top: 2px solid #0096ad !important;"> *@
+                            @*   <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-bottom: 2px solid #0096ad !important; border-top: 2px solid #0096ad !important;"> *@
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="Medicina-tab" data-bs-toggle="tab" data-bs-target="#Medicina" type="button" role="tab" aria-controls="Medicina" aria-selected="true">Medicina</button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="Cirugía-tab" data-bs-toggle="tab" data-bs-target="#Cirugía" type="button" role="tab" aria-controls="Cirugía" aria-selected="false">Cirugía</button>
                             </li>
-
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="Biotecnología-tab" data-bs-toggle="tab" data-bs-target="#Biotecnología" type="button" role="tab" aria-controls="Biotecnología" aria-selected="false">Biotecnología</button>
                             </li>
@@ -241,14 +235,14 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-4 col-xl-2">
-                                   @*  <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)"> *@
+                                    <a class="block block-rounded block-bordered text-center block-altura">
                                         <div class="block-content">
                                             <p class="mt-1">
                                                 <img src="~/imagenes/iconos/especialidades/UnidadHospitalDia.svg" width="100%" height="100%">
                                             </p>
                                             <p class="fw-medium">Hospital de Día</p>
                                         </div>
-                                  @*   </a> *@
+                                    </a>
                                 </div>
                                 <div class="col-6 col-md-4 col-xl-2">
                                     <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="Especialidades" asp-action="UnidadCuidadoPaliativos">
@@ -272,14 +266,14 @@
                                 <br />
                                 <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
                                     <div class="col-6 col-md-4 col-xl-2">
-                                       @*  <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="Especialidades" asp-action="CirugiaCabeza"> *@
+                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="Especialidades" asp-action="CirugiaCabeza">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/CirugiaCabeza.svg" width="100%" height="100%">
                                                 </p>
                                                 <p class="fw-medium">Cir. de Cabeza</p>
                                             </div>
-                                      @*   </a> *@
+                                        </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
                                         <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="Especialidades" asp-action="CirugiaPediatrica">
@@ -383,8 +377,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                         <!-- ======= FIN CIRUGÍA ======= -->
                         <!-- ============== -->
@@ -395,24 +387,24 @@
                                 <br />
                                 <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
                                     <div class="col-6 col-md-4 col-xl-2">
-                                      @*   <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)"> *@
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/cardiologia.svg" width="100%" height="100%">
                                                 </p>
                                                 <p class="fw-medium">Cir. Experimental</p>
                                             </div>
-                                     @*    </a> *@
+                                        </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                      @*   <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)"> *@
-                                            <div class="block-content">
-                                                <p class="mt-1">
-                                                    <img src="~/imagenes/iconos/especialidades/cardiologia.svg" width="100%" height="100%">
-                                                </p>
-                                                <p class="fw-medium">Gen. Metabolismo</p>
-                                            </div>
-                                      @*   </a> *@
+                                        @*   <a class="block block-rounded block-bordered text-center block-altura">
+                                        <div class="block-content">
+                                        <p class="mt-1">
+                                        <img src="~/imagenes/iconos/especialidades/cardiologia.svg" width="100%" height="100%">
+                                        </p>
+                                        <p class="fw-medium">Gen. Metabolismo</p>
+                                        </div>
+                                        @*   </a> *@
                                     </div>
 
                                 </div>
@@ -459,48 +451,44 @@
                                 <br />
                                 <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
                                     <div class="col-6 col-md-4 col-xl-2">
-                                      @*   <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)"> *@
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Ortodoncia.svg" width="100%" height="100%">
                                                 </p>
-                                                @* <p class="fw-medium">Ortodoncia y Ortopedia Maxilar</p> *@
                                                 <p class="fw-medium">Ortodoncia(+)</p>
                                             </div>
-                                     @*    </a> *@
+                                        </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                      @*   <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)"> *@
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Dental.svg" width="100%" height="100%">
                                                 </p>
-                                               @*  <p class="fw-medium" style="font-size: 12px;">Estética Dental y Terapia Pulpar, y Rehabilitación de la Oclusión</p> *@
                                                 <p class="fw-medium">Estética Dental(+)</p>
                                             </div>
-                                      @*   </a> *@
+                                        </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                      @*   <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)"> *@
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Estomatologia.svg" width="100%" height="100%">
                                                 </p>
-                                              @*   <p class="fw-medium" style="font-size: 14px;">Medicina Estomatológia y Atención al Infante</p> *@
                                                 <p class="fw-medium">Estomatológia</p>
                                             </div>
-                                     @*    </a> *@
+                                        </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                      @*   <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)"> *@
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/BucoMaxilo.svg" width="100%" height="100%">
                                                 </p>
-                                               @*  <p class="fw-medium" style="font-size: 14px;">Cirugía Buco Máxilo facial</p> *@
-                                                <p class="fw-medium">Cir. Buco Máxilo</p> 
+                                                <p class="fw-medium">Cir. Buco Máxilo</p>
                                             </div>
-                                      @*   </a> *@
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -514,24 +502,24 @@
                                 <br />
                                 <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
                                     <div class="col-6 col-md-4 col-xl-2">
-                                       @*  <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)"> *@
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Hemodialisis.svg" width="100%" height="100%">
                                                 </p>
                                                 <p class="fw-medium">Insuficiencia Ren.</p>
                                             </div>
-                                      @*   </a> *@
+                                        </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                       @*  <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)"> *@
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Dialisis.svg" width="100%" height="100%">
                                                 </p>
                                                 <p class="fw-medium">Diálisis Peritoneal</p>
                                             </div>
-                                      @*   </a> *@
+                                        </a>
                                     </div>
 
                                 </div>
@@ -546,14 +534,14 @@
                                 <br />
                                 <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        @* <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)"> *@
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/UnidadCuidados.svg" width="100%" height="100%">
                                                 </p>
                                                 <p class="fw-medium">UCI</p>
                                             </div>
-                                     @*    </a> *@
+                                        </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
                                         <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="Especialidades" asp-action="ServicioEmergencia">
@@ -578,54 +566,54 @@
                                 <br />
                                 <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
                                     <div class="col-6 col-md-4 col-xl-2">
-                                       @*  <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)"> *@
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/CirugiaMayor.svg" width="100%" height="100%">
                                                 </p>
                                                 <p class="fw-medium">Cirugía Mayor</p>
                                             </div>
-                                       @*  </a> *@
+                                        </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                       @*  <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)"> *@
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/CirugiaDia.svg" width="100%" height="100%">
                                                 </p>
                                                 <p class="fw-medium">Cirugía de Día</p>
                                             </div>
-                                      @*   </a> *@
+                                        </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        @* <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)"> *@
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Quemados.svg" width="96%" height="96%">
                                                 </p>
                                                 <p class="fw-medium">SOP Quemados</p>
                                             </div>
-                                      @*   </a> *@
+                                        </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                       @*  <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)"> *@
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Emergencia.svg" width="100%" height="100%">
                                                 </p>
                                                 <p class="fw-medium">SOP Emergencia</p>
                                             </div>
-                                      @*   </a> *@
+                                        </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                      @*   <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)"> *@
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Recuperacion.svg" width="100%" height="100%">
                                                 </p>
                                                 <p class="fw-medium">Recuperación</p>
                                             </div>
-                                       @*  </a> *@
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -640,8 +628,8 @@
                 <div class="tabs-content" id="TabContentServicio" style="display: none;">
                     <!-- ======= INICIO TABS ======= -->
                     <div class="nav-wrapper ">
-                       @*  <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-bottom: 2px solid #0096ad !important; border-top: 2px solid #0096ad !important;"> *@
-                            <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-top: 2px solid #0096ad !important;">
+                        @*  <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-bottom: 2px solid #0096ad !important; border-top: 2px solid #0096ad !important;"> *@
+                        <ul class="nav nav-tabs" role="tablist" style="justify-content: center; border-top: 2px solid #0096ad !important;">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="UnidadPatologíaClínica-tab" data-bs-toggle="tab" data-bs-target="#UnidadPatologíaClínica" type="button" role="tab" aria-controls="UnidadPatologíaClínica" aria-selected="false">Unidad Patología Clínica</button>
                             </li>
@@ -679,7 +667,7 @@
                                 <br />
                                 <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/BancoSangre.svg" width="100%" height="100%">
@@ -689,7 +677,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Bioquimica.svg" width="100%" height="100%">
@@ -699,7 +687,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Hematologia.svg" width="100%" height="100%">
@@ -709,7 +697,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Microbiologia.svg" width="100%" height="100%">
@@ -719,7 +707,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Emergencia.svg" width="100%" height="100%">
@@ -740,7 +728,7 @@
                                 <br />
                                 <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Radiologia.svg" width="100%" height="100%">
@@ -750,7 +738,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/EstudiosRadiologia.svg" width="100%" height="100%">
@@ -760,7 +748,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Ecografia.svg" width="100%" height="100%">
@@ -770,7 +758,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Tomografia.svg" width="100%" height="100%">
@@ -780,7 +768,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/RadiologiaIntervencionista.svg" width="100%" height="100%">
@@ -792,7 +780,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Hemodinamica.svg" width="100%" height="100%">
@@ -802,7 +790,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/DiagnosticoHemodinamica.svg" width="100%" height="100%">
@@ -823,7 +811,7 @@
                                 <br />
                                 <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/FormulasLacteas.svg" width="100%" height="100%">
@@ -833,7 +821,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/FormulaEnterales.svg" width="100%" height="100%">
@@ -843,7 +831,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Dieteticos.svg" width="100%" height="100%">
@@ -853,7 +841,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Nutricion.svg" width="94%" height="94%">
@@ -863,7 +851,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Monitoreo.svg" width="100%" height="100%">
@@ -884,7 +872,7 @@
                                 <br />
                                 <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/FarmaciaClinica.svg" width="100%" height="100%">
@@ -894,7 +882,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Almacenamiento.svg" width="100%" height="100%">
@@ -904,7 +892,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/MaterialesMedicos.svg" width="100%" height="100%">
@@ -914,7 +902,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Farmacotecnia.svg" width="100%" height="100%">
@@ -956,7 +944,7 @@
                                 <br />
                                 <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/AtencionAmbulatoria.svg" width="100%" height="100%">
@@ -966,7 +954,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Hospitalizacion.svg" width="100%" height="100%">
@@ -976,7 +964,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Emergencia.svg" width="100%" height="100%">
@@ -986,7 +974,7 @@
                                         </a>
                                     </div>
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/VisitaDomiciliaria.svg" width="100%" height="100%">
@@ -1007,7 +995,7 @@
                                 <br />
                                 <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Desinfeccion.svg" width="100%" height="100%">
@@ -1028,7 +1016,7 @@
                                 <br />
                                 <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100">
                                     <div class="col-6 col-md-4 col-xl-2">
-                                        <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="javascript:void(0)">
+                                        <a class="block block-rounded block-bordered text-center block-altura">
                                             <div class="block-content">
                                                 <p class="mt-1">
                                                     <img src="~/imagenes/iconos/especialidades/Infantil.svg" width="100%" height="100%">
@@ -1043,38 +1031,29 @@
                         <!-- ======= FIN SERVICIO SOCIAL ======= -->
                     </div>
                 </div>
-
-
                 <!-- ======= FIN SECCION SERVICIO ======= -->
-
             </div>
         </div>
     </div>
     <!-- ======= FIN OBJETIVOS - ORGANIGRAMA - HISTORIA ======= -->
     <!-- ======= FIN DE SESSION CON PESTAÑA ======= -->
-
     <br />
 </main>
 
 <script>
     function showTabEspecilidad() {
-      
         // Oculta el contenido de Especialidad
         var TabEspecialidad = document.getElementById('TabContentEspecialidad');
         var ButtonEspecialidad = document.getElementById('Button-Especialidad-tab');
         var TabServicio = document.getElementById('TabContentServicio');
         var ButtonServicio = document.getElementById('Button-Servicio-tab');
 
-
         TabEspecialidad.style.display = 'block';
         TabServicio.style.display = 'none';
-
 
         ButtonEspecialidad.classList.add('active');
         ButtonServicio.classList.remove('active');
     }
-
-
 
     function showTabServicio() {
         var TabEspecialidad = document.getElementById('TabContentEspecialidad');
@@ -1082,10 +1061,8 @@
         var TabServicio = document.getElementById('TabContentServicio');
         var ButtonServicio = document.getElementById('Button-Servicio-tab');
 
-
         TabServicio.style.display = 'block';
         TabEspecialidad.style.display = 'none';
-
 
         ButtonEspecialidad.classList.remove('active');
         ButtonServicio.classList.add('active');
