@@ -26,21 +26,6 @@
         public string? RutaArchivo { get; set; }
 
         /// <summary>
-        /// Archivo Bytes
-        /// </summary>
-        public byte[]? ArchivoBytes { get; set; }
-
-        /// <summary>
-        /// Extension
-        /// </summary>
-        public string? Extension { get; set; }
-
-        /// <summary>
-        /// Tipo Archivo
-        /// </summary>
-        public string? TipoArchivo { get; set; }
-
-        /// <summary>
         /// Codigo Convocatoria Detalle Tipo Id
         /// </summary>
         public int CodigoConvocatoriaDetalleTipoId { get; set; }

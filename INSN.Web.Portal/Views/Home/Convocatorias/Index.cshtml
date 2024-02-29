@@ -122,11 +122,35 @@
                                                                                         @foreach (var detalle in grupoDetalle)
                                                                                         {
                                                                                             <tr>
-                                                                                                <td class="table-success text-center">
-                                                                                                    <i class="fa fa-file-lines text-success"></i>
+                                                                                                @{
+                                                                                                    string icono = "";
+                                                                                                    string estilo = "";
+                                                                                                    string extension = System.IO.Path.GetExtension(detalle.RutaArchivo ?? "");
+
+                                                                                                    if (extension == ".pdf")
+                                                                                                    {
+                                                                                                        icono = "fas fa-file-pdf";
+                                                                                                        estilo = "danger";
+                                                                                                    }
+                                                                                                    else if (extension == ".doc" || extension == ".docx")
+                                                                                                    {
+                                                                                                        icono = "fas fa-file-word";
+                                                                                                        estilo = "primary";
+                                                                                                    }
+                                                                                                    else
+                                                                                                    {
+                                                                                                        icono = "fas fa-file-excel";
+                                                                                                        estilo = "success";
+                                                                                                    }
+                                                                                                }
+
+                                                                                                <td class="table-@estilo text-center">
+                                                                                                    <i class="@icono text-@estilo"></i>
                                                                                                 </td>
                                                                                                 <td>
-                                                                                                    <a>@detalle.Descripcion</a>
+                                                                                                    <a class="btn" asp-action="AdaptadorAbrirArchivo" asp-route-RutaArchivo="@detalle.RutaArchivo" title="Ver Archivo" target="_blank">
+                                                                                                        @detalle.Descripcion
+                                                                                                    </a>
                                                                                                 </td>
                                                                                             </tr>
                                                                                         }

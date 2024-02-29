@@ -1,4 +1,5 @@
-﻿using INSN.Web.Common;
+﻿using INSN.Utilitarios;
+using INSN.Web.Common;
 using INSN.Web.Models.Request.Home;
 using INSN.Web.Models.Response.Home.Convocatorias;
 using INSN.Web.Portal.Services.Interfaces.Home.Convocatorias;
@@ -64,4 +65,34 @@ public class ConvocatoriaController : Controller
 
         return (List<ConvocatoriaDtoResponse>)result;
     }
+
+    #region[Abrir archivo]
+    /// <summary>
+    /// Adaptador Abrir Archivo
+    /// </summary>
+    /// <param name="RutaArchivo"></param>
+    /// <returns></returns>
+    public IActionResult AdaptadorAbrirArchivo(string RutaArchivo)
+    {
+        try
+        {
+            // Biblioteca Utilitarios
+            var (contenidoArchivo, tipoContenido) = GestorArchivo.ObtenerContenidoArchivo(RutaArchivo);
+
+            return File(contenidoArchivo, tipoContenido);
+        }
+        catch (ArgumentException)
+        {
+            return View("~/Views/Shared/Error.cshtml");
+        }
+        catch (FileNotFoundException)
+        {
+            return View("~/Views/Shared/NotFound.cshtml");
+        }
+        catch (Exception)
+        {
+            return View("~/Views/Shared/Error.cshtml");
+        }
+    }
+    #endregion
 }
