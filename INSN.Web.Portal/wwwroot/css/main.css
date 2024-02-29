@@ -48768,3 +48768,10 @@ Best Deal Style
 .block.block-rounded-categorias {
       height: 200px;  
 }
+.icon:hover {
+    fill: #fce57e; /* Cambia este valor al color que desees */
+}
+
+.block.tarjetaTelesalud {
+    width: 300px;
+}

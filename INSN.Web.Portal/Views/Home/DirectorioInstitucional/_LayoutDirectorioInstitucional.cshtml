@@ -19,7 +19,9 @@
     <link href="~/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="~/css/main.css" rel="stylesheet">
-    <link href="~/css/owl.css" rel="stylesheet" />
+    <link href="~/css/owl.css" rel="stylesheet" /> 
+    <!-- Estilos propios -->
+    <link href="~/css/estilos.css" rel="stylesheet" />
 </head>
 <body>
     <!-- ======= Header ======= -->
@@ -34,8 +36,7 @@
             <div class="social-links d-none d-md-flex align-items-center">
                 <a href="https://mail.insn.gob.pe/" class="envelope" target="_blank"><i class="bi bi-envelope-fill"></i></a>
                 <a href="https://www.youtube.com/INSNvideos" class="youtube" target="_blank"><i class="bi bi-youtube"></i></a>
-               @*  <a href="https://twitter.com/insn_oficial" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a> *@
-                <a href="https://twitter.com/insn_oficial" class="twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://twitter.com/insn_oficial" class="twitter" target="_blank"><i class="bi bi-twitter-x"></i></a>
                 <a href="https://www.facebook.com/INSNoficial/" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
                 <a href="https://www.instagram.com/hospital_del_nino_insn/?utm_source=ig_web_button_share_sheet&igshid=OGQ5ZDc2ODk2ZA==" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
                 <a href="https://www.linkedin.com/company/insn/about/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
@@ -43,14 +44,15 @@
                 @if (HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.JwtToken) != null
                 && HttpContextAccessor?.HttpContext?.Session.GetString(Constantes.JwtToken)!.Length > 0)
                 {
-                    <div style="padding-left: 10px;">
-                        <span>Hola @User.Identity?.Name</span>
-                        <a class="nav-link text-dark" asp-controller="Acceso" asp-action="Logout">Salir</a>
-                    </div>
+                    <a class="nav-link text-dark" asp-controller="Acceso" asp-action="Logout" title="Cerrar sesión">
+                        <i class="fas fa-sign-out-alt custom-size-icono-salir"></i>
+                    </a>
                 }
                 else
                 {
-                    <a asp-controller="Acceso" asp-action="Login" class="linkedin" target="_blank"><i class="bi bi-person-fill"></i></a>
+                    <a asp-controller="Acceso" asp-action="Login" class="linkedin" target="_blank">
+                        <i class="bi bi-person-fill"></i>
+                    </a>
                 }
             </div>
         </div>

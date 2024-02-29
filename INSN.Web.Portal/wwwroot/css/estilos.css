@@ -17,3 +17,8 @@
     max-width: 100%; /* Establece el ancho máximo al 100% del contenedor */
     max-height: 100%; /* Establece la altura máxima al 100% del contenedor */
 }
+
+.custom-size-icono-salir {
+    font-size: 23px;
+    color: #696c80;
+}
