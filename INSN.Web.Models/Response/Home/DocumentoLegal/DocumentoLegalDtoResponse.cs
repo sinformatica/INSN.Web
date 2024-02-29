@@ -6,11 +6,6 @@
     public class DocumentoLegalDtoResponse : BaseResponse
     {
         /// <summary>
-        /// Idedntificador de Tipo Documento
-        /// </summary>
-        public int Id { get; set; }
-
-        /// <summary>
         /// Nombre
         /// </summary>
         public string Documento { get; set; } = default!;
