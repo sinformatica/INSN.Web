@@ -1,12 +1,9 @@
 ﻿using AutoMapper;
-using INSN.Web.Entities.Home.LibroReclamacion;
 using INSN.Web.Entities.Info.Mantenimiento;
 using INSN.Web.Entities.SegApp;
 using INSN.Web.Entities.Util;
-using INSN.Web.Models.Request.Home.LibroReclamaciones;
 using INSN.Web.Models.Request.SegApp;
 using INSN.Web.Models.Request.SegApp.Mantenimiento;
-using INSN.Web.Models.Response.Home.LibroReclamaciones;
 using INSN.Web.Models.Response.SegApp;
 using INSN.Web.Models.Response.SegApp.Mantenimiento;
 using INSN.Web.Models.Response.Sistemas;
@@ -45,10 +42,6 @@ namespace INSN.Web.Services.Profiles
 
             // Mapear Sistema
             CreateMap<Sistema, SistemaDtoResponse>();
-
-            // Mapear Libro Reclamacion
-            CreateMap<LibroReclamacion, LibroReclamacionDtoResponse>();
-            CreateMap<LibroReclamacionDtoRequest, LibroReclamacion>();
 
             // Correo Credencial
             CreateMap<CorreoCredencial, CorreoCredencialDtoResponse>();

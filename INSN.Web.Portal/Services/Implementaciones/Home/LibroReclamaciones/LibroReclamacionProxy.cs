@@ -16,7 +16,7 @@ public class LibroReclamacionProxy : CrudRestHelperBase<LibroReclamacionDtoReque
     /// <param name="httpClient"></param>
     /// <param name="httpContextAccessor"></param>
     public LibroReclamacionProxy(HttpClient httpClient, IHttpContextAccessor? httpContextAccessor)
-        : base("api/Home/LibroReclamacion", httpClient)
+        : base("api/Mantenimiento/LibroReclamacion", httpClient)
     {
     }
 

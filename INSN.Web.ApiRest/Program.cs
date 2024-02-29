@@ -23,10 +23,6 @@ using INSN.Web.Repositories.Interfaces.Acceso;
 using INSN.Web.Services.Interfaces.Acceso;
 using INSN.Web.Services.Implementaciones.Acceso;
 using INSN.Web.ApiRest.Controllers;
-using INSN.Web.Repositories.Implementaciones.Home.LibroReclamaciones;
-using INSN.Web.Repositories.Interfaces.Home.LibroReclamaciones;
-using INSN.Web.Services.Implementaciones.Home.LibroReclamaciones;
-using INSN.Web.Services.Interfaces.Home.LibroReclamaciones;
 using INSN.Web.Repositories.Implementaciones.Util;
 using INSN.Web.Services.Implementaciones.Util;
 using INSN.Web.Services.Interfaces.Util;
@@ -126,11 +122,6 @@ builder.Services.AddTransient<IUsuarioRolService, UsuarioRolService>();
 #region[Tipo Documento Identidad]
 builder.Services.AddTransient<ITipoDocumentoIdentidadRepository, TipoDocumentoIdentidadRepository>();
 builder.Services.AddTransient<ITipoDocumentoIdentidadService, TipoDocumentoIdentidadService>();
-#endregion
-
-#region[Libro Reclamacion]
-builder.Services.AddTransient<ILibroReclamacionRepository, LibroReclamacionRepository>();
-builder.Services.AddTransient<ILibroReclamacionService, LibroReclamacionService>();
 #endregion
 
 #region[Correo Credencial]

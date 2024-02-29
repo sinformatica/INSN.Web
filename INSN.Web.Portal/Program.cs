@@ -57,7 +57,6 @@ builder.Services.AddProxy<IUsuarioProxy, UsuarioProxy>("ApiHttpClient");
 builder.Services.AddProxy<ITipoDocumentoIdentidadProxy, TipoDocumentoIdentidadProxy>("ApiHttpClient");
 builder.Services.AddProxy<IUsuarioRolProxy, UsuarioRolProxy>("ApiHttpClient");
 builder.Services.AddProxy<IAccesoProxy, AccesoProxy>("ApiHttpClient");
-builder.Services.AddProxy<ILibroReclamacionProxy, LibroReclamacionProxy>("ApiHttpClient");
 builder.Services.AddProxy<ICorreoCredencialProxy, CorreoCredencialProxy>("ApiHttpClient");
 #endregion
 
@@ -68,6 +67,8 @@ builder.Services.AddProxy<IConvocatoriaProxy, ConvocatoriaProxy>("ApiWebAdminHtt
 builder.Services.AddProxy<IComunicadoProxy, ComunicadoProxy>("ApiWebAdminHttpClient");
 builder.Services.AddProxy<INoticiaProxy, NoticiaProxy>("ApiWebAdminHttpClient");
 builder.Services.AddProxy<IUsuarioBibliotecaProxy, UsuarioBibliotecaProxy>("ApiWebAdminHttpClient");
+builder.Services.AddProxy<ILibroReclamacionProxy, LibroReclamacionProxy>("ApiWebAdminHttpClient");
+
 #endregion
 #endregion
 

@@ -1,7 +1,6 @@
 ﻿using INSN.Web.Entities.SegApp;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using INSN.Web.Entities.Home.LibroReclamacion;
 using INSN.Web.Entities.Util;
 
 namespace INSN.Web.DataAccess
@@ -34,10 +33,6 @@ namespace INSN.Web.DataAccess
             modelBuilder.Entity<Usuario>().HasKey(f => f.Id);
             modelBuilder.Entity<Sistema>().HasKey(f => f.CodigoSistemaId);
             modelBuilder.Entity<UsuarioRol>().HasKey(f => f.CodigoUsuarioRolId);
-            #endregion
-
-            #region [Libro Reclamacion]
-            modelBuilder.Entity<LibroReclamacion>().HasKey(f => f.CodigoLibroReclamacionId);
             #endregion
 
             #region [Correo Credencial]
