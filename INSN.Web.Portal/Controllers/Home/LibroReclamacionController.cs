@@ -9,7 +9,7 @@ using static INSN.Web.Common.Enumerado;
 using System.Net.Mail;
 using System.Net;
 using INSN.Web.Portal.Services.Interfaces.Util;
-using INSN.Web.Portal.Services.Util;
+using INSN.Utilitarios;
 
 namespace INSN.Web.Portal.Controllers.Home;
 
@@ -119,7 +119,7 @@ public class LibroReclamacionController : Controller
             {
                 if (request.Imagen.Length > 0)
                 {
-                    CarpetaHelper.ValidarArchivo("imagen", 5, request.Imagen);
+                    CarpetaHelper.ValidarArchivo(new List<string> { "imagen" }, 5, request.Imagen);
                 }
             }
 
@@ -178,7 +178,7 @@ public class LibroReclamacionController : Controller
 
                 // Actualizar campo Ruta imagen en la bd
                 await _proxy.LibroReclamacionRutaImagenActualizar(request.CodigoLibroReclamacionId, request.RutaImagen);
-            }            
+            }
             #endregion
 
             // Enviar correo
