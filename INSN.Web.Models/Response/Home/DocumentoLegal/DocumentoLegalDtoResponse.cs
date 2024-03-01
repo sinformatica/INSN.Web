@@ -16,9 +16,9 @@
         public string Descripcion { get; set; } = default!;
 
         /// <summary>
-        /// PDF
+        /// Ruta Archivo
         /// </summary>
-        public string PDF { get; set; } = default!;
+        public string RutaArchivo { get; set; } = default!;
 
         /// <summary>
         /// Fecha que fue publicado el documento

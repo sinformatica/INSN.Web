@@ -1,4 +1,5 @@
-﻿using INSN.Web.Common;
+﻿using INSN.Utilitarios;
+using INSN.Web.Common;
 using INSN.Web.Models.Request.Home.DocumentoLegal;
 using INSN.Web.Models.Response.Home.DocumentoLegal;
 using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
@@ -35,7 +36,7 @@ public class POAController : Controller
     {
         var resultTipoDocumento = await _TipoDocumentoProxy.TipoDocumentoListar(new TipoDocumentoDtoRequest()
         {
-            Area = Enumerado.DocumentosLegales.POA,
+            Area = Enumerado.DocumentosLegales.PROA,
             Estado = Enumerado.Estado.Activo,
             EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });
@@ -61,11 +62,41 @@ public class POAController : Controller
             Documento = model.Documento,
             Descripcion = model.Descripcion,
             CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
-            Area = Enumerado.DocumentosLegales.POA,
+            Area = Enumerado.DocumentosLegales.PROA,
             Estado = Enumerado.Estado.Activo,
             EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });
 
         return (List<DocumentoLegalDtoResponse>)resultDocumentoLegales;
     }
+
+    #region [Adaptador]
+    /// <summary>
+    /// Adaptador Abrir Archivo
+    /// </summary>
+    /// <param name="RutaArchivo"></param>
+    /// <returns></returns>
+    public IActionResult AdaptadorAbrirArchivo(string RutaArchivo)
+    {
+        try
+        {
+            // Biblioteca Utilitarios
+            var (contenidoArchivo, tipoContenido) = GestorArchivo.ObtenerContenidoArchivo(RutaArchivo);
+
+            return File(contenidoArchivo, tipoContenido);
+        }
+        catch (ArgumentException)
+        {
+            return View("~/Views/Shared/Error.cshtml");
+        }
+        catch (FileNotFoundException)
+        {
+            return View("~/Views/Shared/NotFound.cshtml");
+        }
+        catch (Exception)
+        {
+            return View("~/Views/Shared/Error.cshtml");
+        }
+    }
+    #endregion
 }

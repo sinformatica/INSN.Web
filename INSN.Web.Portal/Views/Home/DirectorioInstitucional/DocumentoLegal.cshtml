@@ -12,13 +12,13 @@
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
             <form>
-            <div class="section-header">
-                <div>
-                    @Html.HiddenFor(m => m.TituloPagina, new { @id = "tituloPaginaInput" })
+                <div class="section-header">
+                    <div>
+                        @Html.HiddenFor(m => m.TituloPagina, new { @id = "tituloPaginaInput" })
+                    </div>
+                    <h4 id="tituloPaginaMostrado"></h4>
                 </div>
-                <h4 id="tituloPaginaMostrado"></h4>
-            </div>
-        
+
                 <div class="row">
                     <div class="col-5">
                         <div class="form-floating mb-4">
@@ -31,12 +31,11 @@
                             @Html.TextBoxFor(m => m.Descripcion, new { @class = "form-control", @id = "example-text-input-floating", @placeholder = "Descripción" })
                             <label class="form-label" for="example-text-input-floating">Descripción</label>
                         </div>
-                    </div>     
+                    </div>
                     <div>
                         @Html.HiddenFor(m => m.TipoDocumentoSeleccionada, new { @id = "tipoDocumentoSeleccionado" })
                     </div>
                 </div>
-
                 <div class="row mt-3 justify-content-end">
                     <div class="col-auto">
                         <button id="btnBuscar" class="btn btn-primary" type="submit"><i class="bi bi-search me-1"></i>Buscar</button>
@@ -45,6 +44,7 @@
                         <button class="btn btn-primary" type="reset"><i class="bi bi-eraser-fill me-1"></i>Limpiar</button>
                     </div>
                 </div>
+                <br />
                 <!-- ======= INICIO : Mostrar DataTable - Datos ========================== -->
                 <div class="col-12">
                     @if (Model.DocumentoLegales is null)
@@ -61,7 +61,7 @@
                         <div id="GridResultado">
                             @*   Clase: Responsive para Columnas / Barra Desplazamiento *@
                             <div class="table-responsive" style="width: 100%;">
-                                <table class="js-table-checkable table table-hover table-vcenter">
+                                <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
                                     <thead>
                                         <tr>
                                             <th class="text-center"> @Html.Raw(DocumentoLegalResource.EtiquetaGridDescripción)</th>
@@ -79,9 +79,30 @@
                                                         @item.FechaPublicacion.ToString("yyyy-MM-dd")
                                                     </p>
                                                 </td>
-                                                <td class="col-2 d-none d-sm-table-cell" style="TEXT-ALIGN: CENTER;">
-                                                    <a target="_blank" href="@Url.Action("Download1", "POA", new { fileName = item.PDF })">
-                                                        <img src="~/imagenes/iconos/pdf.svg" alt="Icono PDF" width="32" height="32">
+                                                <td class="col-2" style="TEXT-ALIGN: CENTER;">
+                                                    @{
+                                                        string icono = "";
+                                                        string estilo = "";
+                                                        string extension = System.IO.Path.GetExtension(item.RutaArchivo ?? "");
+
+                                                        if (extension == ".pdf" || extension ==".PDF")
+                                                        {
+                                                            icono = "fas fa-file-pdf";
+                                                            estilo = "danger";
+                                                        }
+                                                        else if (extension == ".doc" || extension == ".docx")
+                                                        {
+                                                            icono = "fas fa-file-word";
+                                                            estilo = "primary";
+                                                        }
+                                                        else
+                                                        {
+                                                            icono = "fas fa-file-excel";
+                                                            estilo = "success";
+                                                        }
+                                                    }
+                                                    <a class="btn" asp-action="AdaptadorAbrirArchivo" asp-route-RutaArchivo="@item.RutaArchivo" title="Ver Archivo" target="_blank">
+                                                        <i class="@icono text-@estilo fa-2x fa-bg"></i>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -93,31 +114,27 @@
                     }
                 </div>
                 <!-- ======= FIN    : Mostrar DataTable - Datos ========================== -->
-             
             </form>
         </div>
     </section>
 </main>
 
-
-
 @section Scripts
     {
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var tituloPaginaInput = document.getElementById("tituloPaginaInput");
-        var tituloPaginaMostrado = document.getElementById("tituloPaginaMostrado");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var tituloPaginaInput = document.getElementById("tituloPaginaInput");
+            var tituloPaginaMostrado = document.getElementById("tituloPaginaMostrado");
 
-        if (tituloPaginaInput && tituloPaginaMostrado) {
-            // Mostrar el valor inicialmente al cargar la página
-            tituloPaginaMostrado.innerText = tituloPaginaInput.value;
-
-            // Actualizar el valor cuando cambie el valor del campo oculto
-            tituloPaginaInput.addEventListener("input", function () {
+            if (tituloPaginaInput && tituloPaginaMostrado) {
+                // Mostrar el valor inicialmente al cargar la página
                 tituloPaginaMostrado.innerText = tituloPaginaInput.value;
-            });
-        }
-    });
-</script>
 
+                // Actualizar el valor cuando cambie el valor del campo oculto
+                tituloPaginaInput.addEventListener("input", function () {
+                    tituloPaginaMostrado.innerText = tituloPaginaInput.value;
+                });
+            }
+        });
+    </script>
 }

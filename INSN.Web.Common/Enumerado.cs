@@ -103,7 +103,7 @@
             /// <summary>
             /// POA
             /// </summary>
-            public const string POA = "POA";
+            public const string PROA = "PROA";
 
             /// <summary>
             /// SST
@@ -118,7 +118,7 @@
             /// <summary>
             /// Informe Gestion
             /// </summary>
-            public const string InformeGestion = "InformeGestion";
+            public const string TeleSalud = "TELESALUD";
 
             /// <summary>
             /// SCI

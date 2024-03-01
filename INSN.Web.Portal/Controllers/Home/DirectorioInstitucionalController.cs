@@ -1,4 +1,5 @@
-﻿using INSN.Web.Common;
+﻿using INSN.Utilitarios;
+using INSN.Web.Common;
 using INSN.Web.Models.Request.Home.DocumentoLegal;
 using INSN.Web.Portal.Services.Interfaces.Home.DocumentoInstitucional;
 using INSN.Web.ViewModels.Home.DocumentoLegal;
@@ -54,4 +55,34 @@ public class DirectorioInstitucionalController : Controller
 
         return View("~/Views/Home/DirectorioInstitucional/DocumentoLegal.cshtml", model);
     }
+
+    #region [Adaptador]
+    /// <summary>
+    /// Adaptador Abrir Archivo
+    /// </summary>
+    /// <param name="RutaArchivo"></param>
+    /// <returns></returns>
+    public IActionResult AdaptadorAbrirArchivo(string RutaArchivo)
+    {
+        try
+        {
+            // Biblioteca Utilitarios
+            var (contenidoArchivo, tipoContenido) = GestorArchivo.ObtenerContenidoArchivo(RutaArchivo);
+
+            return File(contenidoArchivo, tipoContenido);
+        }
+        catch (ArgumentException)
+        {
+            return View("~/Views/Shared/Error.cshtml");
+        }
+        catch (FileNotFoundException)
+        {
+            return View("~/Views/Shared/NotFound.cshtml");
+        }
+        catch (Exception)
+        {
+            return View("~/Views/Shared/Error.cshtml");
+        }
+    }
+    #endregion
 }

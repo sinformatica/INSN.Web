@@ -174,7 +174,7 @@
                             <div id="GridResultado">
                                 @*   Clase: Responsive para Columnas / Barra Desplazamiento *@
                                 <div class="table-responsive" style="width: 100%;">
-                                    <table class="js-table-checkable table table-hover table-vcenter">
+                                    <table class="table table-bordered table-striped table-vcenter js-dataTable-responsive">
                                         <thead>
                                             <tr>
                                                 <th class="text-center"> @Html.Raw(DocumentoLegalResource.EtiquetaGridDescripción)</th>
@@ -191,9 +191,30 @@
                                                             @item.FechaPublicacion.ToString("yyyy-MM-dd")
                                                         </p>
                                                     </td>
-                                                    <td class="col-2 d-none d-sm-table-cell">
-                                                        <a target="_blank" href="@Url.Action("Download1", "POA", new { fileName = item.PDF })">
-                                                            <img src="~/imagenes/iconos/pdf.svg" alt="Icono PDF" width="32" height="32">
+                                                    <td class="col-2" style="TEXT-ALIGN: CENTER;">
+                                                        @{
+                                                            string icono = "";
+                                                            string estilo = "";
+                                                            string extension = System.IO.Path.GetExtension(item.RutaArchivo ?? "");
+
+                                                            if (extension == ".pdf" || extension == ".PDF")
+                                                            {
+                                                                icono = "fas fa-file-pdf";
+                                                                estilo = "danger";
+                                                            }
+                                                            else if (extension == ".doc" || extension == ".docx")
+                                                            {
+                                                                icono = "fas fa-file-word";
+                                                                estilo = "primary";
+                                                            }
+                                                            else
+                                                            {
+                                                                icono = "fas fa-file-excel";
+                                                                estilo = "success";
+                                                            }
+                                                        }
+                                                        <a class="btn" asp-action="AdaptadorAbrirArchivo" asp-route-RutaArchivo="@item.RutaArchivo" title="Ver Archivo" target="_blank">
+                                                            <i class="@icono text-@estilo fa-2x fa-bg"></i>
                                                         </a>
                                                     </td>
                                                 </tr>
