@@ -672,10 +672,35 @@
     }
 }
 <!-- FIN MODAL - COMUNICADOS -->
+<!-- INICIO DE MODAL LOAD -->
+<div id="modal_index_1" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-fromleft modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="swiper-container swiper-gallery" style="max-width:">
+                    <div class="swiper-wrapper">
+                        <!-- Mostrar la imagen -->
+                        <div class="swiper-slide">
+                            <img src="~/imagenes/covi19/covi19.png" />
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FIN DE MODAL LOAD -->
 <!-- jQuery desde CDN -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
+    //Cargar modal al iniciar Index
+        $(document).ready(function () {
+            $('#modal_index_1').modal('show');
+        });
+
     $(document).ready(function () {
         // Inicializa Swiper
         var swiper = new Swiper('.swiper-gallery', {
