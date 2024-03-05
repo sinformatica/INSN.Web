@@ -36,7 +36,7 @@ public class Covid19Controller : Controller
     {
         var resultTipoDocumento = await _TipoDocumentoProxy.TipoDocumentoListar(new TipoDocumentoDtoRequest()
         {
-            Area = Enumerado.DocumentosLegales.Covid19,
+            Area = Enumerado.DocumentoLegal.Covid19,
             Estado = Enumerado.Estado.Activo,
             EstadoRegistro = 1
         });
@@ -62,7 +62,7 @@ public class Covid19Controller : Controller
             Documento = model.Documento,
             Descripcion = model.Descripcion,
             CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
-            Area = Enumerado.DocumentosLegales.Covid19,
+            Area = Enumerado.DocumentoLegal.Covid19,
             Estado = Enumerado.Estado.Activo,
             EstadoRegistro = 1
         });

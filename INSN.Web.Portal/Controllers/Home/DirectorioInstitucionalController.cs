@@ -45,7 +45,7 @@ public class DirectorioInstitucionalController : Controller
             Documento = model.Documento,
             Descripcion = model.Descripcion,
             CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
-            Area = Enumerado.DocumentosLegales.DocumentoLegal,
+            Area = model.AreaSeleccionada,
             Estado = Enumerado.Estado.Activo,
             EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });

@@ -91,17 +91,17 @@
         }
 
         /// <summary>
-        /// Constantes Documentos Legales
+        /// Constantes Documento Legal
         /// </summary>
-        public struct DocumentosLegales
+        public struct DocumentoLegal
         {
             /// <summary>
-            /// COVID19
+            /// Normas Emitidas
             /// </summary>
-            public const string Covid19 = "COVID19";
+            public const string NormasEmitidas = "DOCUMENTO LEGAL";
 
             /// <summary>
-            /// POA
+            /// PROA
             /// </summary>
             public const string PROA = "PROA";
 
@@ -111,29 +111,74 @@
             public const string SST = "SST";
 
             /// <summary>
-            /// Documento Legal
-            /// </summary>
-            public const string DocumentoLegal = "DOCUMENTOLEGAL";
-
-            /// <summary>
-            /// Informe Gestion
-            /// </summary>
-            public const string TeleSalud = "TELESALUD";
-
-            /// <summary>
             /// SCI
             /// </summary>
             public const string SCI = "SCI";
 
             /// <summary>
-            /// SUBCAFAE
-            /// </summary>
-            public const string SUBCAFAE = "SUBCAFAE";
-
-            /// <summary>
             /// UFGRD
             /// </summary>
             public const string UFGRD = "UFGRD";
+
+            /// <summary>
+            /// Covid19
+            /// </summary>
+            public const string Covid19 = "COVID19";
+
+            /// <summary>
+            /// Planeamiento Organizacion
+            /// </summary>
+            public const string PlaneamientoOrganizacion = "PLANEAMIENTO ORGANIZACION";
+
+            /// <summary>
+            /// Presupuesto
+            /// </summary>
+            public const string Presupuesto = "PRESUPUESTO";
+
+            /// <summary>
+            /// Proyecto Inversion Infobras
+            /// </summary>
+            public const string ProyectoInversionInfobras = "PROYECTO INVERSION INFOBRAS";
+
+            /// <summary>
+            /// Personal
+            /// </summary>
+            public const string Personal = "PERSONAL";
+
+            /// <summary>
+            /// Contratacion Bienes Servicios
+            /// </summary>
+            public const string ContratacionBienesServicios = "CONTRATACION BIENES SERVICIOS";
+
+            /// <summary>
+            /// Actividad Oficial
+            /// </summary>
+            public const string ActividadOficial = "ACTIVIDAD OFICIAL";
+
+            /// <summary>
+            /// Acceso Informacion
+            /// </summary>
+            public const string AccesoInformacion = "ACCESO INFORMACION";
+
+            /// <summary>
+            /// Registro Visitas
+            /// </summary>
+            public const string RegistroVisitas = "REGISTRO VISITAS";
+
+            /// <summary>
+            /// Participacion Ciudadana
+            /// </summary>
+            public const string ParticipacionCiudadana = "PARTICIPACION CIUDADANA";
+
+            /// <summary>
+            /// TeleSalud
+            /// </summary>
+            public const string TeleSalud = "TELESALUD";
+
+            /// <summary>
+            /// SUBCAFAE
+            /// </summary>
+            public const string SUBCAFAE = "SUBCAFAE";
         }
     }
 }

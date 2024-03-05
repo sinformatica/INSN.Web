@@ -35,7 +35,7 @@ public class SubCAFAEController : Controller
     {
         var resultTipoDocumento = await _TipoDocumentoProxy.TipoDocumentoListar(new TipoDocumentoDtoRequest()
         {
-            Area = Enumerado.DocumentosLegales.SUBCAFAE,
+            Area = Enumerado.DocumentoLegal.SUBCAFAE,
             Estado = Enumerado.Estado.Activo,
             EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });
@@ -61,7 +61,7 @@ public class SubCAFAEController : Controller
             Documento = model.Documento,
             Descripcion = model.Descripcion,
             CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
-            Area = Enumerado.DocumentosLegales.SUBCAFAE,
+            Area = Enumerado.DocumentoLegal.SUBCAFAE,
             Estado = Enumerado.Estado.Activo,
             EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });

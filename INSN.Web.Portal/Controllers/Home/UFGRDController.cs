@@ -36,7 +36,7 @@ public class UFGRDController : Controller
     {
         var resultTipoDocumento = await _TipoDocumentoProxy.TipoDocumentoListar(new TipoDocumentoDtoRequest()
         {
-            Area = Enumerado.DocumentosLegales.UFGRD,
+            Area = Enumerado.DocumentoLegal.UFGRD,
             Estado = Enumerado.Estado.Activo,
             EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });
@@ -62,7 +62,7 @@ public class UFGRDController : Controller
             Documento = model.Documento,
             Descripcion = model.Descripcion,
             CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
-            Area = Enumerado.DocumentosLegales.UFGRD,
+            Area = Enumerado.DocumentoLegal.UFGRD,
             Estado = Enumerado.Estado.Activo,
             EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });
