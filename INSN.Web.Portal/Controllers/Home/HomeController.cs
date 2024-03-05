@@ -1,9 +1,12 @@
 ﻿using INSN.Web.Common;
+using INSN.Web.Models.Request.Home.Anuncios;
 using INSN.Web.Models.Request.Home.Comunicados;
 using INSN.Web.Models.Request.Home.Noticias;
+using INSN.Web.Models.Response.Home.Anuncios;
 using INSN.Web.Models.Response.Home.Comunicados;
 using INSN.Web.Models.Response.Home.Noticias;
 using INSN.Web.Portal.Models;
+using INSN.Web.Portal.Services.Interfaces.Home.Anuncios;
 using INSN.Web.Portal.Services.Interfaces.Home.Comunicados;
 using INSN.Web.Portal.Services.Interfaces.Home.Noticias;
 using INSN.Web.ViewModels.Home;
@@ -19,16 +22,19 @@ namespace INSN.Web.Portal.Controllers.Home
     {
         private readonly IComunicadoProxy _proxyComunicado;
         private readonly INoticiaProxy _proxyNoticia;
+        private readonly IAnuncioProxy _proxyAnuncio;
 
         /// <summary>
         /// Home Controller
         /// </summary>
         /// <param name="proxyComunicado"></param>
         /// <param name="proxyNoticia"></param>
-        public HomeController(IComunicadoProxy proxyComunicado, INoticiaProxy proxyNoticia)
+        /// <param name="proxyAnuncio"></param>
+        public HomeController(IComunicadoProxy proxyComunicado, INoticiaProxy proxyNoticia, IAnuncioProxy proxyAnuncio)
         {
             _proxyComunicado = proxyComunicado;
             _proxyNoticia = proxyNoticia;
+            _proxyAnuncio = proxyAnuncio;
         }
 
         /// <summary>
@@ -121,6 +127,20 @@ namespace INSN.Web.Portal.Controllers.Home
             }
             #endregion
 
+            #region[Anuncio]
+            var resultAnuncios = AnuncioListar();
+            model.AnuncioLista = resultAnuncios.Result;
+
+            foreach (var item in model.AnuncioLista)
+            {
+                if (item.RutaImagen != null)
+                {
+                    item.Extension = item.Extension;
+                    item.ImagenBytes = System.IO.File.ReadAllBytes(item.RutaImagen);
+                }
+            }
+            #endregion
+
             return View("~/Views/Home/Index.cshtml", model);
         }
 
@@ -205,6 +225,24 @@ namespace INSN.Web.Portal.Controllers.Home
             });
 
             return (List<NoticiaDtoResponse>)result;
+        }
+        #endregion
+
+        #region[Anuncio]
+        /// <summary>
+        /// Anuncio Listar
+        /// </summary>  
+        /// <returns></returns>
+        public async Task<List<AnuncioDtoResponse>> AnuncioListar()
+        {
+            var result = await _proxyAnuncio.AnuncioListar(new AnuncioDtoRequest()
+            {
+                NombreReferencial = "",
+                Estado = Enumerado.Estado.Activo,
+                EstadoRegistro = Enumerado.EstadoRegistro.Activo
+            });
+
+            return (List<AnuncioDtoResponse>)result;
         }
         #endregion
     }
