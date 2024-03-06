@@ -46,10 +46,6 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="Administración-tab" data-bs-toggle="tab" data-bs-target="#Administración" type="button" role="tab" aria-controls="Administración" aria-selected="false">Administración</button>
                                 </li>
-@* 
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="Otros-tab" data-bs-toggle="tab" data-bs-target="#Otros" type="button" role="tab" aria-controls="Otros" aria-selected="false">Otros</button>
-                                </li> *@
                             </ul>
                         </div>
                         <!-- ======= FIN TABS ======= -->
@@ -105,16 +101,6 @@
                                         </div>
                                     </div>
                                     <div class="row" style="justify-content: center;">
-                          @*               <div class="col-6 col-md-4 col-xl-2">
-                                            <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="BibliotecaVirtual" asp-action="Index">
-                                                <div class="block-content">
-                                                    <p class="mt-1">
-                                                        <img src="~/imagenes/iconos/biblioteca.svg" width="100%" height="100%">
-                                                    </p>
-                                                    <p class="fw-medium">Biblioteca Virtual</p>
-                                                </div>
-                                            </a>
-                                        </div> *@
                                         <div class="col-6 col-md-4 col-xl-2">
                                             <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="MesaParte" asp-action="Index">
                                                 <div class="block-content">
@@ -207,7 +193,6 @@
                                                     </div>
                                                 </a>
                                             </div>
-
                                             <div class="col-6 col-md-4 col-xl-2">
                                                 <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="SeguridadySalud" asp-action="Index">
                                                     <div class="block-content">
@@ -218,10 +203,8 @@
                                                     </div>
                                                 </a>
                                             </div>
-
-
                                         </div>
-                                            <div class="row" style="justify-content: center;">
+                                        <div class="row" style="justify-content: center;">
                                             <div class="col-6 col-md-4 col-xl-2">
                                                 <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="https://www.gob.pe/institucion/insn/colecciones/28038-analisis-de-situacion-de-salud-asis" target="_blank">
                                                     <div class="block-content">
@@ -281,99 +264,9 @@
                                 </div>
                             </div>
                             <!-- ======= FIN CIRUGÍA ======= -->
-                            <!-- ============== -->
-                            <!-- ======= INICIO OTROS ======= -->
-                    @*         <div class="tab-pane fade" id="Otros" role="tabpanel" aria-labelledby="Otros-tab">
-                                <div class="tab-pane fade show active" id="Otros" role="tabpanel" aria-labelledby="Otros-tab">
-                                    <br />
-                                    <br />
-                                    <div class="row gy-4 justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="100"> *@
-                                        <div class="row" style="justify-content: center;">
-                                     @*        <div class="col-6 col-md-4 col-xl-2">
-                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="POA" asp-action="Index">
-                                                    <div class="block-content">
-                                                        <p class="mt-1">
-                                                            <img src="~/imagenes/iconos/Programa_antimicrobiana.svg" width="100%" height="100%">
-                                                        </p>
-                                                        <p class="fw-medium">PROA</p>
-                                                    </div>
-                                                </a>
-                                            </div> *@
-                                            @* <div class="col-6 col-md-4 col-xl-2">
-                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="SeguridadySalud" asp-action="Index">
-                                                    <div class="block-content">
-                                                        <p class="mt-1">
-                                                            <img src="~/imagenes/iconos/seguridad_salud.svg" width="100%" height="100%">
-                                                        </p>
-                                                        <p class="fw-medium">Seguridad Lab</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-6 col-md-4 col-xl-2">
-                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="https://www.gob.pe/institucion/insn/colecciones/28038-analisis-de-situacion-de-salud-asis" target="_blank">
-                                                    <div class="block-content">
-                                                        <p class="mt-1">
-                                                            <img src="~/imagenes/iconos/analisis.svg" width="100%" height="100%">
-                                                        </p>
-                                                        <p class="fw-medium">Análisis de Salud</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-6 col-md-4 col-xl-2">
-                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="SubCAFAE" asp-action="Index">
-                                                    <div class="block-content">
-                                                        <p class="mt-1">
-                                                            <img src="~/imagenes/iconos/subcafae.svg" width="100%" height="100%">
-                                                        </p>
-                                                        <p class="fw-medium">SUB-CAFAE</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="justify-content: center;">
-                                            <div class="col-6 col-md-4 col-xl-2">
-                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="UFGRD" asp-action="Index">
-                                                    <div class="block-content">
-                                                        <p class="mt-1">
-                                                            <img src="~/imagenes/iconos/staff_medico.svg" width="100%" height="100%">
-                                                        </p>
-                                                        <p class="fw-medium">
-                                                            Gestión Riesgos
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-6 col-md-4 col-xl-2">
-                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" asp-area="" asp-controller="Covid19" asp-action="Index">
-                                                    <div class="block-content">
-                                                        <p class="mt-1">
-                                                            <img src="~/imagenes/iconos/Covid19.svg" width="100%" height="100%">
-
-                                                        </p>
-                                                        <p class="fw-medium">Covid-19</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-6 col-md-4 col-xl-2">
-                                                <a class="block block-rounded block-bordered block-link-shadow text-center block-altura" href="http://solicitudcitas.insn.gob.pe/cursoev/indexlogin.php" target="_blank">
-                                                    <div class="block-content">
-                                                        <p class="mt-1">
-                                                            <img src="~/Imagenes/AulaVirtual.svg" width="100%" height="100%">
-
-                                                        </p>
-                                                        <p class="fw-medium">Aula Virtual</p>
-                                                    </div>
-                                                </a>
-                                            </div> *@
-                                   @*      </div>
-                                    </div>
-                                </div>
-                            </div> *@
-                            <!-- ======= FIN OTROS ======= -->
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
         <!-- ======= FIN DE CARTERA - SERVICIOS ======= -->
@@ -619,7 +512,6 @@
     }
 }
 <!-- FIN MODAL - NOTICIAS -->
-
 <!-- INICIO MODAL - COMUNICADOS -->
 @if (Model is not null)
 {
@@ -673,33 +565,44 @@
 }
 <!-- FIN MODAL - COMUNICADOS -->
 <!-- INICIO DE MODAL LOAD -->
-<div id="modal_index_1" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-fromleft modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="swiper-container swiper-gallery" style="max-width:">
-                    <div class="swiper-wrapper">
-                        <!-- Mostrar la imagen -->
-                        <div class="swiper-slide">
-                            <img src="~/imagenes/covi19/covi19.png" />
+@if (Model != null && Model.AnuncioLista != null && Model.AnuncioLista.Any())
+{
+    <div id="modal_index_1" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-fromleft modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="swiper-container swiper-gallery" style="max-width: 500px">
+                        <div class="swiper-wrapper">
+                            <!-- Mostrar la imágenes -->
+                            @foreach (var item in Model.AnuncioLista)
+                            {
+                                <div class="swiper-slide">
+                                    @{
+                                        var base64 = Convert.ToBase64String(item.ImagenBytes ?? Array.Empty<byte>());
+                                        var imagenDataUrl = string.Format("data:image/" + @item.Extension + ";base64,{0}", base64);
+                                    }
+                                    <img src="@imagenDataUrl">
+                                </div>
+                            }
                         </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+}
+
 <!-- FIN DE MODAL LOAD -->
 <!-- jQuery desde CDN -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
     //Cargar modal al iniciar Index
-        $(document).ready(function () {
-            $('#modal_index_1').modal('show');
-        });
+    $(document).ready(function () {
+        $('#modal_index_1').modal('show');
+    });
 
     $(document).ready(function () {
         // Inicializa Swiper

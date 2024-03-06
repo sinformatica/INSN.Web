@@ -37,7 +37,7 @@ public class SistemaControlIntController : Controller
     {
         var resultTipoDocumento = await _TipoDocumentoProxy.TipoDocumentoListar(new TipoDocumentoDtoRequest()
         {
-            Area = Enumerado.DocumentosLegales.SCI,
+            Area = Enumerado.DocumentoLegal.SCI,
             Estado = Enumerado.Estado.Activo,
             EstadoRegistro = Enumerado.EstadoRegistro.Activo,
         });
@@ -63,7 +63,7 @@ public class SistemaControlIntController : Controller
             Documento = model.Documento,
             Descripcion = model.Descripcion,
             CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
-            Area = Enumerado.DocumentosLegales.SCI,
+            Area = Enumerado.DocumentoLegal.SCI,
             Estado = Enumerado.Estado.Activo,
             EstadoRegistro = Enumerado.EstadoRegistro.Activo,
         });

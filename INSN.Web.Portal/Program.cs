@@ -23,6 +23,8 @@ using Serilog.Events;
 using INSN.Web.Portal.Services.Implementaciones.Home.UsuarioBibliotecas;
 using INSN.Web.Portal.Services.Interfaces.Home.UsuarioBibliotecas;
 using INSN.Utilitarios;
+using INSN.Web.Portal.Services.Implementaciones.Home.Anuncios;
+using INSN.Web.Portal.Services.Interfaces.Home.Anuncios;
 #endregion
 
 var builder = WebApplication.CreateBuilder(args);
@@ -68,7 +70,7 @@ builder.Services.AddProxy<IComunicadoProxy, ComunicadoProxy>("ApiWebAdminHttpCli
 builder.Services.AddProxy<INoticiaProxy, NoticiaProxy>("ApiWebAdminHttpClient");
 builder.Services.AddProxy<IUsuarioBibliotecaProxy, UsuarioBibliotecaProxy>("ApiWebAdminHttpClient");
 builder.Services.AddProxy<ILibroReclamacionProxy, LibroReclamacionProxy>("ApiWebAdminHttpClient");
-
+builder.Services.AddProxy<IAnuncioProxy, AnuncioProxy>("ApiWebAdminHttpClient");
 #endregion
 #endregion
 

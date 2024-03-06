@@ -36,7 +36,7 @@ public class SeguridadySaludController : Controller
     {
         var resultTipoDocumento = await _TipoDocumentoProxy.TipoDocumentoListar(new TipoDocumentoDtoRequest()
         {
-            Area = Enumerado.DocumentosLegales.SST,
+            Area = Enumerado.DocumentoLegal.SST,
             Estado = Enumerado.Estado.Activo,
             EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });
@@ -62,7 +62,7 @@ public class SeguridadySaludController : Controller
             Documento = model.Documento,
             Descripcion = model.Descripcion,
             CodigoTipoDocumentoId = model.TipoDocumentoSeleccionada,
-            Area = Enumerado.DocumentosLegales.SST,
+            Area = Enumerado.DocumentoLegal.SST,
             Estado = Enumerado.Estado.Activo,
             EstadoRegistro = Enumerado.EstadoRegistro.Activo
         });

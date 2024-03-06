@@ -112,11 +112,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>LibroReclamacionResource.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\NoticiaResource.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>NoticiaResource.resx</DependentUpon>
-    </Compile>
     <Compile Update="Resources\SegApp\Mantenimiento\RolResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -137,10 +132,6 @@
     <EmbeddedResource Update="Resources\Home\LibroReclamacionResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LibroReclamacionResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\NoticiaResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>NoticiaResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\SegApp\Mantenimiento\RolResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

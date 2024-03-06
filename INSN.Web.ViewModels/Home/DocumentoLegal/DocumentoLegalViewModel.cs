@@ -40,6 +40,11 @@ public class DocumentoLegalViewModel : BaseModel
     public int? TipoDocumentoSeleccionada { get; set; }
 
     /// <summary>
+    /// Area Seleccionada
+    /// </summary>
+    public string? AreaSeleccionada { get; set; }
+
+    /// <summary>
     /// Estados
     /// </summary>
     public ICollection<BaseModel> Estados { get; } = new List<BaseModel>()
