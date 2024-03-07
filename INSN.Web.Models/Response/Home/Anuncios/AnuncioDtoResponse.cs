@@ -16,6 +16,11 @@
         public string? NombreReferencial { get; set; } = default!;
 
         /// <summary>
+        /// Fecha Expiracion
+        /// </summary>
+        public DateTime FechaExpiracion { get; set; } = default!;
+
+        /// <summary>
         /// Ruta Imagen
         /// </summary>
         public string? RutaImagen { get; set; } = default!;
