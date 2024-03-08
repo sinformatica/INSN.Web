@@ -238,6 +238,7 @@ namespace INSN.Web.Portal.Controllers.Home
             var result = await _proxyAnuncio.AnuncioListar(new AnuncioDtoRequest()
             {
                 NombreReferencial = "",
+                FechaExpiracion = DateTime.Now,
                 Estado = Enumerado.Estado.Activo,
                 EstadoRegistro = Enumerado.EstadoRegistro.Activo
             });

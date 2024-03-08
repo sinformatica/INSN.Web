@@ -32,7 +32,7 @@ namespace INSN.Web.Portal.Services.Implementaciones.Home.Anuncios
         {
             try
             {
-                var queryString = $"?NombreReferencial={request.NombreReferencial}&Estado={request.Estado}&EstadoRegistro={request.EstadoRegistro}";
+                var queryString = $"?NombreReferencial={request.NombreReferencial}&FechaExpiracion={request.FechaExpiracion.ToString("yyyy-MM-dd")}&Estado={request.Estado}&EstadoRegistro={request.EstadoRegistro}";
                 var response = await HttpClient.GetAsync($"{BaseUrl}/AnuncioListar{queryString}");
                 response.EnsureSuccessStatusCode();
 
